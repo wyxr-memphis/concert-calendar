@@ -1,0 +1,45 @@
+2026-02-10 19:09:49,129 [INFO] concert-calendar: ============================================================
+2026-02-10 19:09:49,129 [INFO] concert-calendar: WYXR Concert Calendar — Starting daily run
+2026-02-10 19:09:49,129 [INFO] concert-calendar: ============================================================
+2026-02-10 19:09:49,129 [INFO] concert-calendar: Date range: 2026-02-11 to 2026-02-18
+2026-02-10 19:09:49,129 [INFO] concert-calendar: --- Fetching: Bandsintown ---
+2026-02-10 19:09:49,129 [WARNING] concert-calendar.bandsintown: BANDSINTOWN_APP_ID not set — skipping Bandsintown
+2026-02-10 19:09:49,129 [INFO] concert-calendar:   ✅ Bandsintown: 0 events found
+2026-02-10 19:09:49,129 [INFO] concert-calendar: --- Fetching: Ticketmaster ---
+2026-02-10 19:09:49,129 [WARNING] concert-calendar.ticketmaster: TICKETMASTER_API_KEY not set — skipping Ticketmaster
+2026-02-10 19:09:49,129 [INFO] concert-calendar:   ✅ Ticketmaster: 0 events found
+2026-02-10 19:09:49,129 [INFO] concert-calendar: --- Fetching: Eventbrite ---
+2026-02-10 19:09:49,134 [WARNING] concert-calendar.eventbrite: Eventbrite page fetch failed (https://www.eventbrite.com/d/tn--memphis/music/): HTTPSConnectionPool(host='www.eventbrite.com', port=443): Max retries exceeded with url: /d/tn--memphis/music/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,137 [WARNING] concert-calendar.eventbrite: Eventbrite page fetch failed (https://www.eventbrite.com/d/tn--memphis/music--performances/): HTTPSConnectionPool(host='www.eventbrite.com', port=443): Max retries exceeded with url: /d/tn--memphis/music--performances/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,140 [WARNING] concert-calendar.eventbrite: Eventbrite page fetch failed (https://www.eventbrite.com/d/tn--memphis/all-events/): HTTPSConnectionPool(host='www.eventbrite.com', port=443): Max retries exceeded with url: /d/tn--memphis/all-events/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,141 [INFO] concert-calendar.eventbrite:   Eventbrite: found 0 music events across all pages
+2026-02-10 19:09:49,141 [INFO] concert-calendar:   ✅ Eventbrite: 0 events found
+2026-02-10 19:09:49,141 [INFO] concert-calendar: --- Fetching: DICE ---
+2026-02-10 19:09:49,144 [ERROR] concert-calendar:   ❌ DICE: DICE fetch error: HTTPSConnectionPool(host='dice.fm', port=443): Max retries exceeded with url: /browse/Memphis:35.149844:-90.049566 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,144 [INFO] concert-calendar: --- Fetching: Memphis Flyer ---
+2026-02-10 19:09:49,147 [WARNING] concert-calendar.memphis_flyer: Memphis Flyer page failed (https://www.memphisflyer.com/memphis/EventSearch?narrowByDate=Next+7+Days&eventCategory=1702709): HTTPSConnectionPool(host='www.memphisflyer.com', port=443): Max retries exceeded with url: /memphis/EventSearch?narrowByDate=Next+7+Days&eventCategory=1702709 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,150 [WARNING] concert-calendar.memphis_flyer: Memphis Flyer page failed (https://www.memphisflyer.com/memphis/EventSearch?narrowByDate=Next+7+Days&eventCategory=1702710): HTTPSConnectionPool(host='www.memphisflyer.com', port=443): Max retries exceeded with url: /memphis/EventSearch?narrowByDate=Next+7+Days&eventCategory=1702710 (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,153 [WARNING] concert-calendar.memphis_flyer: Memphis Flyer page failed (https://www.memphisflyer.com/memphis/EventSearch?narrowByDate=Next+7+Days&keywords=music+concert+live+dj): HTTPSConnectionPool(host='www.memphisflyer.com', port=443): Max retries exceeded with url: /memphis/EventSearch?narrowByDate=Next+7+Days&keywords=music+concert+live+dj (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,154 [INFO] concert-calendar:   ✅ Memphis Flyer: 0 events found
+2026-02-10 19:09:49,154 [INFO] concert-calendar: --- Fetching: Venue Calendars ---
+2026-02-10 19:09:49,157 [WARNING] concert-calendar.venues:   Hi Tone: scrape failed — HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,159 [WARNING] concert-calendar.venues:   Minglewood Hall: scrape failed — HTTPSConnectionPool(host='www.minglewoodhall.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,162 [WARNING] concert-calendar.venues:   Growlers: scrape failed — HTTPSConnectionPool(host='www.growlersmemphis.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,165 [WARNING] concert-calendar.venues:   Hernando's Hideaway: scrape failed — HTTPSConnectionPool(host='www.hernandoshideaway.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,168 [WARNING] concert-calendar.venues:   Crosstown Arts: scrape failed — HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded with url: /events/ (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,171 [WARNING] concert-calendar.venues:   Lafayette's Music Room: scrape failed — HTTPSConnectionPool(host='www.lafayettes.com', port=443): Max retries exceeded with url: /music (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,173 [WARNING] concert-calendar.venues:   Overton Park Shell: scrape failed — HTTPSConnectionPool(host='www.overtonparkshell.org', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,176 [WARNING] concert-calendar.venues:   Graceland Soundstage: scrape failed — HTTPSConnectionPool(host='www.graceland.com', port=443): Max retries exceeded with url: /event-calendar (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,179 [WARNING] concert-calendar.venues:   FedExForum: scrape failed — HTTPSConnectionPool(host='www.fedexforum.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,181 [WARNING] concert-calendar.venues:   Railgarten: scrape failed — HTTPSConnectionPool(host='www.railgarten.com', port=443): Max retries exceeded with url: /events (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,184 [WARNING] concert-calendar.venues:   Young Avenue Deli: scrape failed — HTTPSConnectionPool(host='www.youngavenuedeli.com', port=443): Max retries exceeded with url: /calendar (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-02-10 19:09:49,184 [INFO] concert-calendar:   ✅ Venue Calendars: 0 events found
+2026-02-10 19:09:49,185 [INFO] concert-calendar: --- Fetching: Manual (Google Sheets) ---
+2026-02-10 19:09:49,187 [INFO] concert-calendar.google_sheets:   CSV: 2 manual events in date range
+2026-02-10 19:09:49,187 [INFO] concert-calendar:   ✅ Manual (Google Sheets): 2 events found
+2026-02-10 19:09:49,187 [INFO] concert-calendar: 
+Total raw events: 2
+2026-02-10 19:09:49,187 [INFO] concert-calendar: Filtered out 0 non-music events. Remaining: 2
+2026-02-10 19:09:49,187 [INFO] concert-calendar: Removed 0 duplicates. Final count: 2
+2026-02-10 19:09:49,188 [INFO] concert-calendar: Published to /home/claude/concert-calendar/docs/index.html
+2026-02-10 19:09:49,189 [INFO] concert-calendar: Done! ✅

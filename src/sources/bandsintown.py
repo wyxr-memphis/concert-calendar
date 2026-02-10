@@ -2,12 +2,13 @@
 
 The public Bandsintown API is artist-based, not city/venue-based in a useful way.
 We scrape the Memphis city page instead: https://www.bandsintown.com/c/memphis-tn
+Uses Playwright for JavaScript rendering since the page requires JS.
 """
 
 from typing import List, Optional
-import requests
 from datetime import datetime, date
 from bs4 import BeautifulSoup
+from .browser import get_page_with_js
 from ..models import Event, SourceResult
 from ..config import (
     START_DATE, END_DATE,
@@ -17,23 +18,19 @@ from ..config import (
 SOURCE_NAME = "Bandsintown"
 CITY_URL = "https://www.bandsintown.com/c/memphis-tn"
 
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                  "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-}
-
 
 def fetch() -> SourceResult:
-    """Fetch events from Bandsintown Memphis page."""
+    """Fetch events from Bandsintown Memphis page using Playwright."""
     result = SourceResult(source_name=SOURCE_NAME)
 
     try:
-        response = requests.get(CITY_URL, headers=HEADERS, timeout=15)
-        response.raise_for_status()
+        # Use Playwright to render JavaScript
+        soup = get_page_with_js(CITY_URL, timeout=45000)
 
-        # Bandsintown heavily uses JavaScript rendering, so basic scraping
-        # may only get partial results. We parse what we can.
-        soup = BeautifulSoup(response.text, "html.parser")
+        if not soup:
+            result.success = False
+            result.error_message = "Failed to load page with JavaScript rendering"
+            return result
         events = _parse_page(soup)
 
         result.events_found = len(events)
