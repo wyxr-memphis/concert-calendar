@@ -1,0 +1,155 @@
+{
+  "run_timestamp": "2026-02-10T19:16:31.275708",
+  "date_range": {
+    "start": "2026-02-11",
+    "end": "2026-02-17"
+  },
+  "total_raw_events": 2,
+  "total_deduped_events": 2,
+  "sources": [
+    {
+      "name": "Ticketmaster",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "No API key configured (set TICKETMASTER_API_KEY)"
+    },
+    {
+      "name": "Eventbrite",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "No API token configured (set EVENTBRITE_API_TOKEN)"
+    },
+    {
+      "name": "Bandsintown",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.bandsintown.com', port=443): Max retries exceeded with url: /c/memphis"
+    },
+    {
+      "name": "DICE",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='dice.fm', port=443): Max retries exceeded with url: /browse/Memphis:35.149"
+    },
+    {
+      "name": "Memphis Flyer",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
+    },
+    {
+      "name": "Manual (local CSV)",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.minglewoodhall.com', port=443): Max retries exceed"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.growlersmemphis.com', port=443): Max retries excee"
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.hernandoshideaway.com', port=443): Max retries exc"
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.crosstownarts.org', port=443): Max retries exceede"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.lafayettes.com', port=443): Max retries exceeded w"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.levittshell.org', port=443): Max retries exceeded "
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.bbkings.com', port=443): Max retries exceeded with"
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.graceland.com', port=443): Max retries exceeded wi"
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.fedexforum.com', port=443): Max retries exceeded w"
+    }
+  ],
+  "events": [
+    {
+      "artist": "DJ Sista Sel",
+      "venue": "Bar DKDC",
+      "date": "2026-02-15",
+      "time": "9 PM",
+      "source": "Manual (example entry \u2014 replace with real events)"
+    },
+    {
+      "artist": "Example Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-16",
+      "time": null,
+      "source": "Manual (example entry \u2014 delete me)"
+    }
+  ]
+}
