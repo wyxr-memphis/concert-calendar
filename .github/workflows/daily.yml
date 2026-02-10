@@ -1,0 +1,38 @@
+name: Daily Concert Calendar Update
+
+on:
+  schedule:
+    # Run every day at 5 AM UTC (12 AM Central)
+    - cron: '0 5 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run calendar update
+        env:
+          TICKETMASTER_API_KEY: ${{ secrets.TICKETMASTER_API_KEY }}
+          GOOGLE_SHEET_CSV_URL: ${{ secrets.GOOGLE_SHEET_CSV_URL }}
+        run: python -m src.main
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
