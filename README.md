@@ -2,7 +2,7 @@
 
 A daily-updating live music calendar for Memphis, Tennessee. Built for [WYXR 91.7 FM](https://wyxr.org) DJs to reference on-air.
 
-**Live page:** [wyxr-memphis.github.io/concert-calendar](https://wyxr-memphis.github.io/concert-calendar)
+**Live page:** [wyxr-memphis.github.io/concert-calendar](https://wyxr-memphis.github.io/concert-calendar)      
 
 ## How It Works
 
