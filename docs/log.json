@@ -1,43 +1,27 @@
 {
-  "run_timestamp": "2026-02-10T19:16:31.275708",
+  "run_timestamp": "2026-02-10T16:48:49.547121",
   "date_range": {
     "start": "2026-02-11",
     "end": "2026-02-17"
   },
-  "total_raw_events": 2,
-  "total_deduped_events": 2,
+  "total_raw_events": 14,
+  "total_deduped_events": 14,
   "sources": [
     {
       "name": "Ticketmaster",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
-      "error": "No API key configured (set TICKETMASTER_API_KEY)"
-    },
-    {
-      "name": "Eventbrite",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "No API token configured (set EVENTBRITE_API_TOKEN)"
-    },
-    {
-      "name": "Bandsintown",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.bandsintown.com', port=443): Max retries exceeded with url: /c/memphis"
+      "error": null
     },
     {
       "name": "DICE",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='dice.fm', port=443): Max retries exceeded with url: /browse/Memphis:35.149"
+      "error": "Page may require JS rendering \u2014 0 events parsed"
     },
     {
       "name": "Memphis Flyer",
@@ -48,10 +32,10 @@
       "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
     },
     {
-      "name": "Manual (local CSV)",
+      "name": "Manual (Google Sheet)",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -61,15 +45,15 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://www.hitonememphis.com/events"
     },
     {
       "name": "Venue: Minglewood Hall",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.minglewoodhall.com', port=443): Max retries exceed"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Growlers",
@@ -81,11 +65,11 @@
     },
     {
       "name": "Venue: Hernando's Hideaway",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.hernandoshideaway.com', port=443): Max retries exc"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -93,7 +77,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.crosstownarts.org', port=443): Max retries exceede"
+      "error": "Request failed: 500 Server Error: Internal Server Error for url: https://crosstownarts.org/video"
     },
     {
       "name": "Venue: Lafayette's Music Room",
@@ -101,7 +85,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.lafayettes.com', port=443): Max retries exceeded w"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -109,15 +93,15 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.levittshell.org', port=443): Max retries exceeded "
+      "error": "Request failed: 404 Client Error: Not Found for url: https://overtonparkshell.org/events"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.bbkings.com', port=443): Max retries exceeded with"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -125,31 +109,115 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.graceland.com', port=443): Max retries exceeded wi"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://www.graceland.com/entertainment"
     },
     {
       "name": "Venue: FedExForum",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.fedexforum.com', port=443): Max retries exceeded w"
+      "error": "0 events parsed \u2014 page structure may have changed"
     }
   ],
   "events": [
     {
-      "artist": "DJ Sista Sel",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": "9 PM",
-      "source": "Manual (example entry \u2014 replace with real events)"
+      "artist": "Karaoke w/ Conner and Tina",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-11",
+      "time": "10:00 PM",
+      "source": "Manual (Google Sheet)"
     },
     {
-      "artist": "Example Band",
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-12",
+      "time": "10:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "The Waymores/Gia Welch",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Oemist x DJ Nico: Lovers Night Afterparty",
+      "venue": "Bar DKDC",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Yonder Mountain String Band",
+      "venue": "Germantown Performing Arts",
+      "date": "2026-02-13",
+      "time": "8 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Rewind: The Ultimate 2000s Rave",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-13",
+      "time": "9 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Benefit for Johnny Williams",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-14",
+      "time": "7:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Optic Sink + Sonidero Gotico - A Dark Valentine's Day Affair",
+      "venue": "Bar DKDC",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Valentine's Mixtape",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Aberrant",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-15",
+      "time": "9:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Amy Lavere and Will Sexton *Special Sunday Show*",
+      "venue": "Bar DKDC",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "THE MOVEMENT - VISIONS TOUR 2026",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-15",
+      "time": "7:30 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "JO Westmoreland Band",
       "venue": "B-Side Memphis",
       "date": "2026-02-16",
-      "time": null,
-      "source": "Manual (example entry \u2014 delete me)"
+      "time": "10:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "Dana/Fake!/Oppossums",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-17",
+      "time": "9:00 PM",
+      "source": "Manual (Google Sheet)"
     }
   ]
 }
