@@ -56,7 +56,7 @@ def run(dry_run: bool = False) -> None:
     sources = [
         ("Ticketmaster", ticketmaster.fetch),
         # ("Eventbrite", eventbrite.fetch),  # DISABLED: API deprecated Feb 2020
-        ("Bandsintown", bandsintown.fetch),  # Now uses Playwright for JS rendering
+        # ("Bandsintown", bandsintown.fetch),  # DISABLED: Event data loaded via API, too fragile
         ("DICE", dice.fetch),
         ("Memphis Flyer", memphis_flyer.fetch),
         ("Google Sheet", google_sheet.fetch),

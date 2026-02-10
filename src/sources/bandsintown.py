@@ -59,19 +59,23 @@ def fetch() -> SourceResult:
 
 def _parse_page(soup: BeautifulSoup) -> List[Event]:
     """Attempt to parse Bandsintown Memphis page.
-    
+
     Note: Bandsintown's DOM changes frequently. This parser may need
     updates. Check the error log if events_found drops to 0.
     """
     events = []
 
-    # Look for event cards — BIT uses various class patterns
-    # Try common selectors; update as needed when site changes
-    event_cards = soup.select("[data-testid='event-card']")
+    # Look for event links — Bandsintown uses various patterns
+    # Current format: <a data-test="popularEvent__link" href="/e/...">
+    event_cards = soup.select('a[data-test*="Event__link"]')
+
+    if not event_cards:
+        # Older selectors fallback
+        event_cards = soup.select("[data-testid='event-card']")
     if not event_cards:
         event_cards = soup.select(".event-card, .eventCard, [class*='EventCard']")
     if not event_cards:
-        # Fallback: look for any links with date-like patterns
+        # Last resort: look for any links with /e/ pattern
         event_cards = soup.find_all("a", href=lambda h: h and "/e/" in str(h))
 
     for card in event_cards:

@@ -44,11 +44,17 @@ def get_page_with_js(url: str, timeout: int = 30000) -> Optional[BeautifulSoup]:
                 "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             })
 
-            # Navigate to page - use 'load' instead of 'networkidle' to be faster
-            page.goto(url, wait_until="load", timeout=timeout)
+            # Navigate to page
+            page.goto(url, wait_until="domcontentloaded", timeout=timeout)
 
-            # Wait a bit for dynamic content
-            page.wait_for_timeout(1000)
+            # Wait for dynamic content to load - try to find event elements
+            try:
+                page.wait_for_selector('a[href*="/e/"]', timeout=10000)
+            except:
+                pass  # Timeout is ok, just continue
+
+            # Wait for JS to finish rendering
+            page.wait_for_timeout(3000)
 
             # Get rendered HTML
             html = page.content()
