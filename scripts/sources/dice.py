@@ -6,6 +6,7 @@ DICE uses heavy JavaScript rendering, so we try to extract from
 any JSON-LD or embedded JSON data in the initial HTML response.
 """
 
+from typing import List, Optional
 import json
 import logging
 import re
@@ -22,7 +23,7 @@ MEMPHIS_TZ = ZoneInfo("America/Chicago")
 DICE_URL = "https://dice.fm/browse/Memphis:35.149844:-90.049566"
 
 
-def fetch_dice(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_dice(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch Memphis music events from DICE."""
     events = []
 
@@ -97,7 +98,7 @@ def fetch_dice(start_date: datetime, end_date: datetime) -> list[Event]:
     return events
 
 
-def _parse_dice_jsonld(data: dict, start_date: datetime, end_date: datetime) -> Event | None:
+def _parse_dice_jsonld(data: dict, start_date: datetime, end_date: datetime) -> Optional[Event]:
     """Parse a JSON-LD Event from DICE."""
     if data.get("@type") not in ("Event", "MusicEvent"):
         return None
@@ -139,7 +140,7 @@ def _parse_dice_jsonld(data: dict, start_date: datetime, end_date: datetime) -> 
     )
 
 
-def _parse_dice_next_data(data: dict, start_date: datetime, end_date: datetime) -> list[Event]:
+def _parse_dice_next_data(data: dict, start_date: datetime, end_date: datetime) -> List[Event]:
     """Attempt to extract events from DICE's Next.js page data."""
     events = []
 

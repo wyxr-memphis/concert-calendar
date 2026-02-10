@@ -14,6 +14,7 @@ The sheet is your catch-all for:
 - Anything the automated scrapers miss
 """
 
+from typing import Optional
 import csv
 import io
 import requests
@@ -76,7 +77,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def _parse_row(row: dict) -> Event | None:
+def _parse_row(row: dict) -> Optional[Event]:
     """Parse a single row from the Google Sheet.
     
     Expected columns (case-insensitive, flexible naming):

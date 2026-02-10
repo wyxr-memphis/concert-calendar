@@ -4,8 +4,9 @@ The public Bandsintown API is artist-based, not city/venue-based in a useful way
 We scrape the Memphis city page instead: https://www.bandsintown.com/c/memphis-tn
 """
 
+from typing import List, Optional
 import requests
-from datetime import datetime
+from datetime import datetime, date
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
 from ..config import (
@@ -59,7 +60,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def _parse_page(soup: BeautifulSoup) -> list[Event]:
+def _parse_page(soup: BeautifulSoup) -> List[Event]:
     """Attempt to parse Bandsintown Memphis page.
     
     Note: Bandsintown's DOM changes frequently. This parser may need
@@ -126,7 +127,7 @@ def _parse_page(soup: BeautifulSoup) -> list[Event]:
     return events
 
 
-def _parse_date_text(text: str) -> "date | None":
+def _parse_date_text(text: str) -> Optional[date]:
     """Try to parse a date string from Bandsintown's various formats."""
     import re
     from datetime import date

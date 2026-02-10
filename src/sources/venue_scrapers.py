@@ -4,6 +4,7 @@ Each venue with a web calendar gets a scraper function.
 When a venue changes their site, you only fix that one function.
 """
 
+from typing import List, Optional
 import requests
 import json
 import re
@@ -55,7 +56,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def fetch_individual() -> list[SourceResult]:
+def fetch_individual() -> List[SourceResult]:
     """Fetch events from each venue separately (for detailed logging)."""
     results = []
 
@@ -111,7 +112,7 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     return result
 
 
-def _try_jsonld(soup: BeautifulSoup, venue_name: str) -> list[Event]:
+def _try_jsonld(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     """Extract events from JSON-LD structured data (Schema.org Event)."""
     events = []
 
@@ -138,7 +139,7 @@ def _try_jsonld(soup: BeautifulSoup, venue_name: str) -> list[Event]:
     return events
 
 
-def _jsonld_to_event(data: dict, default_venue: str) -> Event | None:
+def _jsonld_to_event(data: dict, default_venue: str) -> Optional[Event]:
     """Convert a JSON-LD Event to our Event model."""
     name = data.get("name", "").strip()
     if not name:
@@ -178,7 +179,7 @@ def _jsonld_to_event(data: dict, default_venue: str) -> Event | None:
     )
 
 
-def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> list[Event]:
+def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     """Generic DOM parser — tries common event listing patterns.
     
     Many venue sites use WordPress with events plugins (The Events Calendar,

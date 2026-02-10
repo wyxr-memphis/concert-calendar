@@ -5,6 +5,7 @@ Free tier: 5,000 calls/day — we use ~2-3 per run.
 Get API key: https://developer-acct.ticketmaster.com/user/register
 """
 
+from typing import Optional
 import requests
 from datetime import datetime
 from ..models import Event, SourceResult
@@ -71,7 +72,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def _parse_event(data: dict) -> Event | None:
+def _parse_event(data: dict) -> Optional[Event]:
     """Parse a single Ticketmaster event into our Event model."""
     name = data.get("name", "").strip()
     if not name:

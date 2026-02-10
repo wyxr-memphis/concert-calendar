@@ -2,7 +2,7 @@
 
 from dataclasses import dataclass, field
 from datetime import date, datetime
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass
@@ -37,7 +37,7 @@ class Event:
 class SourceResult:
     """Result from a single source fetch."""
     source_name: str
-    events: list[Event] = field(default_factory=list)
+    events: List[Event] = field(default_factory=list)
     success: bool = True
     error_message: Optional[str] = None
     events_found: int = 0

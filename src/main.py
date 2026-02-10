@@ -14,6 +14,7 @@ import os
 import json
 from datetime import datetime
 from pathlib import Path
+from typing import List
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -49,8 +50,8 @@ def run(dry_run: bool = False) -> None:
     print(f"{'='*60}\n")
 
     # ---- STEP 1: Fetch from all sources ----
-    all_source_results: list[SourceResult] = []
-    all_events: list[Event] = []
+    all_source_results: List[SourceResult] = []
+    all_events: List[Event] = []
 
     sources = [
         ("Ticketmaster", ticketmaster.fetch),
@@ -160,7 +161,7 @@ def run(dry_run: bool = False) -> None:
             print(f"     - {f.source_name}: {f.error_message}")
 
 
-def _print_summary(events: list[Event]) -> None:
+def _print_summary(events: List[Event]) -> None:
     """Print a text summary of events."""
     from collections import defaultdict
 

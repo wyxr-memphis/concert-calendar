@@ -8,6 +8,7 @@ Strategy: normalize artist name + venue + date → create a dedup key.
 When duplicates are found, prefer the version with the most detail (time, URL).
 """
 
+from typing import Dict, List
 import re
 import logging
 from scripts.sources import Event
@@ -27,9 +28,9 @@ SOURCE_PRIORITY = {
 }
 
 
-def deduplicate_events(events: list[Event]) -> list[Event]:
+def deduplicate_events(events: List[Event]) -> List[Event]:
     """Remove duplicate events, keeping the version with the most detail."""
-    seen: dict[str, Event] = {}
+    seen: Dict[str, Event] = {}
 
     for event in events:
         key = _make_dedup_key(event)

@@ -6,6 +6,7 @@ API docs: https://artists.bandsintown.com/support/api-installation
 Requires: BANDSINTOWN_APP_ID environment variable
 """
 
+from typing import List
 import os
 import logging
 import requests
@@ -27,7 +28,7 @@ MEMPHIS_LNG = -90.0490
 SEARCH_RADIUS = 25  # miles
 
 
-def fetch_bandsintown(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_bandsintown(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch Memphis-area music events from Bandsintown."""
     app_id = os.environ.get("BANDSINTOWN_APP_ID", "")
     if not app_id:

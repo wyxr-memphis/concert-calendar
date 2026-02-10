@@ -5,10 +5,11 @@ Uses string similarity rather than Claude API — keeps costs at $0.
 """
 
 import re
+from typing import Dict, List
 from .models import Event
 
 
-def deduplicate(events: list[Event]) -> list[Event]:
+def deduplicate(events: List[Event]) -> List[Event]:
     """Remove duplicate events, keeping the one with the most detail.
     
     Strategy: Group by date + normalized venue, then fuzzy match artist names.
@@ -18,7 +19,7 @@ def deduplicate(events: list[Event]) -> list[Event]:
         return []
 
     # Group by date + venue
-    groups: dict[str, list[Event]] = {}
+    groups: Dict[str, List[Event]] = {}
     for event in events:
         key = f"{event.date.isoformat()}|{_normalize(event.venue)}"
         groups.setdefault(key, []).append(event)

@@ -6,6 +6,7 @@ This module will need ongoing maintenance as venues change their websites.
 Check the error log regularly!
 """
 
+from typing import List, Optional
 import json
 import logging
 import re
@@ -27,7 +28,7 @@ HEADERS = {
 }
 
 
-def fetch_all_venues(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_all_venues(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch events from all configured venue calendars."""
     all_events = []
 
@@ -42,7 +43,7 @@ def fetch_all_venues(start_date: datetime, end_date: datetime) -> list[Event]:
     return all_events
 
 
-def _scrape_venue_generic(venue_name: str, url: str, start_date: datetime, end_date: datetime) -> list[Event]:
+def _scrape_venue_generic(venue_name: str, url: str, start_date: datetime, end_date: datetime) -> List[Event]:
     """
     Generic venue scraper that tries multiple strategies:
     1. JSON-LD structured data (best case)
@@ -128,7 +129,7 @@ def _scrape_venue_generic(venue_name: str, url: str, start_date: datetime, end_d
     return events
 
 
-def _parse_jsonld_event(data: dict, venue_name: str, start_date: datetime, end_date: datetime) -> Event | None:
+def _parse_jsonld_event(data: dict, venue_name: str, start_date: datetime, end_date: datetime) -> Optional[Event]:
     """Parse a JSON-LD Event for a known venue."""
     name = data.get("name", "")
     if not name:
@@ -175,7 +176,7 @@ def _parse_jsonld_event(data: dict, venue_name: str, start_date: datetime, end_d
     )
 
 
-def _parse_html_event_card(el, venue_name: str, base_url: str, start_date: datetime, end_date: datetime) -> Event | None:
+def _parse_html_event_card(el, venue_name: str, base_url: str, start_date: datetime, end_date: datetime) -> Optional[Event]:
     """Parse a generic HTML event card."""
     # Try to find title
     title_el = el.select_one("h2, h3, h4, .title, .event-title, .event-name, a[href]")
@@ -225,7 +226,7 @@ def _parse_html_event_card(el, venue_name: str, base_url: str, start_date: datet
     )
 
 
-def _try_parse_date(text: str, fallback: datetime) -> datetime | None:
+def _try_parse_date(text: str, fallback: datetime) -> Optional[datetime]:
     """Attempt to parse a date from various formats."""
     if not text:
         return None
@@ -276,7 +277,7 @@ def _try_parse_date(text: str, fallback: datetime) -> datetime | None:
     return None
 
 
-def _extract_doors_show_time(text: str) -> str | None:
+def _extract_doors_show_time(text: str) -> Optional[str]:
     """Look for 'Doors X / Show Y' style time strings."""
     if not text:
         return None

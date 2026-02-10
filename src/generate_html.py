@@ -1,19 +1,20 @@
 """Generate the static HTML page for Memphis concert calendar."""
 
 from datetime import date, datetime
+from typing import Dict, List
 from collections import defaultdict
 from .models import Event, SourceResult
 
 
 def generate_html(
-    events: list[Event],
-    source_results: list[SourceResult],
+    events: List[Event],
+    source_results: List[SourceResult],
     run_timestamp: datetime,
 ) -> str:
     """Generate a clean, minimal HTML page organized by date."""
 
     # Group events by date
-    by_date: dict[date, list[Event]] = defaultdict(list)
+    by_date: Dict[date, List[Event]] = defaultdict(list)
     for event in events:
         by_date[event.date].append(event)
 

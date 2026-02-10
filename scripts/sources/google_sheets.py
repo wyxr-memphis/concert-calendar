@@ -21,6 +21,7 @@ To use CSV fallback:
 - Place a file called manual_events.csv in the project root
 """
 
+from typing import List, Optional
 import csv
 import logging
 import os
@@ -37,7 +38,7 @@ MEMPHIS_TZ = ZoneInfo("America/Chicago")
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 
 
-def fetch_manual_events(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_manual_events(start_date: datetime, end_date: datetime) -> List[Event]:
     """
     Fetch manually entered events.
     Tries Google Sheets first, falls back to local CSV.
@@ -60,7 +61,7 @@ def fetch_manual_events(start_date: datetime, end_date: datetime) -> list[Event]
     return []
 
 
-def _fetch_from_google_sheets(sheet_id: str, api_key: str, start_date: datetime, end_date: datetime) -> list[Event]:
+def _fetch_from_google_sheets(sheet_id: str, api_key: str, start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch events from a public Google Sheet via the Sheets API."""
     events = []
     range_name = os.environ.get("GOOGLE_SHEET_RANGE", "Sheet1!A2:D")
@@ -88,7 +89,7 @@ def _fetch_from_google_sheets(sheet_id: str, api_key: str, start_date: datetime,
     return events
 
 
-def _fetch_from_csv(csv_path: Path, start_date: datetime, end_date: datetime) -> list[Event]:
+def _fetch_from_csv(csv_path: Path, start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch events from a local CSV file."""
     events = []
 
@@ -108,7 +109,7 @@ def _fetch_from_csv(csv_path: Path, start_date: datetime, end_date: datetime) ->
     return events
 
 
-def _parse_manual_row(row: list, start_date: datetime, end_date: datetime, source: str) -> Event | None:
+def _parse_manual_row(row: list, start_date: datetime, end_date: datetime, source: str) -> Optional[Event]:
     """Parse a single row from the manual events sheet/CSV."""
     if len(row) < 3:
         return None

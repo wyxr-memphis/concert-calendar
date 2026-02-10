@@ -3,12 +3,13 @@ Generate the static HTML page for the concert calendar.
 Clean, minimal, readable — designed for quick DJ reference on-air.
 """
 
+from typing import Dict, List
 from datetime import datetime
 from scripts.sources import Event
 
 
 def generate_html(
-    events_by_date: dict[str, list[Event]],
+    events_by_date: Dict[str, List[Event]],
     source_status: dict,
     updated_at: datetime,
 ) -> str:

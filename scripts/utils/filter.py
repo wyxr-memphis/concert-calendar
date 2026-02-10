@@ -4,6 +4,7 @@ Uses keyword matching and venue awareness to keep concerts/DJ nights
 and remove comedy, theater, art shows, etc.
 """
 
+from typing import List
 import logging
 from scripts.sources import Event, NON_MUSIC_KEYWORDS, MUSIC_KEYWORDS, VENUE_ALIASES
 
@@ -24,7 +25,7 @@ MIXED_VENUES = {
 }
 
 
-def filter_music_events(events: list[Event]) -> list[Event]:
+def filter_music_events(events: List[Event]) -> List[Event]:
     """Filter a list of events to keep only music/DJ events."""
     kept = []
     for event in events:

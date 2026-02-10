@@ -5,6 +5,7 @@ The Flyer's event calendar is one of the best local sources for Memphis music.
 Target: https://www.memphisflyer.com/memphis/EventSearch
 """
 
+from typing import List, Optional
 import json
 import logging
 import re
@@ -30,7 +31,7 @@ CALENDAR_URLS = [
 SEARCH_URL = "https://www.memphisflyer.com/memphis/EventSearch?narrowByDate=Next+7+Days&keywords=music+concert+live+dj"
 
 
-def fetch_memphis_flyer(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_memphis_flyer(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch music events from the Memphis Flyer calendar."""
     events = []
     seen_urls = set()
@@ -52,7 +53,7 @@ def fetch_memphis_flyer(start_date: datetime, end_date: datetime) -> list[Event]
     return events
 
 
-def _scrape_flyer_page(url: str, start_date: datetime, end_date: datetime) -> list[Event]:
+def _scrape_flyer_page(url: str, start_date: datetime, end_date: datetime) -> List[Event]:
     """Scrape a single Memphis Flyer calendar page."""
     events = []
 
@@ -139,7 +140,7 @@ def _scrape_flyer_page(url: str, start_date: datetime, end_date: datetime) -> li
     return events
 
 
-def _parse_flyer_jsonld(data: dict, start_date: datetime, end_date: datetime) -> Event | None:
+def _parse_flyer_jsonld(data: dict, start_date: datetime, end_date: datetime) -> Optional[Event]:
     """Parse a JSON-LD Event from the Memphis Flyer."""
     name = data.get("name", "")
     if not name:
@@ -178,7 +179,7 @@ def _parse_flyer_jsonld(data: dict, start_date: datetime, end_date: datetime) ->
     )
 
 
-def _parse_flyer_date(text: str, fallback: datetime) -> datetime | None:
+def _parse_flyer_date(text: str, fallback: datetime) -> Optional[datetime]:
     """Parse Memphis Flyer date strings."""
     if not text:
         return None

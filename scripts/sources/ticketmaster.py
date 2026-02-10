@@ -7,6 +7,7 @@ Requires: TICKETMASTER_API_KEY environment variable
 Free tier: 5,000 API calls per day
 """
 
+from typing import List
 import os
 import logging
 import requests
@@ -21,7 +22,7 @@ MEMPHIS_TZ = ZoneInfo("America/Chicago")
 BASE_URL = "https://app.ticketmaster.com/discovery/v2"
 
 
-def fetch_ticketmaster(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_ticketmaster(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch Memphis music events from Ticketmaster Discovery API."""
     api_key = os.environ.get("TICKETMASTER_API_KEY", "")
     if not api_key:

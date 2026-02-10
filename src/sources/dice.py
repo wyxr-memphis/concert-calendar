@@ -4,6 +4,7 @@ Scrapes the DICE Memphis browse page.
 URL: https://dice.fm/browse/Memphis:35.149844:-90.049566
 """
 
+from typing import List, Optional
 import requests
 import json
 import re
@@ -58,7 +59,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def _parse_page(soup: BeautifulSoup, raw_html: str) -> list[Event]:
+def _parse_page(soup: BeautifulSoup, raw_html: str) -> List[Event]:
     """Parse DICE browse page. Try JSON-LD first, then DOM parsing."""
     events = []
 
@@ -137,7 +138,7 @@ def _parse_page(soup: BeautifulSoup, raw_html: str) -> list[Event]:
     return events
 
 
-def _parse_jsonld(data: dict) -> Event | None:
+def _parse_jsonld(data: dict) -> Optional[Event]:
     """Parse a JSON-LD Event object."""
     if data.get("@type") not in ("Event", "MusicEvent"):
         return None
@@ -174,7 +175,7 @@ def _parse_jsonld(data: dict) -> Event | None:
     )
 
 
-def _parse_next_data(data: dict) -> list[Event]:
+def _parse_next_data(data: dict) -> List[Event]:
     """Try to extract events from Next.js page data."""
     events = []
 

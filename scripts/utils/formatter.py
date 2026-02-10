@@ -2,6 +2,7 @@
 Format events into date-grouped structure for display.
 """
 
+from typing import Dict, List
 from collections import defaultdict
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
@@ -12,17 +13,17 @@ MEMPHIS_TZ = ZoneInfo("America/Chicago")
 
 
 def format_events_by_date(
-    events: list[Event],
+    events: List[Event],
     start_date: datetime,
     end_date: datetime,
-) -> dict[str, list[Event]]:
+) -> Dict[str, List[Event]]:
     """
     Group events by date and return an ordered dict.
     Keys are formatted date strings like "WEDNESDAY, FEB 11".
     Includes empty dates so every day in the range appears.
     """
     # Group by date
-    by_date: dict[str, list[Event]] = defaultdict(list)
+    by_date: Dict[str, List[Event]] = defaultdict(list)
 
     for event in events:
         date_key = event.date.strftime("%Y-%m-%d")

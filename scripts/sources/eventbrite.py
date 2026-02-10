@@ -6,6 +6,7 @@ Target: https://www.eventbrite.com/d/tn--memphis/all-events/
 Filters results to music/DJ events based on title and category keywords.
 """
 
+from typing import List, Optional
 import logging
 import re
 import requests
@@ -35,7 +36,7 @@ def _looks_like_music(title: str, description: str = "") -> bool:
     return any(kw in text for kw in MUSIC_KEYWORDS)
 
 
-def _parse_eventbrite_page(url: str, start_date: datetime, end_date: datetime) -> list[Event]:
+def _parse_eventbrite_page(url: str, start_date: datetime, end_date: datetime) -> List[Event]:
     """Parse a single Eventbrite browse page for events."""
     events = []
 
@@ -124,7 +125,7 @@ def _parse_eventbrite_page(url: str, start_date: datetime, end_date: datetime) -
     return events
 
 
-def _parse_jsonld_event(data: dict, start_date: datetime, end_date: datetime) -> list[Event]:
+def _parse_jsonld_event(data: dict, start_date: datetime, end_date: datetime) -> List[Event]:
     """Parse a JSON-LD Event object from Eventbrite page."""
     events = []
     if data.get("@type") != "Event":
@@ -171,7 +172,7 @@ def _parse_jsonld_event(data: dict, start_date: datetime, end_date: datetime) ->
     return events
 
 
-def _parse_eventbrite_date(date_text: str, fallback: datetime) -> datetime | None:
+def _parse_eventbrite_date(date_text: str, fallback: datetime) -> Optional[datetime]:
     """Best-effort parse of Eventbrite display dates like 'Sat, Feb 15, 7:00 PM'."""
     if not date_text:
         return None
@@ -205,7 +206,7 @@ def _parse_eventbrite_date(date_text: str, fallback: datetime) -> datetime | Non
     return None
 
 
-def fetch_eventbrite(start_date: datetime, end_date: datetime) -> list[Event]:
+def fetch_eventbrite(start_date: datetime, end_date: datetime) -> List[Event]:
     """Fetch Memphis music events from Eventbrite."""
     all_events = []
 

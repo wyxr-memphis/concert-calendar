@@ -4,6 +4,7 @@ API Docs: https://www.eventbrite.com/platform/api
 Get API token: https://www.eventbrite.com/platform/api-keys
 """
 
+from typing import Optional
 import requests
 from datetime import datetime
 from ..models import Event, SourceResult
@@ -70,7 +71,7 @@ def fetch() -> SourceResult:
     return result
 
 
-def _parse_event(data: dict) -> Event | None:
+def _parse_event(data: dict) -> Optional[Event]:
     """Parse a single Eventbrite event."""
     name = data.get("name", {}).get("text", "").strip()
     if not name:
