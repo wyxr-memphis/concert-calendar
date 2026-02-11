@@ -85,13 +85,18 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
+        scraper_type = venue_info.get("scraper", "generic")
 
-        # Try JSON-LD first (many event sites embed structured data)
-        events = _try_jsonld(soup, name)
+        # Custom scrapers for specific venues
+        if scraper_type == "hi_tone":
+            events = _parse_hi_tone(soup, name)
+        else:
+            # Try JSON-LD first (many event sites embed structured data)
+            events = _try_jsonld(soup, name)
 
-        # If no JSON-LD, try generic DOM parsing
-        if not events:
-            events = _try_generic_parse(soup, name)
+            # If no JSON-LD, try generic DOM parsing
+            if not events:
+                events = _try_generic_parse(soup, name)
 
         result.events_found = len(events)
         for event in events:
@@ -267,6 +272,41 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_hi_tone(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Hi Tone events from hitonecafe.com .eventWrapper cards."""
+    events = []
+
+    for card in soup.select(".eventWrapper"):
+        try:
+            date_el = card.select_one("[class*='eventMonth']")
+            title_el = card.select_one("h2, h3")
+            link_el = card.select_one("a[href*='/event/']")
+
+            if not date_el or not title_el:
+                continue
+
+            title = title_el.get_text(strip=True)
+            date_text = date_el.get_text(strip=True)
+
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+
+            url = link_el["href"] if link_el else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
                 source=f"Venue: {venue_name}",
                 url=url,
             ))

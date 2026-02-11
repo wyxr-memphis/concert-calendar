@@ -39,7 +39,7 @@ VENUES = {
     "hi-tone": {
         "name": "Hi Tone",
         "aliases": ["hi tone", "hi-tone", "hi tone café", "hi tone cafe", "the hi-tone"],
-        "calendar_url": "https://www.hitonememphis.com/events",
+        "calendar_url": "https://hitonecafe.com/events/",
         "scraper": "hi_tone",
     },
     "minglewood-hall": {
