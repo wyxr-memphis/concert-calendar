@@ -139,6 +139,10 @@
             color: #1565c0;
             display: block;
         }
+        .status.info a {
+            color: inherit;
+            font-weight: 600;
+        }
 
         footer {
             margin-top: 40px;
@@ -323,7 +327,7 @@
                 const data = await resp.json();
 
                 if (data.ok) {
-                    showStatus('Rebuild triggered. Calendar will update in a few minutes.', 'info');
+                    showStatus('Rebuild triggered. Calendar will update in a few minutes. <a href="/">View calendar</a>', 'info');
                 } else {
                     showStatus(data.error || 'Rebuild failed', 'error');
                 }
@@ -336,7 +340,7 @@
         });
 
         function showStatus(msg, type) {
-            statusEl.textContent = msg;
+            statusEl.innerHTML = msg;
             statusEl.className = 'status ' + type;
         }
 
