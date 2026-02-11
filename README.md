@@ -1,132 +1,97 @@
-# WYXR Memphis Concert Calendar 🎵
+# WYXR Memphis Concert Calendar
 
 A daily-updating live music calendar for Memphis, Tennessee. Built for [WYXR 91.7 FM](https://wyxr.org) DJs to reference on-air.
 
-**Live page:** [wyxr-memphis.github.io/concert-calendar](https://wyxr-memphis.github.io/concert-calendar)      
+**Live page:** [concert-calendar.vercel.app](https://concert-calendar.vercel.app) (or wherever your Vercel deployment lives)
 
 ## How It Works
 
-A Python script runs every morning at 5 AM Central via GitHub Actions. It pulls event data from multiple sources, filters to music/DJ events only, removes duplicates, and publishes a clean static HTML page to GitHub Pages.
+A Python script runs every morning at 5 AM Central via GitHub Actions. It pulls event data from multiple sources, filters to music/DJ events only, removes duplicates, and publishes a clean static HTML page. Hosted on Vercel with a serverless upload API.
 
 ### Sources (checked daily)
 
-| Source | Method | Reliability |
-|--------|--------|-------------|
-| Ticketmaster | API | ⭐⭐⭐ High |
-| Eventbrite | API | ⭐⭐⭐ High |
-| Bandsintown | Web scrape | ⭐⭐ Medium |
-| DICE | Web scrape | ⭐⭐ Medium |
-| Memphis Flyer | Web scrape | ⭐⭐ Medium |
-| Venue websites | Web scrape | ⭐ Varies |
-| Google Sheet (manual) | Published CSV | ⭐⭐⭐ High |
+| Source | Method | Notes |
+|--------|--------|-------|
+| Ticketmaster | API | Best coverage for major venues |
+| DICE | Web scrape | Good for indie/electronic shows |
+| Memphis Flyer | Web scrape | Local event listings |
+| Venue websites | Custom scrapers | Hi Tone, Minglewood, Hernando's, Crosstown, GPAC |
+| Artifacts (images/pages) | Claude Vision API + HTML parsing | Upload flyers or saved web pages |
+| Google Sheet | Published CSV | Manual entries for Instagram-only venues |
 
 ### Venues tracked
 
-Hi Tone, Minglewood Hall, Growlers, Hernando's Hideaway, Crosstown Arts/Green Room, Lafayette's Music Room, Overton Park Shell, B.B. King's, Graceland Soundstage, FedExForum, and more.
+**Scraped automatically:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Crosstown Arts/Green Room, Germantown PAC, B.B. King's, FedExForum, Graceland Soundstage
 
-Instagram-only venues (Bar DKDC, B-Side Memphis, etc.) are added manually via the shared Google Sheet.
+**Manual entry via Google Sheet or artifact upload:** Bar DKDC, B-Side Memphis, Orpheum Theatre, Lafayette's Music Room, Overton Park Shell
+
+## Architecture
+
+```
+GitHub Actions (daily 5 AM UTC)
+  → Python fetches from all sources
+  → Deduplicates events
+  → Generates docs/index.html
+  → Commits & pushes
+  → Triggers Vercel redeploy
+
+Vercel
+  → Serves docs/index.html (calendar)
+  → Serves docs/upload.html (upload form)
+  → api/upload.py (serverless: commits artifacts to GitHub)
+  → api/rebuild.py (serverless: triggers GitHub Actions rebuild)
+```
 
 ## Setup
 
-### 1. Enable GitHub Pages
+### 1. Deploy to Vercel
 
-1. Go to repo **Settings → Pages**
-2. Set Source to **Deploy from a branch**
-3. Set Branch to **main**, folder to **/docs**
-4. Save — your site will be live at `wyxr-memphis.github.io/concert-calendar`
+```bash
+cd concert-calendar
+vercel          # Link to the repo
+vercel --prod   # Deploy
+```
 
-### 2. Get API Keys (free)
+Set these environment variables in the Vercel dashboard:
+- `UPLOAD_PASSWORD` — password for the upload form
+- `GITHUB_PAT` — fine-grained PAT with `contents:write` scope for this repo
 
-**Ticketmaster (highest priority — best Memphis coverage):**
-1. Go to [developer.ticketmaster.com](https://developer.ticketmaster.com)
-2. Create an account and get a Consumer Key
-3. Add as GitHub secret: `TICKETMASTER_API_KEY`
+### 2. API Keys
 
-**Eventbrite:**
-1. Go to [eventbrite.com/platform/api-keys](https://www.eventbrite.com/platform/api-keys)
-2. Create a private API token
-3. Add as GitHub secret: `EVENTBRITE_API_TOKEN`
-
-**Bandsintown (optional):**
-1. Go to [artists.bandsintown.com](https://artists.bandsintown.com) and sign up
-2. Request an API app ID
-3. Add as GitHub secret: `BANDSINTOWN_APP_ID`
-
-### 3. Set Up Google Sheet (for manual events)
-
-This is the simplest approach — no API keys needed for the sheet itself.
-
-1. Create a Google Sheet with these columns in Row 1:
-   ```
-   date | artist | venue | time | source_note
-   ```
-2. Use any date format (MM/DD/YYYY, YYYY-MM-DD, Feb 15, etc.)
-3. The `time` and `source_note` columns are optional
-4. Go to **File → Share → Publish to web**
-5. Select the sheet tab → choose **CSV** format → click **Publish**
-6. Copy the published CSV URL
-7. Add as GitHub secret: `GOOGLE_SHEET_CSV_URL`
-
-**Example sheet rows:**
-| date | artist | venue | time | source_note |
-|------|--------|-------|------|-------------|
-| 2/14/2026 | DJ Night | Bar DKDC | 10 PM | Instagram post 2/10 |
-| 2/15/2026 | Local Band | B-Side Memphis | | spotted on IG |
-| 2/16/2026 | House Show | Midtown TBA | 7 PM | flyer on telephone pole |
-
-### 4. Add GitHub Secrets
-
-Go to repo **Settings → Secrets and variables → Actions → New repository secret** and add:
+Add these as GitHub Secrets (Settings → Secrets → Actions):
 
 | Secret Name | Value | Required? |
 |------------|-------|-----------|
-| `TICKETMASTER_API_KEY` | Your Ticketmaster consumer key | **Yes** (start here) |
-| `EVENTBRITE_API_TOKEN` | Your Eventbrite private token | Recommended |
-| `BANDSINTOWN_APP_ID` | Your Bandsintown app ID | Optional |
-| `GOOGLE_SHEET_CSV_URL` | Published CSV URL from your sheet | Recommended |
+| `TICKETMASTER_API_KEY` | Ticketmaster consumer key ([developer.ticketmaster.com](https://developer.ticketmaster.com)) | Yes |
+| `GOOGLE_SHEET_CSV_URL` | Published CSV URL from your Google Sheet | Recommended |
+| `ANTHROPIC_API_KEY` | Anthropic API key (for image artifact processing) | For image uploads |
+| `VERCEL_DEPLOY_HOOK` | Vercel deploy hook URL (for auto-redeploy after builds) | Recommended |
 
-### 5. Test It
+### 3. Google Sheet (for manual events)
 
-Trigger a manual run:
-1. Go to **Actions** tab in the repo
-2. Click **Daily Concert Calendar Update**
-3. Click **Run workflow**
-4. Check the run logs and then visit your GitHub Pages URL
+1. Create a Google Sheet with columns: `date`, `artist`, `venue`, `time`, `source_note`
+2. Go to **File → Share → Publish to web** → select CSV → Publish
+3. Add the published CSV URL as the `GOOGLE_SHEET_CSV_URL` GitHub secret
 
-## Manual Events
+### 4. Test It
 
-For venues that only post shows on Instagram (Bar DKDC, B-Side, etc.):
+Trigger a manual run from the **Actions** tab → **Daily Concert Calendar Update** → **Run workflow**.
 
-1. Open the shared Google Sheet
-2. Add a row with: `date`, `artist`, `venue`, `time`, `source_note`
-3. The next daily run will include these events automatically
+## Uploading Artifacts
 
-You can also use `manual_events.csv` in the repo as a fallback.
+Visit `/upload.html` on your Vercel deployment to upload event sources from any device (phone, laptop, etc.):
 
-## Troubleshooting
+- **Images** (PNG, JPG, WebP, GIF) — flyers, screenshots of event listings. Processed by Claude Vision API.
+- **Web pages** (MHTML, HTML) — saved venue calendars. Parsed directly with BeautifulSoup.
 
-### Check the error log
-
-After each run, check:
-- **GitHub Actions** tab → latest run → see console output
-- `docs/log.json` — machine-readable source status with per-source details
-- The **SOURCE NOTES** section at the bottom of the live page
-
-### Common issues
-
-| Problem | Cause | Fix |
-|---------|-------|-----|
-| "0 events found" from a venue | Site changed its HTML structure | Open the venue URL, inspect HTML, update the scraper in `src/sources/venue_scrapers.py` |
-| "No API key configured" | Missing GitHub secret | Add the secret in Settings → Secrets |
-| Page not updating | GitHub Action failed | Check Actions tab for error details |
-| Duplicate events showing | Different name formatting across sources | Add aliases to `VENUES` dict in `src/config.py` |
+Uploaded files are committed to the `artifacts/` folder in the repo. Hit "Rebuild Calendar" to process them immediately, or wait for the next daily run. Artifacts older than 24 hours are automatically cleaned up.
 
 ## Adding a New Venue
 
-1. Add the venue to the `VENUES` dict in `src/config.py` — include `name`, `aliases`, `calendar_url`, and `scraper` type
-2. The generic scraper will try JSON-LD and common DOM patterns automatically
-3. If the generic scraper doesn't work, you can add a custom parser in `src/sources/venue_scrapers.py`
-4. For Instagram-only venues, set `scraper: "manual_only"` and add events via the Google Sheet
+1. Add the venue to `VENUES` in `src/config.py` with `name`, `aliases`, `calendar_url`, and `scraper` type
+2. The generic scraper handles JSON-LD and common CMS patterns (Squarespace, WordPress Events Calendar, etc.)
+3. If needed, add a custom parser in `src/sources/venue_scrapers.py`
+4. For Instagram-only venues, set `scraper: "manual_only"` and use the Google Sheet or artifact upload
 
 ## Project Structure
 
@@ -134,49 +99,42 @@ After each run, check:
 concert-calendar/
 ├── .github/workflows/
 │   └── daily.yml              # GitHub Actions daily schedule
+├── api/
+│   ├── upload.py              # Vercel serverless: artifact upload
+│   ├── rebuild.py             # Vercel serverless: trigger rebuild
+│   └── requirements.txt
 ├── src/
-│   ├── main.py                # Orchestrator — runs everything
+│   ├── main.py                # Orchestrator
 │   ├── config.py              # Venues, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
+│   ├── date_utils.py          # Shared date parsing
 │   ├── normalize.py           # Deduplication logic
 │   ├── generate_html.py       # Static page generator
 │   └── sources/
 │       ├── ticketmaster.py    # Ticketmaster Discovery API
-│       ├── eventbrite.py      # Eventbrite API
-│       ├── bandsintown.py     # Bandsintown city page scraper
 │       ├── dice.py            # DICE browse page scraper
 │       ├── memphis_flyer.py   # Memphis Flyer calendar scraper
 │       ├── venue_scrapers.py  # Individual venue website scrapers
-│       └── google_sheet.py    # Manual events from Google Sheet CSV
+│       ├── google_sheet.py    # Manual events from Google Sheet CSV
+│       └── artifacts.py       # Image + web page artifact processing
+├── artifacts/                 # Uploaded files (auto-cleaned after 24h)
 ├── docs/
-│   ├── index.html             # Published page (auto-generated)
-│   └── log.json               # Latest run log (auto-generated)
-├── manual_events.csv          # CSV fallback for manual events
+│   ├── index.html             # Published calendar (auto-generated)
+│   ├── upload.html            # Upload form
+│   └── log.json               # Latest run log
+├── vercel.json                # Vercel config
 ├── requirements.txt
 └── README.md
 ```
 
-## Future Plans
-
-- **User submission form** — a public form where anyone can submit events for approval before they appear on the calendar
-- **Email/Slack digest** — option to push the daily list to a Slack channel or email list
-- **Better dedup** — fuzzy matching improvements for artist name variations
-- **More venues** — continuously expanding the venue list
-
-## Cost
-
-**$0/month.** GitHub Actions, GitHub Pages, and all APIs used are free tier.
-
 ## Run Locally
 
 ```bash
-# Clone and install
 git clone https://github.com/wyxr-memphis/concert-calendar.git
 cd concert-calendar
 pip install -r requirements.txt
 
-# Set API keys (get at least Ticketmaster)
-export TICKETMASTER_API_KEY="your_key_here"
+export TICKETMASTER_API_KEY="your_key"
 
 # Dry run — prints results without writing files
 python -m src.main --dry-run
@@ -185,6 +143,10 @@ python -m src.main --dry-run
 python -m src.main
 ```
 
+## Cost
+
+**$0/month** for hosting and APIs. GitHub Actions, Vercel free tier, and Ticketmaster API are all free. Only cost is Anthropic API usage for image artifact processing (pennies per image).
+
 ## License
 
-Internal tool for WYXR 91.7 FM. Built with 🎶 in Memphis.
+Internal tool for WYXR 91.7 FM. Built in Memphis.

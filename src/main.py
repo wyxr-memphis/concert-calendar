@@ -147,6 +147,12 @@ def run(dry_run: bool = False) -> None:
         json.dump(log_data, f, indent=2)
     print(f"  ✅ Wrote {LOG_PATH}")
 
+    # Write build timestamp for upload page footer
+    build_time_path = DOCS_DIR / "build_time.txt"
+    with open(build_time_path, "w", encoding="utf-8") as f:
+        f.write(run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT"))
+    print(f"  ✅ Wrote {build_time_path}")
+
     # Summary
     _print_summary(deduped)
 

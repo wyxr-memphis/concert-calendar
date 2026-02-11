@@ -217,7 +217,8 @@
     </main>
 
     <footer>
-        Memphis Live Music &middot; Artifact Upload
+        Memphis Live Music &middot; Artifact Upload<br>
+        <span id="buildTime"></span>
     </footer>
 
     <script>
@@ -347,6 +348,11 @@
         function hideStatus() {
             statusEl.className = 'status';
         }
+
+        // Load build timestamp
+        fetch('/build_time.txt')
+            .then(r => r.ok ? r.text() : '')
+            .then(t => { if (t) document.getElementById('buildTime').textContent = 'Last built ' + t.trim(); });
     </script>
 </body>
 </html>

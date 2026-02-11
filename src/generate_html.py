@@ -168,6 +168,7 @@ def generate_html(
 
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
+        Last built {run_time_str}<br>
         <a href="/upload.html" style="color:inherit">Upload Artifact</a>
     </footer>
 </body>
