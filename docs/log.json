@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-11T06:10:36.732206",
+  "run_timestamp": "2026-02-11T18:34:13.059082",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
   },
-  "total_raw_events": 2,
-  "total_deduped_events": 2,
+  "total_raw_events": 34,
+  "total_deduped_events": 34,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -42,10 +42,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 36,
+      "events_after_filter": 32,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
@@ -53,7 +53,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://www.hitonememphis.com/events"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -129,6 +129,230 @@
     }
   ],
   "events": [
+    {
+      "artist": "Rodd Bland",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-12",
+      "time": "5:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-02-12",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
+      "date": "2026-02-12",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Leah Grams Johnson",
+      "venue": "Flyway Brewing Company",
+      "date": "2026-02-12",
+      "time": "5:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "John Mulaney",
+      "venue": "Graceland Soundstage",
+      "date": "2026-02-12",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-12",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Dale Watson",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-12",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Gia Welch",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-13",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "The Waymores",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-13",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "JONATHAN BLANCHARD",
+      "venue": "BMG IN THE SCHOOLS - OUTREACH",
+      "date": "2026-02-13",
+      "time": "12:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "DJ Nico",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-13",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Qemist",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-13",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Freddie McClendon",
+      "venue": "Freddie McClendon: The Traditional Curses Tour",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Yonder Mountain String Band",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rumours ATL: A Fleetwood Mac Tribute",
+      "venue": "Gold Strike Theatre",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Razorgain",
+      "venue": "Growlers",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Gabe Quinn",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-13",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Gia Welch",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-13",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rewind",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-13",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rickey Smiley",
+      "venue": "Orpheum Theatre",
+      "date": "2026-02-13",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Leah Grams Johnson",
+      "venue": "South Main Sounds",
+      "date": "2026-02-13",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Robert Allen Parker",
+      "venue": "w/ PLAY SOME SKYNYRD",
+      "date": "2026-02-13",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Bryan Hayes Music",
+      "venue": "Farmhouse Studio Night @ South Main Sounds featuring Bryan Hayes, Gerry Finney, & More!",
+      "date": "2026-02-14",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Gia Welch",
+      "venue": "Gia Welch/ JD Westmoreland Live at Owen Brennan's",
+      "date": "2026-02-14",
+      "time": "5:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Clownvis Presley",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Boosie Badazz",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "DAY26",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "K. Michelle",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Plies",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Ying Yang Twins",
+      "venue": "Landers Center",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Leah Grams Johnson",
+      "venue": "Momma's",
+      "date": "2026-02-14",
+      "time": "12:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Robert Allen Parker",
+      "venue": "w/ PLAY SOME SKYNYRD",
+      "date": "2026-02-14",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
     {
       "artist": "DJ Sista Sel",
       "venue": "Bar DKDC",
