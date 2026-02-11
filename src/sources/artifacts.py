@@ -1,17 +1,18 @@
 """Parse event artifacts (images, screenshots) using Claude vision API.
 
 This module scans the artifacts/ folder for images (screenshots of Instagram posts,
-venue websites, posters, etc.) and uses Claude's vision capabilities to extract
-event information automatically.
+venue websites, posters, Bandsintown listings, etc.) and uses Claude's vision
+capabilities to extract event information automatically.
 
-Artifact structure:
+Simple structure - just drop images in artifacts/:
 artifacts/
-  ├── bside/           # B-Side Memphis events (Instagram screenshots)
-  ├── bar-dkdc/        # Bar DKDC events (Instagram screenshots)
-  ├── histone/         # Hi Tone website screenshots
-  ├── minglewood/      # Minglewood Hall website screenshots
-  ├── lafayettes/      # Lafayette's website screenshots
-  └── other/           # Other venues or sources
+  ├── bside-2026-02-10.png
+  ├── bar-dkdc-instagram.jpg
+  ├── histone-events.png
+  ├── bandsintown-memphis.png
+  └── any-concert-listing.jpg
+
+Claude extracts artist, venue, date, time from each image.
 """
 
 from typing import Optional, List
@@ -36,13 +37,13 @@ def fetch() -> SourceResult:
         result.error_message = "No artifacts/ folder found"
         return result
 
-    # Find all image files
+    # Find all image files in artifacts/ folder (top level only)
     image_extensions = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
     image_files = []
 
     for ext in image_extensions:
-        image_files.extend(ARTIFACTS_DIR.glob(f"**/*{ext}"))
-        image_files.extend(ARTIFACTS_DIR.glob(f"**/*{ext.upper()}"))
+        image_files.extend(ARTIFACTS_DIR.glob(f"*{ext}"))
+        image_files.extend(ARTIFACTS_DIR.glob(f"*{ext.upper()}"))
 
     if not image_files:
         result.error_message = "No image artifacts found"
@@ -92,25 +93,24 @@ def _extract_events_from_image(image_path: Path) -> List[Event]:
 
 For each event, extract:
 - artist/act name
-- venue (if visible)
+- venue (extract from image if visible - could be venue name, Instagram handle, website name, etc.)
 - date (any format)
 - time (if visible)
-- source (what you see in image)
 
 Return ONLY valid JSON array, no other text:
 [
   {
     "artist": "Artist Name",
-    "venue": "Venue Name",
+    "venue": "Venue Name or Bandsintown or Bar DKDC Instagram",
     "date": "2/15/2026",
     "time": "9 PM",
-    "source_note": "From Instagram post"
+    "source_note": "Describe where this came from - e.g. 'Instagram screenshot', 'website listing', 'Bandsintown', 'poster photo'"
   }
 ]
 
 If no events found, return: []
 
-Be thorough - extract ALL events visible in the image."""
+Be thorough - extract ALL events visible. If venue isn't clear, use what you see (e.g., Instagram handle, website name, "Bandsintown Memphis")."""
 
     message = client.messages.create(
         model="claude-3-5-sonnet-20241022",

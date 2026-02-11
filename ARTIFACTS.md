@@ -2,67 +2,73 @@
 
 ## Overview
 
-Instead of trying to scrape websites that change frequently, you can now collect **images/screenshots** of event listings and let Claude's vision API automatically extract the event information.
+Instead of scraping websites, you collect **screenshots/images** of event listings and Claude's vision API automatically extracts event information. Simple, flexible, and works with any source.
 
 ## How It Works
 
-1. **You collect artifacts** (screenshots, photos, etc.)
-2. **Drop them in the `artifacts/` folder**
-3. **The script reads them** and extracts events using Claude vision
+1. **Screenshot/photo any event listing** (Instagram, website, Bandsintown, poster, etc.)
+2. **Drop image in `artifacts/` folder**
+3. **Script runs** and Claude vision extracts: artist, venue, date, time
 4. **Events auto-populate** into your calendar
 
-## Artifact Types
-
-✅ **Instagram screenshots** — Bar DKDC, B-Side posts
-✅ **Website screenshots** — Venue calendar pages
-✅ **Photos of posters** — Physical flyers you see around town
-✅ **PDF/image exports** — Event listings from any source
-
-## Folder Structure
+## Super Simple Folder Structure
 
 ```
 artifacts/
-├── bside/           # B-Side Memphis (Instagram screenshots)
-├── bar-dkdc/        # Bar DKDC (Instagram screenshots)
-├── histone/         # Hi Tone (website screenshots)
-├── minglewood/      # Minglewood Hall (website screenshots)
-├── lafayettes/      # Lafayette's (website screenshots)
-└── other/           # Other sources
+├── bside-2026-02-10.png
+├── bar-dkdc-instagram.jpg
+├── histone-events-page.png
+├── bandsintown-memphis.png
+└── any-other-listing.jpg
 ```
 
-## Weekly Workflow (15 mins)
+That's it! No subfolders. Claude figures out the venue from the image content.
+
+## Supported Sources
+
+✅ **Instagram screenshots** — Bar DKDC, B-Side posts
+✅ **Website screenshots** — Venue event pages
+✅ **Bandsintown screenshots** — Bandsintown Memphis listings
+✅ **Photos of posters** — Flyers around town
+✅ **Any concert listing** — Whatever format
+
+## Weekly Workflow (10-15 mins)
 
 **Monday morning:**
 
-1. **B-Side Memphis** → Instagram → Screenshot upcoming events → Save to `artifacts/bside/`
-2. **Bar DKDC** → Instagram → Screenshot upcoming events → Save to `artifacts/bar-dkdc/`
-3. **Hi Tone** → Website → Screenshot events section → Save to `artifacts/histone/`
-4. **Minglewood** → Website → Screenshot events section → Save to `artifacts/minglewood/`
-5. **Lafayette's** → Website → Screenshot events section → Save to `artifacts/lafayettes/`
+1. Instagram → B-Side upcoming events → Screenshot → Save to `artifacts/`
+2. Instagram → Bar DKDC events → Screenshot → Save to `artifacts/`
+3. Hi Tone website → Events page → Screenshot → Save to `artifacts/`
+4. Minglewood website → Events page → Screenshot → Save to `artifacts/`
+5. Lafayette's website → Music page → Screenshot → Save to `artifacts/`
+6. (Optional) Bandsintown Memphis → Screenshot any regional events → Save to `artifacts/`
 
-Then when you run the script, it automatically extracts events from all images.
+Then when you run the script, Claude automatically extracts events from all images.
 
-## File Naming (Optional)
+## File Naming
 
-Naming doesn't matter, but helpful names are good for your records:
+Any naming works, but helpful names are good for your records:
 ```
 2026-02-10-bside-instagram.png
-2026-02-11-bar-dkdc-post.jpg
-events-page-histone.png
+bar-dkdc-2026-02-11-post.jpg
+histone-events-page.png
+bandsintown-memphis-week.png
+poster-photo-2026-02-10.jpg
 ```
 
 ## What Gets Extracted
 
-Claude vision reads each image and extracts:
+Claude vision reads each image and automatically extracts:
 - **Artist/Act name** — Who's performing
-- **Venue** — Where it is
+- **Venue** — Where it is (or what source: "Bar DKDC Instagram", "Bandsintown", "Hi Tone website")
 - **Date** — When (any format)
 - **Time** — What time (if visible)
-- **Source note** — "Instagram post", "website screenshot", etc.
 
-## Example: Instagram Screenshot
+## Examples
 
-**You take a screenshot of B-Side's Instagram showing:**
+### Example 1: Instagram Screenshot
+
+**Image shows:**
 ```
 ABERRANT
 Sat Feb 15 @ 9PM
@@ -80,7 +86,41 @@ B-Side Memphis
 }
 ```
 
-**Result:** Event auto-added to your calendar.
+### Example 2: Bandsintown Screenshot
+
+**Image shows Bandsintown Memphis with multiple regional events**
+
+**Claude extracts all of them** with venue as "Bandsintown" or the specific venue name if visible:
+```json
+[
+  {
+    "artist": "Some Band",
+    "venue": "Minglewood Hall",
+    "date": "2/14/2026",
+    "time": "8 PM",
+    "source_note": "Bandsintown screenshot"
+  },
+  ...
+]
+```
+
+### Example 3: Venue Website
+
+**Image shows Hi Tone events page with multiple listings**
+
+**Claude extracts all events** with "Hi Tone" as venue:
+```json
+[
+  {
+    "artist": "Local Artist Name",
+    "venue": "Hi Tone",
+    "date": "2/16/2026",
+    "time": "9 PM",
+    "source_note": "Website screenshot"
+  },
+  ...
+]
+```
 
 ## Running Locally
 
@@ -88,7 +128,7 @@ B-Side Memphis
 # Install dependencies
 pip install -r requirements.txt
 
-# Add artifacts to artifacts/ folder
+# Add image artifacts to artifacts/ folder
 # Then run:
 python -m src.main --dry-run
 
@@ -96,52 +136,51 @@ python -m src.main --dry-run
 python -m src.main
 ```
 
-## GitHub Actions
+## GitHub Actions Setup
 
-When you set up GitHub Actions, add your Anthropic API key as a secret:
-
-```
-Settings → Secrets and variables → Actions → New repository secret
-Name: ANTHROPIC_API_KEY
-Value: [your API key from console.anthropic.com]
-```
-
-Then the daily workflow will automatically process artifacts every morning.
+1. Get your API key from: https://console.anthropic.com/
+2. Go to repo Settings → Secrets and variables → Actions
+3. Add new secret:
+   ```
+   Name: ANTHROPIC_API_KEY
+   Value: [your key from console.anthropic.com]
+   ```
+4. Done! Daily workflow will auto-process artifacts at 5 AM UTC
 
 ## Cost
 
-- Claude's vision API costs ~$0.01 per image
-- Weekly workflow (5-10 images) = ~$0.05-0.10/week
-- **Total: ~$0.20-0.40/month**
+- Claude's vision API: ~$0.01 per image
+- Weekly workflow (5-10 images): ~$0.05-0.10/week
+- **Monthly: ~$0.20-0.40**
 
 ## Tips
 
-1. **Clear images work best** — Good lighting, legible text
-2. **Crop to the relevant section** — Full page screenshots work too, but crops are cleaner
-3. **One venue per image is fine** — Or include multiple venues if they're on the same page
-4. **Old artifacts get re-processed** — Delete old images after the week passes to keep fresh
-5. **Verify the results** — Check `docs/log.json` to see what was extracted
+1. **Clear images work best** — Good lighting, readable text
+2. **Crop to relevant section** — Full screenshots work too
+3. **Multiple events per image is fine** — Claude extracts all of them
+4. **Delete old images after the week** — Keeps folder clean
+5. **Verify results** — Check `docs/log.json` after runs
 
 ## Troubleshooting
 
 **No events found?**
-- Check that images are in the `artifacts/` folder
-- Make sure file extensions are .png, .jpg, .jpeg, .gif, or .webp
-- Try a clearer/bigger image
+- Check images are in `artifacts/` folder (top level, no subfolders)
+- Verify file extensions: .png, .jpg, .jpeg, .gif, .webp
+- Try clearer/larger image
 
-**Wrong dates/times extracted?**
-- Claude does its best with handwritten or unclear text
+**Wrong dates/venues extracted?**
+- Claude does its best with unclear text
 - Clearer images = better extraction
 - Manually fix in Google Sheet if needed
 
-**Runs out of order or missing events?**
-- Claude vision isn't 100% perfect — if an event looks wrong, you can manually add it to Google Sheet
-- This system is meant to catch ~90% of events automatically
-- You verify the final output before publishing
+**Missing events?**
+- Claude vision isn't 100% perfect
+- System aims for ~90% accuracy
+- Manual additions to Google Sheet always work
 
 ## Future Enhancements
 
 - Auto-delete processed artifacts after a week
-- Email you extracted events for review before publishing
-- Support for OCR on handwritten posters
-- Integration with Slack to ask you about unclear events
+- Email extracted events for review before publishing
+- Better handwriting recognition for posters
+- Slack integration for clarifications
