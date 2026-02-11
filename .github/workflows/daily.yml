@@ -37,3 +37,6 @@ jobs:
           git config --local user.name "GitHub Action"
           git add docs/
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
+
+      - name: Trigger Vercel redeploy
+        run: curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"

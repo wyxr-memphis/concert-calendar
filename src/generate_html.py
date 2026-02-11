@@ -47,12 +47,7 @@ def generate_html(
         """
 
     if not events:
-        event_sections = '<p class="no-events">No events found for the upcoming week. Check SOURCE NOTES below for details.</p>'
-
-    # Build source notes (sanitized for public display)
-    source_lines = ""
-    for sr in source_results:
-        source_lines += f"<li>{_sanitize_source_line(sr)}</li>\n"
+        event_sections = '<p class="no-events">No events found for the upcoming week.</p>'
 
     run_time_str = run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT")
     total_events = len(events)
@@ -139,25 +134,6 @@ def generate_html(
             font-style: italic;
             padding: 20px 0;
         }}
-        .source-notes {{
-            margin-top: 40px;
-            border-top: 2px solid #ddd;
-            padding-top: 16px;
-        }}
-        .source-notes h2 {{
-            font-size: 0.85em;
-            color: #888;
-            border-bottom: none;
-            margin-bottom: 8px;
-        }}
-        .source-notes ul {{
-            font-size: 0.82em;
-            color: #888;
-        }}
-        .source-notes li {{
-            border-bottom: none;
-            padding: 2px 0;
-        }}
         footer {{
             margin-top: 40px;
             padding-top: 16px;
@@ -173,9 +149,6 @@ def generate_html(
             .time {{ color: #777; }}
             .updated {{ color: #888; }}
             .summary {{ color: #999; }}
-            .source-notes {{ border-top-color: #333; }}
-            .source-notes h2 {{ color: #666; }}
-            .source-notes ul {{ color: #666; }}
             li {{ border-bottom-color: #2a2a2a; }}
             header {{ border-bottom-color: #e0e0e0; }}
             footer {{ border-top-color: #333; color: #555; }}
@@ -193,16 +166,8 @@ def generate_html(
         {event_sections}
     </main>
 
-    <div class="source-notes">
-        <h2>SOURCE NOTES</h2>
-        <ul>
-            {source_lines}
-        </ul>
-    </div>
-
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Data sourced from Ticketmaster, DICE, Memphis Flyer, venue websites, and manual entries.<br>
         <a href="/upload.html" style="color:inherit">Upload Artifact</a>
     </footer>
 </body>

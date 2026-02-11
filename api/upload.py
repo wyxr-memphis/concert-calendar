@@ -6,9 +6,7 @@ import os
 from http.server import BaseHTTPRequestHandler
 import requests
 
-UPLOAD_PASSWORD = os.environ.get("UPLOAD_PASSWORD", "")
-GITHUB_PAT = os.environ.get("GITHUB_PAT", "")
-REPO_OWNER = "robbygrant"
+REPO_OWNER = "wyxr-memphis"
 REPO_NAME = "concert-calendar"
 ARTIFACTS_PATH = "artifacts"
 
@@ -21,6 +19,9 @@ MAX_FILE_SIZE = 20 * 1024 * 1024  # 20 MB
 
 class handler(BaseHTTPRequestHandler):
     def do_POST(self):
+        upload_password = os.environ.get("UPLOAD_PASSWORD", "")
+        github_pat = os.environ.get("GITHUB_PAT", "")
+
         content_type = self.headers.get("Content-Type", "")
 
         if "multipart/form-data" not in content_type:
@@ -41,7 +42,7 @@ class handler(BaseHTTPRequestHandler):
 
         # Validate password
         password = fields.get("password", b"").decode("utf-8", errors="replace")
-        if not UPLOAD_PASSWORD or password != UPLOAD_PASSWORD:
+        if not upload_password or password != upload_password:
             return self._json_response(401, {"error": "Invalid password"})
 
         # Get file data
@@ -71,7 +72,7 @@ class handler(BaseHTTPRequestHandler):
 
         # Check if file already exists (to get its SHA for update)
         headers = {
-            "Authorization": f"Bearer {GITHUB_PAT}",
+            "Authorization": f"Bearer {github_pat}",
             "Accept": "application/vnd.github.v3+json",
         }
 

@@ -8,7 +8,7 @@ import requests
 
 UPLOAD_PASSWORD = os.environ.get("UPLOAD_PASSWORD", "")
 GITHUB_PAT = os.environ.get("GITHUB_PAT", "")
-REPO_OWNER = "robbygrant"
+REPO_OWNER = "wyxr-memphis"
 REPO_NAME = "concert-calendar"
 WORKFLOW_FILE = "daily.yml"
 
