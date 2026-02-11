@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-11T22:41:21.498798",
+  "run_timestamp": "2026-02-11T22:46:21.070382",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
   },
-  "total_raw_events": 34,
-  "total_deduped_events": 34,
+  "total_raw_events": 58,
+  "total_deduped_events": 52,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -42,8 +42,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 33,
+      "events_found": 70,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -53,7 +53,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://www.hitonememphis.com/events"
+      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -200,6 +200,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Jayxavaire, Bruce Leroy1000, & More",
+      "venue": "Bar DKDC",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
+    },
+    {
       "artist": "JONATHAN BLANCHARD",
       "venue": "BMG IN THE SCHOOLS - OUTREACH",
       "date": "2026-02-13",
@@ -219,6 +226,13 @@
       "date": "2026-02-13",
       "time": "7:30 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Qemist, DJ Nico",
+      "venue": "Crosstown Green Room",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
     },
     {
       "artist": "Freddie McClendon",
@@ -249,6 +263,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Shosh, Scotty B, Katie Lopez, & More",
+      "venue": "Havenh\u00e4us",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
+    },
+    {
       "artist": "Gabe Quinn",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-13",
@@ -263,11 +284,25 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "DJ A.D.",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
+    },
+    {
       "artist": "Rewind",
       "venue": "Minglewood Hall",
       "date": "2026-02-13",
       "time": "9:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Doll & The Real McCoys",
+      "venue": "Nashoba",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
     },
     {
       "artist": "Rickey Smiley",
@@ -277,11 +312,25 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Level 3, Moses Crouch",
+      "venue": "People's",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
+    },
+    {
       "artist": "Leah Grams Johnson",
       "venue": "South Main Sounds",
       "date": "2026-02-13",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Wayne Alexander, Curtis B Scott, Leah Grams",
+      "venue": "South Main Sounds",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
     },
     {
       "artist": "Robert Allen Parker",
@@ -361,11 +410,88 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
+      "artist": "Aberrant, Lumen, Tori.Wave, Defcon Engaged, Make",
       "venue": "B-Side Memphis",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Amy Lavere and Will Sexton",
+      "venue": "Bar DKDC",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Special Sunday Show)"
+    },
+    {
+      "artist": "Julia Magness & T Jarrod Bonta",
+      "venue": "Bog & Barley",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Lilly Hiatt",
+      "venue": "Crosstown Green Room",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Delta Ondine & Robert Kimbrough Sr.",
+      "venue": "Flyway Brewery",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Hillbilly Mojo",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Korroded, Mormon Mincers, & More",
+      "venue": "Hi Tone",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Motel California, Joe Restivo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "Red Mage, Magik Hours",
+      "venue": "Lamplighter",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "The Movement, Tropidelic",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "School of Rock",
+      "venue": "Nashoba",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Sunday 2.15 event listing)"
+    },
+    {
+      "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
+      "venue": "Unknown",
       "date": "2026-02-18",
       "time": "9PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram @bsidememphis)"
     }
   ]
 }
