@@ -1,0 +1,6 @@
+{
+  "outputDirectory": "docs",
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" }
+  ]
+}

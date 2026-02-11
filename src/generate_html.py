@@ -202,7 +202,8 @@ def generate_html(
 
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Data sourced from Ticketmaster, DICE, Memphis Flyer, venue websites, and manual entries.
+        Data sourced from Ticketmaster, DICE, Memphis Flyer, venue websites, and manual entries.<br>
+        <a href="/upload.html" style="color:inherit">Upload Artifact</a>
     </footer>
 </body>
 </html>"""
