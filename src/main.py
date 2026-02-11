@@ -26,8 +26,6 @@ from src.config import START_DATE, END_DATE
 
 from src.sources import (
     ticketmaster,
-    dice,
-    memphis_flyer,
     google_sheet,
     venue_scrapers,
     artifacts,
@@ -53,8 +51,6 @@ def run(dry_run: bool = False) -> None:
 
     sources = [
         ("Ticketmaster", ticketmaster.fetch),
-        ("DICE", dice.fetch),
-        ("Memphis Flyer", memphis_flyer.fetch),
         ("Google Sheet", google_sheet.fetch),
         ("Artifacts", artifacts.fetch),
     ]

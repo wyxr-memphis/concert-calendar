@@ -13,8 +13,6 @@ A Python script runs every morning at 5 AM Central via GitHub Actions. It pulls 
 | Source | Method | Notes |
 |--------|--------|-------|
 | Ticketmaster | API | Best coverage for major venues |
-| DICE | Web scrape | Good for indie/electronic shows |
-| Memphis Flyer | Web scrape | Local event listings |
 | Venue websites | Custom scrapers | Hi Tone, Minglewood, Hernando's, Crosstown, GPAC |
 | Artifacts (images/pages) | Claude Vision API + HTML parsing | Upload flyers or saved web pages |
 | Google Sheet | Published CSV | Manual entries for Instagram-only venues |
@@ -24,6 +22,8 @@ A Python script runs every morning at 5 AM Central via GitHub Actions. It pulls 
 **Scraped automatically:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Crosstown Arts/Green Room, Germantown PAC, B.B. King's, FedExForum, Graceland Soundstage
 
 **Manual entry via Google Sheet or artifact upload:** Bar DKDC, B-Side Memphis, Orpheum Theatre, Lafayette's Music Room, Overton Park Shell
+
+Want to add your venue? Email [contact@wyxr.org](mailto:contact@wyxr.org).
 
 ## Architecture
 
