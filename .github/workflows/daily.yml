@@ -31,10 +31,29 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m src.main
 
+      - name: Clean up old artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CUTOFF=$(date -u -d '24 hours ago' +%s 2>/dev/null || date -u -v-24H +%s)
+          FILES=$(gh api repos/${{ github.repository }}/contents/artifacts --jq '.[] | select(.type=="file") | .name' 2>/dev/null || true)
+          for FILE in $FILES; do
+            COMMIT_DATE=$(gh api "repos/${{ github.repository }}/commits?path=artifacts/$FILE&per_page=1" --jq '.[0].commit.committer.date' 2>/dev/null || true)
+            if [ -n "$COMMIT_DATE" ]; then
+              FILE_TS=$(date -u -d "$COMMIT_DATE" +%s 2>/dev/null || date -u -jf "%Y-%m-%dT%H:%M:%SZ" "$COMMIT_DATE" +%s)
+              if [ "$FILE_TS" -lt "$CUTOFF" ]; then
+                echo "Deleting old artifact: $FILE"
+                SHA=$(gh api "repos/${{ github.repository }}/contents/artifacts/$FILE" --jq '.sha')
+                gh api -X DELETE "repos/${{ github.repository }}/contents/artifacts/$FILE" -f message="Clean up old artifact: $FILE" -f sha="$SHA"
+              fi
+            fi
+          done
+
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
+          git pull --rebase
           git add docs/
           git diff --quiet && git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
 
