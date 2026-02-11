@@ -8,11 +8,14 @@ from typing import Optional
 import requests
 from datetime import datetime
 from ..models import Event, SourceResult
+import os
 from ..config import (
-    EVENTBRITE_API_TOKEN, START_DATE, END_DATE,
+    START_DATE, END_DATE,
     MEMPHIS_LAT, MEMPHIS_LON,
     normalize_venue_name, is_music_event,
 )
+
+EVENTBRITE_API_TOKEN = os.environ.get("EVENTBRITE_API_TOKEN", "")
 
 SOURCE_NAME = "Eventbrite"
 BASE_URL = "https://www.eventbriteapi.com/v3/events/search/"

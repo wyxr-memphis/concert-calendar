@@ -6,13 +6,14 @@ URL: https://www.memphisflyer.com/memphis/EventSearch
 
 from typing import List, Optional
 import requests
-from datetime import datetime, timedelta, date
+from datetime import datetime, date
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
 from ..config import (
     START_DATE, END_DATE,
     normalize_venue_name, is_music_event,
 )
+from ..date_utils import parse_date_text
 
 SOURCE_NAME = "Memphis Flyer"
 # The Flyer calendar can be filtered by category — "Music" is usually category 1
@@ -140,5 +141,4 @@ def _parse_calendar(soup: BeautifulSoup) -> List[Event]:
 
 def _parse_flyer_date(text: str) -> Optional[date]:
     """Parse date from Memphis Flyer format."""
-    from .bandsintown import _parse_date_text
-    return _parse_date_text(text)
+    return parse_date_text(text)

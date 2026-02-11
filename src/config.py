@@ -14,8 +14,6 @@ END_DATE = TODAY + timedelta(days=7)
 # API Keys — set as environment variables or GitHub Secrets
 # ---------------------------------------------------------------------------
 TICKETMASTER_API_KEY = os.environ.get("TICKETMASTER_API_KEY", "")
-EVENTBRITE_API_TOKEN = os.environ.get("EVENTBRITE_API_TOKEN", "")
-BANDSINTOWN_APP_ID = os.environ.get("BANDSINTOWN_APP_ID", "")
 
 # ---------------------------------------------------------------------------
 # Memphis location parameters

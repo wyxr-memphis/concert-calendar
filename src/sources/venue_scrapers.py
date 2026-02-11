@@ -15,6 +15,7 @@ from ..config import (
     VENUES, START_DATE, END_DATE,
     normalize_venue_name, is_music_event,
 )
+from ..date_utils import parse_date_text
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -242,8 +243,7 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                         pass
                 # Fall back to text parsing
                 if not event_date:
-                    from .bandsintown import _parse_date_text
-                    event_date = _parse_date_text(date_el.get_text(strip=True))
+                    event_date = parse_date_text(date_el.get_text(strip=True))
 
             # Time
             time_el = listing.select_one(

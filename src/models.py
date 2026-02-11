@@ -1,5 +1,6 @@
 """Data models for concert calendar events."""
 
+import re
 from dataclasses import dataclass, field
 from datetime import date, datetime
 from typing import List, Optional
@@ -64,7 +65,6 @@ class SourceResult:
 
 def _normalize(text: str) -> str:
     """Normalize text for comparison: lowercase, strip common prefixes, punctuation."""
-    import re
     text = text.lower().strip()
     # Remove "the " prefix
     text = re.sub(r'^the\s+', '', text)

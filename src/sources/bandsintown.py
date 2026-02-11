@@ -16,6 +16,7 @@ from ..config import (
     START_DATE, END_DATE,
     normalize_venue_name, is_music_event,
 )
+from ..date_utils import parse_date_text
 
 SOURCE_NAME = "Bandsintown"
 CITY_URL = "https://www.bandsintown.com/c/memphis-tn"
@@ -102,7 +103,7 @@ def _parse_page(soup: BeautifulSoup) -> List[Event]:
                 continue
 
             # Try to parse date from text
-            event_date = _parse_date_text(date_text)
+            event_date = parse_date_text(date_text)
             if not event_date:
                 continue
             if event_date < START_DATE or event_date > END_DATE:
@@ -128,41 +129,5 @@ def _parse_page(soup: BeautifulSoup) -> List[Event]:
     return events
 
 
-def _parse_date_text(text: str) -> Optional[date]:
-    """Try to parse a date string from Bandsintown's various formats."""
-    import re
-    from datetime import date
 
-    # Try common formats
-    formats = [
-        "%b %d, %Y",  # "Feb 12, 2026"
-        "%B %d, %Y",  # "February 12, 2026"
-        "%b %d",       # "Feb 12" (assume current year)
-        "%m/%d/%Y",
-        "%Y-%m-%d",
-    ]
-
-    text = text.strip()
-    for fmt in formats:
-        try:
-            dt = datetime.strptime(text, fmt)
-            if dt.year < 2000:  # No year in format — use current year
-                dt = dt.replace(year=START_DATE.year)
-            return dt.date()
-        except ValueError:
-            continue
-
-    # Try extracting date from text like "Wed Feb 12"
-    match = re.search(r'(\w{3,9})\s+(\d{1,2})(?:,?\s+(\d{4}))?', text)
-    if match:
-        month_str, day_str, year_str = match.groups()
-        year = int(year_str) if year_str else START_DATE.year
-        try:
-            return datetime.strptime(f"{month_str} {day_str} {year}", "%b %d %Y").date()
-        except ValueError:
-            try:
-                return datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
-            except ValueError:
-                pass
-
-    return None
+# _parse_date_text moved to src.date_utils.parse_date_text

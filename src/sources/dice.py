@@ -15,6 +15,7 @@ from ..config import (
     START_DATE, END_DATE,
     normalize_venue_name, is_music_event,
 )
+from ..date_utils import parse_date_text
 
 SOURCE_NAME = "DICE"
 BROWSE_URL = "https://dice.fm/browse/Memphis:35.149844:-90.049566"
@@ -114,8 +115,7 @@ def _parse_page(soup: BeautifulSoup, raw_html: str) -> List[Event]:
                 if datetime_attr:
                     event_date = datetime.fromisoformat(datetime_attr.replace("Z", "+00:00")).date()
                 else:
-                    from .bandsintown import _parse_date_text
-                    event_date = _parse_date_text(date_el.get_text(strip=True))
+                    event_date = parse_date_text(date_el.get_text(strip=True))
 
             if not event_date:
                 continue

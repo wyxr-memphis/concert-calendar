@@ -10,8 +10,8 @@ Usage:
 """
 
 import sys
-import os
 import json
+from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import List
@@ -24,11 +24,8 @@ from src.normalize import deduplicate
 from src.generate_html import generate_html
 from src.config import START_DATE, END_DATE
 
-# Import all sources
 from src.sources import (
     ticketmaster,
-    eventbrite,
-    bandsintown,
     dice,
     memphis_flyer,
     google_sheet,
@@ -56,8 +53,6 @@ def run(dry_run: bool = False) -> None:
 
     sources = [
         ("Ticketmaster", ticketmaster.fetch),
-        # ("Eventbrite", eventbrite.fetch),  # DISABLED: API deprecated Feb 2020
-        # ("Bandsintown", bandsintown.fetch),  # DISABLED: Event data loaded via API, too fragile
         ("DICE", dice.fetch),
         ("Memphis Flyer", memphis_flyer.fetch),
         ("Google Sheet", google_sheet.fetch),
@@ -165,8 +160,6 @@ def run(dry_run: bool = False) -> None:
 
 def _print_summary(events: List[Event]) -> None:
     """Print a text summary of events."""
-    from collections import defaultdict
-
     by_date = defaultdict(list)
     for e in events:
         by_date[e.date].append(e)

@@ -17,7 +17,9 @@ Claude extracts artist, venue, date, time from each image.
 
 from typing import Optional, List, Tuple
 import base64
+import io
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 import anthropic
@@ -106,7 +108,6 @@ def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
             print(f"    Resized {image_path.name} from {original_size} to {new_size}")
 
         # Save as JPEG with quality reduction to reduce file size
-        import io
         output = io.BytesIO()
         img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
         return output.getvalue(), "image/jpeg"
@@ -260,8 +261,6 @@ def _parse_extracted_event(data: dict, source_image: Path) -> Optional[Event]:
 
 def _parse_date_flexible(date_str: str) -> Optional[datetime.date]:
     """Parse date from various formats extracted by Claude."""
-    import re
-
     date_formats = [
         "%m/%d/%Y", "%m/%d/%y",
         "%m-%d-%Y", "%m-%d-%y",

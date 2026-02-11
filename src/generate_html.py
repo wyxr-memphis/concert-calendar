@@ -49,10 +49,10 @@ def generate_html(
     if not events:
         event_sections = '<p class="no-events">No events found for the upcoming week. Check SOURCE NOTES below for details.</p>'
 
-    # Build source notes
+    # Build source notes (sanitized for public display)
     source_lines = ""
     for sr in source_results:
-        source_lines += f"<li>{sr.status_line}</li>\n"
+        source_lines += f"<li>{_sanitize_source_line(sr)}</li>\n"
 
     run_time_str = run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT")
     total_events = len(events)
@@ -202,11 +202,30 @@ def generate_html(
 
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Data sourced from Ticketmaster, Eventbrite, Bandsintown, DICE, Memphis Flyer, venue websites, and manual entries.<br>
-        Something missing? <a href="SUBMISSION_FORM_URL_HERE">Submit an event</a>
+        Data sourced from Ticketmaster, DICE, Memphis Flyer, venue websites, and manual entries.
     </footer>
 </body>
 </html>"""
+
+
+def _sanitize_source_line(sr: SourceResult) -> str:
+    """Build a sanitized source status line for public HTML display.
+
+    Hides internal URLs, full error details, and API specifics.
+    """
+    import re
+    name = _esc(sr.source_name)
+    if not sr.success:
+        # Strip URLs and technical details from error messages
+        error = sr.error_message or "unavailable"
+        error = re.sub(r'https?://\S+', '[url]', error)
+        error = re.sub(r'HTTPSConnectionPool.*', 'connection failed', error)
+        error = error[:80]
+        return f"{sr.status_emoji} {name}: unavailable"
+    if sr.events_found == 0:
+        return f"{sr.status_emoji} {name}: no events this week"
+    msg = f"{sr.status_emoji} {name}: {sr.events_found} event(s)"
+    return msg
 
 
 def _esc(text: str) -> str:
