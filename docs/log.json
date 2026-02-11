@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-11T19:02:22.338846",
+  "run_timestamp": "2026-02-11T22:41:21.498798",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
   },
-  "total_raw_events": 36,
-  "total_deduped_events": 36,
+  "total_raw_events": 34,
+  "total_deduped_events": 34,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -32,18 +32,18 @@
       "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
     },
     {
-      "name": "Manual (local CSV)",
+      "name": "Manual (Google Sheet)",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 47,
-      "events_after_filter": 34,
+      "events_found": 45,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -93,7 +93,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -129,6 +129,13 @@
     }
   ],
   "events": [
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-12",
+      "time": "10:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
     {
       "artist": "Rodd Bland",
       "venue": "B.B. King's Blues Club",
@@ -354,32 +361,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Amy Lavere and Will Sexton",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Special Sunday Show)"
-    },
-    {
-      "artist": "DJ Sista Sel",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": "9 PM",
-      "source": "Manual (example entry \u2014 replace with real events)"
-    },
-    {
-      "artist": "Example Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-16",
-      "time": null,
-      "source": "Manual (example entry \u2014 delete me)"
-    },
-    {
       "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
-      "venue": "Unknown",
+      "venue": "B-Side Memphis",
       "date": "2026-02-18",
       "time": "9PM",
-      "source": "Artifacts (Instagram - bsidememphis February events)"
+      "source": "Artifacts (Instagram event listing)"
     }
   ]
 }
