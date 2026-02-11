@@ -33,6 +33,7 @@ from src.sources import (
     memphis_flyer,
     google_sheet,
     venue_scrapers,
+    artifacts,
 )
 
 # Output paths
@@ -60,6 +61,7 @@ def run(dry_run: bool = False) -> None:
         ("DICE", dice.fetch),
         ("Memphis Flyer", memphis_flyer.fetch),
         ("Google Sheet", google_sheet.fetch),
+        ("Artifacts", artifacts.fetch),
     ]
 
     for source_name, fetch_fn in sources:
