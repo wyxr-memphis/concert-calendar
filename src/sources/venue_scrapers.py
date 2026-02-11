@@ -90,6 +90,10 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         # Custom scrapers for specific venues
         if scraper_type == "hi_tone":
             events = _parse_hi_tone(soup, name)
+        elif scraper_type == "minglewood":
+            events = _parse_minglewood(soup, name)
+        elif scraper_type == "hernandos":
+            events = _parse_hernandos(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -220,18 +224,19 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
 
     for listing in listings:
         try:
-            # Title
+            # Title — precise selectors only (avoid [class*=] which can match <body>)
             title_el = listing.select_one(
-                "h2 a, h3 a, h2, h3, .tribe-events-list-event-title a, "
-                ".eventlist-title a, .summary-title a, "
-                "[class*='title'] a, [class*='title']"
+                "h1 a, h2 a, h3 a, h1, h2, h3, "
+                ".tribe-events-list-event-title a, "
+                ".eventlist-title a, .eventlist-title-link, "
+                ".summary-title a"
             )
             title = title_el.get_text(strip=True) if title_el else ""
 
-            # Date
+            # Date — precise selectors only
             date_el = listing.select_one(
                 "time[datetime], .tribe-event-schedule-details abbr, "
-                ".eventlist-meta-date, [class*='date'], "
+                ".eventlist-meta-date, "
                 ".summary-metadata-item--date"
             )
 
@@ -250,9 +255,11 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 if not event_date:
                     event_date = parse_date_text(date_el.get_text(strip=True))
 
-            # Time
-            time_el = listing.select_one(
-                ".tribe-event-time, .eventlist-meta-time, [class*='time']"
+            # Time — try specific start-time selectors before containers
+            time_el = (
+                listing.select_one("time.event-time-localized-start") or
+                listing.select_one(".tribe-event-time") or
+                listing.select_one(".eventlist-meta-time")
             )
             time_str = time_el.get_text(strip=True) if time_el else None
 
@@ -264,7 +271,6 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             if title_el and title_el.name == "a":
                 url = title_el.get("href")
             if url and not url.startswith("http"):
-                # Try to build absolute URL
                 url = None  # Skip relative URLs for now
 
             events.append(Event(
@@ -307,6 +313,79 @@ def _parse_hi_tone(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 artist=title,
                 venue=venue_name,
                 date=event_date,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_minglewood(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Minglewood Hall events from .tw-name / .tw-date-time cards."""
+    events = []
+
+    for card in soup.select(".seven.columns"):
+        try:
+            name_el = card.select_one(".tw-name")
+            date_el = card.select_one(".tw-date-time")
+            link_el = card.select_one("a[href*='/event/']")
+
+            if not name_el or not date_el:
+                continue
+
+            title = name_el.get_text(strip=True)
+            date_text = date_el.get_text(strip=True)
+
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+
+            url = link_el["href"] if link_el else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_hernandos(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Hernando's Hideaway events from .event-info-block cards."""
+    events = []
+
+    for card in soup.select(".event-info-block"):
+        try:
+            title_el = card.select_one(".title a, .title")
+            date_el = card.select_one(".date")
+            time_el = card.select_one(".see-showtime")
+            link_el = card.select_one("a[href]")
+
+            if not title_el or not date_el:
+                continue
+
+            title = title_el.get_text(strip=True)
+            date_text = date_el.get_text(strip=True)
+
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+
+            time_str = time_el.get_text(strip=True) if time_el else None
+            url = link_el["href"] if link_el else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
                 source=f"Venue: {venue_name}",
                 url=url,
             ))

@@ -45,7 +45,7 @@ VENUES = {
     "minglewood-hall": {
         "name": "Minglewood Hall",
         "aliases": ["minglewood", "minglewood hall", "1555 madison"],
-        "calendar_url": "https://www.minglewoodhall.com/events",
+        "calendar_url": "https://minglewoodhallmemphis.com/events/",
         "scraper": "minglewood",
     },
     "growlers": {
@@ -57,14 +57,14 @@ VENUES = {
     "hernandos-hideaway": {
         "name": "Hernando's Hideaway",
         "aliases": ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway"],
-        "calendar_url": "https://www.hernandoshideaway.com",
-        "scraper": "generic",
+        "calendar_url": "https://hernandoshideawaymemphis.com/calendar/",
+        "scraper": "hernandos",
     },
     "crosstown-arts": {
         "name": "Crosstown Arts",
         "aliases": ["crosstown arts", "the green room", "green room crosstown", "crosstown concourse"],
-        "calendar_url": "https://www.crosstownarts.org/events",
-        "scraper": "crosstown",
+        "calendar_url": "https://crosstownarts.org/calendar/",
+        "scraper": "generic",
     },
     "lafayettes": {
         "name": "Lafayette's Music Room",
@@ -99,6 +99,12 @@ VENUES = {
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",
         "aliases": ["germantown performing arts", "germantown performing arts center", "gpac"],
+        "calendar_url": "https://www.gpacweb.com/event-list",
+        "scraper": "generic",
+    },
+    "orpheum": {
+        "name": "Orpheum Theatre",
+        "aliases": ["orpheum", "orpheum theatre", "halloran centre"],
         "calendar_url": None,
         "scraper": "manual_only",
     },
