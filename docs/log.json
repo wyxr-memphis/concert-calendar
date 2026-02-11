@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-10T16:48:49.547121",
+  "run_timestamp": "2026-02-10T21:10:01.618019",
   "date_range": {
     "start": "2026-02-11",
     "end": "2026-02-17"
   },
-  "total_raw_events": 14,
-  "total_deduped_events": 14,
+  "total_raw_events": 15,
+  "total_deduped_events": 15,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -34,8 +34,16 @@
     {
       "name": "Manual (Google Sheet)",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Artifacts (Vision-Extracted)",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -143,18 +151,18 @@
       "source": "Manual (Google Sheet)"
     },
     {
-      "artist": "Oemist x DJ Nico: Lovers Night Afterparty",
-      "venue": "Bar DKDC",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Manual (Google Sheet)"
-    },
-    {
       "artist": "Yonder Mountain String Band",
       "venue": "Germantown Performing Arts",
       "date": "2026-02-13",
       "time": "8 PM",
       "source": "Ticketmaster"
+    },
+    {
+      "artist": "Jordan Turner Blues Band",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-13",
+      "time": "9:30 PM",
+      "source": "Artifacts (Bandsintown event listing)"
     },
     {
       "artist": "Rewind: The Ultimate 2000s Rave",
@@ -168,13 +176,6 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-14",
       "time": "7:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "Optic Sink + Sonidero Gotico - A Dark Valentine's Day Affair",
-      "venue": "Bar DKDC",
-      "date": "2026-02-14",
-      "time": null,
       "source": "Manual (Google Sheet)"
     },
     {
@@ -192,11 +193,11 @@
       "source": "Manual (Google Sheet)"
     },
     {
-      "artist": "Amy Lavere and Will Sexton *Special Sunday Show*",
-      "venue": "Bar DKDC",
+      "artist": "Chris Gautrip",
+      "venue": "Minglewood Hall",
       "date": "2026-02-15",
-      "time": null,
-      "source": "Manual (Google Sheet)"
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
     },
     {
       "artist": "THE MOVEMENT - VISIONS TOUR 2026",
@@ -211,6 +212,20 @@
       "date": "2026-02-16",
       "time": "10:00 PM",
       "source": "Manual (Google Sheet)"
+    },
+    {
+      "artist": "John Paul Auxilio",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-16",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Lauri Guyette-Fagan",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-16",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
     },
     {
       "artist": "Dana/Fake!/Oppossums",

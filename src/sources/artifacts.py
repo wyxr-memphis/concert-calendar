@@ -15,12 +15,18 @@ artifacts/
 Claude extracts artist, venue, date, time from each image.
 """
 
-from typing import Optional, List
+from typing import Optional, List, Tuple
 import base64
 import json
 from pathlib import Path
 from datetime import datetime
 import anthropic
+
+try:
+    from PIL import Image
+    PILLOW_AVAILABLE = True
+except ImportError:
+    PILLOW_AVAILABLE = False
 
 from ..models import Event, SourceResult
 from ..config import START_DATE, END_DATE, normalize_venue_name
@@ -68,15 +74,51 @@ def fetch() -> SourceResult:
     return result
 
 
-def _extract_events_from_image(image_path: Path) -> List[Event]:
-    """Use Claude vision to extract events from an image."""
+def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
+    """Optimize image for Claude vision API by resizing if too large.
 
-    # Read and encode image
-    with open(image_path, "rb") as f:
-        image_data = base64.standard_b64encode(f.read()).decode("utf-8")
+    Returns: (image_bytes, media_type)
+    """
+    file_size_mb = image_path.stat().st_size / (1024 * 1024)
 
-    # Determine image type
-    suffix = image_path.suffix.lower()
+    # If image is small enough, use as-is
+    if file_size_mb < 3:
+        with open(image_path, "rb") as f:
+            return f.read(), _get_media_type(image_path.suffix)
+
+    # Need to optimize - try using PIL if available
+    if not PILLOW_AVAILABLE:
+        print(f"    Warning: Image {image_path.name} is {file_size_mb:.1f}MB but PIL not available. Trying anyway...")
+        with open(image_path, "rb") as f:
+            return f.read(), _get_media_type(image_path.suffix)
+
+    try:
+        # Open and check dimensions
+        img = Image.open(image_path)
+        original_size = img.size
+
+        # Resize if width > 1024px or height > 2048px
+        if img.width > 1024 or img.height > 2048:
+            # Calculate new size maintaining aspect ratio
+            ratio = min(1024 / img.width, 2048 / img.height)
+            new_size = (int(img.width * ratio), int(img.height * ratio))
+            img = img.resize(new_size, Image.Resampling.LANCZOS)
+            print(f"    Resized {image_path.name} from {original_size} to {new_size}")
+
+        # Save as JPEG with quality reduction to reduce file size
+        import io
+        output = io.BytesIO()
+        img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
+        return output.getvalue(), "image/jpeg"
+
+    except Exception as e:
+        print(f"    Could not optimize {image_path.name}: {str(e)[:50]}. Using original...")
+        with open(image_path, "rb") as f:
+            return f.read(), _get_media_type(image_path.suffix)
+
+
+def _get_media_type(suffix: str) -> str:
+    """Get media type from file suffix."""
     media_type_map = {
         ".jpg": "image/jpeg",
         ".jpeg": "image/jpeg",
@@ -84,37 +126,48 @@ def _extract_events_from_image(image_path: Path) -> List[Event]:
         ".gif": "image/gif",
         ".webp": "image/webp",
     }
-    media_type = media_type_map.get(suffix, "image/jpeg")
+    return media_type_map.get(suffix.lower(), "image/jpeg")
+
+
+def _extract_events_from_image(image_path: Path) -> List[Event]:
+    """Use Claude vision to extract events from an image."""
+
+    # Optimize image if needed (resize/compress large images)
+    image_bytes, media_type = _optimize_image(image_path)
+    image_data = base64.standard_b64encode(image_bytes).decode("utf-8")
 
     # Call Claude vision API
     client = anthropic.Anthropic()
 
-    prompt = """Analyze this image and extract ANY music/concert events you can find.
+    prompt = f"""Analyze this image and extract music/concert events for the week of {START_DATE} to {END_DATE}.
 
-For each event, extract:
+For EACH visible event, extract:
 - artist/act name
-- venue (extract from image if visible - could be venue name, Instagram handle, website name, etc.)
-- date (any format)
+- venue (venue name, Instagram handle, website, or "Bandsintown")
+- date (in any format visible)
 - time (if visible)
 
-Return ONLY valid JSON array, no other text:
+IMPORTANT: Focus on events in {START_DATE.strftime('%B %Y')} (this week/month).
+Skip events from other months if visible.
+
+Return ONLY a valid JSON array, no other text:
 [
-  {
+  {{
     "artist": "Artist Name",
-    "venue": "Venue Name or Bandsintown or Bar DKDC Instagram",
+    "venue": "Venue Name",
     "date": "2/15/2026",
     "time": "9 PM",
-    "source_note": "Describe where this came from - e.g. 'Instagram screenshot', 'website listing', 'Bandsintown', 'poster photo'"
-  }
+    "source_note": "Brief description - e.g. 'Instagram', 'Bandsintown', 'website'"
+  }}
 ]
 
 If no events found, return: []
 
-Be thorough - extract ALL events visible. If venue isn't clear, use what you see (e.g., Instagram handle, website name, "Bandsintown Memphis")."""
+Extract all visible events for the target week, even if text is small."""
 
     message = client.messages.create(
         model="claude-sonnet-4-5-20250929",
-        max_tokens=1024,
+        max_tokens=4096,
         messages=[
             {
                 "role": "user",
@@ -139,18 +192,21 @@ Be thorough - extract ALL events visible. If venue isn't clear, use what you see
     # Parse response
     response_text = message.content[0].text.strip()
 
-    # Extract JSON from response
+    # Extract JSON from response (handle markdown code fences and plain JSON)
     try:
-        # Try to find JSON array in response
+        # Find JSON array start and end
         start = response_text.find("[")
         end = response_text.rfind("]") + 1
+
         if start >= 0 and end > start:
             json_str = response_text[start:end]
             events_data = json.loads(json_str)
         else:
+            # Try parsing as-is in case it's not wrapped
             events_data = json.loads(response_text)
-    except json.JSONDecodeError:
+    except json.JSONDecodeError as e:
         print(f"  Could not parse JSON from response: {response_text[:100]}")
+        print(f"  Error: {str(e)[:80]}")
         return []
 
     # Convert to Event objects
