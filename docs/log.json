@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-11T22:46:21.070382",
+  "run_timestamp": "2026-02-11T22:58:38.620385",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
   },
-  "total_raw_events": 58,
-  "total_deduped_events": 52,
+  "total_raw_events": 69,
+  "total_deduped_events": 63,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -42,18 +42,18 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 57,
+      "events_found": 69,
+      "events_after_filter": 59,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
+      "success": true,
+      "events_found": 94,
+      "events_after_filter": 9,
+      "events_filtered": 85,
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -186,6 +186,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Rev Down Trio [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-12",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Gia Welch",
       "venue": "B-Side Memphis",
       "date": "2026-02-13",
@@ -205,6 +212,13 @@
       "date": "2026-02-13",
       "time": null,
       "source": "Artifacts (Event listing flyer)"
+    },
+    {
+      "artist": "Oemist x DJ Nico",
+      "venue": "Bar DKDC",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Lovers Night Afterparty)"
     },
     {
       "artist": "JONATHAN BLANCHARD",
@@ -264,7 +278,7 @@
     },
     {
       "artist": "Shosh, Scotty B, Katie Lopez, & More",
-      "venue": "Havenh\u00e4us",
+      "venue": "Havenhous",
       "date": "2026-02-13",
       "time": null,
       "source": "Artifacts (Event listing flyer)"
@@ -340,6 +354,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Optic Sink + Sonidero Gotico",
+      "venue": "Bar DKDC",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Artifacts (A Dark Valentine's Day Affair)"
+    },
+    {
       "artist": "Bryan Hayes Music",
       "venue": "Farmhouse Studio Night @ South Main Sounds featuring Bryan Hayes, Gerry Finney, & More!",
       "date": "2026-02-14",
@@ -359,6 +380,27 @@
       "date": "2026-02-14",
       "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Gothic Valentine\u2019s Day Market & more [Both Rooms]",
+      "venue": "Hi Tone",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Oops All Love Songs [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Vengeance on Valentines [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Boosie Badazz",
@@ -414,7 +456,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "Amy Lavere and Will Sexton",
@@ -428,70 +470,105 @@
       "venue": "Bog & Barley",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "Lilly Hiatt",
       "venue": "Crosstown Green Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "Delta Ondine & Robert Kimbrough Sr.",
       "venue": "Flyway Brewery",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "Hillbilly Mojo",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
+    },
+    {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Korroded, Mormon Mincers, & More",
       "venue": "Hi Tone",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
+    },
+    {
+      "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Motel California, Joe Restivo",
       "venue": "Lafayette's Music Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "Red Mage, Magik Hours",
       "venue": "Lamplighter",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "The Movement, Tropidelic",
       "venue": "Minglewood Hall",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
     },
     {
       "artist": "School of Rock",
       "venue": "Nashoba",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
+      "source": "Artifacts (Event listing poster)"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-16",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-17",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
-      "venue": "Unknown",
+      "venue": "B-Side Memphis",
       "date": "2026-02-18",
       "time": "9PM",
-      "source": "Artifacts (Instagram @bsidememphis)"
+      "source": "Artifacts (Instagram post)"
+    },
+    {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-18",
+      "time": null,
+      "source": "Venue: Hi Tone"
     }
   ]
 }
