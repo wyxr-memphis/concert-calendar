@@ -96,6 +96,12 @@ VENUES = {
         "calendar_url": "https://www.fedexforum.com/events",
         "scraper": "generic",
     },
+    "germantown-pac": {
+        "name": "Germantown Performing Arts Center",
+        "aliases": ["germantown performing arts", "germantown performing arts center", "gpac"],
+        "calendar_url": None,
+        "scraper": "manual_only",
+    },
     "bar-dkdc": {
         "name": "Bar DKDC",
         "aliases": ["bar dkdc", "dkdc"],
