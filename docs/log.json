@@ -1,19 +1,19 @@
 {
-  "run_timestamp": "2026-02-10T21:10:01.618019",
+  "run_timestamp": "2026-02-11T06:10:36.732206",
   "date_range": {
-    "start": "2026-02-11",
-    "end": "2026-02-17"
+    "start": "2026-02-12",
+    "end": "2026-02-18"
   },
-  "total_raw_events": 15,
-  "total_deduped_events": 15,
+  "total_raw_events": 2,
+  "total_deduped_events": 2,
   "sources": [
     {
       "name": "Ticketmaster",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No API key configured (set TICKETMASTER_API_KEY)"
     },
     {
       "name": "DICE",
@@ -32,20 +32,20 @@
       "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
     },
     {
-      "name": "Manual (Google Sheet)",
+      "name": "Manual (local CSV)",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
@@ -53,7 +53,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://www.hitonememphis.com/events"
+      "error": "Request failed: HTTPSConnectionPool(host='www.hitonememphis.com', port=443): Max retries exceede"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -81,11 +81,11 @@
     },
     {
       "name": "Venue: Crosstown Arts",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 500 Server Error: Internal Server Error for url: https://crosstownarts.org/video"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Lafayette's Music Room",
@@ -93,7 +93,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -130,109 +130,18 @@
   ],
   "events": [
     {
-      "artist": "Karaoke w/ Conner and Tina",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-11",
-      "time": "10:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-12",
-      "time": "10:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "The Waymores/Gia Welch",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "Yonder Mountain String Band",
-      "venue": "Germantown Performing Arts",
-      "date": "2026-02-13",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Jordan Turner Blues Band",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-13",
-      "time": "9:30 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Rewind: The Ultimate 2000s Rave",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-13",
+      "artist": "DJ Sista Sel",
+      "venue": "Bar DKDC",
+      "date": "2026-02-15",
       "time": "9 PM",
-      "source": "Ticketmaster"
+      "source": "Manual (example entry \u2014 replace with real events)"
     },
     {
-      "artist": "Benefit for Johnny Williams",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-14",
-      "time": "7:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "Valentine's Mixtape",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Aberrant",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-15",
-      "time": "9:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "Chris Gautrip",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "THE MOVEMENT - VISIONS TOUR 2026",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": "7:30 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "JO Westmoreland Band",
+      "artist": "Example Band",
       "venue": "B-Side Memphis",
       "date": "2026-02-16",
-      "time": "10:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
-      "artist": "John Paul Auxilio",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-16",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Lauri Guyette-Fagan",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-16",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Dana/Fake!/Oppossums",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-17",
-      "time": "9:00 PM",
-      "source": "Manual (Google Sheet)"
+      "time": null,
+      "source": "Manual (example entry \u2014 delete me)"
     }
   ]
 }
