@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-11T18:59:28.056604",
+  "run_timestamp": "2026-02-11T19:02:22.338846",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
   },
-  "total_raw_events": 34,
-  "total_deduped_events": 34,
+  "total_raw_events": 36,
+  "total_deduped_events": 36,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -42,8 +42,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 32,
+      "events_found": 47,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
@@ -93,7 +93,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -354,6 +354,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Amy Lavere and Will Sexton",
+      "venue": "Bar DKDC",
+      "date": "2026-02-15",
+      "time": null,
+      "source": "Artifacts (Special Sunday Show)"
+    },
+    {
       "artist": "DJ Sista Sel",
       "venue": "Bar DKDC",
       "date": "2026-02-15",
@@ -366,6 +373,13 @@
       "date": "2026-02-16",
       "time": null,
       "source": "Manual (example entry \u2014 delete me)"
+    },
+    {
+      "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
+      "venue": "Unknown",
+      "date": "2026-02-18",
+      "time": "9PM",
+      "source": "Artifacts (Instagram - bsidememphis February events)"
     }
   ]
 }
