@@ -209,6 +209,7 @@ def _parse_date_flexible(date_str: str) -> Optional[datetime.date]:
     date_formats = [
         "%m/%d/%Y", "%m/%d/%y",
         "%m-%d-%Y", "%m-%d-%y",
+        "%m.%d.%Y", "%m.%d.%y", "%m.%d",  # Period-separated (e.g., 2.13)
         "%Y-%m-%d",
         "%B %d, %Y", "%b %d, %Y",
         "%B %d", "%b %d",
