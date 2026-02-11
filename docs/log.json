@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-11T18:34:13.059082",
+  "run_timestamp": "2026-02-11T18:50:37.584118",
   "date_range": {
     "start": "2026-02-12",
     "end": "2026-02-18"
@@ -93,7 +93,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
