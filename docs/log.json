@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-12T20:25:22.152846",
+  "run_timestamp": "2026-02-12T21:39:56.908978",
   "date_range": {
     "start": "2026-02-13",
     "end": "2026-02-19"
@@ -30,14 +30,6 @@
       "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='hitonecafe.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Venue: Minglewood Hall",
