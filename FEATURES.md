@@ -1,0 +1,149 @@
+# Feature Requests — WYXR Memphis Concert Calendar
+
+Planning doc for upcoming features. Each section covers the what, why, and rough implementation notes based on the current architecture.
+
+---
+
+## 1. Edit / Delete Events
+
+**Problem:** Once events are imported (from scrapers, artifacts, Bandsintown, etc.), there's no way to correct bad data — misspelled artist names, wrong venues, duplicate entries that slipped through dedup, or events that got cancelled. The only options today are waiting for the next daily rebuild or manually editing `docs/log.json`.
+
+**What this looks like:**
+- A password-protected admin view (similar to the existing `/upload.html` page) listing all events for the current build
+- Each event row gets Edit and Delete buttons
+- Edit opens an inline form pre-filled with artist, venue, date, time
+- Delete removes the event and flags it so future imports don't re-add it
+- Changes persist in a `overrides.json` file that the build pipeline reads
+
+**Implementation notes:**
+- Add `docs/admin.html` — static page that fetches `log.json`, renders an editable table, and posts changes to a new `/api/override.py` endpoint
+- New Vercel serverless function `api/override.py` — accepts POST with event edits/deletes, writes to `overrides.json` in the repo (via GitHub API using the existing `GITHUB_PAT`)
+- `src/main.py` reads `overrides.json` at build time and applies edits/removals after dedup but before HTML generation
+- Override format: `{ "deletes": ["normalized_key", ...], "edits": { "normalized_key": { "artist": "...", "venue": "...", ... } } }`
+- Deleted keys act as a persistent blocklist so the same bad event doesn't reappear on the next scrape
+
+---
+
+## 2. Star / Feature Events (DJ Picks)
+
+**Problem:** The calendar lists everything it finds, but WYXR DJs want a way to highlight the shows they're excited about — a curated "don't miss" layer on top of the raw data. Right now every event has equal visual weight.
+
+**What this looks like:**
+- In the admin view, each event also gets a Star toggle
+- Starred events appear in a "DJ Picks" section at the top of the main calendar page, above the day-by-day listings
+- Starred events still appear in their normal day section too, but with a visual indicator (bold, accent color, or a small star icon)
+- Picks are per-day — a DJ can feature different shows each day of the week
+
+**Implementation notes:**
+- Extend `overrides.json` with a `"featured": ["normalized_key", ...]` array
+- `generate_html.py` checks the featured list and renders a "DJ PICKS" section before the day sections
+- The admin page star toggle calls `/api/override.py` with `{"action": "feature", "key": "..."}` or `{"action": "unfeature", "key": "..."}`
+- Optionally support a short DJ note per pick (e.g., "Killer Memphis blues, don't sleep on this one") stored as `"featured_notes": { "key": "note text" }`
+- CSS: featured events get a left border accent or background highlight that works in both light and dark mode
+
+---
+
+## 3. Custom Domain
+
+**Problem:** The calendar currently lives at `concert-calendar.vercel.app`. A branded domain (e.g., `shows.wyxr.org` or `calendar.wyxr.org`) would look more professional and be easier for DJs to remember and share.
+
+**What this needs:**
+- A domain or subdomain pointed at Vercel (CNAME or A record)
+- Vercel project settings updated to accept the custom domain
+- No code changes required — Vercel handles SSL automatically
+
+**Steps:**
+1. Choose a subdomain (e.g., `shows.wyxr.org`)
+2. In the WYXR DNS provider, add a CNAME record: `shows` → `cname.vercel-dns.com`
+3. In the Vercel dashboard → Project Settings → Domains → add `shows.wyxr.org`
+4. Vercel provisions an SSL cert automatically (Let's Encrypt)
+5. Update the README with the new URL
+6. Optionally add a redirect from the old `.vercel.app` URL to the custom domain
+
+**Considerations:**
+- If WYXR uses Squarespace/WordPress for their main site, DNS changes may need to go through whoever manages that
+- The custom domain works regardless of whether the GitHub repo is public or private
+
+---
+
+## 4. Event Feed (JSON / RSS) for Website Embedding
+
+**Problem:** The calendar data is locked inside a standalone HTML page. WYXR's main website (and potentially other local sites or apps) should be able to pull the event listing and display it natively — an upcoming shows widget in the sidebar, an events page, social media bots, etc.
+
+**What this looks like:**
+- A public JSON API endpoint (`/api/events.json` or `/feed.json`) returning the current event data in a clean, documented format
+- An RSS/Atom feed (`/feed.xml`) for podcast apps, feed readers, and IFTTT-style automation
+- Optionally, an embeddable `<iframe>` snippet or JS widget
+
+**Implementation notes:**
+
+### JSON feed
+- Already partially exists — `docs/log.json` contains all event data, but the format is oriented toward debugging, not consumption
+- Add a `docs/feed.json` generated by `main.py` with a cleaner schema:
+  ```json
+  {
+    "updated": "2026-02-11T23:23:49Z",
+    "date_range": { "start": "2026-02-12", "end": "2026-02-18" },
+    "events": [
+      {
+        "artist": "Dale Watson",
+        "venue": "Hernando's Hideaway",
+        "date": "2026-02-12",
+        "time": "8:00 PM",
+        "url": "https://...",
+        "featured": false
+      }
+    ]
+  }
+  ```
+- Add CORS headers so any website can fetch it client-side
+
+### RSS feed
+- Generate `docs/feed.xml` in Atom or RSS 2.0 format during build
+- Each event becomes an `<item>` with title, date, venue as description
+- Useful for IFTTT ("new event posted → tweet it"), feed readers, newsletter tools
+
+### Embeddable widget
+- A lightweight `docs/widget.js` that fetches `feed.json` and renders a styled event list into any `<div id="wyxr-events"></div>` on another site
+- Keeps styles scoped to avoid conflicts with host page CSS
+
+---
+
+## 5. Import Transparency — Source Status Dashboard
+
+**Problem:** The calendar pulls from 10+ sources (Ticketmaster, venue websites, artifacts, Google Sheet, Bandsintown). Some fail silently — Growlers times out, Lafayette's returns 403, Overton Park Shell 404s, Graceland changed their page. DJs uploading artifacts don't know if their upload was processed or how many events were extracted. There's no visibility into what worked and what didn't unless you dig into `log.json`.
+
+**What this looks like:**
+- A "Source Status" section on the main page (or a dedicated `/status.html` page) showing each source and its last-run result
+- Color-coded: green (working, found events), yellow (working, 0 events this week), red (error/failed)
+- For each source: name, event count, and a short status message
+- For artifacts specifically: list each uploaded file, how many events were extracted, and which events came from it
+- Timestamp of last successful build
+
+**Implementation notes:**
+- Most of the data already exists in `docs/log.json` — the `sources` array has name, success, events_found, events_filtered, and error for every source
+- Option A (simple): Add a collapsible "Source Status" footer to `index.html` generated by `generate_html.py` — renders the source results as a summary table
+- Option B (separate page): Generate `docs/status.html` with a full dashboard:
+  - Source-by-source breakdown with status indicators
+  - Per-artifact detail (file name, upload time, events extracted, events that made it through dedup)
+  - Historical trend (last N builds) if we start persisting `status.json` across runs
+- For artifact transparency, extend `src/sources/artifacts.py` to write per-file results into the log — currently it aggregates all artifacts into one `SourceResult`
+- Add a link from the main calendar footer: "How is this built?" → status page
+
+**Quick win vs. full version:**
+- Quick win: Add a small status summary directly to the calendar page footer — "Last updated Feb 11, 76 events from 8 sources (3 sources had errors)"
+- Full version: Dedicated dashboard with per-source and per-artifact detail
+
+---
+
+## Priority / Sequencing Suggestion
+
+| # | Feature | Effort | Value | Suggested Order |
+|---|---------|--------|-------|-----------------|
+| 5 | Import transparency | Low | High | First — quick win adds immediate trust |
+| 3 | Custom domain | Low | High | Second — config only, no code |
+| 4 | Event feed (JSON) | Medium | High | Third — unlocks website integration |
+| 1 | Edit / delete events | Medium | Medium | Fourth — needs admin UI + API |
+| 2 | Star / feature events | Medium | Medium | Fifth — builds on edit/admin UI |
+
+Features 1 and 2 share an admin interface and the `overrides.json` mechanism, so they should be built together once that foundation is in place.
