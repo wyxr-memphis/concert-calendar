@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-12T06:06:53.479884",
+  "run_timestamp": "2026-02-12T18:18:59.251487",
   "date_range": {
     "start": "2026-02-13",
     "end": "2026-02-19"
   },
-  "total_raw_events": 76,
-  "total_deduped_events": 67,
+  "total_raw_events": 81,
+  "total_deduped_events": 71,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,33 +18,33 @@
     {
       "name": "Manual (Google Sheet)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": "CSV accessible but no events in date range"
+      "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 50,
+      "events_found": 68,
+      "events_after_filter": 54,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 95,
+      "events_found": 94,
       "events_after_filter": 10,
-      "events_filtered": 85,
+      "events_filtered": 84,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
+      "events_found": 38,
       "events_after_filter": 5,
-      "events_filtered": 32,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -129,6 +129,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Robby Test Event",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-13",
+      "time": "10:00 PM",
+      "source": "Manual (Google Sheet)"
+    },
+    {
       "artist": "The Waymores",
       "venue": "B-Side Memphis",
       "date": "2026-02-13",
@@ -140,7 +147,14 @@
       "venue": "Bar DKDC",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
+    },
+    {
+      "artist": "Oemist x DJ Nico",
+      "venue": "Bar DKDC",
+      "date": "2026-02-13",
+      "time": null,
+      "source": "Artifacts (Lovers Night Afterparty)"
     },
     {
       "artist": "JONATHAN BLANCHARD",
@@ -175,7 +189,7 @@
       "venue": "Crosstown Green Room",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Freddie McClendon",
@@ -210,7 +224,7 @@
       "venue": "Havenhaus",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Freddie McClendon \u2013 The Traditional Curses Tour \u2013 Memphis,TN",
@@ -238,7 +252,7 @@
       "venue": "Lafayette's Music Room",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Rewind",
@@ -252,7 +266,7 @@
       "venue": "Nashoba",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Rickey Smiley",
@@ -266,7 +280,7 @@
       "venue": "People's",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Leah Grams Johnson",
@@ -280,7 +294,7 @@
       "venue": "South Main Sounds",
       "date": "2026-02-13",
       "time": null,
-      "source": "Artifacts (Event listing for Friday 2/13)"
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Robert Allen Parker",
@@ -288,6 +302,13 @@
       "date": "2026-02-13",
       "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Optic Sink + Sonidero Gotico",
+      "venue": "Bar DKDC",
+      "date": "2026-02-14",
+      "time": null,
+      "source": "Artifacts (A Dark Valentine's Day Affair)"
     },
     {
       "artist": "Strictly Jazz: The Music of Carmen McRae feat. D&#8217;Monet",
@@ -406,21 +427,21 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
-      "artist": "Amy Lavere & Will Sexton",
+      "artist": "Amy Lavere and Will Sexton",
       "venue": "Bar DKDC",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Special Sunday Show)"
     },
     {
       "artist": "Julia Magness & T Jarrod Bonta",
       "venue": "Bog & Barley",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Folk All Y&#8217;all: Lilly Hiatt",
@@ -434,14 +455,14 @@
       "venue": "Crosstown Green Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Delta Ondine & Robert Kimbrough Sr.",
       "venue": "Flyway Brewery",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
@@ -455,7 +476,7 @@
       "venue": "Hernando's Hideaway",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
@@ -469,7 +490,7 @@
       "venue": "Hi Tone",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
@@ -483,14 +504,14 @@
       "venue": "Lafayette's Music Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Red Mage, Magik Hours",
       "venue": "Lamplighter",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "THE MOVEMENT \u2013 VISIONS TOUR 2026",
@@ -504,14 +525,14 @@
       "venue": "Minglewood Hall",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "School of Rock",
       "venue": "Nashoba",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Sunday lineup poster)"
+      "source": "Artifacts (Sunday 2.15 events listing)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -535,6 +556,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-18",
+      "time": "9PM",
+      "source": "Artifacts (Instagram post)"
+    },
+    {
       "artist": "Service Industry Night",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-18",
@@ -556,11 +584,18 @@
       "source": "Venue: Minglewood Hall"
     },
     {
-      "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
-      "venue": "Unknown",
-      "date": "2026-02-18",
-      "time": "9PM",
-      "source": "Artifacts (Instagram post @bsidememphis)"
+      "artist": "DEVIL TRAIN",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-19",
+      "time": "10PM",
+      "source": "Artifacts (Instagram post)"
+    },
+    {
+      "artist": "Hans Condor",
+      "venue": "Bar DKDC",
+      "date": "2026-02-19",
+      "time": null,
+      "source": "Artifacts (Nashville - venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -582,13 +617,6 @@
       "date": "2026-02-19",
       "time": null,
       "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "Unknown",
-      "date": "2026-02-19",
-      "time": "10PM",
-      "source": "Artifacts (Instagram post @bsidememphis)"
     }
   ]
 }
