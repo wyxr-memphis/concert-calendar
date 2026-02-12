@@ -1,6 +1,8 @@
 """Generate the static HTML page for Memphis concert calendar."""
 
+import re
 from datetime import date, datetime
+from itertools import groupby
 from typing import Dict, List
 from collections import defaultdict
 from .models import Event, SourceResult
@@ -27,15 +29,26 @@ def generate_html(
         day_events = by_date[d]
         day_name = d.strftime("%A, %B %-d").upper()
         
+        # Group events by venue so same-day/same-venue shows merge onto one line
+        day_events.sort(key=lambda e: e.sort_key)
         event_lines = ""
-        for event in day_events:
-            line = f'<span class="artist">{_esc(event.artist)}</span> — '
-            line += f'<span class="venue">{_esc(event.venue)}</span>'
-            if event.time:
-                line += f' <span class="time">({_esc(event.time)})</span>'
-            
-            if event.url:
-                event_lines += f'<li><a href="{_esc(event.url)}" target="_blank" rel="noopener">{line}</a></li>\n'
+        for venue, venue_group in groupby(day_events, key=lambda e: e.venue):
+            events_at_venue = list(venue_group)
+            artists = ", ".join(e.artist for e in events_at_venue)
+            # Pick the earliest time
+            times = [e for e in events_at_venue if e.time]
+            times.sort(key=lambda e: _parse_time_for_sort(e.time))
+            earliest_time = times[0].time if times else None
+            # Use first event's URL
+            url = next((e.url for e in events_at_venue if e.url), None)
+
+            line = f'<span class="artist">{_esc(artists)}</span> — '
+            line += f'<span class="venue">{_esc(venue)}</span>'
+            if earliest_time:
+                line += f' <span class="time">({_esc(earliest_time)})</span>'
+
+            if url:
+                event_lines += f'<li><a href="{_esc(url)}" target="_blank" rel="noopener">{line}</a></li>\n'
             else:
                 event_lines += f'<li>{line}</li>\n'
 
@@ -278,6 +291,28 @@ def _sanitize_source_line(sr: SourceResult) -> str:
         return f"{sr.status_emoji} {name}: no events this week"
     msg = f"{sr.status_emoji} {name}: {sr.events_found} event(s)"
     return msg
+
+
+def _parse_time_for_sort(time_str: str) -> int:
+    """Parse a time string into minutes since midnight for sorting.
+
+    Handles formats like '7:00 PM', '9 PM', 'Doors 7 / Show 8'.
+    Returns 9999 if unparseable so those sort last.
+    """
+    if not time_str:
+        return 9999
+    # Extract the first time-like pattern (e.g. '7:00 PM', '7 PM', '7pm')
+    m = re.search(r'(\d{1,2})(?::(\d{2}))?\s*(AM|PM|am|pm)', time_str)
+    if not m:
+        return 9999
+    hour = int(m.group(1))
+    minute = int(m.group(2)) if m.group(2) else 0
+    period = m.group(3).upper()
+    if period == "PM" and hour != 12:
+        hour += 12
+    elif period == "AM" and hour == 12:
+        hour = 0
+    return hour * 60 + minute
 
 
 def _esc(text: str) -> str:
