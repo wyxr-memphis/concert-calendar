@@ -52,6 +52,32 @@ def generate_html(
     run_time_str = run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT")
     total_events = len(events)
 
+    # Source status summary
+    ok_sources = [sr for sr in source_results if sr.success and len(sr.events) > 0]
+    error_sources = [sr for sr in source_results if not sr.success]
+
+    source_summary = f"{total_events} events from {len(ok_sources)} source{'s' if len(ok_sources) != 1 else ''}"
+    if error_sources:
+        source_summary += f" ({len(error_sources)} had errors)"
+
+    # Build per-source table rows
+    source_rows = ""
+    for sr in source_results:
+        if not sr.success:
+            css_class = "src-error"
+        elif len(sr.events) == 0:
+            css_class = "src-warn"
+        else:
+            css_class = "src-ok"
+        count = str(len(sr.events)) if sr.success else "\u2014"
+        source_rows += (
+            f'<tr class="{css_class}">'
+            f'<td class="src-dot">&#x25CF;</td>'
+            f'<td>{_esc(sr.source_name)}</td>'
+            f'<td class="src-count">{count}</td>'
+            f'</tr>\n'
+        )
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,6 +168,47 @@ def generate_html(
             color: #aaa;
             text-align: center;
         }}
+        .source-summary {{
+            font-size: 1.05em;
+            color: #666;
+            margin-bottom: 8px;
+        }}
+        .source-status {{
+            margin-bottom: 12px;
+            text-align: left;
+        }}
+        .source-status summary {{
+            cursor: pointer;
+            color: #888;
+            font-size: 0.95em;
+        }}
+        .source-status summary:hover {{
+            color: #555;
+        }}
+        .source-table {{
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }}
+        .source-table th {{
+            text-align: left;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-bottom: 1px solid #ddd;
+            color: #888;
+            font-size: 0.85em;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }}
+        .source-table td {{
+            padding: 3px 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }}
+        .src-dot {{ width: 16px; font-size: 0.7em; }}
+        .src-count {{ text-align: right; color: #888; }}
+        .src-ok .src-dot {{ color: #2e7d32; }}
+        .src-warn .src-dot {{ color: #f9a825; }}
+        .src-error .src-dot {{ color: #c62828; }}
         @media (prefers-color-scheme: dark) {{
             body {{ background: #1a1a1a; color: #e0e0e0; }}
             h2 {{ color: #e0e0e0; border-bottom-color: #444; }}
@@ -152,6 +219,14 @@ def generate_html(
             li {{ border-bottom-color: #2a2a2a; }}
             header {{ border-bottom-color: #e0e0e0; }}
             footer {{ border-top-color: #333; color: #555; }}
+            .source-summary {{ color: #888; }}
+            .source-status summary {{ color: #666; }}
+            .source-status summary:hover {{ color: #aaa; }}
+            .source-table th {{ border-bottom-color: #333; color: #666; }}
+            .source-table td {{ border-bottom-color: #2a2a2a; }}
+            .src-ok .src-dot {{ color: #81c784; }}
+            .src-warn .src-dot {{ color: #fdd835; }}
+            .src-error .src-dot {{ color: #ef9a9a; }}
         }}
     </style>
 </head>
@@ -167,6 +242,16 @@ def generate_html(
     </main>
 
     <footer>
+        <div class="source-summary">{source_summary}</div>
+        <details class="source-status">
+            <summary>Source Details</summary>
+            <table class="source-table">
+                <thead><tr><th></th><th>Source</th><th class="src-count">Events</th></tr></thead>
+                <tbody>
+                    {source_rows}
+                </tbody>
+            </table>
+        </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
         <a href="/upload.html" style="color:inherit">Upload Artifact</a>
