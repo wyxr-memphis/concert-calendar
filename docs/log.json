@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-12T18:18:59.251487",
+  "run_timestamp": "2026-02-12T20:25:22.152846",
   "date_range": {
     "start": "2026-02-13",
     "end": "2026-02-19"
   },
-  "total_raw_events": 81,
-  "total_deduped_events": 71,
+  "total_raw_events": 25,
+  "total_deduped_events": 25,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -16,36 +16,36 @@
       "error": "No API key configured (set TICKETMASTER_API_KEY)"
     },
     {
-      "name": "Manual (Google Sheet)",
+      "name": "Manual (local CSV)",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "CSV accessible but no events in date range"
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 68,
-      "events_after_filter": 54,
+      "events_found": 36,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 94,
-      "events_after_filter": 10,
-      "events_filtered": 84,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='hitonecafe.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 5,
-      "events_filtered": 33,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='minglewoodhallmemphis.com', port=443): Max retries exc"
     },
     {
       "name": "Venue: Growlers",
@@ -57,19 +57,19 @@
     },
     {
       "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 5,
-      "events_filtered": 25,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='hernandoshideawaymemphis.com', port=443): Max retries "
     },
     {
       "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
     },
     {
       "name": "Venue: Lafayette's Music Room",
@@ -77,7 +77,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
+      "error": "Request failed: HTTPSConnectionPool(host='www.lafayettes.com', port=443): Max retries exceeded w"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -85,15 +85,15 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://overtonparkshell.org/events"
+      "error": "Request failed: HTTPSConnectionPool(host='www.levittshell.org', port=443): Max retries exceeded "
     },
     {
       "name": "Venue: B.B. King's Blues Club",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: HTTPSConnectionPool(host='www.bbkings.com', port=443): Max retries exceeded with"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -101,23 +101,23 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://www.graceland.com/entertainment"
+      "error": "Request failed: HTTPSConnectionPool(host='www.graceland.com', port=443): Max retries exceeded wi"
     },
     {
       "name": "Venue: FedExForum",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: HTTPSConnectionPool(host='www.fedexforum.com', port=443): Max retries exceeded w"
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 2,
-      "events_filtered": 61,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='www.gpacweb.com', port=443): Max retries exceeded with"
     }
   ],
   "events": [
@@ -129,32 +129,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Robby Test Event",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-13",
-      "time": "10:00 PM",
-      "source": "Manual (Google Sheet)"
-    },
-    {
       "artist": "The Waymores",
       "venue": "B-Side Memphis",
       "date": "2026-02-13",
       "time": "9:00 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Jayxavaire, Bruce Leroy1000, & More",
-      "venue": "Bar DKDC",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
-    },
-    {
-      "artist": "Oemist x DJ Nico",
-      "venue": "Bar DKDC",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Lovers Night Afterparty)"
     },
     {
       "artist": "JONATHAN BLANCHARD",
@@ -171,25 +150,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Lovers Night",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-13",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
       "artist": "Qemist",
       "venue": "Crosstown Arts",
       "date": "2026-02-13",
       "time": "7:30 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Qemist, DJ Nico",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Freddie McClendon",
@@ -220,20 +185,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Shosh, Scotty B, Katie Lopez, & More",
-      "venue": "Havenhaus",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
-    },
-    {
-      "artist": "Freddie McClendon \u2013 The Traditional Curses Tour \u2013 Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-13",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
       "artist": "Gabe Quinn",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-13",
@@ -241,18 +192,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "GIA WELCH",
+      "artist": "Gia Welch",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-13",
-      "time": "6:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "DJ A.D.",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Rewind",
@@ -262,25 +206,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Doll & The Real McCoys",
-      "venue": "Nashoba",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
-    },
-    {
       "artist": "Rickey Smiley",
       "venue": "Orpheum Theatre",
       "date": "2026-02-13",
       "time": "7:30 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Level 3, Moses Crouch",
-      "venue": "People's",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Leah Grams Johnson",
@@ -290,32 +220,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Wayne Alexander, Curtis B Scott, Leah Grams",
-      "venue": "South Main Sounds",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Friday 2.13 event listing)"
-    },
-    {
       "artist": "Robert Allen Parker",
       "venue": "w/ PLAY SOME SKYNYRD",
       "date": "2026-02-13",
       "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Optic Sink + Sonidero Gotico",
-      "venue": "Bar DKDC",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Artifacts (A Dark Valentine's Day Affair)"
-    },
-    {
-      "artist": "Strictly Jazz: The Music of Carmen McRae feat. D&#8217;Monet",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-14",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Bryan Hayes Music",
@@ -332,32 +241,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Clownvis Presley VALENTINE\u2019S SPECIAL",
+      "artist": "Clownvis Presley",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-14",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Gothic Valentine\u2019s Day Market & more [Both Rooms]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Oops All Love Songs [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Vengeance on Valentines [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Boosie Badazz",
@@ -395,20 +283,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Emo Nite \u2013 Valentine\u2019s Day",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Primal Cage Wars",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
       "artist": "Leah Grams Johnson",
       "venue": "Momma's",
       "date": "2026-02-14",
@@ -421,202 +295,6 @@
       "date": "2026-02-14",
       "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Aberrant, Lumen, Tori.Wave, Defcon Engaged, Make",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Amy Lavere and Will Sexton",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Special Sunday Show)"
-    },
-    {
-      "artist": "Julia Magness & T Jarrod Bonta",
-      "venue": "Bog & Barley",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Folk All Y&#8217;all: Lilly Hiatt",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-15",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Lilly Hiatt",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Delta Ondine & Robert Kimbrough Sr.",
-      "venue": "Flyway Brewery",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Hillbilly Mojo",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Korroded, Mormon Mincers, & More",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Motel California, Joe Restivo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Red Mage, Magik Hours",
-      "venue": "Lamplighter",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "THE MOVEMENT \u2013 VISIONS TOUR 2026",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "The Movement, Tropidelic",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "School of Rock",
-      "venue": "Nashoba",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 events listing)"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-16",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-02-17",
-      "time": "10:00\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-17",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-18",
-      "time": "9PM",
-      "source": "Artifacts (Instagram post)"
-    },
-    {
-      "artist": "Service Industry Night",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-18",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-18",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Tab Benoit + Paul Thorn: One Night Only",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-18",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-19",
-      "time": "10PM",
-      "source": "Artifacts (Instagram post)"
-    },
-    {
-      "artist": "Hans Condor",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Artifacts (Nashville - venue event listing)"
-    },
-    {
-      "artist": "Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-19",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Bella Larson & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Rev Down Trio *matinee show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Venue: Hi Tone"
     }
   ]
 }
