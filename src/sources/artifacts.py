@@ -15,6 +15,7 @@ artifacts/
 from typing import Optional, List, Tuple
 import base64
 import email
+import hashlib
 import io
 import json
 import re
@@ -46,8 +47,8 @@ IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 WEBPAGE_EXTENSIONS = {".mhtml", ".html", ".htm"}
 
 
-def fetch() -> SourceResult:
-    """Scan artifacts folder and extract events from all supported file types."""
+def fetch(cache: dict = None) -> SourceResult:
+    """Scan artifacts folder and extract events, using cache for unchanged files."""
     result = SourceResult(source_name=SOURCE_NAME)
 
     if not ARTIFACTS_DIR.exists():
@@ -67,7 +68,31 @@ def fetch() -> SourceResult:
         result.error_message = "No artifacts found"
         return result
 
+    # Load cached hashes and events
+    cached_hashes = (cache or {}).get("artifact_hashes", {})
+    cached_events = (cache or {}).get("artifact_events", {})
+    new_hashes = {}
+    new_artifact_events = {}
+    files_cached = 0
+    files_processed = 0
+
     for file_path in artifact_files:
+        filename = file_path.name
+        current_hash = _file_hash(file_path)
+        new_hashes[filename] = current_hash
+
+        # Check if file is unchanged from cache
+        if cached_hashes.get(filename) == current_hash and filename in cached_events:
+            file_events = _deserialize_events(cached_events[filename])
+            new_artifact_events[filename] = cached_events[filename]
+            result.events_found += len(file_events)
+            for event in file_events:
+                if START_DATE <= event.date <= END_DATE:
+                    result.events.append(event)
+            files_cached += 1
+            continue
+
+        # File is new or changed — process it
         try:
             suffix = file_path.suffix.lower()
             if suffix in WEBPAGE_EXTENSIONS:
@@ -76,14 +101,25 @@ def fetch() -> SourceResult:
                 events = _extract_events_from_image(file_path)
 
             result.events_found += len(events)
+            new_artifact_events[filename] = _serialize_events(events)
 
             for event in events:
                 if START_DATE <= event.date <= END_DATE:
                     result.events.append(event)
 
+            files_processed += 1
+
         except Exception as e:
             print(f"  Error processing {file_path.name}: {str(e)[:80]}")
             continue
+
+    # Update cache in place (caller saves it)
+    if cache is not None:
+        cache["artifact_hashes"] = new_hashes
+        cache["artifact_events"] = new_artifact_events
+
+    if files_cached > 0:
+        print(f"  ({files_cached} cached, {files_processed} processed)", end=" ")
 
     return result
 
@@ -496,3 +532,50 @@ def _get_media_type(suffix: str) -> str:
         ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
         ".png": "image/png", ".gif": "image/gif", ".webp": "image/webp",
     }.get(suffix.lower(), "image/jpeg")
+
+
+# ---------------------------------------------------------------------------
+# Cache helpers
+# ---------------------------------------------------------------------------
+
+def _file_hash(file_path: Path) -> str:
+    """Compute SHA-256 hash of a file's contents."""
+    h = hashlib.sha256()
+    with open(file_path, "rb") as f:
+        for chunk in iter(lambda: f.read(8192), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def _serialize_events(events: List[Event]) -> list:
+    """Serialize Event objects to dicts for JSON cache storage."""
+    return [
+        {
+            "artist": e.artist,
+            "venue": e.venue,
+            "date": e.date.isoformat(),
+            "time": e.time,
+            "source": e.source,
+            "url": e.url,
+        }
+        for e in events
+    ]
+
+
+def _deserialize_events(data: list) -> List[Event]:
+    """Deserialize cached event dicts back into Event objects."""
+    from datetime import date as date_type
+    events = []
+    for e in data:
+        try:
+            events.append(Event(
+                artist=e["artist"],
+                venue=e["venue"],
+                date=date_type.fromisoformat(e["date"]),
+                time=e.get("time"),
+                source=e.get("source", SOURCE_NAME),
+                url=e.get("url"),
+            ))
+        except (KeyError, ValueError):
+            continue
+    return events

@@ -12,7 +12,7 @@ Usage:
 import sys
 import json
 from collections import defaultdict
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import List
 
@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.models import Event, SourceResult
 from src.normalize import deduplicate
 from src.generate_html import generate_html
-from src.config import START_DATE, END_DATE
+from src.config import START_DATE, END_DATE, VENUES
 
 from src.sources import (
     ticketmaster,
@@ -35,7 +35,101 @@ from src.sources import (
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_PATH = DOCS_DIR / "index.html"
 LOG_PATH = DOCS_DIR / "log.json"
+CACHE_PATH = DOCS_DIR / "source_cache.json"
 
+# Sources that should always be fetched fresh (never cached)
+ALWAYS_FRESH = {"Manual (Google Sheet)", "Manual (local CSV)"}
+
+
+# ---------------------------------------------------------------------------
+# Cache helpers
+# ---------------------------------------------------------------------------
+
+def _load_cache() -> dict:
+    """Load the source cache file. Returns empty structure on any error."""
+    try:
+        if CACHE_PATH.exists():
+            with open(CACHE_PATH, "r") as f:
+                data = json.load(f)
+            if isinstance(data, dict) and "sources" in data:
+                return data
+    except (json.JSONDecodeError, KeyError, TypeError, OSError) as e:
+        print(f"  Warning: Cache file corrupt or unreadable ({e}), starting fresh")
+    return {"cache_date": None, "sources": {}, "artifact_hashes": {}, "artifact_events": {}}
+
+
+def _save_cache(cache: dict) -> None:
+    """Write source cache to docs/source_cache.json."""
+    cache["cache_date"] = date.today().isoformat()
+    with open(CACHE_PATH, "w", encoding="utf-8") as f:
+        json.dump(cache, f, indent=2)
+    print(f"  Wrote {CACHE_PATH}")
+
+
+def _is_cached_today(cache: dict, source_name: str) -> bool:
+    """Check if source was successfully fetched today."""
+    entry = cache.get("sources", {}).get(source_name)
+    if not entry:
+        return False
+    if not entry.get("success", False):
+        return False
+    return entry.get("fetched_date") == date.today().isoformat()
+
+
+def _events_from_cache(cache: dict, source_name: str) -> SourceResult:
+    """Reconstruct a SourceResult from cached data."""
+    entry = cache["sources"][source_name]
+    events = []
+    for e in entry.get("events", []):
+        try:
+            event_date = date.fromisoformat(e["date"])
+            # Re-filter against current date range
+            if not (START_DATE <= event_date <= END_DATE):
+                continue
+            events.append(Event(
+                artist=e["artist"],
+                venue=e["venue"],
+                date=event_date,
+                time=e.get("time"),
+                source=e.get("source", source_name),
+                url=e.get("url"),
+            ))
+        except (KeyError, ValueError):
+            continue
+    return SourceResult(
+        source_name=source_name,
+        events=events,
+        success=True,
+        events_found=entry.get("events_found", len(events)),
+        events_filtered=entry.get("events_filtered", 0),
+    )
+
+
+def _cache_source_result(cache: dict, source_name: str, result: SourceResult) -> None:
+    """Store a source result in the cache dict (in memory, not written to disk yet)."""
+    cache["sources"][source_name] = {
+        "fetched_date": date.today().isoformat(),
+        "success": result.success,
+        "events_found": result.events_found,
+        "events_filtered": result.events_filtered,
+        "error_message": result.error_message,
+        "events": [
+            {
+                "artist": e.artist,
+                "venue": e.venue,
+                "date": e.date.isoformat(),
+                "time": e.time,
+                "source": e.source,
+                "url": e.url,
+            }
+            for e in result.events
+        ],
+    }
+
+
+# ---------------------------------------------------------------------------
+# Main execution
+# ---------------------------------------------------------------------------
 
 def run(dry_run: bool = False) -> None:
     """Main execution: fetch → deduplicate → generate → save."""
@@ -45,40 +139,83 @@ def run(dry_run: bool = False) -> None:
     print(f"Date range: {START_DATE} to {END_DATE}")
     print(f"{'='*60}\n")
 
+    # ---- Load cache ----
+    cache = _load_cache()
+
     # ---- STEP 1: Fetch from all sources ----
     all_source_results: List[SourceResult] = []
     all_events: List[Event] = []
 
-    sources = [
-        ("Ticketmaster", ticketmaster.fetch),
-        ("Google Sheet", google_sheet.fetch),
-        ("Artifacts", artifacts.fetch),
-    ]
-
-    for source_name, fetch_fn in sources:
-        print(f"  Fetching: {source_name}...", end=" ", flush=True)
+    # Ticketmaster — cacheable
+    print(f"  Fetching: Ticketmaster...", end=" ", flush=True)
+    if _is_cached_today(cache, "Ticketmaster"):
+        result = _events_from_cache(cache, "Ticketmaster")
+        print(f"(cached) {result.status_line}")
+    else:
         try:
-            result = fetch_fn()
-            all_source_results.append(result)
-            all_events.extend(result.events)
+            result = ticketmaster.fetch()
+            _cache_source_result(cache, result.source_name, result)
             print(result.status_line)
         except Exception as e:
-            error_result = SourceResult(
-                source_name=source_name,
+            result = SourceResult(
+                source_name="Ticketmaster",
                 success=False,
                 error_message=f"Unhandled exception: {str(e)[:100]}",
             )
-            all_source_results.append(error_result)
-            print(error_result.status_line)
+            print(result.status_line)
+    all_source_results.append(result)
+    all_events.extend(result.events)
 
-    # Venue scrapers — run individually for better logging
+    # Google Sheet — always fresh
+    print(f"  Fetching: Google Sheet...", end=" ", flush=True)
+    try:
+        result = google_sheet.fetch()
+        print(result.status_line)
+    except Exception as e:
+        result = SourceResult(
+            source_name="Google Sheet",
+            success=False,
+            error_message=f"Unhandled exception: {str(e)[:100]}",
+        )
+        print(result.status_line)
+    all_source_results.append(result)
+    all_events.extend(result.events)
+
+    # Artifacts — hash-based caching (per file)
+    print(f"  Fetching: Artifacts...", end=" ", flush=True)
+    try:
+        result = artifacts.fetch(cache)
+        print(result.status_line)
+    except Exception as e:
+        result = SourceResult(
+            source_name="Artifacts (Vision-Extracted)",
+            success=False,
+            error_message=f"Unhandled exception: {str(e)[:100]}",
+        )
+        print(result.status_line)
+    all_source_results.append(result)
+    all_events.extend(result.events)
+
+    # Venue scrapers — cached per venue
     print(f"\n  Fetching: Venue Websites...")
     try:
-        venue_results = venue_scrapers.fetch_individual()
-        for vr in venue_results:
+        for venue_key, venue_info in VENUES.items():
+            url = venue_info.get("calendar_url")
+            scraper_type = venue_info.get("scraper", "generic")
+            if not url or scraper_type == "manual_only":
+                continue
+
+            source_key = f"Venue: {venue_info['name']}"
+
+            if _is_cached_today(cache, source_key):
+                vr = _events_from_cache(cache, source_key)
+                print(f"    (cached) {vr.status_line}")
+            else:
+                vr = venue_scrapers.scrape_venue(venue_key, venue_info)
+                _cache_source_result(cache, source_key, vr)
+                print(f"    {vr.status_line}")
             all_source_results.append(vr)
             all_events.extend(vr.events)
-            print(f"    {vr.status_line}")
     except Exception as e:
         error_result = SourceResult(
             source_name="Venue Websites",
@@ -108,7 +245,7 @@ def run(dry_run: bool = False) -> None:
 
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"\n  ✅ Wrote {INDEX_PATH}")
+    print(f"\n  Wrote {INDEX_PATH}")
 
     # Write log
     log_data = {
@@ -141,13 +278,16 @@ def run(dry_run: bool = False) -> None:
 
     with open(LOG_PATH, "w", encoding="utf-8") as f:
         json.dump(log_data, f, indent=2)
-    print(f"  ✅ Wrote {LOG_PATH}")
+    print(f"  Wrote {LOG_PATH}")
 
     # Write build timestamp for upload page footer
     build_time_path = DOCS_DIR / "build_time.txt"
     with open(build_time_path, "w", encoding="utf-8") as f:
         f.write(run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT"))
-    print(f"  ✅ Wrote {build_time_path}")
+    print(f"  Wrote {build_time_path}")
+
+    # Save source cache
+    _save_cache(cache)
 
     # Summary
     _print_summary(deduped)
@@ -155,7 +295,7 @@ def run(dry_run: bool = False) -> None:
     # ---- STEP 5: Check for failures ----
     failures = [sr for sr in all_source_results if not sr.success]
     if failures:
-        print(f"\n  ⚠️  {len(failures)} source(s) had errors — check log.json for details")
+        print(f"\n  {len(failures)} source(s) had errors — check log.json for details")
         for f in failures:
             print(f"     - {f.source_name}: {f.error_message}")
 

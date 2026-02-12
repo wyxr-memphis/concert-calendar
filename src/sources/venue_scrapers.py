@@ -36,7 +36,7 @@ def fetch() -> SourceResult:
         if not url or scraper_type == "manual_only":
             continue
 
-        venue_result = _scrape_venue(venue_key, venue_info)
+        venue_result = scrape_venue(venue_key, venue_info)
         sub_results.append(venue_result)
 
         result.events_found += venue_result.events_found
@@ -68,13 +68,13 @@ def fetch_individual() -> List[SourceResult]:
         if not url or scraper_type == "manual_only":
             continue
 
-        venue_result = _scrape_venue(venue_key, venue_info)
+        venue_result = scrape_venue(venue_key, venue_info)
         results.append(venue_result)
 
     return results
 
 
-def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
+def scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     """Scrape a single venue's calendar page."""
     name = venue_info["name"]
     url = venue_info["calendar_url"]

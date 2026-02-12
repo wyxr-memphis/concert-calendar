@@ -1,0 +1,393 @@
+{
+  "cache_date": "2026-02-12",
+  "sources": {
+    "Ticketmaster": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "No API key configured (set TICKETMASTER_API_KEY)",
+      "events": []
+    },
+    "Venue: Minglewood Hall": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='minglewoodhallmemphis.com', port=443): Max retries exc",
+      "events": []
+    },
+    "Venue: Growlers": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.growlersmemphis.com', port=443): Max retries excee",
+      "events": []
+    },
+    "Venue: Hernando's Hideaway": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='hernandoshideawaymemphis.com', port=443): Max retries ",
+      "events": []
+    },
+    "Venue: Crosstown Arts": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi",
+      "events": []
+    },
+    "Venue: Lafayette's Music Room": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.lafayettes.com', port=443): Max retries exceeded w",
+      "events": []
+    },
+    "Venue: Overton Park Shell": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.levittshell.org', port=443): Max retries exceeded ",
+      "events": []
+    },
+    "Venue: B.B. King's Blues Club": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.bbkings.com', port=443): Max retries exceeded with",
+      "events": []
+    },
+    "Venue: Graceland Soundstage": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.graceland.com', port=443): Max retries exceeded wi",
+      "events": []
+    },
+    "Venue: FedExForum": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.fedexforum.com', port=443): Max retries exceeded w",
+      "events": []
+    },
+    "Venue: Germantown Performing Arts Center": {
+      "fetched_date": "2026-02-12",
+      "success": false,
+      "events_found": 0,
+      "events_filtered": 0,
+      "error_message": "Request failed: HTTPSConnectionPool(host='www.gpacweb.com', port=443): Max retries exceeded with",
+      "events": []
+    }
+  },
+  "artifact_hashes": {
+    "bandsintown-memphis.mhtml": "093295d0d2a304890f05567c4bd862d3e874e6787e05235c15c119437499bf57",
+    "bar-dkdc.png": "cf8e5c4c1003aad042eb1dd45f7105904f97b23af423d08687fc2fc60ef46ec4",
+    "bside.png": "4c7cb377a403a35ee46a08009292ab3690bfd65ebffa1684efc70ccf7a09670e",
+    "unnamed-1.jpg": "a389d3d18ea9b7ea0f6c3c7a915bacd01c16d450e5184c78ce2e405d5af58b09",
+    "unnamed-2.jpg": "8eb6be78367a4121a31fbe6ed0d5b8edfa46f9ad287aa18badcfca59294ba46e",
+    "unnamed.jpg": "3f2fa9cfc2c0b753c68f3eed0204c7ed6a335f5cab0fa40b166a84caf6bfbdd5"
+  },
+  "artifact_events": {
+    "bandsintown-memphis.mhtml": [
+      {
+        "artist": "Rodd Bland",
+        "venue": "Soul Street LIVE at Rum Boogie Cafe",
+        "date": "2026-02-11",
+        "time": "6:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107930088-rodd-bland-at-rum-boogie-cafe"
+      },
+      {
+        "artist": "Chris Gales",
+        "venue": "Chris Gales - The Central BBQ Midtown Sessions",
+        "date": "2026-02-11",
+        "time": "6:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107608938-chris-gales-at-central-bbq-midtown"
+      },
+      {
+        "artist": "Ghost Town Blues Band",
+        "venue": "Hadley's Pub",
+        "date": "2026-02-11",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107823293-ghost-town-blues-band-at-hadley's-pub"
+      },
+      {
+        "artist": "John Paul Keith",
+        "venue": "Guest House Graceland Lobby Lounge",
+        "date": "2026-02-11",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107748054-john-paul-keith-at-guest-house-graceland-lobby-lounge"
+      },
+      {
+        "artist": "Leah Grams Johnson",
+        "venue": "Flyway Brewing Company",
+        "date": "2026-02-12",
+        "time": "5:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107812518-leah-grams-johnson-at-flyway-brewing-company"
+      },
+      {
+        "artist": "Rodd Bland",
+        "venue": "B.B. King's Blues Club",
+        "date": "2026-02-12",
+        "time": "5:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107930102-rodd-bland-at-b.b.-king's-blues-club"
+      },
+      {
+        "artist": "Chris Gales",
+        "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
+        "date": "2026-02-12",
+        "time": "6:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107604206-chris-gales-at-ember-and-oak-prime"
+      },
+      {
+        "artist": "John Paul Keith",
+        "venue": "Guest House Graceland Lobby Lounge",
+        "date": "2026-02-12",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107748044-john-paul-keith-at-guest-house-graceland-lobby-lounge"
+      },
+      {
+        "artist": "Ghost Town Blues Band",
+        "venue": "Blues City Cafe",
+        "date": "2026-02-12",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107908152-ghost-town-blues-band-at-blues-city-cafe"
+      },
+      {
+        "artist": "John Mulaney",
+        "venue": "Graceland Soundstage",
+        "date": "2026-02-12",
+        "time": "7:30 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107577112-john-mulaney-at-graceland-soundstage"
+      },
+      {
+        "artist": "Dale Watson",
+        "venue": "Hernando's Hideaway",
+        "date": "2026-02-12",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037970200-dale-watson-at-hernando's-hide-a-way"
+      },
+      {
+        "artist": "JONATHAN BLANCHARD",
+        "venue": "BMG IN THE SCHOOLS - OUTREACH",
+        "date": "2026-02-13",
+        "time": "12:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107195185-jonathan-blanchard-at-memphis-rise-academy"
+      },
+      {
+        "artist": "Gia Welch",
+        "venue": "Hernando's Hideaway",
+        "date": "2026-02-13",
+        "time": "6:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107619574-gia-welch-at-hernando's-hideaway"
+      },
+      {
+        "artist": "Leah Grams Johnson",
+        "venue": "South Main Sounds",
+        "date": "2026-02-13",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107812557-leah-grams-johnson-at-south-main-sounds"
+      },
+      {
+        "artist": "Gabe Quinn",
+        "venue": "Hernando's Hideaway",
+        "date": "2026-02-13",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107778853-gabe-quinn-at-hernando's-hideaway"
+      },
+      {
+        "artist": "DJ Nico",
+        "venue": "Crosstown Arts",
+        "date": "2026-02-13",
+        "time": "7:30 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037439977-dj-nico-at-the-green-room-@-crosstown-arts"
+      },
+      {
+        "artist": "Qemist",
+        "venue": "Crosstown Arts",
+        "date": "2026-02-13",
+        "time": "7:30 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037439945-qemist-at-the-green-room-@-crosstown-arts"
+      },
+      {
+        "artist": "Rickey Smiley",
+        "venue": "Orpheum Theatre",
+        "date": "2026-02-13",
+        "time": "7:30 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1036589926-rickey-smiley-at-orpheum-theatre"
+      },
+      {
+        "artist": "Freddie McClendon",
+        "venue": "Freddie McClendon: The Traditional Curses Tour",
+        "date": "2026-02-13",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107748426-freddie-mcclendon-at-hernando's-hideaway"
+      },
+      {
+        "artist": "Robert Allen Parker",
+        "venue": "w/ PLAY SOME SKYNYRD",
+        "date": "2026-02-13",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107530754-robert-allen-parker-at-neil's-grille-and-bar"
+      },
+      {
+        "artist": "Rumours ATL: A Fleetwood Mac Tribute",
+        "venue": "Gold Strike Theatre",
+        "date": "2026-02-13",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107388625-rumours-atl:-a-fleetwood-mac-tribute-at-gold-strike-theatre"
+      },
+      {
+        "artist": "Yonder Mountain String Band",
+        "venue": "Germantown Performing Arts Center",
+        "date": "2026-02-13",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1035523249-yonder-mountain-string-band-at-germantown-performing-arts-center"
+      },
+      {
+        "artist": "Razorgain",
+        "venue": "Growlers",
+        "date": "2026-02-13",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037549937-razorgain-at-growlers"
+      },
+      {
+        "artist": "Gia Welch",
+        "venue": "B-Side Memphis",
+        "date": "2026-02-13",
+        "time": "9:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107884920-gia-welch-at-b-side-memphis"
+      },
+      {
+        "artist": "Rewind",
+        "venue": "Minglewood Hall",
+        "date": "2026-02-13",
+        "time": "9:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037302287-rewind-at-minglewood-hall"
+      },
+      {
+        "artist": "The Waymores",
+        "venue": "B-Side Memphis",
+        "date": "2026-02-13",
+        "time": "9:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107762154-the-waymores-at-b-side-bar"
+      },
+      {
+        "artist": "Leah Grams Johnson",
+        "venue": "Momma's",
+        "date": "2026-02-14",
+        "time": "12:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107812572-leah-grams-johnson-at-momma's"
+      },
+      {
+        "artist": "Gia Welch",
+        "venue": "Gia Welch/ JD Westmoreland Live at Owen Brennan's",
+        "date": "2026-02-14",
+        "time": "5:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107884925-gia-welch-at-owen-brennan's-restaurant"
+      },
+      {
+        "artist": "Bryan Hayes Music",
+        "venue": "Farmhouse Studio Night @ South Main Sounds featuring Bryan Hayes, Gerry Finney, & More!",
+        "date": "2026-02-14",
+        "time": "7:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107540712-bryan-hayes-music-at-south-main-sounds"
+      },
+      {
+        "artist": "Robert Allen Parker",
+        "venue": "w/ PLAY SOME SKYNYRD",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/107623900-robert-allen-parker-at-flying-saucer-draught-emporium"
+      },
+      {
+        "artist": "Ying Yang Twins",
+        "venue": "Landers Center",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037463019-ying-yang-twins-at-landers-center"
+      },
+      {
+        "artist": "Clownvis Presley",
+        "venue": "Hernando's Hideaway",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037765974-clownvis-presley-at-hernando's-hide-a-way"
+      },
+      {
+        "artist": "Boosie Badazz",
+        "venue": "Landers Center",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037844170-boosie-badazz-at-landers-center"
+      },
+      {
+        "artist": "DAY26",
+        "venue": "Landers Center",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037463187-day26-at-landers-center"
+      },
+      {
+        "artist": "Plies",
+        "venue": "Landers Center",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037462829-plies-at-landers-center"
+      },
+      {
+        "artist": "K. Michelle",
+        "venue": "Landers Center",
+        "date": "2026-02-14",
+        "time": "8:00 PM",
+        "source": "Artifacts (Bandsintown page)",
+        "url": "https://www.bandsintown.com/e/1037462750-k.-michelle-at-landers-center"
+      }
+    ]
+  }
+}
