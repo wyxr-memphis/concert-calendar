@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-12T20:47:41.181723",
+  "run_timestamp": "2026-02-12T21:43:10.092764",
   "date_range": {
     "start": "2026-02-13",
     "end": "2026-02-19"
   },
-  "total_raw_events": 80,
-  "total_deduped_events": 71,
+  "total_raw_events": 49,
+  "total_deduped_events": 47,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,8 +26,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 54,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
       "error": null
     },
@@ -77,7 +77,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -122,18 +122,11 @@
   ],
   "events": [
     {
-      "artist": "Gia Welch",
+      "artist": "The Waymores, Gia Welch",
       "venue": "B-Side Memphis",
       "date": "2026-02-13",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "The Waymores",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-13",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": null,
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Jayxavaire, Bruce Leroy1000, & More",
@@ -143,39 +136,11 @@
       "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
-      "artist": "Oemist x DJ Nico: Lovers Night Afterparty",
-      "venue": "Bar DKDC",
-      "date": "2026-02-13",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "JONATHAN BLANCHARD",
-      "venue": "BMG IN THE SCHOOLS - OUTREACH",
-      "date": "2026-02-13",
-      "time": "12:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "DJ Nico",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-13",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Lovers Night",
       "venue": "Crosstown Arts",
       "date": "2026-02-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Qemist",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-13",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Qemist, DJ Nico",
@@ -185,32 +150,18 @@
       "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
-      "artist": "Freddie McClendon",
-      "venue": "Freddie McClendon: The Traditional Curses Tour",
-      "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Yonder Mountain String Band",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": "8:00\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
     },
     {
-      "artist": "Rumours ATL: A Fleetwood Mac Tribute",
-      "venue": "Gold Strike Theatre",
-      "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Razorgain",
+      "artist": "Collective Dust, Milky White, Razorgain, Renob",
       "venue": "Growlers",
       "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": null,
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "Shosh, Scotty B, Katie Lopez, & More",
@@ -227,11 +178,11 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Gabe Quinn",
+      "artist": "Freddie McClendon, Gabe Quinn",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-13",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": null,
+      "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
       "artist": "GIA WELCH",
@@ -248,11 +199,11 @@
       "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
-      "artist": "Rewind",
+      "artist": "Rewind: The Ultimate 2000s Rave",
       "venue": "Minglewood Hall",
       "date": "2026-02-13",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": null,
+      "source": "Venue: Minglewood Hall"
     },
     {
       "artist": "Doll & The Real McCoys",
@@ -262,25 +213,11 @@
       "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
-      "artist": "Rickey Smiley",
-      "venue": "Orpheum Theatre",
-      "date": "2026-02-13",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Level 3, Moses Crouch",
       "venue": "People's",
       "date": "2026-02-13",
       "time": null,
       "source": "Artifacts (Friday 2.13 event listing)"
-    },
-    {
-      "artist": "Leah Grams Johnson",
-      "venue": "South Main Sounds",
-      "date": "2026-02-13",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Wayne Alexander, Curtis B Scott, Leah Grams",
@@ -290,39 +227,11 @@
       "source": "Artifacts (Friday 2.13 event listing)"
     },
     {
-      "artist": "Robert Allen Parker",
-      "venue": "w/ PLAY SOME SKYNYRD",
-      "date": "2026-02-13",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Optic Sink + Sonidero Gotico - A Dark Valentine's Day Affair",
-      "venue": "Bar DKDC",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
       "artist": "Strictly Jazz: The Music of Carmen McRae feat. D&#8217;Monet",
       "venue": "Crosstown Arts",
       "date": "2026-02-14",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Bryan Hayes Music",
-      "venue": "Farmhouse Studio Night @ South Main Sounds featuring Bryan Hayes, Gerry Finney, & More!",
-      "date": "2026-02-14",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Gia Welch",
-      "venue": "Gia Welch/ JD Westmoreland Live at Owen Brennan's",
-      "date": "2026-02-14",
-      "time": "5:00 PM",
-      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Clownvis Presley VALENTINE\u2019S SPECIAL",
@@ -353,41 +262,6 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Boosie Badazz",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "DAY26",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "K. Michelle",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Plies",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Ying Yang Twins",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Emo Nite \u2013 Valentine\u2019s Day",
       "venue": "Minglewood Hall",
       "date": "2026-02-14",
@@ -402,46 +276,25 @@
       "source": "Venue: Minglewood Hall"
     },
     {
-      "artist": "Leah Grams Johnson",
-      "venue": "Momma's",
-      "date": "2026-02-14",
-      "time": "12:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Robert Allen Parker",
-      "venue": "w/ PLAY SOME SKYNYRD",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Aberrant, Lumen, Tori.Wave, Defcon Engaged, Make",
       "venue": "B-Side Memphis",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Amy LaVere & Will Sexton",
       "venue": "Bar DKDC",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
-    },
-    {
-      "artist": "Amy Lavere and Will Sexton Special Sunday Show",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Event listing)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Julia Magness & T Jarrod Bonta",
       "venue": "Bog & Barley",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Folk All Y&#8217;all: Lilly Hiatt",
@@ -455,14 +308,14 @@
       "venue": "Crosstown Green Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Delta Ondine & Robert Kimbrough Sr.",
       "venue": "Flyway Brewery",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
@@ -476,7 +329,7 @@
       "venue": "Hernando's Hideaway",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
@@ -490,7 +343,7 @@
       "venue": "Hi Tone",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
@@ -504,14 +357,14 @@
       "venue": "Lafayette's Music Room",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Red Mage, Magik Hours",
       "venue": "Lamplighter",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "THE MOVEMENT \u2013 VISIONS TOUR 2026",
@@ -525,14 +378,14 @@
       "venue": "Minglewood Hall",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "School of Rock",
       "venue": "Nashoba",
       "date": "2026-02-15",
       "time": null,
-      "source": "Artifacts (Event listing poster)"
+      "source": "Artifacts (Sunday 2.15 listing)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -556,13 +409,6 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "ALEXIS JADE & THE GEMSTONES / RED MACADAM / ALMA RUSS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-18",
-      "time": "9PM",
-      "source": "Artifacts (Instagram post)"
-    },
-    {
       "artist": "Service Industry Night",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-18",
@@ -582,20 +428,6 @@
       "date": "2026-02-18",
       "time": null,
       "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-19",
-      "time": "10PM",
-      "source": "Artifacts (Instagram post)"
-    },
-    {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
