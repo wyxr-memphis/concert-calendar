@@ -37,6 +37,18 @@
         }
         .back-link:hover { text-decoration: underline; }
 
+        .sheet-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.85em;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .sheet-link:hover { text-decoration: underline; }
+        .sheet-link-row {
+            display: none;
+        }
+
         .form-group {
             margin-bottom: 20px;
         }
@@ -158,6 +170,7 @@
             header { border-bottom-color: #e0e0e0; }
             .subtitle { color: #888; }
             .back-link { color: #888; }
+            .sheet-link { color: #8ab4f8; }
             input[type="password"] {
                 background: #2a2a2a;
                 border-color: #444;
@@ -189,6 +202,9 @@
         <h1>UPLOAD ARTIFACT</h1>
         <div class="subtitle">Upload images or web pages for event extraction</div>
         <a href="/" class="back-link">&larr; Back to calendar</a>
+        <div class="sheet-link-row" id="sheetLinkRow">
+            <a class="sheet-link" id="sheetLink" href="#" target="_blank" rel="noopener">Open Google Sheet &rarr;</a>
+        </div>
     </header>
 
     <main>
@@ -353,6 +369,17 @@
         fetch('/build_time.txt')
             .then(r => r.ok ? r.text() : '')
             .then(t => { if (t) document.getElementById('buildTime').textContent = 'Last built ' + t.trim(); });
+
+        // Load Google Sheet link
+        fetch('/api/sheet_url')
+            .then(r => r.ok ? r.json() : null)
+            .then(data => {
+                if (data && data.url) {
+                    document.getElementById('sheetLink').href = data.url;
+                    document.getElementById('sheetLinkRow').style.display = 'block';
+                }
+            })
+            .catch(() => {});
     </script>
 </body>
 </html>
