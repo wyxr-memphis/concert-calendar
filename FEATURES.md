@@ -4,6 +4,23 @@ Planning doc for upcoming features. Each section covers the what, why, and rough
 
 ---
 
+## Pending Fixes & New Sources
+
+### New Source to Add
+- **Nashoba Live** — https://nashoba.live/event-calendar/ (venue in Memphis area)
+
+### Scrapers to Fix
+- **Ticketmaster API** — needs debugging/fixes
+- **Growlers scraper** — currently timing out or failing
+- **Lafayette's scraper** — returning errors
+
+### Venues to Research
+- **Lamplighter Lounge** — need to determine scraping approach (website calendar vs. manual source)
+- **DKDC** — currently marked as manual_only (Instagram), explore alternatives
+- **B-Side** — currently marked as manual_only (socials), explore alternatives
+
+---
+
 ## 1. Edit / Delete Events
 
 **Problem:** Once events are imported (from scrapers, artifacts, Bandsintown, etc.), there's no way to correct bad data — misspelled artist names, wrong venues, duplicate entries that slipped through dedup, or events that got cancelled. The only options today are waiting for the next daily rebuild or manually editing `docs/log.json`.
