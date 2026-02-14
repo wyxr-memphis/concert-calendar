@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-13T06:02:32.106686",
+  "run_timestamp": "2026-02-14T05:49:40.001852",
   "date_range": {
-    "start": "2026-02-14",
-    "end": "2026-02-20"
+    "start": "2026-02-15",
+    "end": "2026-02-21"
   },
-  "total_raw_events": 38,
-  "total_deduped_events": 38,
+  "total_raw_events": 27,
+  "total_deduped_events": 27,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,16 +26,16 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 11,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 13,
+      "events_found": 93,
+      "events_after_filter": 12,
       "events_filtered": 81,
       "error": null
     },
@@ -43,8 +43,8 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 38,
-      "events_after_filter": 5,
-      "events_filtered": 33,
+      "events_after_filter": 4,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -115,102 +115,18 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 63,
-      "events_after_filter": 1,
-      "events_filtered": 62,
+      "events_after_filter": 3,
+      "events_filtered": 60,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Strictly Jazz: The Music of Carmen McRae feat. D&#8217;Monet",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-14",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Clownvis Presley VALENTINE\u2019S SPECIAL",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-14",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Gothic Valentine\u2019s Day Market & more [Both Rooms]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Oops All Love Songs [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Vengeance on Valentines [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Emo Nite \u2013 Valentine\u2019s Day",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Primal Cage Wars",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Aberrant, Lumen, Tori.Wave, Defcon Engaged, Make",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
-      "artist": "Amy LaVere & Will Sexton",
-      "venue": "Bar DKDC",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
-      "artist": "Julia Magness & T Jarrod Bonta",
-      "venue": "Bog & Barley",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
     {
       "artist": "Folk All Y&#8217;all: Lilly Hiatt",
       "venue": "Crosstown Arts",
       "date": "2026-02-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Lilly Hiatt",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
-      "artist": "Delta Ondine & Robert Kimbrough Sr.",
-      "venue": "Flyway Brewery",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
@@ -220,25 +136,11 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Hillbilly Mojo",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-02-15",
       "time": null,
       "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Korroded, Mormon Mincers, & More",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
     },
     {
       "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
@@ -248,39 +150,11 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Motel California, Joe Restivo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
-      "artist": "Red Mage, Magik Hours",
-      "venue": "Lamplighter",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
       "artist": "THE MOVEMENT \u2013 VISIONS TOUR 2026",
       "venue": "Minglewood Hall",
       "date": "2026-02-15",
       "time": null,
       "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "The Movement, Tropidelic",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
-    },
-    {
-      "artist": "School of Rock",
-      "venue": "Nashoba",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Artifacts (Sunday 2.15 event listing)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -384,6 +258,55 @@
       "artist": "Don Trip \u2013 Live in Memphis",
       "venue": "Minglewood Hall",
       "date": "2026-02-20",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Eunbi Kim and Iris Musicians",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-21",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Kandace Springs",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-02-21",
+      "time": "8:00\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Peanut Butter & Jam: Rachel Rodriguez",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-02-21",
+      "time": "10:30\u202fAM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Tennessee Screamers",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-21",
+      "time": "7:30PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Blue Suede Sisters Present: [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-21",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Next Top Comic [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-21",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Trevor Wallace: The Alpha Beta Male",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
       "time": null,
       "source": "Venue: Minglewood Hall"
     }
