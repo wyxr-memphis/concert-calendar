@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-14T05:49:40.001852",
+  "run_timestamp": "2026-02-14T18:34:21.850771",
   "date_range": {
     "start": "2026-02-15",
     "end": "2026-02-21"
   },
-  "total_raw_events": 27,
-  "total_deduped_events": 27,
+  "total_raw_events": 47,
+  "total_deduped_events": 44,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,25 +26,25 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 36,
+      "events_after_filter": 19,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 93,
-      "events_after_filter": 12,
+      "events_found": 94,
+      "events_after_filter": 13,
       "events_filtered": 81,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 38,
+      "events_found": 37,
       "events_after_filter": 4,
-      "events_filtered": 34,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -122,11 +122,46 @@
   ],
   "events": [
     {
+      "artist": "Amy LaVere",
+      "venue": "Amy LaVere and Will Sexton",
+      "date": "2026-02-15",
+      "time": "3:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Bobby Bowen Family",
+      "venue": "Bobby Bowen Family Concert (Memphis Tennessee)",
+      "date": "2026-02-15",
+      "time": "2:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "The Perrys",
+      "venue": "Brookside Baptist Church",
+      "date": "2026-02-15",
+      "time": "10:15 AM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "The Mark Trammell Quartet",
+      "venue": "Carey Chapel Baptist Church",
+      "date": "2026-02-15",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Folk All Y&#8217;all: Lilly Hiatt",
       "venue": "Crosstown Arts",
       "date": "2026-02-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-15",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
@@ -150,11 +185,46 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "THE MOVEMENT \u2013 VISIONS TOUR 2026",
+      "artist": "RED\u30fbMAGE",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-02-15",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "The Movement",
       "venue": "Minglewood Hall",
       "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Tropidelic",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-15",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Chinese Connection Dub Embassy",
+      "venue": "The Movement w/ Tropidelic and CCDE",
+      "date": "2026-02-15",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Big Al and the Heavyweights",
+      "venue": "The Orleans in the Ville",
+      "date": "2026-02-15",
+      "time": "3:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Robert Allen Parker",
+      "venue": "w/ MOTEL CALIFORNIA",
+      "date": "2026-02-15",
+      "time": "5:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -164,6 +234,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Rodd Bland",
+      "venue": "Brimstone Jones LIVE at Blues City Cafe",
+      "date": "2026-02-17",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Adult Tap Class",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-02-17",
@@ -171,11 +248,32 @@
       "source": "Venue: Germantown Performing Arts Center"
     },
     {
+      "artist": "Mardi Gras Mayhem [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-17",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-02-17",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Aybil",
+      "venue": "Writers in the Round",
+      "date": "2026-02-17",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-18",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Service Industry Night",
@@ -192,11 +290,32 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Tab Benoit + Paul Thorn: One Night Only",
+      "artist": "Paul Thorn",
       "venue": "Minglewood Hall",
       "date": "2026-02-18",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Red McAdam",
+      "venue": "Red McAdam, Alexis Jade, Alma Russ",
+      "date": "2026-02-18",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Soul Street LIVE at Rum Boogie Cafe",
+      "date": "2026-02-18",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-19",
+      "time": "5:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
