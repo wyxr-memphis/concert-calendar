@@ -4,10 +4,10 @@ import os
 from datetime import date, timedelta
 
 # ---------------------------------------------------------------------------
-# Date range: tomorrow through 7 days out
+# Date range: today through 7 days out (8 days total)
 # ---------------------------------------------------------------------------
 TODAY = date.today()
-START_DATE = TODAY + timedelta(days=1)
+START_DATE = TODAY
 END_DATE = TODAY + timedelta(days=7)
 
 # ---------------------------------------------------------------------------

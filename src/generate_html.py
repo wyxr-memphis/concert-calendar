@@ -3,6 +3,7 @@
 from datetime import date, datetime
 from typing import Dict, List
 from collections import defaultdict
+from zoneinfo import ZoneInfo
 from .models import Event, SourceResult
 
 
@@ -49,7 +50,10 @@ def generate_html(
     if not events:
         event_sections = '<p class="no-events">No events found for the upcoming week.</p>'
 
-    run_time_str = run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT")
+    # Convert UTC timestamp to Central Time
+    central_tz = ZoneInfo("America/Chicago")
+    run_time_central = run_timestamp.replace(tzinfo=ZoneInfo("UTC")).astimezone(central_tz)
+    run_time_str = run_time_central.strftime("%B %-d, %Y at %-I:%M %p %Z")
     total_events = len(events)
 
     # Source status summary
@@ -83,7 +87,7 @@ def generate_html(
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memphis Live Music — Next 7 Days</title>
+    <title>Memphis Live Music — Next 8 Days</title>
     <style>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
@@ -234,7 +238,7 @@ def generate_html(
     <header>
         <h1>MEMPHIS LIVE MUSIC</h1>
         <div class="updated">Updated {run_time_str}</div>
-        <div class="summary">{total_events} show{"s" if total_events != 1 else ""} over the next 7 days</div>
+        <div class="summary">{total_events} show{"s" if total_events != 1 else ""} over the next 8 days</div>
     </header>
 
     <main>
