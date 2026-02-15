@@ -2,8 +2,10 @@ name: Daily Concert Calendar Update
 
 on:
   schedule:
-    # Run every day at 5 AM UTC (12 AM Central)
-    - cron: '0 5 * * *'
+    # Run twice daily for resilience — if one run fails, calendar is stale
+    # for at most ~12 hours instead of 24
+    - cron: '0 5 * * *'   # 5 AM UTC = 12 AM Central (midnight)
+    - cron: '0 17 * * *'  # 5 PM UTC = 12 PM Central (noon)
   workflow_dispatch:  # Allow manual trigger
 
 jobs:

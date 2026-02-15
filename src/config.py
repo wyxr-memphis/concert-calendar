@@ -50,9 +50,9 @@ VENUES = {
     },
     "growlers": {
         "name": "Growlers",
-        "aliases": ["growlers", "growlers memphis"],
-        "calendar_url": "https://www.growlersmemphis.com/events",
-        "scraper": "growlers",
+        "aliases": ["growlers", "growlers memphis", "901 growlers"],
+        "calendar_url": "https://901growlers.com/calendar/",
+        "scraper": "generic",
     },
     "hernandos-hideaway": {
         "name": "Hernando's Hideaway",
@@ -69,14 +69,14 @@ VENUES = {
     "lafayettes": {
         "name": "Lafayette's Music Room",
         "aliases": ["lafayettes", "lafayette's", "lafayettes music room", "lafayette's music room"],
-        "calendar_url": "https://www.lafayettes.com/music",
-        "scraper": "lafayettes",
+        "calendar_url": "https://lafayettes.com/event-calendar-memphis/",
+        "scraper": "generic",
     },
     "overton-park-shell": {
         "name": "Overton Park Shell",
         "aliases": ["levitt shell", "overton park shell", "the shell"],
-        "calendar_url": "https://www.levittshell.org/events",
-        "scraper": "overton_shell",
+        "calendar_url": "https://overtonparkshell.org/calendar",
+        "scraper": "generic",
     },
     "bb-kings": {
         "name": "B.B. King's Blues Club",
@@ -87,7 +87,7 @@ VENUES = {
     "graceland-soundstage": {
         "name": "Graceland Soundstage",
         "aliases": ["graceland soundstage", "graceland live", "guest house theater"],
-        "calendar_url": "https://www.graceland.com/entertainment",
+        "calendar_url": "https://www.gracelandlive.com/gracelandsoundstage",
         "scraper": "generic",
     },
     "fedexforum": {
