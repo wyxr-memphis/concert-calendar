@@ -6,16 +6,21 @@ Planning doc for upcoming features. Each section covers the what, why, and rough
 
 ## Pending Fixes & New Sources
 
-### New Source to Add
-- **Nashoba Live** — https://nashoba.live/event-calendar/ (venue in Memphis area)
-
 ### Scrapers to Fix
-- **Ticketmaster API** — needs debugging/fixes
-- **Growlers scraper** — currently timing out or failing
-- **Lafayette's scraper** — returning errors
+- **Ticketmaster API** — needs API key configured in GitHub Secrets (`TICKETMASTER_API_KEY`)
+- **B.B. King's Blues Club** — scraper returning 0 events, page structure may have changed
+- **FedExForum** — scraper returning 0 events, page structure may have changed
+
+### New Venues to Add
+- **Nashoba Live** — https://nashoba.live/event-calendar/ (venue in Memphis area)
+- **Lamplighter Lounge** — appears in Bandsintown data but not in VENUES config; need to determine scraping approach
+- **Beale Street venues** — Blues City Cafe, Rum Boogie Cafe, Silky O'Sullivan's, Alfred's on Beale (nightly live music, not currently tracked)
+- **Railgarten** — frequent outdoor shows, not currently tracked
+- **Loflin Yard** — live music events, not currently tracked
+- **Wiseacre Brewing** — hosts live music, not currently tracked
+- **The Halloran Centre** — currently an Orpheum alias but has its own event calendar
 
 ### Venues to Research
-- **Lamplighter Lounge** — need to determine scraping approach (website calendar vs. manual source)
 - **DKDC** — currently marked as manual_only (Instagram), explore alternatives
 - **B-Side** — currently marked as manual_only (socials), explore alternatives
 
@@ -153,14 +158,183 @@ Planning doc for upcoming features. Each section covers the what, why, and rough
 
 ---
 
+## 6. HTML / SEO / Social Sharing Improvements
+
+**Problem:** The generated `index.html` has no `<meta name="description">`, no OpenGraph tags, and no Twitter Card tags. When anyone shares the calendar link on social media or messaging apps, the preview is blank — no title, no description, no image. This limits organic discovery.
+
+**What this needs:**
+- Add `<meta name="description">` with a dynamic summary (e.g., "47 live music shows in Memphis this week")
+- Add OpenGraph tags (`og:title`, `og:description`, `og:type`, `og:url`) for Facebook/LinkedIn/Discord/iMessage previews
+- Add Twitter Card tags (`twitter:card`, `twitter:title`, `twitter:description`)
+- Add a favicon (WYXR logo or a music note icon)
+- Optionally, generate a dynamic OG image showing the week's highlight count
+
+**Implementation notes:**
+- All changes go in `generate_html.py` — add ~10 lines of meta tags to the `<head>` section
+- Favicon: add a `docs/favicon.ico` or `docs/favicon.png` and reference it with `<link rel="icon">`
+- The description and OG tags can use the same `total_events` and date range already available in the template
+- No external dependencies required
+
+**Effort:** Low (30 minutes)
+
+---
+
+## 7. Data Quality: HTML Entity Decoding
+
+**Problem:** Some event titles contain raw HTML entities (e.g., `&#8217;` instead of an apostrophe in "Folk All Y'all: Lilly Hiatt"). This happens when JSON-LD source data contains encoded HTML and `BeautifulSoup.get_text()` doesn't decode it.
+
+**Fix:**
+- Add an `html.unescape()` pass to artist/venue text after extraction in venue scrapers and artifact parsers
+- One-line fix per extraction point, or a single post-processing step in `main.py` before dedup
+- Example: `import html; artist = html.unescape(artist)`
+
+**Effort:** Low (15 minutes)
+
+---
+
+## 8. Scraper Resilience: HTTP Retry Logic
+
+**Problem:** Each scraper makes a single `requests.get()` call. A transient network timeout or 503 response fails that entire source until the next build (12+ hours). This is especially painful for venue scrapers since each venue is an independent HTTP call.
+
+**What this needs:**
+- A simple retry wrapper: 2 attempts with a 3-second delay between retries
+- Only retry on transient errors (timeout, 500, 502, 503, 429)
+- Don't retry on 404 or 403 (those indicate a real problem)
+
+**Implementation notes:**
+- Add a shared `_get_with_retry(url, headers, timeout, retries=2)` function in `venue_scrapers.py` or a shared `http_utils.py`
+- Replace bare `requests.get()` calls with the retry wrapper
+- Alternatively, use `requests.adapters.HTTPAdapter` with `urllib3.util.Retry` (built-in retry support)
+
+**Effort:** Low-Medium (1 hour)
+
+---
+
+## 9. Venue Link Enhancement
+
+**Problem:** Events with URLs link the entire line (artist + venue + time). Users who want to see a venue's full schedule beyond the 8-day window have no way to navigate there from the calendar.
+
+**What this looks like:**
+- Venue names in the event listing link to the venue's own calendar page
+- The artist name links to the ticket/event URL (as today)
+- If no event URL exists, the venue link still works
+
+**Implementation notes:**
+- The venue `calendar_url` data already exists in `config.py` VENUES
+- Pass a venue URL map to `generate_html.py`
+- Modify the event line template to render venue as a separate `<a>` tag when a venue URL is known
+
+**Effort:** Low-Medium (1 hour)
+
+---
+
+## 10. Date Parsing Consolidation
+
+**Problem:** `google_sheet.py` (lines 109-123) reimplements date parsing with its own format list instead of using the shared `date_utils.parse_date_text()`. This means format improvements to the shared function don't benefit the Google Sheet source, and bugs could diverge.
+
+**Fix:**
+- Replace the inline date parsing in `google_sheet._parse_row()` with a call to `date_utils.parse_date_text()`
+- The shared function already handles all the same formats plus more (regex fallback for "Wed Feb 12" etc.)
+
+**Effort:** Low (10 minutes)
+
+---
+
+## 11. JSON-LD Parser Consolidation
+
+**Problem:** There are three near-identical JSON-LD event parsers:
+1. `venue_scrapers._try_jsonld()` + `_jsonld_to_event()`
+2. `artifacts._parse_generic_event_html()` Strategy 1 + `_parse_jsonld_event()`
+3. `dice._parse_jsonld()`
+
+Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, and `url` with minor variations. Bugs fixed in one copy aren't fixed in the others.
+
+**Fix:**
+- Create a shared `src/jsonld_utils.py` with `parse_jsonld_events(soup) -> List[Event]`
+- Have all three sources import and use the shared parser
+- Keep source-specific post-processing (e.g., DICE prefixes URLs with `https://dice.fm`)
+
+**Effort:** Medium (1-2 hours)
+
+---
+
+## 12. Naive Timestamp Handling
+
+**Problem:** `main.py` uses `datetime.now()` (line 42) which returns local time with no timezone info. In GitHub Actions this is UTC, but on a developer's machine it's local time. Then `generate_html.py` (line 55) force-assumes the timestamp is UTC with `replace(tzinfo=ZoneInfo("UTC"))`. If anyone runs `python -m src.main` locally in Central time, the displayed time will be wrong by 6 hours.
+
+**Fix:**
+- Change `main.py` line 42 from `datetime.now()` to `datetime.now(ZoneInfo("UTC"))`
+- Remove the `replace(tzinfo=ZoneInfo("UTC"))` in `generate_html.py` since the timestamp is already timezone-aware
+- Add `from zoneinfo import ZoneInfo` to `main.py`
+
+**Effort:** Low (10 minutes)
+
+---
+
+## 13. Extended Date Range Option
+
+**Problem:** The current 8-day window (today + 7 days) is good for "this week" but doesn't help people planning ahead. A 14-day view would let users see next weekend's shows too.
+
+**What this needs:**
+- Add an optional `--days N` argument to `main.py`
+- Or generate two views: the current 8-day `index.html` and a 14-day `upcoming.html`
+- Or add a simple "Next 7 Days / Next 14 Days" toggle in the HTML (client-side JS filtering events by date)
+
+**Considerations:**
+- More days = more events = more API calls (Ticketmaster is fine at 5000/day)
+- Venue scrapers already fetch full calendars and filter by date range, so extending the range costs nothing extra
+- The dedup and HTML generation scale fine to ~200 events
+
+**Effort:** Low (main.py tweak) to Medium (two-view generation or client-side toggle)
+
+---
+
+## 14. Genre / Category Tags
+
+**Problem:** The calendar currently treats all events equally — a jazz show and a punk show look the same. Genre tags would help users quickly find events they care about.
+
+**What this needs:**
+- Add an optional `genre` field to the `Event` model
+- Extract genre from Ticketmaster API (already available in classification data)
+- Infer genre from MUSIC_KEYWORDS matches (e.g., "blues" in title → Blues tag)
+- Display as a small colored tag or pill next to the event
+
+**Effort:** Medium (2-3 hours)
+
+---
+
+## 15. Price / Ticket Info
+
+**Problem:** Users can't tell which shows are free vs. $50+ without clicking through to each event page.
+
+**What this needs:**
+- Add optional `price` field to `Event` model
+- Extract from Ticketmaster API (`priceRanges` field)
+- Extract from venue pages where available (Hernando's shows cover charges)
+- Display as "Free", "$10", "$15-25" etc.
+
+**Effort:** Medium (2-3 hours)
+
+---
+
 ## Priority / Sequencing Suggestion
 
 | # | Feature | Effort | Value | Suggested Order |
 |---|---------|--------|-------|-----------------|
 | 5 | Import transparency | Low | High | First — quick win adds immediate trust |
-| 3 | Custom domain | Low | High | Second — config only, no code |
-| 4 | Event feed (JSON) | Medium | High | Third — unlocks website integration |
-| 1 | Edit / delete events | Medium | Medium | Fourth — needs admin UI + API |
-| 2 | Star / feature events | Medium | Medium | Fifth — builds on edit/admin UI |
+| 6 | HTML / SEO / social sharing | Low | High | Second — 30 min for major discoverability boost |
+| 7 | HTML entity decoding | Low | Medium | Third — quick data quality fix |
+| 10 | Date parsing consolidation | Low | Medium | Third — quick code quality fix |
+| 12 | Naive timestamp fix | Low | Medium | Third — quick correctness fix |
+| 3 | Custom domain | Low | High | Fourth — config only, no code |
+| 8 | HTTP retry logic | Low-Med | High | Fifth — reduces stale data |
+| 4 | Event feed (JSON) | Medium | High | Sixth — unlocks website integration |
+| 11 | JSON-LD parser consolidation | Medium | Medium | Seventh — code quality |
+| 9 | Venue link enhancement | Low-Med | Medium | Eighth — UX improvement |
+| 1 | Edit / delete events | Medium | Medium | Ninth — needs admin UI + API |
+| 2 | Star / feature events | Medium | Medium | Tenth — builds on edit/admin UI |
+| 13 | Extended date range | Low-Med | Medium | Anytime — independent of other work |
+| 14 | Genre / category tags | Medium | Medium | Later — nice-to-have |
+| 15 | Price / ticket info | Medium | Medium | Later — nice-to-have |
 
 Features 1 and 2 share an admin interface and the `overrides.json` mechanism, so they should be built together once that foundation is in place.

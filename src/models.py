@@ -63,12 +63,24 @@ class SourceResult:
         return msg
 
 
-def _normalize(text: str) -> str:
-    """Normalize text for comparison: lowercase, strip common prefixes, punctuation."""
+def normalize_text(text: str) -> str:
+    """Normalize text for comparison.
+
+    Canonical normalization used by both deduplication and Event.normalized_key().
+    Strips prefixes ("the"), common suffixes ("live", "concert", etc.),
+    punctuation, and collapses whitespace.
+    """
     text = text.lower().strip()
     # Remove "the " prefix
     text = re.sub(r'^the\s+', '', text)
-    # Remove punctuation and extra whitespace
+    # Remove common suffixes that don't help distinguish events
+    text = re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', text)
+    # Remove punctuation
     text = re.sub(r'[^\w\s]', '', text)
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+    # Collapse whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
+# Keep private alias for backward compat with normalized_key()
+_normalize = normalize_text

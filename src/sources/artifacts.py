@@ -133,7 +133,23 @@ def _parse_bandsintown_html(soup: BeautifulSoup, source_path: Path) -> List[Even
     """Parse events from a Bandsintown city page (saved as MHTML/HTML).
 
     Bandsintown event cards are <a> tags linking to /e/ with child divs
-    containing artist name, venue/event title, and date/time.
+    containing artist name, event title, venue name, and date/time.
+
+    Typical card structure:
+      <a href="/e/...">
+        <div>  (card container)
+          <div>  (image — no text)
+          <div>  (info container)
+            <div>  (first block: artist name + event title in nested divs)
+            <div>  (venue name)
+            <div>  (date/time, e.g. "Feb 15 - 7:00 PM")
+          </div>
+        </div>
+      </a>
+
+    The previous parser mistook the event title (2nd inner div of the
+    first block) for the venue. The actual venue is a separate text
+    block between the first block and the date block.
     """
     event_links = soup.find_all("a", href=lambda h: h and "/e/" in str(h))
     if not event_links:
@@ -160,7 +176,7 @@ def _parse_bandsintown_html(soup: BeautifulSoup, source_path: Path) -> List[Even
                     break
 
             if not info_div:
-                # Fallback: use full link text
+                # Fallback: use full link text with separator
                 full_text = link.get_text(separator="|", strip=True)
                 parts = [p.strip() for p in full_text.split("|") if p.strip()]
                 if len(parts) < 3:
@@ -177,30 +193,46 @@ def _parse_bandsintown_html(soup: BeautifulSoup, source_path: Path) -> List[Even
                 if len(text_blocks) < 2:
                     continue
 
-                # First block typically contains "ArtistNameVenueName" concatenated
-                # inside nested divs. Let's get them separately.
+                # First block contains artist name (+ sometimes event title)
+                # in nested divs. Extract artist from the first inner div.
                 first_block = info_div.find("div", recursive=False)
                 if first_block:
                     inner_divs = first_block.find_all("div", recursive=False)
-                    if len(inner_divs) >= 2:
+                    if inner_divs:
                         artist = inner_divs[0].get_text(strip=True)
-                        venue_text = inner_divs[1].get_text(strip=True)
-                    elif len(inner_divs) == 1:
-                        artist = inner_divs[0].get_text(strip=True)
-                        venue_text = ""
                     else:
                         artist = first_block.get_text(strip=True)
-                        venue_text = ""
                 else:
                     artist = text_blocks[0]
-                    venue_text = ""
 
-                # Date is in a later block (contains month abbreviation and time)
+                # Identify the date block
                 date_text = ""
-                for block in text_blocks:
+                date_block_idx = -1
+                for idx, block in enumerate(text_blocks):
                     if re.search(r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d', block):
                         date_text = block
+                        date_block_idx = idx
                         break
+
+                # Venue is in the text blocks between the first block and
+                # the date block — it's the block that is NOT the
+                # first block's concatenated text and NOT the date.
+                first_block_text = text_blocks[0] if text_blocks else ""
+                venue_text = ""
+                for idx, block in enumerate(text_blocks):
+                    if idx == 0:
+                        continue  # skip first block (artist + event title)
+                    if idx == date_block_idx:
+                        continue  # skip date block
+                    # This is likely the venue
+                    venue_text = block
+                    break
+
+                # If venue_text still looks like an event description rather
+                # than a venue (contains "w/", "LIVE at", matches artist
+                # name pattern), try to extract the real venue from it.
+                if venue_text:
+                    venue_text = _extract_venue_from_text(venue_text)
 
             if not artist or not date_text:
                 continue
@@ -228,6 +260,32 @@ def _parse_bandsintown_html(soup: BeautifulSoup, source_path: Path) -> List[Even
             continue
 
     return events
+
+
+def _extract_venue_from_text(text: str) -> str:
+    """Try to extract a real venue name from text that may be an event description.
+
+    Bandsintown sometimes puts the event title/bill in place of the venue.
+    Patterns like "Brimstone Jones LIVE at Blues City Cafe" or
+    "w/ MOTEL CALIFORNIA" need cleaning.
+    """
+    # "... at <Venue>" pattern — extract the venue after "at"
+    at_match = re.search(r'\bLIVE at\s+(.+)$', text, re.IGNORECASE)
+    if at_match:
+        return at_match.group(1).strip()
+
+    at_match = re.search(r'\bat\s+(.+)$', text, re.IGNORECASE)
+    if at_match:
+        candidate = at_match.group(1).strip()
+        # Only use if it looks like a venue (not "at the show" etc.)
+        if len(candidate) > 3 and not candidate.lower().startswith(("the show", "the event")):
+            return candidate
+
+    # "w/ ..." is a support act, not a venue — discard
+    if re.match(r'^w/\s', text, re.IGNORECASE):
+        return ""
+
+    return text
 
 
 def _parse_bandsintown_date(text: str) -> Tuple[Optional[datetime.date], Optional[str]]:

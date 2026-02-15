@@ -4,7 +4,6 @@ Handles merging events from multiple sources and removing duplicates.
 Uses string similarity rather than Claude API — keeps costs at $0.
 """
 
-import re
 from typing import Dict, List
 from .models import Event
 
@@ -81,17 +80,13 @@ def _artists_match(a: str, b: str) -> bool:
 
 
 def _normalize(text: str) -> str:
-    """Normalize text for comparison."""
-    text = text.lower().strip()
-    # Remove "the " prefix
-    text = re.sub(r'^the\s+', '', text)
-    # Remove common suffixes
-    text = re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', text)
-    # Remove punctuation
-    text = re.sub(r'[^\w\s]', '', text)
-    # Collapse whitespace
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
+    """Normalize text for comparison.
+
+    Uses the shared normalize_text from models to ensure consistent
+    normalization across deduplication and Event.normalized_key().
+    """
+    from .models import normalize_text
+    return normalize_text(text)
 
 
 def _pick_best(a: Event, b: Event) -> Event:

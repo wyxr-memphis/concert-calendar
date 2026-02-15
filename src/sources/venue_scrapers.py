@@ -104,10 +104,12 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
 
         result.events_found = len(events)
         for event in events:
-            if START_DATE <= event.date <= END_DATE:
-                result.events.append(event)
-            else:
+            if not (START_DATE <= event.date <= END_DATE):
                 result.events_filtered += 1
+            elif not is_music_event(event.artist):
+                result.events_filtered += 1
+            else:
+                result.events.append(event)
 
         if result.events_found == 0:
             result.error_message = f"0 events parsed — page structure may have changed"
