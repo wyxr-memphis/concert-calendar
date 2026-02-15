@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-15T05:58:42.316796",
+  "run_timestamp": "2026-02-15T21:51:06.234714",
   "date_range": {
     "start": "2026-02-15",
     "end": "2026-02-22"
   },
-  "total_raw_events": 50,
-  "total_deduped_events": 47,
+  "total_raw_events": 28,
+  "total_deduped_events": 26,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -32,60 +32,76 @@
       "error": null
     },
     {
+      "name": "DICE",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Page may require JS rendering \u2014 0 events parsed"
+    },
+    {
+      "name": "Memphis Flyer",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 14,
-      "events_filtered": 80,
+      "events_found": 91,
+      "events_after_filter": 3,
+      "events_filtered": 88,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 5,
-      "events_filtered": 32,
+      "events_found": 35,
+      "events_after_filter": 2,
+      "events_filtered": 33,
       "error": null
     },
     {
       "name": "Venue: Growlers",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='www.growlersmemphis.com', port=443): Max retries excee"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 4,
-      "events_filtered": 26,
+      "events_after_filter": 1,
+      "events_filtered": 29,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 5,
+      "events_after_filter": 3,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Overton Park Shell",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://overtonparkshell.org/events"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -97,11 +113,11 @@
     },
     {
       "name": "Venue: Graceland Soundstage",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 404 Client Error: Not Found for url: https://www.graceland.com/entertainment"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: FedExForum",
@@ -115,8 +131,8 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 63,
-      "events_after_filter": 3,
-      "events_filtered": 60,
+      "events_after_filter": 0,
+      "events_filtered": 63,
       "error": null
     }
   ],
@@ -164,27 +180,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Memphis Underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-15",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
       "artist": "RED\u30fbMAGE",
       "venue": "Lamplighter Lounge",
       "date": "2026-02-15",
@@ -227,32 +222,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-16",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
       "artist": "Rodd Bland",
       "venue": "Brimstone Jones LIVE at Blues City Cafe",
       "date": "2026-02-17",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-02-17",
-      "time": "10:00\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Mardi Gras Mayhem [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-17",
-      "time": null,
-      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
@@ -325,27 +299,6 @@
       "source": "Venue: Crosstown Arts"
     },
     {
-      "artist": "Bella Larson & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Rev Down Trio *matinee show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Sons of Town Hall",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-20",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
       "artist": "Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-20",
@@ -356,90 +309,6 @@
       "artist": "American Soul / Deerfields / The Brewery / Holiday Beach [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-02-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Bad Idols / Hooves / Butied Beneath [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Party Animal Presents: [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Don Trip \u2013 Live in Memphis",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Eunbi Kim and Iris Musicians",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-21",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Kandace Springs",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-02-21",
-      "time": "8:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Peanut Butter & Jam: Rachel Rodriguez",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-02-21",
-      "time": "10:30\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Tennessee Screamers",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-21",
-      "time": "7:30PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Blue Suede Sisters Present: [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Next Top Comic [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Trevor Wallace: The Alpha Beta Male",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "The Blueprint [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-22",
       "time": null,
       "source": "Venue: Hi Tone"
     },
