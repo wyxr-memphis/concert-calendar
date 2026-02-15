@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-14T18:42:37.710404",
+  "run_timestamp": "2026-02-15T05:58:42.316796",
   "date_range": {
-    "start": "2026-02-14",
-    "end": "2026-02-21"
+    "start": "2026-02-15",
+    "end": "2026-02-22"
   },
-  "total_raw_events": 71,
-  "total_deduped_events": 67,
+  "total_raw_events": 50,
+  "total_deduped_events": 47,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -27,7 +27,7 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 36,
+      "events_after_filter": 19,
       "events_filtered": 0,
       "error": null
     },
@@ -35,16 +35,16 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 94,
-      "events_after_filter": 16,
-      "events_filtered": 78,
+      "events_after_filter": 14,
+      "events_filtered": 80,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
-      "events_after_filter": 6,
-      "events_filtered": 31,
+      "events_after_filter": 5,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -67,8 +67,8 @@
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 6,
-      "events_filtered": 4,
+      "events_after_filter": 5,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -77,7 +77,7 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://www.lafayettes.com/music"
+      "error": "Request failed: 404 Client Error: Not Found for url: https://lafayettes.com/music"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -121,167 +121,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Captain Midnight Band",
-      "venue": "Captain Midnight Band - Memphis, TN VALENTINES PARTY",
-      "date": "2026-02-14",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Strictly Jazz: The Music of Carmen McRae feat. D&#8217;Monet",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-14",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Emo Nite",
-      "venue": "Emo Nite",
-      "date": "2026-02-14",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Bryan Hayes Music",
-      "venue": "Farmhouse Studio Night @ South Main Sounds featuring Bryan Hayes, Gerry Finney, & More!",
-      "date": "2026-02-14",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Gia Welch",
-      "venue": "Gia Welch/ JD Westmoreland Live at Owen Brennan's",
-      "date": "2026-02-14",
-      "time": "5:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Clownvis Presley VALENTINE\u2019S SPECIAL",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-14",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Gothic Valentine\u2019s Day Market & more [Both Rooms]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Oops All Love Songs [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Vengeance on Valentines [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Joanna Serenko",
-      "venue": "Hotel Pontotoc",
-      "date": "2026-02-14",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Boosie Badazz",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "DAY26",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "K. Michelle",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Lloyd",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Plies",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Trey Songz",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Ying Yang Twins",
-      "venue": "Landers Center",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Emo Nite \u2013 Valentine\u2019s Day",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Primal Cage Wars",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Leah Grams Johnson",
-      "venue": "Momma's",
-      "date": "2026-02-14",
-      "time": "12:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Gary Owen",
-      "venue": "Orpheum Theatre",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Louder Than Bombs: The Smiths/Morrissey cover band",
-      "venue": "Valentine's with Louder Than Bombs",
-      "date": "2026-02-14",
-      "time": "10:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Robert Allen Parker",
-      "venue": "w/ PLAY SOME SKYNYRD",
-      "date": "2026-02-14",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "Amy LaVere",
       "venue": "Amy LaVere and Will Sexton",
@@ -437,7 +276,7 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Service Industry Night",
+      "artist": "Open Mic Night for Memphis Musicians",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-18",
       "time": "7:00PM",
@@ -587,6 +426,27 @@
       "artist": "Trevor Wallace: The Alpha Beta Male",
       "venue": "Minglewood Hall",
       "date": "2026-02-21",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-22",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "The Blueprint [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-22",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Brad Williams: The Tall Tales Tour",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-22",
       "time": null,
       "source": "Venue: Minglewood Hall"
     }
