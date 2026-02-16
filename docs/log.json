@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-15T21:51:06.234714",
+  "run_timestamp": "2026-02-16T06:07:56.006188",
   "date_range": {
-    "start": "2026-02-15",
-    "end": "2026-02-22"
+    "start": "2026-02-16",
+    "end": "2026-02-23"
   },
-  "total_raw_events": 28,
-  "total_deduped_events": 26,
+  "total_raw_events": 15,
+  "total_deduped_events": 15,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -27,7 +27,7 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 19,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -50,17 +50,17 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 91,
+      "events_found": 89,
       "events_after_filter": 3,
-      "events_filtered": 88,
+      "events_filtered": 86,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 2,
-      "events_filtered": 33,
+      "events_after_filter": 1,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -137,90 +137,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Amy LaVere",
-      "venue": "Amy LaVere and Will Sexton",
-      "date": "2026-02-15",
-      "time": "3:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Bobby Bowen Family",
-      "venue": "Bobby Bowen Family Concert (Memphis Tennessee)",
-      "date": "2026-02-15",
-      "time": "2:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "The Perrys",
-      "venue": "Brookside Baptist Church",
-      "date": "2026-02-15",
-      "time": "10:15 AM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "The Mark Trammell Quartet",
-      "venue": "Carey Chapel Baptist Church",
-      "date": "2026-02-15",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Folk All Y&#8217;all: Lilly Hiatt",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-15",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-15",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "RED\u30fbMAGE",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-02-15",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "The Movement",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Tropidelic",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-15",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Chinese Connection Dub Embassy",
-      "venue": "The Movement w/ Tropidelic and CCDE",
-      "date": "2026-02-15",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Big Al and the Heavyweights",
-      "venue": "The Orleans in the Ville",
-      "date": "2026-02-15",
-      "time": "3:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Robert Allen Parker",
-      "venue": "w/ MOTEL CALIFORNIA",
-      "date": "2026-02-15",
-      "time": "5:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "Rodd Bland",
       "venue": "Brimstone Jones LIVE at Blues City Cafe",
@@ -318,6 +234,13 @@
       "date": "2026-02-22",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM &amp; SONGSTER SHOW",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-23",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     }
   ]
 }
