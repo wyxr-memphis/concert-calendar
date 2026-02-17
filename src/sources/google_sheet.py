@@ -18,10 +18,10 @@ from typing import Optional
 import csv
 import io
 import requests
-from datetime import datetime
 from pathlib import Path
 from ..models import Event, SourceResult
 from ..config import GOOGLE_SHEET_CSV_URL, START_DATE, END_DATE, normalize_venue_name
+from ..date_utils import parse_date_text
 
 SOURCE_NAME = "Manual (Google Sheet)"
 LOCAL_CSV_PATH = Path(__file__).parent.parent.parent / "manual_events.csv"
@@ -104,24 +104,7 @@ def _parse_row(row: dict) -> Optional[Event]:
     if not date_str or not artist:
         return None
 
-    # Parse date — accept many formats
-    event_date = None
-    date_formats = [
-        "%m/%d/%Y", "%m/%d/%y", "%m-%d-%Y", "%m-%d-%y",
-        "%Y-%m-%d", "%B %d, %Y", "%b %d, %Y",
-        "%B %d", "%b %d",  # No year — assume current
-        "%m/%d",  # No year — assume current
-    ]
-    for fmt in date_formats:
-        try:
-            dt = datetime.strptime(date_str, fmt)
-            if dt.year < 2000:
-                dt = dt.replace(year=START_DATE.year)
-            event_date = dt.date()
-            break
-        except ValueError:
-            continue
-
+    event_date = parse_date_text(date_str)
     if not event_date:
         return None
 

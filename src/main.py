@@ -9,12 +9,14 @@ Usage:
     python -m src.main --dry-run    # Print results without writing files
 """
 
+import html
 import sys
 import json
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 from typing import List
+from zoneinfo import ZoneInfo
 
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -39,7 +41,7 @@ LOG_PATH = DOCS_DIR / "log.json"
 
 def run(dry_run: bool = False) -> None:
     """Main execution: fetch → deduplicate → generate → save."""
-    run_timestamp = datetime.now()
+    run_timestamp = datetime.now(ZoneInfo("UTC"))
     print(f"\n{'='*60}")
     print(f"MEMPHIS CONCERT CALENDAR — {run_timestamp.strftime('%Y-%m-%d %H:%M')}")
     print(f"Date range: {START_DATE} to {END_DATE}")
@@ -87,6 +89,11 @@ def run(dry_run: bool = False) -> None:
         )
         all_source_results.append(error_result)
         print(f"    {error_result.status_line}")
+
+    # ---- STEP 1.5: Clean HTML entities ----
+    for event in all_events:
+        event.artist = html.unescape(event.artist)
+        event.venue = html.unescape(event.venue)
 
     # ---- STEP 2: Deduplicate ----
     print(f"\n  Raw events collected: {len(all_events)}")

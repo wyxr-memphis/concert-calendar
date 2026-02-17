@@ -52,7 +52,7 @@ def generate_html(
 
     # Convert UTC timestamp to Central Time
     central_tz = ZoneInfo("America/Chicago")
-    run_time_central = run_timestamp.replace(tzinfo=ZoneInfo("UTC")).astimezone(central_tz)
+    run_time_central = run_timestamp.astimezone(central_tz)
     run_time_str = run_time_central.strftime("%B %-d, %Y at %-I:%M %p %Z")
     total_events = len(events)
 
