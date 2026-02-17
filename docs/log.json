@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-17T01:01:27.132752+00:00",
+  "run_timestamp": "2026-02-17T06:00:24.816716+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 26,
-  "total_deduped_events": 25,
+  "total_raw_events": 23,
+  "total_deduped_events": 22,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,17 +26,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 16,
+      "events_found": 42,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
+      "events_found": 88,
       "events_after_filter": 4,
-      "events_filtered": 85,
+      "events_filtered": 84,
       "error": null
     },
     {
@@ -125,7 +125,7 @@
       "artist": "DANA/ FAKE! / OPPOSSUMS",
       "venue": "B-Side Memphis",
       "date": "2026-02-17",
-      "time": "9pm",
+      "time": "9PM",
       "source": "Artifacts (February calendar poster)"
     },
     {
@@ -213,13 +213,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
-    },
-    {
       "artist": "Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-19",
@@ -232,13 +225,6 @@
       "date": "2026-02-20",
       "time": "7PM",
       "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -260,13 +246,6 @@
       "date": "2026-02-21",
       "time": "9PM",
       "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
-      "venue": "Bar DKDC",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
