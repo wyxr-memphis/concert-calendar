@@ -20,6 +20,7 @@ import io
 import requests
 from pathlib import Path
 from ..models import Event, SourceResult
+from ..http_utils import get_with_retry
 from ..config import GOOGLE_SHEET_CSV_URL, START_DATE, END_DATE, normalize_venue_name
 from ..date_utils import parse_date_text
 
@@ -36,7 +37,7 @@ def fetch() -> SourceResult:
     # Try Google Sheet URL first
     if GOOGLE_SHEET_CSV_URL:
         try:
-            response = requests.get(GOOGLE_SHEET_CSV_URL, timeout=10)
+            response = get_with_retry(GOOGLE_SHEET_CSV_URL, timeout=10)
             response.raise_for_status()
             csv_text = response.text
         except requests.exceptions.RequestException as e:

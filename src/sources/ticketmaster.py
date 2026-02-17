@@ -9,6 +9,7 @@ from typing import Optional
 import requests
 from datetime import datetime
 from ..models import Event, SourceResult
+from ..http_utils import get_with_retry
 from ..config import (
     TICKETMASTER_API_KEY, START_DATE, END_DATE,
     MEMPHIS_LAT, MEMPHIS_LON, MEMPHIS_RADIUS,
@@ -41,7 +42,7 @@ def fetch() -> SourceResult:
             "sort": "date,asc",
         }
 
-        response = requests.get(BASE_URL, params=params, timeout=15)
+        response = get_with_retry(BASE_URL, params=params, timeout=15)
         response.raise_for_status()
         data = response.json()
 

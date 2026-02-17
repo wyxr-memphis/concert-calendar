@@ -11,6 +11,7 @@ import re
 from datetime import datetime
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
+from ..http_utils import get_with_retry
 from ..config import (
     VENUES, START_DATE, END_DATE,
     normalize_venue_name, is_music_event,
@@ -81,7 +82,7 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     result = SourceResult(source_name=f"Venue: {name}")
 
     try:
-        response = requests.get(url, headers=HEADERS, timeout=15, allow_redirects=True)
+        response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
