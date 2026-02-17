@@ -108,6 +108,7 @@ concert-calendar/
 │   ├── config.py              # Venues, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
 │   ├── date_utils.py          # Shared date parsing
+│   ├── http_utils.py          # HTTP client with retry logic
 │   ├── normalize.py           # Deduplication logic
 │   ├── generate_html.py       # Static page generator
 │   └── sources/

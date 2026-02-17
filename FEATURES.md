@@ -179,34 +179,15 @@ Planning doc for upcoming features. Each section covers the what, why, and rough
 
 ---
 
-## 7. Data Quality: HTML Entity Decoding
+## ~~7. Data Quality: HTML Entity Decoding~~ ✅ Done
 
-**Problem:** Some event titles contain raw HTML entities (e.g., `&#8217;` instead of an apostrophe in "Folk All Y'all: Lilly Hiatt"). This happens when JSON-LD source data contains encoded HTML and `BeautifulSoup.get_text()` doesn't decode it.
-
-**Fix:**
-- Add an `html.unescape()` pass to artist/venue text after extraction in venue scrapers and artifact parsers
-- One-line fix per extraction point, or a single post-processing step in `main.py` before dedup
-- Example: `import html; artist = html.unescape(artist)`
-
-**Effort:** Low (15 minutes)
+Implemented in `main.py` — `html.unescape()` runs on all artist/venue text after collection, before dedup.
 
 ---
 
-## 8. Scraper Resilience: HTTP Retry Logic
+## ~~8. Scraper Resilience: HTTP Retry Logic~~ ✅ Done
 
-**Problem:** Each scraper makes a single `requests.get()` call. A transient network timeout or 503 response fails that entire source until the next build (12+ hours). This is especially painful for venue scrapers since each venue is an independent HTTP call.
-
-**What this needs:**
-- A simple retry wrapper: 2 attempts with a 3-second delay between retries
-- Only retry on transient errors (timeout, 500, 502, 503, 429)
-- Don't retry on 404 or 403 (those indicate a real problem)
-
-**Implementation notes:**
-- Add a shared `_get_with_retry(url, headers, timeout, retries=2)` function in `venue_scrapers.py` or a shared `http_utils.py`
-- Replace bare `requests.get()` calls with the retry wrapper
-- Alternatively, use `requests.adapters.HTTPAdapter` with `urllib3.util.Retry` (built-in retry support)
-
-**Effort:** Low-Medium (1 hour)
+Implemented in `src/http_utils.py` — shared `get_with_retry()` using `HTTPAdapter` + `urllib3.util.Retry` (2 retries, 3s backoff, retries on 429/500/502/503). Used by Ticketmaster, venue scrapers, and Google Sheet sources.
 
 ---
 
@@ -228,15 +209,9 @@ Planning doc for upcoming features. Each section covers the what, why, and rough
 
 ---
 
-## 10. Date Parsing Consolidation
+## ~~10. Date Parsing Consolidation~~ ✅ Done
 
-**Problem:** `google_sheet.py` (lines 109-123) reimplements date parsing with its own format list instead of using the shared `date_utils.parse_date_text()`. This means format improvements to the shared function don't benefit the Google Sheet source, and bugs could diverge.
-
-**Fix:**
-- Replace the inline date parsing in `google_sheet._parse_row()` with a call to `date_utils.parse_date_text()`
-- The shared function already handles all the same formats plus more (regex fallback for "Wed Feb 12" etc.)
-
-**Effort:** Low (10 minutes)
+`google_sheet.py` now uses the shared `date_utils.parse_date_text()` instead of its own inline parsing.
 
 ---
 
@@ -258,16 +233,9 @@ Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, a
 
 ---
 
-## 12. Naive Timestamp Handling
+## ~~12. Naive Timestamp Handling~~ ✅ Done
 
-**Problem:** `main.py` uses `datetime.now()` (line 42) which returns local time with no timezone info. In GitHub Actions this is UTC, but on a developer's machine it's local time. Then `generate_html.py` (line 55) force-assumes the timestamp is UTC with `replace(tzinfo=ZoneInfo("UTC"))`. If anyone runs `python -m src.main` locally in Central time, the displayed time will be wrong by 6 hours.
-
-**Fix:**
-- Change `main.py` line 42 from `datetime.now()` to `datetime.now(ZoneInfo("UTC"))`
-- Remove the `replace(tzinfo=ZoneInfo("UTC"))` in `generate_html.py` since the timestamp is already timezone-aware
-- Add `from zoneinfo import ZoneInfo` to `main.py`
-
-**Effort:** Low (10 minutes)
+`main.py` now uses `datetime.now(ZoneInfo("UTC"))` directly.
 
 ---
 
@@ -323,11 +291,11 @@ Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, a
 |---|---------|--------|-------|-----------------|
 | 5 | Import transparency | Low | High | First — quick win adds immediate trust |
 | 6 | HTML / SEO / social sharing | Low | High | Second — 30 min for major discoverability boost |
-| 7 | HTML entity decoding | Low | Medium | Third — quick data quality fix |
-| 10 | Date parsing consolidation | Low | Medium | Third — quick code quality fix |
-| 12 | Naive timestamp fix | Low | Medium | Third — quick correctness fix |
+| ~~7~~ | ~~HTML entity decoding~~ | ~~Low~~ | ~~Medium~~ | ✅ Done |
+| ~~10~~ | ~~Date parsing consolidation~~ | ~~Low~~ | ~~Medium~~ | ✅ Done |
+| ~~12~~ | ~~Naive timestamp fix~~ | ~~Low~~ | ~~Medium~~ | ✅ Done |
 | 3 | Custom domain | Low | High | Fourth — config only, no code |
-| 8 | HTTP retry logic | Low-Med | High | Fifth — reduces stale data |
+| ~~8~~ | ~~HTTP retry logic~~ | ~~Low-Med~~ | ~~High~~ | ✅ Done |
 | 4 | Event feed (JSON) | Medium | High | Sixth — unlocks website integration |
 | 11 | JSON-LD parser consolidation | Medium | Medium | Seventh — code quality |
 | 9 | Venue link enhancement | Low-Med | Medium | Eighth — UX improvement |
