@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-17T00:40:49.147410",
+  "run_timestamp": "2026-02-17T01:01:27.132752+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
@@ -114,9 +114,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 63,
+      "events_found": 62,
       "events_after_filter": 0,
-      "events_filtered": 63,
+      "events_filtered": 62,
       "error": null
     }
   ],
@@ -125,7 +125,7 @@
       "artist": "DANA/ FAKE! / OPPOSSUMS",
       "venue": "B-Side Memphis",
       "date": "2026-02-17",
-      "time": "9PM",
+      "time": "9pm",
       "source": "Artifacts (February calendar poster)"
     },
     {
@@ -213,11 +213,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Hans Condor",
+      "artist": "Hans Condor (Nashville)",
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
-      "source": "Artifacts (Nashville artist)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -234,11 +234,11 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
-      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + Special Guest Aquarius DJ",
+      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
       "venue": "Bar DKDC",
       "date": "2026-02-20",
       "time": null,
-      "source": "Artifacts (Night of the Aquarius event)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -262,11 +262,11 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
-      "artist": "Suroor + Special Guests Raneem Imam + DJ Doshai",
+      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
-      "source": "Artifacts (Suroor's Birthday Show)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
@@ -276,7 +276,7 @@
       "source": "Venue: Minglewood Hall"
     },
     {
-      "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM &amp; SONGSTER SHOW",
+      "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
       "venue": "Crosstown Arts",
       "date": "2026-02-23",
       "time": "7:30 PM",
