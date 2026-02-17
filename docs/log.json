@@ -1,15 +1,11 @@
 {
-<<<<<<< Updated upstream
-  "run_timestamp": "2026-02-17T00:13:31.635414",
-=======
-  "run_timestamp": "2026-02-17T00:13:34.533205",
->>>>>>> Stashed changes
+  "run_timestamp": "2026-02-17T00:15:29.427717",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 19,
-  "total_deduped_events": 19,
+  "total_raw_events": 25,
+  "total_deduped_events": 25,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -30,8 +26,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 10,
+      "events_found": 45,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -142,6 +138,13 @@
   ],
   "events": [
     {
+      "artist": "DANA/ FAKE! / OPPOSSUMS",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-17",
+      "time": "9PM",
+      "source": "Artifacts (February calendar poster)"
+    },
+    {
       "artist": "Rodd Bland",
       "venue": "Brimstone Jones LIVE at Blues City Cafe",
       "date": "2026-02-17",
@@ -161,6 +164,13 @@
       "date": "2026-02-17",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-18",
+      "time": "9PM",
+      "source": "Artifacts (February calendar poster)"
     },
     {
       "artist": "John Paul Keith",
@@ -205,6 +215,13 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "DEVIL TRAIN",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-19",
+      "time": "10PM",
+      "source": "Artifacts (February calendar poster)"
+    },
+    {
       "artist": "Rodd Bland",
       "venue": "B.B. King's Blues Club",
       "date": "2026-02-19",
@@ -216,11 +233,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
-<<<<<<< Updated upstream
-      "source": "Artifacts (Event listing flyer)"
-=======
-      "source": "Artifacts (Venue event listing)"
->>>>>>> Stashed changes
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -230,11 +243,18 @@
       "source": "Venue: Crosstown Arts"
     },
     {
-      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "artist": "MS. NICKKI/ STEPHANIE BRADLEY",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-20",
+      "time": "7PM",
+      "source": "Artifacts (February calendar poster)"
+    },
+    {
+      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
       "venue": "Bar DKDC",
       "date": "2026-02-20",
       "time": null,
-      "source": "Artifacts (Night of the Aquarius event)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -251,11 +271,18 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Suroor + Special Guests Raneem Imam + DJ Doshai",
+      "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-21",
+      "time": "9PM",
+      "source": "Artifacts (February calendar poster)"
+    },
+    {
+      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
-      "source": "Artifacts (Suroor's Birthday Show)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
@@ -270,6 +297,13 @@
       "date": "2026-02-23",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "THE PARALLAX",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-24",
+      "time": "10PM",
+      "source": "Artifacts (February calendar poster)"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
