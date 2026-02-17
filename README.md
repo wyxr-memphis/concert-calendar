@@ -112,8 +112,6 @@ concert-calendar/
 │   ├── generate_html.py       # Static page generator
 │   └── sources/
 │       ├── ticketmaster.py    # Ticketmaster Discovery API
-│       ├── dice.py            # DICE browse page scraper
-│       ├── memphis_flyer.py   # Memphis Flyer calendar scraper
 │       ├── venue_scrapers.py  # Individual venue website scrapers
 │       ├── google_sheet.py    # Manual events from Google Sheet CSV
 │       └── artifacts.py       # Image + web page artifact processing

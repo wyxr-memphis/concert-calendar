@@ -10,7 +10,7 @@ from .config import START_DATE
 def parse_date_text(text: str) -> Optional[date]:
     """Try to parse a date string from various formats.
 
-    Used by multiple scrapers (bandsintown, memphis_flyer, venue_scrapers, artifacts).
+    Used by multiple scrapers (venue_scrapers, artifacts).
     """
     formats = [
         "%b %d, %Y",   # "Feb 12, 2026"
