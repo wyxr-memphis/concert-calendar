@@ -1,19 +1,19 @@
 {
-  "run_timestamp": "2026-02-17T00:15:29.427717",
+  "run_timestamp": "2026-02-17T00:40:49.147410",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 25,
+  "total_raw_events": 26,
   "total_deduped_events": 25,
   "sources": [
     {
       "name": "Ticketmaster",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": "No API key configured (set TICKETMASTER_API_KEY)"
+      "error": null
     },
     {
       "name": "Manual (Google Sheet)",
@@ -30,22 +30,6 @@
       "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "DICE",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Page may require JS rendering \u2014 0 events parsed"
-    },
-    {
-      "name": "Memphis Flyer",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Could not access Memphis Flyer calendar \u2014 all URL patterns failed"
     },
     {
       "name": "Venue: Hi Tone",
@@ -194,11 +178,11 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Paul Thorn",
+      "artist": "Tab Benoit + Paul Thorn: One Night Only",
       "venue": "Minglewood Hall",
       "date": "2026-02-18",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "time": "7 PM",
+      "source": "Ticketmaster"
     },
     {
       "artist": "Red McAdam",
@@ -229,11 +213,11 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Hans Condor (Nashville)",
+      "artist": "Hans Condor",
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
-      "source": "Artifacts (Event listing)"
+      "source": "Artifacts (Nashville artist)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -250,11 +234,11 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
-      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + Special Guest Aquarius DJ",
       "venue": "Bar DKDC",
       "date": "2026-02-20",
       "time": null,
-      "source": "Artifacts (Event listing)"
+      "source": "Artifacts (Night of the Aquarius event)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -278,11 +262,11 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
-      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
+      "artist": "Suroor + Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
-      "source": "Artifacts (Event listing)"
+      "source": "Artifacts (Suroor's Birthday Show)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
