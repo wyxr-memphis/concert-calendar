@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-17T17:50:54.492930+00:00",
+  "run_timestamp": "2026-02-17T22:50:33.303405+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 23,
-  "total_deduped_events": 22,
+  "total_raw_events": 26,
+  "total_deduped_events": 25,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,17 +26,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 13,
+      "events_found": 45,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 88,
+      "events_found": 93,
       "events_after_filter": 4,
-      "events_filtered": 84,
+      "events_filtered": 89,
       "error": null
     },
     {
@@ -114,9 +114,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 62,
+      "events_found": 61,
       "events_after_filter": 0,
-      "events_filtered": 62,
+      "events_filtered": 61,
       "error": null
     }
   ],
@@ -125,8 +125,8 @@
       "artist": "DANA/ FAKE! / OPPOSSUMS",
       "venue": "B-Side Memphis",
       "date": "2026-02-17",
-      "time": "9PM",
-      "source": "Artifacts (February calendar poster)"
+      "time": "9pm",
+      "source": "Artifacts (Event calendar poster)"
     },
     {
       "artist": "Rodd Bland",
@@ -154,7 +154,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-18",
       "time": "9PM",
-      "source": "Artifacts (February calendar poster)"
+      "source": "Artifacts (Event calendar poster)"
     },
     {
       "artist": "John Paul Keith",
@@ -203,7 +203,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-19",
       "time": "10PM",
-      "source": "Artifacts (February calendar poster)"
+      "source": "Artifacts (Event calendar poster)"
     },
     {
       "artist": "Rodd Bland",
@@ -211,6 +211,13 @@
       "date": "2026-02-19",
       "time": "5:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Hans Condor (Nashville)",
+      "venue": "Bar DKDC",
+      "date": "2026-02-19",
+      "time": null,
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -224,7 +231,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-20",
       "time": "7PM",
-      "source": "Artifacts (February calendar poster)"
+      "source": "Artifacts (Event calendar poster)"
+    },
+    {
+      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "venue": "Bar DKDC",
+      "date": "2026-02-20",
+      "time": null,
+      "source": "Artifacts (Night of the Aquarius event)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -245,7 +259,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-21",
       "time": "9PM",
-      "source": "Artifacts (February calendar poster)"
+      "source": "Artifacts (Event calendar poster)"
+    },
+    {
+      "artist": "Suroor (Birthday Show) with Special Guests Raneem Imam + DJ Doshai",
+      "venue": "Bar DKDC",
+      "date": "2026-02-21",
+      "time": null,
+      "source": "Artifacts (Birthday show event)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
@@ -266,7 +287,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-24",
       "time": "10PM",
-      "source": "Artifacts (February calendar poster)"
+      "source": "Artifacts (Event calendar poster)"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
