@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-17T16:03:12.431818+00:00",
+  "run_timestamp": "2026-02-17T17:50:54.492930+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 26,
-  "total_deduped_events": 25,
+  "total_raw_events": 23,
+  "total_deduped_events": 22,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,8 +26,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 16,
+      "events_found": 42,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -42,9 +42,9 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
+      "events_found": 37,
       "events_after_filter": 1,
-      "events_filtered": 34,
+      "events_filtered": 36,
       "error": null
     },
     {
@@ -122,10 +122,10 @@
   ],
   "events": [
     {
-      "artist": "DANA/ FAKE!/ OPPOSSUMS",
+      "artist": "DANA/ FAKE! / OPPOSSUMS",
       "venue": "B-Side Memphis",
       "date": "2026-02-17",
-      "time": "9pm",
+      "time": "9PM",
       "source": "Artifacts (February calendar poster)"
     },
     {
@@ -213,13 +213,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
       "artist": "Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-19",
@@ -232,13 +225,6 @@
       "date": "2026-02-20",
       "time": "7PM",
       "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Night of the Aquarius)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -260,13 +246,6 @@
       "date": "2026-02-21",
       "time": "9PM",
       "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Suroor (Birthday Show) w/ Special Guests Raneem Imam + DJ Doshai",
-      "venue": "Bar DKDC",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
