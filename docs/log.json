@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
   "run_timestamp": "2026-02-17T00:13:31.635414",
+=======
+  "run_timestamp": "2026-02-17T00:13:34.533205",
+>>>>>>> Stashed changes
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
@@ -212,7 +216,11 @@
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
+<<<<<<< Updated upstream
       "source": "Artifacts (Event listing flyer)"
+=======
+      "source": "Artifacts (Venue event listing)"
+>>>>>>> Stashed changes
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
