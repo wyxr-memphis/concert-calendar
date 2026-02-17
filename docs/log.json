@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-16T17:33:46.605992",
+  "run_timestamp": "2026-02-17T00:13:31.635414",
   "date_range": {
-    "start": "2026-02-16",
-    "end": "2026-02-23"
+    "start": "2026-02-17",
+    "end": "2026-02-24"
   },
-  "total_raw_events": 15,
-  "total_deduped_events": 15,
+  "total_raw_events": 19,
+  "total_deduped_events": 19,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,8 +26,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 7,
+      "events_found": 39,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -51,8 +51,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 89,
-      "events_after_filter": 3,
-      "events_filtered": 86,
+      "events_after_filter": 4,
+      "events_filtered": 85,
       "error": null
     },
     {
@@ -208,11 +208,25 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
+      "artist": "Hans Condor (Nashville)",
+      "venue": "Bar DKDC",
+      "date": "2026-02-19",
+      "time": null,
+      "source": "Artifacts (Event listing flyer)"
+    },
+    {
       "artist": "Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-19",
       "time": "7 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "venue": "Bar DKDC",
+      "date": "2026-02-20",
+      "time": null,
+      "source": "Artifacts (Night of the Aquarius event)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -229,6 +243,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Suroor + Special Guests Raneem Imam + DJ Doshai",
+      "venue": "Bar DKDC",
+      "date": "2026-02-21",
+      "time": null,
+      "source": "Artifacts (Suroor's Birthday Show)"
+    },
+    {
       "artist": "Brad Williams: The Tall Tales Tour",
       "venue": "Minglewood Hall",
       "date": "2026-02-22",
@@ -241,6 +262,13 @@
       "date": "2026-02-23",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-02-24",
+      "time": null,
+      "source": "Venue: Hi Tone"
     }
   ]
 }
