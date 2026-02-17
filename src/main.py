@@ -53,8 +53,6 @@ def run(dry_run: bool = False) -> None:
         ("Ticketmaster", ticketmaster.fetch),
         ("Google Sheet", google_sheet.fetch),
         ("Artifacts", artifacts.fetch),
-        ("DICE", dice.fetch),
-        ("Memphis Flyer", memphis_flyer.fetch),
     ]
 
     for source_name, fetch_fn in sources:
