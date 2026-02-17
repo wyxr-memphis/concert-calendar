@@ -101,7 +101,7 @@ def run(dry_run: bool = False) -> None:
     print(f"  After deduplication: {len(deduped)}")
 
     # ---- STEP 3: Generate HTML ----
-    html = generate_html(deduped, all_source_results, run_timestamp)
+    html_output = generate_html(deduped, all_source_results, run_timestamp)
 
     if dry_run:
         print(f"\n{'='*60}")
@@ -114,7 +114,7 @@ def run(dry_run: bool = False) -> None:
     DOCS_DIR.mkdir(parents=True, exist_ok=True)
 
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(html_output)
     print(f"\n  ✅ Wrote {INDEX_PATH}")
 
     # Write log
