@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-17T01:01:27.132752+00:00",
+  "run_timestamp": "2026-02-18T02:47:37.798064+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_raw_events": 26,
-  "total_deduped_events": 25,
+  "total_events_json": 53,
+  "total_active_display": 53,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -16,35 +16,27 @@
       "error": null
     },
     {
-      "name": "Manual (Google Sheet)",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "CSV accessible but no events in date range"
-    },
-    {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 16,
+      "events_found": 65,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
+      "events_found": 93,
       "events_after_filter": 4,
-      "events_filtered": 85,
+      "events_filtered": 89,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
+      "events_found": 37,
       "events_after_filter": 1,
-      "events_filtered": 34,
+      "events_filtered": 36,
       "error": null
     },
     {
@@ -114,9 +106,17 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 62,
+      "events_found": 61,
       "events_after_filter": 0,
-      "events_filtered": 62,
+      "events_filtered": 61,
+      "error": null
+    },
+    {
+      "name": "Events JSON",
+      "success": true,
+      "events_found": 53,
+      "events_after_filter": 53,
+      "events_filtered": 0,
       "error": null
     }
   ],
@@ -147,6 +147,13 @@
       "venue": "Writers in the Round",
       "date": "2026-02-17",
       "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Soul Street LIVE at Rum Boogie Cafe",
+      "date": "2026-02-18",
+      "time": "6:00 PM",
       "source": "Artifacts (Bandsintown page)"
     },
     {
@@ -192,13 +199,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Rodd Bland",
-      "venue": "Soul Street LIVE at Rum Boogie Cafe",
-      "date": "2026-02-18",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "DEVIL TRAIN",
       "venue": "B-Side Memphis",
       "date": "2026-02-19",
@@ -217,7 +217,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
-      "source": "Artifacts (Venue event listing)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -234,11 +234,18 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
+      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "venue": "Bar DKDC",
+      "date": "2026-02-20",
+      "time": null,
+      "source": "Artifacts (Night of the Aquarius event)"
+    },
+    {
       "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
       "venue": "Bar DKDC",
       "date": "2026-02-20",
       "time": null,
-      "source": "Artifacts (Venue event listing)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -255,6 +262,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Tony Woods",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-20",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
       "venue": "B-Side Memphis",
       "date": "2026-02-21",
@@ -262,11 +276,144 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
+      "artist": "Raneem Imam + DJ Doshai",
+      "venue": "Bar DKDC",
+      "date": "2026-02-21",
+      "time": null,
+      "source": "Artifacts (Suroor's Birthday Show)"
+    },
+    {
       "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
-      "source": "Artifacts (Venue event listing)"
+      "source": "Artifacts (Event listing)"
+    },
+    {
+      "artist": "Drake White",
+      "venue": "Bluesland Band Box",
+      "date": "2026-02-21",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Steve Quinn",
+      "venue": "Green Room Lounge",
+      "date": "2026-02-21",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "JONATHAS",
+      "venue": "Hi Watt",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "DJ Plaza",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Damarco Sandixx",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "John Paul Austin",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Larr\u00e9 Quezaire",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Quinn Quezaire",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Rewind",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Daemian Sunday",
+      "venue": "Old Daisy Theatre",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Ben Alberts",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "David Binnert",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "JONATHAS",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Rossi Minnott",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Railgarten",
+      "date": "2026-02-22",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Steve Quinn",
+      "venue": "Green Room Lounge",
+      "date": "2026-02-22",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "JONATHAS",
+      "venue": "Hi Watt",
+      "date": "2026-02-22",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
@@ -276,11 +423,60 @@
       "source": "Venue: Minglewood Hall"
     },
     {
+      "artist": "DJ Fiasco",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-22",
+      "time": "11:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Jordan Turner Blues Band",
+      "venue": "Railgarten",
+      "date": "2026-02-22",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
       "venue": "Crosstown Arts",
       "date": "2026-02-23",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "John P. Kee/Jonee'",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-23",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Queen Quartet",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-23",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Steve Gaines",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-23",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Trina Group",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-23",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Chris Grados",
+      "venue": "Railgarten",
+      "date": "2026-02-23",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
     },
     {
       "artist": "THE PARALLAX",
