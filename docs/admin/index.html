@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin — Memphis Live Music</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        h1 { font-size: 1.4em; font-weight: 700; letter-spacing: 0.02em; }
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .header-actions a, .header-actions button {
+            font-size: 0.85em;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+        }
+        .btn-add { background: #1a1a1a; color: #fafafa; }
+        .btn-add:hover { background: #333; }
+        .btn-logout { background: #e8e8e8; color: #1a1a1a; }
+        .btn-logout:hover { background: #ddd; }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            padding: 8px 12px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+        }
+        .filter-tabs {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .filter-tab {
+            padding: 5px 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+        .filter-tab:hover { border-color: #888; color: #333; }
+        .filter-tab.active { background: #1a1a1a; color: #fafafa; border-color: #1a1a1a; }
+
+        #content { display: none; }
+
+        .event-table { width: 100%; border-collapse: collapse; }
+        .event-table th {
+            text-align: left;
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            padding: 6px 8px;
+            border-bottom: 2px solid #ddd;
+        }
+        .event-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9em;
+            vertical-align: middle;
+        }
+        .event-table tr { cursor: pointer; }
+        .event-table tr:hover { background: #f5f5f5; }
+        .event-table tr.inactive { opacity: 0.5; }
+
+        .col-date { width: 100px; white-space: nowrap; }
+        .col-time { width: 80px; white-space: nowrap; color: #888; font-size: 0.85em; }
+        .col-title { font-weight: 600; }
+        .col-venue { color: #555; }
+        .col-toggle { width: 40px; text-align: center; }
+
+        .toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            transition: background 0.15s;
+            line-height: 1;
+        }
+        .toggle-btn:hover { background: #eee; }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+        .pagination button {
+            padding: 6px 14px;
+            font-size: 0.85em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+            cursor: pointer;
+        }
+        .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+        .pagination button:hover:not(:disabled) { background: #eee; }
+        .page-info { font-size: 0.85em; color: #888; line-height: 2; }
+
+        .status-bar {
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-bottom: 12px;
+            display: none;
+        }
+        .status-bar.error { background: #ffebee; color: #c62828; display: block; }
+        .status-bar.success { background: #e8f5e9; color: #2e7d32; display: block; }
+        .status-bar.info { background: #e3f2fd; color: #1565c0; display: block; }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+            font-size: 0.95em;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+            font-size: 0.8em;
+            color: #aaa;
+            text-align: center;
+        }
+        footer a { color: inherit; }
+
+        @media (prefers-color-scheme: dark) {
+            body { background: #1a1a1a; color: #e0e0e0; }
+            header { border-bottom-color: #e0e0e0; }
+            .search-input { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
+            .filter-tab { border-color: #444; color: #aaa; }
+            .filter-tab:hover { border-color: #888; color: #e0e0e0; }
+            .filter-tab.active { background: #e0e0e0; color: #1a1a1a; border-color: #e0e0e0; }
+            .btn-add { background: #e0e0e0; color: #1a1a1a; }
+            .btn-add:hover { background: #ccc; }
+            .btn-logout { background: #333; color: #e0e0e0; }
+            .btn-logout:hover { background: #444; }
+            .event-table th { color: #666; border-bottom-color: #333; }
+            .event-table td { border-bottom-color: #2a2a2a; }
+            .event-table tr:hover { background: #252525; }
+            .col-time { color: #777; }
+            .col-venue { color: #aaa; }
+            .toggle-btn:hover { background: #333; }
+            .pagination button { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
+            .pagination button:hover:not(:disabled) { background: #333; }
+            .status-bar.error { background: #3a1b1b; color: #ef9a9a; }
+            .status-bar.success { background: #1b3a1b; color: #81c784; }
+            .status-bar.info { background: #1b2a3a; color: #90caf9; }
+            footer { border-top-color: #333; color: #555; }
+        }
+
+        @media (max-width: 600px) {
+            .col-time, .col-venue { display: none; }
+            .event-table td, .event-table th { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loadingMsg">Checking authentication...</div>
+
+    <div id="content">
+        <header>
+            <h1>ADMIN</h1>
+            <div class="header-actions">
+                <a href="/admin/edit.html" class="btn-add">+ Add Event</a>
+                <button class="btn-logout" id="logoutBtn">Log Out</button>
+            </div>
+        </header>
+
+        <div class="status-bar" id="statusBar"></div>
+
+        <div class="controls">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search by title or venue...">
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="active">Active</button>
+                <button class="filter-tab" data-filter="inactive">Inactive</button>
+                <button class="filter-tab" data-filter="featured">Featured</button>
+                <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+                <button class="filter-tab" data-filter="past">Past</button>
+            </div>
+        </div>
+
+        <table class="event-table">
+            <thead>
+                <tr>
+                    <th class="col-date">Date</th>
+                    <th class="col-title">Title</th>
+                    <th class="col-venue">Venue</th>
+                    <th class="col-time">Time</th>
+                    <th class="col-toggle">Star</th>
+                    <th class="col-toggle">Active</th>
+                </tr>
+            </thead>
+            <tbody id="eventBody"></tbody>
+        </table>
+
+        <div class="pagination" id="pagination"></div>
+
+        <footer>
+            <a href="/">&larr; Back to calendar</a>
+        </footer>
+    </div>
+
+    <script>
+        const PAGE_SIZE = 50;
+        let allEvents = [];
+        let filteredEvents = [];
+        let currentPage = 0;
+        let currentFilter = 'all';
+
+        // Auth guard
+        fetch('/api/admin/me', { credentials: 'same-origin' })
+            .then(r => {
+                if (!r.ok) {
+                    window.location.href = '/admin/login.html';
+                    return;
+                }
+                document.getElementById('loadingMsg').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                loadEvents();
+            })
+            .catch(() => { window.location.href = '/admin/login.html'; });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', async () => {
+            await fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' });
+            window.location.href = '/admin/login.html';
+        });
+
+        // Search
+        document.getElementById('searchInput').addEventListener('input', () => {
+            currentPage = 0;
+            applyFilters();
+        });
+
+        // Filter tabs
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelector('.filter-tab.active').classList.remove('active');
+                tab.classList.add('active');
+                currentFilter = tab.dataset.filter;
+                currentPage = 0;
+                applyFilters();
+            });
+        });
+
+        async function loadEvents() {
+            try {
+                const resp = await fetch('/api/admin/events', { credentials: 'same-origin' });
+                if (!resp.ok) throw new Error('Failed to load events');
+                const result = await resp.json();
+                allEvents = (result.data.events || []).sort((a, b) => {
+                    // Sort by date descending (newest first)
+                    if (a.date !== b.date) return b.date.localeCompare(a.date);
+                    return (a.title || '').localeCompare(b.title || '');
+                });
+                applyFilters();
+            } catch (err) {
+                showStatus('Failed to load events: ' + err.message, 'error');
+            }
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const today = new Date().toISOString().split('T')[0];
+
+            filteredEvents = allEvents.filter(e => {
+                // Text search
+                if (query) {
+                    const text = `${e.title || ''} ${e.venue || ''}`.toLowerCase();
+                    if (!text.includes(query)) return false;
+                }
+                // Tab filter
+                switch (currentFilter) {
+                    case 'active': return e.is_active !== false;
+                    case 'inactive': return e.is_active === false;
+                    case 'featured': return e.is_featured === true;
+                    case 'upcoming': return e.date >= today;
+                    case 'past': return e.date < today;
+                    default: return true;
+                }
+            });
+
+            renderTable();
+            renderPagination();
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('eventBody');
+            const start = currentPage * PAGE_SIZE;
+            const page = filteredEvents.slice(start, start + PAGE_SIZE);
+
+            if (page.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No events found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = page.map(e => {
+                const d = e.date ? new Date(e.date + 'T12:00:00') : null;
+                const dateStr = d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' }) : '';
+                const inactive = e.is_active === false ? ' class="inactive"' : '';
+                const star = e.is_featured ? '&#9733;' : '&#9734;';
+                const active = e.is_active !== false ? '&#10003;' : '&#10007;';
+                const starColor = e.is_featured ? 'color:#f9a825' : 'color:#ccc';
+                const activeColor = e.is_active !== false ? 'color:#2e7d32' : 'color:#c62828';
+
+                return `<tr${inactive} data-id="${esc(e.id)}">
+                    <td class="col-date">${esc(dateStr)}</td>
+                    <td class="col-title">${esc(e.title || '')}</td>
+                    <td class="col-venue">${esc(e.venue || '')}</td>
+                    <td class="col-time">${esc(e.start_time || '')}</td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${starColor}" data-action="featured" data-id="${esc(e.id)}" title="Toggle featured">${star}</button></td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${activeColor}" data-action="active" data-id="${esc(e.id)}" title="Toggle active">${active}</button></td>
+                </tr>`;
+            }).join('');
+
+            // Row click → edit (but not on toggle buttons)
+            tbody.querySelectorAll('tr').forEach(row => {
+                row.addEventListener('click', (ev) => {
+                    if (ev.target.closest('.toggle-btn')) return;
+                    const id = row.dataset.id;
+                    if (id) window.location.href = `/admin/edit.html?id=${encodeURIComponent(id)}`;
+                });
+            });
+
+            // Toggle buttons
+            tbody.querySelectorAll('.toggle-btn').forEach(btn => {
+                btn.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    const id = btn.dataset.id;
+                    const action = btn.dataset.action;
+                    toggleField(id, action);
+                });
+            });
+        }
+
+        function renderPagination() {
+            const pag = document.getElementById('pagination');
+            const totalPages = Math.ceil(filteredEvents.length / PAGE_SIZE);
+            if (totalPages <= 1) { pag.innerHTML = ''; return; }
+
+            pag.innerHTML = `
+                <button ${currentPage === 0 ? 'disabled' : ''} id="prevPage">&larr; Prev</button>
+                <span class="page-info">Page ${currentPage + 1} of ${totalPages}</span>
+                <button ${currentPage >= totalPages - 1 ? 'disabled' : ''} id="nextPage">Next &rarr;</button>
+            `;
+            document.getElementById('prevPage').addEventListener('click', () => { currentPage--; renderTable(); renderPagination(); });
+            document.getElementById('nextPage').addEventListener('click', () => { currentPage++; renderTable(); renderPagination(); });
+        }
+
+        async function toggleField(id, field) {
+            const event = allEvents.find(e => e.id === id);
+            if (!event) return;
+
+            const key = field === 'featured' ? 'is_featured' : 'is_active';
+            const newVal = !event[key];
+
+            // Optimistic update
+            event[key] = newVal;
+            applyFilters();
+
+            try {
+                const resp = await fetch('/api/admin/events', {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ id, [key]: newVal }),
+                });
+                if (!resp.ok) throw new Error('API error');
+                const result = await resp.json();
+                if (!result.ok) throw new Error(result.error || 'Failed');
+            } catch (err) {
+                // Revert on failure
+                event[key] = !newVal;
+                applyFilters();
+                showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
+            }
+        }
+
+        function showStatus(msg, type) {
+            const bar = document.getElementById('statusBar');
+            bar.textContent = msg;
+            bar.className = 'status-bar ' + type;
+            setTimeout(() => { bar.className = 'status-bar'; }, 5000);
+        }
+
+        function esc(str) {
+            const el = document.createElement('span');
+            el.textContent = str || '';
+            return el.innerHTML;
+        }
+    </script>
+</body>
+</html>

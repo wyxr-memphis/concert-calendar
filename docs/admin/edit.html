@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Event — Admin</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        h1 { font-size: 1.4em; font-weight: 700; letter-spacing: 0.02em; }
+        .back-link {
+            font-size: 0.85em;
+            color: #666;
+            text-decoration: none;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        #content { display: none; }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #888;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-row {
+            display: flex;
+            gap: 16px;
+        }
+        .form-row .form-group { flex: 1; }
+        label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        label .req { color: #c62828; }
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="url"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 0.95em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+            font-family: inherit;
+        }
+        textarea { min-height: 80px; resize: vertical; }
+
+        .checkbox-group {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 16px;
+        }
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9em;
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 10px 24px;
+            font-size: 0.95em;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-save { background: #1a1a1a; color: #fafafa; }
+        .btn-save:hover { background: #333; }
+        .btn-save:disabled { background: #999; cursor: not-allowed; }
+        .btn-cancel { background: #e8e8e8; color: #1a1a1a; }
+        .btn-cancel:hover { background: #ddd; }
+        .btn-deactivate { background: transparent; color: #c62828; border: 1px solid #c62828; margin-left: auto; }
+        .btn-deactivate:hover { background: #ffebee; }
+
+        .status {
+            margin-top: 16px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            display: none;
+        }
+        .status.error { background: #ffebee; color: #c62828; display: block; }
+        .status.success { background: #e8f5e9; color: #2e7d32; display: block; }
+
+        @media (prefers-color-scheme: dark) {
+            body { background: #1a1a1a; color: #e0e0e0; }
+            header { border-bottom-color: #e0e0e0; }
+            .back-link { color: #888; }
+            input[type="text"], input[type="date"], input[type="time"],
+            input[type="url"], textarea, select {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #e0e0e0;
+            }
+            .btn-save { background: #e0e0e0; color: #1a1a1a; }
+            .btn-save:hover { background: #ccc; }
+            .btn-save:disabled { background: #555; color: #888; }
+            .btn-cancel { background: #333; color: #e0e0e0; }
+            .btn-cancel:hover { background: #444; }
+            .btn-deactivate { color: #ef9a9a; border-color: #ef9a9a; }
+            .btn-deactivate:hover { background: #3a1b1b; }
+            .status.error { background: #3a1b1b; color: #ef9a9a; }
+            .status.success { background: #1b3a1b; color: #81c784; }
+        }
+
+        @media (max-width: 500px) {
+            .form-row { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading" id="loadingMsg">Loading...</div>
+
+    <div id="content">
+        <header>
+            <h1 id="pageTitle">ADD EVENT</h1>
+            <a href="/admin/" class="back-link">&larr; Back to events</a>
+        </header>
+
+        <form id="eventForm">
+            <div class="form-group">
+                <label for="title">Title <span class="req">*</span></label>
+                <input type="text" id="title" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="venue">Venue <span class="req">*</span></label>
+                    <input type="text" id="venue" list="venueList" required>
+                    <datalist id="venueList">
+                        <option value="Hi Tone">
+                        <option value="Minglewood Hall">
+                        <option value="Growlers">
+                        <option value="Hernando's Hideaway">
+                        <option value="Crosstown Arts">
+                        <option value="Lafayette's Music Room">
+                        <option value="Overton Park Shell">
+                        <option value="B.B. King's Blues Club">
+                        <option value="Graceland Soundstage">
+                        <option value="FedExForum">
+                        <option value="Germantown Performing Arts Center">
+                        <option value="Orpheum Theatre">
+                        <option value="Bar DKDC">
+                        <option value="B-Side Memphis">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date <span class="req">*</span></label>
+                    <input type="date" id="date" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start_time">Start Time</label>
+                    <input type="text" id="start_time" placeholder="e.g. 8 PM or Doors 7 / Show 8">
+                </div>
+                <div class="form-group">
+                    <label for="doors_time">Doors Time</label>
+                    <input type="text" id="doors_time" placeholder="e.g. 7 PM">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="ticket_url">Ticket URL</label>
+                    <input type="url" id="ticket_url" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="ticket_price">Ticket Price</label>
+                    <input type="text" id="ticket_price" placeholder="e.g. $15 / $20">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="image_url">Image URL</label>
+                    <input type="url" id="image_url" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" placeholder="e.g. Blues, Jazz, Rock">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" placeholder="Optional description..."></textarea>
+            </div>
+
+            <div class="checkbox-group">
+                <label>
+                    <input type="checkbox" id="is_featured">
+                    Featured
+                </label>
+                <label>
+                    <input type="checkbox" id="is_active" checked>
+                    Active
+                </label>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn-save" id="saveBtn">Save</button>
+                <a href="/admin/" class="btn-cancel" style="display:inline-block;text-align:center;text-decoration:none;">Cancel</a>
+                <button type="button" class="btn-deactivate" id="deactivateBtn" style="display:none;">Deactivate</button>
+            </div>
+        </form>
+
+        <div class="status" id="status"></div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const eventId = params.get('id');
+        const isEdit = !!eventId;
+        let currentEvent = null;
+
+        const fields = ['title', 'venue', 'date', 'start_time', 'doors_time',
+                        'ticket_url', 'ticket_price', 'image_url', 'genre', 'description'];
+
+        // Auth guard
+        fetch('/api/admin/me', { credentials: 'same-origin' })
+            .then(r => {
+                if (!r.ok) {
+                    window.location.href = '/admin/login.html';
+                    return;
+                }
+                document.getElementById('loadingMsg').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+                if (isEdit) loadEvent();
+            })
+            .catch(() => { window.location.href = '/admin/login.html'; });
+
+        if (isEdit) {
+            document.getElementById('pageTitle').textContent = 'EDIT EVENT';
+            document.getElementById('deactivateBtn').style.display = '';
+        }
+
+        async function loadEvent() {
+            try {
+                const resp = await fetch('/api/admin/events', { credentials: 'same-origin' });
+                if (!resp.ok) throw new Error('Failed to load');
+                const result = await resp.json();
+                currentEvent = (result.data.events || []).find(e => e.id === eventId);
+                if (!currentEvent) {
+                    showStatus('Event not found', 'error');
+                    return;
+                }
+                // Populate form
+                fields.forEach(f => {
+                    const el = document.getElementById(f);
+                    if (el && currentEvent[f] != null) el.value = currentEvent[f];
+                });
+                document.getElementById('is_featured').checked = !!currentEvent.is_featured;
+                document.getElementById('is_active').checked = currentEvent.is_active !== false;
+            } catch (err) {
+                showStatus('Failed to load event: ' + err.message, 'error');
+            }
+        }
+
+        // Save
+        document.getElementById('eventForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('saveBtn');
+            btn.disabled = true;
+            btn.textContent = 'Saving...';
+
+            const data = {};
+            fields.forEach(f => {
+                const val = document.getElementById(f).value.trim();
+                data[f] = val || null;
+            });
+            data.is_featured = document.getElementById('is_featured').checked;
+            data.is_active = document.getElementById('is_active').checked;
+
+            if (!data.title || !data.venue || !data.date) {
+                showStatus('Title, venue, and date are required', 'error');
+                btn.disabled = false;
+                btn.textContent = 'Save';
+                return;
+            }
+
+            try {
+                let method, body;
+                if (isEdit) {
+                    method = 'PUT';
+                    body = { ...data, id: eventId };
+                } else {
+                    method = 'POST';
+                    body = data;
+                }
+
+                const resp = await fetch('/api/admin/events', {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify(body),
+                });
+                const result = await resp.json();
+                if (result.ok) {
+                    showStatus('Saved!', 'success');
+                    setTimeout(() => { window.location.href = '/admin/'; }, 800);
+                } else {
+                    showStatus(result.error || 'Save failed', 'error');
+                }
+            } catch (err) {
+                showStatus('Network error: ' + err.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Save';
+        });
+
+        // Deactivate (soft delete)
+        document.getElementById('deactivateBtn').addEventListener('click', async () => {
+            if (!confirm('Deactivate this event? It will be hidden from the public calendar.')) return;
+
+            try {
+                const resp = await fetch('/api/admin/events', {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ id: eventId, is_active: false }),
+                });
+                const result = await resp.json();
+                if (result.ok) {
+                    window.location.href = '/admin/';
+                } else {
+                    showStatus(result.error || 'Failed to deactivate', 'error');
+                }
+            } catch (err) {
+                showStatus('Network error: ' + err.message, 'error');
+            }
+        });
+
+        function showStatus(msg, type) {
+            const el = document.getElementById('status');
+            el.textContent = msg;
+            el.className = 'status ' + type;
+        }
+    </script>
+</body>
+</html>
