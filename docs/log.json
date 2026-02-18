@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T19:19:27.263615+00:00",
+  "run_timestamp": "2026-02-18T19:28:02.411006+00:00",
   "date_range": {
     "start": "2026-02-18",
     "end": "2026-02-25"
   },
-  "total_events_json": 76,
-  "total_active_display": 42,
+  "total_events_json": 20,
+  "total_active_display": 18,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,10 +18,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts found"
     },
     {
       "name": "Venue: Hi Tone",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     }
@@ -136,13 +136,6 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-18",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Open Mic Night for Memphis Musicians",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-18",
@@ -157,20 +150,6 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Red McAdam",
-      "venue": "Red McAdam, Alexis Jade, Alma Russ",
-      "date": "2026-02-18",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Soul Street LIVE at Rum Boogie Cafe",
-      "date": "2026-02-18",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "Hans Condor (Nashville)",
       "venue": "Bar DKDC",
       "date": "2026-02-19",
@@ -183,13 +162,6 @@
       "date": "2026-02-19",
       "time": "10PM",
       "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-02-19",
-      "time": "5:00 PM",
-      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -248,151 +220,11 @@
       "source": "Artifacts (Suroor's Birthday Show)"
     },
     {
-      "artist": "John K Martinez",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Jordan Taylor Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
       "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
       "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Drake White",
-      "venue": "Bluesland Band Box",
-      "date": "2026-02-21",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Chris Garneau",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Steve Quinn",
-      "venue": "Green Room Lounge",
-      "date": "2026-02-21",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "DJ Plaza",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Brian Kennelty",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Chris Gelbuda",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Daemian Soulfire",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "DJ Negro",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Giselle Quinn",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Grace Quinn",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "John S. Mulhaney",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Khalia Shanel",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Khalia Tremell Music",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Lalah Quinne",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "LGBTQ+ Qorom",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Rodney Bricker",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Steve Oliver & His Wonders",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Steve Quinn",
-      "venue": "Green Room Lounge",
-      "date": "2026-02-22",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
     },
     {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
