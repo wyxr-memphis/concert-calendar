@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-18T14:23:50.498838+00:00",
+  "run_timestamp": "2026-02-18T14:26:33.063299+00:00",
   "date_range": {
     "start": "2026-02-18",
     "end": "2026-02-25"
@@ -18,10 +18,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 5,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
