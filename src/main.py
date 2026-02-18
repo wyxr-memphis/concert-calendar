@@ -14,7 +14,7 @@ import json
 import sys
 import time
 from collections import defaultdict
-from datetime import date, datetime, timedelta
+from datetime import date, datetime
 from pathlib import Path
 from typing import Dict, List
 from zoneinfo import ZoneInfo
@@ -42,9 +42,6 @@ from src.sources import (
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_PATH = DOCS_DIR / "index.html"
 LOG_PATH = DOCS_DIR / "log.json"
-
-# Events older than this many days get pruned from events.json
-PRUNE_DAYS = 30
 
 
 def run(dry_run: bool = False) -> None:
@@ -120,13 +117,13 @@ def run(dry_run: bool = False) -> None:
     merged = _merge_events(existing_events, automated_events, run_timestamp)
     print(f"  After merge: {len(merged)}")
 
-    # ---- STEP 4: Prune old events ----
-    cutoff = (date.today() - timedelta(days=PRUNE_DAYS)).isoformat()
+    # ---- STEP 4: Prune past events ----
+    today_str = date.today().isoformat()
     before_prune = len(merged)
-    merged = [e for e in merged if e.get("date", "") >= cutoff]
+    merged = [e for e in merged if e.get("date", "") >= today_str]
     pruned = before_prune - len(merged)
     if pruned:
-        print(f"  Pruned {pruned} events older than {PRUNE_DAYS} days")
+        print(f"  Pruned {pruned} past events (before {today_str})")
 
     # ---- STEP 5: Write updated events.json ----
     events_data["events"] = merged

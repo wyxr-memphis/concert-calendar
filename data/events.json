@@ -1,79 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-02-18T19:07:19.120829+00:00",
+  "updated_at": "2026-02-18T19:19:27.263615+00:00",
   "events": [
-    {
-      "id": "evt_1771375878150_0",
-      "title": "DANA/ FAKE! / OPPOSSUMS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-17",
-      "start_time": "9pm",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (February calendar poster)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
-    },
-    {
-      "id": "evt_1771375878151_1",
-      "title": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-17",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107930117-rodd-bland-at-blues-city-cafe",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:52:55.416882+00:00"
-    },
-    {
-      "id": "evt_1771375878153_2",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-17",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-24/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:52:55.416882+00:00"
-    },
-    {
-      "id": "evt_1771375878154_3",
-      "title": "Aybil",
-      "venue": "Writers in the Round",
-      "date": "2026-02-17",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107942867-aybil-at-lamplighter-lounge",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:52:55.416882+00:00"
-    },
     {
       "id": "evt_1771375878155_4",
       "title": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
@@ -126,7 +54,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878159_7",
@@ -144,7 +72,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878160_8",
@@ -162,7 +90,7 @@
       "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878162_9",
@@ -270,7 +198,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878169_15",
@@ -324,7 +252,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878173_18",
@@ -342,7 +270,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878174_19",
@@ -475,7 +403,7 @@
       "title": "John Paul Keith",
       "venue": "Railgarten",
       "date": "2026-02-21",
-      "start_time": "7:00 PM",
+      "start_time": "8:00 PM",
       "doors_time": null,
       "ticket_url": null,
       "ticket_price": null,
@@ -486,7 +414,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:59:49Z"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878184_27",
@@ -558,7 +486,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878190_31",
@@ -594,7 +522,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771375878192_33",
@@ -630,7 +558,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771382898064_35",
@@ -1159,7 +1087,7 @@
       "title": "JONATHANL",
       "venue": "Railgarten",
       "date": "2026-02-21",
-      "start_time": "7:00 PM",
+      "start_time": "8:00 PM",
       "doors_time": null,
       "ticket_url": null,
       "ticket_price": null,
@@ -1170,7 +1098,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T02:52:55.416882+00:00",
-      "updated_at": "2026-02-18T02:59:54Z"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     },
     {
       "id": "evt_1771383193903_65",
@@ -1206,7 +1134,241 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T02:57:30.135404+00:00",
-      "updated_at": "2026-02-18T19:07:19.120829+00:00"
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397319_67",
+      "title": "Brian Kennelty",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397320_68",
+      "title": "Chris Gelbuda",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397322_69",
+      "title": "Daemian Soulfire",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397323_70",
+      "title": "DJ Negro",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397324_71",
+      "title": "Giselle Quinn",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397325_72",
+      "title": "Grace Quinn",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397327_73",
+      "title": "John S. Mulhaney",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397328_74",
+      "title": "Khalia Shanel",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397329_75",
+      "title": "Khalia Tremell Music",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397331_76",
+      "title": "Lalah Quinne",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397332_77",
+      "title": "LGBTQ+ Qorom",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397333_78",
+      "title": "Rodney Bricker",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
+    },
+    {
+      "id": "evt_1771442397334_79",
+      "title": "Steve Oliver & His Wonders",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T19:19:27.263615+00:00",
+      "updated_at": "2026-02-18T19:19:27.263615+00:00"
     }
   ]
 }
