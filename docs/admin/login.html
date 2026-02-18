@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login — Memphis Live Music</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 60px 16px 20px;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+        header {
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 12px;
+            margin-bottom: 32px;
+        }
+        h1 {
+            font-size: 1.4em;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+        .subtitle {
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 4px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+        }
+        button {
+            width: 100%;
+            padding: 10px 24px;
+            font-size: 0.95em;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #1a1a1a;
+            color: #fafafa;
+            transition: background 0.2s;
+        }
+        button:hover { background: #333; }
+        button:disabled { background: #999; cursor: not-allowed; }
+        .status {
+            margin-top: 16px;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            display: none;
+        }
+        .status.error {
+            background: #ffebee;
+            color: #c62828;
+            display: block;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid #eee;
+            font-size: 0.8em;
+            color: #aaa;
+            text-align: center;
+        }
+        footer a { color: inherit; }
+        @media (prefers-color-scheme: dark) {
+            body { background: #1a1a1a; color: #e0e0e0; }
+            header { border-bottom-color: #e0e0e0; }
+            .subtitle { color: #888; }
+            input[type="password"] {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #e0e0e0;
+            }
+            button { background: #e0e0e0; color: #1a1a1a; }
+            button:hover { background: #ccc; }
+            button:disabled { background: #555; color: #888; }
+            .status.error { background: #3a1b1b; color: #ef9a9a; }
+            footer { border-top-color: #333; color: #555; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ADMIN LOGIN</h1>
+        <div class="subtitle">Memphis Live Music Calendar</div>
+    </header>
+
+    <main>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" autocomplete="current-password" autofocus>
+            </div>
+            <button type="submit" id="loginBtn">Log In</button>
+        </form>
+        <div class="status" id="status"></div>
+    </main>
+
+    <footer>
+        <a href="/">&larr; Back to calendar</a>
+    </footer>
+
+    <script>
+        // If already authenticated, redirect to admin
+        fetch('/api/admin/me', { credentials: 'same-origin' })
+            .then(r => { if (r.ok) window.location.href = '/admin/'; });
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            const status = document.getElementById('status');
+            const password = document.getElementById('password').value;
+
+            if (!password) {
+                status.textContent = 'Enter the admin password.';
+                status.className = 'status error';
+                return;
+            }
+
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
+            status.className = 'status';
+
+            try {
+                const resp = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ password }),
+                });
+                const data = await resp.json();
+
+                if (data.ok) {
+                    window.location.href = '/admin/';
+                } else {
+                    status.textContent = data.error || 'Login failed';
+                    status.className = 'status error';
+                }
+            } catch (err) {
+                status.textContent = 'Network error: ' + err.message;
+                status.className = 'status error';
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Log In';
+        });
+    </script>
+</body>
+</html>
