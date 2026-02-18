@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T06:04:02.003180+00:00",
+  "run_timestamp": "2026-02-18T14:23:50.498838+00:00",
   "date_range": {
     "start": "2026-02-18",
     "end": "2026-02-25"
   },
   "total_events_json": 67,
-  "total_active_display": 47,
+  "total_active_display": 32,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     }
@@ -234,13 +234,6 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Tony Woods",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-20",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
       "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
       "venue": "B-Side Memphis",
       "date": "2026-02-21",
@@ -311,90 +304,6 @@
       "source": "Artifacts (Bandsintown event listing)"
     },
     {
-      "artist": "Alex Amozoc",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Cheerful",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Chris Gra",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Damarco Sandixx",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "John Paul Austin",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Kevin Garrett and Friends",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Larr\u00e9 Quezaire",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Natalie Maakaroun",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Quinn Quezaire",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Rewind",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Rosecool",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Rumours ATA - A Fleetwood Mac",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
       "artist": "Daemian Sunday",
       "venue": "Old Daisy Theatre",
       "date": "2026-02-21",
@@ -407,20 +316,6 @@
       "date": "2026-02-22",
       "time": "6:00 PM",
       "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "Brad Williams: The Tall Tales Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "DJ Fiasco",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-22",
-      "time": "11:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
     },
     {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
