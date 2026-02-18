@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-18T02:47:37.798064+00:00",
+  "updated_at": "2026-02-18T02:52:55.416882+00:00",
   "events": [
     {
       "id": "evt_1771375878150_0",
@@ -36,7 +36,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878153_2",
@@ -54,7 +54,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878154_3",
@@ -72,7 +72,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878155_4",
@@ -108,7 +108,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878158_6",
@@ -126,7 +126,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878159_7",
@@ -144,7 +144,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878160_8",
@@ -162,7 +162,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878162_9",
@@ -180,7 +180,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878163_10",
@@ -198,7 +198,7 @@
       "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878164_11",
@@ -234,7 +234,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878167_13",
@@ -270,7 +270,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878169_15",
@@ -324,7 +324,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878173_18",
@@ -342,7 +342,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878174_19",
@@ -475,18 +475,18 @@
       "title": "John Paul Keith",
       "venue": "Railgarten",
       "date": "2026-02-21",
-      "start_time": "8:00 PM",
+      "start_time": "7:00 PM",
       "doors_time": null,
       "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Bandsintown event listing)",
+      "source": "Artifacts (Bandsintown listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T00:50:35.941489+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878184_27",
@@ -558,7 +558,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878190_31",
@@ -594,7 +594,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771375878192_33",
@@ -630,7 +630,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     },
     {
       "id": "evt_1771382898064_35",
@@ -955,6 +955,240 @@
       "is_active": true,
       "created_at": "2026-02-18T02:47:37.798064+00:00",
       "updated_at": "2026-02-18T02:47:37.798064+00:00"
+    },
+    {
+      "id": "evt_1771383193888_53",
+      "title": "John K Martinez",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193889_54",
+      "title": "Jordan Taylor Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193890_55",
+      "title": "Chris Garneau",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193892_56",
+      "title": "Alex Amozoc",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193893_57",
+      "title": "Cheerful",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193894_58",
+      "title": "Chris Gra",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193895_59",
+      "title": "Kevin Garrett and Friends",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193897_60",
+      "title": "Natalie Maakaroun",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193898_61",
+      "title": "Rosecool",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193899_62",
+      "title": "Rumours ATA - A Fleetwood Mac",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "start_time": "9:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193901_63",
+      "title": "Darrion Scoggins",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193902_64",
+      "title": "JONATHANL",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
+    },
+    {
+      "id": "evt_1771383193903_65",
+      "title": "Lorell Quarne",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-18T02:52:55.416882+00:00",
+      "updated_at": "2026-02-18T02:52:55.416882+00:00"
     }
   ]
 }

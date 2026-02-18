@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T02:47:37.798064+00:00",
+  "run_timestamp": "2026-02-18T02:52:55.416882+00:00",
   "date_range": {
     "start": "2026-02-17",
     "end": "2026-02-24"
   },
-  "total_events_json": 53,
-  "total_active_display": 53,
+  "total_events_json": 66,
+  "total_active_display": 66,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,8 +18,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 36,
+      "events_found": 55,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 66,
+      "events_after_filter": 66,
       "events_filtered": 0,
       "error": null
     }
@@ -276,6 +276,20 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
+      "artist": "John K Martinez",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Jordan Taylor Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
@@ -295,6 +309,13 @@
       "date": "2026-02-21",
       "time": "7:30 PM",
       "source": "Artifacts (Bandsintown event listing)"
+    },
+    {
+      "artist": "Chris Garneau",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
     },
     {
       "artist": "Steve Quinn",
@@ -318,6 +339,27 @@
       "source": "Artifacts (Bandsintown event listing)"
     },
     {
+      "artist": "Alex Amozoc",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Cheerful",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Chris Gra",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "Damarco Sandixx",
       "venue": "Minglewood Hall",
       "date": "2026-02-21",
@@ -332,10 +374,24 @@
       "source": "Artifacts (Bandsintown listing)"
     },
     {
+      "artist": "Kevin Garrett and Friends",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "Larr\u00e9 Quezaire",
       "venue": "Minglewood Hall",
       "date": "2026-02-21",
       "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Natalie Maakaroun",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
       "source": "Artifacts (Bandsintown listing)"
     },
     {
@@ -347,6 +403,20 @@
     },
     {
       "artist": "Rewind",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Rosecool",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Rumours ATA - A Fleetwood Mac",
       "venue": "Minglewood Hall",
       "date": "2026-02-21",
       "time": "9:00 PM",
@@ -367,6 +437,13 @@
       "source": "Artifacts (Bandsintown listing)"
     },
     {
+      "artist": "Darrion Scoggins",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
       "artist": "David Binnert",
       "venue": "Railgarten",
       "date": "2026-02-21",
@@ -377,14 +454,28 @@
       "artist": "John Paul Keith",
       "venue": "Railgarten",
       "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "JONATHANL",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
     },
     {
       "artist": "JONATHAS",
       "venue": "Railgarten",
       "date": "2026-02-21",
       "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown listing)"
+    },
+    {
+      "artist": "Lorell Quarne",
+      "venue": "Railgarten",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
       "source": "Artifacts (Bandsintown listing)"
     },
     {
