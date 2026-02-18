@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-17T22:50:33.303405+00:00",
+  "run_timestamp": "2026-02-18T02:44:44.553451+00:00",
   "date_range": {
-    "start": "2026-02-17",
-    "end": "2026-02-24"
+    "start": "2026-02-18",
+    "end": "2026-02-25"
   },
-  "total_raw_events": 26,
-  "total_deduped_events": 25,
+  "total_raw_events": 24,
+  "total_deduped_events": 23,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -27,7 +27,7 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 45,
-      "events_after_filter": 16,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -35,8 +35,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 93,
-      "events_after_filter": 4,
-      "events_filtered": 89,
+      "events_after_filter": 3,
+      "events_filtered": 90,
       "error": null
     },
     {
@@ -59,8 +59,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 1,
-      "events_filtered": 29,
+      "events_after_filter": 2,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -122,39 +122,11 @@
   ],
   "events": [
     {
-      "artist": "DANA/ FAKE! / OPPOSSUMS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-17",
-      "time": "9pm",
-      "source": "Artifacts (Event calendar poster)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-17",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-17",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Aybil",
-      "venue": "Writers in the Round",
-      "date": "2026-02-17",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
       "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
       "venue": "B-Side Memphis",
       "date": "2026-02-18",
       "time": "9PM",
-      "source": "Artifacts (Event calendar poster)"
+      "source": "Artifacts (February 2026 calendar poster)"
     },
     {
       "artist": "John Paul Keith",
@@ -203,7 +175,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-19",
       "time": "10PM",
-      "source": "Artifacts (Event calendar poster)"
+      "source": "Artifacts (February 2026 calendar poster)"
     },
     {
       "artist": "Rodd Bland",
@@ -217,7 +189,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-19",
       "time": null,
-      "source": "Artifacts (Event listing)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -231,14 +203,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-20",
       "time": "7PM",
-      "source": "Artifacts (Event calendar poster)"
+      "source": "Artifacts (February 2026 calendar poster)"
     },
     {
-      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
+      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
       "venue": "Bar DKDC",
       "date": "2026-02-20",
       "time": null,
-      "source": "Artifacts (Night of the Aquarius event)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
@@ -259,14 +231,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-21",
       "time": "9PM",
-      "source": "Artifacts (Event calendar poster)"
+      "source": "Artifacts (February 2026 calendar poster)"
     },
     {
-      "artist": "Suroor (Birthday Show) with Special Guests Raneem Imam + DJ Doshai",
+      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
       "venue": "Bar DKDC",
       "date": "2026-02-21",
       "time": null,
-      "source": "Artifacts (Birthday show event)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Brad Williams: The Tall Tales Tour",
@@ -287,7 +259,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-24",
       "time": "10PM",
-      "source": "Artifacts (Event calendar poster)"
+      "source": "Artifacts (February 2026 calendar poster)"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
@@ -295,6 +267,20 @@
       "date": "2026-02-24",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "ACCESS GOD/ THE POP RITUAL/ DJ SETS BY BLKMR",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-25",
+      "time": "8PM",
+      "source": "Artifacts (February 2026 calendar poster)"
+    },
+    {
+      "artist": "Open Mic Night for Memphis Musicians",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-25",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
     }
   ]
 }
