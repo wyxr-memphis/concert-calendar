@@ -100,7 +100,7 @@
         .event-table tr:hover { background: #f5f5f5; }
         .event-table tr.inactive { opacity: 0.5; }
 
-        .col-date { width: 100px; white-space: nowrap; }
+        .col-date { width: 150px; white-space: nowrap; }
         .col-time { width: 80px; white-space: nowrap; color: #888; font-size: 0.85em; }
         .col-title { font-weight: 600; }
         .col-venue { color: #555; }
@@ -295,8 +295,8 @@
                 }
                 const result = await resp.json();
                 allEvents = (result.data.events || []).sort((a, b) => {
-                    // Sort by date descending (newest first)
-                    if (a.date !== b.date) return b.date.localeCompare(a.date);
+                    // Sort by date ascending, then title
+                    if (a.date !== b.date) return a.date.localeCompare(b.date);
                     return (a.title || '').localeCompare(b.title || '');
                 });
                 applyFilters();
@@ -342,7 +342,7 @@
 
             tbody.innerHTML = page.map(e => {
                 const d = e.date ? new Date(e.date + 'T12:00:00') : null;
-                const dateStr = d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' }) : '';
+                const dateStr = d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', weekday: 'short' }) : '';
                 const inactive = e.is_active === false ? ' class="inactive"' : '';
                 const star = e.is_featured ? '&#9733;' : '&#9734;';
                 const active = e.is_active !== false ? '&#10003;' : '&#10007;';
