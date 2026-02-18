@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T19:29:35.499297+00:00",
+  "run_timestamp": "2026-02-18T19:35:47.762206+00:00",
   "date_range": {
     "start": "2026-02-18",
     "end": "2026-02-25"
   },
-  "total_events_json": 20,
-  "total_active_display": 18,
+  "total_events_json": 42,
+  "total_active_display": 40,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,10 +18,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 36,
+      "events_after_filter": 24,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 40,
+      "events_after_filter": 40,
       "events_filtered": 0,
       "error": null
     }
@@ -136,6 +136,13 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-18",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Open Mic Night for Memphis Musicians",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-18",
@@ -148,6 +155,13 @@
       "date": "2026-02-18",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Red McAdam",
+      "venue": "Red McAdam, Alexis Jade, Alma Russ",
+      "date": "2026-02-18",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Hans Condor (Nashville)",
@@ -171,6 +185,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Don Trip",
+      "venue": "1884 Lounge",
+      "date": "2026-02-20",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "MS. NICKKI/ STEPHANIE BRADLEY",
       "venue": "B-Side Memphis",
       "date": "2026-02-20",
@@ -192,6 +213,20 @@
       "source": "Artifacts (Event listing)"
     },
     {
+      "artist": "Chris Gales",
+      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
+      "date": "2026-02-20",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Sons Of Town Hall",
+      "venue": "Crosstown Arts",
+      "date": "2026-02-20",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-20",
@@ -204,6 +239,20 @@
       "date": "2026-02-20",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "David Berkeley",
+      "venue": "Sons of Town Hall in Memphis",
+      "date": "2026-02-20",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Doug MacLeod",
+      "venue": "Trezevant",
+      "date": "2026-02-20",
+      "time": "5:30 PM",
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
@@ -227,6 +276,97 @@
       "source": "Artifacts (Event listing)"
     },
     {
+      "artist": "Jeremih",
+      "venue": "FedExForum",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Kandace Springs",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-02-21",
+      "time": "8:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Trevor Wallace",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Hannah Blaylock",
+      "venue": "Three Times A Lady",
+      "date": "2026-02-21",
+      "time": "6:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Kennedy Scott",
+      "venue": "Three Times A Lady @ The Harell Performing Arts Theatre",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Three Times A Lady Trio",
+      "venue": "Three Times A Lady @ The Harrell Performing Arts Theatre",
+      "date": "2026-02-21",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "dead7",
+      "venue": "dead7 w/cohen_noise, Vapid Soul, Weeping Hour, and Crooked Souls",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "cohen_noise",
+      "venue": "GROWLER'S- MEMPHIS, TN",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Crooked Souls",
+      "venue": "Growlers",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Vapid Soul",
+      "venue": "Growlers",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Weeping Hour",
+      "venue": "Growlers",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Brad Williams",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "JB Ball",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-22",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
       "venue": "Crosstown Arts",
       "date": "2026-02-23",
@@ -241,11 +381,25 @@
       "source": "Artifacts (February calendar poster)"
     },
     {
+      "artist": "Rodd Bland",
+      "venue": "Brimstone Jones LIVE at Blues City Cafe",
+      "date": "2026-02-24",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
       "artist": "Open Mic Night for Memphis Musicians",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-25",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sex Mex",
+      "venue": "Hi Tone",
+      "date": "2026-02-25",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
     }
   ]
 }
