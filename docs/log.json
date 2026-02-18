@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T02:52:55.416882+00:00",
+  "run_timestamp": "2026-02-18T02:57:30.135404+00:00",
   "date_range": {
-    "start": "2026-02-17",
-    "end": "2026-02-24"
+    "start": "2026-02-18",
+    "end": "2026-02-25"
   },
-  "total_events_json": 66,
-  "total_active_display": 66,
+  "total_events_json": 67,
+  "total_active_display": 63,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,8 +18,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 26,
+      "events_found": 36,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -27,8 +27,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 93,
-      "events_after_filter": 4,
-      "events_filtered": 89,
+      "events_after_filter": 3,
+      "events_filtered": 90,
       "error": null
     },
     {
@@ -51,8 +51,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 1,
-      "events_filtered": 29,
+      "events_after_filter": 2,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -114,41 +114,13 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 66,
+      "events_found": 63,
+      "events_after_filter": 63,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DANA/ FAKE! / OPPOSSUMS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-17",
-      "time": "9pm",
-      "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-17",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-17",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Aybil",
-      "venue": "Writers in the Round",
-      "date": "2026-02-17",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "Rodd Bland",
       "venue": "Soul Street LIVE at Rum Boogie Cafe",
@@ -582,6 +554,13 @@
       "date": "2026-02-24",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Open Mic Night for Memphis Musicians",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-25",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
     }
   ]
 }
