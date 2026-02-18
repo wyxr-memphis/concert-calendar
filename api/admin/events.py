@@ -18,6 +18,7 @@ from api._auth import get_token_from_cookie, verify_token
 GITHUB_OWNER = os.environ.get("GITHUB_OWNER", "wyxr-memphis")
 GITHUB_REPO = os.environ.get("GITHUB_REPO", "concert-calendar")
 GITHUB_FILE_PATH = os.environ.get("GITHUB_FILE_PATH", "data/events.json")
+GITHUB_BRANCH = os.environ.get("GITHUB_BRANCH", "main")
 
 
 def _github_headers():
@@ -34,7 +35,8 @@ def _api_url():
 
 def _read_events():
     """Read events.json from GitHub. Returns (events_data dict, sha str)."""
-    resp = requests.get(_api_url(), headers=_github_headers())
+    params = {"ref": GITHUB_BRANCH}
+    resp = requests.get(_api_url(), headers=_github_headers(), params=params)
     resp.raise_for_status()
     data = resp.json()
     sha = data["sha"]
@@ -50,6 +52,7 @@ def _write_events(events_data, sha, commit_msg):
             json.dumps(events_data, indent=2).encode()
         ).decode(),
         "sha": sha,
+        "branch": GITHUB_BRANCH,
     }
     resp = requests.put(_api_url(), headers=_github_headers(), json=put_data)
     resp.raise_for_status()
