@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-18T19:06:20Z",
+  "updated_at": "2026-02-18T19:06:35Z",
   "events": [
     {
       "id": "evt_1771375878150_0",
@@ -628,9 +628,9 @@
       "genre": null,
       "source": "Venue: Hi Tone",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T17:49:39.912845+00:00"
+      "updated_at": "2026-02-18T19:06:35Z"
     },
     {
       "id": "evt_1771382898064_35",
