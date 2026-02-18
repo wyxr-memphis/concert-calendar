@@ -15,11 +15,13 @@ class Event:
     time: Optional[str] = None  # e.g. "Doors 7 / Show 8" or "9 PM"
     source: str = ""  # Where we found this event
     url: Optional[str] = None  # Link to event page/tickets
+    is_featured: bool = False  # Highlighted on calendar
+    event_id: Optional[str] = None  # Stable ID from events.json
 
     @property
     def sort_key(self):
-        """Sort by date, then venue, then artist."""
-        return (self.date, self.venue.lower(), self.artist.lower())
+        """Sort by date, featured first within each date, then venue, then artist."""
+        return (self.date, not self.is_featured, self.venue.lower(), self.artist.lower())
 
     @property
     def display_line(self) -> str:

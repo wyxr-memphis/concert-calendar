@@ -35,10 +35,11 @@ def generate_html(
             if event.time:
                 line += f' <span class="time">({_esc(event.time)})</span>'
             
+            cls = ' class="featured"' if event.is_featured else ''
             if event.url:
-                event_lines += f'<li><a href="{_esc(event.url)}" target="_blank" rel="noopener">{line}</a></li>\n'
+                event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{line}</a></li>\n'
             else:
-                event_lines += f'<li>{line}</li>\n'
+                event_lines += f'<li{cls}>{line}</li>\n'
 
         event_sections += f"""
         <div class="day-section">
@@ -142,6 +143,11 @@ def generate_html(
         li:last-child {{
             border-bottom: none;
         }}
+        li.featured {{
+            border-left: 3px solid #f9a825;
+            padding-left: 8px;
+            margin-left: -3px;
+        }}
         li a {{
             color: inherit;
             text-decoration: none;
@@ -221,6 +227,7 @@ def generate_html(
             .updated {{ color: #888; }}
             .summary {{ color: #999; }}
             li {{ border-bottom-color: #2a2a2a; }}
+            li.featured {{ border-left-color: #fdd835; }}
             header {{ border-bottom-color: #e0e0e0; }}
             footer {{ border-top-color: #333; color: #555; }}
             .source-summary {{ color: #888; }}
@@ -258,7 +265,8 @@ def generate_html(
         </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
-        <a href="/upload.html" style="color:inherit">Upload Artifact</a>
+        <a href="/upload.html" style="color:inherit">Upload Artifact</a> &middot;
+        <a href="/admin/" style="color:inherit">Admin</a>
     </footer>
 </body>
 </html>"""
