@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T02:57:30.135404+00:00",
+  "run_timestamp": "2026-02-18T06:04:02.003180+00:00",
   "date_range": {
     "start": "2026-02-18",
     "end": "2026-02-25"
   },
   "total_events_json": 67,
-  "total_active_display": 63,
+  "total_active_display": 47,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,9 +26,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 93,
+      "events_found": 91,
       "events_after_filter": 3,
-      "events_filtered": 90,
+      "events_filtered": 88,
       "error": null
     },
     {
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 63,
+      "events_found": 47,
+      "events_after_filter": 47,
       "events_filtered": 0,
       "error": null
     }
@@ -402,80 +402,10 @@
       "source": "Artifacts (Bandsintown event listing)"
     },
     {
-      "artist": "Ben Alberts",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Darrion Scoggins",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "David Binnert",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "JONATHANL",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "JONATHAS",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Lorell Quarne",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Rossi Minnott",
-      "venue": "Railgarten",
-      "date": "2026-02-21",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Railgarten",
-      "date": "2026-02-22",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
       "artist": "Steve Quinn",
       "venue": "Green Room Lounge",
       "date": "2026-02-22",
       "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown event listing)"
-    },
-    {
-      "artist": "JONATHAS",
-      "venue": "Hi Watt",
-      "date": "2026-02-22",
-      "time": "8:00 PM",
       "source": "Artifacts (Bandsintown event listing)"
     },
     {
@@ -493,53 +423,11 @@
       "source": "Artifacts (Bandsintown listing)"
     },
     {
-      "artist": "Jordan Turner Blues Band",
-      "venue": "Railgarten",
-      "date": "2026-02-22",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
       "venue": "Crosstown Arts",
       "date": "2026-02-23",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "John P. Kee/Jonee'",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-23",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Queen Quartet",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-23",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Steve Gaines",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-23",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Trina Group",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-23",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
-    },
-    {
-      "artist": "Chris Grados",
-      "venue": "Railgarten",
-      "date": "2026-02-23",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown listing)"
     },
     {
       "artist": "THE PARALLAX",
