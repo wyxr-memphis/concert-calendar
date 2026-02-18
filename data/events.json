@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-18T14:15:41Z",
+  "updated_at": "2026-02-18T14:15:42Z",
   "events": [
     {
       "id": "evt_1771375878150_0",
@@ -736,9 +736,9 @@
       "genre": null,
       "source": "Artifacts (Bandsintown listing)",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-02-18T02:47:37.798064+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-18T14:15:42Z"
     },
     {
       "id": "evt_1771382898072_41",
