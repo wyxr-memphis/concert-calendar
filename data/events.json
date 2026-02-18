@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-18T16:57:36Z",
+  "updated_at": "2026-02-18T16:57:43Z",
   "events": [
     {
       "id": "evt_1771375878150_0",
@@ -375,10 +375,10 @@
       "description": null,
       "genre": null,
       "source": "Artifacts (Suroor's Birthday Show)",
-      "is_featured": false,
+      "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T00:50:35.941489+00:00"
+      "updated_at": "2026-02-18T16:57:43Z"
     },
     {
       "id": "evt_1771375878177_21",
