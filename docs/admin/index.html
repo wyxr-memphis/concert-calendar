@@ -289,7 +289,10 @@
         async function loadEvents() {
             try {
                 const resp = await fetch('/api/admin/events', { credentials: 'same-origin' });
-                if (!resp.ok) throw new Error('Failed to load events');
+                if (!resp.ok) {
+                    const errBody = await resp.text();
+                    throw new Error(`${resp.status}: ${errBody}`);
+                }
                 const result = await resp.json();
                 allEvents = (result.data.events || []).sort((a, b) => {
                     // Sort by date descending (newest first)
