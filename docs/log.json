@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-18T19:35:47.762206+00:00",
+  "run_timestamp": "2026-02-19T06:02:14.884257+00:00",
   "date_range": {
-    "start": "2026-02-18",
-    "end": "2026-02-25"
+    "start": "2026-02-19",
+    "end": "2026-02-26"
   },
-  "total_events_json": 42,
-  "total_active_display": 40,
+  "total_events_json": 41,
+  "total_active_display": 39,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -19,15 +19,15 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 24,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 91,
-      "events_after_filter": 3,
+      "events_found": 90,
+      "events_after_filter": 2,
       "events_filtered": 88,
       "error": null
     },
@@ -51,8 +51,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 2,
-      "events_filtered": 28,
+      "events_after_filter": 0,
+      "events_filtered": 30,
       "error": null
     },
     {
@@ -114,55 +114,13 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Tab Benoit + Paul Thorn: One Night Only",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-18",
-      "time": "7 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "ALEXIS JADE & THE GEMSTONES/ RED MACADAM/ ALMA RUSS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-18",
-      "time": "9PM",
-      "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-18",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Open Mic Night for Memphis Musicians",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-18",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-18",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Red McAdam",
-      "venue": "Red McAdam, Alexis Jade, Alma Russ",
-      "date": "2026-02-18",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "Hans Condor (Nashville)",
       "venue": "Bar DKDC",
@@ -179,6 +137,13 @@
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
+      "venue": "Crosstown Theater",
+      "date": "2026-02-19",
+      "time": "7 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Sold Out Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-19",
       "time": "7 PM",
@@ -398,6 +363,34 @@
       "artist": "Sex Mex",
       "venue": "Hi Tone",
       "date": "2026-02-25",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-02-26",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
+      "date": "2026-02-26",
+      "time": "6:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Kenny Wayne Shepherd",
+      "venue": "Graceland Soundstage",
+      "date": "2026-02-26",
+      "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-26",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
     }
