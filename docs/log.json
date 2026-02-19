@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-19T06:02:14.884257+00:00",
+  "run_timestamp": "2026-02-19T17:44:33.468655+00:00",
   "date_range": {
     "start": "2026-02-19",
     "end": "2026-02-26"
@@ -10,8 +10,8 @@
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
       "error": null
     },
@@ -34,9 +34,9 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
+      "events_found": 36,
       "events_after_filter": 1,
-      "events_filtered": 36,
+      "events_filtered": 35,
       "error": null
     },
     {
