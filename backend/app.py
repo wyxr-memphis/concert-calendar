@@ -257,12 +257,13 @@ def admin_import_upload():
     """Upload HTML files and/or images for parsing.
 
     HTML files are parsed to extract event data.
-    Image files are stored and URLs returned.
+    Image files are committed to the GitHub artifacts/ folder
+    for processing by the daily build (Claude Vision API).
     Returns preview data (not saved to DB yet).
     """
+    import base64
+    import requests as http_requests
     from bs4 import BeautifulSoup
-    import re
-    from datetime import date as date_type
 
     parsed_events = []
     uploaded_images = []
@@ -270,6 +271,9 @@ def admin_import_upload():
     files = request.files.getlist("files")
     if not files:
         return jsonify({"error": "No files uploaded"}), 400
+
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
 
     for f in files:
         filename = f.filename or ""
@@ -283,22 +287,53 @@ def admin_import_upload():
             parsed_events.extend(events)
 
         elif ext in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
-            # Store image — save to uploads directory
-            upload_dir = os.environ.get("UPLOAD_DIR", "/tmp/uploads")
-            os.makedirs(upload_dir, exist_ok=True)
+            # Commit image to GitHub artifacts/ folder for build processing
+            file_data = f.read()
             safe_name = "".join(c for c in filename if c.isalnum() or c in ".-_ ").strip()
             if not safe_name:
                 safe_name = f"upload_{uuid.uuid4().hex[:8]}{ext}"
-            filepath = os.path.join(upload_dir, safe_name)
-            f.save(filepath)
 
-            # Build URL — in production this would be a CDN/S3 URL
-            base_url = os.environ.get("UPLOAD_BASE_URL", request.host_url.rstrip("/"))
-            image_url = f"{base_url}/uploads/{safe_name}"
-            uploaded_images.append({
-                "filename": safe_name,
-                "image_url": image_url,
-            })
+            if not github_pat:
+                uploaded_images.append({
+                    "filename": safe_name,
+                    "status": "error",
+                    "error": "GITHUB_PAT not configured",
+                })
+                continue
+
+            github_path = f"artifacts/{safe_name}"
+            api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
+            gh_headers = {
+                "Authorization": f"Bearer {github_pat}",
+                "Accept": "application/vnd.github.v3+json",
+            }
+
+            # Check if file already exists (to get SHA for update)
+            sha = None
+            existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
+            if existing.status_code == 200:
+                sha = existing.json().get("sha")
+
+            put_data = {
+                "message": f"Upload artifact: {safe_name}",
+                "content": base64.b64encode(file_data).decode("ascii"),
+            }
+            if sha:
+                put_data["sha"] = sha
+
+            resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
+
+            if resp.status_code in (200, 201):
+                uploaded_images.append({
+                    "filename": safe_name,
+                    "status": "committed",
+                })
+            else:
+                uploaded_images.append({
+                    "filename": safe_name,
+                    "status": "error",
+                    "error": f"GitHub API returned {resp.status_code}",
+                })
 
     return jsonify({
         "parsed_events": parsed_events,
@@ -332,7 +367,10 @@ def admin_import_confirm():
 @app.route("/api/admin/import/image", methods=["POST"])
 @require_auth
 def admin_import_image():
-    """Single image upload for event form."""
+    """Single image upload — commits to GitHub artifacts/ folder."""
+    import base64
+    import requests as http_requests
+
     f = request.files.get("image")
     if not f:
         return jsonify({"error": "No image file provided"}), 400
@@ -343,19 +381,42 @@ def admin_import_image():
     if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
         return jsonify({"error": f"File type {ext} not allowed"}), 400
 
-    upload_dir = os.environ.get("UPLOAD_DIR", "/tmp/uploads")
-    os.makedirs(upload_dir, exist_ok=True)
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
 
+    if not github_pat:
+        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+
+    file_data = f.read()
     safe_name = "".join(c for c in filename if c.isalnum() or c in ".-_ ").strip()
     if not safe_name:
         safe_name = f"img_{uuid.uuid4().hex[:8]}{ext}"
-    filepath = os.path.join(upload_dir, safe_name)
-    f.save(filepath)
 
-    base_url = os.environ.get("UPLOAD_BASE_URL", request.host_url.rstrip("/"))
-    image_url = f"{base_url}/uploads/{safe_name}"
+    github_path = f"artifacts/{safe_name}"
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
 
-    return jsonify({"image_url": image_url})
+    sha = None
+    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
+    if existing.status_code == 200:
+        sha = existing.json().get("sha")
+
+    put_data = {
+        "message": f"Upload artifact: {safe_name}",
+        "content": base64.b64encode(file_data).decode("ascii"),
+    }
+    if sha:
+        put_data["sha"] = sha
+
+    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
+
+    if resp.status_code in (200, 201):
+        return jsonify({"ok": True, "filename": safe_name})
+    else:
+        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
 
 
 # ---------------------------------------------------------------------------

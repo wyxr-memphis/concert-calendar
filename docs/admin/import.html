@@ -188,7 +188,7 @@
             font-family: inherit;
         }
 
-        /* Uploaded images */
+        /* Uploaded artifacts */
         .image-uploads { margin-top: 20px; }
         .image-uploads h3 {
             font-size: 0.95em;
@@ -198,37 +198,40 @@
             letter-spacing: 0.05em;
             color: #555;
         }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 12px;
-        }
-        .image-card {
+        .artifact-list { margin-bottom: 16px; }
+        .artifact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            background: #fff;
             border: 1px solid #eee;
             border-radius: 4px;
-            overflow: hidden;
-            background: #fff;
+            margin-bottom: 4px;
+            font-size: 0.9em;
         }
-        .image-card img {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-        }
-        .image-card .image-info {
-            padding: 8px;
-            font-size: 0.8em;
-        }
-        .image-card .image-url {
-            font-size: 0.75em;
+        .artifact-item .artifact-name { flex: 1; font-weight: 600; }
+        .artifact-item .artifact-status { font-size: 0.85em; }
+        .artifact-item .artifact-status.committed { color: #2e7d32; }
+        .artifact-item .artifact-status.error { color: #c62828; }
+        .artifact-item .artifact-status.pending { color: #e65100; }
+        .process-hint {
+            font-size: 0.85em;
             color: #888;
-            word-break: break-all;
+            margin-bottom: 12px;
+        }
+        .btn-process {
+            background: #1a1a1a;
+            color: #fafafa;
+            padding: 8px 18px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
         }
-        .image-card .image-url:hover { color: #333; }
-        .image-card .copied {
-            color: #2e7d32;
-            font-weight: 600;
-        }
+        .btn-process:hover { background: #333; }
+        .btn-process:disabled { background: #999; cursor: not-allowed; }
 
         footer {
             margin-top: 40px;
@@ -260,9 +263,9 @@
             .btn-confirm:hover { background: #ccc; }
             .btn-select-all { background: #333; color: #e0e0e0; }
             .btn-select-all:hover { background: #444; }
-            .image-card { background: #2a2a2a; border-color: #333; }
-            .image-card .image-url { color: #666; }
-            .image-card .image-url:hover { color: #ccc; }
+            .artifact-item { background: #2a2a2a; border-color: #333; }
+            .btn-process { background: #e0e0e0; color: #1a1a1a; }
+            .btn-process:hover { background: #ccc; }
             .status-bar.error { background: #3a1b1b; color: #ef9a9a; }
             .status-bar.success { background: #1b3a1b; color: #81c784; }
             .status-bar.info { background: #1b2a3a; color: #90caf9; }
@@ -321,10 +324,12 @@
             </table>
         </div>
 
-        <!-- Uploaded Images -->
+        <!-- Uploaded Artifacts -->
         <div class="image-uploads" id="imageSection" style="display:none;">
-            <h3>Uploaded Images</h3>
-            <div class="image-grid" id="imageGrid"></div>
+            <h3>Artifacts Committed to GitHub</h3>
+            <div class="artifact-list" id="artifactList"></div>
+            <p class="process-hint">Images are committed to the artifacts/ folder. Trigger a build to process them with Claude Vision.</p>
+            <button class="btn-process" id="processBtn">Trigger Build</button>
         </div>
 
         <footer>
@@ -399,7 +404,9 @@
                 for (const file of fileList) {
                     const statusEl = document.getElementById(`status-${file.name}`);
                     if (statusEl) {
-                        statusEl.textContent = 'Done';
+                        const ext = file.name.split('.').pop().toLowerCase();
+                        const isImage = ['jpg','jpeg','png','webp','gif'].includes(ext);
+                        statusEl.textContent = isImage ? 'Committed to GitHub' : 'Parsed';
                         statusEl.className = 'file-status done';
                     }
                 }
@@ -487,7 +494,7 @@
 
         function renderImages() {
             const section = document.getElementById('imageSection');
-            const grid = document.getElementById('imageGrid');
+            const list = document.getElementById('artifactList');
 
             if (uploadedImages.length === 0) {
                 section.style.display = 'none';
@@ -496,32 +503,43 @@
 
             section.style.display = '';
 
-            grid.innerHTML = uploadedImages.map((img, i) => `
-                <div class="image-card">
-                    <img src="${esc(img.image_url)}" alt="${esc(img.filename)}" onerror="this.style.display='none'">
-                    <div class="image-info">
-                        <div>${esc(img.filename)}</div>
-                        <div class="image-url" data-url="${esc(img.image_url)}" title="Click to copy URL">
-                            ${esc(img.image_url)}
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-
-            // Copy URL on click
-            grid.querySelectorAll('.image-url').forEach(el => {
-                el.addEventListener('click', () => {
-                    navigator.clipboard.writeText(el.dataset.url).then(() => {
-                        el.classList.add('copied');
-                        el.textContent = 'Copied!';
-                        setTimeout(() => {
-                            el.classList.remove('copied');
-                            el.textContent = el.dataset.url;
-                        }, 1500);
-                    });
-                });
-            });
+            list.innerHTML = uploadedImages.map(img => {
+                const statusClass = img.status === 'committed' ? 'committed' :
+                                    img.status === 'error' ? 'error' : 'pending';
+                const statusText = img.status === 'committed' ? 'Committed to artifacts/' :
+                                   img.status === 'error' ? `Error: ${img.error || 'unknown'}` :
+                                   'Pending';
+                return `<div class="artifact-item">
+                    <span class="artifact-name">${esc(img.filename)}</span>
+                    <span class="artifact-status ${statusClass}">${statusText}</span>
+                </div>`;
+            }).join('');
         }
+
+        // Trigger build from import page
+        document.getElementById('processBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('processBtn');
+            btn.disabled = true;
+            btn.textContent = 'Triggering...';
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/build/trigger', {
+                    method: 'POST',
+                });
+                if (resp.ok || data.ok) {
+                    showStatus('Build triggered! Images will be processed in ~2 minutes.', 'success');
+                    btn.textContent = 'Build Triggered';
+                } else {
+                    showStatus(data.error || 'Failed to trigger build', 'error');
+                    btn.disabled = false;
+                    btn.textContent = 'Trigger Build';
+                }
+            } catch (err) {
+                showStatus('Failed to trigger build: ' + err.message, 'error');
+                btn.disabled = false;
+                btn.textContent = 'Trigger Build';
+            }
+        });
 
         // Select All / Deselect All
         document.getElementById('selectAllBtn').addEventListener('click', () => {
