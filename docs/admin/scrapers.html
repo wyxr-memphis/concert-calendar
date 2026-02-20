@@ -272,6 +272,7 @@
         <header>
             <h1>ADMIN</h1>
             <div class="header-actions">
+                <button class="btn-refresh" id="buildBtn">Trigger Build</button>
                 <button class="btn-refresh" id="refreshBtn">Refresh</button>
                 <button class="btn-logout" id="logoutBtn">Log Out</button>
             </div>
@@ -331,6 +332,24 @@
 
         document.getElementById('logoutBtn').addEventListener('click', () => AdminAPI.logout());
         document.getElementById('refreshBtn').addEventListener('click', loadDashboard);
+
+        document.getElementById('buildBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('buildBtn');
+            btn.disabled = true;
+            btn.textContent = 'Triggering...';
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/build/trigger', { method: 'POST' });
+                if (resp.ok || data.ok) {
+                    showStatus('Build triggered — it will take a few minutes to complete.', 'success');
+                } else {
+                    showStatus(data.error || 'Failed to trigger build', 'error');
+                }
+            } catch (err) {
+                showStatus('Failed: ' + err.message, 'error');
+            }
+            btn.disabled = false;
+            btn.textContent = 'Trigger Build';
+        });
 
         async function loadDashboard() {
             await Promise.all([loadStatus(), loadLogs()]);

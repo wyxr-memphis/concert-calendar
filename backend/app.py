@@ -506,6 +506,38 @@ def _parse_jsonld_event(data, source_filename):
 
 
 # ---------------------------------------------------------------------------
+# Build Trigger
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/build/trigger", methods=["POST"])
+@require_auth
+def admin_trigger_build():
+    """Trigger the daily build workflow via GitHub Actions API."""
+    import requests as http_requests
+
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+
+    if not github_pat:
+        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+
+    resp = http_requests.post(
+        f"https://api.github.com/repos/{github_repo}/actions/workflows/daily.yml/dispatches",
+        headers={
+            "Authorization": f"Bearer {github_pat}",
+            "Accept": "application/vnd.github.v3+json",
+        },
+        json={"ref": "main"},
+        timeout=10,
+    )
+
+    if resp.status_code == 204:
+        return jsonify({"ok": True, "message": "Build triggered"})
+    else:
+        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+
+
+# ---------------------------------------------------------------------------
 # Health check
 # ---------------------------------------------------------------------------
 
