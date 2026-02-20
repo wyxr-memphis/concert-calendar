@@ -32,15 +32,16 @@ Replaced the Google Sheet manual-entry workflow with a `data/events.json` flat f
 ### Render (Backend)
 | Variable | Purpose | Setup |
 |----------|---------|-------|
-| `DATABASE_URL` | PostgreSQL connection string | Auto-set by Render when linking a database |
+| `DATABASE_URL` | PostgreSQL connection string (internal URL) | Set in Render dashboard |
 | `ADMIN_PASSWORD` | Login password for admin API | Set in Render dashboard (same as Vercel) |
 | `ADMIN_SECRET_KEY` | JWT signing key | Set in Render dashboard (same as Vercel) |
-| `ALLOWED_ORIGINS` | CORS allowed origins | Vercel frontend URL, e.g. `https://concert-calendar.vercel.app` |
+| `ALLOWED_ORIGINS` | CORS allowed origins | e.g. `https://concert-calendar-eight.vercel.app` |
+| `GITHUB_PAT` | GitHub PAT with `actions:write` scope | For "Trigger Build" button on scrapers page |
 
 ### GitHub Actions (Scraper)
 | Variable | Purpose | Setup |
 |----------|---------|-------|
-| `DATABASE_URL` | (Optional) Write scrape logs to PostgreSQL | Set as GitHub Actions secret |
+| `DATABASE_URL` | Write scrape logs to PostgreSQL (external URL) | Set as GitHub Actions repository secret |
 
 ### Optional overrides
 | Variable | Default | Purpose |
@@ -57,8 +58,8 @@ Replaced the Google Sheet manual-entry workflow with a `data/events.json` flat f
 2. Create a Web Service on Render:
    - **Root directory:** `./` (project root)
    - **Build command:** `pip install -r backend/requirements.txt`
-   - **Start command:** `gunicorn backend.app:app`
-   - **Environment variables:** Set `DATABASE_URL`, `ADMIN_PASSWORD`, `ADMIN_SECRET_KEY`, `ALLOWED_ORIGINS`
+   - **Start command:** `gunicorn backend.app:app --timeout 120` (see Procfile)
+   - **Environment variables:** Set `DATABASE_URL`, `ADMIN_PASSWORD`, `ADMIN_SECRET_KEY`, `ALLOWED_ORIGINS`, `GITHUB_PAT`
 3. Run the database schema:
    ```bash
    psql $DATABASE_URL < scripts/schema.sql
@@ -67,6 +68,8 @@ Replaced the Google Sheet manual-entry workflow with a `data/events.json` flat f
    ```bash
    DATABASE_URL=... python scripts/migrate_json_to_db.py
    ```
+
+**Note:** Use the internal DATABASE_URL (no `.oregon-postgres.render.com`) for Render services, and the external URL for GitHub Actions and local scripts. Paste carefully — line breaks in the URL will cause connection failures.
 
 ### 2. Vercel Frontend Setup
 
@@ -167,6 +170,11 @@ Add `psycopg2-binary` to `requirements.txt` if you want scrape logging during Gi
 | GET | `/api/admin/scraper/logs` | Recent scrape log entries |
 | GET | `/api/admin/scraper/status` | Scraper status dashboard summary |
 
+### Build
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/admin/build/trigger` | Trigger GitHub Actions daily build via workflow_dispatch |
+
 ## Testing Checklist
 
 ### Database
@@ -226,7 +234,14 @@ Add `psycopg2-binary` to `requirements.txt` if you want scrape logging during Gi
 - [ ] Auth tokens expire after 8 hours
 - [ ] All admin endpoints require valid JWT
 
-## Open Questions
-- Render backend URL needs to be configured in admin pages (via `window.__API_BASE`)
-- Image uploads on Render currently save to `/tmp/uploads` — in production, configure `UPLOAD_DIR` and `UPLOAD_BASE_URL` for persistent storage (S3, Cloudflare R2, etc.)
-- The existing Vercel serverless API routes (`api/admin/*`) continue to work alongside the new Render backend
+## Deployment Status
+- **Render backend:** `https://concert-calendar-api.onrender.com` — live, all admin pages wired via `window.__API_BASE`
+- **Vercel frontend:** `https://concert-calendar-eight.vercel.app` — live, serves static calendar + admin UI
+- **PostgreSQL:** Render-hosted, 41+ events migrated from events.json
+- **Scrape logging:** Enabled via `DATABASE_URL` GitHub Actions secret (external URL)
+- **Trigger Build:** Available from admin Scrapers page, calls GitHub Actions workflow_dispatch
+
+## Known Limitations
+- Image uploads on Render save to `/tmp/uploads` — ephemeral on free tier. For persistent storage, configure `UPLOAD_DIR` and `UPLOAD_BASE_URL` for S3/Cloudflare R2.
+- Render free tier spins down after inactivity — first request after idle takes 30-60s to cold-start. Gunicorn timeout set to 120s to accommodate.
+- The existing Vercel serverless API routes (`api/admin/*`) still exist alongside the Render backend but are unused when `__API_BASE` is set.
