@@ -1,61 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-02-19T17:44:33.468655+00:00",
+  "updated_at": "2026-02-20T03:57:55.247701+00:00",
   "events": [
-    {
-      "id": "evt_1771375878164_11",
-      "title": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-19",
-      "start_time": "10PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (February calendar poster)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
-    },
-    {
-      "id": "evt_1771375878167_13",
-      "title": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Event listing)",
-      "is_featured": true,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T16:58:00Z"
-    },
-    {
-      "id": "evt_1771375878168_14",
-      "title": "Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-19",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://crosstownarts.org/calendar/crosstown-arts-film-series-natchez/2026-02-19/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Crosstown Arts",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T19:35:47.762206+00:00"
-    },
     {
       "id": "evt_1771375878169_15",
       "title": "MS. NICKKI/ STEPHANIE BRADLEY",
@@ -126,7 +72,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771375878174_19",
@@ -198,7 +144,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771375878192_33",
@@ -234,7 +180,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771382898064_35",
@@ -306,7 +252,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358034_23",
@@ -324,7 +270,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358035_24",
@@ -342,7 +288,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358037_25",
@@ -360,7 +306,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358038_26",
@@ -378,7 +324,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358039_27",
@@ -396,7 +342,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358040_28",
@@ -414,7 +360,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358041_29",
@@ -432,7 +378,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358042_30",
@@ -450,7 +396,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358043_31",
@@ -468,7 +414,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358044_32",
@@ -486,7 +432,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358045_33",
@@ -504,7 +450,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358046_34",
@@ -522,7 +468,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358047_35",
@@ -540,7 +486,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358048_36",
@@ -558,7 +504,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358049_37",
@@ -576,7 +522,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358051_38",
@@ -594,7 +540,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358052_39",
@@ -612,7 +558,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358053_40",
@@ -630,7 +576,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358054_41",
@@ -648,25 +594,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
-    },
-    {
-      "id": "evt_1771480946384_42",
-      "title": "Sold Out Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-19",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://crosstownarts.org/calendar/crosstown-arts-film-series-natchez-2/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Crosstown Arts",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-19T06:02:14.884257+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771480946386_43",
@@ -684,7 +612,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-19T06:02:14.884257+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771480946387_44",
@@ -702,7 +630,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-19T06:02:14.884257+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771480946388_45",
@@ -720,7 +648,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-19T06:02:14.884257+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771480946389_46",
@@ -738,7 +666,115 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-19T06:02:14.884257+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883851_41",
+      "title": "Sold Out! Crosstown Arts Film Series: Natchez",
+      "venue": "Crosstown Theater",
+      "date": "2026-02-20",
+      "start_time": "7 PM",
+      "doors_time": null,
+      "ticket_url": "https://crosstownarts.org/calendar/crosstown-arts-film-series-natchez/2026-02-20/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Crosstown Arts",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883852_42",
+      "title": "Kenny Wayne Shepherd",
+      "venue": "Soundstage at Graceland",
+      "date": "2026-02-26",
+      "start_time": "7:30 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.ticketmaster.com/event/Z7r9jZ1A7jV3p",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Ticketmaster",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883853_43",
+      "title": "Will Hoge",
+      "venue": "1884 Lounge",
+      "date": "2026-02-27",
+      "start_time": "9:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107693579-will-hoge-at-1884-lounge",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown page)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883854_44",
+      "title": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
+      "venue": "Crosstown Theater",
+      "date": "2026-02-27",
+      "start_time": "6:30 PM",
+      "doors_time": null,
+      "ticket_url": "https://crosstownarts.org/calendar/zwillich-violin-concerto/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Crosstown Arts",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883855_45",
+      "title": "Keith Anderson",
+      "venue": "Gold Strike Casino Resort",
+      "date": "2026-02-27",
+      "start_time": "7:30 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107064949-keith-anderson-at-gold-strike-casino-resort",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown page)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
+    },
+    {
+      "id": "evt_1771559883856_46",
+      "title": "Demola",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037243575-demola-at-minglewood-hall",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown page)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-20T03:57:55.247701+00:00",
+      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     }
   ]
 }

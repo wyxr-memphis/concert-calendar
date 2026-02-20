@@ -1,17 +1,17 @@
 {
-  "run_timestamp": "2026-02-19T17:44:33.468655+00:00",
+  "run_timestamp": "2026-02-20T03:57:55.247701+00:00",
   "date_range": {
-    "start": "2026-02-19",
-    "end": "2026-02-26"
+    "start": "2026-02-20",
+    "end": "2026-02-27"
   },
-  "total_events_json": 41,
-  "total_active_display": 39,
+  "total_events_json": 43,
+  "total_active_display": 41,
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -19,16 +19,16 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 25,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 90,
+      "events_found": 92,
       "events_after_filter": 2,
-      "events_filtered": 88,
+      "events_filtered": 90,
       "error": null
     },
     {
@@ -114,41 +114,13 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
+      "events_found": 41,
+      "events_after_filter": 41,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-19",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-19",
-      "time": "10PM",
-      "source": "Artifacts (February calendar poster)"
-    },
-    {
-      "artist": "Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-19",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Sold Out Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-19",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
     {
       "artist": "Don Trip",
       "venue": "1884 Lounge",
@@ -193,6 +165,13 @@
     },
     {
       "artist": "Crosstown Arts Film Series: Natchez",
+      "venue": "Crosstown Theater",
+      "date": "2026-02-20",
+      "time": "7 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Sold Out! Crosstown Arts Film Series: Natchez",
       "venue": "Crosstown Theater",
       "date": "2026-02-20",
       "time": "7 PM",
@@ -392,6 +371,41 @@
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Kenny Wayne Shepherd",
+      "venue": "Soundstage at Graceland",
+      "date": "2026-02-26",
+      "time": "7:30 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Will Hoge",
+      "venue": "1884 Lounge",
+      "date": "2026-02-27",
+      "time": "9:00 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
+      "venue": "Crosstown Theater",
+      "date": "2026-02-27",
+      "time": "6:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Keith Anderson",
+      "venue": "Gold Strike Casino Resort",
+      "date": "2026-02-27",
+      "time": "7:30 PM",
+      "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "Demola",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-27",
+      "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
     }
   ]
