@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-20T05:57:33.901150+00:00",
+  "run_timestamp": "2026-02-20T13:28:28.550896+00:00",
   "date_range": {
     "start": "2026-02-20",
     "end": "2026-02-27"
@@ -26,9 +26,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 92,
+      "events_found": 90,
       "events_after_filter": 2,
-      "events_filtered": 90,
+      "events_filtered": 88,
       "error": null
     },
     {
