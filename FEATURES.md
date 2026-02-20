@@ -237,6 +237,26 @@ Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, a
 
 ---
 
+## 16. Event Deduplication Improvements
+
+**Problem:** Events from multiple sources (Ticketmaster, venue scrapers, artifact imports, admin manual entries) often describe the same show. The current `normalize.py` dedup catches exact matches on artist+venue+date, but near-duplicates slip through — e.g., "Dale Watson" vs "Dale Watson & His Lone Stars", or slight venue name variations between sources. Artifact imports via Claude Vision are especially prone to creating duplicates of events already in the database from scrapers.
+
+**What this needs:**
+- Fuzzy matching on artist names (Levenshtein distance or token overlap)
+- Normalize common venue aliases before comparison (already partially done in `config.py`)
+- When importing from artifacts, check against existing DB events for the same date+venue before inserting
+- Admin UI: surface potential duplicates for manual merge/dismiss
+- Consider a "merge" action that combines fields from two duplicate events (e.g., keep the better URL, richer description)
+
+**Implementation notes:**
+- `src/normalize.py` has the current dedup logic — extend the matching key
+- The Render backend could add a `/api/admin/events/duplicates` endpoint that returns suspected duplicate pairs
+- Admin Events tab could show a "Possible duplicates" warning badge
+
+**Effort:** Medium (2-3 hours)
+
+---
+
 ## Priority / Sequencing Suggestion
 
 | # | Feature | Effort | Value | Status |
@@ -256,3 +276,4 @@ Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, a
 | 13 | Extended date range | Low-Med | Medium | Pending |
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
+| 16 | Event deduplication improvements | Medium | High | Pending — duplicates from multi-source imports |
