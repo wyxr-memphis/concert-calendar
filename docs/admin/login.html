@@ -122,8 +122,21 @@
     </footer>
 
     <script>
+        // API base URL — set to Render backend URL in production
+        // Falls back to same-origin for Vercel serverless functions
+        const API_BASE = window.__API_BASE || '';
+
+        function apiUrl(path) {
+            return API_BASE ? API_BASE + path : path;
+        }
+
+        function apiFetch(path, opts = {}) {
+            opts.credentials = API_BASE ? 'include' : 'same-origin';
+            return fetch(apiUrl(path), opts);
+        }
+
         // If already authenticated, redirect to admin
-        fetch('/api/admin/me', { credentials: 'same-origin' })
+        apiFetch('/api/admin/me')
             .then(r => { if (r.ok) window.location.href = '/admin/'; });
 
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
@@ -143,15 +156,18 @@
             status.className = 'status';
 
             try {
-                const resp = await fetch('/api/admin/login', {
+                const resp = await apiFetch('/api/admin/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    credentials: 'same-origin',
                     body: JSON.stringify({ password }),
                 });
                 const data = await resp.json();
 
                 if (data.ok) {
+                    // Store token for Bearer auth (cross-origin)
+                    if (data.token) {
+                        sessionStorage.setItem('admin_token', data.token);
+                    }
                     window.location.href = '/admin/';
                 } else {
                     status.textContent = data.error || 'Login failed';

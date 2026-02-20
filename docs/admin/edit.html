@@ -38,13 +38,8 @@
             color: #888;
         }
 
-        .form-group {
-            margin-bottom: 16px;
-        }
-        .form-row {
-            display: flex;
-            gap: 16px;
-        }
+        .form-group { margin-bottom: 16px; }
+        .form-row { display: flex; gap: 16px; }
         .form-row .form-group { flex: 1; }
         label {
             display: block;
@@ -69,6 +64,29 @@
             font-family: inherit;
         }
         textarea { min-height: 80px; resize: vertical; }
+
+        .image-row { display: flex; gap: 8px; align-items: flex-end; }
+        .image-row .form-group { flex: 1; }
+        .image-row .btn-upload-img {
+            padding: 8px 14px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+            cursor: pointer;
+            white-space: nowrap;
+            height: 38px;
+        }
+        .image-row .btn-upload-img:hover { background: #eee; }
+        .image-preview { margin-top: 8px; }
+        .image-preview img {
+            max-width: 200px;
+            max-height: 120px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
 
         .checkbox-group {
             display: flex;
@@ -106,20 +124,22 @@
         .btn-save { background: #1a1a1a; color: #fafafa; }
         .btn-save:hover { background: #333; }
         .btn-save:disabled { background: #999; cursor: not-allowed; }
-        .btn-cancel { background: #e8e8e8; color: #1a1a1a; }
+        .btn-cancel { background: #e8e8e8; color: #1a1a1a; text-decoration: none; display: inline-block; text-align: center; }
         .btn-cancel:hover { background: #ddd; }
         .btn-deactivate { background: transparent; color: #c62828; border: 1px solid #c62828; margin-left: auto; }
         .btn-deactivate:hover { background: #ffebee; }
 
-        .status {
+        .status-bar {
             margin-top: 16px;
             padding: 10px 14px;
             border-radius: 4px;
             font-size: 0.9em;
             display: none;
         }
-        .status.error { background: #ffebee; color: #c62828; display: block; }
-        .status.success { background: #e8f5e9; color: #2e7d32; display: block; }
+        .status-bar.error { background: #ffebee; color: #c62828; display: block; }
+        .status-bar.success { background: #e8f5e9; color: #2e7d32; display: block; }
+
+        .hidden-input { display: none; }
 
         @media (prefers-color-scheme: dark) {
             body { background: #1a1a1a; color: #e0e0e0; }
@@ -138,12 +158,16 @@
             .btn-cancel:hover { background: #444; }
             .btn-deactivate { color: #ef9a9a; border-color: #ef9a9a; }
             .btn-deactivate:hover { background: #3a1b1b; }
-            .status.error { background: #3a1b1b; color: #ef9a9a; }
-            .status.success { background: #1b3a1b; color: #81c784; }
+            .status-bar.error { background: #3a1b1b; color: #ef9a9a; }
+            .status-bar.success { background: #1b3a1b; color: #81c784; }
+            .image-row .btn-upload-img { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
+            .image-row .btn-upload-img:hover { background: #333; }
+            .image-preview img { border-color: #444; }
         }
 
         @media (max-width: 500px) {
             .form-row { flex-direction: column; gap: 0; }
+            .image-row { flex-direction: column; }
         }
     </style>
 </head>
@@ -164,8 +188,8 @@
 
             <div class="form-row">
                 <div class="form-group">
-                    <label for="venue">Venue <span class="req">*</span></label>
-                    <input type="text" id="venue" list="venueList" required>
+                    <label for="venue">Venue</label>
+                    <input type="text" id="venue" list="venueList">
                     <datalist id="venueList">
                         <option value="Hi Tone">
                         <option value="Minglewood Hall">
@@ -211,20 +235,24 @@
                 </div>
             </div>
 
-            <div class="form-row">
+            <div class="image-row">
                 <div class="form-group">
                     <label for="image_url">Image URL</label>
                     <input type="url" id="image_url" placeholder="https://...">
                 </div>
-                <div class="form-group">
-                    <label for="genre">Genre</label>
-                    <input type="text" id="genre" placeholder="e.g. Blues, Jazz, Rock">
-                </div>
+                <button type="button" class="btn-upload-img" id="uploadImgBtn">Upload</button>
+                <input type="file" class="hidden-input" id="imageFileInput" accept="image/*">
+            </div>
+            <div class="image-preview" id="imagePreview"></div>
+
+            <div class="form-group" style="margin-top:16px;">
+                <label for="genre">Genre</label>
+                <input type="text" id="genre" placeholder="e.g. Blues, Jazz, Rock">
             </div>
 
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" placeholder="Optional description..."></textarea>
+                <textarea id="description" placeholder="Optional description (HTML allowed)..."></textarea>
             </div>
 
             <div class="checkbox-group">
@@ -240,14 +268,15 @@
 
             <div class="actions">
                 <button type="submit" class="btn-save" id="saveBtn">Save</button>
-                <a href="/admin/" class="btn-cancel" style="display:inline-block;text-align:center;text-decoration:none;">Cancel</a>
+                <a href="/admin/" class="btn-cancel">Cancel</a>
                 <button type="button" class="btn-deactivate" id="deactivateBtn" style="display:none;">Deactivate</button>
             </div>
         </form>
 
-        <div class="status" id="status"></div>
+        <div class="status-bar" id="statusBar"></div>
     </div>
 
+    <script src="/admin/admin-common.js"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const eventId = params.get('id');
@@ -258,40 +287,95 @@
                         'ticket_url', 'ticket_price', 'image_url', 'genre', 'description'];
 
         // Auth guard
-        fetch('/api/admin/me', { credentials: 'same-origin' })
-            .then(r => {
-                if (!r.ok) {
-                    window.location.href = '/admin/login.html';
-                    return;
-                }
+        AdminAPI.checkAuth().then(ok => {
+            if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 if (isEdit) loadEvent();
-            })
-            .catch(() => { window.location.href = '/admin/login.html'; });
+            }
+        });
 
         if (isEdit) {
             document.getElementById('pageTitle').textContent = 'EDIT EVENT';
             document.getElementById('deactivateBtn').style.display = '';
         }
 
+        // Image URL preview
+        document.getElementById('image_url').addEventListener('change', updateImagePreview);
+        function updateImagePreview() {
+            const url = document.getElementById('image_url').value;
+            const preview = document.getElementById('imagePreview');
+            if (url) {
+                preview.innerHTML = `<img src="${esc(url)}" alt="Preview" onerror="this.style.display='none'">`;
+            } else {
+                preview.innerHTML = '';
+            }
+        }
+
+        // Image upload
+        document.getElementById('uploadImgBtn').addEventListener('click', () => {
+            document.getElementById('imageFileInput').click();
+        });
+
+        document.getElementById('imageFileInput').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            const uploadBtn = document.getElementById('uploadImgBtn');
+            uploadBtn.textContent = 'Uploading...';
+            uploadBtn.disabled = true;
+
+            try {
+                const resp = await AdminAPI.apiFetch('/api/admin/import/image', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await resp.json();
+                if (data.image_url) {
+                    document.getElementById('image_url').value = data.image_url;
+                    updateImagePreview();
+                    showStatus('Image uploaded', 'success');
+                } else {
+                    showStatus(data.error || 'Upload failed', 'error');
+                }
+            } catch (err) {
+                showStatus('Upload failed: ' + err.message, 'error');
+            }
+
+            uploadBtn.textContent = 'Upload';
+            uploadBtn.disabled = false;
+        });
+
         async function loadEvent() {
             try {
-                const resp = await fetch('/api/admin/events', { credentials: 'same-origin' });
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/events');
                 if (!resp.ok) throw new Error('Failed to load');
-                const result = await resp.json();
-                currentEvent = (result.data.events || []).find(e => e.id === eventId);
+
+                let events;
+                if (Array.isArray(data)) {
+                    events = data;
+                } else if (data.data && data.data.events) {
+                    events = data.data.events;
+                } else {
+                    events = [];
+                }
+
+                currentEvent = events.find(e => e.id === eventId);
                 if (!currentEvent) {
                     showStatus('Event not found', 'error');
                     return;
                 }
-                // Populate form
+
                 fields.forEach(f => {
                     const el = document.getElementById(f);
                     if (el && currentEvent[f] != null) el.value = currentEvent[f];
                 });
                 document.getElementById('is_featured').checked = !!currentEvent.is_featured;
                 document.getElementById('is_active').checked = currentEvent.is_active !== false;
+                updateImagePreview();
             } catch (err) {
                 showStatus('Failed to load event: ' + err.message, 'error');
             }
@@ -304,43 +388,51 @@
             btn.disabled = true;
             btn.textContent = 'Saving...';
 
-            const data = {};
+            const formData = {};
             fields.forEach(f => {
                 const val = document.getElementById(f).value.trim();
-                data[f] = val || null;
+                formData[f] = val || null;
             });
-            data.is_featured = document.getElementById('is_featured').checked;
-            data.is_active = document.getElementById('is_active').checked;
+            formData.is_featured = document.getElementById('is_featured').checked;
+            formData.is_active = document.getElementById('is_active').checked;
 
-            if (!data.title || !data.venue || !data.date) {
-                showStatus('Title, venue, and date are required', 'error');
+            if (!formData.title || !formData.date) {
+                showStatus('Title and date are required', 'error');
                 btn.disabled = false;
                 btn.textContent = 'Save';
                 return;
             }
 
             try {
-                let method, body;
+                let result;
                 if (isEdit) {
-                    method = 'PUT';
-                    body = { ...data, id: eventId };
+                    result = await AdminAPI.apiJSON(`/api/admin/events/${eventId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData),
+                    });
+
+                    // Fallback to Vercel format
+                    if (result.resp.status === 404) {
+                        result = await AdminAPI.apiJSON('/api/admin/events', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ...formData, id: eventId }),
+                        });
+                    }
                 } else {
-                    method = 'POST';
-                    body = data;
+                    result = await AdminAPI.apiJSON('/api/admin/events', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData),
+                    });
                 }
 
-                const resp = await fetch('/api/admin/events', {
-                    method,
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'same-origin',
-                    body: JSON.stringify(body),
-                });
-                const result = await resp.json();
-                if (result.ok) {
+                if (result.resp.ok || result.data.ok) {
                     showStatus('Saved!', 'success');
                     setTimeout(() => { window.location.href = '/admin/'; }, 800);
                 } else {
-                    showStatus(result.error || 'Save failed', 'error');
+                    showStatus(result.data.error || 'Save failed', 'error');
                 }
             } catch (err) {
                 showStatus('Network error: ' + err.message, 'error');
@@ -350,33 +442,32 @@
             btn.textContent = 'Save';
         });
 
-        // Deactivate (soft delete)
+        // Deactivate
         document.getElementById('deactivateBtn').addEventListener('click', async () => {
             if (!confirm('Deactivate this event? It will be hidden from the public calendar.')) return;
 
             try {
-                const resp = await fetch('/api/admin/events', {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'same-origin',
-                    body: JSON.stringify({ id: eventId, is_active: false }),
+                let result = await AdminAPI.apiJSON(`/api/admin/events/${eventId}`, {
+                    method: 'DELETE',
                 });
-                const result = await resp.json();
-                if (result.ok) {
+
+                if (result.resp.status === 404) {
+                    result = await AdminAPI.apiJSON('/api/admin/events', {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: eventId, is_active: false }),
+                    });
+                }
+
+                if (result.resp.ok || result.data.ok) {
                     window.location.href = '/admin/';
                 } else {
-                    showStatus(result.error || 'Failed to deactivate', 'error');
+                    showStatus(result.data.error || 'Failed to deactivate', 'error');
                 }
             } catch (err) {
                 showStatus('Network error: ' + err.message, 'error');
             }
         });
-
-        function showStatus(msg, type) {
-            const el = document.getElementById('status');
-            el.textContent = msg;
-            el.className = 'status ' + type;
-        }
     </script>
 </body>
 </html>

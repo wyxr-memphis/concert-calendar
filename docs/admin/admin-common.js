@@ -1,0 +1,111 @@
+/**
+ * Shared admin utilities — authentication, API calls, navigation.
+ *
+ * Include this script on every admin page:
+ *   <script src="/admin/admin-common.js"></script>
+ *
+ * Configuration:
+ *   Set window.__API_BASE before including this script to point to
+ *   the Render backend URL. If not set, falls back to same-origin
+ *   (Vercel serverless functions).
+ */
+
+const AdminAPI = (() => {
+    // API base URL — empty string means same-origin
+    const BASE = window.__API_BASE || '';
+
+    function getToken() {
+        return sessionStorage.getItem('admin_token');
+    }
+
+    function setToken(token) {
+        sessionStorage.setItem('admin_token', token);
+    }
+
+    function clearToken() {
+        sessionStorage.removeItem('admin_token');
+    }
+
+    function headers(extra = {}) {
+        const h = { ...extra };
+        const token = getToken();
+        if (token) {
+            h['Authorization'] = 'Bearer ' + token;
+        }
+        return h;
+    }
+
+    async function apiFetch(path, opts = {}) {
+        const url = BASE ? BASE + path : path;
+        opts.credentials = BASE ? 'include' : 'same-origin';
+        opts.headers = headers(opts.headers || {});
+        return fetch(url, opts);
+    }
+
+    async function apiJSON(path, opts = {}) {
+        const resp = await apiFetch(path, opts);
+        if (resp.status === 401) {
+            clearToken();
+            window.location.href = '/admin/login.html';
+            throw new Error('Not authenticated');
+        }
+        return { resp, data: await resp.json() };
+    }
+
+    async function checkAuth() {
+        try {
+            const resp = await apiFetch('/api/admin/me');
+            if (!resp.ok) {
+                window.location.href = '/admin/login.html';
+                return false;
+            }
+            return true;
+        } catch {
+            window.location.href = '/admin/login.html';
+            return false;
+        }
+    }
+
+    async function logout() {
+        await apiFetch('/api/admin/logout', { method: 'POST' });
+        clearToken();
+        window.location.href = '/admin/login.html';
+    }
+
+    return { apiFetch, apiJSON, checkAuth, logout, getToken, setToken, clearToken, headers };
+})();
+
+// Escape HTML
+function esc(str) {
+    const el = document.createElement('span');
+    el.textContent = str || '';
+    return el.innerHTML;
+}
+
+// Show status message
+function showStatus(msg, type, containerId = 'statusBar') {
+    const bar = document.getElementById(containerId);
+    if (!bar) return;
+    bar.textContent = msg;
+    bar.className = 'status-bar ' + type;
+    if (type !== 'error') {
+        setTimeout(() => { bar.className = 'status-bar'; }, 5000);
+    }
+}
+
+// Relative time display
+function timeAgo(dateStr) {
+    if (!dateStr) return 'Never';
+    const date = new Date(dateStr);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMin = Math.floor(diffMs / 60000);
+    const diffHr = Math.floor(diffMin / 60);
+    const diffDay = Math.floor(diffHr / 24);
+
+    if (diffMin < 1) return 'Just now';
+    if (diffMin < 60) return `${diffMin}m ago`;
+    if (diffHr < 24) return `${diffHr}h ago`;
+    if (diffDay < 7) return `${diffDay}d ago`;
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}

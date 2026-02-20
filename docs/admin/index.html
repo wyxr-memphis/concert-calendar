@@ -8,7 +8,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 900px;
+            max-width: 960px;
             margin: 0 auto;
             padding: 20px 16px;
             background: #fafafa;
@@ -18,7 +18,7 @@
         header {
             border-bottom: 3px solid #1a1a1a;
             padding-bottom: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 0;
             display: flex;
             justify-content: space-between;
             align-items: baseline;
@@ -40,6 +40,32 @@
         .btn-add:hover { background: #333; }
         .btn-logout { background: #e8e8e8; color: #1a1a1a; }
         .btn-logout:hover { background: #ddd; }
+
+        /* Navigation tabs */
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .nav-tab {
+            padding: 10px 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            color: #888;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+            transition: all 0.15s;
+            text-decoration: none;
+        }
+        .nav-tab:hover { color: #333; }
+        .nav-tab.active {
+            color: #1a1a1a;
+            border-bottom-color: #1a1a1a;
+        }
 
         .controls {
             display: flex;
@@ -168,6 +194,10 @@
         @media (prefers-color-scheme: dark) {
             body { background: #1a1a1a; color: #e0e0e0; }
             header { border-bottom-color: #e0e0e0; }
+            .nav-tabs { border-bottom-color: #333; }
+            .nav-tab { color: #666; }
+            .nav-tab:hover { color: #ccc; }
+            .nav-tab.active { color: #e0e0e0; border-bottom-color: #e0e0e0; }
             .search-input { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
             .filter-tab { border-color: #444; color: #aaa; }
             .filter-tab:hover { border-color: #888; color: #e0e0e0; }
@@ -208,6 +238,12 @@
             </div>
         </header>
 
+        <nav class="nav-tabs">
+            <a href="/admin/" class="nav-tab active">Events</a>
+            <a href="/admin/import.html" class="nav-tab">Import</a>
+            <a href="/admin/scrapers.html" class="nav-tab">Scrapers</a>
+        </nav>
+
         <div class="status-bar" id="statusBar"></div>
 
         <div class="controls">
@@ -243,6 +279,7 @@
         </footer>
     </div>
 
+    <script src="/admin/admin-common.js"></script>
     <script>
         const PAGE_SIZE = 50;
         let allEvents = [];
@@ -251,23 +288,16 @@
         let currentFilter = 'all';
 
         // Auth guard
-        fetch('/api/admin/me', { credentials: 'same-origin' })
-            .then(r => {
-                if (!r.ok) {
-                    window.location.href = '/admin/login.html';
-                    return;
-                }
+        AdminAPI.checkAuth().then(ok => {
+            if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 loadEvents();
-            })
-            .catch(() => { window.location.href = '/admin/login.html'; });
+            }
+        });
 
         // Logout
-        document.getElementById('logoutBtn').addEventListener('click', async () => {
-            await fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' });
-            window.location.href = '/admin/login.html';
-        });
+        document.getElementById('logoutBtn').addEventListener('click', () => AdminAPI.logout());
 
         // Search
         document.getElementById('searchInput').addEventListener('input', () => {
@@ -288,14 +318,20 @@
 
         async function loadEvents() {
             try {
-                const resp = await fetch('/api/admin/events', { credentials: 'same-origin' });
-                if (!resp.ok) {
-                    const errBody = await resp.text();
-                    throw new Error(`${resp.status}: ${errBody}`);
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/events');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+
+                // Support both old format ({data:{events:[]}}) and new format ([])
+                let events;
+                if (Array.isArray(data)) {
+                    events = data;
+                } else if (data.data && data.data.events) {
+                    events = data.data.events;
+                } else {
+                    events = [];
                 }
-                const result = await resp.json();
-                allEvents = (result.data.events || []).sort((a, b) => {
-                    // Sort by date ascending, then title
+
+                allEvents = events.sort((a, b) => {
                     if (a.date !== b.date) return a.date.localeCompare(b.date);
                     return (a.title || '').localeCompare(b.title || '');
                 });
@@ -310,12 +346,10 @@
             const today = new Date().toISOString().split('T')[0];
 
             filteredEvents = allEvents.filter(e => {
-                // Text search
                 if (query) {
                     const text = `${e.title || ''} ${e.venue || ''}`.toLowerCase();
                     if (!text.includes(query)) return false;
                 }
-                // Tab filter
                 switch (currentFilter) {
                     case 'active': return e.is_active !== false;
                     case 'inactive': return e.is_active === false;
@@ -359,7 +393,7 @@
                 </tr>`;
             }).join('');
 
-            // Row click → edit (but not on toggle buttons)
+            // Row click -> edit
             tbody.querySelectorAll('tr').forEach(row => {
                 row.addEventListener('click', (ev) => {
                     if (ev.target.closest('.toggle-btn')) return;
@@ -372,9 +406,7 @@
             tbody.querySelectorAll('.toggle-btn').forEach(btn => {
                 btn.addEventListener('click', (ev) => {
                     ev.stopPropagation();
-                    const id = btn.dataset.id;
-                    const action = btn.dataset.action;
-                    toggleField(id, action);
+                    toggleField(btn.dataset.id, btn.dataset.action);
                 });
             });
         }
@@ -405,34 +437,38 @@
             applyFilters();
 
             try {
-                const resp = await fetch('/api/admin/events', {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    credentials: 'same-origin',
-                    body: JSON.stringify({ id, [key]: newVal }),
-                });
-                if (!resp.ok) throw new Error('API error');
-                const result = await resp.json();
-                if (!result.ok) throw new Error(result.error || 'Failed');
+                // Try new Render API format first, fall back to Vercel format
+                let resp, data;
+                if (field === 'featured') {
+                    ({ resp, data } = await AdminAPI.apiJSON(`/api/admin/events/${id}/featured`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ is_featured: newVal }),
+                    }));
+                } else {
+                    ({ resp, data } = await AdminAPI.apiJSON(`/api/admin/events/${id}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ [key]: newVal }),
+                    }));
+                }
+                if (!resp.ok) throw new Error(data.error || 'API error');
             } catch (err) {
-                // Revert on failure
-                event[key] = !newVal;
-                applyFilters();
-                showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
+                // Fall back to Vercel PATCH format
+                try {
+                    const { resp, data } = await AdminAPI.apiJSON('/api/admin/events', {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id, [key]: newVal }),
+                    });
+                    if (!resp.ok) throw new Error(data.error || 'Failed');
+                } catch {
+                    // Revert on failure
+                    event[key] = !newVal;
+                    applyFilters();
+                    showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
+                }
             }
-        }
-
-        function showStatus(msg, type) {
-            const bar = document.getElementById('statusBar');
-            bar.textContent = msg;
-            bar.className = 'status-bar ' + type;
-            setTimeout(() => { bar.className = 'status-bar'; }, 5000);
-        }
-
-        function esc(str) {
-            const el = document.createElement('span');
-            el.textContent = str || '';
-            return el.innerHTML;
         }
     </script>
 </body>

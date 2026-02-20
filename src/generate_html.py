@@ -35,11 +35,12 @@ def generate_html(
             if event.time:
                 line += f' <span class="time">({_esc(event.time)})</span>'
             
-            cls = ' class="featured"' if event.is_featured else ''
+            cls = ' class="featured event--featured"' if event.is_featured else ''
+            badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
             if event.url:
-                event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{line}</a></li>\n'
+                event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{badge}{line}</a></li>\n'
             else:
-                event_lines += f'<li{cls}>{line}</li>\n'
+                event_lines += f'<li{cls}>{badge}{line}</li>\n'
 
         event_sections += f"""
         <div class="day-section">
@@ -143,10 +144,23 @@ def generate_html(
         li:last-child {{
             border-bottom: none;
         }}
-        li.featured {{
+        li.featured, li.event--featured {{
             border-left: 3px solid #f9a825;
             padding-left: 8px;
             margin-left: -3px;
+        }}
+        .featured-badge {{
+            display: inline-block;
+            background: #f9a825;
+            color: #1a1a1a;
+            font-size: 0.65em;
+            font-weight: 700;
+            padding: 1px 6px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            vertical-align: middle;
+            margin-right: 4px;
         }}
         li a {{
             color: inherit;
@@ -228,6 +242,7 @@ def generate_html(
             .summary {{ color: #999; }}
             li {{ border-bottom-color: #2a2a2a; }}
             li.featured {{ border-left-color: #fdd835; }}
+            .featured-badge {{ background: #fdd835; color: #1a1a1a; }}
             header {{ border-bottom-color: #e0e0e0; }}
             footer {{ border-top-color: #333; color: #555; }}
             .source-summary {{ color: #888; }}

@@ -4,6 +4,8 @@
 Fetches events from automated sources, merges into data/events.json
 (preserving admin edits), and generates a static HTML page.
 
+If DATABASE_URL is set, also writes scrape logs to PostgreSQL.
+
 Usage:
     python -m src.main              # Normal run
     python -m src.main --dry-run    # Print results without writing files
@@ -11,12 +13,13 @@ Usage:
 
 import html
 import json
+import os
 import sys
 import time
 from collections import defaultdict
 from datetime import date, datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 from zoneinfo import ZoneInfo
 
 # Add project root to path
@@ -43,6 +46,76 @@ DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_PATH = DOCS_DIR / "index.html"
 LOG_PATH = DOCS_DIR / "log.json"
 
+# Optional: scrape log database support
+DATABASE_URL = os.environ.get("DATABASE_URL", "")
+
+
+def _db_available() -> bool:
+    """Check if PostgreSQL database is configured and reachable."""
+    if not DATABASE_URL:
+        return False
+    try:
+        import psycopg2
+        return True
+    except ImportError:
+        return False
+
+
+def _create_scrape_log(scraper_name: str, started_at: datetime) -> Optional[str]:
+    """Create a scrape_logs entry. Returns the log ID or None."""
+    if not _db_available():
+        return None
+    try:
+        import psycopg2
+        import psycopg2.extras
+        conn = psycopg2.connect(DATABASE_URL)
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute(
+            "INSERT INTO scrape_logs (scraper_name, started_at, status) VALUES (%s, %s, 'running') RETURNING id",
+            (scraper_name, started_at),
+        )
+        row = cur.fetchone()
+        conn.commit()
+        conn.close()
+        return str(row["id"]) if row else None
+    except Exception as e:
+        print(f"  [scrape_log] Could not create log entry: {e}")
+        return None
+
+
+def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
+    """Update a scrape_logs entry."""
+    if not log_id or not _db_available():
+        return
+    try:
+        import psycopg2
+        import psycopg2.extras
+        conn = psycopg2.connect(DATABASE_URL)
+        cur = conn.cursor()
+
+        allowed = ["finished_at", "status", "events_found", "events_added",
+                    "events_updated", "events_skipped", "error_message", "details"]
+        updates = {k: data[k] for k in allowed if k in data}
+        if not updates:
+            conn.close()
+            return
+
+        set_clauses = []
+        params = []
+        for k, v in updates.items():
+            set_clauses.append(f"{k} = %s")
+            if k == "details" and not isinstance(v, str):
+                params.append(json.dumps(v))
+            else:
+                params.append(v)
+
+        params.append(log_id)
+        cur.execute(f"UPDATE scrape_logs SET {', '.join(set_clauses)} WHERE id = %s::uuid", params)
+        conn.commit()
+        conn.close()
+    except Exception as e:
+        print(f"  [scrape_log] Could not update log entry: {e}")
+
 
 def run(dry_run: bool = False) -> None:
     """Main execution: fetch → merge into events.json → generate HTML."""
@@ -51,6 +124,11 @@ def run(dry_run: bool = False) -> None:
     print(f"MEMPHIS CONCERT CALENDAR — {run_timestamp.strftime('%Y-%m-%d %H:%M')}")
     print(f"Date range: {START_DATE} to {END_DATE}")
     print(f"{'='*60}\n")
+
+    # Create scrape log entry
+    scrape_log_id = _create_scrape_log("calendar-build", run_timestamp)
+    if scrape_log_id:
+        print(f"  [scrape_log] Created log entry: {scrape_log_id}")
 
     # ---- STEP 1: Fetch from automated sources ----
     all_source_results: List[SourceResult] = []
@@ -215,6 +293,41 @@ def run(dry_run: bool = False) -> None:
         print(f"\n  {len(failures)} source(s) had errors — check log.json for details")
         for f in failures:
             print(f"     - {f.source_name}: {f.error_message}")
+
+    # ---- STEP 8: Update scrape log ----
+    if scrape_log_id:
+        total_found = sum(sr.events_found for sr in all_source_results)
+        # Count new vs updated events from merge step
+        new_count = len(merged) - len(existing_events)
+        updated_count = sum(1 for sr in all_source_results if sr.success) - new_count
+        if updated_count < 0:
+            updated_count = 0
+
+        status = "success"
+        error_msg = None
+        if failures:
+            if len(failures) == len(all_source_results) - 1:  # all except events.json
+                status = "failed"
+            else:
+                status = "partial"
+            error_msg = "; ".join(f"{f.source_name}: {f.error_message}" for f in failures)
+
+        _update_scrape_log(scrape_log_id, {
+            "finished_at": datetime.now(ZoneInfo("UTC")),
+            "status": status,
+            "events_found": total_found,
+            "events_added": max(new_count, 0),
+            "events_updated": updated_count,
+            "events_skipped": total_found - len(automated_events),
+            "error_message": error_msg,
+            "details": {
+                "sources": [
+                    {"name": sr.source_name, "success": sr.success, "events": len(sr.events)}
+                    for sr in all_source_results
+                ],
+            },
+        })
+        print(f"  [scrape_log] Updated log entry: status={status}")
 
 
 def _merge_events(
