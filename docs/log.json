@@ -1,17 +1,17 @@
 {
-  "run_timestamp": "2026-02-20T17:32:00.066143+00:00",
+  "run_timestamp": "2026-02-21T05:46:00.852315+00:00",
   "date_range": {
-    "start": "2026-02-20",
-    "end": "2026-02-27"
+    "start": "2026-02-21",
+    "end": "2026-02-28"
   },
-  "total_events_json": 70,
-  "total_active_display": 68,
+  "total_events_json": 52,
+  "total_active_display": 50,
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -19,7 +19,7 @@
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
       "events_found": 32,
-      "events_after_filter": 32,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -27,8 +27,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 90,
-      "events_after_filter": 2,
-      "events_filtered": 88,
+      "events_after_filter": 1,
+      "events_filtered": 89,
       "error": null
     },
     {
@@ -59,17 +59,17 @@
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
+      "events_after_filter": 2,
+      "events_filtered": 8,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -106,154 +106,21 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 61,
+      "events_found": 62,
       "events_after_filter": 0,
-      "events_filtered": 61,
+      "events_filtered": 62,
       "error": null
     },
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 68,
-      "events_after_filter": 68,
+      "events_found": 50,
+      "events_after_filter": 50,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Don Trip",
-      "venue": "1884 Lounge",
-      "date": "2026-02-20",
-      "time": "8:00 PM",
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "MS. NICKKI/ STEPHANIE BRADLEY",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-20",
-      "time": "7PM",
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "DJ Brilli, DJ Larry, La Femme Radical, Von G\u00f6gh",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Night of the Aquarius event)"
-    },
-    {
-      "artist": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Curtis B Scott",
-      "venue": "Celtic Crossing",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
-      "date": "2026-02-20",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Sons Of Town Hall",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-20",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Sons of Town Hall",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-20",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Sold Out! Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-20",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Magik Hours, Tom Foolery",
-      "venue": "Growlers",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "American Soul / Deerfields / The Brewery / Holiday Beach [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Bad Idols, Hooves, Butied Beneath",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "Julia Magness & Gerald Stephens",
-      "venue": "Moondance",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "David Berkeley",
-      "venue": "Sons of Town Hall in Memphis",
-      "date": "2026-02-20",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Jordan Allena, Leighton Smith",
-      "venue": "South Main Sounds",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "Stax Presents A Century of Soul: Facing Our History",
-      "venue": "The Coronet",
-      "date": "2026-02-20",
-      "time": null,
-      "source": "Artifacts (Friday 2.20 event listing)"
-    },
-    {
-      "artist": "Doug MacLeod",
-      "venue": "Trezevant",
-      "date": "2026-02-20",
-      "time": "5:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
       "venue": "B-Side Memphis",
@@ -378,7 +245,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "dead7",
@@ -406,7 +273,7 @@
       "venue": "Growlers",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "Vapid Soul",
@@ -427,63 +294,63 @@
       "venue": "Hernando's Hideaway",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "DUANE CLEVELAND BAND",
       "venue": "HUEY'S COLLIERVILLE",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "BOB NELSON & THE BOBCATS",
       "venue": "HUEY'S CORDOVA",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "MEDIUM WALTER",
       "venue": "HUEY'S DOWNTOWN",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "THE BUGALOOS",
       "venue": "HUEY'S GERMANTOWN",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "HEARTBREAK HILL",
       "venue": "HUEY'S MIDTOWN",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "KEN HOUSTON DUO",
       "venue": "HUEY'S MILLINGTON",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "THE SETTLERS",
       "venue": "HUEY'S POPLAR",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "JACK & THE FAT MEN",
       "venue": "HUEY'S SOUTHWIND",
       "date": "2026-02-22",
       "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
+      "source": "Artifacts (Sunday show listing)"
     },
     {
       "artist": "Brad Williams",
@@ -596,6 +463,13 @@
       "date": "2026-02-27",
       "time": "8:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "DEMOLA LIVE!",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-27",
+      "time": "8 PM",
+      "source": "Ticketmaster"
     }
   ]
 }

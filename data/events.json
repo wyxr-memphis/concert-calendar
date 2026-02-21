@@ -1,79 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-02-20T17:32:00.066143+00:00",
+  "updated_at": "2026-02-21T05:46:00.852315+00:00",
   "events": [
-    {
-      "id": "evt_1771375878169_15",
-      "title": "MS. NICKKI/ STEPHANIE BRADLEY",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-20",
-      "start_time": "7PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771375878170_16",
-      "title": "DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Night of the Aquarius event)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-18T00:50:35.941489+00:00"
-    },
-    {
-      "id": "evt_1771375878172_17",
-      "title": "Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-20",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://crosstownarts.org/calendar/crosstown-arts-film-series-natchez/2026-02-20/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Crosstown Arts",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-19T17:44:33.468655+00:00"
-    },
-    {
-      "id": "evt_1771375878173_18",
-      "title": "American Soul / Deerfields / The Brewery / Holiday Beach [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/american-soul-deerfields-the-brewery-holiday-beach-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
     {
       "id": "evt_1771375878174_19",
       "title": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
@@ -90,7 +18,7 @@
       "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771375878176_20",
@@ -126,7 +54,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771375878191_32",
@@ -144,7 +72,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771375878192_33",
@@ -180,25 +108,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771382898064_35",
-      "title": "Night of the Aquarius w/ DJ Larry, DJ Brill, Von G\u00f6gh + A Surprise Special Guest Aquarius DJ",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T02:47:37.798064+00:00",
-      "updated_at": "2026-02-18T02:47:37.798064+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771382898067_37",
@@ -237,96 +147,6 @@
       "updated_at": "2026-02-18T19:35:47.762206+00:00"
     },
     {
-      "id": "evt_1771443358033_22",
-      "title": "Don Trip",
-      "venue": "1884 Lounge",
-      "date": "2026-02-20",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037692103-don-trip-at-1884-lounge",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771443358034_23",
-      "title": "Chris Gales",
-      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
-      "date": "2026-02-20",
-      "start_time": "6:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107948730-chris-gales-at-southland-casino-racing",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T03:57:55.247701+00:00"
-    },
-    {
-      "id": "evt_1771443358035_24",
-      "title": "Sons Of Town Hall",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-20",
-      "start_time": "7:30 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037217466-sons-of-town-hall-at-the-green-room-@-crosstown-arts",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T03:57:55.247701+00:00"
-    },
-    {
-      "id": "evt_1771443358037_25",
-      "title": "David Berkeley",
-      "venue": "Sons of Town Hall in Memphis",
-      "date": "2026-02-20",
-      "start_time": "7:30 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107617821-david-berkeley-at-the-green-room",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T03:57:55.247701+00:00"
-    },
-    {
-      "id": "evt_1771443358038_26",
-      "title": "Doug MacLeod",
-      "venue": "Trezevant",
-      "date": "2026-02-20",
-      "start_time": "5:30 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107807783-doug-macleod-at-trezevant",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T03:57:55.247701+00:00"
-    },
-    {
       "id": "evt_1771443358039_27",
       "title": "Jeremih",
       "venue": "FedExForum",
@@ -360,7 +180,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771443358041_29",
@@ -669,24 +489,6 @@
       "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
-      "id": "evt_1771559883851_41",
-      "title": "Sold Out! Crosstown Arts Film Series: Natchez",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-20",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://crosstownarts.org/calendar/crosstown-arts-film-series-natchez/2026-02-20/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Crosstown Arts",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
       "id": "evt_1771559883852_42",
       "title": "Kenny Wayne Shepherd",
       "venue": "Soundstage at Graceland",
@@ -702,7 +504,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771559883853_43",
@@ -738,7 +540,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771559883855_45",
@@ -777,150 +579,6 @@
       "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
-      "id": "evt_1771595555702_43",
-      "title": "DJ Brilli, DJ Larry, La Femme Radical, Von G\u00f6gh",
-      "venue": "Bar DKDC",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555703_44",
-      "title": "Curtis B Scott",
-      "venue": "Celtic Crossing",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555704_45",
-      "title": "Sons of Town Hall",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555705_46",
-      "title": "Magik Hours, Tom Foolery",
-      "venue": "Growlers",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555706_47",
-      "title": "Bad Idols, Hooves, Butied Beneath",
-      "venue": "Hi Tone",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555707_48",
-      "title": "Julia Magness & Gerald Stephens",
-      "venue": "Moondance",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555708_49",
-      "title": "Jordan Allena, Leighton Smith",
-      "venue": "South Main Sounds",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
-      "id": "evt_1771595555710_50",
-      "title": "Stax Presents A Century of Soul: Facing Our History",
-      "venue": "The Coronet",
-      "date": "2026-02-20",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Friday 2.20 event listing)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
-    },
-    {
       "id": "evt_1771595555711_51",
       "title": "Suroor, Raneem Imam, Doshai",
       "venue": "Bar DKDC",
@@ -936,7 +594,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555712_52",
@@ -954,7 +612,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555713_53",
@@ -972,7 +630,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555714_54",
@@ -990,7 +648,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555715_55",
@@ -1008,7 +666,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555716_56",
@@ -1026,7 +684,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555717_57",
@@ -1044,7 +702,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555718_58",
@@ -1062,7 +720,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555719_59",
@@ -1076,11 +734,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555720_60",
@@ -1094,11 +752,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555721_61",
@@ -1112,11 +770,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555723_62",
@@ -1130,11 +788,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555724_63",
@@ -1148,11 +806,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555725_64",
@@ -1166,11 +824,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555726_65",
@@ -1184,11 +842,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555727_66",
@@ -1202,11 +860,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555728_67",
@@ -1220,11 +878,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555729_68",
@@ -1238,11 +896,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     },
     {
       "id": "evt_1771595555730_69",
@@ -1256,11 +914,29 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Sunday 2.22 event listing)",
+      "source": "Artifacts (Sunday show listing)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T13:51:42.415487+00:00",
-      "updated_at": "2026-02-20T17:32:00.066143+00:00"
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
+    },
+    {
+      "id": "evt_1771652803707_70",
+      "title": "DEMOLA LIVE!",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-27",
+      "start_time": "8 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.ticketmaster.com/demola-live-memphis-tennessee-02-27-2026/event/1B006375D141EDFC",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Ticketmaster",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-21T05:46:00.852315+00:00",
+      "updated_at": "2026-02-21T05:46:00.852315+00:00"
     }
   ]
 }
