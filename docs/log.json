@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-22T05:55:05.104320+00:00",
+  "run_timestamp": "2026-02-22T17:20:09.700403+00:00",
   "date_range": {
     "start": "2026-02-22",
     "end": "2026-03-01"
@@ -26,17 +26,17 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 87,
+      "events_found": 85,
       "events_after_filter": 1,
-      "events_filtered": 86,
+      "events_filtered": 84,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
+      "events_found": 34,
       "events_after_filter": 2,
-      "events_filtered": 33,
+      "events_filtered": 32,
       "error": null
     },
     {
