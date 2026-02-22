@@ -1,27 +1,27 @@
 {
-  "run_timestamp": "2026-02-21T17:20:27.200019+00:00",
+  "run_timestamp": "2026-02-22T05:55:05.104320+00:00",
   "date_range": {
-    "start": "2026-02-21",
-    "end": "2026-02-28"
+    "start": "2026-02-22",
+    "end": "2026-03-01"
   },
-  "total_events_json": 52,
-  "total_active_display": 50,
+  "total_events_json": 38,
+  "total_active_display": 36,
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 21,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
@@ -35,8 +35,8 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 1,
-      "events_filtered": 34,
+      "events_after_filter": 2,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -114,132 +114,13 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "AIDAN OSIAS/ ZOE DOMINGUEZ/ CURTIS B SCOTT/ LINA BEACH",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-21",
-      "time": "9PM",
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Raneem Imam + DJ Doshai",
-      "venue": "Bar DKDC",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Suroor's Birthday Show)"
-    },
-    {
-      "artist": "Suroor's Birthday Show w/ Special Guests Raneem Imam + DJ Doshai",
-      "venue": "Bar DKDC",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Suroor, Raneem Imam, Doshai",
-      "venue": "Bar DKDC",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "The Wayback Machine",
-      "venue": "Crosstown Brewery",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Eunbi Kim and Iris Musicians",
-      "venue": "Crosstown Green Room",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Jeremih",
-      "venue": "FedExForum",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Kandace Springs",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-02-21",
-      "time": "8:00 PM",
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Sunweight",
-      "venue": "Grind City Brewery",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Mala Leche, DJ Oddyssey",
-      "venue": "Growlers",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Tennessee Screamers",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Otis Shredding and Prozak",
-      "venue": "Lamplighter",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Trevor Wallace",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Julia Magness & Gerald Stephens",
-      "venue": "Moondance",
-      "date": "2026-02-21",
-      "time": null,
-      "source": "Artifacts (Saturday 2.21 event listing)"
-    },
-    {
-      "artist": "Hannah Blaylock",
-      "venue": "Three Times A Lady",
-      "date": "2026-02-21",
-      "time": "6:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Kennedy Scott",
-      "venue": "Three Times A Lady @ The Harell Performing Arts Theatre",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Three Times A Lady Trio",
-      "venue": "Three Times A Lady @ The Harrell Performing Arts Theatre",
-      "date": "2026-02-21",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "VITRUVIAN INFLUENCE, CURLY MOJO, THE EVERDEANS",
       "venue": "B-Side Memphis",
@@ -470,6 +351,27 @@
       "date": "2026-02-27",
       "time": "8 PM",
       "source": "Ticketmaster"
+    },
+    {
+      "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-28",
+      "time": "9 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Tribal Fest - Memphis, TN",
+      "venue": "Ok Corral Memphis",
+      "date": "2026-02-28",
+      "time": "8 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
     }
   ]
 }
