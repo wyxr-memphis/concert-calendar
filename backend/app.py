@@ -759,18 +759,22 @@ def admin_sync_events_json():
         t = _re.sub(r'[^\w\s]', '', t)
         return _re.sub(r'\s+', ' ', t).strip()
 
-    # Get all inactive events from PostgreSQL
+    # Get all events from PostgreSQL (active + inactive)
     from backend.db import get_all_events
     all_db = get_all_events(include_inactive=True)
-    inactive = [e for e in all_db if not e.get("is_active", True)]
 
-    if not inactive:
-        return jsonify({"ok": True, "synced": 0, "message": "No inactive events in DB"})
+    if not all_db:
+        return jsonify({"ok": True, "synced": 0, "message": "No events in DB"})
 
-    inactive_keys = {
-        f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
-        for e in inactive
-    }
+    # Build maps: key → is_active status
+    db_status = {}
+    for e in all_db:
+        key = f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
+        # If any DB event with this key is active, treat it as active
+        if key not in db_status:
+            db_status[key] = bool(e.get("is_active", True))
+        elif e.get("is_active", True):
+            db_status[key] = True
 
     # Fetch events.json from GitHub
     api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
@@ -788,15 +792,16 @@ def admin_sync_events_json():
 
     synced = 0
     for entry in events_json.get("events", []):
-        if not entry.get("is_active", True):
-            continue  # already inactive
         key = f"{_norm(entry.get('title',''))}|{_norm(entry.get('venue',''))}|{entry.get('date','')}"
-        if key in inactive_keys:
-            entry["is_active"] = False
+        if key not in db_status:
+            continue  # scraper-only event — don't touch it
+        db_active = db_status[key]
+        if entry.get("is_active", True) != db_active:
+            entry["is_active"] = db_active
             synced += 1
 
     if synced == 0:
-        return jsonify({"ok": True, "synced": 0, "message": "No matching entries found in events.json"})
+        return jsonify({"ok": True, "synced": 0, "message": "events.json already in sync with DB"})
 
     updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
     put_resp = http_requests.put(api_url, headers=gh_headers, json={
