@@ -11,13 +11,17 @@ Deploy on Render:
     Start command: gunicorn backend.app:app
 """
 
+import base64
 import json
 import os
+import re
+import threading
 import uuid
 from datetime import datetime
 
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
+import requests as http_requests
 
 from backend.db import (
     init_db,
@@ -76,6 +80,157 @@ def serialize_event(row):
 
 def serialize_list(rows):
     return [serialize_event(r) for r in rows]
+
+
+# ---------------------------------------------------------------------------
+# events.json write-through helpers
+# ---------------------------------------------------------------------------
+
+def _norm_text(text):
+    """Normalize text for dedup/matching (title or venue)."""
+    t = (text or "").lower().strip()
+    t = re.sub(r'^the\s+', '', t)
+    t = re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
+    t = re.sub(r'[^\w\s]', '', t)
+    return re.sub(r'\s+', ' ', t).strip()
+
+
+def _make_event_key(title, venue, date):
+    """Build normalized matching key from title+venue+date."""
+    return f"{_norm_text(title)}|{_norm_text(venue)}|{str(date)[:10]}"
+
+
+def _update_events_json(changes, commit_message="admin: update events"):
+    """Update data/events.json on GitHub to reflect admin changes.
+
+    changes: list of dicts with keys:
+        action: "upsert" | "deactivate" | "set_featured"
+        data: dict with event fields (title, venue, date required)
+        match_title, match_venue, match_date: optional overrides for matching
+            (used when editing an event whose title/venue/date changed)
+
+    Silently returns on failure — admin operations succeed even if sync fails.
+    """
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+
+    if not github_pat:
+        print("Warning: GITHUB_PAT not set, skipping events.json sync")
+        return
+
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+    try:
+        get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
+        if get_resp.status_code != 200:
+            print(f"Warning: Could not fetch events.json: {get_resp.status_code}")
+            return
+
+        file_meta = get_resp.json()
+        sha = file_meta["sha"]
+        events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
+
+        existing = events_json.get("events", [])
+        now_iso = datetime.utcnow().isoformat() + "Z"
+        modified = False
+
+        for change in changes:
+            action = change["action"]
+            data = change["data"]
+
+            match_title = change.get("match_title", data.get("title", ""))
+            match_venue = change.get("match_venue", data.get("venue", ""))
+            match_date = change.get("match_date", str(data.get("date", ""))[:10])
+            key = _make_event_key(match_title, match_venue, match_date)
+
+            # Find matching entry in events.json
+            match_idx = None
+            for i, entry in enumerate(existing):
+                entry_key = _make_event_key(
+                    entry.get("title", ""),
+                    entry.get("venue", ""),
+                    entry.get("date", ""),
+                )
+                if entry_key == key:
+                    match_idx = i
+                    break
+
+            if action == "deactivate":
+                if match_idx is not None:
+                    existing[match_idx]["is_active"] = False
+                    existing[match_idx]["updated_at"] = now_iso
+                    modified = True
+
+            elif action == "set_featured":
+                if match_idx is not None:
+                    existing[match_idx]["is_featured"] = data.get("is_featured", False)
+                    existing[match_idx]["updated_at"] = now_iso
+                    modified = True
+
+            elif action == "upsert":
+                if match_idx is not None:
+                    entry = existing[match_idx]
+                    for field in ("title", "venue", "date", "start_time", "doors_time",
+                                  "ticket_url", "ticket_price", "image_url",
+                                  "description", "genre", "is_featured", "is_active"):
+                        if field in data and data[field] is not None:
+                            entry[field] = str(data[field])[:10] if field == "date" else data[field]
+                    entry["updated_at"] = now_iso
+                    modified = True
+                else:
+                    new_entry = {
+                        "id": f"evt_admin_{uuid.uuid4().hex[:12]}",
+                        "title": data.get("title", ""),
+                        "venue": data.get("venue", ""),
+                        "date": str(data.get("date", ""))[:10],
+                        "start_time": data.get("start_time"),
+                        "doors_time": data.get("doors_time"),
+                        "ticket_url": data.get("ticket_url"),
+                        "ticket_price": data.get("ticket_price"),
+                        "image_url": data.get("image_url"),
+                        "description": data.get("description"),
+                        "genre": data.get("genre"),
+                        "source": data.get("source", "admin"),
+                        "is_featured": data.get("is_featured", False),
+                        "is_active": data.get("is_active", True),
+                        "created_at": now_iso,
+                        "updated_at": now_iso,
+                    }
+                    existing.append(new_entry)
+                    modified = True
+
+        if not modified:
+            return
+
+        events_json["events"] = existing
+        events_json["updated_at"] = now_iso
+
+        updated_content = json.dumps(events_json, indent=2, ensure_ascii=False)
+        put_resp = http_requests.put(api_url, headers=gh_headers, json={
+            "message": commit_message,
+            "content": base64.b64encode(updated_content.encode()).decode("ascii"),
+            "sha": sha,
+        }, timeout=30)
+
+        if put_resp.status_code not in (200, 201):
+            print(f"Warning: events.json commit failed: {put_resp.status_code}")
+
+    except Exception as e:
+        print(f"Warning: events.json sync failed: {e}")
+
+
+def _sync_to_json_background(changes, commit_message):
+    """Fire-and-forget events.json sync in a background thread."""
+    thread = threading.Thread(
+        target=_update_events_json,
+        args=(changes, commit_message),
+        daemon=True,
+    )
+    thread.start()
 
 
 # ---------------------------------------------------------------------------
@@ -185,6 +340,12 @@ def admin_events_create():
     body.setdefault("is_active", True)
 
     event = create_event(body)
+
+    _sync_to_json_background([{
+        "action": "upsert",
+        "data": serialize_event(event),
+    }], commit_message=f"admin: add '{event['title']}'")
+
     return jsonify(serialize_event(event)), 201
 
 
@@ -199,6 +360,15 @@ def admin_events_update(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = update_event(event_id, body)
+
+    _sync_to_json_background([{
+        "action": "upsert",
+        "data": serialize_event(event),
+        "match_title": existing["title"],
+        "match_venue": existing.get("venue") or "",
+        "match_date": str(existing["date"])[:10],
+    }], commit_message=f"admin: update '{event['title']}'")
+
     return jsonify(serialize_event(event))
 
 
@@ -211,6 +381,12 @@ def admin_events_delete(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = soft_delete_event(event_id)
+
+    _sync_to_json_background([{
+        "action": "deactivate",
+        "data": serialize_event(event),
+    }], commit_message=f"admin: deactivate '{event['title']}'")
+
     return jsonify({"ok": True, "event": serialize_event(event)})
 
 
@@ -226,6 +402,12 @@ def admin_events_toggle_featured(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = toggle_featured(event_id, is_featured)
+
+    _sync_to_json_background([{
+        "action": "set_featured",
+        "data": {"is_featured": is_featured, **serialize_event(event)},
+    }], commit_message=f"admin: {'feature' if is_featured else 'unfeature'} '{event['title']}'")
+
     return jsonify(serialize_event(event))
 
 
@@ -243,7 +425,38 @@ def admin_events_bulk():
     if not ids:
         return jsonify({"error": "ids array is required"}), 400
 
+    # Fetch events before bulk action for events.json matching
+    events_for_sync = []
+    for eid in ids:
+        evt = get_event_by_id(eid)
+        if evt:
+            events_for_sync.append(evt)
+
     count = bulk_action(action, ids)
+
+    # Sync to events.json
+    if events_for_sync:
+        action_map = {
+            "feature": "set_featured",
+            "unfeature": "set_featured",
+            "deactivate": "deactivate",
+        }
+        json_action = action_map[action]
+
+        changes = []
+        for evt in events_for_sync:
+            change = {"action": json_action, "data": serialize_event(evt)}
+            if action == "feature":
+                change["data"]["is_featured"] = True
+            elif action == "unfeature":
+                change["data"]["is_featured"] = False
+            changes.append(change)
+
+        _sync_to_json_background(
+            changes,
+            commit_message=f"admin: bulk {action} {len(events_for_sync)} events",
+        )
+
     return jsonify({"ok": True, "affected": count})
 
 
@@ -261,8 +474,6 @@ def admin_import_upload():
     for processing by the daily build (Claude Vision API).
     Returns preview data (not saved to DB yet).
     """
-    import base64
-    import requests as http_requests
     from bs4 import BeautifulSoup
 
     parsed_events = []
@@ -364,12 +575,11 @@ def _normalize_date_iso(date_str):
     """Convert a human-readable date string to ISO YYYY-MM-DD format."""
     if not date_str:
         return None
-    import re as _re
     # Already ISO
-    if _re.match(r'^\d{4}-\d{2}-\d{2}$', date_str.strip()):
+    if re.match(r'^\d{4}-\d{2}-\d{2}$', date_str.strip()):
         return date_str.strip()
     # Strip any trailing time like " - 7:00 PM"
-    cleaned = _re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', date_str, flags=_re.IGNORECASE).strip()
+    cleaned = re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', date_str, flags=re.IGNORECASE).strip()
     # Try parsing
     current_year = datetime.now().year
     for fmt in ('%b %d', '%B %d', '%b %d %Y', '%B %d %Y', '%m/%d/%Y', '%m/%d/%y'):
@@ -387,10 +597,6 @@ def _normalize_date_iso(date_str):
 @require_auth
 def admin_import_confirm():
     """Confirm and save parsed events to the database and events.json."""
-    import base64
-    import json as _json
-    import requests as http_requests
-
     body = request.get_json(silent=True) or {}
     events_to_import = body.get("events", [])
 
@@ -435,7 +641,7 @@ def admin_import_confirm():
                 file_meta = get_resp.json()
                 sha = file_meta["sha"]
                 current = base64.b64decode(file_meta["content"]).decode("utf-8")
-                events_json = _json.loads(current)
+                events_json = json.loads(current)
             else:
                 sha = None
                 events_json = {"version": 1, "updated_at": "", "events": []}
@@ -444,23 +650,14 @@ def admin_import_confirm():
             existing = events_json.get("events", [])
 
             # Build dedup key set from existing entries
-            import re as _re
-
-            def _norm(text):
-                t = (text or "").lower().strip()
-                t = _re.sub(r'^the\s+', '', t)
-                t = _re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
-                t = _re.sub(r'[^\w\s]', '', t)
-                return _re.sub(r'\s+', ' ', t).strip()
-
             existing_keys = {
-                f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{e.get('date','')}"
+                _make_event_key(e.get('title',''), e.get('venue',''), e.get('date',''))
                 for e in existing
             }
 
             duplicates = []
             for evt in valid:
-                key = f"{_norm(evt.get('title',''))}|{_norm(evt.get('venue',''))}|{evt['date']}"
+                key = _make_event_key(evt.get('title',''), evt.get('venue',''), evt['date'])
                 if key in existing_keys:
                     duplicates.append(evt.get("title", "?"))
                     continue
@@ -488,7 +685,7 @@ def admin_import_confirm():
             events_json["events"] = existing
             events_json["updated_at"] = now_iso
 
-            updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
+            updated = json.dumps(events_json, indent=2, ensure_ascii=False)
             added_count = len(valid) - len(duplicates)
             put_data = {
                 "message": f"Import {added_count} events via admin",
@@ -520,9 +717,6 @@ def admin_import_confirm():
 @require_auth
 def admin_import_image():
     """Single image upload — commits to GitHub artifacts/ folder."""
-    import base64
-    import requests as http_requests
-
     f = request.files.get("image")
     if not f:
         return jsonify({"error": "No image file provided"}), 400
@@ -663,7 +857,6 @@ def _parse_html_events(soup, source_filename):
                 return events
 
     # Strategy 3: Bandsintown-style links
-    import re
     event_links = soup.find_all("a", href=lambda h: h and "/e/" in str(h))
     for link in event_links:
         text = link.get_text(separator="|", strip=True)
@@ -741,26 +934,13 @@ def admin_sync_events_json():
     entries in data/events.json by normalized title+venue+date, and marks
     them inactive so the next build excludes them.
     """
-    import base64
-    import json as _json
-    import re as _re
-    import requests as http_requests
-
     github_pat = os.environ.get("GITHUB_PAT", "")
     github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
 
     if not github_pat:
         return jsonify({"error": "GITHUB_PAT not configured"}), 500
 
-    def _norm(text):
-        t = (text or "").lower().strip()
-        t = _re.sub(r'^the\s+', '', t)
-        t = _re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
-        t = _re.sub(r'[^\w\s]', '', t)
-        return _re.sub(r'\s+', ' ', t).strip()
-
     # Get all events from PostgreSQL (active + inactive)
-    from backend.db import get_all_events
     all_db = get_all_events(include_inactive=True)
 
     if not all_db:
@@ -769,7 +949,7 @@ def admin_sync_events_json():
     # Build maps: key → is_active status
     db_status = {}
     for e in all_db:
-        key = f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
+        key = f"{_norm_text(e.get('title',''))}|{_norm_text(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
         # If any DB event with this key is active, treat it as active
         if key not in db_status:
             db_status[key] = bool(e.get("is_active", True))
@@ -788,11 +968,11 @@ def admin_sync_events_json():
 
     file_meta = get_resp.json()
     sha = file_meta["sha"]
-    events_json = _json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
+    events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
 
     synced = 0
     for entry in events_json.get("events", []):
-        key = f"{_norm(entry.get('title',''))}|{_norm(entry.get('venue',''))}|{entry.get('date','')}"
+        key = f"{_norm_text(entry.get('title',''))}|{_norm_text(entry.get('venue',''))}|{entry.get('date','')}"
         if key not in db_status:
             continue  # scraper-only event — don't touch it
         db_active = db_status[key]
@@ -803,7 +983,7 @@ def admin_sync_events_json():
     if synced == 0:
         return jsonify({"ok": True, "synced": 0, "message": "events.json already in sync with DB"})
 
-    updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
+    updated = json.dumps(events_json, indent=2, ensure_ascii=False)
     put_resp = http_requests.put(api_url, headers=gh_headers, json={
         "message": f"Sync: deactivate {synced} deleted events",
         "content": base64.b64encode(updated.encode()).decode("ascii"),
@@ -824,7 +1004,6 @@ def admin_sync_events_json():
 @require_auth
 def admin_trigger_build():
     """Trigger the daily build workflow via GitHub Actions API."""
-    import requests as http_requests
 
     github_pat = os.environ.get("GITHUB_PAT", "")
     github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
