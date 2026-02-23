@@ -360,6 +360,29 @@ def admin_import_upload():
     })
 
 
+def _normalize_date_iso(date_str):
+    """Convert a human-readable date string to ISO YYYY-MM-DD format."""
+    if not date_str:
+        return None
+    import re as _re
+    # Already ISO
+    if _re.match(r'^\d{4}-\d{2}-\d{2}$', date_str.strip()):
+        return date_str.strip()
+    # Strip any trailing time like " - 7:00 PM"
+    cleaned = _re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', date_str, flags=_re.IGNORECASE).strip()
+    # Try parsing
+    current_year = datetime.now().year
+    for fmt in ('%b %d', '%B %d', '%b %d %Y', '%B %d %Y', '%m/%d/%Y', '%m/%d/%y'):
+        try:
+            dt = datetime.strptime(cleaned, fmt)
+            if dt.year == 1900:
+                dt = dt.replace(year=current_year)
+            return dt.strftime('%Y-%m-%d')
+        except ValueError:
+            continue
+    return None  # reject unparseable dates rather than pass bad data to DB
+
+
 @app.route("/api/admin/import/confirm", methods=["POST"])
 @require_auth
 def admin_import_confirm():
@@ -370,15 +393,28 @@ def admin_import_confirm():
     if not events_to_import:
         return jsonify({"error": "No events to import"}), 400
 
+    valid = []
+    skipped = []
     for evt in events_to_import:
         evt.setdefault("source", "import")
         evt.setdefault("is_featured", False)
         evt.setdefault("is_active", True)
+        # Normalize date to ISO — skip events with unparseable dates
+        iso_date = _normalize_date_iso(evt.get("date", ""))
+        if not iso_date:
+            skipped.append(evt.get("title", "?"))
+            continue
+        evt["date"] = iso_date
+        valid.append(evt)
 
-    created = bulk_insert_events(events_to_import)
+    if not valid:
+        return jsonify({"error": "No events with valid dates to import", "skipped": skipped}), 400
+
+    created = bulk_insert_events(valid)
     return jsonify({
         "ok": True,
         "imported": len(created),
+        "skipped": skipped,
         "events": serialize_list(created),
     })
 
@@ -536,19 +572,29 @@ def _parse_html_events(soup, source_filename):
         text = link.get_text(separator="|", strip=True)
         parts = [p.strip() for p in text.split("|") if p.strip()]
         if len(parts) >= 3:
-            date_match = None
+            date_str = None
+            time_str = None
             for part in parts:
                 if re.search(r'(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+\d', part):
-                    date_match = part
+                    # Extract time if present: "Feb 23 - 7:00 PM"
+                    time_match = re.search(r'(\d{1,2}:\d{2}\s*(?:AM|PM))', part, re.IGNORECASE)
+                    if time_match:
+                        time_str = time_match.group(1)
+                        date_str = re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', part, flags=re.IGNORECASE).strip()
+                    else:
+                        date_str = part
                     break
 
-            events.append({
+            evt = {
                 "title": parts[0],
                 "venue": parts[1] if len(parts) > 2 else "",
-                "date": date_match or "",
+                "date": date_str or "",
                 "ticket_url": link.get("href", ""),
                 "source": f"import ({source_filename})",
-            })
+            }
+            if time_str:
+                evt["start_time"] = time_str
+            events.append(evt)
 
     return events
 
