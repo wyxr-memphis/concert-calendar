@@ -226,6 +226,13 @@ def bulk_action(action, ids):
         return cur.rowcount
 
 
+def delete_events_before(before_date):
+    """Hard-delete events with date before the given date. Returns count deleted."""
+    with get_cursor() as cur:
+        cur.execute("DELETE FROM events WHERE date < %s", (before_date,))
+        return cur.rowcount
+
+
 def bulk_insert_events(events_list):
     """Insert multiple events at once. Returns list of created events."""
     if not events_list:

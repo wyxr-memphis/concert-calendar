@@ -34,6 +34,7 @@ from backend.db import (
     toggle_featured,
     bulk_action,
     bulk_insert_events,
+    delete_events_before,
     get_scrape_logs,
     get_scraper_status_summary,
 )
@@ -218,6 +219,8 @@ def _update_events_json(changes, commit_message="admin: update events"):
 
         if put_resp.status_code not in (200, 201):
             print(f"Warning: events.json commit failed: {put_resp.status_code}")
+        else:
+            _schedule_build()
 
     except Exception as e:
         print(f"Warning: events.json sync failed: {e}")
@@ -231,6 +234,53 @@ def _sync_to_json_background(changes, commit_message):
         daemon=True,
     )
     thread.start()
+
+
+# ---------------------------------------------------------------------------
+# Debounced build trigger — batches rapid admin changes into one build
+# ---------------------------------------------------------------------------
+
+_build_lock = threading.Lock()
+_build_timer = None
+
+
+def _schedule_build(delay=30):
+    """Schedule a build trigger after `delay` seconds, resetting on each call.
+
+    If multiple admin actions happen in quick succession, the timer resets
+    each time so only ONE build fires — 30 seconds after the last change.
+    """
+    global _build_timer
+    with _build_lock:
+        if _build_timer is not None:
+            _build_timer.cancel()
+        _build_timer = threading.Timer(delay, _trigger_build_internal)
+        _build_timer.daemon = True
+        _build_timer.start()
+
+
+def _trigger_build_internal():
+    """Actually trigger the GitHub Actions build (called by the debounce timer)."""
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+    if not github_pat:
+        return
+    try:
+        resp = http_requests.post(
+            f"https://api.github.com/repos/{github_repo}/actions/workflows/daily.yml/dispatches",
+            headers={
+                "Authorization": f"Bearer {github_pat}",
+                "Accept": "application/vnd.github.v3+json",
+            },
+            json={"ref": "main"},
+            timeout=10,
+        )
+        if resp.status_code == 204:
+            print("Auto-triggered build after admin changes")
+        else:
+            print(f"Warning: auto-build trigger got {resp.status_code}")
+    except Exception as e:
+        print(f"Warning: auto-build trigger failed: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -922,78 +972,60 @@ def _parse_jsonld_event(data, source_filename):
 
 
 # ---------------------------------------------------------------------------
-# Calendar Sync
+# Prune Old Events
 # ---------------------------------------------------------------------------
 
-@app.route("/api/admin/sync", methods=["POST"])
+@app.route("/api/admin/events/prune", methods=["POST"])
 @require_auth
-def admin_sync_events_json():
-    """Sync inactive PostgreSQL events to events.json.
+def admin_events_prune():
+    """Delete events older than today from PostgreSQL and events.json."""
+    from datetime import date as _date
 
-    Finds all events marked is_active=false in the DB, locates matching
-    entries in data/events.json by normalized title+venue+date, and marks
-    them inactive so the next build excludes them.
-    """
+    today = _date.today().isoformat()
+    db_deleted = delete_events_before(today)
+
+    # Also prune from events.json
+    json_pruned = 0
     github_pat = os.environ.get("GITHUB_PAT", "")
     github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
 
-    if not github_pat:
-        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+    if github_pat:
+        api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
+        gh_headers = {
+            "Authorization": f"Bearer {github_pat}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+        try:
+            get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
+            if get_resp.status_code == 200:
+                file_meta = get_resp.json()
+                sha = file_meta["sha"]
+                events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
 
-    # Get all events from PostgreSQL (active + inactive)
-    all_db = get_all_events(include_inactive=True)
+                before = len(events_json.get("events", []))
+                events_json["events"] = [
+                    e for e in events_json.get("events", [])
+                    if e.get("date", "") >= today
+                ]
+                json_pruned = before - len(events_json["events"])
 
-    if not all_db:
-        return jsonify({"ok": True, "synced": 0, "message": "No events in DB"})
+                if json_pruned > 0:
+                    events_json["updated_at"] = datetime.utcnow().isoformat() + "Z"
+                    updated = json.dumps(events_json, indent=2, ensure_ascii=False)
+                    http_requests.put(api_url, headers=gh_headers, json={
+                        "message": f"Prune {json_pruned} old events (before {today})",
+                        "content": base64.b64encode(updated.encode()).decode("ascii"),
+                        "sha": sha,
+                    }, timeout=30)
+        except Exception as e:
+            print(f"Warning: events.json prune failed: {e}")
 
-    # Build maps: key → is_active status
-    db_status = {}
-    for e in all_db:
-        key = f"{_norm_text(e.get('title',''))}|{_norm_text(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
-        # If any DB event with this key is active, treat it as active
-        if key not in db_status:
-            db_status[key] = bool(e.get("is_active", True))
-        elif e.get("is_active", True):
-            db_status[key] = True
-
-    # Fetch events.json from GitHub
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
-    get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
-    if get_resp.status_code != 200:
-        return jsonify({"error": f"Could not fetch events.json: {get_resp.status_code}"}), 502
-
-    file_meta = get_resp.json()
-    sha = file_meta["sha"]
-    events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
-
-    synced = 0
-    for entry in events_json.get("events", []):
-        key = f"{_norm_text(entry.get('title',''))}|{_norm_text(entry.get('venue',''))}|{entry.get('date','')}"
-        if key not in db_status:
-            continue  # scraper-only event — don't touch it
-        db_active = db_status[key]
-        if entry.get("is_active", True) != db_active:
-            entry["is_active"] = db_active
-            synced += 1
-
-    if synced == 0:
-        return jsonify({"ok": True, "synced": 0, "message": "events.json already in sync with DB"})
-
-    updated = json.dumps(events_json, indent=2, ensure_ascii=False)
-    put_resp = http_requests.put(api_url, headers=gh_headers, json={
-        "message": f"Sync: deactivate {synced} deleted events",
-        "content": base64.b64encode(updated.encode()).decode("ascii"),
-        "sha": sha,
-    }, timeout=30)
-
-    if put_resp.status_code in (200, 201):
-        return jsonify({"ok": True, "synced": synced})
-    else:
-        return jsonify({"error": f"GitHub API returned {put_resp.status_code}"}), 502
+    return jsonify({
+        "ok": True,
+        "db_deleted": db_deleted,
+        "json_pruned": json_pruned,
+        "before_date": today,
+    })
 
 
 # ---------------------------------------------------------------------------

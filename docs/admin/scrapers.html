@@ -272,8 +272,7 @@
         <header>
             <h1>ADMIN</h1>
             <div class="header-actions">
-                <button class="btn-refresh" id="syncBtn">Sync to Calendar</button>
-                <button class="btn-refresh" id="buildBtn">Trigger Build</button>
+                <button class="btn-refresh" id="buildBtn">Run Scrapers</button>
                 <button class="btn-refresh" id="refreshBtn">Refresh</button>
                 <button class="btn-logout" id="logoutBtn">Log Out</button>
             </div>
@@ -334,43 +333,22 @@
         document.getElementById('logoutBtn').addEventListener('click', () => AdminAPI.logout());
         document.getElementById('refreshBtn').addEventListener('click', loadDashboard);
 
-        document.getElementById('syncBtn').addEventListener('click', async () => {
-            const btn = document.getElementById('syncBtn');
-            btn.disabled = true;
-            btn.textContent = 'Syncing...';
-            try {
-                const { resp, data } = await AdminAPI.apiJSON('/api/admin/sync', { method: 'POST' });
-                if (resp.ok || data.ok) {
-                    const msg = data.synced > 0
-                        ? `Synced ${data.synced} deleted events to calendar. Trigger a build to update the HTML.`
-                        : data.message || 'Nothing to sync.';
-                    showStatus(msg, 'success');
-                } else {
-                    showStatus(data.error || 'Sync failed', 'error');
-                }
-            } catch (err) {
-                showStatus('Sync failed: ' + err.message, 'error');
-            }
-            btn.disabled = false;
-            btn.textContent = 'Sync to Calendar';
-        });
-
         document.getElementById('buildBtn').addEventListener('click', async () => {
             const btn = document.getElementById('buildBtn');
             btn.disabled = true;
-            btn.textContent = 'Triggering...';
+            btn.textContent = 'Starting...';
             try {
                 const { resp, data } = await AdminAPI.apiJSON('/api/admin/build/trigger', { method: 'POST' });
                 if (resp.ok || data.ok) {
-                    showStatus('Build triggered — it will take a few minutes to complete.', 'success');
+                    showStatus('Scrapers running — new events will appear in ~2 minutes.', 'success');
                 } else {
-                    showStatus(data.error || 'Failed to trigger build', 'error');
+                    showStatus(data.error || 'Failed to trigger scrapers', 'error');
                 }
             } catch (err) {
                 showStatus('Failed: ' + err.message, 'error');
             }
             btn.disabled = false;
-            btn.textContent = 'Trigger Build';
+            btn.textContent = 'Run Scrapers';
         });
 
         async function loadDashboard() {
