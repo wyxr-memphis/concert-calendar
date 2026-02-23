@@ -5,19 +5,18 @@ Replaced the Google Sheet manual-entry workflow with a `data/events.json` flat f
 
 **Phase 2:** Added Render backend with PostgreSQL database, expanded admin UI with Import and Scraper Dashboard tabs, and enhanced featured event display.
 
+**Phase 3 (Calendar Sync):** Every admin action (create, edit, delete, feature toggle, bulk) now writes through to both PostgreSQL and events.json simultaneously. A debounced build trigger auto-rebuilds the calendar ~30 seconds after the last admin change. Removed manual "Sync to Calendar" button and renamed "Trigger Build" to "Run Scrapers". Added "Prune Old Events" button to hard-delete stale events.
+
 ## Architecture
 
-### Current (Vercel-only)
+### Current Architecture
 - **events.json** = single source of truth for all events (manual + automated)
-- **Daily build** = fetch automated sources → merge into events.json → generate HTML
-- **Admin UI** = vanilla HTML+JS at `/admin/` → Python Vercel API routes → GitHub Contents API
-- **Auth** = single password → HMAC-SHA256 JWT in httpOnly cookie
-
-### New (Render backend + PostgreSQL)
-- **Database** = PostgreSQL on Render with `events` and `scrape_logs` tables
+- **Database** = PostgreSQL on Render with `events` and `scrape_logs` tables (fast read cache for admin UI)
 - **Backend API** = Flask on Render serving REST endpoints at `/api/*`
 - **Admin UI** = vanilla HTML+JS on Vercel with three tabs: Events, Import, Scrapers
-- **Auth** = JWT via Bearer token (cross-origin) or httpOnly cookie (same-origin)
+- **Auth** = JWT via Bearer token (cross-origin sessionStorage)
+- **Write-through** = every admin action updates both PostgreSQL and events.json, then auto-triggers a build
+- **Daily build** = GitHub Actions 2x daily → fetch scrapers → merge into events.json → generate HTML → write scrape logs
 - **Scraper logging** = `src/main.py` writes to `scrape_logs` table when `DATABASE_URL` is set
 
 ## Environment Variables
@@ -170,10 +169,11 @@ Add `psycopg2-binary` to `requirements.txt` if you want scrape logging during Gi
 | GET | `/api/admin/scraper/logs` | Recent scrape log entries |
 | GET | `/api/admin/scraper/status` | Scraper status dashboard summary |
 
-### Build
+### Build & Maintenance
 | Method | Path | Description |
 |--------|------|-------------|
-| POST | `/api/admin/build/trigger` | Trigger GitHub Actions daily build via workflow_dispatch |
+| POST | `/api/admin/build/trigger` | Trigger GitHub Actions build (runs all scrapers) |
+| POST | `/api/admin/events/prune` | Hard-delete events older than today from PostgreSQL + events.json |
 
 ## Testing Checklist
 
@@ -237,11 +237,16 @@ Add `psycopg2-binary` to `requirements.txt` if you want scrape logging during Gi
 ## Deployment Status
 - **Render backend:** `https://concert-calendar-api.onrender.com` — live, all admin pages wired via `window.__API_BASE`
 - **Vercel frontend:** `https://concert-calendar-eight.vercel.app` — live, serves static calendar + admin UI
-- **PostgreSQL:** Render-hosted, 41+ events migrated from events.json
+- **PostgreSQL:** Render-hosted, events + scrape_logs tables
 - **Scrape logging:** Enabled via `DATABASE_URL` GitHub Actions secret (external URL)
-- **Trigger Build:** Available from admin Scrapers page, calls GitHub Actions workflow_dispatch
+- **Write-through sync:** Every admin action auto-syncs to events.json via GitHub Contents API
+- **Auto-build:** Debounced 30-second timer triggers GitHub Actions after admin changes
+- **Run Scrapers:** Available from admin Scrapers page, calls GitHub Actions workflow_dispatch
+- **Prune Old Events:** Available from admin Scrapers page, hard-deletes events before today
 
 ## Known Limitations
-- Image uploads on Render save to `/tmp/uploads` — ephemeral on free tier. For persistent storage, configure `UPLOAD_DIR` and `UPLOAD_BASE_URL` for S3/Cloudflare R2.
-- Render free tier spins down after inactivity — first request after idle takes 30-60s to cold-start. Gunicorn timeout set to 120s to accommodate.
+- Image uploads via Import commit to GitHub `artifacts/` folder (not Render `/tmp`). Render storage is ephemeral — don't rely on it for files.
+- Render free tier spins down after inactivity — first request after idle takes 30-60s to cold-start. Gunicorn timeout set to 120s to accommodate. Upgrade to Starter ($7/mo) for always-on.
+- Render free tier PostgreSQL databases expire after 90 days.
 - The existing Vercel serverless API routes (`api/admin/*`) still exist alongside the Render backend but are unused when `__API_BASE` is set.
+- Write-through to events.json runs in a background thread — if GitHub API is temporarily unavailable, the sync is silently skipped. The next daily build will reconcile.

@@ -1,4 +1,4 @@
-# Calendar Sync Overhaul Plan
+# Calendar Sync Overhaul Plan ✅ COMPLETED
 
 ## The Problem
 
@@ -51,9 +51,9 @@ One click. No sync step. No manual build trigger.
 
 ## Implementation Plan
 
-### Phase 1: Auto-sync on every admin write
+### Phase 1: Auto-sync on every admin write ✅ Done
 
-Modify these backend endpoints to also write to `events.json` via GitHub Contents API:
+Modified these backend endpoints to also write to `events.json` via GitHub Contents API:
 
 **1. DELETE `/api/admin/events/<id>`** (soft-delete)
 - After `soft_delete_event(event_id)` in PostgreSQL
@@ -86,22 +86,17 @@ Modify these backend endpoints to also write to `events.json` via GitHub Content
 
 This replaces the current "Sync to Calendar" button entirely.
 
-### Phase 2: Auto-trigger build after writes
+### Phase 2: Auto-trigger build after writes ✅ Done
 
-After any events.json commit from Phase 1, automatically trigger a GitHub Actions build. This eliminates the "Trigger Build" button for routine operations.
+Implemented Option C with server-side debouncing. A `threading.Timer` with 30-second delay resets on each new admin change, so rapid-fire edits batch into a single build trigger via `workflow_dispatch`.
 
-Options (pick one):
-- **Option A**: Call workflow_dispatch after every events.json commit. Simple but slow (~2 min per build). Could batch by debouncing (only trigger if no build in last 5 min).
-- **Option B**: Skip the full build entirely. Since we're already writing to events.json via the API, we could also regenerate `docs/index.html` directly from events.json on the server and commit it. No need for the full scraper pipeline just to reflect admin changes.
-- **Option C (recommended)**: Auto-trigger build, but add a 30-second delay on the frontend. After any admin action, show "Changes saved. Calendar will update in ~2 minutes." No manual button needed.
+### Phase 3: Clean up dead code ✅ Done
 
-### Phase 3: Clean up dead code
-
-Once Phase 1 is done:
-- Remove `POST /api/admin/sync` endpoint (no longer needed)
-- Remove "Sync to Calendar" button from scrapers.html
-- Optionally remove "Trigger Build" button (if Phase 2 auto-triggers)
-- Simplify the admin UI messaging
+- Removed `POST /api/admin/sync` endpoint
+- Removed "Sync to Calendar" button from scrapers.html
+- Renamed "Trigger Build" to "Run Scrapers" (still available for pulling new external events)
+- Added "Prune Old Events" button to hard-delete events older than today from PostgreSQL + events.json
+- Added `POST /api/admin/events/prune` endpoint
 
 ---
 
@@ -279,7 +274,8 @@ This shows the status of automated event scrapers (Ticketmaster, venue websites,
 - Click any log row to expand and see error details
 
 **Buttons:**
-- **"Run Scrapers"** (currently "Trigger Build"): Kicks off a full scraper run that fetches new events from all external sources. Takes ~2 minutes. You don't need to press this for your own edits — it's only for pulling in *new* events from Ticketmaster, venue sites, etc.
+- **"Run Scrapers"**: Kicks off a full scraper run that fetches new events from all external sources (Ticketmaster, venue websites, artifacts). Takes ~2 minutes. You don't need to press this for your own edits — it's only for pulling in *new* events.
+- **"Prune Old Events"**: Deletes all events older than today from both the database and calendar data. Useful for cleanup.
 - **"Refresh"**: Reloads the status cards and logs on this page
 
 ### Common Tasks — Step by Step
@@ -289,7 +285,7 @@ This shows the status of automated event scrapers (Ticketmaster, venue websites,
 1. Go to **Events** tab
 2. Find the event (search or scroll)
 3. Click the **X** icon in the "Active" column — it toggles to inactive
-4. Done. The calendar updates on the next build (~2 minutes after Phase 2, or click "Run Scrapers" manually before Phase 2).
+4. Done. The calendar auto-updates in ~2 minutes.
 
 Alternatively: click the event row → Edit page → click **Deactivate** → confirm.
 
@@ -305,7 +301,7 @@ Alternatively: click the event row → Edit page → click **Deactivate** → co
 1. Go to **Import** tab
 2. Drop the image file(s) onto the upload area
 3. Wait for "Committed to GitHub" status
-4. Click **"Trigger Build"**
+4. Go to **Scrapers** tab and click **"Run Scrapers"**
 5. Wait ~2 minutes — the AI reads the flyer and adds events automatically
 
 #### "I want to add a show manually"
@@ -326,13 +322,10 @@ The system checks for duplicates automatically by matching title + venue + date.
 
 #### "The calendar doesn't reflect my changes"
 
-Before Phase 1 is complete, changes require a few extra steps:
-1. Make your edit/delete in the admin
-2. Go to **Scrapers** tab
-3. Click **"Sync to Calendar"** — this pushes your admin changes to the calendar data file
-4. Click **"Trigger Build"** — this regenerates the public HTML
-
-**After Phase 1 (this plan):** Steps 2-4 are eliminated. Your changes sync automatically.
+Admin changes auto-sync to the calendar data and trigger a rebuild. If changes still aren't showing after a few minutes:
+1. Go to **Scrapers** tab and click **"Run Scrapers"** to force a full rebuild
+2. Wait ~2 minutes for the build to complete
+3. Hard-refresh the calendar page (Ctrl+Shift+R / Cmd+Shift+R)
 
 ### Understanding the Build Pipeline
 
@@ -344,7 +337,7 @@ What the build does:
 3. Generates the public HTML calendar page
 4. Commits everything to GitHub, which deploys to Vercel
 
-**You don't need to trigger builds for routine edits** (after Phase 1). Builds are mainly for pulling in *new* events from external sources.
+**You don't need to trigger builds for routine edits.** Your admin changes sync automatically. Builds are mainly for pulling in *new* events from external sources.
 
 ### Glossary
 
@@ -356,4 +349,4 @@ What the build does:
 | **events.json** | The central data file that the calendar reads from |
 | **Build / Scraper run** | The automated process that fetches new events and regenerates the calendar HTML |
 | **Artifacts** | Uploaded images stored temporarily in GitHub for AI processing |
-| **Sync** | (Pre-overhaul) Manual step to push admin changes to events.json |
+| **Write-through** | Every admin action automatically updates both PostgreSQL and events.json |

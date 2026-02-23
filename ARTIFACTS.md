@@ -36,14 +36,21 @@ That's it! No subfolders. Claude figures out the venue from the image content.
 
 **Monday morning:**
 
-1. Instagram → B-Side upcoming events → Screenshot → Save to `artifacts/`
-2. Instagram → Bar DKDC events → Screenshot → Save to `artifacts/`
-3. Hi Tone website → Events page → Screenshot → Save to `artifacts/`
-4. Minglewood website → Events page → Screenshot → Save to `artifacts/`
-5. Lafayette's website → Music page → Screenshot → Save to `artifacts/`
-6. (Optional) Bandsintown Memphis → Screenshot any regional events → Save to `artifacts/`
+1. Instagram → B-Side upcoming events → Screenshot → Save
+2. Instagram → Bar DKDC events → Screenshot → Save
+3. Hi Tone website → Events page → Screenshot → Save
+4. Minglewood website → Events page → Screenshot → Save
+5. Lafayette's website → Music page → Screenshot → Save
+6. (Optional) Bandsintown Memphis → Screenshot any regional events → Save
 
-Then when you run the script, Claude automatically extracts events from all images.
+**Upload via admin UI:**
+1. Go to Admin → **Import** tab
+2. Drop image files onto the upload area
+3. Wait for "Committed to GitHub" status
+4. Go to **Scrapers** tab → click **"Run Scrapers"**
+5. Wait ~2 minutes — Claude reads the images and adds events automatically
+
+**Or upload via `/upload.html`** (simpler interface, works from phone).
 
 ## File Naming
 
@@ -171,16 +178,14 @@ python -m src.main
 **Wrong dates/venues extracted?**
 - Claude does its best with unclear text
 - Clearer images = better extraction
-- Manually fix in Google Sheet if needed
+- Fix in the admin UI (Events tab → click to edit)
 
 **Missing events?**
 - Claude vision isn't 100% perfect
 - System aims for ~90% accuracy
-- Manual additions to Google Sheet always work
+- Add missing events manually via admin UI (+ Add Event)
 
 ## Future Enhancements
 
-- Auto-delete processed artifacts after a week
-- Email extracted events for review before publishing
 - Better handwriting recognition for posters
-- Slack integration for clarifications
+- Duplicate detection: check artifact-extracted events against existing database before inserting

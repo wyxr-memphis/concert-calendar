@@ -110,25 +110,6 @@ Admin Scrapers tab at `/admin/scrapers.html` shows scraper status cards, recent 
 
 ---
 
-## 6. HTML / SEO / Social Sharing Improvements
-
-**Problem:** The generated `index.html` has no `<meta name="description">`, no OpenGraph tags, and no Twitter Card tags. When anyone shares the calendar link on social media or messaging apps, the preview is blank — no title, no description, no image. This limits organic discovery.
-
-**What this needs:**
-- Add `<meta name="description">` with a dynamic summary (e.g., "47 live music shows in Memphis this week")
-- Add OpenGraph tags (`og:title`, `og:description`, `og:type`, `og:url`) for Facebook/LinkedIn/Discord/iMessage previews
-- Add Twitter Card tags (`twitter:card`, `twitter:title`, `twitter:description`)
-- Add a favicon (WYXR logo or a music note icon)
-- Optionally, generate a dynamic OG image showing the week's highlight count
-
-**Implementation notes:**
-- All changes go in `generate_html.py` — add ~10 lines of meta tags to the `<head>` section
-- Favicon: add a `docs/favicon.ico` or `docs/favicon.png` and reference it with `<link rel="icon">`
-- The description and OG tags can use the same `total_events` and date range already available in the template
-- No external dependencies required
-
-**Effort:** Low (30 minutes)
-
 ---
 
 ## ~~7. Data Quality: HTML Entity Decoding~~ ✅ Done
@@ -266,7 +247,6 @@ Each handles `@type: Event/MusicEvent`, extracts `startDate`, `location.name`, a
 | 3 | Custom domain | Low | High | Pending — config only, no code |
 | 4 | Event feed (JSON) | Medium | High | Pending — unlocks website integration |
 | ~~5~~ | ~~Import transparency~~ | ~~Low~~ | ~~High~~ | ✅ Done |
-| 6 | HTML / SEO / social sharing | Low | High | Pending — 30 min for discoverability |
 | ~~7~~ | ~~HTML entity decoding~~ | ~~Low~~ | ~~Medium~~ | ✅ Done |
 | ~~8~~ | ~~HTTP retry logic~~ | ~~Low-Med~~ | ~~High~~ | ✅ Done |
 | 9 | Venue link enhancement | Low-Med | Medium | Pending — UX improvement |

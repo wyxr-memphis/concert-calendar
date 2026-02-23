@@ -7,7 +7,7 @@ A daily-updating live music calendar for Memphis, Tennessee. Built for [WYXR 91.
 
 ## How It Works
 
-A Python script runs twice daily (midnight and noon Central) via GitHub Actions. It pulls event data from multiple sources, merges into a PostgreSQL database (preserving admin edits), and publishes a static HTML calendar. A password-protected admin UI lets you add/edit/feature/deactivate events, upload artifacts, and monitor scraper health.
+A Python script runs twice daily (midnight and noon Central) via GitHub Actions. It pulls event data from multiple sources, merges into a central event store (`data/events.json`), writes scrape logs to PostgreSQL, and publishes a static HTML calendar. A password-protected admin UI lets you add/edit/feature/deactivate events, upload artifacts, and monitor scraper health. Every admin action automatically syncs to events.json and triggers a calendar rebuild.
 
 ### Sources (checked daily)
 
@@ -22,7 +22,7 @@ A Python script runs twice daily (midnight and noon Central) via GitHub Actions.
 
 **Scraped automatically:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Crosstown Arts/Green Room, Germantown PAC, B.B. King's, FedExForum, Graceland Soundstage
 
-**Manual entry via Google Sheet or artifact upload:** Bar DKDC, B-Side Memphis, Orpheum Theatre, Lafayette's Music Room, Overton Park Shell
+**Manual entry via admin UI or artifact upload:** Bar DKDC, B-Side Memphis, Orpheum Theatre, Lafayette's Music Room, Overton Park Shell
 
 Want to add your venue? Email [contact@wyxr.org](mailto:contact@wyxr.org).
 
@@ -41,6 +41,7 @@ Render (Backend API)
   → Flask REST API at concert-calendar-api.onrender.com
   → PostgreSQL database (events + scrape_logs)
   → Admin auth (JWT), event CRUD, import, scraper status
+  → Write-through: every admin action syncs to events.json + auto-triggers build
 
 Vercel (Frontend)
   → Serves docs/index.html (public calendar)
@@ -86,7 +87,7 @@ Add these as GitHub Secrets (Settings → Secrets → Actions):
 
 ### 4. Test It
 
-Trigger a manual run from the **Actions** tab → **Daily Concert Calendar Update** → **Run workflow**. Or use the "Trigger Build" button in the admin Scrapers tab.
+Trigger a manual run from the **Actions** tab → **Daily Concert Calendar Update** → **Run workflow**. Or use the "Run Scrapers" button in the admin Scrapers tab.
 
 ## Admin UI
 
@@ -94,7 +95,7 @@ Visit `/admin/` on your Vercel deployment to manage events:
 
 - **Events tab** — List all events, toggle featured/active, search, filter, edit, add new
 - **Import tab** — Upload HTML files (parsed for events) or images, preview and confirm imports
-- **Scrapers tab** — Monitor scraper health, view run logs, trigger builds on demand
+- **Scrapers tab** — Monitor scraper health, view run logs, run scrapers on demand, prune old events
 
 ## Uploading Artifacts
 
@@ -110,7 +111,7 @@ Uploaded files are committed to the `artifacts/` folder in the repo. Hit "Rebuil
 1. Add the venue to `VENUES` in `src/config.py` with `name`, `aliases`, `calendar_url`, and `scraper` type
 2. The generic scraper handles JSON-LD and common CMS patterns (Squarespace, WordPress Events Calendar, etc.)
 3. If needed, add a custom parser in `src/sources/venue_scrapers.py`
-4. For Instagram-only venues, set `scraper: "manual_only"` and use the Google Sheet or artifact upload
+4. For Instagram-only venues, set `scraper: "manual_only"` and use the admin UI or artifact upload
 
 ## Project Structure
 
