@@ -729,6 +729,89 @@ def _parse_jsonld_event(data, source_filename):
 
 
 # ---------------------------------------------------------------------------
+# Calendar Sync
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/sync", methods=["POST"])
+@require_auth
+def admin_sync_events_json():
+    """Sync inactive PostgreSQL events to events.json.
+
+    Finds all events marked is_active=false in the DB, locates matching
+    entries in data/events.json by normalized title+venue+date, and marks
+    them inactive so the next build excludes them.
+    """
+    import base64
+    import json as _json
+    import re as _re
+    import requests as http_requests
+
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+
+    if not github_pat:
+        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+
+    def _norm(text):
+        t = (text or "").lower().strip()
+        t = _re.sub(r'^the\s+', '', t)
+        t = _re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
+        t = _re.sub(r'[^\w\s]', '', t)
+        return _re.sub(r'\s+', ' ', t).strip()
+
+    # Get all inactive events from PostgreSQL
+    from backend.db import get_all_events
+    all_db = get_all_events(include_inactive=True)
+    inactive = [e for e in all_db if not e.get("is_active", True)]
+
+    if not inactive:
+        return jsonify({"ok": True, "synced": 0, "message": "No inactive events in DB"})
+
+    inactive_keys = {
+        f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{str(e.get('date',''))[:10]}"
+        for e in inactive
+    }
+
+    # Fetch events.json from GitHub
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+    get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
+    if get_resp.status_code != 200:
+        return jsonify({"error": f"Could not fetch events.json: {get_resp.status_code}"}), 502
+
+    file_meta = get_resp.json()
+    sha = file_meta["sha"]
+    events_json = _json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
+
+    synced = 0
+    for entry in events_json.get("events", []):
+        if not entry.get("is_active", True):
+            continue  # already inactive
+        key = f"{_norm(entry.get('title',''))}|{_norm(entry.get('venue',''))}|{entry.get('date','')}"
+        if key in inactive_keys:
+            entry["is_active"] = False
+            synced += 1
+
+    if synced == 0:
+        return jsonify({"ok": True, "synced": 0, "message": "No matching entries found in events.json"})
+
+    updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
+    put_resp = http_requests.put(api_url, headers=gh_headers, json={
+        "message": f"Sync: deactivate {synced} deleted events",
+        "content": base64.b64encode(updated.encode()).decode("ascii"),
+        "sha": sha,
+    }, timeout=30)
+
+    if put_resp.status_code in (200, 201):
+        return jsonify({"ok": True, "synced": synced})
+    else:
+        return jsonify({"error": f"GitHub API returned {put_resp.status_code}"}), 502
+
+
+# ---------------------------------------------------------------------------
 # Build Trigger
 # ---------------------------------------------------------------------------
 
