@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-23T16:29:11.423794+00:00",
+  "run_timestamp": "2026-02-23T17:56:18.300373+00:00",
   "date_range": {
     "start": "2026-02-23",
     "end": "2026-03-02"
   },
-  "total_events_json": 61,
-  "total_active_display": 43,
+  "total_events_json": 62,
+  "total_active_display": 44,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 43,
-      "events_after_filter": 43,
+      "events_found": 44,
+      "events_after_filter": 44,
       "events_filtered": 0,
       "error": null
     }
@@ -126,7 +126,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-24",
       "time": "10PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Rodd Bland",
@@ -154,7 +154,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-25",
       "time": "8PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Bryan Hayes Music",
@@ -203,7 +203,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-26",
       "time": "10PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Ghost Town Blues Band",
@@ -252,7 +252,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-27",
       "time": "9PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans)",
@@ -260,6 +260,13 @@
       "date": "2026-02-27",
       "time": "LATER",
       "source": "Artifacts (Bar logo visible on flyer)"
+    },
+    {
+      "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans) Later",
+      "venue": "Bar DKDC",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Artifacts (Venue logo visible)"
     },
     {
       "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
@@ -336,14 +343,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-28",
       "time": "7PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Coco's Super Awesome Birthday w/ Turnstyles, Fake! + Frank McLallen",
       "venue": "Bar DKDC",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Bar logo visible on flyer)"
+      "source": "Artifacts (Venue logo visible)"
     },
     {
       "artist": "Turnstyles, Fake! + Frank McLallen",
