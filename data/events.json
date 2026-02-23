@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-23T14:28:28.748513+00:00",
+  "updated_at": "2026-02-23T14:34:28.633249+00:00",
   "events": [
     {
       "id": "evt_1771375878191_32",
@@ -18,7 +18,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771375878192_33",
@@ -36,7 +36,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771375878193_34",
@@ -54,7 +54,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771383457969_66",
@@ -198,7 +198,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771559883853_43",
@@ -234,7 +234,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771559883855_45",
@@ -288,7 +288,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-21T05:46:00.852315+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771739715377_52",
@@ -306,7 +306,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771739715378_53",
@@ -324,7 +324,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771739715379_54",
@@ -342,7 +342,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137884_19",
@@ -360,7 +360,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137886_20",
@@ -378,7 +378,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137887_21",
@@ -396,25 +396,25 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137888_22",
       "title": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans)",
       "venue": "Bar DKDC",
       "date": "2026-02-27",
-      "start_time": null,
+      "start_time": "LATER",
       "doors_time": null,
       "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Event listing - LATER show)",
+      "source": "Artifacts (Venue logo visible - 38104 Bar DKDC)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137889_23",
@@ -432,7 +432,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T14:28:28.748513+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_1771854137890_24",
@@ -446,11 +446,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Event listing)",
+      "source": "Artifacts (Venue logo visible - 38104 Bar DKDC)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
-      "updated_at": "2026-02-23T13:54:59.111195+00:00"
+      "updated_at": "2026-02-23T14:34:28.633249+00:00"
     },
     {
       "id": "evt_import_c366592d31c7",
