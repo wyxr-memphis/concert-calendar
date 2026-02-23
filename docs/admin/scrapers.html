@@ -273,6 +273,7 @@
             <h1>ADMIN</h1>
             <div class="header-actions">
                 <button class="btn-refresh" id="buildBtn">Run Scrapers</button>
+                <button class="btn-refresh" id="pruneBtn" style="background:#c62828;color:#fff;">Prune Old Events</button>
                 <button class="btn-refresh" id="refreshBtn">Refresh</button>
                 <button class="btn-logout" id="logoutBtn">Log Out</button>
             </div>
@@ -332,6 +333,26 @@
 
         document.getElementById('logoutBtn').addEventListener('click', () => AdminAPI.logout());
         document.getElementById('refreshBtn').addEventListener('click', loadDashboard);
+
+        document.getElementById('pruneBtn').addEventListener('click', async () => {
+            if (!confirm('Delete all events older than today from the database and events.json?')) return;
+            const btn = document.getElementById('pruneBtn');
+            btn.disabled = true;
+            btn.textContent = 'Pruning...';
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/events/prune', { method: 'POST' });
+                if (resp.ok) {
+                    showStatus(`Pruned ${data.db_deleted || 0} from database, ${data.json_pruned || 0} from events.json`, 'success');
+                    loadDashboard();
+                } else {
+                    showStatus(data.error || 'Prune failed', 'error');
+                }
+            } catch (err) {
+                showStatus('Failed: ' + err.message, 'error');
+            }
+            btn.disabled = false;
+            btn.textContent = 'Prune Old Events';
+        });
 
         document.getElementById('buildBtn').addEventListener('click', async () => {
             const btn = document.getElementById('buildBtn');
