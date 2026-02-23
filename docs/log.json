@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-23T14:02:55.309362+00:00",
+  "run_timestamp": "2026-02-23T14:17:07.252020+00:00",
   "date_range": {
     "start": "2026-02-23",
     "end": "2026-03-02"
   },
-  "total_events_json": 58,
-  "total_active_display": 57,
+  "total_events_json": 59,
+  "total_active_display": 20,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,8 +18,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 17,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_found": 20,
+      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     }
@@ -136,27 +136,6 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
-      "artist": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-24",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-24",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Vision Quest",
-      "venue": "Growlers",
-      "date": "2026-02-24",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Cash Langdon, Ibex Clone, Missed Dunks at Summer League",
       "venue": "The Robinson Gallery",
       "date": "2026-02-24",
@@ -171,39 +150,11 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
-      "artist": "Bryan Hayes Music",
-      "venue": "Bryan Hayes @ Rotolo's!",
-      "date": "2026-02-25",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-25",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Open Mic Night for Memphis Musicians",
       "venue": "Hernando's Hideaway",
       "date": "2026-02-25",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Sex Mex",
-      "venue": "Hi Tone",
-      "date": "2026-02-25",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Soul Street LIVE at Rum Boogie Cafe",
-      "date": "2026-02-25",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Sex Mex",
@@ -220,102 +171,11 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "JONATHAN BLANCHARD",
-      "venue": "BMG IN THE SCHOOLS - OUT REACH",
-      "date": "2026-02-26",
-      "time": "1:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
-      "date": "2026-02-26",
-      "time": "6:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
-      "date": "2026-02-26",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Kenny Wayne Shepherd",
-      "venue": "Graceland Soundstage",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Kenny Wayne Shepherd",
-      "venue": "Graceland Soundstage",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Kenny Wayne Shepherd",
       "venue": "Soundstage at Graceland",
       "date": "2026-02-26",
       "time": "7:30 PM",
       "source": "Ticketmaster"
-    },
-    {
-      "artist": "Valories with AVON PARK & MASSEY LANE",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
-      "venue": "10th Inning Bar & Grill",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Will Hoge",
-      "venue": "1884 Lounge",
-      "date": "2026-02-27",
-      "time": "9:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Will Hoge",
-      "venue": "1884 Lounge",
-      "date": "2026-02-27",
-      "time": "9:00 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "TOBY VEST & THE DREAM MACHINE / JEFF HULETT",
@@ -329,21 +189,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-27",
       "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Bryan Hayes Music",
-      "venue": "Bryan Hayes @ Raven & Lily!",
-      "date": "2026-02-27",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
-      "date": "2026-02-27",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
+      "source": "Artifacts (Event listing - later show)"
     },
     {
       "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
@@ -351,69 +197,6 @@
       "date": "2026-02-27",
       "time": "6:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Keith Anderson",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-27",
-      "time": "7:30 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Keith Anderson",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-27",
-      "time": "7:30 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Flintwick",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Gill-Yum",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Lumen",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "The Depths",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Land / Divided",
-      "venue": "LAND/DIVIDED LIVE AT NASHOBA",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Demola",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Demola",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "DEMOLA LIVE!",
@@ -444,52 +227,17 @@
       "source": "Artifacts (Event listing)"
     },
     {
+      "artist": "Turnstyles, Fake! + Frank McLallen",
+      "venue": "Bar DKDC",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Artifacts (Coco's Super Awesome Birthday)"
+    },
+    {
       "artist": "Negro Terror",
       "venue": "Black and Brutal Memphis Rock Tribute",
       "date": "2026-02-28",
       "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Chris Gales Live on Beale Street at the Rum Boogie Cafe",
-      "date": "2026-02-28",
-      "time": "3:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-28",
-      "time": "5:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Sanguine",
-      "venue": "Growlers",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Slamhound",
-      "venue": "Growlers",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "The Eastwoods",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
     },
     {
@@ -505,13 +253,6 @@
       "date": "2026-02-28",
       "time": "8 PM",
       "source": "Ticketmaster"
-    },
-    {
-      "artist": "Encircled Throne",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": "6:30 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
