@@ -581,11 +581,15 @@
                 });
 
                 if (resp.ok || data.ok) {
-                    const skipped = data.skipped && data.skipped.length
-                        ? ` (${data.skipped.length} skipped — bad dates)` : '';
+                    const parts = [`${data.imported} events imported`];
+                    if (data.duplicates && data.duplicates.length)
+                        parts.push(`${data.duplicates.length} duplicates skipped`);
+                    if (data.skipped && data.skipped.length)
+                        parts.push(`${data.skipped.length} skipped (bad dates)`);
+                    const summary = parts.join(', ');
                     const msg = data.warning
-                        ? `${data.imported} events imported. Warning: ${data.warning}`
-                        : `${data.imported} events imported and added to calendar${skipped}. Trigger a build to refresh the HTML.`;
+                        ? `${summary}. Warning: ${data.warning}`
+                        : `${summary}. Trigger a build to refresh the HTML.`;
                     showStatus(msg, data.warning ? 'info' : 'success');
                     parsedEvents = parsedEvents.filter(e => !e.selected);
                     renderPreview();

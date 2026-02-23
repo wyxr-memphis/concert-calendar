@@ -420,6 +420,7 @@ def admin_import_confirm():
     github_pat = os.environ.get("GITHUB_PAT", "")
     github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
     json_warning = None
+    duplicates = []
 
     if github_pat:
         api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
@@ -442,7 +443,28 @@ def admin_import_confirm():
             now_iso = datetime.utcnow().isoformat() + "Z"
             existing = events_json.get("events", [])
 
+            # Build dedup key set from existing entries
+            import re as _re
+
+            def _norm(text):
+                t = (text or "").lower().strip()
+                t = _re.sub(r'^the\s+', '', t)
+                t = _re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
+                t = _re.sub(r'[^\w\s]', '', t)
+                return _re.sub(r'\s+', ' ', t).strip()
+
+            existing_keys = {
+                f"{_norm(e.get('title',''))}|{_norm(e.get('venue',''))}|{e.get('date','')}"
+                for e in existing
+            }
+
+            duplicates = []
             for evt in valid:
+                key = f"{_norm(evt.get('title',''))}|{_norm(evt.get('venue',''))}|{evt['date']}"
+                if key in existing_keys:
+                    duplicates.append(evt.get("title", "?"))
+                    continue
+                existing_keys.add(key)
                 entry = {
                     "id": f"evt_import_{uuid.uuid4().hex[:12]}",
                     "title": evt.get("title", ""),
@@ -467,8 +489,9 @@ def admin_import_confirm():
             events_json["updated_at"] = now_iso
 
             updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
+            added_count = len(valid) - len(duplicates)
             put_data = {
-                "message": f"Import {len(valid)} events via admin",
+                "message": f"Import {added_count} events via admin",
                 "content": base64.b64encode(updated.encode()).decode("ascii"),
             }
             if sha:
@@ -486,6 +509,7 @@ def admin_import_confirm():
         "ok": True,
         "imported": len(created),
         "skipped": skipped,
+        "duplicates": duplicates,
     }
     if json_warning:
         result["warning"] = json_warning
