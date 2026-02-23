@@ -49,7 +49,13 @@ const AdminAPI = (() => {
             window.location.href = '/admin/login.html';
             throw new Error('Not authenticated');
         }
-        return { resp, data: await resp.json() };
+        let data;
+        try {
+            data = await resp.json();
+        } catch {
+            throw new Error(`Server error (${resp.status}) — backend may be cold starting, try again`);
+        }
+        return { resp, data };
     }
 
     async function checkAuth() {

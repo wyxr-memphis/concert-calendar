@@ -281,7 +281,26 @@ def admin_import_upload():
 
         if ext in (".html", ".htm", ".mhtml"):
             # Parse HTML for events
-            content = f.read().decode("utf-8", errors="replace")
+            raw_content = f.read()
+            if ext == ".mhtml":
+                # MHTML uses quoted-printable encoding; extract the HTML part
+                import email as _email
+                try:
+                    msg = _email.message_from_bytes(raw_content)
+                    content = ""
+                    for part in msg.walk():
+                        if part.get_content_type() == "text/html":
+                            payload = part.get_payload(decode=True)
+                            if payload:
+                                charset = part.get_content_charset("utf-8") or "utf-8"
+                                content = payload.decode(charset, errors="replace")
+                                break
+                    if not content:
+                        content = raw_content.decode("utf-8", errors="replace")
+                except Exception:
+                    content = raw_content.decode("utf-8", errors="replace")
+            else:
+                content = raw_content.decode("utf-8", errors="replace")
             soup = BeautifulSoup(content, "html.parser")
             events = _parse_html_events(soup, filename)
             parsed_events.extend(events)
