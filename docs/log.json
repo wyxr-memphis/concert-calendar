@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-02-23T14:47:14.925310+00:00",
+  "run_timestamp": "2026-02-23T16:29:11.423794+00:00",
   "date_range": {
     "start": "2026-02-23",
     "end": "2026-03-02"
   },
-  "total_events_json": 60,
+  "total_events_json": 61,
   "total_active_display": 43,
   "sources": [
     {
@@ -51,8 +51,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 0,
-      "events_filtered": 30,
+      "events_after_filter": 1,
+      "events_filtered": 29,
       "error": null
     },
     {
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
+      "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -122,18 +122,11 @@
   ],
   "events": [
     {
-      "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-23",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
       "artist": "THE PARALLAX",
       "venue": "B-Side Memphis",
       "date": "2026-02-24",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Rodd Bland",
@@ -161,7 +154,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-25",
       "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Bryan Hayes Music",
@@ -176,6 +169,13 @@
       "date": "2026-02-25",
       "time": "7:00 PM",
       "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "OPEN JAM NIGHT",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-02-25",
+      "time": "7:30PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Open Mic Night for Memphis Musicians",
@@ -203,7 +203,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-26",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Ghost Town Blues Band",
@@ -252,14 +252,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-27",
       "time": "9PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans)",
       "venue": "Bar DKDC",
       "date": "2026-02-27",
       "time": "LATER",
-      "source": "Artifacts (Event listing image)"
+      "source": "Artifacts (Bar logo visible on flyer)"
     },
     {
       "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
@@ -336,14 +336,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-28",
       "time": "7PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Coco's Super Awesome Birthday w/ Turnstyles, Fake! + Frank McLallen",
       "venue": "Bar DKDC",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Event listing image)"
+      "source": "Artifacts (Bar logo visible on flyer)"
     },
     {
       "artist": "Turnstyles, Fake! + Frank McLallen",
