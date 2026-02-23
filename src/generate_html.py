@@ -102,22 +102,34 @@ def generate_html(
             line-height: 1.5;
         }}
         header {{
-            border-bottom: 3px solid #1a1a1a;
-            padding-bottom: 12px;
             margin-bottom: 24px;
         }}
-        h1 {{
-            font-size: 1.4em;
-            font-weight: 700;
-            letter-spacing: 0.02em;
+        .header-banner {{
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+        }}
+        .header-tagline {{
+            font-size: 0.9em;
+            color: #444;
+            margin-top: 12px;
+            line-height: 1.5;
+        }}
+        .header-meta {{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #ddd;
         }}
         .updated {{
             font-size: 0.85em;
             color: #666;
-            margin-top: 4px;
         }}
         .summary {{
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #444;
         }}
         .day-section {{
@@ -238,12 +250,14 @@ def generate_html(
             h2 {{ color: #e0e0e0; border-bottom-color: #444; }}
             .venue {{ color: #aaa; }}
             .time {{ color: #777; }}
+            .header-tagline {{ color: #999; }}
+            .header-meta {{ border-top-color: #333; }}
             .updated {{ color: #888; }}
             .summary {{ color: #999; }}
             li {{ border-bottom-color: #2a2a2a; }}
             li.featured {{ border-left-color: #fdd835; }}
             .featured-badge {{ background: #fdd835; color: #1a1a1a; }}
-            header {{ border-bottom-color: #e0e0e0; }}
+            .header-banner {{ border-radius: 6px; }}
             footer {{ border-top-color: #333; color: #555; }}
             .source-summary {{ color: #888; }}
             .source-status summary {{ color: #666; }}
@@ -258,9 +272,12 @@ def generate_html(
 </head>
 <body>
     <header>
-        <h1>MEMPHIS LIVE MUSIC</h1>
-        <div class="updated">Updated {run_time_str}</div>
-        <div class="summary">{total_events} show{"s" if total_events != 1 else ""} over the next 8 days</div>
+        <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
+        <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
+        <div class="header-meta">
+            <span class="updated">Updated {run_time_str}</span>
+            <span class="summary">{total_events} show{"s" if total_events != 1 else ""} over the next 8 days</span>
+        </div>
     </header>
 
     <main>
