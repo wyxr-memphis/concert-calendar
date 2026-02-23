@@ -169,3 +169,191 @@ GitHub Contents API has a rate limit of 5,000 requests/hour for authenticated us
 ## Risk: Race Conditions
 
 If two admin operations happen simultaneously, the second PUT could fail (SHA mismatch). Handle this by retrying once with fresh SHA. The build pipeline also commits to events.json, so there's a small window where an admin commit could conflict with a build commit. Same retry logic applies.
+
+---
+
+## UI Changes After This Overhaul
+
+### What changes for the admin user
+
+After the write-through is implemented, the admin workflow gets dramatically simpler. The goal: **every action in the admin instantly updates the calendar data**. No extra buttons, no manual sync, no guessing.
+
+### Scrapers Page — Simplified
+
+**Remove these buttons:**
+- "Sync to Calendar" — no longer needed (every admin action already syncs)
+
+**Keep these buttons:**
+- "Trigger Build" — still useful for forcing a full scraper re-run (fetches new events from Ticketmaster, venues, etc.)
+- "Refresh" — refreshes the scraper status cards on the page
+
+**Change the "Trigger Build" label and messaging:**
+- Rename to **"Run Scrapers"** so it's clear this fetches *new* events from external sources
+- After clicking, show: *"Scrapers running — new events will appear in ~2 minutes."*
+
+**After Phase 2 (auto-build):**
+- After any admin edit/delete/feature toggle, show a brief toast: *"Saved. Calendar updates in ~2 minutes."*
+- No manual button needed for admin changes — only "Run Scrapers" remains for pulling new data
+
+### Events Page — No Changes Needed
+
+The events list (`/admin/index.html`) already works well. After the overhaul, the star toggle, active toggle, and row-click-to-edit all work exactly the same — but now they also update `events.json` behind the scenes. No new buttons or UI changes needed here.
+
+**One small improvement:** After toggling an event's active/featured status, show a brief success toast (e.g., *"Updated"*) so the user has confirmation it worked. Currently the toggle is silent.
+
+### Edit Page — No Changes Needed
+
+The add/edit form (`/admin/edit.html`) works the same. Save, deactivate, and cancel all work as before — the backend just also writes to `events.json` now. No UI changes needed.
+
+### Import Page — Minor Messaging Update
+
+After confirming an import, the current message says: *"X events imported. Trigger a build to refresh the HTML."*
+
+**Change to:** *"X events imported. Calendar will update in ~2 minutes."* (since the build auto-triggers after Phase 2)
+
+If Phase 2 isn't done yet, keep the current message with the "Trigger Build" button.
+
+---
+
+## Admin User Guide (for someone new)
+
+### Getting Started
+
+1. **Log in** at `https://concert-calendar-eight.vercel.app/admin/login.html`
+2. Enter the admin password (ask the project owner if you don't have it)
+3. You'll land on the **Events** page — this is the main dashboard
+
+### The Three Admin Pages
+
+The admin has three tabs across the top: **Events**, **Import**, and **Scrapers**.
+
+#### Events Tab — View & Manage All Events
+
+This is where you spend most of your time. It shows every event in the system.
+
+**Searching and filtering:**
+- Type in the search box to filter by title or venue
+- Use the filter pills: **All** | **Active** | **Inactive** | **Featured** | **Upcoming** | **Past**
+- "Active" events appear on the public calendar. "Inactive" ones are hidden.
+
+**Quick actions (no page reload needed):**
+- Click the **star** icon to toggle "Featured" — featured events get a gold highlight on the public calendar
+- Click the **checkmark/X** icon to toggle "Active" — turning off Active hides the event from the calendar
+
+**Editing an event:**
+- Click any row to open the edit form
+- Change any fields, then click **Save**
+- To hide an event from the calendar, click the red **Deactivate** button at the bottom
+
+**Adding a new event:**
+- Click **"+ Add Event"** in the top right
+- Fill in at least Title and Date, then click **Save**
+- The event immediately appears in the admin and will show on the calendar after the next build
+
+#### Import Tab — Bulk-Add Events from Files
+
+Use this when you have event flyers (images) or HTML pages with event listings.
+
+**Importing images (event flyers):**
+1. Drag & drop image files (JPG, PNG, WebP) onto the upload zone, or click to browse
+2. Images are committed to the GitHub `artifacts/` folder — you'll see "Committed to GitHub" status
+3. Click **"Trigger Build"** — the build pipeline uses AI (Claude Vision) to read the flyer and extract event details
+4. After ~2 minutes, the extracted events appear on the calendar
+5. Note: artifacts are automatically cleaned up after 24 hours
+
+**Importing HTML files:**
+1. Drag & drop `.html` or `.mhtml` files (e.g., saved Bandsintown pages)
+2. The system parses them and shows a **preview table** of extracted events
+3. Review the events — you can **edit** any field inline (title, venue, date, time)
+4. Uncheck any events you don't want to import
+5. Click **"Confirm Import"** — events are added to both the database and calendar data
+6. Duplicates are automatically detected and skipped
+
+#### Scrapers Tab — Monitor Automated Sources
+
+This shows the status of automated event scrapers (Ticketmaster, venue websites, etc.).
+
+**What you see:**
+- Status cards for each scraper — green dot = healthy, red dot = failed, yellow = partial
+- A log table of recent scraper runs with counts: found, added, updated, skipped
+- Click any log row to expand and see error details
+
+**Buttons:**
+- **"Run Scrapers"** (currently "Trigger Build"): Kicks off a full scraper run that fetches new events from all external sources. Takes ~2 minutes. You don't need to press this for your own edits — it's only for pulling in *new* events from Ticketmaster, venue sites, etc.
+- **"Refresh"**: Reloads the status cards and logs on this page
+
+### Common Tasks — Step by Step
+
+#### "I need to remove an event from the calendar"
+
+1. Go to **Events** tab
+2. Find the event (search or scroll)
+3. Click the **X** icon in the "Active" column — it toggles to inactive
+4. Done. The calendar updates on the next build (~2 minutes after Phase 2, or click "Run Scrapers" manually before Phase 2).
+
+Alternatively: click the event row → Edit page → click **Deactivate** → confirm.
+
+#### "I want to feature an event (gold highlight)"
+
+1. Go to **Events** tab
+2. Find the event
+3. Click the **star** icon — it turns gold
+4. Done.
+
+#### "I have a flyer image for upcoming shows"
+
+1. Go to **Import** tab
+2. Drop the image file(s) onto the upload area
+3. Wait for "Committed to GitHub" status
+4. Click **"Trigger Build"**
+5. Wait ~2 minutes — the AI reads the flyer and adds events automatically
+
+#### "I want to add a show manually"
+
+1. Click **"+ Add Event"** (top right of Events tab)
+2. Fill in: Title (required), Venue, Date (required), Start Time
+3. Optionally: ticket URL, price, genre, description, image
+4. Check "Featured" if you want it highlighted
+5. Click **Save**
+
+#### "I imported events and see duplicates"
+
+The system checks for duplicates automatically by matching title + venue + date. If you still see duplicates (different sources may list titles slightly differently):
+1. Go to **Events** tab
+2. Filter by **Active**
+3. Find the duplicate
+4. Click its **X** (Active toggle) to deactivate the duplicate
+
+#### "The calendar doesn't reflect my changes"
+
+Before Phase 1 is complete, changes require a few extra steps:
+1. Make your edit/delete in the admin
+2. Go to **Scrapers** tab
+3. Click **"Sync to Calendar"** — this pushes your admin changes to the calendar data file
+4. Click **"Trigger Build"** — this regenerates the public HTML
+
+**After Phase 1 (this plan):** Steps 2-4 are eliminated. Your changes sync automatically.
+
+### Understanding the Build Pipeline
+
+The calendar updates through a **build pipeline** that runs automatically twice a day (midnight and noon Central) or when you manually trigger it.
+
+What the build does:
+1. Fetches new events from Ticketmaster, venue websites, and other scrapers
+2. Merges new events into the central event database (`events.json`)
+3. Generates the public HTML calendar page
+4. Commits everything to GitHub, which deploys to Vercel
+
+**You don't need to trigger builds for routine edits** (after Phase 1). Builds are mainly for pulling in *new* events from external sources.
+
+### Glossary
+
+| Term | Meaning |
+|------|---------|
+| **Active** | Event is visible on the public calendar |
+| **Inactive** | Event is hidden from the public calendar (soft-deleted) |
+| **Featured** | Event gets a gold highlight on the public calendar |
+| **events.json** | The central data file that the calendar reads from |
+| **Build / Scraper run** | The automated process that fetches new events and regenerates the calendar HTML |
+| **Artifacts** | Uploaded images stored temporarily in GitHub for AI processing |
+| **Sync** | (Pre-overhaul) Manual step to push admin changes to events.json |
