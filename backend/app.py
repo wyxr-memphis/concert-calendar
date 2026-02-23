@@ -386,7 +386,11 @@ def _normalize_date_iso(date_str):
 @app.route("/api/admin/import/confirm", methods=["POST"])
 @require_auth
 def admin_import_confirm():
-    """Confirm and save parsed events to the database."""
+    """Confirm and save parsed events to the database and events.json."""
+    import base64
+    import json as _json
+    import requests as http_requests
+
     body = request.get_json(silent=True) or {}
     events_to_import = body.get("events", [])
 
@@ -399,7 +403,6 @@ def admin_import_confirm():
         evt.setdefault("source", "import")
         evt.setdefault("is_featured", False)
         evt.setdefault("is_active", True)
-        # Normalize date to ISO — skip events with unparseable dates
         iso_date = _normalize_date_iso(evt.get("date", ""))
         if not iso_date:
             skipped.append(evt.get("title", "?"))
@@ -410,13 +413,83 @@ def admin_import_confirm():
     if not valid:
         return jsonify({"error": "No events with valid dates to import", "skipped": skipped}), 400
 
+    # Save to PostgreSQL
     created = bulk_insert_events(valid)
-    return jsonify({
+
+    # Also write to data/events.json on GitHub so the static calendar picks them up
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+    json_warning = None
+
+    if github_pat:
+        api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
+        gh_headers = {
+            "Authorization": f"Bearer {github_pat}",
+            "Accept": "application/vnd.github.v3+json",
+        }
+        try:
+            # Fetch current events.json
+            get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
+            if get_resp.status_code == 200:
+                file_meta = get_resp.json()
+                sha = file_meta["sha"]
+                current = base64.b64decode(file_meta["content"]).decode("utf-8")
+                events_json = _json.loads(current)
+            else:
+                sha = None
+                events_json = {"version": 1, "updated_at": "", "events": []}
+
+            now_iso = datetime.utcnow().isoformat() + "Z"
+            existing = events_json.get("events", [])
+
+            for evt in valid:
+                entry = {
+                    "id": f"evt_import_{uuid.uuid4().hex[:12]}",
+                    "title": evt.get("title", ""),
+                    "venue": evt.get("venue", ""),
+                    "date": evt["date"],
+                    "start_time": evt.get("start_time") or None,
+                    "doors_time": None,
+                    "ticket_url": evt.get("ticket_url") or None,
+                    "ticket_price": None,
+                    "image_url": None,
+                    "description": None,
+                    "genre": None,
+                    "source": evt.get("source", "import"),
+                    "is_featured": False,
+                    "is_active": True,
+                    "created_at": now_iso,
+                    "updated_at": now_iso,
+                }
+                existing.append(entry)
+
+            events_json["events"] = existing
+            events_json["updated_at"] = now_iso
+
+            updated = _json.dumps(events_json, indent=2, ensure_ascii=False)
+            put_data = {
+                "message": f"Import {len(valid)} events via admin",
+                "content": base64.b64encode(updated.encode()).decode("ascii"),
+            }
+            if sha:
+                put_data["sha"] = sha
+
+            put_resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
+            if put_resp.status_code not in (200, 201):
+                json_warning = f"Saved to DB but could not update events.json (GitHub {put_resp.status_code})"
+        except Exception as e:
+            json_warning = f"Saved to DB but could not update events.json: {str(e)[:100]}"
+    else:
+        json_warning = "GITHUB_PAT not set — events saved to DB only, trigger a build to update the calendar"
+
+    result = {
         "ok": True,
         "imported": len(created),
         "skipped": skipped,
-        "events": serialize_list(created),
-    })
+    }
+    if json_warning:
+        result["warning"] = json_warning
+    return jsonify(result)
 
 
 @app.route("/api/admin/import/image", methods=["POST"])

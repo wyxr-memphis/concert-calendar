@@ -581,8 +581,12 @@
                 });
 
                 if (resp.ok || data.ok) {
-                    showStatus(`${data.imported || selected.length} events imported`, 'success');
-                    // Clear imported events from preview
+                    const skipped = data.skipped && data.skipped.length
+                        ? ` (${data.skipped.length} skipped — bad dates)` : '';
+                    const msg = data.warning
+                        ? `${data.imported} events imported. Warning: ${data.warning}`
+                        : `${data.imported} events imported and added to calendar${skipped}. Trigger a build to refresh the HTML.`;
+                    showStatus(msg, data.warning ? 'info' : 'success');
                     parsedEvents = parsedEvents.filter(e => !e.selected);
                     renderPreview();
                 } else {
