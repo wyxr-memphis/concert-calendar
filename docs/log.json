@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-23T14:39:37.236636+00:00",
+  "run_timestamp": "2026-02-23T14:47:14.925310+00:00",
   "date_range": {
     "start": "2026-02-23",
     "end": "2026-03-02"
   },
-  "total_events_json": 59,
-  "total_active_display": 50,
+  "total_events_json": 60,
+  "total_active_display": 43,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 43,
+      "events_after_filter": 43,
       "events_filtered": 0,
       "error": null
     }
@@ -141,13 +141,6 @@
       "date": "2026-02-24",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-24",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Vision Quest",
@@ -220,29 +213,8 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Kenny Wayne Shepherd",
       "venue": "Graceland Soundstage",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Kenny Wayne Shepherd",
-      "venue": "Graceland Soundstage",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
@@ -252,14 +224,7 @@
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Kenny Wayne Shepherd",
-      "venue": "Soundstage at Graceland",
-      "date": "2026-02-26",
-      "time": "7:30 PM",
-      "source": "Ticketmaster"
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Valories with AVON PARK & MASSEY LANE",
@@ -283,13 +248,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Will Hoge",
-      "venue": "1884 Lounge",
-      "date": "2026-02-27",
-      "time": "9:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "TOBY VEST & THE DREAM MACHINE / JEFF HULETT",
       "venue": "B-Side Memphis",
       "date": "2026-02-27",
@@ -301,7 +259,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-27",
       "time": "LATER",
-      "source": "Artifacts (Venue logo visible in top right)"
+      "source": "Artifacts (Event listing image)"
     },
     {
       "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
@@ -316,13 +274,6 @@
       "date": "2026-02-27",
       "time": "7:30 PM",
       "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Keith Anderson",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-27",
-      "time": "7:30 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Flintwick",
@@ -360,13 +311,6 @@
       "source": "Artifacts (Bandsintown page)"
     },
     {
-      "artist": "Demola",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "DEMOLA LIVE!",
       "venue": "Minglewood Hall",
       "date": "2026-02-27",
@@ -381,6 +325,13 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
+      "artist": "Black & Brutal - Negro Terror / Yying Sick / G Wiz / F*ck U Joe / DJ Hype / Tanto Dubz / Punk Soul",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-28",
+      "time": "7PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "BLACK & BRUTAL -NEGRO TERROR/ YVING SICK/ G WIZ/ F*CK U JOE/ DJ HYPE/ TANTO DUBZ/ PUNK SOUL",
       "venue": "B-Side Memphis",
       "date": "2026-02-28",
@@ -392,7 +343,7 @@
       "venue": "Bar DKDC",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Venue logo visible in top right)"
+      "source": "Artifacts (Event listing image)"
     },
     {
       "artist": "Turnstyles, Fake! + Frank McLallen",
