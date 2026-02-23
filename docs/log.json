@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-22T17:20:09.700403+00:00",
+  "run_timestamp": "2026-02-23T06:07:24.570739+00:00",
   "date_range": {
-    "start": "2026-02-22",
-    "end": "2026-03-01"
+    "start": "2026-02-23",
+    "end": "2026-03-02"
   },
-  "total_events_json": 38,
-  "total_active_display": 36,
+  "total_events_json": 19,
+  "total_active_display": 18,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,17 +26,17 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 85,
+      "events_found": 84,
       "events_after_filter": 1,
-      "events_filtered": 84,
+      "events_filtered": 83,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
-      "events_after_filter": 2,
-      "events_filtered": 32,
+      "events_after_filter": 1,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -106,147 +106,21 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 62,
+      "events_found": 60,
       "events_after_filter": 0,
-      "events_filtered": 62,
+      "events_filtered": 60,
       "error": null
     },
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "VITRUVIAN INFLUENCE, CURLY MOJO, THE EVERDEANS",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "dead7",
-      "venue": "dead7 w/cohen_noise, Vapid Soul, Weeping Hour, and Crooked Souls",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "cohen_noise",
-      "venue": "GROWLER'S- MEMPHIS, TN",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Crooked Souls",
-      "venue": "Growlers",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "DEADZ, COHEN_NOISE, VAPID SOUL, WEEPING HOUR",
-      "venue": "Growlers",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "Vapid Soul",
-      "venue": "Growlers",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Weeping Hour",
-      "venue": "Growlers",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "HILLBILLY MOJO",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "DUANE CLEVELAND BAND",
-      "venue": "HUEY'S COLLIERVILLE",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "BOB NELSON & THE BOBCATS",
-      "venue": "HUEY'S CORDOVA",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "MEDIUM WALTER",
-      "venue": "HUEY'S DOWNTOWN",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "THE BUGALOOS",
-      "venue": "HUEY'S GERMANTOWN",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "HEARTBREAK HILL",
-      "venue": "HUEY'S MIDTOWN",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "KEN HOUSTON DUO",
-      "venue": "HUEY'S MILLINGTON",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "THE SETTLERS",
-      "venue": "HUEY'S POPLAR",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "JACK & THE FAT MEN",
-      "venue": "HUEY'S SOUTHWIND",
-      "date": "2026-02-22",
-      "time": null,
-      "source": "Artifacts (Sunday 2.22 event listing)"
-    },
-    {
-      "artist": "Brad Williams",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "JB Ball",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-22",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
     {
       "artist": "Folk All Y\u2019all: DOM FLEMONS PRESENTS THE BRONZE BUCKAROO FILM & SONGSTER SHOW",
       "venue": "Crosstown Arts",
