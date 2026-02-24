@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-24T23:30:12.917774+00:00",
+  "updated_at": "2026-02-24T23:31:19.445029Z",
   "events": [
     {
       "id": "evt_1771375878192_33",
@@ -202,7 +202,7 @@
     },
     {
       "id": "evt_1771559883854_44",
-      "title": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
+      "title": "New York Philharmonic’s Audrey Wright plays Zwilich Violin Concerto",
       "venue": "Crosstown Theater",
       "date": "2026-02-27",
       "start_time": "6:30 PM",
@@ -310,7 +310,7 @@
     },
     {
       "id": "evt_1771739715379_54",
-      "title": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
+      "title": "Big Head Todd & the Monsters – Winter Tour 2026",
       "venue": "Minglewood Hall",
       "date": "2026-03-01",
       "start_time": null,
@@ -556,9 +556,9 @@
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-02-23T14:02:21.882821Z",
-      "updated_at": "2026-02-23T14:02:21.882821Z"
+      "updated_at": "2026-02-24T23:31:19.445029Z"
     },
     {
       "id": "evt_import_b110735a9603",
@@ -1120,7 +1120,7 @@
     },
     {
       "id": "evt_1771912976558_63",
-      "title": "Monaleo \u2013 Who Did The Body Tour \u2013 SOLD OUT",
+      "title": "Monaleo – Who Did The Body Tour – SOLD OUT",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
       "start_time": null,
