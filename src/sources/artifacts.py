@@ -493,11 +493,11 @@ Extract all visible events for the target week, even if text is small."""
 
 def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
     """Convert Claude vision extracted event data to Event object."""
-    artist = data.get("artist", "").strip()
-    venue = data.get("venue", "").strip()
-    date_str = data.get("date", "").strip()
-    time_str = data.get("time", "").strip()
-    source_note = data.get("source_note", "").strip()
+    artist = (data.get("artist") or "").strip()
+    venue = (data.get("venue") or "").strip()
+    date_str = (data.get("date") or "").strip()
+    time_str = (data.get("time") or "").strip()
+    source_note = (data.get("source_note") or "").strip()
 
     if not artist or not date_str:
         return None
