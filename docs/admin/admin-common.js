@@ -39,7 +39,24 @@ const AdminAPI = (() => {
         const url = BASE ? BASE + path : path;
         opts.credentials = BASE ? 'include' : 'same-origin';
         opts.headers = headers(opts.headers || {});
-        return fetch(url, opts);
+
+        // Add timeout (default 30 seconds, configurable)
+        const timeout = opts.timeout || 30000;
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), timeout);
+
+        try {
+            opts.signal = controller.signal;
+            const response = await fetch(url, opts);
+            clearTimeout(timeoutId);
+            return response;
+        } catch (err) {
+            clearTimeout(timeoutId);
+            if (err.name === 'AbortError') {
+                throw new Error('Request timeout - backend may be cold starting. Please wait 30 seconds and refresh.');
+            }
+            throw err;
+        }
     }
 
     async function apiJSON(path, opts = {}) {
@@ -60,13 +77,19 @@ const AdminAPI = (() => {
 
     async function checkAuth() {
         try {
-            const resp = await apiFetch('/api/admin/me');
+            const resp = await apiFetch('/api/admin/me', { timeout: 30000 });
             if (!resp.ok) {
+                console.error('Auth check failed:', resp.status);
                 window.location.href = '/admin/login.html';
                 return false;
             }
             return true;
-        } catch {
+        } catch (err) {
+            console.error('Auth check error:', err.message);
+            // Show error message before redirecting
+            if (err.message.includes('timeout')) {
+                alert('Backend is taking too long to respond (cold start). Please wait 30 seconds and try again.');
+            }
             window.location.href = '/admin/login.html';
             return false;
         }

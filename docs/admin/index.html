@@ -257,9 +257,20 @@
 
         .loading {
             text-align: center;
-            padding: 60px;
+            padding: 60px 20px;
             color: #888;
             font-size: 1em;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .loading .spinner {
+            margin-bottom: 16px;
+            font-size: 2em;
+        }
+        .loading .hint {
+            font-size: 0.85em;
+            color: #aaa;
+            margin-top: 12px;
         }
 
         #content { display: none; }
@@ -587,7 +598,11 @@
     </style>
 </head>
 <body>
-    <div class="loading" id="loadingMsg">Checking authentication...</div>
+    <div class="loading" id="loadingMsg">
+        <div class="spinner">⏳</div>
+        <div>Checking authentication...</div>
+        <div class="hint">If this takes more than 30 seconds, the backend may be cold starting. Please refresh the page.</div>
+    </div>
 
     <div id="content">
         <div class="site-header">
