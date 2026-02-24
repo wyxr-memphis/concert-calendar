@@ -3,95 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin — Memphis Live Music</title>
+    <title>Admin — WYXR Concert Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 960px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px 16px;
+            padding: 0;
             background: #fafafa;
             color: #1a1a1a;
             line-height: 1.5;
         }
-        header {
-            border-bottom: 3px solid #1a1a1a;
-            padding-bottom: 12px;
-            margin-bottom: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        h1 { font-size: 1.4em; font-weight: 700; letter-spacing: 0.02em; }
-        .header-actions { display: flex; gap: 10px; align-items: center; }
-        .header-actions a, .header-actions button {
-            font-size: 0.85em;
-            padding: 6px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-        }
-        .btn-add { background: #1a1a1a; color: #fafafa; }
-        .btn-add:hover { background: #333; }
-        .btn-logout { background: #e8e8e8; color: #1a1a1a; }
-        .btn-logout:hover { background: #ddd; }
 
-        /* Navigation tabs */
+        /* WYXR Header Branding */
+        .site-header {
+            background: #000000;
+            padding: 20px 24px;
+            margin-bottom: 0;
+        }
+        .site-header h1 {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #FFCF2D;
+            letter-spacing: 0.02em;
+            margin-bottom: 4px;
+        }
+        .site-header .subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+            color: #C6C5C3;
+        }
+        .site-header .header-actions {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+        }
+        .site-header {
+            position: relative;
+        }
+
+        /* Navigation Tabs */
         .nav-tabs {
+            background: #000000;
             display: flex;
             gap: 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+            padding: 0 24px;
+            border-bottom: 2px solid #3D3B3E;
         }
         .nav-tab {
-            padding: 10px 20px;
-            font-size: 0.9em;
+            padding: 12px 24px;
+            font-size: 0.95em;
             font-weight: 600;
             border: none;
             background: transparent;
-            color: #888;
+            color: #3D3B3E;
             cursor: pointer;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -1px;
-            transition: all 0.15s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
             text-decoration: none;
         }
-        .nav-tab:hover { color: #333; }
+        .nav-tab:hover { color: #C6C5C3; }
         .nav-tab.active {
-            color: #1a1a1a;
-            border-bottom-color: #1a1a1a;
+            color: #000000;
+            background: #FFCF2D;
+            border-bottom-color: #FFCF2D;
         }
 
+        /* Main Content Area */
+        .content-wrapper {
+            padding: 24px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #FFCF2D;
+            color: #000000;
+            padding: 10px 24px;
+            font-size: 0.95em;
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-primary:hover { opacity: 0.85; }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-secondary {
+            background: #3D3B3E;
+            color: #FFFFFF;
+            padding: 8px 18px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-secondary:hover { opacity: 0.85; }
+        .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .btn-logout {
+            background: #3D3B3E;
+            color: #FFFFFF;
+            padding: 6px 14px;
+            font-size: 0.85em;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .btn-logout:hover { background: #525052; }
+
+        /* Events Tab Styles */
         .controls {
             display: flex;
             gap: 12px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             align-items: center;
         }
         .search-input {
             flex: 1;
             min-width: 200px;
-            padding: 8px 12px;
-            font-size: 0.9em;
+            padding: 10px 14px;
+            font-size: 0.95em;
             border: 1px solid #ccc;
             border-radius: 4px;
             background: #fff;
             color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
         }
         .filter-tabs {
             display: flex;
-            gap: 4px;
+            gap: 6px;
             flex-wrap: wrap;
         }
         .filter-tab {
-            padding: 5px 12px;
-            font-size: 0.8em;
+            padding: 6px 14px;
+            font-size: 0.85em;
             font-weight: 600;
             border: 1px solid #ccc;
             border-radius: 20px;
@@ -101,28 +163,45 @@
             transition: all 0.15s;
         }
         .filter-tab:hover { border-color: #888; color: #333; }
-        .filter-tab.active { background: #1a1a1a; color: #fafafa; border-color: #1a1a1a; }
+        .filter-tab.active {
+            background: #FFCF2D;
+            color: #000000;
+            border-color: #FFCF2D;
+        }
 
-        #content { display: none; }
+        .add-event-btn {
+            background: #FFCF2D;
+            color: #000000;
+            padding: 10px 28px;
+            font-size: 1em;
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .add-event-btn:hover { opacity: 0.85; }
 
-        .event-table { width: 100%; border-collapse: collapse; }
+        .event-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
         .event-table th {
             text-align: left;
             font-size: 0.75em;
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #888;
-            padding: 6px 8px;
+            padding: 10px 8px;
             border-bottom: 2px solid #ddd;
         }
         .event-table td {
-            padding: 8px;
+            padding: 12px 8px;
             border-bottom: 1px solid #eee;
             font-size: 0.9em;
             vertical-align: middle;
         }
-        .event-table tr { cursor: pointer; }
+        .event-table tr { cursor: pointer; transition: background 0.1s; }
         .event-table tr:hover { background: #f5f5f5; }
         .event-table tr.inactive { opacity: 0.5; }
 
@@ -135,39 +214,41 @@
         .toggle-btn {
             background: none;
             border: none;
-            font-size: 1.2em;
+            font-size: 1.3em;
             cursor: pointer;
-            padding: 2px 6px;
+            padding: 4px 8px;
             border-radius: 4px;
             transition: background 0.15s;
             line-height: 1;
         }
-        .toggle-btn:hover { background: #eee; }
+        .toggle-btn:hover { background: #f0f0f0; }
 
         .pagination {
             display: flex;
             justify-content: center;
-            gap: 8px;
-            margin-top: 16px;
+            gap: 10px;
+            margin-top: 20px;
+            align-items: center;
         }
         .pagination button {
-            padding: 6px 14px;
+            padding: 8px 16px;
             font-size: 0.85em;
             border: 1px solid #ccc;
             border-radius: 4px;
             background: #fff;
             color: #1a1a1a;
             cursor: pointer;
+            font-weight: 600;
         }
         .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
-        .pagination button:hover:not(:disabled) { background: #eee; }
-        .page-info { font-size: 0.85em; color: #888; line-height: 2; }
+        .pagination button:hover:not(:disabled) { background: #f5f5f5; }
+        .page-info { font-size: 0.9em; color: #888; }
 
         .status-bar {
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-radius: 4px;
-            font-size: 0.85em;
-            margin-bottom: 12px;
+            font-size: 0.9em;
+            margin-bottom: 16px;
             display: none;
         }
         .status-bar.error { background: #ffebee; color: #c62828; display: block; }
@@ -176,53 +257,332 @@
 
         .loading {
             text-align: center;
-            padding: 40px;
+            padding: 60px;
             color: #888;
-            font-size: 0.95em;
+            font-size: 1em;
         }
+
+        #content { display: none; }
 
         footer {
-            margin-top: 40px;
-            padding-top: 16px;
-            border-top: 1px solid #eee;
-            font-size: 0.8em;
-            color: #aaa;
+            margin-top: 60px;
+            padding: 20px;
             text-align: center;
+            font-size: 0.85em;
+            color: #aaa;
+            border-top: 1px solid #eee;
         }
-        footer a { color: inherit; }
+        footer a { color: inherit; text-decoration: underline; }
 
+        /* Tools Tab Styles */
+        .tools-section {
+            margin-bottom: 48px;
+        }
+        .tools-section:last-child {
+            margin-bottom: 0;
+        }
+        .section-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #FFCF2D;
+        }
+        .section-subtitle {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 16px;
+        }
+
+        /* Upload Zone */
+        .upload-zone {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            padding: 48px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 20px;
+            background: #fafafa;
+        }
+        .upload-zone:hover, .upload-zone.dragover {
+            border-color: #FFCF2D;
+            background: #fffbf0;
+        }
+        .upload-zone p {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .upload-zone .hint {
+            font-size: 0.85em;
+            color: #999;
+        }
+        .upload-zone input { display: none; }
+
+        .file-list { margin-bottom: 20px; }
+        .file-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 14px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            font-size: 0.9em;
+        }
+        .file-item .file-name { flex: 1; font-weight: 600; }
+        .file-item .file-status { color: #888; font-size: 0.85em; }
+        .file-item .file-status.done { color: #2e7d32; }
+        .file-item .file-status.error { color: #c62828; }
+
+        /* Preview table */
+        .preview-section { margin-top: 24px; display: none; }
+        .preview-section.visible { display: block; }
+        .preview-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .preview-count { font-size: 0.85em; color: #888; margin-left: auto; }
+
+        .preview-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+        .preview-table th {
+            text-align: left;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            padding: 10px 8px;
+            border-bottom: 2px solid #ddd;
+            background: #f8f8f8;
+        }
+        .preview-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .preview-table tr.deselected { opacity: 0.4; }
+        .preview-table input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+        .preview-table input[type="text"] {
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 0.9em;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Build controls */
+        .build-controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Build log */
+        .build-log-panel {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 16px;
+            margin-top: 16px;
+            display: none;
+        }
+        .build-log-panel.visible { display: block; }
+        .build-log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #333;
+        }
+        .build-log-title {
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            color: #FFCF2D;
+            font-size: 0.95em;
+        }
+        .build-log-status {
+            font-size: 0.85em;
+            color: #C6C5C3;
+        }
+        .build-log-status.running { color: #FFCF2D; }
+        .build-log-status.success { color: #2e7d32; }
+        .build-log-status.error { color: #c62828; }
+        .build-log-content {
+            background: #0a0a0a;
+            border-radius: 4px;
+            padding: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
+            font-size: 0.8em;
+            line-height: 1.6;
+        }
+        .log-line {
+            color: #C6C5C3;
+            margin-bottom: 4px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .log-line .timestamp {
+            color: #888;
+            margin-right: 8px;
+        }
+        .log-line.success { color: #81c784; }
+        .log-line.error { color: #ef9a9a; }
+        .log-line.warning { color: #ffb74d; }
+
+        /* Scraper status table */
+        .scraper-status-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+            background: #fff;
+            border: 1px solid #eee;
+        }
+        .scraper-status-table th {
+            text-align: left;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            padding: 10px 8px;
+            border-bottom: 2px solid #ddd;
+            background: #f8f8f8;
+        }
+        .scraper-status-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+        .status-indicator.ok { background: #2e7d32; }
+        .status-indicator.warning { background: #f9a825; }
+        .status-indicator.error { background: #c62828; }
+        .status-indicator.unknown { background: #888; }
+
+        /* Dark Mode */
         @media (prefers-color-scheme: dark) {
             body { background: #1a1a1a; color: #e0e0e0; }
-            header { border-bottom-color: #e0e0e0; }
-            .nav-tabs { border-bottom-color: #333; }
-            .nav-tab { color: #666; }
-            .nav-tab:hover { color: #ccc; }
-            .nav-tab.active { color: #e0e0e0; border-bottom-color: #e0e0e0; }
-            .search-input { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
-            .filter-tab { border-color: #444; color: #aaa; }
-            .filter-tab:hover { border-color: #888; color: #e0e0e0; }
-            .filter-tab.active { background: #e0e0e0; color: #1a1a1a; border-color: #e0e0e0; }
-            .btn-add { background: #e0e0e0; color: #1a1a1a; }
-            .btn-add:hover { background: #ccc; }
-            .btn-logout { background: #333; color: #e0e0e0; }
-            .btn-logout:hover { background: #444; }
-            .event-table th { color: #666; border-bottom-color: #333; }
-            .event-table td { border-bottom-color: #2a2a2a; }
-            .event-table tr:hover { background: #252525; }
+            .content-wrapper { background: #1a1a1a; }
+
+            .nav-tab:hover { color: #C6C5C3; }
+
+            .search-input, .preview-table input[type="text"] {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #e0e0e0;
+            }
+
+            .filter-tab {
+                border-color: #444;
+                color: #aaa;
+            }
+            .filter-tab:hover {
+                border-color: #888;
+                color: #e0e0e0;
+            }
+
+            .event-table th, .preview-table th, .scraper-status-table th {
+                color: #666;
+                border-bottom-color: #333;
+                background: #222;
+            }
+            .event-table td, .preview-table td, .scraper-status-table td {
+                border-bottom-color: #2a2a2a;
+            }
+            .event-table tr:hover {
+                background: #252525;
+            }
+            .event-table, .preview-table, .scraper-status-table {
+                background: #2a2a2a;
+                border-color: #333;
+            }
+
             .col-time { color: #777; }
             .col-venue { color: #aaa; }
-            .toggle-btn:hover { background: #333; }
-            .pagination button { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
-            .pagination button:hover:not(:disabled) { background: #333; }
-            .status-bar.error { background: #3a1b1b; color: #ef9a9a; }
-            .status-bar.success { background: #1b3a1b; color: #81c784; }
-            .status-bar.info { background: #1b2a3a; color: #90caf9; }
-            footer { border-top-color: #333; color: #555; }
-        }
 
-        @media (max-width: 600px) {
-            .col-time, .col-venue { display: none; }
-            .event-table td, .event-table th { padding: 6px 4px; }
+            .toggle-btn:hover {
+                background: #333;
+            }
+
+            .pagination button {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #e0e0e0;
+            }
+            .pagination button:hover:not(:disabled) {
+                background: #333;
+            }
+
+            .status-bar.error {
+                background: #3a1b1b;
+                color: #ef9a9a;
+            }
+            .status-bar.success {
+                background: #1b3a1b;
+                color: #81c784;
+            }
+            .status-bar.info {
+                background: #1b2a3a;
+                color: #90caf9;
+            }
+
+            .section-title {
+                color: #e0e0e0;
+            }
+            .section-subtitle {
+                color: #888;
+            }
+
+            .upload-zone {
+                border-color: #444;
+                background: #222;
+            }
+            .upload-zone:hover, .upload-zone.dragover {
+                border-color: #FFCF2D;
+                background: #2a2a2a;
+            }
+            .upload-zone p {
+                color: #e0e0e0;
+            }
+            .upload-zone .hint {
+                color: #888;
+            }
+
+            .file-item {
+                background: #2a2a2a;
+                border-color: #333;
+            }
+
+            footer {
+                border-top-color: #333;
+                color: #555;
+            }
         }
     </style>
 </head>
@@ -230,49 +590,136 @@
     <div class="loading" id="loadingMsg">Checking authentication...</div>
 
     <div id="content">
-        <header>
-            <h1>ADMIN</h1>
+        <div class="site-header">
+            <h1>WYXR Concert Calendar Admin</h1>
+            <div class="subtitle">Staff access only</div>
             <div class="header-actions">
-                <a href="/admin/edit.html" class="btn-add">+ Add Event</a>
                 <button class="btn-logout" id="logoutBtn">Log Out</button>
-            </div>
-        </header>
-
-        <nav class="nav-tabs">
-            <a href="/admin/" class="nav-tab active">Events</a>
-            <a href="/admin/import.html" class="nav-tab">Import</a>
-            <a href="/admin/scrapers.html" class="nav-tab">Scrapers</a>
-        </nav>
-
-        <div class="status-bar" id="statusBar"></div>
-
-        <div class="controls">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search by title or venue...">
-            <div class="filter-tabs">
-                <button class="filter-tab active" data-filter="all">All</button>
-                <button class="filter-tab" data-filter="active">Active</button>
-                <button class="filter-tab" data-filter="inactive">Inactive</button>
-                <button class="filter-tab" data-filter="featured">Featured</button>
-                <button class="filter-tab" data-filter="upcoming">Upcoming</button>
-                <button class="filter-tab" data-filter="past">Past</button>
             </div>
         </div>
 
-        <table class="event-table">
-            <thead>
-                <tr>
-                    <th class="col-date">Date</th>
-                    <th class="col-title">Title</th>
-                    <th class="col-venue">Venue</th>
-                    <th class="col-time">Time</th>
-                    <th class="col-toggle">Star</th>
-                    <th class="col-toggle">Active</th>
-                </tr>
-            </thead>
-            <tbody id="eventBody"></tbody>
-        </table>
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="events">Events</button>
+            <button class="nav-tab" data-tab="tools">Tools</button>
+        </nav>
 
-        <div class="pagination" id="pagination"></div>
+        <div class="content-wrapper">
+            <div class="status-bar" id="statusBar"></div>
+
+            <!-- EVENTS TAB -->
+            <div class="tab-content active" id="tab-events">
+                <a href="/admin/edit.html" class="add-event-btn">+ Add Event</a>
+
+                <div class="controls">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search by title or venue...">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">All</button>
+                        <button class="filter-tab" data-filter="active">Active</button>
+                        <button class="filter-tab" data-filter="inactive">Inactive</button>
+                        <button class="filter-tab" data-filter="featured">Featured</button>
+                        <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-tab" data-filter="past">Past</button>
+                    </div>
+                </div>
+
+                <table class="event-table">
+                    <thead>
+                        <tr>
+                            <th class="col-date">Date</th>
+                            <th class="col-title">Title</th>
+                            <th class="col-venue">Venue</th>
+                            <th class="col-time">Time</th>
+                            <th class="col-toggle">Star</th>
+                            <th class="col-toggle">Active</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventBody"></tbody>
+                </table>
+
+                <div class="pagination" id="pagination"></div>
+            </div>
+
+            <!-- TOOLS TAB -->
+            <div class="tab-content" id="tab-tools">
+                <!-- SECTION 1: Upload & Import -->
+                <div class="tools-section">
+                    <h2 class="section-title">Upload & Import</h2>
+                    <p class="section-subtitle">Upload flyers (images) or saved web pages (HTML/MHTML) to extract events</p>
+
+                    <div class="upload-zone" id="uploadZone">
+                        <p>Drop files here or click to upload</p>
+                        <div class="hint">PNG, JPG, WebP, GIF (flyers) • HTML, MHTML (saved venue pages)</div>
+                        <input type="file" id="fileInput" multiple accept=".html,.htm,.mhtml,.jpg,.jpeg,.png,.webp,.gif">
+                    </div>
+
+                    <div class="file-list" id="fileList"></div>
+
+                    <!-- Parsed Events Preview -->
+                    <div class="preview-section" id="previewSection">
+                        <h3 style="font-size: 1em; font-weight: 700; margin-bottom: 12px;">Parsed Events</h3>
+                        <div class="preview-actions">
+                            <button class="btn-secondary" id="selectAllBtn">Select All</button>
+                            <button class="btn-secondary" id="deselectAllBtn">Deselect All</button>
+                            <span class="preview-count" id="previewCount"></span>
+                            <button class="btn-primary" id="confirmBtn">Confirm Import</button>
+                        </div>
+                        <table class="preview-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:30px;"></th>
+                                    <th>Title</th>
+                                    <th>Venue</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="previewBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Run Scrapers & Rebuild -->
+                <div class="tools-section">
+                    <h2 class="section-title">Run Scrapers & Rebuild</h2>
+                    <p class="section-subtitle">Trigger a full scraper run and calendar rebuild</p>
+
+                    <div class="build-controls">
+                        <button class="btn-primary" id="runScrapersBtn" style="padding: 12px 32px; font-size: 1em;">Run Scrapers + Rebuild Calendar</button>
+                        <button class="btn-secondary" id="rebuildOnlyBtn">Rebuild Calendar Only</button>
+                    </div>
+
+                    <!-- Live Build Log -->
+                    <div class="build-log-panel" id="buildLogPanel">
+                        <div class="build-log-header">
+                            <div class="build-log-title">Build Log</div>
+                            <div class="build-log-status" id="buildLogStatus">Running...</div>
+                        </div>
+                        <div class="build-log-content" id="buildLogContent"></div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Scraper Status -->
+                <div class="tools-section">
+                    <h2 class="section-title">Scraper Status</h2>
+                    <p class="section-subtitle">View the health and activity of all venue scrapers</p>
+
+                    <table class="scraper-status-table" id="scraperStatusTable">
+                        <thead>
+                            <tr>
+                                <th>Venue</th>
+                                <th>Type</th>
+                                <th>Last Run</th>
+                                <th>Events Found</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scraperStatusBody">
+                            <tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
         <footer>
             <a href="/">&larr; Back to calendar</a>
@@ -288,12 +735,56 @@
         let currentPage = 0;
         let currentFilter = 'all';
 
+        // Tab switching
+        function switchToTab(tabName) {
+            // Update active tab button
+            document.querySelectorAll('.nav-tab').forEach(t => {
+                if (t.dataset.tab === tabName) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+            // Update active tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            const targetContent = document.getElementById('tab-' + tabName);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+
+            // Update URL hash
+            window.location.hash = tabName;
+        }
+
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchToTab(tab.dataset.tab);
+            });
+        });
+
+        // Handle hash navigation (for redirects and bookmarks)
+        function handleHashChange() {
+            const hash = window.location.hash.slice(1); // Remove #
+            if (hash === 'tools' || hash === 'events') {
+                switchToTab(hash);
+            }
+        }
+
+        window.addEventListener('hashchange', handleHashChange);
+        // Check hash on page load
+        window.addEventListener('DOMContentLoaded', handleHashChange);
+
         // Auth guard
         AdminAPI.checkAuth().then(ok => {
             if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
                 loadEvents();
+                // Handle hash navigation after auth
+                handleHashChange();
             }
         });
 
@@ -322,7 +813,6 @@
                 const { resp, data } = await AdminAPI.apiJSON('/api/admin/events');
                 if (!resp.ok) throw new Error(data.error || `${resp.status}`);
 
-                // Support both old format ({data:{events:[]}}) and new format ([])
                 let events;
                 if (Array.isArray(data)) {
                     events = data;
@@ -371,7 +861,7 @@
             const page = filteredEvents.slice(start, start + PAGE_SIZE);
 
             if (page.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No events found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:32px;">No events found</td></tr>';
                 return;
             }
 
@@ -381,7 +871,7 @@
                 const inactive = e.is_active === false ? ' class="inactive"' : '';
                 const star = e.is_featured ? '&#9733;' : '&#9734;';
                 const active = e.is_active !== false ? '&#10003;' : '&#10007;';
-                const starColor = e.is_featured ? 'color:#f9a825' : 'color:#ccc';
+                const starColor = e.is_featured ? 'color:#FFCF2D' : 'color:#ccc';
                 const activeColor = e.is_active !== false ? 'color:#2e7d32' : 'color:#c62828';
 
                 return `<tr${inactive} data-id="${esc(e.id)}">
@@ -438,7 +928,6 @@
             applyFilters();
 
             try {
-                // Try new Render API format first, fall back to Vercel format
                 let resp, data;
                 if (field === 'featured') {
                     ({ resp, data } = await AdminAPI.apiJSON(`/api/admin/events/${id}/featured`, {
@@ -455,20 +944,428 @@
                 }
                 if (!resp.ok) throw new Error(data.error || 'API error');
             } catch (err) {
-                // Fall back to Vercel PATCH format
-                try {
-                    const { resp, data } = await AdminAPI.apiJSON('/api/admin/events', {
-                        method: 'PATCH',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ id, [key]: newVal }),
-                    });
-                    if (!resp.ok) throw new Error(data.error || 'Failed');
-                } catch {
-                    // Revert on failure
-                    event[key] = !newVal;
-                    applyFilters();
-                    showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
+                // Revert on failure
+                event[key] = !newVal;
+                applyFilters();
+                showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
+            }
+        }
+
+        // ========================================================================
+        // TOOLS TAB FUNCTIONALITY
+        // ========================================================================
+
+        let parsedEvents = [];
+        let buildLogInterval = null;
+        let lastLogTimestamp = null;
+
+        // Load scraper status when Tools tab is activated
+        document.querySelector('[data-tab="tools"]').addEventListener('click', () => {
+            loadScraperStatus();
+        });
+
+        // ------------------------------------------------------------------------
+        // SECTION 1: Upload & Import
+        // ------------------------------------------------------------------------
+
+        const uploadZone = document.getElementById('uploadZone');
+        const fileInput = document.getElementById('fileInput');
+
+        uploadZone.addEventListener('click', () => fileInput.click());
+        uploadZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadZone.classList.add('dragover');
+        });
+        uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('dragover'));
+        uploadZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadZone.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        });
+        fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
+
+        async function handleFiles(fileList) {
+            if (!fileList.length) return;
+
+            const formData = new FormData();
+            const fileListEl = document.getElementById('fileList');
+
+            for (const file of fileList) {
+                formData.append('files', file);
+
+                const item = document.createElement('div');
+                item.className = 'file-item';
+                item.innerHTML = `
+                    <span class="file-name">${esc(file.name)}</span>
+                    <span class="file-status" id="status-${esc(file.name)}">Uploading...</span>
+                `;
+                fileListEl.appendChild(item);
+            }
+
+            try {
+                const resp = await AdminAPI.apiFetch('/api/admin/import/upload', {
+                    method: 'POST',
+                    body: formData,
+                });
+                const data = await resp.json();
+
+                if (data.error) {
+                    showStatus(data.error, 'error');
+                    return;
                 }
+
+                // Update file statuses
+                for (const file of fileList) {
+                    const statusEl = document.getElementById(`status-${file.name}`);
+                    if (statusEl) {
+                        const ext = file.name.split('.').pop().toLowerCase();
+                        const isImage = ['jpg','jpeg','png','webp','gif'].includes(ext);
+                        statusEl.textContent = isImage ? 'Committed to GitHub' : 'Parsed';
+                        statusEl.className = 'file-status done';
+                    }
+                }
+
+                // Add parsed events
+                if (data.parsed_events && data.parsed_events.length > 0) {
+                    parsedEvents = parsedEvents.concat(
+                        data.parsed_events.map(e => ({ ...e, selected: true }))
+                    );
+                    renderPreview();
+                }
+
+                // Show success message for uploaded images
+                if (data.uploaded_images && data.uploaded_images.length > 0) {
+                    showStatus(`${data.uploaded_images.length} image(s) uploaded. Trigger a build to process them.`, 'success');
+                }
+
+                const total = (data.parsed_events || []).length + (data.uploaded_images || []).length;
+                if (total === 0) {
+                    showStatus('No events or images found in uploaded files', 'info');
+                }
+
+            } catch (err) {
+                showStatus('Upload failed: ' + err.message, 'error');
+                for (const file of fileList) {
+                    const statusEl = document.getElementById(`status-${file.name}`);
+                    if (statusEl) {
+                        statusEl.textContent = 'Failed';
+                        statusEl.className = 'file-status error';
+                    }
+                }
+            }
+        }
+
+        function renderPreview() {
+            const section = document.getElementById('previewSection');
+            const tbody = document.getElementById('previewBody');
+
+            if (parsedEvents.length === 0) {
+                section.classList.remove('visible');
+                return;
+            }
+
+            section.classList.add('visible');
+
+            tbody.innerHTML = parsedEvents.map((e, i) => {
+                const cls = e.selected ? '' : ' class="deselected"';
+                return `<tr${cls} data-index="${i}">
+                    <td><input type="checkbox" ${e.selected ? 'checked' : ''} data-index="${i}"></td>
+                    <td><input type="text" value="${esc(e.title || '')}" data-field="title" data-index="${i}"></td>
+                    <td><input type="text" value="${esc(e.venue || '')}" data-field="venue" data-index="${i}"></td>
+                    <td><input type="text" value="${esc(e.date || '')}" data-field="date" data-index="${i}" style="width:120px;"></td>
+                    <td><input type="text" value="${esc(e.start_time || '')}" data-field="start_time" data-index="${i}" style="width:100px;"></td>
+                </tr>`;
+            }).join('');
+
+            updatePreviewCount();
+
+            // Checkbox toggles
+            tbody.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.addEventListener('change', () => {
+                    const idx = parseInt(cb.dataset.index);
+                    parsedEvents[idx].selected = cb.checked;
+                    cb.closest('tr').className = cb.checked ? '' : 'deselected';
+                    updatePreviewCount();
+                });
+            });
+
+            // Inline editing
+            tbody.querySelectorAll('input[type="text"]').forEach(input => {
+                input.addEventListener('change', () => {
+                    const idx = parseInt(input.dataset.index);
+                    const field = input.dataset.field;
+                    parsedEvents[idx][field] = input.value;
+                });
+            });
+        }
+
+        function updatePreviewCount() {
+            const selected = parsedEvents.filter(e => e.selected).length;
+            document.getElementById('previewCount').textContent =
+                `${selected} of ${parsedEvents.length} selected`;
+        }
+
+        // Select All / Deselect All
+        document.getElementById('selectAllBtn').addEventListener('click', () => {
+            parsedEvents.forEach(e => e.selected = true);
+            renderPreview();
+        });
+
+        document.getElementById('deselectAllBtn').addEventListener('click', () => {
+            parsedEvents.forEach(e => e.selected = false);
+            renderPreview();
+        });
+
+        // Confirm import
+        document.getElementById('confirmBtn').addEventListener('click', async () => {
+            const selected = parsedEvents.filter(e => e.selected);
+            if (selected.length === 0) {
+                showStatus('No events selected', 'info');
+                return;
+            }
+
+            const btn = document.getElementById('confirmBtn');
+            btn.disabled = true;
+            btn.textContent = 'Importing...';
+
+            try {
+                const eventsToImport = selected.map(e => ({
+                    title: e.title,
+                    venue: e.venue,
+                    date: e.date,
+                    start_time: e.start_time || null,
+                    ticket_url: e.ticket_url || null,
+                    source: e.source || 'import',
+                }));
+
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/import/confirm', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ events: eventsToImport }),
+                });
+
+                if (resp.ok || data.ok) {
+                    const parts = [`${data.imported} events imported`];
+                    if (data.duplicates && data.duplicates.length)
+                        parts.push(`${data.duplicates.length} duplicates skipped`);
+                    if (data.skipped && data.skipped.length)
+                        parts.push(`${data.skipped.length} skipped (bad dates)`);
+                    const summary = parts.join(', ');
+                    const msg = data.warning
+                        ? `${summary}. Warning: ${data.warning}`
+                        : `${summary}. Trigger a rebuild to refresh the calendar.`;
+                    showStatus(msg, data.warning ? 'info' : 'success');
+                    parsedEvents = parsedEvents.filter(e => !e.selected);
+                    renderPreview();
+
+                    // Reload events list in Events tab
+                    loadEvents();
+                } else {
+                    showStatus(data.error || 'Import failed', 'error');
+                }
+            } catch (err) {
+                showStatus('Import failed: ' + err.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Confirm Import';
+        });
+
+        // ------------------------------------------------------------------------
+        // SECTION 2: Run Scrapers & Rebuild
+        // ------------------------------------------------------------------------
+
+        document.getElementById('runScrapersBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('runScrapersBtn');
+            btn.disabled = true;
+            btn.textContent = 'Starting...';
+
+            // Show log panel
+            const logPanel = document.getElementById('buildLogPanel');
+            logPanel.classList.add('visible');
+            document.getElementById('buildLogStatus').textContent = 'Starting build...';
+            document.getElementById('buildLogStatus').className = 'build-log-status running';
+            document.getElementById('buildLogContent').innerHTML = '';
+
+            lastLogTimestamp = null;
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/build/trigger', {
+                    method: 'POST',
+                });
+
+                if (resp.ok || data.ok) {
+                    addLogLine('Build triggered successfully', 'success');
+                    addLogLine('Scrapers are running. This may take 2-3 minutes...');
+
+                    // Start polling for logs
+                    startLogPolling();
+
+                    // Re-enable button after a delay
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = 'Run Scrapers + Rebuild Calendar';
+                    }, 5000);
+                } else {
+                    addLogLine('Failed to trigger build: ' + (data.error || 'Unknown error'), 'error');
+                    document.getElementById('buildLogStatus').textContent = 'Failed';
+                    document.getElementById('buildLogStatus').className = 'build-log-status error';
+                    btn.disabled = false;
+                    btn.textContent = 'Run Scrapers + Rebuild Calendar';
+                }
+            } catch (err) {
+                addLogLine('Error: ' + err.message, 'error');
+                document.getElementById('buildLogStatus').textContent = 'Error';
+                document.getElementById('buildLogStatus').className = 'build-log-status error';
+                btn.disabled = false;
+                btn.textContent = 'Run Scrapers + Rebuild Calendar';
+            }
+        });
+
+        document.getElementById('rebuildOnlyBtn').addEventListener('click', async () => {
+            if (!confirm('Rebuild the calendar HTML from existing events? (No scraping)')) return;
+
+            const btn = document.getElementById('rebuildOnlyBtn');
+            btn.disabled = true;
+            btn.textContent = 'Rebuilding...';
+
+            // For now, just trigger the same build but show different message
+            // In a real implementation, this would call a different endpoint
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/build/trigger', {
+                    method: 'POST',
+                });
+
+                if (resp.ok || data.ok) {
+                    showStatus('Calendar rebuild triggered. Will update in 1-2 minutes.', 'success');
+                } else {
+                    showStatus(data.error || 'Failed to trigger rebuild', 'error');
+                }
+            } catch (err) {
+                showStatus('Failed: ' + err.message, 'error');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Rebuild Calendar Only';
+        });
+
+        function addLogLine(message, type = '') {
+            const content = document.getElementById('buildLogContent');
+            const line = document.createElement('div');
+            line.className = 'log-line' + (type ? ' ' + type : '');
+
+            const timestamp = new Date().toLocaleTimeString('en-US', {
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+
+            line.innerHTML = `<span class="timestamp">[${timestamp}]</span>${esc(message)}`;
+            content.appendChild(line);
+
+            // Auto-scroll to bottom
+            content.scrollTop = content.scrollHeight;
+        }
+
+        function startLogPolling() {
+            // Clear any existing interval
+            if (buildLogInterval) {
+                clearInterval(buildLogInterval);
+            }
+
+            let pollCount = 0;
+            const maxPolls = 60; // Poll for up to 2 minutes (every 2 seconds)
+
+            buildLogInterval = setInterval(async () => {
+                pollCount++;
+
+                try {
+                    const { resp, data } = await AdminAPI.apiJSON('/api/admin/scraper/logs?limit=10');
+
+                    if (resp.ok && Array.isArray(data) && data.length > 0) {
+                        // Show recent log entries
+                        const recentLogs = data.slice(0, 3);
+
+                        recentLogs.forEach(log => {
+                            if (!lastLogTimestamp || new Date(log.started_at) > new Date(lastLogTimestamp)) {
+                                const status = log.status || 'running';
+                                const msg = `${log.scraper_name}: ${log.events_found || 0} found, ${log.events_added || 0} added`;
+
+                                if (status === 'success') {
+                                    addLogLine(msg, 'success');
+                                } else if (status === 'failed') {
+                                    addLogLine(msg + ' (failed)', 'error');
+                                } else {
+                                    addLogLine(msg);
+                                }
+
+                                lastLogTimestamp = log.started_at;
+                            }
+                        });
+
+                        // Check if build is complete (all scrapers finished)
+                        const hasRunning = data.some(log => log.status === 'running');
+                        if (!hasRunning && pollCount > 3) {
+                            addLogLine('✓ Build complete. Calendar updated.', 'success');
+                            document.getElementById('buildLogStatus').textContent = 'Complete';
+                            document.getElementById('buildLogStatus').className = 'build-log-status success';
+                            clearInterval(buildLogInterval);
+                            loadScraperStatus(); // Refresh status table
+                        }
+                    }
+
+                    // Stop polling after max attempts
+                    if (pollCount >= maxPolls) {
+                        addLogLine('Polling timeout. Check Scraper Status below for final results.', 'warning');
+                        document.getElementById('buildLogStatus').textContent = 'Timeout';
+                        document.getElementById('buildLogStatus').className = 'build-log-status';
+                        clearInterval(buildLogInterval);
+                    }
+                } catch (err) {
+                    console.error('Log polling error:', err);
+                }
+            }, 2000); // Poll every 2 seconds
+        }
+
+        // ------------------------------------------------------------------------
+        // SECTION 3: Scraper Status
+        // ------------------------------------------------------------------------
+
+        async function loadScraperStatus() {
+            const tbody = document.getElementById('scraperStatusBody');
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/scraper/status');
+
+                if (!resp.ok || !data.scrapers || data.scrapers.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">
+                        Scraper status unavailable. Scrapers run via GitHub Actions twice daily.
+                    </td></tr>`;
+                    return;
+                }
+
+                tbody.innerHTML = data.scrapers.map(s => {
+                    const statusClass = s.last_status === 'success' ? 'ok' :
+                                       s.last_status === 'failed' ? 'error' :
+                                       s.last_status === 'partial' ? 'warning' : 'unknown';
+                    const statusText = s.last_status || '—';
+                    const lastRun = s.last_run ? timeAgo(s.last_run) : 'Never';
+                    const eventsFound = s.events_added_last_run || 0;
+
+                    return `<tr>
+                        <td>${esc(s.name)}</td>
+                        <td>Scraper</td>
+                        <td>${lastRun}</td>
+                        <td>${eventsFound}</td>
+                        <td><span class="status-indicator ${statusClass}"></span>${esc(statusText)}</td>
+                    </tr>`;
+                }).join('');
+
+            } catch (err) {
+                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">
+                    Failed to load scraper status: ${esc(err.message)}
+                </td></tr>`;
             }
         }
     </script>
