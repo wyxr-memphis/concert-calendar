@@ -14,7 +14,7 @@ psycopg2.extras.register_uuid()
 
 def get_connection():
     """Get a new database connection."""
-    return psycopg2.connect(DATABASE_URL)
+    return psycopg2.connect(DATABASE_URL, connect_timeout=10)
 
 
 @contextmanager
