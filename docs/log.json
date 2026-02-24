@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-24T23:14:06.298023+00:00",
+  "run_timestamp": "2026-02-24T23:30:12.917774+00:00",
   "date_range": {
     "start": "2026-02-24",
     "end": "2026-03-03"
   },
-  "total_events_json": 63,
-  "total_active_display": 46,
+  "total_events_json": 70,
+  "total_active_display": 53,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -18,8 +18,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 46,
-      "events_after_filter": 46,
+      "events_found": 53,
+      "events_after_filter": 53,
       "events_filtered": 0,
       "error": null
     }
@@ -185,6 +185,13 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "SEXMEX",
+      "venue": "Hi Tone",
+      "date": "2026-02-25",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
+    },
+    {
       "artist": "Rodd Bland",
       "venue": "Soul Street LIVE at Rum Boogie Cafe",
       "date": "2026-02-25",
@@ -225,6 +232,20 @@
       "date": "2026-02-26",
       "time": "7:00 PM",
       "source": "Artifacts (Bandsintown page)"
+    },
+    {
+      "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
+      "venue": "Hi Tone",
+      "date": "2026-02-26",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
+    },
+    {
+      "artist": "VALORIES / AVON PARK / MASSEY LANE",
+      "venue": "Hi Tone",
+      "date": "2026-02-26",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "Valories with AVON PARK & MASSEY LANE",
@@ -309,6 +330,20 @@
       "date": "2026-02-27",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "GHETTO SHIT VOL.3",
+      "venue": "Hi Tone",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
+    },
+    {
+      "artist": "TRICK MIRROR EP RELEASE",
+      "venue": "Hi Tone",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "Demola",
@@ -402,6 +437,13 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
+      "artist": "FACEROT / ENCIRCLED THRONE / RUINED GOD / SIBYL",
+      "venue": "Hi Tone",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
+    },
+    {
       "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
       "venue": "Minglewood Hall",
       "date": "2026-02-28",
@@ -421,6 +463,13 @@
       "date": "2026-02-28",
       "time": "6:30 PM",
       "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "DRAG BINGO",
+      "venue": "Hi Tone",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",

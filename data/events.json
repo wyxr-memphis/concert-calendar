@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-24T23:14:06.298023+00:00",
+  "updated_at": "2026-02-24T23:30:12.917774+00:00",
   "events": [
     {
       "id": "evt_1771375878192_33",
@@ -36,7 +36,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771383457969_66",
@@ -180,7 +180,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771559883853_43",
@@ -216,7 +216,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771559883855_45",
@@ -270,7 +270,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-21T05:46:00.852315+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771739715377_52",
@@ -288,7 +288,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771739715378_53",
@@ -306,7 +306,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771739715379_54",
@@ -1080,7 +1080,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T16:29:11.423794+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771869414391_61",
@@ -1116,7 +1116,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T06:02:19.012052+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     },
     {
       "id": "evt_1771912976558_63",
@@ -1134,7 +1134,133 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T06:02:19.012052+00:00",
-      "updated_at": "2026-02-24T23:14:06.298023+00:00"
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833521_63",
+      "title": "SEXMEX",
+      "venue": "Hi Tone",
+      "date": "2026-02-25",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833522_64",
+      "title": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
+      "venue": "Hi Tone",
+      "date": "2026-02-26",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833523_65",
+      "title": "VALORIES / AVON PARK / MASSEY LANE",
+      "venue": "Hi Tone",
+      "date": "2026-02-26",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833524_66",
+      "title": "GHETTO SHIT VOL.3",
+      "venue": "Hi Tone",
+      "date": "2026-02-27",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833525_67",
+      "title": "TRICK MIRROR EP RELEASE",
+      "venue": "Hi Tone",
+      "date": "2026-02-27",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833526_68",
+      "title": "FACEROT / ENCIRCLED THRONE / RUINED GOD / SIBYL",
+      "venue": "Hi Tone",
+      "date": "2026-02-28",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
+    },
+    {
+      "id": "evt_1771975833527_69",
+      "title": "DRAG BINGO",
+      "venue": "Hi Tone",
+      "date": "2026-03-01",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:30:12.917774+00:00",
+      "updated_at": "2026-02-24T23:30:12.917774+00:00"
     }
   ]
 }
