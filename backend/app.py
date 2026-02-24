@@ -55,11 +55,16 @@ CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
 # Startup
 # ---------------------------------------------------------------------------
 
+print("[startup] Loading app...", flush=True)
 with app.app_context():
     try:
+        print("[startup] Connecting to database...", flush=True)
         init_db()
+        print("[startup] Database initialized OK", flush=True)
     except Exception as e:
-        print(f"Warning: Could not initialize database: {e}")
+        print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
+        print("[startup] App will continue without database — endpoints may fail", flush=True)
+print("[startup] App ready", flush=True)
 
 
 # ---------------------------------------------------------------------------
