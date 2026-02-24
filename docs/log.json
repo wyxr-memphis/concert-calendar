@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-23T23:12:20.122871+00:00",
+  "run_timestamp": "2026-02-24T06:02:19.012052+00:00",
   "date_range": {
-    "start": "2026-02-23",
-    "end": "2026-03-02"
+    "start": "2026-02-24",
+    "end": "2026-03-03"
   },
-  "total_events_json": 62,
-  "total_active_display": 44,
+  "total_events_json": 63,
+  "total_active_display": 46,
   "sources": [
     {
       "name": "Ticketmaster",
@@ -26,17 +26,17 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 84,
-      "events_after_filter": 1,
-      "events_filtered": 83,
+      "events_found": 83,
+      "events_after_filter": 2,
+      "events_filtered": 81,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 33,
-      "events_after_filter": 1,
-      "events_filtered": 32,
+      "events_after_filter": 2,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -59,8 +59,8 @@
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 2,
-      "events_filtered": 8,
+      "events_after_filter": 1,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -114,8 +114,8 @@
     {
       "name": "Events JSON",
       "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     }
@@ -126,7 +126,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-24",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Rodd Bland",
@@ -154,7 +154,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-25",
       "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Bryan Hayes Music",
@@ -203,7 +203,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-26",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Ghost Town Blues Band",
@@ -252,14 +252,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-27",
       "time": "9PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans)",
       "venue": "Bar DKDC",
       "date": "2026-02-27",
       "time": "LATER",
-      "source": "Artifacts (Event listing from bar schedule)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans) Later",
@@ -343,14 +343,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-02-28",
       "time": "7PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Coco's Super Awesome Birthday w/ Turnstyles, Fake! + Frank McLallen",
       "venue": "Bar DKDC",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Event listing from bar schedule)"
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Turnstyles, Fake! + Frank McLallen",
@@ -426,6 +426,20 @@
       "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
       "venue": "Minglewood Hall",
       "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Monaleo \u2013 Who Did The Body Tour \u2013 SOLD OUT",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-03",
       "time": null,
       "source": "Venue: Minglewood Hall"
     }
