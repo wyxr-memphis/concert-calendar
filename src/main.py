@@ -117,6 +117,68 @@ def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
         print(f"  [scrape_log] Could not update log entry: {e}")
 
 
+def _sync_events_to_db(merged_events: list) -> int:
+    """Sync events from events.json into PostgreSQL so admin can see/edit them.
+
+    Uses title+venue+date as a match key. Only inserts events that don't
+    already exist in the DB. Never overwrites admin edits.
+    """
+    if not _db_available():
+        return 0
+    try:
+        import psycopg2
+        import psycopg2.extras
+        conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+
+        # Get existing events from DB to check for duplicates
+        cur.execute("SELECT title, venue, date FROM events")
+        existing = set()
+        for row in cur.fetchall():
+            key = (
+                (row["title"] or "").strip().lower(),
+                (row["venue"] or "").strip().lower(),
+                str(row["date"]),
+            )
+            existing.add(key)
+
+        added = 0
+        for entry in merged_events:
+            title = (entry.get("title") or "").strip()
+            venue = (entry.get("venue") or "").strip()
+            date_str = (entry.get("date") or "").strip()
+
+            if not title or not date_str:
+                continue
+
+            key = (title.lower(), venue.lower(), date_str)
+            if key in existing:
+                continue
+
+            cur.execute(
+                """INSERT INTO events (title, venue, date, start_time, source, is_featured, is_active)
+                   VALUES (%s, %s, %s, %s, %s, %s, %s)""",
+                (
+                    title,
+                    venue,
+                    date_str,
+                    entry.get("start_time"),
+                    entry.get("source", "scraper"),
+                    entry.get("is_featured", False),
+                    entry.get("is_active", True),
+                ),
+            )
+            existing.add(key)
+            added += 1
+
+        conn.commit()
+        conn.close()
+        return added
+    except Exception as e:
+        print(f"  [db_sync] Could not sync events to PostgreSQL: {e}")
+        return 0
+
+
 def run(dry_run: bool = False) -> None:
     """Main execution: fetch → merge into events.json → generate HTML."""
     run_timestamp = datetime.now(ZoneInfo("UTC"))
@@ -210,6 +272,11 @@ def run(dry_run: bool = False) -> None:
     if not dry_run:
         save_events_json(events_data)
         print(f"  Wrote {len(merged)} events to {EVENTS_JSON_PATH}")
+
+    # ---- STEP 5b: Sync events to PostgreSQL (so admin can see/edit them) ----
+    if not dry_run and _db_available():
+        synced = _sync_events_to_db(merged)
+        print(f"  Synced to PostgreSQL: {synced} new events added")
 
     # ---- STEP 6: Generate HTML from events.json (active events in date range) ----
     active_events = []
