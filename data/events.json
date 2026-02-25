@@ -1,43 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-02-24T23:55:03.772051+00:00",
+  "updated_at": "2026-02-25T00:08:13.886807+00:00",
   "events": [
-    {
-      "id": "evt_1771375878192_33",
-      "title": "THE PARALLAX",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-24",
-      "start_time": "10PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Instagram flyer)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-24T17:52:35.407861+00:00"
-    },
-    {
-      "id": "evt_1771375878193_34",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-02-24",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-25/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-18T00:50:35.941489+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
-    },
     {
       "id": "evt_1771383457969_66",
       "title": "Open Mic Night for Memphis Musicians",
@@ -55,24 +19,6 @@
       "is_active": true,
       "created_at": "2026-02-18T02:57:30.135404+00:00",
       "updated_at": "2026-02-18T19:35:47.762206+00:00"
-    },
-    {
-      "id": "evt_1771443358053_40",
-      "title": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-24",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107930120-rodd-bland-at-blues-city-cafe",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Bandsintown page)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-20T03:57:55.247701+00:00"
     },
     {
       "id": "evt_1771443358054_41",
@@ -180,7 +126,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771559883853_43",
@@ -216,7 +162,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-20T03:57:55.247701+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771559883855_45",
@@ -270,7 +216,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-21T05:46:00.852315+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771739715377_52",
@@ -288,7 +234,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771739715378_53",
@@ -306,7 +252,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-22T05:55:05.104320+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771739715379_54",
@@ -433,60 +379,6 @@
       "is_active": true,
       "created_at": "2026-02-23T13:41:40.680709+00:00",
       "updated_at": "2026-02-24T17:52:35.407861+00:00"
-    },
-    {
-      "id": "evt_import_c366592d31c7",
-      "title": "Cash Langdon, Ibex Clone, Missed Dunks at Summer League",
-      "venue": "The Robinson Gallery",
-      "date": "2026-02-24",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107959371-cash-langdon-at-the-robinson-gallery?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.882821Z",
-      "updated_at": "2026-02-23T14:02:21.882821Z"
-    },
-    {
-      "id": "evt_import_193499cfe583",
-      "title": "Rodd Bland",
-      "venue": "Brimstone Jones LIVE at Blues City Cafe",
-      "date": "2026-02-24",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107930120-rodd-bland-at-blues-city-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.882821Z",
-      "updated_at": "2026-02-23T14:02:21.882821Z"
-    },
-    {
-      "id": "evt_import_9ef5839ba8fd",
-      "title": "Vision Quest",
-      "venue": "Growlers",
-      "date": "2026-02-24",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1038070902-vision-quest-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.882821Z",
-      "updated_at": "2026-02-23T14:02:21.882821Z"
     },
     {
       "id": "evt_import_64dd8a30b080",
@@ -1080,7 +972,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T16:29:11.423794+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771869414391_61",
@@ -1116,7 +1008,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T06:02:19.012052+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771912976558_63",
@@ -1148,11 +1040,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833522_64",
@@ -1166,11 +1058,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833523_65",
@@ -1184,11 +1076,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833524_66",
@@ -1202,11 +1094,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833525_67",
@@ -1220,11 +1112,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833526_68",
@@ -1238,11 +1130,11 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     },
     {
       "id": "evt_1771975833527_69",
@@ -1256,11 +1148,29 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
+      "source": "Artifacts (Venue flyer)",
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-24T23:55:03.772051+00:00"
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
+    },
+    {
+      "id": "evt_1771978110832_70",
+      "title": "Monaleo - Who Did The Body Tour",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-03",
+      "start_time": "8 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.ticketmaster.com/monaleo-who-did-the-body-tour-memphis-tennessee-03-03-2026/event/1B0063510387E08B",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Ticketmaster",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-25T00:08:13.886807+00:00",
+      "updated_at": "2026-02-25T00:08:13.886807+00:00"
     }
   ]
 }
