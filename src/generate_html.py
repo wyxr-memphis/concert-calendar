@@ -27,20 +27,60 @@ def generate_html(
     for d in sorted_dates:
         day_events = by_date[d]
         day_name = d.strftime("%A, %B %-d").upper()
-        
-        event_lines = ""
+
+        # Group events by venue (case-insensitive, preserving order)
+        venue_groups: Dict[str, List[Event]] = {}
+        venue_order: List[str] = []
         for event in day_events:
-            line = f'<span class="artist">{_esc(event.artist)}</span> — '
-            line += f'<span class="venue">{_esc(event.venue)}</span>'
-            if event.time:
-                line += f' <span class="time">({_esc(event.time)})</span>'
-            
-            cls = ' class="featured event--featured"' if event.is_featured else ''
-            badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
-            if event.url:
-                event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{badge}{line}</a></li>\n'
+            key = event.venue.strip().lower()
+            if key not in venue_groups:
+                venue_groups[key] = []
+                venue_order.append(key)
+            venue_groups[key].append(event)
+
+        event_lines = ""
+        for venue_key in venue_order:
+            venue_events = venue_groups[venue_key]
+
+            if len(venue_events) == 1:
+                # Single event at this venue — render as before
+                event = venue_events[0]
+                line = f'<span class="artist">{_esc(event.artist)}</span> — '
+                line += f'<span class="venue">{_esc(event.venue)}</span>'
+                if event.time:
+                    line += f' <span class="time">({_esc(event.time)})</span>'
+
+                cls = ' class="featured event--featured"' if event.is_featured else ''
+                badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
+                if event.url:
+                    event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{badge}{line}</a></li>\n'
+                else:
+                    event_lines += f'<li{cls}>{badge}{line}</li>\n'
             else:
-                event_lines += f'<li{cls}>{badge}{line}</li>\n'
+                # Multiple events at same venue — group them
+                venue_name = venue_events[0].venue
+                times = [e.time for e in venue_events]
+                all_same_time = len(set(times)) == 1
+                shared_time = times[0] if all_same_time else None
+
+                header = f'<span class="venue">{_esc(venue_name)}</span>'
+                if shared_time:
+                    header += f' <span class="time">({_esc(shared_time)})</span>'
+
+                artist_items = ""
+                for event in venue_events:
+                    badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
+                    cls = ' class="featured event--featured"' if event.is_featured else ''
+                    artist_text = f'{badge}<span class="artist">{_esc(event.artist)}</span>'
+                    if not all_same_time and event.time:
+                        artist_text += f' <span class="time">({_esc(event.time)})</span>'
+
+                    if event.url:
+                        artist_items += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{artist_text}</a></li>\n'
+                    else:
+                        artist_items += f'<li{cls}>{artist_text}</li>\n'
+
+                event_lines += f'<li class="venue-group"><div class="venue-header">{header}</div>\n<ul class="venue-artists">\n{artist_items}</ul></li>\n'
 
         event_sections += f"""
         <div class="day-section">
@@ -216,6 +256,22 @@ def generate_html(
         .time {{
             color: var(--wyxr-gray);
             font-size: 0.9em;
+        }}
+        .venue-group {{
+            padding: 5px 0;
+        }}
+        .venue-header {{
+            font-size: 0.95em;
+            margin-bottom: 2px;
+        }}
+        .venue-artists {{
+            list-style: none;
+            padding-left: 16px;
+        }}
+        .venue-artists li {{
+            padding: 2px 0;
+            font-size: 0.95em;
+            border-bottom: none;
         }}
         .no-events {{
             color: var(--wyxr-dim);
