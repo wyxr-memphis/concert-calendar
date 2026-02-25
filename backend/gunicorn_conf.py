@@ -1,9 +1,10 @@
 """Gunicorn configuration for Render deployment.
 
 Key settings:
-- preload_app: Load Flask app in master before forking workers.
-  Faster worker boot + less memory (shared via copy-on-write).
-  Safe because DB init is deferred to first request (not at import time).
+- preload_app disabled: Render's "New primary port detected" restart kills
+  the first boot and starts a second. With preload_app=True the second boot's
+  worker fork fails (resource conflict with dying old process). Loading the
+  app per-worker avoids this. DB init is still deferred to first request.
 - graceful_timeout: How long old workers have to finish during deploys.
   Low value so the old process releases the port quickly for the new one.
 - Lifecycle hooks: Log worker fork/exit/abort for debugging deploy issues.
@@ -23,7 +24,7 @@ graceful_timeout = 10   # Max time for old workers to finish during shutdown
 workers = int(os.environ.get("WEB_CONCURRENCY", 1))
 
 # --- App loading ---
-preload_app = True      # Load app in master, fork lighter workers
+preload_app = False     # Each worker loads app independently (more resilient to Render restarts)
 
 # --- Lifecycle hooks for visibility ---
 
