@@ -1,1 +1,1 @@
-web: gunicorn backend.app:app --timeout 120 --bind 0.0.0.0:${PORT:-10000}
+web: gunicorn backend.app:app -c backend/gunicorn_conf.py
