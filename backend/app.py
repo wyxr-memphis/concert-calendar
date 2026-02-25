@@ -51,19 +51,31 @@ CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
 
 
 # ---------------------------------------------------------------------------
-# Startup
+# Startup — DB init is deferred so the app can bind the port immediately.
+# Render's port scanner needs a fast response; a slow DB connect can cause
+# "No open HTTP ports detected" → restart loops.
 # ---------------------------------------------------------------------------
 
-print("[startup] Loading app...", flush=True)
-with app.app_context():
+_db_ready = False
+
+print("[startup] App loaded (DB init deferred to first request)", flush=True)
+
+
+@app.before_request
+def _ensure_db():
+    global _db_ready
+    if _db_ready:
+        return
+    # Skip DB init for health check — must respond instantly
+    if request.path == "/health":
+        return
     try:
         print("[startup] Connecting to database...", flush=True)
         init_db()
+        _db_ready = True
         print("[startup] Database initialized OK", flush=True)
     except Exception as e:
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
-        print("[startup] App will continue without database — endpoints may fail", flush=True)
-print("[startup] App ready", flush=True)
 
 
 # ---------------------------------------------------------------------------
