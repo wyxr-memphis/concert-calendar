@@ -19,6 +19,9 @@ bind = f"0.0.0.0:{os.environ.get('PORT', '10000')}"
 timeout = 120           # Max time for a request to complete
 graceful_timeout = 10   # Max time for old workers to finish during shutdown
 
+# --- Workers ---
+workers = int(os.environ.get("WEB_CONCURRENCY", 1))
+
 # --- App loading ---
 preload_app = True      # Load app in master, fork lighter workers
 
