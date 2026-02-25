@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-25T17:52:57.491872+00:00",
+  "run_timestamp": "2026-02-25T23:32:15.058465+00:00",
   "date_range": {
     "start": "2026-02-25",
     "end": "2026-03-04"
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 83,
+      "events_found": 85,
       "events_after_filter": 1,
-      "events_filtered": 82,
+      "events_filtered": 84,
       "error": null
     },
     {
@@ -107,9 +107,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 60,
+      "events_found": 59,
       "events_after_filter": 0,
-      "events_filtered": 60,
+      "events_filtered": 59,
       "error": null
     },
     {
@@ -176,7 +176,7 @@
       "venue": "Blues City Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Kenny Wayne Shepherd",
@@ -190,14 +190,14 @@
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
       "venue": "Hi Tone",
       "date": "2026-02-26",
       "time": null,
-      "source": "Artifacts (Venue event calendar)"
+      "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "Valories with AVON PARK & MASSEY LANE",
@@ -288,14 +288,14 @@
       "venue": "Hi Tone",
       "date": "2026-02-27",
       "time": null,
-      "source": "Artifacts (Venue event calendar)"
+      "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "TRICK MIRROR EP RELEASE",
       "venue": "Hi Tone",
       "date": "2026-02-27",
       "time": null,
-      "source": "Artifacts (Venue event calendar)"
+      "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "Demola",
@@ -379,7 +379,7 @@
       "venue": "Hi Tone",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Venue event calendar)"
+      "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
@@ -414,7 +414,7 @@
       "venue": "Hi Tone",
       "date": "2026-03-01",
       "time": null,
-      "source": "Artifacts (Venue event calendar)"
+      "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
