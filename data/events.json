@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-25T00:09:55.977033Z",
+  "updated_at": "2026-02-25T00:10:05.190646Z",
   "events": [
     {
       "id": "evt_1771383457969_66",
@@ -1042,9 +1042,9 @@
       "genre": null,
       "source": "Artifacts (Venue flyer)",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-02-24T23:30:12.917774+00:00",
-      "updated_at": "2026-02-25T00:08:13.886807+00:00"
+      "updated_at": "2026-02-25T00:10:05.190646Z"
     },
     {
       "id": "evt_1771975833522_64",
