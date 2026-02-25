@@ -90,15 +90,27 @@ def generate_html(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Next 8 Days</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        :root {{
+            --wyxr-yellow: #FFCF2D;
+            --wyxr-black: #000000;
+            --wyxr-white: #FFFFFF;
+            --wyxr-charcoal: #1A1A1A;
+            --wyxr-gray: #888888;
+            --wyxr-dim: #666666;
+            --wyxr-border: #2A2A2A;
+        }}
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         body {{
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             max-width: 700px;
             margin: 0 auto;
             padding: 20px 16px;
-            background: #fafafa;
-            color: #1a1a1a;
+            background: var(--wyxr-black);
+            color: var(--wyxr-white);
             line-height: 1.5;
         }}
         header {{
@@ -110,38 +122,50 @@ def generate_html(
             border-radius: 6px;
         }}
         .header-tagline {{
+            font-family: 'Inter', sans-serif;
             font-size: 0.9em;
-            color: #444;
+            color: #999;
             margin-top: 12px;
             line-height: 1.5;
         }}
         .header-meta {{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 4px;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid #ddd;
+            gap: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid var(--wyxr-border);
+        }}
+        .meta-badge {{
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8em;
+            font-weight: 600;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            padding: 3px 10px;
+            border-radius: 3px;
+            letter-spacing: 0.02em;
         }}
         .updated {{
-            font-size: 0.85em;
-            color: #666;
-        }}
-        .summary {{
-            font-size: 0.85em;
-            color: #444;
+            font-size: 0.8em;
+            color: var(--wyxr-gray);
         }}
         .day-section {{
             margin-bottom: 28px;
         }}
         h2 {{
-            font-size: 0.95em;
-            font-weight: 700;
+            font-family: 'Anybody', sans-serif;
+            font-size: 1em;
+            font-weight: 800;
             letter-spacing: 0.08em;
-            color: #1a1a1a;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 4px;
+            color: var(--wyxr-yellow);
+            border-left: 4px solid var(--wyxr-yellow);
+            border-bottom: none;
+            padding-left: 10px;
+            padding-bottom: 0;
             margin-bottom: 8px;
         }}
         ul {{
@@ -149,25 +173,26 @@ def generate_html(
             padding: 0;
         }}
         li {{
-            padding: 4px 0;
+            padding: 5px 0;
             font-size: 0.95em;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--wyxr-border);
         }}
         li:last-child {{
             border-bottom: none;
         }}
         li.featured, li.event--featured {{
-            border-left: 3px solid #f9a825;
+            border-left: 3px solid var(--wyxr-yellow);
             padding-left: 8px;
             margin-left: -3px;
         }}
         .featured-badge {{
             display: inline-block;
-            background: #f9a825;
-            color: #1a1a1a;
-            font-size: 0.65em;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.6em;
             font-weight: 700;
-            padding: 1px 6px;
+            padding: 2px 6px;
             border-radius: 3px;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -179,34 +204,35 @@ def generate_html(
             text-decoration: none;
         }}
         li a:hover {{
-            text-decoration: underline;
+            color: var(--wyxr-yellow);
         }}
         .artist {{
             font-weight: 600;
+            text-transform: uppercase;
         }}
         .venue {{
-            color: #555;
+            color: #aaa;
         }}
         .time {{
-            color: #888;
+            color: var(--wyxr-gray);
             font-size: 0.9em;
         }}
         .no-events {{
-            color: #666;
+            color: var(--wyxr-dim);
             font-style: italic;
             padding: 20px 0;
         }}
         footer {{
             margin-top: 40px;
             padding-top: 16px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--wyxr-border);
             font-size: 0.8em;
-            color: #aaa;
+            color: #555;
             text-align: center;
         }}
         .source-summary {{
             font-size: 1.05em;
-            color: #666;
+            color: var(--wyxr-gray);
             margin-bottom: 8px;
         }}
         .source-status {{
@@ -215,59 +241,41 @@ def generate_html(
         }}
         .source-status summary {{
             cursor: pointer;
-            color: #888;
+            color: var(--wyxr-dim);
             font-size: 0.95em;
         }}
         .source-status summary:hover {{
-            color: #555;
+            color: #aaa;
         }}
         .source-table {{
             width: 100%;
             border-collapse: collapse;
             margin-top: 8px;
+            background: var(--wyxr-charcoal);
+            border-radius: 6px;
+            overflow: hidden;
         }}
         .source-table th {{
             text-align: left;
             font-weight: 600;
-            padding: 4px 8px;
-            border-bottom: 1px solid #ddd;
-            color: #888;
+            padding: 6px 10px;
+            border-bottom: 1px solid var(--wyxr-border);
+            color: var(--wyxr-dim);
             font-size: 0.85em;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }}
         .source-table td {{
-            padding: 3px 8px;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 4px 10px;
+            border-bottom: 1px solid #222;
         }}
         .src-dot {{ width: 16px; font-size: 0.7em; }}
-        .src-count {{ text-align: right; color: #888; }}
-        .src-ok .src-dot {{ color: #2e7d32; }}
-        .src-warn .src-dot {{ color: #f9a825; }}
-        .src-error .src-dot {{ color: #c62828; }}
-        @media (prefers-color-scheme: dark) {{
-            body {{ background: #1a1a1a; color: #e0e0e0; }}
-            h2 {{ color: #e0e0e0; border-bottom-color: #444; }}
-            .venue {{ color: #aaa; }}
-            .time {{ color: #777; }}
-            .header-tagline {{ color: #999; }}
-            .header-meta {{ border-top-color: #333; }}
-            .updated {{ color: #888; }}
-            .summary {{ color: #999; }}
-            li {{ border-bottom-color: #2a2a2a; }}
-            li.featured {{ border-left-color: #fdd835; }}
-            .featured-badge {{ background: #fdd835; color: #1a1a1a; }}
-            .header-banner {{ border-radius: 6px; }}
-            footer {{ border-top-color: #333; color: #555; }}
-            .source-summary {{ color: #888; }}
-            .source-status summary {{ color: #666; }}
-            .source-status summary:hover {{ color: #aaa; }}
-            .source-table th {{ border-bottom-color: #333; color: #666; }}
-            .source-table td {{ border-bottom-color: #2a2a2a; }}
-            .src-ok .src-dot {{ color: #81c784; }}
-            .src-warn .src-dot {{ color: #fdd835; }}
-            .src-error .src-dot {{ color: #ef9a9a; }}
-        }}
+        .src-count {{ text-align: right; color: var(--wyxr-gray); }}
+        .src-ok .src-dot {{ color: #81c784; }}
+        .src-warn .src-dot {{ color: var(--wyxr-yellow); }}
+        .src-error .src-dot {{ color: #ef9a9a; }}
+        footer a {{ color: var(--wyxr-dim); }}
+        footer a:hover {{ color: var(--wyxr-yellow); }}
     </style>
 </head>
 <body>
@@ -276,7 +284,7 @@ def generate_html(
         <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
         <div class="header-meta">
             <span class="updated">Updated {run_time_str}</span>
-            <span class="summary">{total_events} show{"s" if total_events != 1 else ""} over the next 8 days</span>
+            <span class="meta-badge">{total_events} show{"s" if total_events != 1 else ""} &middot; next 8 days</span>
         </div>
     </header>
 
@@ -297,8 +305,8 @@ def generate_html(
         </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
-        <a href="/upload.html" style="color:inherit">Upload Artifact</a> &middot;
-        <a href="/admin/" style="color:inherit">Admin</a>
+        <a href="/admin/#tools">Upload Artifact</a> &middot;
+        <a href="/admin/">Admin</a>
     </footer>
 </body>
 </html>"""
