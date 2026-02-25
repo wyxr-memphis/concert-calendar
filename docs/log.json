@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-25T00:42:36.759051+00:00",
+  "run_timestamp": "2026-02-25T06:04:33.987773+00:00",
   "date_range": {
     "start": "2026-02-25",
     "end": "2026-03-04"
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 84,
+      "events_found": 83,
       "events_after_filter": 1,
-      "events_filtered": 83,
+      "events_filtered": 82,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -176,7 +176,7 @@
       "venue": "Blues City Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Kenny Wayne Shepherd",
@@ -190,7 +190,7 @@
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
@@ -204,6 +204,13 @@
       "venue": "The Hi-Tone Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
+      "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "Gia Welch/JD Westmoreland",
+      "venue": "South Main Sounds",
+      "date": "2026-02-27",
+      "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
     },
     {
@@ -316,13 +323,6 @@
       "venue": "Raven & Lily",
       "date": "2026-02-27",
       "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Gia Welch/JD Westmoreland",
-      "venue": "South Main Sounds",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
     },
     {

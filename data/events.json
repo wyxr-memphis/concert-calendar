@@ -1,25 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-02-25T00:42:36.759051+00:00",
+  "updated_at": "2026-02-25T06:04:33.987773+00:00",
   "events": [
-    {
-      "id": "70320522-dfc6-425f-ad0a-f0f6e0184c56",
-      "title": "Rodd Bland",
-      "venue": "Soul Street LIVE at Rum Boogie Cafe",
-      "date": "2026-02-25",
-      "start_time": "6:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107930096-rodd-bland-at-rum-boogie-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
     {
       "id": "1f4af307-eaf6-4579-850d-48a7ba8611cb",
       "title": "Rodd Bland",
@@ -57,6 +39,24 @@
       "updated_at": "2026-02-23T14:02:21.424318+00:00"
     },
     {
+      "id": "70320522-dfc6-425f-ad0a-f0f6e0184c56",
+      "title": "Rodd Bland",
+      "venue": "Soul Street LIVE at Rum Boogie Cafe",
+      "date": "2026-02-25",
+      "start_time": "6:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107930096-rodd-bland-at-rum-boogie-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
       "id": "7ed95a08-09b3-4ef8-baa3-75b3aed1f5d1",
       "title": "Bryan Hayes Music",
       "venue": "Bryan Hayes @ Rotolo's!",
@@ -72,7 +72,25 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "96b2192d-116f-41f4-93d4-fbe0c024d998",
+      "title": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-25",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107748074-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "9b5c1a90-15ed-42f9-a81a-f883c4fdb6d2",
@@ -111,24 +129,6 @@
       "updated_at": "2026-02-23T14:09:51.959004+00:00"
     },
     {
-      "id": "96b2192d-116f-41f4-93d4-fbe0c024d998",
-      "title": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-25",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107748074-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
       "id": "022e24e5-036f-43aa-baa8-6efca840a9c9",
       "title": "Sex Mex",
       "venue": "Hi Tone",
@@ -144,7 +144,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-18T19:35:47.762206+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "16c17181-8abc-470d-bbf0-1c29e35c25ed",
@@ -162,7 +162,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "c427e112-463f-43b1-93f5-853f9be20a31",
@@ -180,7 +180,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-18T02:57:30.135404+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "22d40970-3ee6-489c-bd53-663d93884eb9",
@@ -198,7 +198,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "136af4b1-5fbe-4375-a531-697d68bc2e21",
@@ -216,7 +216,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "60a4bc81-7661-41c8-b0d0-4cdeeddaa24c",
@@ -234,7 +234,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "06af2f7b-4097-4dbb-b125-ec14ae2be439",
@@ -252,7 +252,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "ef62672f-0f6e-495b-b473-5e42d6ecf3c9",
@@ -270,25 +270,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "6715d2c7-a0e5-452c-af49-767c294e01ff",
-      "title": "Chris Gales",
-      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
-      "date": "2026-02-26",
-      "start_time": "6:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107604220-chris-gales-at-ember-and-oak-prime?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:11:12.854558+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "609dfecb-ae90-466b-b0e2-ff3974305776",
@@ -309,6 +291,24 @@
       "updated_at": "2026-02-23T14:11:13.662424+00:00"
     },
     {
+      "id": "6715d2c7-a0e5-452c-af49-767c294e01ff",
+      "title": "Chris Gales",
+      "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
+      "date": "2026-02-26",
+      "start_time": "6:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107604220-chris-gales-at-ember-and-oak-prime?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:11:12.854558+00:00"
+    },
+    {
       "id": "860e08ca-cece-4bb3-8f32-e334b6948cec",
       "title": "Chris Gales",
       "venue": "Chris Gales Acoustic Set at Ember and Oak Prime",
@@ -324,79 +324,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "cdbe607c-16cb-4235-8569-82e26b1aeffd",
-      "title": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107908158-ghost-town-blues-band-at-blues-city-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "2a877b4d-a04e-4e38-9de8-886f42391cda",
-      "title": "Valories with AVON PARK & MASSEY LANE",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107939518-valories-at-the-hi-tone-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "d3071df6-cf53-438b-ab65-7bdcbeb1fa4c",
-      "title": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-26",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107748045-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "fe4dff6f-32c9-43f9-aeaf-39949cc0dbae",
-      "title": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107908158-ghost-town-blues-band-at-blues-city-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:11:16.058271+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "3d6c277a-95ec-4a05-8dd0-ac3523b73c95",
@@ -415,24 +343,6 @@
       "is_active": false,
       "created_at": "2026-02-19T06:02:14.884257+00:00",
       "updated_at": "2026-02-23T14:11:16.961701+00:00"
-    },
-    {
-      "id": "534ff6c1-0f24-4e55-8075-22d399954d14",
-      "title": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-26",
-      "start_time": "7:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107748045-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:11:20.261883+00:00"
     },
     {
       "id": "39723238-f5d5-48ec-bdc8-a1510de0590f",
@@ -522,7 +432,97 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "2a877b4d-a04e-4e38-9de8-886f42391cda",
+      "title": "Valories with AVON PARK & MASSEY LANE",
+      "venue": "The Hi-Tone Cafe",
+      "date": "2026-02-26",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107939518-valories-at-the-hi-tone-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "d3071df6-cf53-438b-ab65-7bdcbeb1fa4c",
+      "title": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-26",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107748045-john-paul-keith-at-guest-house-graceland-lobby-lounge",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown page)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "cdbe607c-16cb-4235-8569-82e26b1aeffd",
+      "title": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-02-26",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107908158-ghost-town-blues-band-at-blues-city-cafe",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Bandsintown page)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "fe4dff6f-32c9-43f9-aeaf-39949cc0dbae",
+      "title": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-02-26",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107908158-ghost-town-blues-band-at-blues-city-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:11:16.058271+00:00"
+    },
+    {
+      "id": "534ff6c1-0f24-4e55-8075-22d399954d14",
+      "title": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-02-26",
+      "start_time": "7:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107748045-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:11:20.261883+00:00"
     },
     {
       "id": "5d0efc98-e28a-4912-ba22-042f03e48119",
@@ -540,25 +540,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
-    },
-    {
-      "id": "5af0f2aa-1b79-4572-8eba-13e85f96904e",
-      "title": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
-      "venue": "Hi Tone",
-      "date": "2026-02-26",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "baa71c0b-becf-4dae-bc4e-20cfeb052adf",
@@ -576,7 +558,25 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
+    },
+    {
+      "id": "5af0f2aa-1b79-4572-8eba-13e85f96904e",
+      "title": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
+      "venue": "Hi Tone",
+      "date": "2026-02-26",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:55:22.636686+00:00",
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "48aecf20-5137-4b9c-998a-c426bf0a63c9",
@@ -594,25 +594,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:41:23.157220+00:00"
-    },
-    {
-      "id": "afc49324-b532-45b6-a006-78a6bfc8308a",
-      "title": "Chris Gales",
-      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
-      "date": "2026-02-27",
-      "start_time": "6:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107948731-chris-gales-at-southland-casino-racing?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "8dd3227c-e49a-4da8-b912-e49a22775617",
@@ -630,7 +612,25 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "9dc5643b-e2aa-4aad-be15-e182d0e7b035",
+      "title": "Bryan Hayes Music",
+      "venue": "Raven & Lily",
+      "date": "2026-02-27",
+      "start_time": "6:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107590925-bryan-hayes-music-at-raven-and-lily-court?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "3d56da84-4040-4b12-a302-5844cb83d7a3",
@@ -651,22 +651,22 @@
       "updated_at": "2026-02-23T14:10:35.259284+00:00"
     },
     {
-      "id": "9dc5643b-e2aa-4aad-be15-e182d0e7b035",
-      "title": "Bryan Hayes Music",
-      "venue": "Raven & Lily",
+      "id": "afc49324-b532-45b6-a006-78a6bfc8308a",
+      "title": "Chris Gales",
+      "venue": "Chris Gales at the Chairman Bar Main Stage located in Southland Casino Hotel in West Memphis AR.",
       "date": "2026-02-27",
       "start_time": "6:00 PM",
       "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107590925-bryan-hayes-music-at-raven-and-lily-court?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_url": "https://www.bandsintown.com/e/107948731-chris-gales-at-southland-casino-racing?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "505b7a46-e321-4953-84b5-315964d4dd93",
@@ -684,7 +684,25 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
+    },
+    {
+      "id": "4fd1182a-42c3-42fa-ba25-44290ab0dd2b",
+      "title": "Keith Anderson",
+      "venue": "Gold Strike Casino Resort",
+      "date": "2026-02-27",
+      "start_time": "7:30 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107064949-keith-anderson-at-gold-strike-casino-resort?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "b2076fed-6ad8-4f7f-b949-a41a697613ef",
@@ -705,13 +723,13 @@
       "updated_at": "2026-02-23T13:54:08.897662+00:00"
     },
     {
-      "id": "4fd1182a-42c3-42fa-ba25-44290ab0dd2b",
-      "title": "Keith Anderson",
-      "venue": "Gold Strike Casino Resort",
+      "id": "10c66c3f-8733-43f0-8e91-b23830cb56e0",
+      "title": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
+      "venue": "10th Inning Bar & Grill",
       "date": "2026-02-27",
-      "start_time": "7:30 PM",
+      "start_time": "8:00 PM",
       "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107064949-keith-anderson-at-gold-strike-casino-resort?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_url": "https://www.bandsintown.com/e/107541210-robert-allen-parker-at-10th-inning-bar-and-grill?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -720,7 +738,97 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "70f73d76-a365-4f07-a5e7-494ca4d80c9a",
+      "title": "Lumen",
+      "venue": "Growlers",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037889832-lumen-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "c6bf06c7-b3f2-462e-ba5f-00365a015e97",
+      "title": "Land / Divided",
+      "venue": "NASHOBA",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107927248-land-divided-at-nashoba?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "5750784b-6f1c-41cd-a17c-e04f2a689b06",
+      "title": "Gill-Yum",
+      "venue": "Growlers",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037889788-gill-yum-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "c483fe02-a121-4f04-8535-720957c2b047",
+      "title": "The Depths",
+      "venue": "Growlers",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037889795-the-depths-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "cf66875d-fef6-4bef-a91b-18b278aaa431",
+      "title": "Gia Welch/JD Westmoreland",
+      "venue": "South Main Sounds",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107884932-gia-welch-at-south-main-sounds?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": true,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T02:26:45.457320+00:00"
     },
     {
       "id": "90a7154c-0d0c-433f-95f2-097e7f66a200",
@@ -738,25 +846,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "170da18b-8226-472e-af9e-b85439cb1703",
-      "title": "Lumen",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037889832-lumen-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:10:21.691964+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "9cd0a3e5-5616-4c42-8e5d-1f4c7731deaf",
@@ -777,7 +867,7 @@
       "updated_at": "2026-02-23T13:54:08.897662+00:00"
     },
     {
-      "id": "70f73d76-a365-4f07-a5e7-494ca4d80c9a",
+      "id": "170da18b-8226-472e-af9e-b85439cb1703",
       "title": "Lumen",
       "venue": "Growlers",
       "date": "2026-02-27",
@@ -790,126 +880,18 @@
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "6946a03b-0710-4ccc-ab7a-65227f3dad57",
-      "title": "Flintwick",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037889713-flintwick-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
       "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:10:21.691964+00:00"
     },
     {
-      "id": "eda20d05-09cb-401d-9ae1-04fa7c682c6d",
+      "id": "9bdf16e4-b452-4f63-94ce-2bf70f2ad29d",
       "title": "Demola",
       "venue": "Minglewood Hall",
       "date": "2026-02-27",
       "start_time": "8:00 PM",
       "doors_time": null,
       "ticket_url": "https://www.bandsintown.com/e/1037243575-demola-at-minglewood-hall?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "05678a4a-3cb7-4194-971f-8e2c00307f23",
-      "title": "Land / Divided",
-      "venue": "LAND/DIVIDED LIVE AT NASHOBA",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107927248-land-divided-at-nashoba?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "be8366ae-4d10-4a10-95c9-c3ae4e1966af",
-      "title": "The Depths",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037889795-the-depths-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:10:00.265917+00:00"
-    },
-    {
-      "id": "10c66c3f-8733-43f0-8e91-b23830cb56e0",
-      "title": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
-      "venue": "10th Inning Bar & Grill",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107541210-robert-allen-parker-at-10th-inning-bar-and-grill?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "c6bf06c7-b3f2-462e-ba5f-00365a015e97",
-      "title": "Land / Divided",
-      "venue": "NASHOBA",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107927248-land-divided-at-nashoba?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "1c31f4ce-9d22-45b8-9b5b-6c47b8f73bb1",
-      "title": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
-      "venue": "10th Inning Bar & Grill",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107541210-robert-allen-parker-at-10th-inning-bar-and-grill?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -939,13 +921,13 @@
       "updated_at": "2026-02-23T13:54:08.897662+00:00"
     },
     {
-      "id": "9bdf16e4-b452-4f63-94ce-2bf70f2ad29d",
-      "title": "Demola",
-      "venue": "Minglewood Hall",
+      "id": "1c31f4ce-9d22-45b8-9b5b-6c47b8f73bb1",
+      "title": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
+      "venue": "10th Inning Bar & Grill",
       "date": "2026-02-27",
       "start_time": "8:00 PM",
       "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037243575-demola-at-minglewood-hall?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_url": "https://www.bandsintown.com/e/107541210-robert-allen-parker-at-10th-inning-bar-and-grill?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -957,43 +939,7 @@
       "updated_at": "2026-02-23T13:54:08.897662+00:00"
     },
     {
-      "id": "5750784b-6f1c-41cd-a17c-e04f2a689b06",
-      "title": "Gill-Yum",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037889788-gill-yum-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "cf66875d-fef6-4bef-a91b-18b278aaa431",
-      "title": "Gia Welch/JD Westmoreland",
-      "venue": "South Main Sounds",
-      "date": "2026-02-27",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107884932-gia-welch-at-south-main-sounds?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "c483fe02-a121-4f04-8535-720957c2b047",
+      "id": "be8366ae-4d10-4a10-95c9-c3ae4e1966af",
       "title": "The Depths",
       "venue": "Growlers",
       "date": "2026-02-27",
@@ -1006,9 +952,63 @@
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:10:00.265917+00:00"
+    },
+    {
+      "id": "05678a4a-3cb7-4194-971f-8e2c00307f23",
+      "title": "Land / Divided",
+      "venue": "LAND/DIVIDED LIVE AT NASHOBA",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107927248-land-divided-at-nashoba?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "6946a03b-0710-4ccc-ab7a-65227f3dad57",
+      "title": "Flintwick",
+      "venue": "Growlers",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037889713-flintwick-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "eda20d05-09cb-401d-9ae1-04fa7c682c6d",
+      "title": "Demola",
+      "venue": "Minglewood Hall",
+      "date": "2026-02-27",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037243575-demola-at-minglewood-hall?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "9e6a9254-37b1-487e-b159-61558bb83182",
@@ -1026,7 +1026,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "0eff1568-8032-44c8-af7e-19ea45609944",
@@ -1062,7 +1062,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "a6eb0319-4305-4052-9b21-d9f676172e38",
@@ -1080,7 +1080,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "f0c7f0d3-a523-4ebf-8dcc-f14dd056cce7",
@@ -1098,25 +1098,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "5ffc283e-94d2-4264-b103-1d24830563a5",
-      "title": "TRICK MIRROR EP RELEASE",
-      "venue": "Hi Tone",
-      "date": "2026-02-27",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Venue calendar flyer)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "7c08386c-5517-4a82-86a9-828470253a41",
@@ -1134,7 +1116,25 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
+    },
+    {
+      "id": "5ffc283e-94d2-4264-b103-1d24830563a5",
+      "title": "TRICK MIRROR EP RELEASE",
+      "venue": "Hi Tone",
+      "date": "2026-02-27",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Venue calendar flyer)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-24T23:55:22.636686+00:00",
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "88aa581d-2f91-4574-83e5-5b8008825a36",
@@ -1152,7 +1152,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "095639b5-efa2-4bf0-97af-ab6367f8197b",
@@ -1170,7 +1170,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "ddb18d07-e64a-489f-a90f-794f8e6543d4",
@@ -1188,7 +1188,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "31680dda-17bc-434e-84bb-89918824a9ad",
@@ -1206,7 +1206,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "62baffe0-5145-4b31-951d-2521e7aea93c",
@@ -1227,6 +1227,24 @@
       "updated_at": "2026-02-23T14:11:35.360237+00:00"
     },
     {
+      "id": "01e7f6f3-7e1c-4d98-b7bc-19f409cbcd79",
+      "title": "Encircled Throne",
+      "venue": "The Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "start_time": "6:30 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/107913531-encircled-throne-at-the-hi-tone-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
       "id": "e2b0f852-ad97-407b-b60a-9f95316860ec",
       "title": "Encircled Throne",
       "venue": "The Hi-Tone Cafe",
@@ -1245,24 +1263,6 @@
       "updated_at": "2026-02-23T13:54:08.897662+00:00"
     },
     {
-      "id": "01e7f6f3-7e1c-4d98-b7bc-19f409cbcd79",
-      "title": "Encircled Throne",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "start_time": "6:30 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107913531-encircled-throne-at-the-hi-tone-cafe?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
       "id": "15473ba0-8f79-469b-8414-e16fda2e2cda",
       "title": "Negro Terror - Black and Brutal Memphis Rock Tribute",
       "venue": "B-Side",
@@ -1278,7 +1278,7 @@
       "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-25T00:41:37.756499+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "cbf17302-ba66-44b8-8a0a-4daec63b0cd3",
@@ -1296,25 +1296,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "13e4ef1f-efff-4c6a-a739-bf43942809bf",
-      "title": "BLACK & BRUTAL -NEGRO TERROR/ YVING SICK/ G WIZ/ F*CK U JOE/ DJ HYPE/ TANTO DUBZ/ PUNK SOUL",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-28",
-      "start_time": "7PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Instagram flyer)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "096224b5-1dd0-4d2e-a46f-5ea6b3f804f5",
@@ -1332,10 +1314,46 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
-      "id": "5bbfd0a3-c16e-4a6c-a5d4-d2f6665209e6",
+      "id": "13e4ef1f-efff-4c6a-a739-bf43942809bf",
+      "title": "BLACK & BRUTAL -NEGRO TERROR/ YVING SICK/ G WIZ/ F*CK U JOE/ DJ HYPE/ TANTO DUBZ/ PUNK SOUL",
+      "venue": "B-Side Memphis",
+      "date": "2026-02-28",
+      "start_time": "7PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Instagram flyer)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-24T23:55:22.636686+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "c0f8f32d-d5b5-4661-972d-eed5eafd707b",
+      "title": "The Eastwoods",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-02-28",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037861963-the-eastwoods-at-hernando's-hide-a-way?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "85dca406-b6ee-4471-afaf-80a56538f2d9",
       "title": "Slamhound",
       "venue": "Growlers",
       "date": "2026-02-28",
@@ -1348,9 +1366,9 @@
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-23T13:54:08.897662+00:00",
-      "updated_at": "2026-02-23T14:11:37.555385+00:00"
+      "is_active": true,
+      "created_at": "2026-02-23T14:02:21.424318+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "3e013e67-bc81-4096-aec3-a7a889580ae7",
@@ -1389,6 +1407,24 @@
       "updated_at": "2026-02-23T14:11:36.386620+00:00"
     },
     {
+      "id": "5bbfd0a3-c16e-4a6c-a5d4-d2f6665209e6",
+      "title": "Slamhound",
+      "venue": "Growlers",
+      "date": "2026-02-28",
+      "start_time": "8:00 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.bandsintown.com/e/1037651302-slamhound-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "import (bandsintown.mhtml)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-23T13:54:08.897662+00:00",
+      "updated_at": "2026-02-23T14:11:37.555385+00:00"
+    },
+    {
       "id": "8bcb885e-df1d-4de2-a8e1-211c61b97af2",
       "title": "Sanguine",
       "venue": "Growlers",
@@ -1422,25 +1458,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "c0f8f32d-d5b5-4661-972d-eed5eafd707b",
-      "title": "The Eastwoods",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037861963-the-eastwoods-at-hernando's-hide-a-way?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "e1ca95f7-37b0-4fc9-8b18-43881efcf65a",
@@ -1458,25 +1476,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
-    },
-    {
-      "id": "85dca406-b6ee-4471-afaf-80a56538f2d9",
-      "title": "Slamhound",
-      "venue": "Growlers",
-      "date": "2026-02-28",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/1037651302-slamhound-at-growlers?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "import (bandsintown.mhtml)",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-02-23T14:02:21.424318+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "aa04762e-234c-4831-9c9c-a499c8863a6a",
@@ -1494,7 +1494,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "ab0322f1-8652-42db-844e-0d3e08d01152",
@@ -1512,25 +1512,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
-    },
-    {
-      "id": "16f0470b-d932-48fd-9ea5-672b00a373b6",
-      "title": "Turnstyles, Fake! + Frank McLallen",
-      "venue": "Bar DKDC",
-      "date": "2026-02-28",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Coco's Super Awesome Birthday)",
-      "is_featured": false,
-      "is_active": false,
-      "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:41:45.056527+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "a2767451-0fca-404c-8817-cad290f51064",
@@ -1548,7 +1530,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "31daa5b5-6140-4fad-a8df-e8f148ad80e2",
@@ -1566,7 +1548,25 @@
       "is_featured": true,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:41:41.159350+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
+    },
+    {
+      "id": "16f0470b-d932-48fd-9ea5-672b00a373b6",
+      "title": "Turnstyles, Fake! + Frank McLallen",
+      "venue": "Bar DKDC",
+      "date": "2026-02-28",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Coco's Super Awesome Birthday)",
+      "is_featured": false,
+      "is_active": false,
+      "created_at": "2026-02-24T23:55:22.636686+00:00",
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "d4397bd7-ec4d-4a23-9f9f-8f54379f7e1b",
@@ -1584,7 +1584,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "53aea882-63ba-4a2c-8649-cef04a7d0e95",
@@ -1602,7 +1602,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "1bec2727-8f67-4451-ba8b-e914552e3c7a",
@@ -1620,7 +1620,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-25T00:08:31.238846+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     },
     {
       "id": "b7f82a51-91cc-472b-9b6e-40b593ab401b",
@@ -1638,7 +1638,7 @@
       "is_featured": false,
       "is_active": false,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:39:18.228446+00:00"
+      "updated_at": "2026-02-25T00:42:54.453623+00:00"
     },
     {
       "id": "5beb37be-cfa1-4052-998a-ab77117b3a91",
@@ -1656,7 +1656,7 @@
       "is_featured": false,
       "is_active": true,
       "created_at": "2026-02-24T23:55:22.636686+00:00",
-      "updated_at": "2026-02-25T00:42:36.759051+00:00"
+      "updated_at": "2026-02-25T06:04:33.987773+00:00"
     }
   ]
 }
