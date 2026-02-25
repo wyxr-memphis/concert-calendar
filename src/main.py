@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Memphis Concert Calendar — Main Runner
 
-Fetches events from automated sources, merges into data/events.json
-(preserving admin edits), and generates a static HTML page.
+Fetches events from automated sources, merges them into PostgreSQL
+(the single source of truth), and generates a static HTML page.
 
-If DATABASE_URL is set, also writes scrape logs to PostgreSQL.
+PostgreSQL is the primary data store — shared by the build and admin UI.
+events.json is exported as a snapshot only.
 
 Usage:
     python -m src.main              # Normal run
@@ -46,7 +47,7 @@ DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_PATH = DOCS_DIR / "index.html"
 LOG_PATH = DOCS_DIR / "log.json"
 
-# Optional: scrape log database support
+# PostgreSQL connection
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
 
 
@@ -68,7 +69,7 @@ def _create_scrape_log(scraper_name: str, started_at: datetime) -> Optional[str]
     try:
         import psycopg2
         import psycopg2.extras
-        conn = psycopg2.connect(DATABASE_URL)
+        conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
         cur.execute(
             "INSERT INTO scrape_logs (scraper_name, started_at, status) VALUES (%s, %s, 'running') RETURNING id",
@@ -90,7 +91,7 @@ def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
     try:
         import psycopg2
         import psycopg2.extras
-        conn = psycopg2.connect(DATABASE_URL)
+        conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
         cur = conn.cursor()
 
         allowed = ["finished_at", "status", "events_found", "events_added",
@@ -117,74 +118,169 @@ def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
         print(f"  [scrape_log] Could not update log entry: {e}")
 
 
-def _sync_events_to_db(merged_events: list) -> int:
-    """Sync events from events.json into PostgreSQL so admin can see/edit them.
+# ---------------------------------------------------------------------------
+# PostgreSQL event I/O (single source of truth)
+# ---------------------------------------------------------------------------
 
-    Uses title+venue+date as a match key. Only inserts events that don't
-    already exist in the DB. Never overwrites admin edits.
+def _load_events_from_db() -> List[dict]:
+    """Load all events from PostgreSQL into dict format for merging."""
+    import psycopg2
+    import psycopg2.extras
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cur.execute("SELECT * FROM events ORDER BY date, start_time")
+    rows = cur.fetchall()
+    conn.close()
+
+    events = []
+    for row in rows:
+        events.append({
+            "id": str(row["id"]),
+            "title": row["title"] or "",
+            "venue": row["venue"] or "",
+            "date": str(row["date"]),
+            "start_time": row["start_time"],
+            "doors_time": row["doors_time"],
+            "ticket_url": row["ticket_url"],
+            "ticket_price": row["ticket_price"],
+            "image_url": row["image_url"],
+            "description": row["description"],
+            "genre": row["genre"],
+            "source": row["source"] or "unknown",
+            "is_featured": row["is_featured"],
+            "is_active": row["is_active"],
+            "created_at": row["created_at"].isoformat() if row["created_at"] else None,
+            "updated_at": row["updated_at"].isoformat() if row["updated_at"] else None,
+        })
+    return events
+
+
+def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
+    """Upsert merged events to PostgreSQL. Returns stats dict.
+
+    - Events with a UUID id (from DB) are updated in place
+    - Events with an evt_ id (new from scrapers) are inserted
+    - Never overwrites admin/manual source entries
+    - Prunes events with date < today
     """
-    if not _db_available():
-        return 0
-    try:
-        import psycopg2
-        import psycopg2.extras
-        conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
-        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    import psycopg2
+    import psycopg2.extras
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-        # Get existing events from DB to check for duplicates
-        cur.execute("SELECT title, venue, date FROM events")
-        existing = set()
-        for row in cur.fetchall():
-            key = (
-                (row["title"] or "").strip().lower(),
-                (row["venue"] or "").strip().lower(),
-                str(row["date"]),
-            )
-            existing.add(key)
+    # Build lookup of existing DB events by normalized key
+    cur.execute("SELECT id, title, venue, date, source FROM events")
+    db_key_to_row = {}
+    for row in cur.fetchall():
+        key = _normalized_key(row["title"] or "", row["venue"] or "", str(row["date"]))
+        db_key_to_row[key] = row
 
-        added = 0
-        for entry in merged_events:
-            title = (entry.get("title") or "").strip()
-            venue = (entry.get("venue") or "").strip()
-            date_str = (entry.get("date") or "").strip()
+    added = 0
+    updated = 0
+    timestamp = run_timestamp.isoformat()
 
-            if not title or not date_str:
+    for entry in merged:
+        title = (entry.get("title") or "").strip()
+        venue = (entry.get("venue") or "").strip()
+        date_str = (entry.get("date") or "").strip()
+        if not title or not date_str:
+            continue
+
+        key = _normalized_key(title, venue, date_str)
+
+        if key in db_key_to_row:
+            db_row = db_key_to_row[key]
+            # Don't overwrite admin/manual entries
+            if db_row["source"] in ("admin", "manual"):
                 continue
-
-            key = (title.lower(), venue.lower(), date_str)
-            if key in existing:
-                continue
-
+            # Update scraped fields
             cur.execute(
-                """INSERT INTO events (title, venue, date, start_time, source, is_featured, is_active)
-                   VALUES (%s, %s, %s, %s, %s, %s, %s)""",
+                """UPDATE events SET
+                    start_time = COALESCE(%s, start_time),
+                    ticket_url = COALESCE(%s, ticket_url),
+                    source = COALESCE(%s, source),
+                    updated_at = NOW()
+                WHERE id = %s""",
                 (
-                    title,
-                    venue,
-                    date_str,
                     entry.get("start_time"),
+                    entry.get("ticket_url"),
+                    entry.get("source"),
+                    db_row["id"],
+                ),
+            )
+            if cur.rowcount > 0:
+                updated += 1
+        else:
+            # New event — insert
+            cur.execute(
+                """INSERT INTO events (title, venue, date, start_time, ticket_url,
+                   source, is_featured, is_active)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
+                (
+                    title, venue, date_str,
+                    entry.get("start_time"),
+                    entry.get("ticket_url"),
                     entry.get("source", "scraper"),
                     entry.get("is_featured", False),
                     entry.get("is_active", True),
                 ),
             )
-            existing.add(key)
             added += 1
 
-        conn.commit()
-        conn.close()
-        return added
-    except Exception as e:
-        print(f"  [db_sync] Could not sync events to PostgreSQL: {e}")
-        return 0
+    # Prune past events
+    today_str = date.today().isoformat()
+    cur.execute("DELETE FROM events WHERE date < %s", (today_str,))
+    pruned = cur.rowcount
 
+    conn.commit()
+    conn.close()
+    return {"added": added, "updated": updated, "pruned": pruned}
+
+
+def _load_active_events_from_db(start_date, end_date) -> List[dict]:
+    """Load active events from PostgreSQL within date range."""
+    import psycopg2
+    import psycopg2.extras
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    cur.execute(
+        """SELECT * FROM events
+        WHERE is_active = true AND date >= %s AND date <= %s
+        ORDER BY date, is_featured DESC, start_time""",
+        (str(start_date), str(end_date)),
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    events = []
+    for row in rows:
+        events.append({
+            "id": str(row["id"]),
+            "title": row["title"] or "",
+            "venue": row["venue"] or "",
+            "date": str(row["date"]),
+            "start_time": row["start_time"],
+            "ticket_url": row["ticket_url"],
+            "source": row["source"] or "unknown",
+            "is_featured": row["is_featured"],
+            "is_active": row["is_active"],
+        })
+    return events
+
+
+# ---------------------------------------------------------------------------
+# Main build
+# ---------------------------------------------------------------------------
 
 def run(dry_run: bool = False) -> None:
-    """Main execution: fetch → merge into events.json → generate HTML."""
+    """Main execution: fetch → merge into PostgreSQL → generate HTML."""
     run_timestamp = datetime.now(ZoneInfo("UTC"))
+    use_db = _db_available()
+
     print(f"\n{'='*60}")
     print(f"MEMPHIS CONCERT CALENDAR — {run_timestamp.strftime('%Y-%m-%d %H:%M')}")
     print(f"Date range: {START_DATE} to {END_DATE}")
+    print(f"Data store: {'PostgreSQL' if use_db else 'events.json (fallback)'}")
     print(f"{'='*60}\n")
 
     # Create scrape log entry
@@ -244,20 +340,29 @@ def run(dry_run: bool = False) -> None:
     automated_events = deduplicate(automated_events)
     print(f"  After dedup: {len(automated_events)}")
 
-    # ---- STEP 2: Load current events.json ----
-    try:
-        events_data = load_events_json()
-    except (FileNotFoundError, json.JSONDecodeError):
-        events_data = {"version": 1, "updated_at": "", "events": []}
+    # ---- STEP 2: Load existing events ----
+    if use_db:
+        try:
+            existing_events = _load_events_from_db()
+            print(f"  Existing events in PostgreSQL: {len(existing_events)}")
+        except Exception as e:
+            print(f"  WARNING: Could not load from DB: {e}")
+            print(f"  Falling back to events.json")
+            use_db = False
 
-    existing_events = events_data.get("events", [])
-    print(f"  Existing events.json entries: {len(existing_events)}")
+    if not use_db:
+        try:
+            events_data = load_events_json()
+        except (FileNotFoundError, json.JSONDecodeError):
+            events_data = {"version": 1, "updated_at": "", "events": []}
+        existing_events = events_data.get("events", [])
+        print(f"  Existing events in events.json: {len(existing_events)}")
 
-    # ---- STEP 3: Merge automated events into events.json ----
+    # ---- STEP 3: Merge automated events into existing ----
     merged = _merge_events(existing_events, automated_events, run_timestamp)
     print(f"  After merge: {len(merged)}")
 
-    # ---- STEP 4: Prune past events ----
+    # ---- STEP 4: Prune past events (in memory) ----
     today_str = date.today().isoformat()
     before_prune = len(merged)
     merged = [e for e in merged if e.get("date", "") >= today_str]
@@ -265,37 +370,46 @@ def run(dry_run: bool = False) -> None:
     if pruned:
         print(f"  Pruned {pruned} past events (before {today_str})")
 
-    # ---- STEP 5: Write updated events.json ----
-    events_data["events"] = merged
-    events_data["updated_at"] = run_timestamp.isoformat()
-
+    # ---- STEP 5: Save to data store ----
     if not dry_run:
-        save_events_json(events_data)
-        print(f"  Wrote {len(merged)} events to {EVENTS_JSON_PATH}")
+        if use_db:
+            try:
+                stats = _save_events_to_db(merged, run_timestamp)
+                print(f"  Saved to PostgreSQL: {stats['added']} added, {stats['updated']} updated, {stats['pruned']} pruned")
+            except Exception as e:
+                print(f"  WARNING: Could not save to DB: {e}")
 
-    # ---- STEP 5b: Sync events to PostgreSQL (so admin can see/edit them) ----
-    if not dry_run and _db_available():
-        synced = _sync_events_to_db(merged)
-        print(f"  Synced to PostgreSQL: {synced} new events added")
+        # Always export events.json as a snapshot
+        snapshot = {"version": 1, "updated_at": run_timestamp.isoformat(), "events": merged}
+        save_events_json(snapshot)
+        print(f"  Exported {len(merged)} events to {EVENTS_JSON_PATH}")
 
-    # ---- STEP 6: Generate HTML from events.json (active events in date range) ----
-    active_events = []
-    for entry in merged:
-        if not entry.get("is_active", True):
-            continue
-        event = _entry_to_event(entry)
-        if event and START_DATE <= event.date <= END_DATE:
-            active_events.append(event)
+    # ---- STEP 6: Generate HTML ----
+    # If DB is available, read active events from it (includes admin edits);
+    # otherwise use the merged in-memory list.
+    if use_db and not dry_run:
+        try:
+            db_active = _load_active_events_from_db(START_DATE, END_DATE)
+            active_events = []
+            for entry in db_active:
+                event = _entry_to_event(entry)
+                if event:
+                    active_events.append(event)
+        except Exception as e:
+            print(f"  WARNING: Could not read active events from DB: {e}")
+            active_events = _filter_active(merged)
+    else:
+        active_events = _filter_active(merged)
 
     active_events.sort(key=lambda e: e.sort_key)
 
-    # Add events.json as a "source" for reporting
-    ej_result = SourceResult(
-        source_name="Events JSON",
+    # Add a "Database" source for reporting
+    db_result = SourceResult(
+        source_name="Database" if use_db else "Events JSON",
         events=active_events,
         events_found=len(active_events),
     )
-    all_source_results.append(ej_result)
+    all_source_results.append(db_result)
 
     html_output = generate_html(active_events, all_source_results, run_timestamp)
 
@@ -317,8 +431,9 @@ def run(dry_run: bool = False) -> None:
     log_data = {
         "run_timestamp": run_timestamp.isoformat(),
         "date_range": {"start": START_DATE.isoformat(), "end": END_DATE.isoformat()},
-        "total_events_json": len(merged),
+        "total_events_db": len(merged),
         "total_active_display": len(active_events),
+        "data_store": "postgresql" if use_db else "events.json",
         "sources": [
             {
                 "name": sr.source_name,
@@ -346,7 +461,7 @@ def run(dry_run: bool = False) -> None:
         json.dump(log_data, f, indent=2)
     print(f"  Wrote {LOG_PATH}")
 
-    # Write build timestamp for upload page footer
+    # Write build timestamp
     build_time_path = DOCS_DIR / "build_time.txt"
     with open(build_time_path, "w", encoding="utf-8") as f:
         f.write(run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT"))
@@ -364,7 +479,6 @@ def run(dry_run: bool = False) -> None:
     # ---- STEP 8: Update scrape log ----
     if scrape_log_id:
         total_found = sum(sr.events_found for sr in all_source_results)
-        # Count new vs updated events from merge step
         new_count = len(merged) - len(existing_events)
         updated_count = sum(1 for sr in all_source_results if sr.success) - new_count
         if updated_count < 0:
@@ -373,7 +487,7 @@ def run(dry_run: bool = False) -> None:
         status = "success"
         error_msg = None
         if failures:
-            if len(failures) == len(all_source_results) - 1:  # all except events.json
+            if len(failures) == len(all_source_results) - 1:
                 status = "failed"
             else:
                 status = "partial"
@@ -397,14 +511,26 @@ def run(dry_run: bool = False) -> None:
         print(f"  [scrape_log] Updated log entry: status={status}")
 
 
+def _filter_active(merged: List[dict]) -> List[Event]:
+    """Filter merged events to active ones in the date range."""
+    active = []
+    for entry in merged:
+        if not entry.get("is_active", True):
+            continue
+        event = _entry_to_event(entry)
+        if event and START_DATE <= event.date <= END_DATE:
+            active.append(event)
+    return active
+
+
 def _merge_events(
     existing: List[dict],
     automated: List[Event],
     run_timestamp: datetime,
 ) -> List[dict]:
-    """Merge automated events into the existing events.json entries.
+    """Merge automated events into the existing event entries.
 
-    - Admin/manual entries (source: "admin") are never touched
+    - Admin/manual entries are never touched
     - Matching automated events update time/url/source but preserve admin fields
     - New automated events are appended
     """
@@ -425,7 +551,7 @@ def _merge_events(
             idx = existing_by_key[key]
             entry = merged[idx]
             # Don't touch admin entries
-            if entry.get("source") == "admin":
+            if entry.get("source") in ("admin", "manual"):
                 continue
             # Update automated fields, preserve admin-editable fields
             entry["start_time"] = event.time or entry.get("start_time")
@@ -466,7 +592,7 @@ def _normalized_key(title: str, venue: str, date_str: str) -> str:
 
 
 def _entry_to_event(entry: dict) -> Event | None:
-    """Convert a JSON entry to an Event dataclass."""
+    """Convert a dict entry to an Event dataclass."""
     try:
         event_date = date.fromisoformat(entry["date"])
     except (KeyError, ValueError):
@@ -482,7 +608,7 @@ def _entry_to_event(entry: dict) -> Event | None:
         venue=venue,
         date=event_date,
         time=entry.get("start_time"),
-        source=entry.get("source", "Events JSON"),
+        source=entry.get("source", "unknown"),
         url=entry.get("ticket_url"),
         is_featured=entry.get("is_featured", False),
         event_id=entry.get("id"),
@@ -501,7 +627,7 @@ def _print_summary(events: List[Event]) -> None:
 
     for d in sorted(by_date.keys()):
         day_name = d.strftime("%A, %B %-d").upper()
-        print(f"\n  {day_name}")
+        print(f"\n  {d} — {day_name}")
         for e in by_date[d]:
             featured = " [FEATURED]" if e.is_featured else ""
             print(f"    {e.display_line}{featured}")

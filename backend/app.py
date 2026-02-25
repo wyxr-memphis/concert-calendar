@@ -15,7 +15,6 @@ import base64
 import json
 import os
 import re
-import threading
 import uuid
 from datetime import datetime
 
@@ -86,206 +85,6 @@ def serialize_event(row):
 
 def serialize_list(rows):
     return [serialize_event(r) for r in rows]
-
-
-# ---------------------------------------------------------------------------
-# events.json write-through helpers
-# ---------------------------------------------------------------------------
-
-def _norm_text(text):
-    """Normalize text for dedup/matching (title or venue)."""
-    t = (text or "").lower().strip()
-    t = re.sub(r'^the\s+', '', t)
-    t = re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', t)
-    t = re.sub(r'[^\w\s]', '', t)
-    return re.sub(r'\s+', ' ', t).strip()
-
-
-def _make_event_key(title, venue, date):
-    """Build normalized matching key from title+venue+date."""
-    return f"{_norm_text(title)}|{_norm_text(venue)}|{str(date)[:10]}"
-
-
-def _update_events_json(changes, commit_message="admin: update events"):
-    """Update data/events.json on GitHub to reflect admin changes.
-
-    changes: list of dicts with keys:
-        action: "upsert" | "deactivate" | "set_featured"
-        data: dict with event fields (title, venue, date required)
-        match_title, match_venue, match_date: optional overrides for matching
-            (used when editing an event whose title/venue/date changed)
-
-    Silently returns on failure — admin operations succeed even if sync fails.
-    """
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-
-    if not github_pat:
-        print("Warning: GITHUB_PAT not set, skipping events.json sync")
-        return
-
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
-
-    try:
-        get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
-        if get_resp.status_code != 200:
-            print(f"Warning: Could not fetch events.json: {get_resp.status_code}")
-            return
-
-        file_meta = get_resp.json()
-        sha = file_meta["sha"]
-        events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
-
-        existing = events_json.get("events", [])
-        now_iso = datetime.utcnow().isoformat() + "Z"
-        modified = False
-
-        for change in changes:
-            action = change["action"]
-            data = change["data"]
-
-            match_title = change.get("match_title", data.get("title", ""))
-            match_venue = change.get("match_venue", data.get("venue", ""))
-            match_date = change.get("match_date", str(data.get("date", ""))[:10])
-            key = _make_event_key(match_title, match_venue, match_date)
-
-            # Find matching entry in events.json
-            match_idx = None
-            for i, entry in enumerate(existing):
-                entry_key = _make_event_key(
-                    entry.get("title", ""),
-                    entry.get("venue", ""),
-                    entry.get("date", ""),
-                )
-                if entry_key == key:
-                    match_idx = i
-                    break
-
-            if action == "deactivate":
-                if match_idx is not None:
-                    existing[match_idx]["is_active"] = False
-                    existing[match_idx]["updated_at"] = now_iso
-                    modified = True
-
-            elif action == "set_featured":
-                if match_idx is not None:
-                    existing[match_idx]["is_featured"] = data.get("is_featured", False)
-                    existing[match_idx]["updated_at"] = now_iso
-                    modified = True
-
-            elif action == "upsert":
-                if match_idx is not None:
-                    entry = existing[match_idx]
-                    for field in ("title", "venue", "date", "start_time", "doors_time",
-                                  "ticket_url", "ticket_price", "image_url",
-                                  "description", "genre", "is_featured", "is_active"):
-                        if field in data and data[field] is not None:
-                            entry[field] = str(data[field])[:10] if field == "date" else data[field]
-                    entry["updated_at"] = now_iso
-                    modified = True
-                else:
-                    new_entry = {
-                        "id": f"evt_admin_{uuid.uuid4().hex[:12]}",
-                        "title": data.get("title", ""),
-                        "venue": data.get("venue", ""),
-                        "date": str(data.get("date", ""))[:10],
-                        "start_time": data.get("start_time"),
-                        "doors_time": data.get("doors_time"),
-                        "ticket_url": data.get("ticket_url"),
-                        "ticket_price": data.get("ticket_price"),
-                        "image_url": data.get("image_url"),
-                        "description": data.get("description"),
-                        "genre": data.get("genre"),
-                        "source": data.get("source", "admin"),
-                        "is_featured": data.get("is_featured", False),
-                        "is_active": data.get("is_active", True),
-                        "created_at": now_iso,
-                        "updated_at": now_iso,
-                    }
-                    existing.append(new_entry)
-                    modified = True
-
-        if not modified:
-            return
-
-        events_json["events"] = existing
-        events_json["updated_at"] = now_iso
-
-        updated_content = json.dumps(events_json, indent=2, ensure_ascii=False)
-        put_resp = http_requests.put(api_url, headers=gh_headers, json={
-            "message": commit_message,
-            "content": base64.b64encode(updated_content.encode()).decode("ascii"),
-            "sha": sha,
-        }, timeout=30)
-
-        if put_resp.status_code not in (200, 201):
-            print(f"Warning: events.json commit failed: {put_resp.status_code}")
-        else:
-            _schedule_build()
-
-    except Exception as e:
-        print(f"Warning: events.json sync failed: {e}")
-
-
-def _sync_to_json_background(changes, commit_message):
-    """Fire-and-forget events.json sync in a background thread."""
-    thread = threading.Thread(
-        target=_update_events_json,
-        args=(changes, commit_message),
-        daemon=True,
-    )
-    thread.start()
-
-
-# ---------------------------------------------------------------------------
-# Debounced build trigger — batches rapid admin changes into one build
-# ---------------------------------------------------------------------------
-
-_build_lock = threading.Lock()
-_build_timer = None
-
-
-def _schedule_build(delay=30):
-    """Schedule a build trigger after `delay` seconds, resetting on each call.
-
-    If multiple admin actions happen in quick succession, the timer resets
-    each time so only ONE build fires — 30 seconds after the last change.
-    """
-    global _build_timer
-    with _build_lock:
-        if _build_timer is not None:
-            _build_timer.cancel()
-        _build_timer = threading.Timer(delay, _trigger_build_internal)
-        _build_timer.daemon = True
-        _build_timer.start()
-
-
-def _trigger_build_internal():
-    """Actually trigger the GitHub Actions build (called by the debounce timer)."""
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-    if not github_pat:
-        return
-    try:
-        resp = http_requests.post(
-            f"https://api.github.com/repos/{github_repo}/actions/workflows/daily.yml/dispatches",
-            headers={
-                "Authorization": f"Bearer {github_pat}",
-                "Accept": "application/vnd.github.v3+json",
-            },
-            json={"ref": "main"},
-            timeout=10,
-        )
-        if resp.status_code == 204:
-            print("Auto-triggered build after admin changes")
-        else:
-            print(f"Warning: auto-build trigger got {resp.status_code}")
-    except Exception as e:
-        print(f"Warning: auto-build trigger failed: {e}")
 
 
 # ---------------------------------------------------------------------------
@@ -395,12 +194,6 @@ def admin_events_create():
     body.setdefault("is_active", True)
 
     event = create_event(body)
-
-    _sync_to_json_background([{
-        "action": "upsert",
-        "data": serialize_event(event),
-    }], commit_message=f"admin: add '{event['title']}'")
-
     return jsonify(serialize_event(event)), 201
 
 
@@ -415,15 +208,6 @@ def admin_events_update(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = update_event(event_id, body)
-
-    _sync_to_json_background([{
-        "action": "upsert",
-        "data": serialize_event(event),
-        "match_title": existing["title"],
-        "match_venue": existing.get("venue") or "",
-        "match_date": str(existing["date"])[:10],
-    }], commit_message=f"admin: update '{event['title']}'")
-
     return jsonify(serialize_event(event))
 
 
@@ -436,12 +220,6 @@ def admin_events_delete(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = soft_delete_event(event_id)
-
-    _sync_to_json_background([{
-        "action": "deactivate",
-        "data": serialize_event(event),
-    }], commit_message=f"admin: deactivate '{event['title']}'")
-
     return jsonify({"ok": True, "event": serialize_event(event)})
 
 
@@ -457,12 +235,6 @@ def admin_events_toggle_featured(event_id):
         return jsonify({"error": "Event not found"}), 404
 
     event = toggle_featured(event_id, is_featured)
-
-    _sync_to_json_background([{
-        "action": "set_featured",
-        "data": {"is_featured": is_featured, **serialize_event(event)},
-    }], commit_message=f"admin: {'feature' if is_featured else 'unfeature'} '{event['title']}'")
-
     return jsonify(serialize_event(event))
 
 
@@ -480,38 +252,7 @@ def admin_events_bulk():
     if not ids:
         return jsonify({"error": "ids array is required"}), 400
 
-    # Fetch events before bulk action for events.json matching
-    events_for_sync = []
-    for eid in ids:
-        evt = get_event_by_id(eid)
-        if evt:
-            events_for_sync.append(evt)
-
     count = bulk_action(action, ids)
-
-    # Sync to events.json
-    if events_for_sync:
-        action_map = {
-            "feature": "set_featured",
-            "unfeature": "set_featured",
-            "deactivate": "deactivate",
-        }
-        json_action = action_map[action]
-
-        changes = []
-        for evt in events_for_sync:
-            change = {"action": json_action, "data": serialize_event(evt)}
-            if action == "feature":
-                change["data"]["is_featured"] = True
-            elif action == "unfeature":
-                change["data"]["is_featured"] = False
-            changes.append(change)
-
-        _sync_to_json_background(
-            changes,
-            commit_message=f"admin: bulk {action} {len(events_for_sync)} events",
-        )
-
     return jsonify({"ok": True, "affected": count})
 
 
@@ -651,7 +392,7 @@ def _normalize_date_iso(date_str):
 @app.route("/api/admin/import/confirm", methods=["POST"])
 @require_auth
 def admin_import_confirm():
-    """Confirm and save parsed events to the database and events.json."""
+    """Confirm and save parsed events to the database."""
     body = request.get_json(silent=True) or {}
     events_to_import = body.get("events", [])
 
@@ -677,95 +418,11 @@ def admin_import_confirm():
     # Save to PostgreSQL
     created = bulk_insert_events(valid)
 
-    # Also write to data/events.json on GitHub so the static calendar picks them up
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-    json_warning = None
-    duplicates = []
-
-    if github_pat:
-        api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
-        gh_headers = {
-            "Authorization": f"Bearer {github_pat}",
-            "Accept": "application/vnd.github.v3+json",
-        }
-        try:
-            # Fetch current events.json
-            get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
-            if get_resp.status_code == 200:
-                file_meta = get_resp.json()
-                sha = file_meta["sha"]
-                current = base64.b64decode(file_meta["content"]).decode("utf-8")
-                events_json = json.loads(current)
-            else:
-                sha = None
-                events_json = {"version": 1, "updated_at": "", "events": []}
-
-            now_iso = datetime.utcnow().isoformat() + "Z"
-            existing = events_json.get("events", [])
-
-            # Build dedup key set from existing entries
-            existing_keys = {
-                _make_event_key(e.get('title',''), e.get('venue',''), e.get('date',''))
-                for e in existing
-            }
-
-            duplicates = []
-            for evt in valid:
-                key = _make_event_key(evt.get('title',''), evt.get('venue',''), evt['date'])
-                if key in existing_keys:
-                    duplicates.append(evt.get("title", "?"))
-                    continue
-                existing_keys.add(key)
-                entry = {
-                    "id": f"evt_import_{uuid.uuid4().hex[:12]}",
-                    "title": evt.get("title", ""),
-                    "venue": evt.get("venue", ""),
-                    "date": evt["date"],
-                    "start_time": evt.get("start_time") or None,
-                    "doors_time": None,
-                    "ticket_url": evt.get("ticket_url") or None,
-                    "ticket_price": None,
-                    "image_url": None,
-                    "description": None,
-                    "genre": None,
-                    "source": evt.get("source", "import"),
-                    "is_featured": False,
-                    "is_active": True,
-                    "created_at": now_iso,
-                    "updated_at": now_iso,
-                }
-                existing.append(entry)
-
-            events_json["events"] = existing
-            events_json["updated_at"] = now_iso
-
-            updated = json.dumps(events_json, indent=2, ensure_ascii=False)
-            added_count = len(valid) - len(duplicates)
-            put_data = {
-                "message": f"Import {added_count} events via admin",
-                "content": base64.b64encode(updated.encode()).decode("ascii"),
-            }
-            if sha:
-                put_data["sha"] = sha
-
-            put_resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
-            if put_resp.status_code not in (200, 201):
-                json_warning = f"Saved to DB but could not update events.json (GitHub {put_resp.status_code})"
-        except Exception as e:
-            json_warning = f"Saved to DB but could not update events.json: {str(e)[:100]}"
-    else:
-        json_warning = "GITHUB_PAT not set — events saved to DB only, trigger a build to update the calendar"
-
-    result = {
+    return jsonify({
         "ok": True,
         "imported": len(created),
         "skipped": skipped,
-        "duplicates": duplicates,
-    }
-    if json_warning:
-        result["warning"] = json_warning
-    return jsonify(result)
+    })
 
 
 @app.route("/api/admin/import/image", methods=["POST"])
@@ -983,52 +640,15 @@ def _parse_jsonld_event(data, source_filename):
 @app.route("/api/admin/events/prune", methods=["POST"])
 @require_auth
 def admin_events_prune():
-    """Delete events older than today from PostgreSQL and events.json."""
+    """Delete events older than today from PostgreSQL."""
     from datetime import date as _date
 
     today = _date.today().isoformat()
     db_deleted = delete_events_before(today)
 
-    # Also prune from events.json
-    json_pruned = 0
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-
-    if github_pat:
-        api_url = f"https://api.github.com/repos/{github_repo}/contents/data/events.json"
-        gh_headers = {
-            "Authorization": f"Bearer {github_pat}",
-            "Accept": "application/vnd.github.v3+json",
-        }
-        try:
-            get_resp = http_requests.get(api_url, headers=gh_headers, timeout=10)
-            if get_resp.status_code == 200:
-                file_meta = get_resp.json()
-                sha = file_meta["sha"]
-                events_json = json.loads(base64.b64decode(file_meta["content"]).decode("utf-8"))
-
-                before = len(events_json.get("events", []))
-                events_json["events"] = [
-                    e for e in events_json.get("events", [])
-                    if e.get("date", "") >= today
-                ]
-                json_pruned = before - len(events_json["events"])
-
-                if json_pruned > 0:
-                    events_json["updated_at"] = datetime.utcnow().isoformat() + "Z"
-                    updated = json.dumps(events_json, indent=2, ensure_ascii=False)
-                    http_requests.put(api_url, headers=gh_headers, json={
-                        "message": f"Prune {json_pruned} old events (before {today})",
-                        "content": base64.b64encode(updated.encode()).decode("ascii"),
-                        "sha": sha,
-                    }, timeout=30)
-        except Exception as e:
-            print(f"Warning: events.json prune failed: {e}")
-
     return jsonify({
         "ok": True,
-        "db_deleted": db_deleted,
-        "json_pruned": json_pruned,
+        "deleted": db_deleted,
         "before_date": today,
     })
 

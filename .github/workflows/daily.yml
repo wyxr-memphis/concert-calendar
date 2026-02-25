@@ -59,10 +59,10 @@ jobs:
           git config --local user.name "GitHub Action"
           git add docs/ data/events.json
           git stash
-          git pull --rebase
-          git stash pop || true
+          git pull --rebase origin main
+          git stash pop
           git add docs/ data/events.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
+          git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
 
       - name: Trigger Vercel redeploy
         run: curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
