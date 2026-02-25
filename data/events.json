@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-02-25T00:10:11.511744Z",
+  "updated_at": "2026-02-25T00:10:20.654444Z",
   "events": [
     {
       "id": "evt_1771383457969_66",
@@ -844,9 +844,9 @@
       "genre": null,
       "source": "import (bandsintown.mhtml)",
       "is_featured": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-02-23T14:02:21.882821Z",
-      "updated_at": "2026-02-23T14:02:21.882821Z"
+      "updated_at": "2026-02-25T00:10:20.654444Z"
     },
     {
       "id": "evt_import_34c3a0cc334b",
