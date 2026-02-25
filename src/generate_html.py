@@ -63,10 +63,6 @@ def generate_html(
                 all_same_time = len(set(times)) == 1
                 shared_time = times[0] if all_same_time else None
 
-                header = f'<span class="venue">{_esc(venue_name)}</span>'
-                if shared_time:
-                    header += f' <span class="time">({_esc(shared_time)})</span>'
-
                 artist_items = ""
                 for event in venue_events:
                     badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
@@ -80,7 +76,11 @@ def generate_html(
                     else:
                         artist_items += f'<li{cls}>{artist_text}</li>\n'
 
-                event_lines += f'<li class="venue-group"><div class="venue-header">{header}</div>\n<ul class="venue-artists">\n{artist_items}</ul></li>\n'
+                footer_line = f'<span class="venue">{_esc(venue_name)}</span>'
+                if shared_time:
+                    footer_line += f' <span class="time">({_esc(shared_time)})</span>'
+
+                event_lines += f'<li class="venue-group"><ul class="venue-artists">\n{artist_items}</ul>\n<div class="venue-footer">{footer_line}</div></li>\n'
 
         event_sections += f"""
         <div class="day-section">
@@ -260,18 +260,19 @@ def generate_html(
         .venue-group {{
             padding: 5px 0;
         }}
-        .venue-header {{
-            font-size: 0.95em;
-            margin-bottom: 2px;
-        }}
         .venue-artists {{
             list-style: none;
-            padding-left: 16px;
+            padding: 0;
         }}
         .venue-artists li {{
             padding: 2px 0;
             font-size: 0.95em;
             border-bottom: none;
+        }}
+        .venue-footer {{
+            font-size: 0.85em;
+            margin-top: 2px;
+            padding-left: 0;
         }}
         .no-events {{
             color: var(--wyxr-dim);
@@ -361,7 +362,6 @@ def generate_html(
         </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
-        <a href="/admin/#tools">Upload Artifact</a> &middot;
         <a href="/admin/">Admin</a>
     </footer>
 </body>
