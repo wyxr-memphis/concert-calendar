@@ -2,190 +2,96 @@
 
 ## Overview
 
-Instead of scraping websites, you collect **screenshots/images** of event listings and Claude's vision API automatically extracts event information. Simple, flexible, and works with any source.
+Upload screenshots or saved web pages of event listings and Claude's vision API automatically extracts event information. Works with any source — Instagram, venue websites, posters, Bandsintown.
 
 ## How It Works
 
-1. **Screenshot/photo any event listing** (Instagram, website, Bandsintown, poster, etc.)
-2. **Drop image in `artifacts/` folder**
-3. **Script runs** and Claude vision extracts: artist, venue, date, time
-4. **Events auto-populate** into your calendar
-
-## Super Simple Folder Structure
-
-```
-artifacts/
-├── bside-2026-02-10.png
-├── bar-dkdc-instagram.jpg
-├── histone-events-page.png
-├── bandsintown-memphis.png
-└── any-other-listing.jpg
-```
-
-That's it! No subfolders. Claude figures out the venue from the image content.
+1. **Screenshot/photo any event listing** (Instagram, website, poster, etc.)
+2. **Upload via Admin UI** (Import section in Events tab)
+3. **Claude vision extracts:** artist, venue, date, time
+4. **Preview and confirm** — events are saved to the database
 
 ## Supported Sources
 
-✅ **Instagram screenshots** — Bar DKDC, B-Side posts
-✅ **Website screenshots** — Venue event pages
-✅ **Bandsintown screenshots** — Bandsintown Memphis listings
-✅ **Photos of posters** — Flyers around town
-✅ **Any concert listing** — Whatever format
+- **Instagram screenshots** — Bar DKDC, B-Side posts
+- **Website screenshots** — Venue event pages
+- **Bandsintown screenshots** — Regional listings
+- **Photos of posters** — Flyers around town
+- **Saved web pages** (HTML/MHTML) — Parsed directly with BeautifulSoup
+- **Any concert listing image**
 
-## Weekly Workflow (10-15 mins)
+## Upload Workflow
 
-**Monday morning:**
+### Via Admin UI (recommended)
+1. Go to Admin -> **Events** tab -> **Import** section
+2. Drop image or HTML files onto the upload area
+3. Files are committed to `artifacts/` in the GitHub repo
+4. Go to **Scrapers** tab -> click **"Run Scrapers"**
+5. Wait ~2 minutes — Claude reads the images and adds events
 
-1. Instagram → B-Side upcoming events → Screenshot → Save
-2. Instagram → Bar DKDC events → Screenshot → Save
-3. Hi Tone website → Events page → Screenshot → Save
-4. Minglewood website → Events page → Screenshot → Save
-5. Lafayette's website → Music page → Screenshot → Save
-6. (Optional) Bandsintown Memphis → Screenshot any regional events → Save
+### Via `/upload.html` (simpler, works from phone)
+1. Visit `/upload.html` on the Vercel deployment
+2. Enter the upload password
+3. Select files and upload
+4. Click "Rebuild Calendar" or wait for the next daily run
 
-**Upload via admin UI:**
-1. Go to Admin → **Import** tab
-2. Drop image files onto the upload area
-3. Wait for "Committed to GitHub" status
-4. Go to **Scrapers** tab → click **"Run Scrapers"**
-5. Wait ~2 minutes — Claude reads the images and adds events automatically
+## What Gets Extracted
 
-**Or upload via `/upload.html`** (simpler interface, works from phone).
+Claude vision reads each image and extracts:
+- **Artist/Act name** — Who's performing
+- **Venue** — Where (or source context like "Bar DKDC Instagram")
+- **Date** — When (any format)
+- **Time** — What time (if visible)
+
+Multiple events per image are extracted automatically.
+
+## Tips
+
+1. **Clear images work best** — good lighting, readable text
+2. **Crop to relevant section** — full screenshots work too, but cropping improves accuracy
+3. **Multiple events per image is fine** — Claude extracts all of them
+4. **Large images are auto-resized** — files over 3MB are resized before sending to Claude vision (max ~1024x2048)
+5. **Artifacts auto-clean** — files in `artifacts/` older than 24 hours are deleted by the daily build
+6. **Verify results** — check the admin Events tab after import, fix any errors inline
 
 ## File Naming
 
-Any naming works, but helpful names are good for your records:
+Any naming works, but descriptive names help your records:
 ```
 2026-02-10-bside-instagram.png
 bar-dkdc-2026-02-11-post.jpg
 histone-events-page.png
-bandsintown-memphis-week.png
 poster-photo-2026-02-10.jpg
 ```
 
-## What Gets Extracted
+## Troubleshooting
 
-Claude vision reads each image and automatically extracts:
-- **Artist/Act name** — Who's performing
-- **Venue** — Where it is (or what source: "Bar DKDC Instagram", "Bandsintown", "Hi Tone website")
-- **Date** — When (any format)
-- **Time** — What time (if visible)
+**No events extracted from image?**
+- Verify file is a supported format: .png, .jpg, .jpeg, .gif, .webp
+- Try a clearer or larger image
+- Check that `ANTHROPIC_API_KEY` is set in GitHub Secrets
 
-## Examples
+**Wrong dates/venues extracted?**
+- Claude does its best with unclear text
+- Fix errors in the admin UI (Events tab -> click to edit)
 
-### Example 1: Instagram Screenshot
+**Missing events from a multi-event image?**
+- Claude vision targets ~90% accuracy
+- Add missing events manually via admin UI (+ Add Event)
 
-**Image shows:**
-```
-ABERRANT
-Sat Feb 15 @ 9PM
-B-Side Memphis
-```
+## Cost
 
-**Claude extracts:**
-```json
-{
-  "artist": "ABERRANT",
-  "venue": "B-Side Memphis",
-  "date": "2/15/2026",
-  "time": "9 PM",
-  "source_note": "Instagram screenshot"
-}
-```
-
-### Example 2: Bandsintown Screenshot
-
-**Image shows Bandsintown Memphis with multiple regional events**
-
-**Claude extracts all of them** with venue as "Bandsintown" or the specific venue name if visible:
-```json
-[
-  {
-    "artist": "Some Band",
-    "venue": "Minglewood Hall",
-    "date": "2/14/2026",
-    "time": "8 PM",
-    "source_note": "Bandsintown screenshot"
-  },
-  ...
-]
-```
-
-### Example 3: Venue Website
-
-**Image shows Hi Tone events page with multiple listings**
-
-**Claude extracts all events** with "Hi Tone" as venue:
-```json
-[
-  {
-    "artist": "Local Artist Name",
-    "venue": "Hi Tone",
-    "date": "2/16/2026",
-    "time": "9 PM",
-    "source_note": "Website screenshot"
-  },
-  ...
-]
-```
+- Claude vision API: ~$0.01 per image
+- Weekly workflow (5-10 images): ~$0.05-0.10/week
+- **Monthly: ~$0.20-0.40**
 
 ## Running Locally
 
 ```bash
-# Install dependencies
 pip install -r requirements.txt
+export ANTHROPIC_API_KEY="your_key"
 
-# Add image artifacts to artifacts/ folder
-# Then run:
-python -m src.main --dry-run
-
-# Or full run:
-python -m src.main
+# Add images to artifacts/ folder, then:
+python -m src.main --dry-run   # Preview
+python -m src.main             # Full run
 ```
-
-## GitHub Actions Setup
-
-1. Get your API key from: https://console.anthropic.com/
-2. Go to repo Settings → Secrets and variables → Actions
-3. Add new secret:
-   ```
-   Name: ANTHROPIC_API_KEY
-   Value: [your key from console.anthropic.com]
-   ```
-4. Done! Daily workflow will auto-process artifacts at 5 AM UTC
-
-## Cost
-
-- Claude's vision API: ~$0.01 per image
-- Weekly workflow (5-10 images): ~$0.05-0.10/week
-- **Monthly: ~$0.20-0.40**
-
-## Tips
-
-1. **Clear images work best** — Good lighting, readable text
-2. **Crop to relevant section** — Full screenshots work too
-3. **Multiple events per image is fine** — Claude extracts all of them
-4. **Delete old images after the week** — Keeps folder clean
-5. **Verify results** — Check `docs/log.json` after runs
-
-## Troubleshooting
-
-**No events found?**
-- Check images are in `artifacts/` folder (top level, no subfolders)
-- Verify file extensions: .png, .jpg, .jpeg, .gif, .webp
-- Try clearer/larger image
-
-**Wrong dates/venues extracted?**
-- Claude does its best with unclear text
-- Clearer images = better extraction
-- Fix in the admin UI (Events tab → click to edit)
-
-**Missing events?**
-- Claude vision isn't 100% perfect
-- System aims for ~90% accuracy
-- Add missing events manually via admin UI (+ Add Event)
-
-## Future Enhancements
-
-- Better handwriting recognition for posters
-- Duplicate detection: check artifact-extracted events against existing database before inserting
