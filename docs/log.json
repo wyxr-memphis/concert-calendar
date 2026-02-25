@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-02-25T00:11:45.008716+00:00",
+  "run_timestamp": "2026-02-25T00:16:56.684054+00:00",
   "date_range": {
     "start": "2026-02-25",
     "end": "2026-03-04"
@@ -65,11 +65,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -133,21 +133,21 @@
       "venue": "Hi Tone",
       "date": "2026-02-25",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
       "venue": "Hi Tone",
       "date": "2026-02-26",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "VALORIES / AVON PARK / MASSEY LANE",
       "venue": "Hi Tone",
       "date": "2026-02-26",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "Kenny Wayne Shepherd",
@@ -168,14 +168,14 @@
       "venue": "Hi Tone",
       "date": "2026-02-27",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "TRICK MIRROR EP RELEASE",
       "venue": "Hi Tone",
       "date": "2026-02-27",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "DEMOLA LIVE!",
@@ -189,7 +189,7 @@
       "venue": "Hi Tone",
       "date": "2026-02-28",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
@@ -210,7 +210,7 @@
       "venue": "Hi Tone",
       "date": "2026-03-01",
       "time": null,
-      "source": "Artifacts (Venue calendar poster)"
+      "source": "Artifacts (Venue calendar flyer)"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
