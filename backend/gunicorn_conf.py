@@ -34,8 +34,17 @@ def on_starting(server):
 def post_fork(server, worker):
     print(f"[gunicorn] Worker forked (pid {worker.pid})", flush=True)
 
+def post_worker_init(worker):
+    print(f"[gunicorn] Worker ready (pid {worker.pid})", flush=True)
+
 def worker_abort(worker):
     print(f"[gunicorn] Worker ABORTED (pid {worker.pid})", flush=True, file=sys.stderr)
 
+def worker_int(worker):
+    print(f"[gunicorn] Worker interrupted (pid {worker.pid})", flush=True)
+
 def worker_exit(server, worker):
     print(f"[gunicorn] Worker exited (pid {worker.pid})", flush=True)
+
+def child_exit(server, worker):
+    print(f"[gunicorn] Child exited (pid {worker.pid})", flush=True)

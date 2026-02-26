@@ -375,12 +375,15 @@ def _seed_venues_if_empty():
         if row and row["count"] > 0:
             # Ensure new venues are added even if table already has data
             for name, neighborhood, aliases in _SEED_VENUES:
-                cur.execute("SELECT id FROM venues WHERE name = %s", (name,))
-                if not cur.fetchone():
-                    cur.execute(
-                        "INSERT INTO venues (name, neighborhood, aliases) VALUES (%s, %s, %s)",
-                        (name, neighborhood, aliases),
-                    )
+                try:
+                    cur.execute("SELECT id FROM venues WHERE name = %s", (name,))
+                    if not cur.fetchone():
+                        cur.execute(
+                            "INSERT INTO venues (name, neighborhood, aliases) VALUES (%s, %s, %s)",
+                            (name, neighborhood, aliases),
+                        )
+                except Exception:
+                    pass  # Skip individual venue errors
             return
 
         for name, neighborhood, aliases in _SEED_VENUES:

@@ -76,8 +76,8 @@ def _ensure_db():
     global _db_ready
     if _db_ready:
         return
-    # Skip DB init for health check — must respond instantly
-    if request.path == "/health":
+    # Skip DB init for health/root check — must respond instantly
+    if request.path in ("/health", "/"):
         return
     try:
         print("[startup] Connecting to database...", flush=True)
@@ -85,6 +85,8 @@ def _ensure_db():
         _db_ready = True
         print("[startup] Database initialized OK", flush=True)
     except Exception as e:
+        # Mark as ready even on failure — don't retry init on every request
+        _db_ready = True
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
 
 
@@ -836,6 +838,7 @@ def admin_trigger_build():
 # ---------------------------------------------------------------------------
 
 @app.route("/health", methods=["GET"])
+@app.route("/", methods=["GET", "HEAD"])
 def health():
     return jsonify({"status": "ok"})
 
