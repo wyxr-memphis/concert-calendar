@@ -37,6 +37,7 @@ from backend.db import (
     get_scrape_logs,
     get_scraper_status_summary,
     get_all_venues,
+    get_unmapped_venues,
     get_venue_by_id,
     create_venue,
     update_venue,
@@ -297,6 +298,14 @@ def admin_venues_list():
     """List all venues with neighborhoods and event counts."""
     venues = get_all_venues()
     return jsonify(serialize_list(venues))
+
+
+@app.route("/api/admin/venues/unmapped", methods=["GET"])
+@require_auth
+def admin_venues_unmapped():
+    """List venue names from events that aren't in the venues table."""
+    rows = get_unmapped_venues()
+    return jsonify(serialize_list(rows))
 
 
 @app.route("/api/admin/venues", methods=["POST"])

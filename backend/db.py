@@ -397,6 +397,28 @@ def get_all_venues():
         return cur.fetchall()
 
 
+def get_unmapped_venues():
+    """Find venue names in events that don't match any venue in the venues table."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("""
+            SELECT e.venue AS name,
+                   COUNT(*) AS event_count,
+                   MAX(e.date) AS latest_date
+            FROM events e
+            WHERE e.venue IS NOT NULL
+              AND e.venue != ''
+              AND e.is_active = true
+              AND NOT EXISTS (
+                  SELECT 1 FROM venues v
+                  WHERE LOWER(v.name) = LOWER(e.venue)
+                     OR LOWER(e.venue) = ANY(SELECT LOWER(unnest(v.aliases)))
+              )
+            GROUP BY e.venue
+            ORDER BY COUNT(*) DESC, e.venue
+        """)
+        return cur.fetchall()
+
+
 def get_venue_by_id(venue_id):
     """Get a single venue by ID."""
     with get_cursor(commit=False) as cur:

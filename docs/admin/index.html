@@ -1139,6 +1139,7 @@
         ];
 
         let allVenues = [];
+        let unmappedVenues = [];
 
         // Load venues when Venues tab is activated
         document.querySelector('[data-tab="venues"]').addEventListener('click', () => {
@@ -1147,9 +1148,13 @@
 
         async function loadVenues() {
             try {
-                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues');
-                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
-                allVenues = Array.isArray(data) ? data : [];
+                const [venuesResult, unmappedResult] = await Promise.all([
+                    AdminAPI.apiJSON('/api/admin/venues'),
+                    AdminAPI.apiJSON('/api/admin/venues/unmapped'),
+                ]);
+                if (!venuesResult.resp.ok) throw new Error(venuesResult.data.error || `${venuesResult.resp.status}`);
+                allVenues = Array.isArray(venuesResult.data) ? venuesResult.data : [];
+                unmappedVenues = Array.isArray(unmappedResult.data) ? unmappedResult.data : [];
                 renderVenueTable();
                 populateMergeSelects();
             } catch (err) {
@@ -1160,15 +1165,16 @@
 
         function renderVenueTable() {
             const tbody = document.getElementById('venueBody');
-            if (allVenues.length === 0) {
+            let html = '';
+
+            if (allVenues.length === 0 && unmappedVenues.length === 0) {
                 tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">No venues found</td></tr>';
                 return;
             }
 
-            tbody.innerHTML = allVenues.map(v => {
+            // Mapped venues
+            html += allVenues.map(v => {
                 const aliases = (v.aliases || []).join(', ');
-                const nhClass = v.neighborhood ? '' : ' class="unassigned"';
-                const nhDisplay = v.neighborhood || 'Not assigned';
                 const count = v.event_count || 0;
 
                 const nhOptions = NEIGHBORHOODS.map(n =>
@@ -1188,7 +1194,34 @@
                 </tr>`;
             }).join('');
 
-            // Neighborhood dropdown change handlers
+            // Unmapped venues section
+            if (unmappedVenues.length > 0) {
+                html += `<tr><td colspan="4" style="padding:20px 8px 8px;border-bottom:2px solid #FFCF2D;">
+                    <strong style="color:#FFCF2D;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;">Unmapped Venues (${unmappedVenues.length})</strong>
+                    <span style="font-size:0.8em;color:#888;margin-left:8px;">These venues appear in events but aren't in the venues table yet</span>
+                </td></tr>`;
+
+                html += unmappedVenues.map(u => {
+                    return `<tr class="unmapped-row">
+                        <td><span style="color:#c62828;">${esc(u.name)}</span></td>
+                        <td>
+                            <select class="unmapped-nh-select" data-venue-name="${esc(u.name)}">
+                                <option value="">— Select —</option>
+                                ${NEIGHBORHOODS.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('')}
+                            </select>
+                        </td>
+                        <td>
+                            <button class="btn-secondary add-unmapped-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;">Add</button>
+                            <button class="btn-secondary merge-into-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;">Merge into...</button>
+                        </td>
+                        <td style="text-align:right;">${u.event_count || 0}</td>
+                    </tr>`;
+                }).join('');
+            }
+
+            tbody.innerHTML = html;
+
+            // Neighborhood dropdown change handlers (mapped venues)
             tbody.querySelectorAll('.venue-nh-select').forEach(sel => {
                 sel.addEventListener('change', async () => {
                     const venueId = sel.dataset.venueId;
@@ -1205,6 +1238,86 @@
                     }
                 });
             });
+
+            // Add unmapped venue buttons
+            tbody.querySelectorAll('.add-unmapped-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const name = btn.dataset.venueName;
+                    const nhSelect = btn.closest('tr').querySelector('.unmapped-nh-select');
+                    const neighborhood = nhSelect ? nhSelect.value || null : null;
+
+                    btn.disabled = true;
+                    btn.textContent = 'Adding...';
+                    try {
+                        const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name, neighborhood }),
+                        });
+                        if (resp.ok || resp.status === 201) {
+                            showStatus(`Added "${name}"`, 'success', 'venueStatusBar');
+                            loadVenues();
+                        } else {
+                            showStatus(data.error || 'Failed', 'error', 'venueStatusBar');
+                            btn.disabled = false;
+                            btn.textContent = 'Add';
+                        }
+                    } catch (err) {
+                        showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+                        btn.disabled = false;
+                        btn.textContent = 'Add';
+                    }
+                });
+            });
+
+            // Merge-into buttons for unmapped venues
+            tbody.querySelectorAll('.merge-into-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const unmappedName = btn.dataset.venueName;
+                    const target = prompt(`Merge "${unmappedName}" into which existing venue?\n\nExisting venues:\n${allVenues.map(v => '  ' + v.name).join('\n')}`);
+                    if (!target) return;
+
+                    const match = allVenues.find(v => v.name.toLowerCase() === target.toLowerCase());
+                    if (!match) {
+                        showStatus(`No venue named "${target}" found. Type the exact name.`, 'error', 'venueStatusBar');
+                        return;
+                    }
+
+                    // Create the unmapped venue first, then merge
+                    mergeUnmappedInto(unmappedName, match);
+                });
+            });
+        }
+
+        async function mergeUnmappedInto(unmappedName, targetVenue) {
+            try {
+                // Create the unmapped venue temporarily
+                const { resp: createResp, data: createData } = await AdminAPI.apiJSON('/api/admin/venues', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: unmappedName }),
+                });
+                if (!createResp.ok && createResp.status !== 201) {
+                    showStatus(createData.error || 'Failed to create venue for merge', 'error', 'venueStatusBar');
+                    return;
+                }
+                const newVenueId = createData.id;
+
+                // Now merge it into the target
+                const { resp: mergeResp, data: mergeData } = await AdminAPI.apiJSON('/api/admin/venues/merge', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ keep_id: targetVenue.id, merge_id: newVenueId }),
+                });
+                if (mergeResp.ok || mergeData.ok) {
+                    showStatus(`Merged "${unmappedName}" into "${targetVenue.name}" — ${mergeData.events_updated} events updated`, 'success', 'venueStatusBar');
+                    loadVenues();
+                } else {
+                    showStatus(mergeData.error || 'Merge failed', 'error', 'venueStatusBar');
+                }
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+            }
         }
 
         // Add Venue
