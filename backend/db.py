@@ -369,24 +369,28 @@ def _seed_venues_if_empty():
         ("Nashoba", "Germantown", ["nashoba", "nashoba live", "nashoba memphis"]),
     ]
 
-    with get_cursor() as cur:
+    with get_cursor(commit=False) as cur:
         cur.execute("SELECT COUNT(*) AS count FROM venues")
         row = cur.fetchone()
-        if row and row["count"] > 0:
-            # Ensure new venues are added even if table already has data
-            for name, neighborhood, aliases in _SEED_VENUES:
-                try:
-                    cur.execute("SELECT id FROM venues WHERE name = %s", (name,))
-                    if not cur.fetchone():
-                        cur.execute(
-                            "INSERT INTO venues (name, neighborhood, aliases) VALUES (%s, %s, %s)",
-                            (name, neighborhood, aliases),
-                        )
-                except Exception:
-                    pass  # Skip individual venue errors
-            return
+        venue_count = row["count"] if row else 0
 
+    if venue_count > 0:
+        # Ensure new venues are added even if table already has data
         for name, neighborhood, aliases in _SEED_VENUES:
+            try:
+                with get_cursor() as cur:
+                    cur.execute(
+                        """INSERT INTO venues (name, neighborhood, aliases)
+                           VALUES (%s, %s, %s)
+                           ON CONFLICT (name) DO NOTHING""",
+                        (name, neighborhood, aliases),
+                    )
+            except Exception:
+                pass  # Skip individual venue errors
+        return
+
+    for name, neighborhood, aliases in _SEED_VENUES:
+        with get_cursor() as cur:
             cur.execute(
                 """INSERT INTO venues (name, neighborhood, aliases)
                    VALUES (%s, %s, %s)
