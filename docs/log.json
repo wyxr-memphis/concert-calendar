@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-25T23:37:32.615271+00:00",
+  "run_timestamp": "2026-02-26T06:00:55.513648+00:00",
   "date_range": {
-    "start": "2026-02-25",
-    "end": "2026-03-04"
+    "start": "2026-02-26",
+    "end": "2026-03-05"
   },
-  "total_events_db": 92,
-  "total_active_display": 45,
+  "total_events_db": 79,
+  "total_active_display": 39,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 86,
+      "events_found": 90,
       "events_after_filter": 1,
-      "events_filtered": 85,
+      "events_filtered": 89,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 1,
-      "events_filtered": 29,
+      "events_after_filter": 0,
+      "events_filtered": 30,
       "error": null
     },
     {
@@ -115,55 +115,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "ACCESS GOD/ THE POP RITUAL/ DJ SETS BY BLKMR",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-25",
-      "time": "8PM",
-      "source": "Artifacts (Instagram flyer)"
-    },
-    {
-      "artist": "Bryan Hayes Music",
-      "venue": "Bryan Hayes @ Rotolo's!",
-      "date": "2026-02-25",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-25",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Open Mic Night for Memphis Musicians",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-02-25",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Soul Street LIVE at Rum Boogie Cafe",
-      "date": "2026-02-25",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Sex Mex",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-25",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
     {
       "artist": "DEVIL TRAIN",
       "venue": "B-Side Memphis",
@@ -190,7 +148,7 @@
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
