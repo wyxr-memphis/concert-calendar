@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-26T20:23:02.731862+00:00",
+  "run_timestamp": "2026-02-26T21:32:13.722815+00:00",
   "date_range": {
     "start": "2026-02-26",
     "end": "2026-03-05"
   },
-  "total_events_db": 79,
-  "total_active_display": 39,
+  "total_events_db": 80,
+  "total_active_display": 40,
   "data_store": "postgresql",
   "sources": [
     {
@@ -115,8 +115,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
+      "events_found": 40,
+      "events_after_filter": 40,
       "events_filtered": 0,
       "error": null
     }
@@ -134,7 +134,7 @@
       "venue": "Blues City Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
+      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Kenny Wayne Shepherd",
@@ -152,14 +152,14 @@
     },
     {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-02-26",
       "time": null,
       "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "Valories with AVON PARK & MASSEY LANE",
-      "venue": "The Hi-Tone Cafe",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
       "source": "import (bandsintown.mhtml)"
@@ -243,14 +243,14 @@
     },
     {
       "artist": "GHETTO SHIT VOL.3",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-02-27",
       "time": null,
       "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "TRICK MIRROR EP RELEASE",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-02-27",
       "time": null,
       "source": "Artifacts (Venue flyer)"
@@ -333,8 +333,15 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
+      "artist": "Encircled Throne",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "time": "6:30 PM",
+      "source": "import (bandsintown.mhtml)"
+    },
+    {
       "artist": "FACEROT / ENCIRCLED THRONE / RUINED GOD / SIBYL",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-02-28",
       "time": null,
       "source": "Artifacts (Venue flyer)"
@@ -361,15 +368,8 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
-      "artist": "Encircled Throne",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": "6:30 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "DRAG BINGO",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-03-01",
       "time": null,
       "source": "Artifacts (Venue flyer)"
@@ -383,7 +383,14 @@
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
       "date": "2026-03-03",
       "time": null,
       "source": "Venue: Hi Tone"
