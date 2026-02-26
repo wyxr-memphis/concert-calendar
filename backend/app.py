@@ -36,6 +36,15 @@ from backend.db import (
     delete_events_before,
     get_scrape_logs,
     get_scraper_status_summary,
+    get_all_venues,
+    get_venue_by_id,
+    create_venue,
+    update_venue,
+    delete_venue,
+    merge_venues,
+    normalize_venue_from_db,
+    get_neighborhoods_with_counts,
+    backfill_neighborhoods,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -125,6 +134,16 @@ def public_event_detail(event_id):
     if not event or not event.get("is_active", True):
         return jsonify({"error": "Event not found"}), 404
     return jsonify(serialize_event(event))
+
+
+@app.route("/api/neighborhoods", methods=["GET"])
+def public_neighborhoods():
+    """Get neighborhoods with event counts."""
+    rows = get_neighborhoods_with_counts()
+    return jsonify([
+        {"name": r["neighborhood"], "event_count": r["event_count"]}
+        for r in rows
+    ])
 
 
 # ---------------------------------------------------------------------------
@@ -266,6 +285,95 @@ def admin_events_bulk():
 
     count = bulk_action(action, ids)
     return jsonify({"ok": True, "affected": count})
+
+
+# ---------------------------------------------------------------------------
+# Admin Venue Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/venues", methods=["GET"])
+@require_auth
+def admin_venues_list():
+    """List all venues with neighborhoods and event counts."""
+    venues = get_all_venues()
+    return jsonify(serialize_list(venues))
+
+
+@app.route("/api/admin/venues", methods=["POST"])
+@require_auth
+def admin_venues_create():
+    """Create a new venue."""
+    body = request.get_json(silent=True) or {}
+    if not body.get("name"):
+        return jsonify({"error": "name is required"}), 400
+
+    try:
+        venue = create_venue(body)
+        return jsonify(serialize_event(venue)), 201
+    except Exception as e:
+        if "duplicate key" in str(e).lower() or "unique" in str(e).lower():
+            return jsonify({"error": "A venue with that name already exists"}), 409
+        raise
+
+
+@app.route("/api/admin/venues/<venue_id>", methods=["PUT"])
+@require_auth
+def admin_venues_update(venue_id):
+    """Update a venue's name, neighborhood, or aliases."""
+    body = request.get_json(silent=True) or {}
+    venue = update_venue(venue_id, body)
+    if not venue:
+        return jsonify({"error": "Venue not found"}), 404
+
+    # If neighborhood changed, update matching events too
+    if "neighborhood" in body:
+        from backend.db import get_cursor
+        with get_cursor() as cur:
+            cur.execute(
+                """UPDATE events SET neighborhood = %s, updated_at = NOW()
+                   WHERE LOWER(venue) = LOWER(%s)""",
+                (body["neighborhood"], venue["name"]),
+            )
+
+    return jsonify(serialize_event(venue))
+
+
+@app.route("/api/admin/venues/<venue_id>", methods=["DELETE"])
+@require_auth
+def admin_venues_delete(venue_id):
+    """Delete a venue."""
+    venue = delete_venue(venue_id)
+    if not venue:
+        return jsonify({"error": "Venue not found"}), 404
+    return jsonify({"ok": True, "venue": serialize_event(venue)})
+
+
+@app.route("/api/admin/venues/merge", methods=["POST"])
+@require_auth
+def admin_venues_merge():
+    """Merge two venues. keep_id absorbs merge_id."""
+    body = request.get_json(silent=True) or {}
+    keep_id = body.get("keep_id")
+    merge_id = body.get("merge_id")
+
+    if not keep_id or not merge_id:
+        return jsonify({"error": "keep_id and merge_id are required"}), 400
+    if keep_id == merge_id:
+        return jsonify({"error": "Cannot merge a venue into itself"}), 400
+
+    result = merge_venues(keep_id, merge_id)
+    if not result:
+        return jsonify({"error": "One or both venues not found"}), 404
+
+    return jsonify({"ok": True, **result})
+
+
+@app.route("/api/admin/venues/backfill", methods=["POST"])
+@require_auth
+def admin_venues_backfill():
+    """Backfill neighborhoods on existing events based on venue names."""
+    result = backfill_neighborhoods()
+    return jsonify({"ok": True, **result})
 
 
 # ---------------------------------------------------------------------------

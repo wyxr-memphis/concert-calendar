@@ -496,6 +496,94 @@
         .status-indicator.error { background: #c62828; }
         .status-indicator.unknown { background: #888; }
 
+        /* Venues Tab Styles */
+        .venues-toolbar {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .venue-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        .venue-table th {
+            text-align: left;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #888;
+            padding: 10px 8px;
+            border-bottom: 2px solid #ddd;
+        }
+        .venue-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+            vertical-align: middle;
+        }
+        .venue-table tr:hover { background: #f5f5f5; }
+        .venue-table .unassigned { color: #c62828; font-style: italic; }
+        .venue-table select {
+            padding: 4px 8px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background: #fff;
+            color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+        }
+        .venue-aliases {
+            font-size: 0.8em;
+            color: #888;
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .merge-panel {
+            background: #fff;
+            border: 2px solid #FFCF2D;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .merge-panel.visible { display: block; }
+        .merge-panel h3 {
+            font-size: 1em;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .merge-selects {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .merge-selects select {
+            padding: 8px 12px;
+            font-size: 0.9em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            min-width: 200px;
+            font-family: 'Inter', sans-serif;
+        }
+        .merge-arrow { font-size: 1.2em; color: #888; }
+        .merge-preview {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 4px;
+            display: none;
+        }
+        .merge-preview.visible { display: block; }
+
         /* Dark Mode */
         @media (prefers-color-scheme: dark) {
             body { background: #1a1a1a; color: #e0e0e0; }
@@ -594,6 +682,34 @@
                 border-top-color: #333;
                 color: #555;
             }
+
+            .venue-table th {
+                color: #666;
+                border-bottom-color: #333;
+                background: #222;
+            }
+            .venue-table td {
+                border-bottom-color: #2a2a2a;
+            }
+            .venue-table tr:hover { background: #252525; }
+            .venue-table select {
+                background: #2a2a2a;
+                border-color: #444;
+                color: #e0e0e0;
+            }
+            .merge-panel {
+                background: #2a2a2a;
+                border-color: #FFCF2D;
+            }
+            .merge-selects select {
+                background: #333;
+                border-color: #555;
+                color: #e0e0e0;
+            }
+            .merge-preview {
+                background: #333;
+                color: #aaa;
+            }
         }
     </style>
 </head>
@@ -615,6 +731,7 @@
 
         <nav class="nav-tabs">
             <button class="nav-tab active" data-tab="events">Events</button>
+            <button class="nav-tab" data-tab="venues">Venues</button>
             <button class="nav-tab" data-tab="tools">Tools</button>
         </nav>
 
@@ -652,6 +769,47 @@
                 </table>
 
                 <div class="pagination" id="pagination"></div>
+            </div>
+
+            <!-- VENUES TAB -->
+            <div class="tab-content" id="tab-venues">
+                <div class="venues-toolbar">
+                    <button class="btn-primary" id="addVenueBtn">+ Add Venue</button>
+                    <button class="btn-secondary" id="showMergeBtn">Merge Venues</button>
+                    <button class="btn-secondary" id="backfillBtn">Backfill Neighborhoods</button>
+                </div>
+
+                <!-- Merge Panel -->
+                <div class="merge-panel" id="mergePanel">
+                    <h3>Merge Venues</h3>
+                    <p style="font-size:0.85em;color:#888;margin-bottom:12px;">Select a venue to keep and one to merge into it. All events from the merged venue will be reassigned.</p>
+                    <div class="merge-selects">
+                        <select id="mergeKeep"><option value="">— Keep this venue —</option></select>
+                        <span class="merge-arrow">&larr;</span>
+                        <select id="mergeMerge"><option value="">— Merge this venue —</option></select>
+                    </div>
+                    <div class="merge-preview" id="mergePreview"></div>
+                    <div style="display:flex;gap:10px;">
+                        <button class="btn-primary" id="confirmMergeBtn" disabled>Confirm Merge</button>
+                        <button class="btn-secondary" id="cancelMergeBtn">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="status-bar" id="venueStatusBar"></div>
+
+                <table class="venue-table">
+                    <thead>
+                        <tr>
+                            <th>Venue Name</th>
+                            <th>Neighborhood</th>
+                            <th>Aliases</th>
+                            <th style="text-align:right;">Events</th>
+                        </tr>
+                    </thead>
+                    <tbody id="venueBody">
+                        <tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                    </tbody>
+                </table>
             </div>
 
             <!-- TOOLS TAB -->
@@ -783,7 +941,7 @@
         // Handle hash navigation (for redirects and bookmarks)
         function handleHashChange() {
             const hash = window.location.hash.slice(1); // Remove #
-            if (hash === 'tools' || hash === 'events') {
+            if (hash === 'tools' || hash === 'events' || hash === 'venues') {
                 switchToTab(hash);
             }
         }
@@ -965,6 +1123,212 @@
                 showStatus(`Failed to toggle ${field}: ${err.message}`, 'error');
             }
         }
+
+        // ========================================================================
+        // VENUES TAB FUNCTIONALITY
+        // ========================================================================
+
+        const NEIGHBORHOODS = [
+            'Midtown',
+            'Overton Square/Cooper-Young',
+            'Crosstown/Broad Avenue',
+            'Downtown/Beale Street',
+            'South Main Arts District',
+            'South Memphis (Graceland/Stax)',
+            'Germantown',
+        ];
+
+        let allVenues = [];
+
+        // Load venues when Venues tab is activated
+        document.querySelector('[data-tab="venues"]').addEventListener('click', () => {
+            loadVenues();
+        });
+
+        async function loadVenues() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                allVenues = Array.isArray(data) ? data : [];
+                renderVenueTable();
+                populateMergeSelects();
+            } catch (err) {
+                document.getElementById('venueBody').innerHTML =
+                    `<tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">Failed to load venues: ${esc(err.message)}</td></tr>`;
+            }
+        }
+
+        function renderVenueTable() {
+            const tbody = document.getElementById('venueBody');
+            if (allVenues.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">No venues found</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = allVenues.map(v => {
+                const aliases = (v.aliases || []).join(', ');
+                const nhClass = v.neighborhood ? '' : ' class="unassigned"';
+                const nhDisplay = v.neighborhood || 'Not assigned';
+                const count = v.event_count || 0;
+
+                const nhOptions = NEIGHBORHOODS.map(n =>
+                    `<option value="${esc(n)}"${v.neighborhood === n ? ' selected' : ''}>${esc(n)}</option>`
+                ).join('');
+
+                return `<tr data-venue-id="${esc(v.id)}">
+                    <td><strong>${esc(v.name)}</strong></td>
+                    <td>
+                        <select data-venue-id="${esc(v.id)}" class="venue-nh-select">
+                            <option value=""${!v.neighborhood ? ' selected' : ''}>— Not assigned —</option>
+                            ${nhOptions}
+                        </select>
+                    </td>
+                    <td class="venue-aliases" title="${esc(aliases)}">${esc(aliases) || '—'}</td>
+                    <td style="text-align:right;">${count}</td>
+                </tr>`;
+            }).join('');
+
+            // Neighborhood dropdown change handlers
+            tbody.querySelectorAll('.venue-nh-select').forEach(sel => {
+                sel.addEventListener('change', async () => {
+                    const venueId = sel.dataset.venueId;
+                    const newNh = sel.value || null;
+                    try {
+                        await AdminAPI.apiJSON(`/api/admin/venues/${venueId}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ neighborhood: newNh }),
+                        });
+                        showStatus('Neighborhood updated', 'success', 'venueStatusBar');
+                    } catch (err) {
+                        showStatus('Failed to update: ' + err.message, 'error', 'venueStatusBar');
+                    }
+                });
+            });
+        }
+
+        // Add Venue
+        document.getElementById('addVenueBtn').addEventListener('click', async () => {
+            const name = prompt('Venue name:');
+            if (!name) return;
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name }),
+                });
+                if (resp.ok || resp.status === 201) {
+                    showStatus(`Venue "${name}" created`, 'success', 'venueStatusBar');
+                    loadVenues();
+                } else {
+                    showStatus(data.error || 'Failed to create venue', 'error', 'venueStatusBar');
+                }
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+            }
+        });
+
+        // Merge Venues
+        document.getElementById('showMergeBtn').addEventListener('click', () => {
+            document.getElementById('mergePanel').classList.toggle('visible');
+        });
+        document.getElementById('cancelMergeBtn').addEventListener('click', () => {
+            document.getElementById('mergePanel').classList.remove('visible');
+            document.getElementById('mergePreview').classList.remove('visible');
+            document.getElementById('mergeKeep').value = '';
+            document.getElementById('mergeMerge').value = '';
+            document.getElementById('confirmMergeBtn').disabled = true;
+        });
+
+        function populateMergeSelects() {
+            const keepSel = document.getElementById('mergeKeep');
+            const mergeSel = document.getElementById('mergeMerge');
+
+            const opts = allVenues.map(v =>
+                `<option value="${esc(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`
+            ).join('');
+
+            keepSel.innerHTML = '<option value="">— Keep this venue —</option>' + opts;
+            mergeSel.innerHTML = '<option value="">— Merge this venue —</option>' + opts;
+        }
+
+        function updateMergePreview() {
+            const keepId = document.getElementById('mergeKeep').value;
+            const mergeId = document.getElementById('mergeMerge').value;
+            const preview = document.getElementById('mergePreview');
+            const btn = document.getElementById('confirmMergeBtn');
+
+            if (!keepId || !mergeId || keepId === mergeId) {
+                preview.classList.remove('visible');
+                btn.disabled = true;
+                return;
+            }
+
+            const keepV = allVenues.find(v => v.id === keepId);
+            const mergeV = allVenues.find(v => v.id === mergeId);
+            if (!keepV || !mergeV) return;
+
+            preview.innerHTML = `Merge <strong>"${esc(mergeV.name)}"</strong> (${mergeV.event_count || 0} events) into <strong>"${esc(keepV.name)}"</strong> (${keepV.event_count || 0} events)? "${mergeV.name}" will be added as an alias.`;
+            preview.classList.add('visible');
+            btn.disabled = false;
+        }
+
+        document.getElementById('mergeKeep').addEventListener('change', updateMergePreview);
+        document.getElementById('mergeMerge').addEventListener('change', updateMergePreview);
+
+        document.getElementById('confirmMergeBtn').addEventListener('click', async () => {
+            const keepId = document.getElementById('mergeKeep').value;
+            const mergeId = document.getElementById('mergeMerge').value;
+            if (!keepId || !mergeId) return;
+
+            if (!confirm('This cannot be undone. Proceed with merge?')) return;
+
+            const btn = document.getElementById('confirmMergeBtn');
+            btn.disabled = true;
+            btn.textContent = 'Merging...';
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues/merge', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ keep_id: keepId, merge_id: mergeId }),
+                });
+
+                if (resp.ok || data.ok) {
+                    showStatus(`Merged! ${data.events_updated} events updated.`, 'success', 'venueStatusBar');
+                    document.getElementById('mergePanel').classList.remove('visible');
+                    loadVenues();
+                } else {
+                    showStatus(data.error || 'Merge failed', 'error', 'venueStatusBar');
+                }
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Confirm Merge';
+        });
+
+        // Backfill neighborhoods
+        document.getElementById('backfillBtn').addEventListener('click', async () => {
+            if (!confirm('Assign neighborhoods to events based on venue mappings?')) return;
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues/backfill', {
+                    method: 'POST',
+                });
+
+                if (resp.ok || data.ok) {
+                    const total = (data.direct_matches || 0) + (data.alias_matches || 0);
+                    showStatus(`Backfill complete: ${total} events updated (${data.direct_matches} direct, ${data.alias_matches} alias matches)`, 'success', 'venueStatusBar');
+                } else {
+                    showStatus(data.error || 'Backfill failed', 'error', 'venueStatusBar');
+                }
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+            }
+        });
 
         // ========================================================================
         // TOOLS TAB FUNCTIONALITY

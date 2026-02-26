@@ -188,6 +188,24 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
 
         key = _normalized_key(title, venue, date_str)
 
+        # Normalize venue name and get neighborhood from venues table
+        neighborhood = entry.get("neighborhood")
+        try:
+            cur.execute(
+                """SELECT name, neighborhood FROM venues
+                   WHERE LOWER(name) = LOWER(%s)
+                   OR LOWER(%s) = ANY(SELECT LOWER(unnest(aliases)))
+                   LIMIT 1""",
+                (venue, venue),
+            )
+            venue_row = cur.fetchone()
+            if venue_row:
+                venue = venue_row["name"]
+                if not neighborhood:
+                    neighborhood = venue_row.get("neighborhood")
+        except Exception:
+            pass  # Continue with original venue name
+
         if key in db_key_to_row:
             db_row = db_key_to_row[key]
             # Don't overwrite admin/manual entries
@@ -199,12 +217,14 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     start_time = COALESCE(%s, start_time),
                     ticket_url = COALESCE(%s, ticket_url),
                     source = COALESCE(%s, source),
+                    neighborhood = COALESCE(neighborhood, %s),
                     updated_at = NOW()
                 WHERE id = %s""",
                 (
                     entry.get("start_time"),
                     entry.get("ticket_url"),
                     entry.get("source"),
+                    neighborhood,
                     db_row["id"],
                 ),
             )
@@ -214,13 +234,14 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             # New event — insert
             cur.execute(
                 """INSERT INTO events (title, venue, date, start_time, ticket_url,
-                   source, is_featured, is_active)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
+                   source, neighborhood, is_featured, is_active)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
                 (
                     title, venue, date_str,
                     entry.get("start_time"),
                     entry.get("ticket_url"),
                     entry.get("source", "scraper"),
+                    neighborhood,
                     entry.get("is_featured", False),
                     entry.get("is_active", True),
                 ),

@@ -35,88 +35,112 @@ GOOGLE_SHEET_CSV_URL = os.environ.get("GOOGLE_SHEET_CSV_URL", "")
 # Each venue has: name (canonical), aliases (for dedup), url (calendar page)
 # Add new venues here as you discover them
 # ---------------------------------------------------------------------------
+NEIGHBORHOODS = [
+    "Midtown",
+    "Overton Square/Cooper-Young",
+    "Crosstown/Broad Avenue",
+    "Downtown/Beale Street",
+    "South Main Arts District",
+    "South Memphis (Graceland/Stax)",
+    "Germantown",
+]
+
 VENUES = {
     "hi-tone": {
         "name": "Hi Tone",
         "aliases": ["hi tone", "hi-tone", "hi tone café", "hi tone cafe", "the hi-tone"],
+        "neighborhood": "Midtown",
         "calendar_url": "https://hitonecafe.com/events/",
         "scraper": "hi_tone",
     },
     "minglewood-hall": {
         "name": "Minglewood Hall",
         "aliases": ["minglewood", "minglewood hall", "1555 madison"],
+        "neighborhood": "Midtown",
         "calendar_url": "https://minglewoodhallmemphis.com/events/",
         "scraper": "minglewood",
     },
     "growlers": {
         "name": "Growlers",
         "aliases": ["growlers", "growlers memphis", "901 growlers"],
+        "neighborhood": "Overton Square/Cooper-Young",
         "calendar_url": "https://901growlers.com/calendar/",
         "scraper": "generic",
     },
     "hernandos-hideaway": {
         "name": "Hernando's Hideaway",
         "aliases": ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway"],
+        "neighborhood": "Midtown",
         "calendar_url": "https://hernandoshideawaymemphis.com/calendar/",
         "scraper": "hernandos",
     },
     "crosstown-arts": {
         "name": "Crosstown Arts",
         "aliases": ["crosstown arts", "the green room", "green room crosstown", "crosstown concourse"],
+        "neighborhood": "Crosstown/Broad Avenue",
         "calendar_url": "https://crosstownarts.org/calendar/",
         "scraper": "generic",
     },
     "lafayettes": {
         "name": "Lafayette's Music Room",
         "aliases": ["lafayettes", "lafayette's", "lafayettes music room", "lafayette's music room"],
+        "neighborhood": "Overton Square/Cooper-Young",
         "calendar_url": "https://lafayettes.com/event-calendar-memphis/",
         "scraper": "generic",
     },
     "overton-park-shell": {
         "name": "Overton Park Shell",
         "aliases": ["levitt shell", "overton park shell", "the shell"],
+        "neighborhood": "Midtown",
         "calendar_url": "https://overtonparkshell.org/calendar",
         "scraper": "generic",
     },
     "bb-kings": {
         "name": "B.B. King's Blues Club",
         "aliases": ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"],
+        "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://www.bbkings.com/memphis",
         "scraper": "generic",
     },
     "graceland-soundstage": {
         "name": "Graceland Soundstage",
         "aliases": ["graceland soundstage", "graceland live", "guest house theater"],
+        "neighborhood": "South Memphis (Graceland/Stax)",
         "calendar_url": "https://www.gracelandlive.com/gracelandsoundstage",
         "scraper": "generic",
     },
     "fedexforum": {
         "name": "FedExForum",
         "aliases": ["fedexforum", "fedex forum"],
+        "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://www.fedexforum.com/events",
         "scraper": "generic",
     },
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",
         "aliases": ["germantown performing arts", "germantown performing arts center", "gpac"],
+        "neighborhood": "Germantown",
         "calendar_url": "https://www.gpacweb.com/event-list",
         "scraper": "generic",
     },
     "orpheum": {
         "name": "Orpheum Theatre",
         "aliases": ["orpheum", "orpheum theatre", "halloran centre"],
+        "neighborhood": "Downtown/Beale Street",
         "calendar_url": None,
         "scraper": "manual_only",
     },
     "bar-dkdc": {
         "name": "Bar DKDC",
         "aliases": ["bar dkdc", "dkdc"],
+        "neighborhood": "Crosstown/Broad Avenue",
         "calendar_url": None,  # Instagram only — manual source
         "scraper": "manual_only",
     },
     "bside": {
         "name": "B-Side Memphis",
         "aliases": ["b-side", "bside", "b side", "b-side memphis"],
+        "neighborhood": "South Main Arts District",
         "calendar_url": None,  # Instagram / socials — manual source
         "scraper": "manual_only",
     },

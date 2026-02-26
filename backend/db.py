@@ -49,6 +49,7 @@ def init_db():
       description TEXT,
       genre TEXT,
       source TEXT DEFAULT 'manual',
+      neighborhood TEXT,
       is_featured BOOLEAN DEFAULT false,
       is_active BOOLEAN DEFAULT true,
       created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -56,6 +57,16 @@ def init_db():
     );
     CREATE INDEX IF NOT EXISTS idx_events_date ON events(date);
     CREATE INDEX IF NOT EXISTS idx_events_featured ON events(is_featured) WHERE is_featured = true;
+    CREATE INDEX IF NOT EXISTS idx_events_neighborhood ON events(neighborhood);
+
+    CREATE TABLE IF NOT EXISTS venues (
+      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+      name TEXT NOT NULL UNIQUE,
+      neighborhood TEXT,
+      aliases TEXT[] DEFAULT '{}',
+      created_at TIMESTAMPTZ DEFAULT NOW()
+    );
+    CREATE INDEX IF NOT EXISTS idx_venues_name ON venues(name);
 
     CREATE TABLE IF NOT EXISTS scrape_logs (
       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -74,6 +85,16 @@ def init_db():
     """
     with get_cursor() as cur:
         cur.execute(schema_sql)
+        # Add neighborhood column to events if it doesn't exist (migration)
+        cur.execute("""
+            DO $$ BEGIN
+                ALTER TABLE events ADD COLUMN IF NOT EXISTS neighborhood TEXT;
+            EXCEPTION WHEN duplicate_column THEN NULL;
+            END $$;
+        """)
+
+    # Seed venues from config if table is empty
+    _seed_venues_if_empty()
 
 
 # ---------------------------------------------------------------------------
@@ -138,7 +159,7 @@ def create_event(data):
     fields = [
         "title", "venue", "date", "start_time", "doors_time",
         "ticket_url", "ticket_price", "image_url", "description",
-        "genre", "source", "is_featured", "is_active",
+        "genre", "source", "neighborhood", "is_featured", "is_active",
     ]
     present = {k: data[k] for k in fields if k in data}
     columns = ", ".join(present.keys())
@@ -159,7 +180,7 @@ def update_event(event_id, data):
     allowed = [
         "title", "venue", "date", "start_time", "doors_time",
         "ticket_url", "ticket_price", "image_url", "description",
-        "genre", "source", "is_featured", "is_active",
+        "genre", "source", "neighborhood", "is_featured", "is_active",
     ]
     updates = {k: data[k] for k in allowed if k in data}
     if not updates:
@@ -244,7 +265,7 @@ def bulk_insert_events(events_list):
             fields = [
                 "title", "venue", "date", "start_time", "doors_time",
                 "ticket_url", "ticket_price", "image_url", "description",
-                "genre", "source", "is_featured", "is_active",
+                "genre", "source", "neighborhood", "is_featured", "is_active",
             ]
             present = {k: data[k] for k in fields if k in data}
             columns = ", ".join(present.keys())
@@ -310,6 +331,229 @@ def get_scrape_logs(limit=20, scraper_name=None):
     with get_cursor(commit=False) as cur:
         cur.execute(query, params)
         return cur.fetchall()
+
+
+# ---------------------------------------------------------------------------
+# Venue queries
+# ---------------------------------------------------------------------------
+
+def _seed_venues_if_empty():
+    """Seed the venues table from config.py if empty (one-time bootstrap)."""
+    with get_cursor() as cur:
+        cur.execute("SELECT COUNT(*) AS count FROM venues")
+        row = cur.fetchone()
+        if row and row["count"] > 0:
+            return
+
+        # Import config here to avoid circular imports at module level
+        from src.config import VENUES
+        for _key, venue_info in VENUES.items():
+            cur.execute(
+                """INSERT INTO venues (name, neighborhood, aliases)
+                   VALUES (%s, %s, %s)
+                   ON CONFLICT (name) DO NOTHING""",
+                (
+                    venue_info["name"],
+                    venue_info.get("neighborhood"),
+                    venue_info.get("aliases", []),
+                ),
+            )
+
+
+def get_all_venues():
+    """Get all venues with event counts."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("""
+            SELECT v.*,
+                   COUNT(e.id) FILTER (WHERE e.is_active = true) AS event_count
+            FROM venues v
+            LEFT JOIN events e ON LOWER(e.venue) = LOWER(v.name)
+            GROUP BY v.id
+            ORDER BY v.name
+        """)
+        return cur.fetchall()
+
+
+def get_venue_by_id(venue_id):
+    """Get a single venue by ID."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM venues WHERE id = %s", (venue_id,))
+        return cur.fetchone()
+
+
+def create_venue(data):
+    """Create a new venue. Returns the created venue."""
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO venues (name, neighborhood, aliases)
+               VALUES (%s, %s, %s)
+               RETURNING *""",
+            (
+                data["name"],
+                data.get("neighborhood"),
+                data.get("aliases", []),
+            ),
+        )
+        return cur.fetchone()
+
+
+def update_venue(venue_id, data):
+    """Update a venue. Returns updated venue."""
+    set_clauses = []
+    params = []
+
+    if "name" in data:
+        set_clauses.append("name = %s")
+        params.append(data["name"])
+    if "neighborhood" in data:
+        set_clauses.append("neighborhood = %s")
+        params.append(data["neighborhood"])
+    if "aliases" in data:
+        set_clauses.append("aliases = %s")
+        params.append(data["aliases"])
+
+    if not set_clauses:
+        return get_venue_by_id(venue_id)
+
+    params.append(venue_id)
+    query = f"UPDATE venues SET {', '.join(set_clauses)} WHERE id = %s RETURNING *"
+
+    with get_cursor() as cur:
+        cur.execute(query, params)
+        return cur.fetchone()
+
+
+def delete_venue(venue_id):
+    """Delete a venue by ID."""
+    with get_cursor() as cur:
+        cur.execute("DELETE FROM venues WHERE id = %s RETURNING *", (venue_id,))
+        return cur.fetchone()
+
+
+def merge_venues(keep_id, merge_id):
+    """Merge merge_venue into keep_venue.
+
+    1. Copy aliases from merge venue + merge venue's name into keep venue's aliases
+    2. Update all events with merge venue name → keep venue name + neighborhood
+    3. Delete the merge venue
+    """
+    with get_cursor() as cur:
+        # Get both venues
+        cur.execute("SELECT * FROM venues WHERE id = %s", (keep_id,))
+        keep_venue = cur.fetchone()
+        cur.execute("SELECT * FROM venues WHERE id = %s", (merge_id,))
+        merge_venue = cur.fetchone()
+
+        if not keep_venue or not merge_venue:
+            return None
+
+        # Combine aliases: keep's aliases + merge's aliases + merge's name
+        combined_aliases = list(keep_venue.get("aliases") or [])
+        combined_aliases.extend(merge_venue.get("aliases") or [])
+        if merge_venue["name"] not in combined_aliases:
+            combined_aliases.append(merge_venue["name"])
+        # Deduplicate
+        combined_aliases = list(dict.fromkeys(combined_aliases))
+
+        # Update keep venue's aliases
+        cur.execute(
+            "UPDATE venues SET aliases = %s WHERE id = %s",
+            (combined_aliases, keep_id),
+        )
+
+        # Update events: change venue name and set neighborhood
+        cur.execute(
+            """UPDATE events
+               SET venue = %s, neighborhood = %s, updated_at = NOW()
+               WHERE LOWER(venue) = LOWER(%s)""",
+            (keep_venue["name"], keep_venue.get("neighborhood"), merge_venue["name"]),
+        )
+        events_updated = cur.rowcount
+
+        # Also update events matching any of merge venue's aliases
+        for alias in (merge_venue.get("aliases") or []):
+            cur.execute(
+                """UPDATE events
+                   SET venue = %s, neighborhood = %s, updated_at = NOW()
+                   WHERE LOWER(venue) = LOWER(%s)""",
+                (keep_venue["name"], keep_venue.get("neighborhood"), alias),
+            )
+            events_updated += cur.rowcount
+
+        # Delete merge venue
+        cur.execute("DELETE FROM venues WHERE id = %s", (merge_id,))
+
+        return {
+            "keep_venue": keep_venue["name"],
+            "merged_venue": merge_venue["name"],
+            "events_updated": events_updated,
+            "aliases": combined_aliases,
+        }
+
+
+def normalize_venue_from_db(venue_name):
+    """Look up canonical venue name + neighborhood from DB.
+
+    Checks name match first, then alias match.
+    Returns (canonical_name, neighborhood) or None.
+    """
+    if not venue_name:
+        return None
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT name, neighborhood FROM venues
+               WHERE LOWER(name) = LOWER(%s)
+               OR LOWER(%s) = ANY(SELECT LOWER(unnest(aliases)))
+               LIMIT 1""",
+            (venue_name, venue_name),
+        )
+        row = cur.fetchone()
+        if row:
+            return (row["name"], row.get("neighborhood"))
+        return None
+
+
+def get_neighborhoods_with_counts():
+    """Get distinct neighborhoods with active event counts."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("""
+            SELECT neighborhood, COUNT(*) AS event_count
+            FROM events
+            WHERE is_active = true
+              AND neighborhood IS NOT NULL
+              AND neighborhood != ''
+              AND date >= CURRENT_DATE
+            GROUP BY neighborhood
+            ORDER BY event_count DESC
+        """)
+        return cur.fetchall()
+
+
+def backfill_neighborhoods():
+    """One-time backfill: assign neighborhoods to existing events based on venue match."""
+    with get_cursor() as cur:
+        cur.execute("""
+            UPDATE events e
+            SET neighborhood = v.neighborhood
+            FROM venues v
+            WHERE LOWER(e.venue) = LOWER(v.name)
+              AND e.neighborhood IS NULL
+              AND v.neighborhood IS NOT NULL
+        """)
+        direct = cur.rowcount
+
+        # Also match via aliases
+        cur.execute("""
+            UPDATE events e
+            SET neighborhood = v.neighborhood
+            FROM venues v, LATERAL unnest(v.aliases) AS alias
+            WHERE LOWER(e.venue) = LOWER(alias)
+              AND e.neighborhood IS NULL
+              AND v.neighborhood IS NOT NULL
+        """)
+        alias_match = cur.rowcount
+
+        return {"direct_matches": direct, "alias_matches": alias_match}
 
 
 def get_scraper_status_summary():
