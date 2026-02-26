@@ -34,8 +34,17 @@ def get_cursor(commit=True):
 
 
 def init_db():
-    """Run schema creation (idempotent)."""
-    schema_sql = """
+    """Run schema creation (idempotent).
+
+    Migrations run in order:
+    1. Core tables (events, scrape_logs) — original schema
+    2. Add neighborhood column to events (migration)
+    3. Create venues table (new)
+    4. Create indexes that depend on new columns
+    5. Seed venue data
+    """
+    # Step 1: Core tables (these already exist on production)
+    core_sql = """
     CREATE TABLE IF NOT EXISTS events (
       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
       title TEXT NOT NULL,
@@ -49,7 +58,6 @@ def init_db():
       description TEXT,
       genre TEXT,
       source TEXT DEFAULT 'manual',
-      neighborhood TEXT,
       is_featured BOOLEAN DEFAULT false,
       is_active BOOLEAN DEFAULT true,
       created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -57,16 +65,6 @@ def init_db():
     );
     CREATE INDEX IF NOT EXISTS idx_events_date ON events(date);
     CREATE INDEX IF NOT EXISTS idx_events_featured ON events(is_featured) WHERE is_featured = true;
-    CREATE INDEX IF NOT EXISTS idx_events_neighborhood ON events(neighborhood);
-
-    CREATE TABLE IF NOT EXISTS venues (
-      id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-      name TEXT NOT NULL UNIQUE,
-      neighborhood TEXT,
-      aliases TEXT[] DEFAULT '{}',
-      created_at TIMESTAMPTZ DEFAULT NOW()
-    );
-    CREATE INDEX IF NOT EXISTS idx_venues_name ON venues(name);
 
     CREATE TABLE IF NOT EXISTS scrape_logs (
       id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -84,16 +82,27 @@ def init_db():
     CREATE INDEX IF NOT EXISTS idx_scrape_logs_started ON scrape_logs(started_at DESC);
     """
     with get_cursor() as cur:
-        cur.execute(schema_sql)
-        # Add neighborhood column to events if it doesn't exist (migration)
+        cur.execute(core_sql)
+
+    # Step 2: Add neighborhood column to events (safe migration)
+    with get_cursor() as cur:
+        cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS neighborhood TEXT")
+
+    # Step 3: Create venues table
+    with get_cursor() as cur:
         cur.execute("""
-            DO $$ BEGIN
-                ALTER TABLE events ADD COLUMN IF NOT EXISTS neighborhood TEXT;
-            EXCEPTION WHEN duplicate_column THEN NULL;
-            END $$;
+            CREATE TABLE IF NOT EXISTS venues (
+              id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+              name TEXT NOT NULL UNIQUE,
+              neighborhood TEXT,
+              aliases TEXT[] DEFAULT '{}',
+              created_at TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE INDEX IF NOT EXISTS idx_venues_name ON venues(name);
+            CREATE INDEX IF NOT EXISTS idx_events_neighborhood ON events(neighborhood);
         """)
 
-    # Seed venues if table is empty
+    # Step 4: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
