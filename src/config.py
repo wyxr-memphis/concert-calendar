@@ -89,7 +89,8 @@ VENUES = {
         "aliases": ["lafayettes", "lafayette's", "lafayettes music room", "lafayette's music room"],
         "neighborhood": "Overton Square/Cooper-Young",
         "calendar_url": "https://lafayettes.com/event-calendar-memphis/",
-        "scraper": "generic",
+        "scraper": "elfsight",
+        "elfsight_widget_id": "a23b899c-e0ff-4165-a785-230565d757bd",
     },
     "overton-park-shell": {
         "name": "Overton Park Shell",
@@ -152,7 +153,8 @@ VENUES = {
         "aliases": ["nashoba", "nashoba live", "nashoba memphis"],
         "neighborhood": "Germantown",
         "calendar_url": "https://nashoba.live/event-calendar/",
-        "scraper": "nashoba",
+        "scraper": "elfsight",
+        "elfsight_widget_id": "cec78113-2599-4130-ba51-5401b108a2b2",
     },
 }
 

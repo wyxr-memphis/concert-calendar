@@ -21,6 +21,8 @@ from ..date_utils import parse_date_text
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
 }
 
 
@@ -99,8 +101,9 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_growlers(soup, name)
         elif scraper_type == "graceland":
             events = _parse_graceland(soup, name)
-        elif scraper_type == "nashoba":
-            events = _parse_nashoba(soup, name)
+        elif scraper_type == "elfsight":
+            widget_id = venue_info.get("elfsight_widget_id", "")
+            events = _parse_elfsight(name, url, widget_id)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -509,74 +512,67 @@ def _parse_graceland(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     return events
 
 
-# Nashoba Elfsight widget ID (hardcoded in their page)
-_NASHOBA_WIDGET_ID = "cec78113-2599-4130-ba51-5401b108a2b2"
-_NASHOBA_API_URL = (
-    f"https://core.service.elfsight.com/p/boot/"
-    f"?page=https%3A%2F%2Fnashoba.live%2Fevent-calendar%2F&w={_NASHOBA_WIDGET_ID}"
-)
-
-
-def _parse_nashoba(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Nashoba events from Elfsight JSON API (ignores soup)."""
+def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Event]:
+    """Parse events from an Elfsight Event Calendar widget via its JSON API."""
+    from urllib.parse import quote
     events = []
 
-    try:
-        resp = get_with_retry(_NASHOBA_API_URL, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
+    api_url = (
+        f"https://core.service.elfsight.com/p/boot/"
+        f"?page={quote(page_url, safe='')}&w={widget_id}"
+    )
 
-        # Navigate to the events list in the nested JSON
-        widgets = data.get("data", {}).get("widgets", {})
-        widget = widgets.get(_NASHOBA_WIDGET_ID, {})
-        settings = widget.get("data", {}).get("settings", {})
-        event_list = settings.get("events", [])
+    resp = get_with_retry(api_url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    data = resp.json()
 
-        for item in event_list:
-            try:
-                name = item.get("name", "").strip()
-                if not name:
-                    continue
+    # Navigate to the events list in the nested JSON
+    widgets = data.get("data", {}).get("widgets", {})
+    widget = widgets.get(widget_id, {})
+    settings = widget.get("data", {}).get("settings", {})
+    event_list = settings.get("events", [])
 
-                start = item.get("start", {})
-                date_str = start.get("date", "")
-                time_str_raw = start.get("time", "")
-
-                if not date_str:
-                    continue
-
-                event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
-
-                # Convert 24h time to 12h format
-                time_str = None
-                if time_str_raw:
-                    try:
-                        t = datetime.strptime(time_str_raw, "%H:%M")
-                        time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
-                    except ValueError:
-                        time_str = time_str_raw
-
-                # Ticket URL
-                url = None
-                btn_link = item.get("buttonLink", {})
-                if isinstance(btn_link, dict):
-                    link_val = btn_link.get("value", "")
-                    if link_val and link_val.startswith("http"):
-                        url = link_val
-
-                events.append(Event(
-                    artist=name,
-                    venue=venue_name,
-                    date=event_date,
-                    time=time_str,
-                    source=f"Venue: {venue_name}",
-                    url=url,
-                ))
-            except Exception:
+    for item in event_list:
+        try:
+            name = item.get("name", "").strip()
+            if not name:
                 continue
 
-    except Exception:
-        # If API fails, return empty — _scrape_venue will handle the error
-        raise
+            start = item.get("start", {})
+            date_str = start.get("date", "")
+            time_str_raw = start.get("time", "")
+
+            if not date_str:
+                continue
+
+            event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+
+            # Convert 24h time to 12h format
+            time_str = None
+            if time_str_raw:
+                try:
+                    t = datetime.strptime(time_str_raw, "%H:%M")
+                    time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+                except ValueError:
+                    time_str = time_str_raw
+
+            # Ticket URL
+            url = None
+            btn_link = item.get("buttonLink", {})
+            if isinstance(btn_link, dict):
+                link_val = btn_link.get("value", "")
+                if link_val and link_val.startswith("http"):
+                    url = link_val
+
+            events.append(Event(
+                artist=name,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
 
     return events
