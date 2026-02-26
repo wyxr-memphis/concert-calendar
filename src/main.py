@@ -524,7 +524,14 @@ def run(dry_run: bool = False) -> None:
             "error_message": error_msg,
             "details": {
                 "sources": [
-                    {"name": sr.source_name, "success": sr.success, "events": len(sr.events)}
+                    {
+                        "name": sr.source_name,
+                        "success": sr.success,
+                        "events": len(sr.events),
+                        "events_found": sr.events_found,
+                        "events_filtered": sr.events_filtered,
+                        "error": sr.error_message if not sr.success else None,
+                    }
                     for sr in all_source_results
                 ],
             },

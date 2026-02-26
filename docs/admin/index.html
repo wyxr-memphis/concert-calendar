@@ -460,7 +460,7 @@
         .log-line.error { color: #ef9a9a; }
         .log-line.warning { color: #ffb74d; }
 
-        /* Scraper status table */
+        /* Scraper status cards */
         .scraper-status-table {
             width: 100%;
             border-collapse: collapse;
@@ -495,6 +495,83 @@
         .status-indicator.warning { background: #f9a825; }
         .status-indicator.error { background: #c62828; }
         .status-indicator.unknown { background: #888; }
+
+        .source-cards { display: flex; flex-direction: column; gap: 8px; }
+        .source-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background: #fff;
+            overflow: hidden;
+        }
+        .source-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 14px;
+            cursor: pointer;
+            user-select: none;
+            transition: background 0.15s;
+        }
+        .source-card-header:hover { background: #f8f8f8; }
+        .source-card-left { display: flex; align-items: center; gap: 10px; }
+        .source-card-name { font-weight: 600; font-size: 0.9em; }
+        .source-card-right { display: flex; align-items: center; gap: 16px; font-size: 0.8em; color: #888; }
+        .source-card-stat { text-align: right; }
+        .source-card-stat strong { display: block; font-size: 1.1em; color: #333; }
+        .source-card-stat small { color: #999; font-size: 0.85em; }
+        .source-card-chevron { font-size: 0.8em; color: #ccc; transition: transform 0.2s; }
+        .source-card.open .source-card-chevron { transform: rotate(90deg); }
+        .source-card-body {
+            display: none;
+            padding: 0 14px 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .source-card.open .source-card-body { display: block; }
+        .source-history { margin-top: 8px; }
+        .source-history-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 4px 0;
+            font-size: 0.82em;
+            color: #666;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .source-history-row:last-child { border-bottom: none; }
+        .source-error-msg {
+            margin-top: 6px;
+            padding: 8px 10px;
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 4px;
+            font-size: 0.82em;
+            color: #991b1b;
+            word-break: break-word;
+        }
+        .db-event-summary {
+            margin-top: 12px;
+            padding: 10px 14px;
+            background: #f8f9fa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            font-size: 0.85em;
+        }
+        .db-event-summary h4 { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 6px; }
+        .db-event-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #f0f0f0; }
+        .db-event-row:last-child { border-bottom: none; }
+        .db-event-row .source-name { font-weight: 500; }
+        .db-event-row .source-range { color: #888; font-size: 0.9em; }
+        .build-history-section { margin-top: 16px; }
+        .build-history-section h4 { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 8px; }
+        .build-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.85em;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .build-row:last-child { border-bottom: none; }
 
         /* Venues Tab Styles */
         .venues-toolbar {
@@ -875,22 +952,18 @@
                 <!-- SECTION 3: Scraper Status -->
                 <div class="tools-section">
                     <h2 class="section-title">Scraper Status</h2>
-                    <p class="section-subtitle">View the health and activity of all venue scrapers</p>
+                    <p class="section-subtitle">Per-source results from recent builds. Click a source to see history.</p>
 
-                    <table class="scraper-status-table" id="scraperStatusTable">
-                        <thead>
-                            <tr>
-                                <th>Venue</th>
-                                <th>Type</th>
-                                <th>Last Run</th>
-                                <th>Events Found</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody id="scraperStatusBody">
-                            <tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
-                        </tbody>
-                    </table>
+                    <div class="source-cards" id="sourceCards">
+                        <div style="text-align:center;color:#888;padding:24px;">Loading...</div>
+                    </div>
+
+                    <div class="db-event-summary" id="dbEventSummary" style="display:none;"></div>
+
+                    <div class="build-history-section" id="buildHistorySection" style="display:none;">
+                        <h4>Recent Builds</h4>
+                        <div id="buildHistoryBody"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1878,39 +1951,134 @@
         // ------------------------------------------------------------------------
 
         async function loadScraperStatus() {
-            const tbody = document.getElementById('scraperStatusBody');
+            const cardsEl = document.getElementById('sourceCards');
+            const summaryEl = document.getElementById('dbEventSummary');
+            const buildSection = document.getElementById('buildHistorySection');
+            const buildBody = document.getElementById('buildHistoryBody');
 
             try {
                 const { resp, data } = await AdminAPI.apiJSON('/api/admin/scraper/status');
 
-                if (!resp.ok || !data.scrapers || data.scrapers.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">
-                        Scraper status unavailable. Scrapers run via GitHub Actions twice daily.
-                    </td></tr>`;
+                if (!resp.ok || (!data.sources && !data.scrapers)) {
+                    cardsEl.innerHTML = '<div style="text-align:center;color:#888;padding:24px;">Scraper status unavailable. Scrapers run via GitHub Actions twice daily.</div>';
                     return;
                 }
 
-                tbody.innerHTML = data.scrapers.map(s => {
-                    const statusClass = s.last_status === 'success' ? 'ok' :
-                                       s.last_status === 'failed' ? 'error' :
-                                       s.last_status === 'partial' ? 'warning' : 'unknown';
-                    const statusText = s.last_status || '—';
-                    const lastRun = s.last_run ? timeAgo(s.last_run) : 'Never';
-                    const eventsFound = s.events_added_last_run || 0;
+                const sources = data.sources || [];
+                const history = data.source_history || {};
+                const eventCounts = data.source_event_counts || [];
+                const builds = data.builds || [];
 
-                    return `<tr>
-                        <td>${esc(s.name)}</td>
-                        <td>Scraper</td>
-                        <td>${lastRun}</td>
-                        <td>${eventsFound}</td>
-                        <td><span class="status-indicator ${statusClass}"></span>${esc(statusText)}</td>
-                    </tr>`;
+                if (sources.length === 0) {
+                    cardsEl.innerHTML = '<div style="text-align:center;color:#888;padding:24px;">No scraper data yet. Run a build first.</div>';
+                    return;
+                }
+
+                // Sort: failures first, then by event count desc
+                sources.sort((a, b) => {
+                    if (a.success !== b.success) return a.success ? 1 : -1;
+                    return (b.events || 0) - (a.events || 0);
+                });
+
+                cardsEl.innerHTML = sources.map(s => {
+                    const statusClass = s.success ? (s.events > 0 ? 'ok' : 'warning') : 'error';
+                    const statusLabel = s.success ? (s.events > 0 ? 'OK' : '0 events') : 'Failed';
+                    const lastRun = s.last_run ? timeAgo(s.last_run) : 'Never';
+                    const hist = history[s.name] || [];
+
+                    let historyHtml = '';
+                    if (hist.length > 0) {
+                        historyHtml = '<div class="source-history">' + hist.map(h => {
+                            const hClass = h.success ? (h.events > 0 ? 'ok' : 'warning') : 'error';
+                            const hTime = h.run_time ? timeAgo(h.run_time) : '?';
+                            const hLabel = h.success ? `${h.events} events` + (h.events_found > h.events ? ` (${h.events_found} found, ${h.events_found - h.events} filtered)` : '') : 'Failed';
+                            return `<div class="source-history-row">
+                                <span class="status-indicator ${hClass}"></span>
+                                <span>${hTime}</span>
+                                <span style="margin-left:auto;">${esc(hLabel)}</span>
+                            </div>`;
+                        }).join('') + '</div>';
+                    }
+
+                    let errorHtml = '';
+                    if (!s.success && s.error) {
+                        errorHtml = `<div class="source-error-msg">${esc(s.error)}</div>`;
+                    }
+
+                    const foundDetail = s.events_found > s.events
+                        ? ` (${s.events_found} found, ${s.events_found - s.events} filtered)`
+                        : '';
+
+                    return `<div class="source-card">
+                        <div class="source-card-header" onclick="this.parentElement.classList.toggle('open')">
+                            <div class="source-card-left">
+                                <span class="status-indicator ${statusClass}"></span>
+                                <span class="source-card-name">${esc(s.name)}</span>
+                            </div>
+                            <div class="source-card-right">
+                                <div class="source-card-stat">
+                                    <strong>${s.events}</strong>
+                                    <small>events${foundDetail ? '' : ''}</small>
+                                </div>
+                                <div class="source-card-stat">
+                                    <strong>${lastRun}</strong>
+                                    <small>last run</small>
+                                </div>
+                                <span class="source-card-chevron">&#9654;</span>
+                            </div>
+                        </div>
+                        <div class="source-card-body">
+                            ${errorHtml}
+                            <div style="font-size:0.82em;color:#666;margin-top:4px;">
+                                ${s.events_found || 0} found${foundDetail} &middot;
+                                Status: <strong>${esc(statusLabel)}</strong>
+                            </div>
+                            ${hist.length > 1 ? '<div style="font-size:0.78em;font-weight:600;color:#888;margin-top:10px;text-transform:uppercase;letter-spacing:0.05em;">Run History</div>' : ''}
+                            ${hist.length > 1 ? historyHtml : ''}
+                        </div>
+                    </div>`;
                 }).join('');
 
+                // DB event summary
+                if (eventCounts.length > 0) {
+                    summaryEl.style.display = 'block';
+                    summaryEl.innerHTML = '<h4>Events in Database (by source)</h4>' +
+                        eventCounts.map(ec => {
+                            const range = ec.min_date && ec.max_date
+                                ? `${ec.min_date} to ${ec.max_date}`
+                                : '';
+                            return `<div class="db-event-row">
+                                <span class="source-name">${esc(ec.source)}</span>
+                                <span><strong>${ec.count}</strong> events ${range ? '&middot; ' + range : ''}</span>
+                            </div>`;
+                        }).join('');
+                }
+
+                // Build history
+                if (builds.length > 0) {
+                    buildSection.style.display = 'block';
+                    buildBody.innerHTML = builds.map(b => {
+                        const statusClass = b.status === 'success' ? 'ok' :
+                                           b.status === 'failed' ? 'error' :
+                                           b.status === 'partial' ? 'warning' : 'unknown';
+                        const runTime = b.started_at ? timeAgo(b.started_at) : '?';
+                        const duration = b.started_at && b.finished_at
+                            ? Math.round((new Date(b.finished_at) - new Date(b.started_at)) / 1000) + 's'
+                            : '—';
+                        return `<div class="build-row">
+                            <span class="status-indicator ${statusClass}"></span>
+                            <span>${runTime}</span>
+                            <span style="color:#888;">(${duration})</span>
+                            <span style="margin-left:auto;">${b.events_found || 0} found, ${b.events_added || 0} added</span>
+                            ${b.error_message ? '<div style="font-size:0.8em;color:#c62828;margin-top:2px;word-break:break-word;">' + esc(b.error_message).substring(0,120) + '</div>' : ''}
+                        </div>`;
+                    }).join('');
+                }
+
             } catch (err) {
-                tbody.innerHTML = `<tr><td colspan="5" style="text-align:center;color:#888;padding:24px;">
+                cardsEl.innerHTML = `<div style="text-align:center;color:#888;padding:24px;">
                     Failed to load scraper status: ${esc(err.message)}
-                </td></tr>`;
+                </div>`;
             }
         }
     </script>

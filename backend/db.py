@@ -602,62 +602,124 @@ def backfill_neighborhoods():
 
 
 def get_scraper_status_summary():
-    """Get a dashboard summary of all scrapers."""
+    """Get a dashboard summary with per-source details from recent builds."""
+    import json as _json
     with get_cursor(commit=False) as cur:
-        # Get latest run per scraper
+        # Get recent build logs (last 10)
         cur.execute("""
-            SELECT DISTINCT ON (scraper_name)
-                scraper_name, started_at, finished_at, status,
-                events_found, events_added, events_updated, events_skipped,
-                error_message
+            SELECT id, scraper_name, started_at, finished_at, status,
+                   events_found, events_added, events_updated, events_skipped,
+                   error_message, details
             FROM scrape_logs
-            ORDER BY scraper_name, started_at DESC
-        """)
-        latest_runs = cur.fetchall()
-
-        # Get recent errors (last 7 days)
-        cur.execute("""
-            SELECT scraper_name, started_at, error_message
-            FROM scrape_logs
-            WHERE status IN ('failed', 'partial')
-              AND started_at > NOW() - INTERVAL '7 days'
             ORDER BY started_at DESC
             LIMIT 10
         """)
-        recent_errors = cur.fetchall()
+        recent_logs = cur.fetchall()
 
         # Total scraped events count
         cur.execute("SELECT COUNT(*) AS count FROM events WHERE source != 'manual' AND source != 'admin'")
         total_row = cur.fetchone()
         total_scraped = total_row["count"] if total_row else 0
 
-    scrapers = []
-    for run in latest_runs:
-        last_run = run["started_at"]
-        # Estimate next run as ~12 hours from last
-        next_run = None
-        if last_run:
-            from datetime import timedelta
-            next_run = last_run + timedelta(hours=12)
+        # Events by source
+        cur.execute("""
+            SELECT source, COUNT(*) AS count,
+                   MIN(date) AS min_date, MAX(date) AS max_date
+            FROM events
+            WHERE date >= CURRENT_DATE
+            GROUP BY source
+            ORDER BY count DESC
+        """)
+        source_counts = cur.fetchall()
 
-        scrapers.append({
-            "name": run["scraper_name"],
-            "last_run": last_run.isoformat() if last_run else None,
-            "last_status": run["status"],
-            "next_run": next_run.isoformat() if next_run else None,
-            "events_added_last_run": run["events_added"],
-            "events_updated_last_run": run["events_updated"],
+    # Extract per-source status from the latest build log's details
+    per_source = {}
+    for log in recent_logs:
+        details = log.get("details")
+        if not details:
+            continue
+        if isinstance(details, str):
+            try:
+                details = _json.loads(details)
+            except Exception:
+                continue
+        sources_list = details.get("sources", [])
+        for src in sources_list:
+            name = src.get("name", "")
+            if not name or name in per_source:
+                continue
+            per_source[name] = {
+                "name": name,
+                "success": src.get("success", False),
+                "events": src.get("events", 0),
+                "events_found": src.get("events_found", 0),
+                "events_filtered": src.get("events_filtered", 0),
+                "error": src.get("error"),
+                "last_run": log["started_at"].isoformat() if log.get("started_at") else None,
+                "build_status": log["status"],
+            }
+
+    # Build history: per-source results from last 5 builds
+    source_history = {}
+    for log in recent_logs[:5]:
+        details = log.get("details")
+        if not details:
+            continue
+        if isinstance(details, str):
+            try:
+                details = _json.loads(details)
+            except Exception:
+                continue
+        for src in details.get("sources", []):
+            name = src.get("name", "")
+            if not name:
+                continue
+            if name not in source_history:
+                source_history[name] = []
+            source_history[name].append({
+                "success": src.get("success", False),
+                "events": src.get("events", 0),
+                "events_found": src.get("events_found", 0),
+                "error": src.get("error"),
+                "run_time": log["started_at"].isoformat() if log.get("started_at") else None,
+            })
+
+    # Build overview
+    builds = []
+    for log in recent_logs:
+        builds.append({
+            "id": str(log["id"]),
+            "started_at": log["started_at"].isoformat() if log.get("started_at") else None,
+            "finished_at": log["finished_at"].isoformat() if log.get("finished_at") else None,
+            "status": log["status"],
+            "events_found": log.get("events_found", 0),
+            "events_added": log.get("events_added", 0),
+            "events_updated": log.get("events_updated", 0),
+            "error_message": log.get("error_message"),
         })
 
     return {
-        "scrapers": scrapers,
-        "recent_errors": [
+        "sources": list(per_source.values()),
+        "source_history": source_history,
+        "builds": builds,
+        "source_event_counts": [
             {
-                "scraper": e["scraper_name"],
-                "time": e["started_at"].isoformat() if e["started_at"] else None,
-                "error": e["error_message"],
+                "source": row["source"],
+                "count": row["count"],
+                "min_date": row["min_date"].isoformat() if row.get("min_date") else None,
+                "max_date": row["max_date"].isoformat() if row.get("max_date") else None,
             }
-            for e in recent_errors
+            for row in source_counts
         ],
         "total_scraped_events": total_scraped,
+        # Keep backward compat
+        "scrapers": [
+            {
+                "name": s["name"],
+                "last_run": s["last_run"],
+                "last_status": "success" if s["success"] else "failed",
+                "events_added_last_run": s["events"],
+            }
+            for s in per_source.values()
+        ],
     }

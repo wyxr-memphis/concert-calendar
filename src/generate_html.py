@@ -98,32 +98,6 @@ def generate_html(
     run_time_str = run_time_central.strftime("%B %-d, %Y at %-I:%M %p %Z")
     total_events = len(events)
 
-    # Source status summary
-    ok_sources = [sr for sr in source_results if sr.success and len(sr.events) > 0]
-    error_sources = [sr for sr in source_results if not sr.success]
-
-    source_summary = f"{total_events} events from {len(ok_sources)} source{'s' if len(ok_sources) != 1 else ''}"
-    if error_sources:
-        source_summary += f" ({len(error_sources)} had errors)"
-
-    # Build per-source table rows
-    source_rows = ""
-    for sr in source_results:
-        if not sr.success:
-            css_class = "src-error"
-        elif len(sr.events) == 0:
-            css_class = "src-warn"
-        else:
-            css_class = "src-ok"
-        count = str(len(sr.events)) if sr.success else "\u2014"
-        source_rows += (
-            f'<tr class="{css_class}">'
-            f'<td class="src-dot">&#x25CF;</td>'
-            f'<td>{_esc(sr.source_name)}</td>'
-            f'<td class="src-count">{count}</td>'
-            f'</tr>\n'
-        )
-
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -287,50 +261,6 @@ def generate_html(
             color: #555;
             text-align: center;
         }}
-        .source-summary {{
-            font-size: 1.05em;
-            color: var(--wyxr-gray);
-            margin-bottom: 8px;
-        }}
-        .source-status {{
-            margin-bottom: 12px;
-            text-align: left;
-        }}
-        .source-status summary {{
-            cursor: pointer;
-            color: var(--wyxr-dim);
-            font-size: 0.95em;
-        }}
-        .source-status summary:hover {{
-            color: #aaa;
-        }}
-        .source-table {{
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 8px;
-            background: var(--wyxr-charcoal);
-            border-radius: 6px;
-            overflow: hidden;
-        }}
-        .source-table th {{
-            text-align: left;
-            font-weight: 600;
-            padding: 6px 10px;
-            border-bottom: 1px solid var(--wyxr-border);
-            color: var(--wyxr-dim);
-            font-size: 0.85em;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }}
-        .source-table td {{
-            padding: 4px 10px;
-            border-bottom: 1px solid #222;
-        }}
-        .src-dot {{ width: 16px; font-size: 0.7em; }}
-        .src-count {{ text-align: right; color: var(--wyxr-gray); }}
-        .src-ok .src-dot {{ color: #81c784; }}
-        .src-warn .src-dot {{ color: var(--wyxr-yellow); }}
-        .src-error .src-dot {{ color: #ef9a9a; }}
         footer a {{ color: var(--wyxr-dim); }}
         footer a:hover {{ color: var(--wyxr-yellow); }}
     </style>
@@ -350,42 +280,12 @@ def generate_html(
     </main>
 
     <footer>
-        <div class="source-summary">{source_summary}</div>
-        <details class="source-status">
-            <summary>Source Details</summary>
-            <table class="source-table">
-                <thead><tr><th></th><th>Source</th><th class="src-count">Events</th></tr></thead>
-                <tbody>
-                    {source_rows}
-                </tbody>
-            </table>
-        </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
         <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
     </footer>
 </body>
 </html>"""
-
-
-def _sanitize_source_line(sr: SourceResult) -> str:
-    """Build a sanitized source status line for public HTML display.
-
-    Hides internal URLs, full error details, and API specifics.
-    """
-    import re
-    name = _esc(sr.source_name)
-    if not sr.success:
-        # Strip URLs and technical details from error messages
-        error = sr.error_message or "unavailable"
-        error = re.sub(r'https?://\S+', '[url]', error)
-        error = re.sub(r'HTTPSConnectionPool.*', 'connection failed', error)
-        error = error[:80]
-        return f"{sr.status_emoji} {name}: unavailable"
-    if sr.events_found == 0:
-        return f"{sr.status_emoji} {name}: no events this week"
-    msg = f"{sr.status_emoji} {name}: {sr.events_found} event(s)"
-    return msg
 
 
 def _esc(text: str) -> str:
