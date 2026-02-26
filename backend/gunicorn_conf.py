@@ -7,6 +7,7 @@ Key settings:
   app per-worker avoids this. DB init is still deferred to first request.
 - graceful_timeout: How long old workers have to finish during deploys.
   Low value so the old process releases the port quickly for the new one.
+- keep_alive: Render's load balancer needs connections kept open.
 - Lifecycle hooks: Log worker fork/exit/abort for debugging deploy issues.
 """
 
