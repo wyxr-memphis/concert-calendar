@@ -330,21 +330,39 @@ def admin_venues_create():
 def admin_venues_update(venue_id):
     """Update a venue's name, neighborhood, or aliases."""
     body = request.get_json(silent=True) or {}
-    venue = update_venue(venue_id, body)
-    if not venue:
+
+    # Get old venue data before update (for rename propagation)
+    from backend.db import get_cursor, get_venue_by_id as _get_venue
+    old_venue = _get_venue(venue_id)
+    if not old_venue:
         return jsonify({"error": "Venue not found"}), 404
 
-    # If neighborhood changed, update matching events too
-    if "neighborhood" in body:
-        from backend.db import get_cursor
-        with get_cursor() as cur:
+    venue = update_venue(venue_id, body)
+
+    # Propagate changes to events
+    with get_cursor() as cur:
+        # If name changed, update all events with old name → new name
+        if "name" in body and body["name"] != old_venue["name"]:
+            cur.execute(
+                """UPDATE events SET venue = %s, updated_at = NOW()
+                   WHERE LOWER(venue) = LOWER(%s)""",
+                (body["name"], old_venue["name"]),
+            )
+            # Also add old name to aliases if not already there
+            aliases = list(venue.get("aliases") or [])
+            if old_venue["name"].lower() not in [a.lower() for a in aliases]:
+                aliases.append(old_venue["name"])
+                update_venue(venue_id, {"aliases": aliases})
+
+        # If neighborhood changed, update matching events
+        if "neighborhood" in body:
             cur.execute(
                 """UPDATE events SET neighborhood = %s, updated_at = NOW()
                    WHERE LOWER(venue) = LOWER(%s)""",
                 (body["neighborhood"], venue["name"]),
             )
 
-    return jsonify(serialize_event(venue))
+    return jsonify(serialize_event(update_venue(venue_id, {}) or venue))
 
 
 @app.route("/api/admin/venues/<venue_id>", methods=["DELETE"])

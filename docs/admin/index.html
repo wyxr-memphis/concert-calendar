@@ -776,6 +776,7 @@
                 <div class="venues-toolbar">
                     <button class="btn-primary" id="addVenueBtn">+ Add Venue</button>
                     <button class="btn-secondary" id="showMergeBtn">Merge Venues</button>
+                    <button class="btn-secondary" id="addNeighborhoodBtn">+ Neighborhood</button>
                     <button class="btn-secondary" id="backfillBtn">Backfill Neighborhoods</button>
                 </div>
 
@@ -1128,7 +1129,7 @@
         // VENUES TAB FUNCTIONALITY
         // ========================================================================
 
-        const NEIGHBORHOODS = [
+        let NEIGHBORHOODS = [
             'Midtown',
             'Overton Square/Cooper-Young',
             'Crosstown/Broad Avenue',
@@ -1137,6 +1138,14 @@
             'South Memphis (Graceland/Stax)',
             'Germantown',
         ];
+        // Load any custom neighborhoods from localStorage
+        const savedNH = localStorage.getItem('custom_neighborhoods');
+        if (savedNH) {
+            try {
+                const custom = JSON.parse(savedNH);
+                custom.forEach(n => { if (!NEIGHBORHOODS.includes(n)) NEIGHBORHOODS.push(n); });
+            } catch(e) {}
+        }
 
         let allVenues = [];
         let unmappedVenues = [];
@@ -1182,7 +1191,7 @@
                 ).join('');
 
                 return `<tr data-venue-id="${esc(v.id)}">
-                    <td><strong>${esc(v.name)}</strong></td>
+                    <td><strong class="venue-name-link" data-venue-id="${esc(v.id)}" data-current-name="${esc(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong></td>
                     <td>
                         <select data-venue-id="${esc(v.id)}" class="venue-nh-select">
                             <option value=""${!v.neighborhood ? ' selected' : ''}>— Not assigned —</option>
@@ -1220,6 +1229,32 @@
             }
 
             tbody.innerHTML = html;
+
+            // Venue name click-to-rename
+            tbody.querySelectorAll('.venue-name-link').forEach(el => {
+                el.addEventListener('click', async () => {
+                    const venueId = el.dataset.venueId;
+                    const currentName = el.dataset.currentName;
+                    const newName = prompt(`Rename venue:\n\nCurrent: ${currentName}\n\nAll events will be updated to the new name.\nThe old name will be saved as an alias.`, currentName);
+                    if (!newName || newName.trim() === currentName) return;
+
+                    try {
+                        const { resp, data } = await AdminAPI.apiJSON(`/api/admin/venues/${venueId}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name: newName.trim() }),
+                        });
+                        if (resp.ok) {
+                            showStatus(`Renamed "${currentName}" → "${newName.trim()}"`, 'success', 'venueStatusBar');
+                            loadVenues();
+                        } else {
+                            showStatus(data.error || 'Rename failed', 'error', 'venueStatusBar');
+                        }
+                    } catch (err) {
+                        showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+                    }
+                });
+            });
 
             // Neighborhood dropdown change handlers (mapped venues)
             tbody.querySelectorAll('.venue-nh-select').forEach(sel => {
@@ -1340,6 +1375,24 @@
             } catch (err) {
                 showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
             }
+        });
+
+        // Add Neighborhood
+        document.getElementById('addNeighborhoodBtn').addEventListener('click', () => {
+            const name = prompt('New neighborhood name:');
+            if (!name || !name.trim()) return;
+            const trimmed = name.trim();
+            if (NEIGHBORHOODS.includes(trimmed)) {
+                showStatus(`"${trimmed}" already exists`, 'info', 'venueStatusBar');
+                return;
+            }
+            NEIGHBORHOODS.push(trimmed);
+            // Save custom neighborhoods to localStorage
+            const builtIn = ['Midtown','Overton Square/Cooper-Young','Crosstown/Broad Avenue','Downtown/Beale Street','South Main Arts District','South Memphis (Graceland/Stax)','Germantown'];
+            const custom = NEIGHBORHOODS.filter(n => !builtIn.includes(n));
+            localStorage.setItem('custom_neighborhoods', JSON.stringify(custom));
+            showStatus(`Added neighborhood "${trimmed}"`, 'success', 'venueStatusBar');
+            renderVenueTable();
         });
 
         // Merge Venues

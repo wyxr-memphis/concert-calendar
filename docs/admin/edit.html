@@ -250,13 +250,6 @@
                     <label for="neighborhood">Neighborhood</label>
                     <select id="neighborhood">
                         <option value="">— Not assigned —</option>
-                        <option value="Midtown">Midtown</option>
-                        <option value="Overton Square/Cooper-Young">Overton Square/Cooper-Young</option>
-                        <option value="Crosstown/Broad Avenue">Crosstown/Broad Avenue</option>
-                        <option value="Downtown/Beale Street">Downtown/Beale Street</option>
-                        <option value="South Main Arts District">South Main Arts District</option>
-                        <option value="South Memphis (Graceland/Stax)">South Memphis (Graceland/Stax)</option>
-                        <option value="Germantown">Germantown</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -303,6 +296,24 @@
                         'ticket_url', 'ticket_price', 'image_url', 'neighborhood', 'genre', 'description'];
 
         // Auth guard
+        // Populate neighborhood dropdown
+        function populateNeighborhoods() {
+            const builtIn = ['Midtown','Overton Square/Cooper-Young','Crosstown/Broad Avenue','Downtown/Beale Street','South Main Arts District','South Memphis (Graceland/Stax)','Germantown'];
+            const all = [...builtIn];
+            try {
+                const custom = JSON.parse(localStorage.getItem('custom_neighborhoods') || '[]');
+                custom.forEach(n => { if (!all.includes(n)) all.push(n); });
+            } catch(e) {}
+            const sel = document.getElementById('neighborhood');
+            all.forEach(n => {
+                const opt = document.createElement('option');
+                opt.value = n;
+                opt.textContent = n;
+                sel.appendChild(opt);
+            });
+        }
+        populateNeighborhoods();
+
         AdminAPI.checkAuth().then(ok => {
             if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
