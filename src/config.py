@@ -10,6 +10,9 @@ TODAY = date.today()
 START_DATE = TODAY
 END_DATE = TODAY + timedelta(days=7)
 
+# Extended range for venue scrapers — 6 months for the interactive calendar
+SCRAPER_END_DATE = TODAY + timedelta(days=180)
+
 # ---------------------------------------------------------------------------
 # API Keys — set as environment variables or GitHub Secrets
 # ---------------------------------------------------------------------------
@@ -64,8 +67,8 @@ VENUES = {
         "name": "Growlers",
         "aliases": ["growlers", "growlers memphis", "901 growlers"],
         "neighborhood": "Overton Square/Cooper-Young",
-        "calendar_url": "https://901growlers.com/calendar/",
-        "scraper": "generic",
+        "calendar_url": "https://901growlers.com/",
+        "scraper": "growlers",
     },
     "hernandos-hideaway": {
         "name": "Hernando's Hideaway",
@@ -99,15 +102,15 @@ VENUES = {
         "name": "B.B. King's Blues Club",
         "aliases": ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"],
         "neighborhood": "Downtown/Beale Street",
-        "calendar_url": "https://www.bbkings.com/memphis",
-        "scraper": "generic",
+        "calendar_url": None,
+        "scraper": "manual_only",
     },
     "graceland-soundstage": {
         "name": "Graceland Soundstage",
         "aliases": ["graceland soundstage", "graceland live", "guest house theater"],
         "neighborhood": "South Memphis (Graceland/Stax)",
-        "calendar_url": "https://www.gracelandlive.com/gracelandsoundstage",
-        "scraper": "generic",
+        "calendar_url": "https://www.gracelandlive.com/shows",
+        "scraper": "graceland",
     },
     "fedexforum": {
         "name": "FedExForum",
@@ -143,6 +146,13 @@ VENUES = {
         "neighborhood": "South Main Arts District",
         "calendar_url": None,  # Instagram / socials — manual source
         "scraper": "manual_only",
+    },
+    "nashoba": {
+        "name": "Nashoba",
+        "aliases": ["nashoba", "nashoba live", "nashoba memphis"],
+        "neighborhood": "Germantown",
+        "calendar_url": "https://nashoba.live/event-calendar/",
+        "scraper": "nashoba",
     },
 }
 

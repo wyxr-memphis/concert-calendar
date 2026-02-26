@@ -366,12 +366,21 @@ def _seed_venues_if_empty():
         ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre"]),
         ("Bar DKDC", "Crosstown/Broad Avenue", ["bar dkdc", "dkdc"]),
         ("B-Side Memphis", "South Main Arts District", ["b-side", "bside", "b side", "b-side memphis"]),
+        ("Nashoba", "Germantown", ["nashoba", "nashoba live", "nashoba memphis"]),
     ]
 
     with get_cursor() as cur:
         cur.execute("SELECT COUNT(*) AS count FROM venues")
         row = cur.fetchone()
         if row and row["count"] > 0:
+            # Ensure new venues are added even if table already has data
+            for name, neighborhood, aliases in _SEED_VENUES:
+                cur.execute("SELECT id FROM venues WHERE name = %s", (name,))
+                if not cur.fetchone():
+                    cur.execute(
+                        "INSERT INTO venues (name, neighborhood, aliases) VALUES (%s, %s, %s)",
+                        (name, neighborhood, aliases),
+                    )
             return
 
         for name, neighborhood, aliases in _SEED_VENUES:

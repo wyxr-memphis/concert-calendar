@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
 from ..http_utils import get_with_retry
 from ..config import (
-    VENUES, START_DATE, END_DATE,
+    VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     normalize_venue_name, is_music_event,
 )
 from ..date_utils import parse_date_text
@@ -95,6 +95,12 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_minglewood(soup, name)
         elif scraper_type == "hernandos":
             events = _parse_hernandos(soup, name)
+        elif scraper_type == "growlers":
+            events = _parse_growlers(soup, name)
+        elif scraper_type == "graceland":
+            events = _parse_graceland(soup, name)
+        elif scraper_type == "nashoba":
+            events = _parse_nashoba(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -105,11 +111,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
 
         result.events_found = len(events)
         for event in events:
-            if not (START_DATE <= event.date <= END_DATE):
-                result.events_filtered += 1
-            elif not is_music_event(event.artist):
+            if not (START_DATE <= event.date <= SCRAPER_END_DATE):
                 result.events_filtered += 1
             else:
+                # Events from venue calendars are music events by definition —
+                # skip is_music_event() check which false-negatives on artist names
                 result.events.append(event)
 
         if result.events_found == 0:
@@ -394,5 +400,183 @@ def _parse_hernandos(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             ))
         except Exception:
             continue
+
+    return events
+
+
+def _parse_growlers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Growlers events from SeeTickets widget on 901growlers.com."""
+    events = []
+
+    for card in soup.select("div.seetickets-list-event-container"):
+        try:
+            title_el = card.select_one("p.event-title a")
+            date_el = card.select_one("p.event-date")
+            showtime_el = card.select_one("span.see-showtime")
+            doortime_el = card.select_one("span.see-doortime")
+
+            if not title_el or not date_el:
+                continue
+
+            # Prefer headliners field for cleaner artist name
+            headliner_el = card.select_one("p.headliners")
+            title = headliner_el.get_text(strip=True) if headliner_el else title_el.get_text(strip=True)
+            # Strip trailing "at Growlers" / "at Venue" from SeeTickets titles
+            title = re.sub(r'\s+at\s+\S.*$', '', title, flags=re.IGNORECASE).strip()
+            if not title:
+                title = title_el.get_text(strip=True)
+            date_text = date_el.get_text(strip=True)
+
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+
+            time_str = None
+            if showtime_el:
+                time_str = showtime_el.get_text(strip=True)
+            elif doortime_el:
+                time_str = doortime_el.get_text(strip=True)
+
+            url = title_el.get("href")
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_graceland(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Graceland Live shows from Wix section-based layout."""
+    events = []
+
+    for section in soup.select('section[data-block-level-container="ClassicSection"]'):
+        try:
+            # Each event section has an h1 with the artist name
+            h1 = section.select_one("h1.font_0")
+            if not h1:
+                continue
+
+            title = h1.get_text(strip=True)
+            if not title:
+                continue
+
+            # Graceland titles are ALL CAPS — convert to title case
+            if title == title.upper() and len(title) > 3:
+                title = title.title()
+
+            # Date is in h5 elements — find one that looks like a date
+            event_date = None
+            for h5 in section.select("h5.font_5"):
+                h5_text = h5.get_text(strip=True)
+                # Skip support acts ("with ...") and sale info ("ON SALE ...")
+                if h5_text.lower().startswith("with ") or "on sale" in h5_text.lower():
+                    continue
+                event_date = parse_date_text(h5_text)
+                if event_date:
+                    break
+
+            if not event_date:
+                continue
+
+            # Ticket URL from the TICKETS button
+            url = None
+            ticket_link = section.select_one('a[aria-label="TICKETS"]')
+            if ticket_link:
+                href = ticket_link.get("href", "")
+                if href.startswith("http"):
+                    url = href
+                elif href.startswith("/"):
+                    url = "https://www.gracelandlive.com" + href
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+# Nashoba Elfsight widget ID (hardcoded in their page)
+_NASHOBA_WIDGET_ID = "cec78113-2599-4130-ba51-5401b108a2b2"
+_NASHOBA_API_URL = (
+    f"https://core.service.elfsight.com/p/boot/"
+    f"?page=https%3A%2F%2Fnashoba.live%2Fevent-calendar%2F&w={_NASHOBA_WIDGET_ID}"
+)
+
+
+def _parse_nashoba(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Nashoba events from Elfsight JSON API (ignores soup)."""
+    events = []
+
+    try:
+        resp = get_with_retry(_NASHOBA_API_URL, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+
+        # Navigate to the events list in the nested JSON
+        widgets = data.get("data", {}).get("widgets", {})
+        widget = widgets.get(_NASHOBA_WIDGET_ID, {})
+        settings = widget.get("data", {}).get("settings", {})
+        event_list = settings.get("events", [])
+
+        for item in event_list:
+            try:
+                name = item.get("name", "").strip()
+                if not name:
+                    continue
+
+                start = item.get("start", {})
+                date_str = start.get("date", "")
+                time_str_raw = start.get("time", "")
+
+                if not date_str:
+                    continue
+
+                event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+
+                # Convert 24h time to 12h format
+                time_str = None
+                if time_str_raw:
+                    try:
+                        t = datetime.strptime(time_str_raw, "%H:%M")
+                        time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+                    except ValueError:
+                        time_str = time_str_raw
+
+                # Ticket URL
+                url = None
+                btn_link = item.get("buttonLink", {})
+                if isinstance(btn_link, dict):
+                    link_val = btn_link.get("value", "")
+                    if link_val and link_val.startswith("http"):
+                        url = link_val
+
+                events.append(Event(
+                    artist=name,
+                    venue=venue_name,
+                    date=event_date,
+                    time=time_str,
+                    source=f"Venue: {venue_name}",
+                    url=url,
+                ))
+            except Exception:
+                continue
+
+    except Exception:
+        # If API fails, return empty — _scrape_venue will handle the error
+        raise
 
     return events
