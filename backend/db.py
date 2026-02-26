@@ -93,8 +93,11 @@ def init_db():
             END $$;
         """)
 
-    # Seed venues from config if table is empty
-    _seed_venues_if_empty()
+    # Seed venues if table is empty
+    try:
+        _seed_venues_if_empty()
+    except Exception as e:
+        print(f"[init_db] Warning: venue seeding failed: {e}", flush=True)
 
 
 # ---------------------------------------------------------------------------
@@ -338,25 +341,36 @@ def get_scrape_logs(limit=20, scraper_name=None):
 # ---------------------------------------------------------------------------
 
 def _seed_venues_if_empty():
-    """Seed the venues table from config.py if empty (one-time bootstrap)."""
+    """Seed the venues table with known Memphis venues if empty."""
+    _SEED_VENUES = [
+        ("Hi Tone", "Midtown", ["hi tone", "hi-tone", "hi tone café", "hi tone cafe", "the hi-tone"]),
+        ("Minglewood Hall", "Midtown", ["minglewood", "minglewood hall", "1555 madison"]),
+        ("Growlers", "Overton Square/Cooper-Young", ["growlers", "growlers memphis", "901 growlers"]),
+        ("Hernando's Hideaway", "Midtown", ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway"]),
+        ("Crosstown Arts", "Crosstown/Broad Avenue", ["crosstown arts", "the green room", "green room crosstown", "crosstown concourse"]),
+        ("Lafayette's Music Room", "Overton Square/Cooper-Young", ["lafayettes", "lafayette's", "lafayettes music room", "lafayette's music room"]),
+        ("Overton Park Shell", "Midtown", ["levitt shell", "overton park shell", "the shell"]),
+        ("B.B. King's Blues Club", "Downtown/Beale Street", ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"]),
+        ("Graceland Soundstage", "South Memphis (Graceland/Stax)", ["graceland soundstage", "graceland live", "guest house theater"]),
+        ("FedExForum", "Downtown/Beale Street", ["fedexforum", "fedex forum"]),
+        ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac"]),
+        ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre"]),
+        ("Bar DKDC", "Crosstown/Broad Avenue", ["bar dkdc", "dkdc"]),
+        ("B-Side Memphis", "South Main Arts District", ["b-side", "bside", "b side", "b-side memphis"]),
+    ]
+
     with get_cursor() as cur:
         cur.execute("SELECT COUNT(*) AS count FROM venues")
         row = cur.fetchone()
         if row and row["count"] > 0:
             return
 
-        # Import config here to avoid circular imports at module level
-        from src.config import VENUES
-        for _key, venue_info in VENUES.items():
+        for name, neighborhood, aliases in _SEED_VENUES:
             cur.execute(
                 """INSERT INTO venues (name, neighborhood, aliases)
                    VALUES (%s, %s, %s)
                    ON CONFLICT (name) DO NOTHING""",
-                (
-                    venue_info["name"],
-                    venue_info.get("neighborhood"),
-                    venue_info.get("aliases", []),
-                ),
+                (name, neighborhood, aliases),
             )
 
 
