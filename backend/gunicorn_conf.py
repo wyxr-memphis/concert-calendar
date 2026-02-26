@@ -25,7 +25,10 @@ graceful_timeout = 10   # Max time for old workers to finish during shutdown
 workers = int(os.environ.get("WEB_CONCURRENCY", 1))
 
 # --- App loading ---
-preload_app = False     # Each worker loads app independently (more resilient to Render restarts)
+# preload_app=True loads app in master before forking workers.
+# Combined with deferred DB init (first real request triggers init_db),
+# this is safe: the master loads Python code only, no DB connections.
+preload_app = True
 
 # --- Lifecycle hooks for visibility ---
 
