@@ -207,6 +207,29 @@
         .src-error .src-dot { color: #ef9a9a; }
         footer a { color: var(--wyxr-dim); }
         footer a:hover { color: var(--wyxr-yellow); }
+        .page-nav {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--wyxr-border);
+        }
+        .page-nav a {
+            padding: 10px 20px;
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.9em;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--wyxr-dim);
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all 0.2s;
+        }
+        .page-nav a:hover { color: var(--wyxr-yellow); }
+        .page-nav a.active {
+            color: var(--wyxr-black);
+            background: var(--wyxr-yellow);
+            border-bottom-color: var(--wyxr-yellow);
+        }
     </style>
 </head>
 <body>
@@ -214,10 +237,15 @@
         <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
         <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
         <div class="header-meta">
-            <span class="updated">Updated February 26, 2026 at 11:53 AM CST</span>
+            <span class="updated">Updated February 26, 2026 at 2:23 PM CST</span>
             <span class="meta-badge">39 shows &middot; next 8 days</span>
         </div>
     </header>
+
+    <nav class="page-nav">
+        <a href="/" class="active">This Week</a>
+        <a href="/calendar.html">Full Calendar</a>
+    </nav>
 
     <main>
         
@@ -328,8 +356,8 @@
             </table>
         </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Last built February 26, 2026 at 11:53 AM CST<br>
-        <a href="/admin/">Admin</a>
+        Last built February 26, 2026 at 2:23 PM CST<br>
+        <a href="/calendar.html">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
     </footer>
 </body>
 </html>
