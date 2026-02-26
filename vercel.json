@@ -1,5 +1,8 @@
 {
   "outputDirectory": "docs",
+  "redirects": [
+    { "source": "/calendar.html", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ]
