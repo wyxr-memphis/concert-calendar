@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-26T21:56:17.731895+00:00",
+  "run_timestamp": "2026-02-26T23:11:23.615137+00:00",
   "date_range": {
     "start": "2026-02-26",
     "end": "2026-03-05"
   },
-  "total_events_db": 290,
-  "total_active_display": 67,
+  "total_events_db": 369,
+  "total_active_display": 82,
   "data_store": "postgresql",
   "sources": [
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 4,
+      "events_filtered": 48,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -115,8 +115,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 67,
+      "events_found": 82,
+      "events_after_filter": 82,
       "events_filtered": 0,
       "error": null
     }
@@ -134,7 +134,7 @@
       "venue": "Blues City Cafe",
       "date": "2026-02-26",
       "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
+      "source": "Artifacts (Bandsintown page)"
     },
     {
       "artist": "Xavier Lynn + opener Black Cream",
@@ -172,11 +172,25 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Prison Affair / D. Sablu / Decoration Policy [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-26",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
       "venue": "Hi-Tone Cafe",
       "date": "2026-02-26",
       "time": null,
       "source": "Artifacts (Venue flyer)"
+    },
+    {
+      "artist": "Valories / Avon Park / Massey Lane [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-26",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Valories / Avon Park / Massey Lane [Small Room-Downstairs]",
@@ -194,7 +208,7 @@
     },
     {
       "artist": "Betsy Spring",
-      "venue": "NASHOBA",
+      "venue": "Nashoba",
       "date": "2026-02-26",
       "time": "7 PM",
       "source": "Venue: Nashoba"
@@ -298,6 +312,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Ghetto Shit Vol 3. [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "GHETTO SHIT VOL.3",
       "venue": "Hi-Tone Cafe",
       "date": "2026-02-27",
@@ -317,6 +338,27 @@
       "date": "2026-02-27",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Area 51",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-27",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Cody Clark",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-27",
+      "time": "9:30 PM",
+      "source": "Venue: Lafayette's Music Room"
     },
     {
       "artist": "Demola",
@@ -341,14 +383,14 @@
     },
     {
       "artist": "Land / Divided",
-      "venue": "NASHOBA",
+      "venue": "Nashoba",
       "date": "2026-02-27",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Land/Divided",
-      "venue": "NASHOBA",
+      "venue": "Nashoba",
       "date": "2026-02-27",
       "time": "8 PM",
       "source": "Venue: Nashoba"
@@ -445,6 +487,27 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "TILT",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-28",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Twin Soul",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-02-28",
+      "time": "9 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
       "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
       "venue": "Minglewood Hall",
       "date": "2026-02-28",
@@ -453,7 +516,7 @@
     },
     {
       "artist": "Bluff City Bandits",
-      "venue": "NASHOBA",
+      "venue": "Nashoba",
       "date": "2026-02-28",
       "time": "8 PM",
       "source": "Venue: Nashoba"
@@ -494,6 +557,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "DRAG BINGO",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-01",
@@ -515,10 +585,24 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "The Lawrence Graduate Bayreuth Tuben Quintet",
       "venue": "Crosstown Arts",
       "date": "2026-03-03",
       "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "The Mystic",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-03",
+      "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
@@ -557,11 +641,25 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
       "time": "8 PM",
       "source": "Ticketmaster"
+    },
+    {
+      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
@@ -585,8 +683,15 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Soundhaus [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Adam Heart - the Songs of Billy Joel and the Beatles",
-      "venue": "NASHOBA",
+      "venue": "Nashoba",
       "date": "2026-03-05",
       "time": "7 PM",
       "source": "Venue: Nashoba"
