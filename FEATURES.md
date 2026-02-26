@@ -7,12 +7,11 @@ Planning doc for upcoming features.
 ## Pending Fixes & New Sources
 
 ### Scrapers to Fix
-- **Ticketmaster API** — needs API key configured in GitHub Secrets (`TICKETMASTER_API_KEY`)
-- **B.B. King's Blues Club** — scraper returning 0 events, page structure may have changed
-- **FedExForum** — scraper returning 0 events, page structure may have changed
+- **FedExForum** — generic scraper returning 0 events, page structure may have changed
+- **Overton Park Shell** — generic scraper returning 0 events (may be seasonal)
+- **Crosstown Arts** — generic scraper gets events but coverage is inconsistent
 
 ### New Venues to Add
-- **Nashoba Live** — https://nashoba.live/event-calendar/ (venue in Memphis area)
 - **Lamplighter Lounge** — appears in Bandsintown data but not in VENUES config; need to determine scraping approach
 - **Beale Street venues** — Blues City Cafe, Rum Boogie Cafe, Silky O'Sullivan's, Alfred's on Beale (nightly live music, not currently tracked)
 - **Railgarten** — frequent outdoor shows, not currently tracked
@@ -35,6 +34,15 @@ Planning doc for upcoming features.
 - ~~HTTP Retry Logic~~ — `get_with_retry()` with 2 retries, 3s backoff
 - ~~Date Parsing Consolidation~~ — Shared `date_utils.parse_date_text()`
 - ~~Naive Timestamp Fix~~ — `datetime.now(ZoneInfo("UTC"))`
+- ~~Interactive Calendar~~ — 6-month lookahead, month navigation, text search, neighborhood chip filtering
+- ~~Neighborhood Filtering~~ — Venues table with neighborhood mapping, admin UI management, merge duplicates
+- ~~Extended Date Range~~ — Venue scrapers use 6-month range (SCRAPER_END_DATE) for interactive calendar
+- ~~Nashoba Live~~ — Added with Elfsight scraper
+- ~~Lafayette's Music Room~~ — Switched from broken generic to Elfsight scraper
+- ~~Growlers~~ — Custom SeeTickets scraper at 901growlers.com
+- ~~Graceland Soundstage~~ — Custom Wix scraper at gracelandlive.com/shows
+- ~~Per-Source Scraper Status~~ — Expandable cards with run history, DB event counts, build timeline (moved from public page to admin)
+- ~~B.B. King's~~ — Changed to manual_only (scraper was returning 0 events)
 
 ---
 
@@ -93,19 +101,6 @@ Planning doc for upcoming features.
 
 ---
 
-## 13. Extended Date Range Option
-
-**Problem:** The 8-day window doesn't help people planning ahead. A 14-day view would cover next weekend too.
-
-**Options:**
-- `--days N` argument to `main.py`
-- Two views: 8-day `index.html` + 14-day `upcoming.html`
-- Client-side toggle in the HTML
-
-**Effort:** Low-Medium
-
----
-
 ## 14. Genre / Category Tags
 
 **Problem:** All events look the same — a jazz show and a punk show are indistinguishable.
@@ -154,7 +149,6 @@ Planning doc for upcoming features.
 | 4 | Event feed (JSON/RSS) | Medium | High | Pending — unlocks website integration |
 | 9 | Venue link enhancement | Low-Med | Medium | Pending |
 | 11 | JSON-LD parser consolidation | Medium | Medium | Pending — code quality |
-| 13 | Extended date range | Low-Med | Medium | Pending |
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
 | 16 | Deduplication improvements | Medium | High | Pending |

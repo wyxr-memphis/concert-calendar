@@ -2,17 +2,27 @@
 
 ## Overview
 
-The concert calendar started as a Python script that wrote events to a flat `events.json` file. It evolved through several phases to its current architecture where PostgreSQL is the single source of truth.
+The concert calendar started as a Python script that wrote events to a flat `events.json` file. It evolved through several phases to its current architecture where PostgreSQL is the single source of truth, with an interactive calendar homepage and comprehensive admin UI.
 
 ## Current Architecture
 
-- **PostgreSQL on Render** = single source of truth for all events (manual + automated)
-- **Backend API** = Flask on Render serving REST endpoints at `/api/*`
-- **Admin UI** = vanilla HTML+JS on Vercel with two tabs: Events (with Import), Scrapers
+- **PostgreSQL on Render** = single source of truth for all events (manual + automated), venues, and scrape_logs
+- **Backend API** = Flask on Render serving REST endpoints at `/api/*`, gunicorn with `preload_app=True`
+- **Interactive calendar** = `docs/index.html` — client-side filtering (neighborhoods, search, month nav) over 6-month API data
+- **Static "This Week" page** = `docs/thisweek.html` — auto-generated 8-day view
+- **Admin UI** = vanilla HTML+JS on Vercel with tabs: Events (with Import), Tools/Scrapers, Venues
 - **Auth** = JWT via Bearer token (cross-origin sessionStorage)
 - **Daily build** = GitHub Actions 2x daily -> fetch scrapers -> merge into PostgreSQL -> export events.json snapshot -> generate HTML
 - **Scraper logging** = `src/main.py` writes to `scrape_logs` table via `DATABASE_URL`
 - **`data/events.json`** = read-only snapshot exported by the build (not an input)
+
+## Database Tables
+
+| Table | Purpose |
+|-------|---------|
+| `events` | All events with `neighborhood` column, indexed |
+| `venues` | Canonical venue names, neighborhoods, aliases for auto-normalization |
+| `scrape_logs` | Per-build scraper results with per-source details |
 
 ## Environment Variables
 
@@ -48,7 +58,7 @@ The concert calendar started as a Python script that wrote events to a flat `eve
 2. Create a Web Service on Render:
    - **Root directory:** `./`
    - **Build command:** `pip install -r backend/requirements.txt`
-   - **Start command:** `gunicorn backend.app:app --timeout 120`
+   - **Start command:** `gunicorn -c backend/gunicorn_conf.py backend.app:app`
    - **Environment variables:** `DATABASE_URL`, `ADMIN_PASSWORD`, `ADMIN_SECRET_KEY`, `ALLOWED_ORIGINS`, `GITHUB_PAT`
 3. Run the database schema:
    ```bash
@@ -79,8 +89,10 @@ Each admin page has a `<script>` tag before `admin-common.js`:
 ### Public
 | Method | Path | Description |
 |--------|------|-------------|
+| GET | `/health` | Health check (also served at `/`) |
 | GET | `/api/events` | Active events (supports `start_date`, `end_date`, `featured_only`) |
 | GET | `/api/events/:id` | Single event detail |
+| GET | `/api/neighborhoods` | Neighborhood list with event counts |
 
 ### Auth
 | Method | Path | Description |
@@ -98,6 +110,18 @@ Each admin page has a `<script>` tag before `admin-common.js`:
 | DELETE | `/api/admin/events/:id` | Soft-delete event |
 | PATCH | `/api/admin/events/:id/featured` | Toggle featured |
 | POST | `/api/admin/events/bulk` | Bulk actions |
+| POST | `/api/admin/events/prune` | Hard-delete events older than today |
+
+### Admin Venues
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/api/admin/venues` | List all venues with neighborhoods |
+| GET | `/api/admin/venues/unmapped` | Venues with no neighborhood assigned |
+| POST | `/api/admin/venues` | Create new venue |
+| PUT | `/api/admin/venues/:id` | Update venue name/neighborhood |
+| DELETE | `/api/admin/venues/:id` | Delete a venue |
+| POST | `/api/admin/venues/merge` | Merge two venues (keep_id, merge_id) |
+| POST | `/api/admin/venues/backfill` | Backfill neighborhoods on existing events |
 
 ### Import
 | Method | Path | Description |
@@ -110,18 +134,43 @@ Each admin page has a `<script>` tag before `admin-common.js`:
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/api/admin/scraper/logs` | Recent scrape log entries |
-| GET | `/api/admin/scraper/status` | Scraper status summary |
+| GET | `/api/admin/scraper/status` | Per-source scraper status summary |
 | POST | `/api/admin/build/trigger` | Trigger GitHub Actions build |
-| POST | `/api/admin/events/prune` | Hard-delete events older than today |
+
+## Venue Scrapers
+
+| Venue | Scraper Type | Method |
+|-------|-------------|--------|
+| Hi Tone | `hi_tone` | Custom HTML parser (hitonecafe.com) |
+| Minglewood Hall | `minglewood` | Custom HTML parser (minglewoodhallmemphis.com) |
+| Hernando's Hideaway | `hernandos` | Custom HTML parser (hernandoshideawaymemphis.com) |
+| Growlers | `growlers` | SeeTickets widget parser (901growlers.com) |
+| Graceland Soundstage | `graceland` | Wix section parser (gracelandlive.com/shows) |
+| Lafayette's Music Room | `elfsight` | Elfsight JSON API (widget ID: a23b899c...) |
+| Nashoba | `elfsight` | Elfsight JSON API (widget ID: cec78113...) |
+| Crosstown Arts | `generic` | JSON-LD parser (crosstownarts.org) |
+| Overton Park Shell | `generic` | JSON-LD parser (overtonparkshell.org) |
+| FedExForum | `generic` | JSON-LD parser (fedexforum.com) |
+| Germantown PAC | `generic` | JSON-LD parser (gpacweb.com) |
+
+Venue scrapers use a 6-month date range (`SCRAPER_END_DATE`) for the interactive calendar. The `is_music_event()` filter is bypassed for venue scrapers since venue calendars are music events by definition.
 
 ## Deployment Status
 
 - **Render backend:** `https://concert-calendar-api.onrender.com` (Starter plan, always-on)
 - **Vercel frontend:** `https://concert-calendar-eight.vercel.app`
-- **PostgreSQL:** Render Starter plan, `events` + `scrape_logs` tables
+- **PostgreSQL:** Render Starter plan, `events` + `scrape_logs` + `venues` tables
 - **Scrape logging:** Enabled via `DATABASE_URL` GitHub Actions secret
-- **Run Scrapers:** Admin Scrapers tab, calls GitHub Actions workflow_dispatch
-- **Prune Old Events:** Admin Scrapers tab, hard-deletes events before today from PostgreSQL
+- **Trigger Build:** Admin Tools tab, calls GitHub Actions workflow_dispatch
+- **Prune Old Events:** Admin Tools tab, hard-deletes events before today from PostgreSQL
+
+## Gunicorn Configuration
+
+`backend/gunicorn_conf.py`:
+- `preload_app=True` — loads app in master before forking workers (critical for Render stability)
+- `timeout=120` — accommodates cold DB connections
+- `graceful_timeout=10` — old workers release port quickly during deploys
+- Lifecycle hooks log worker fork/exit/abort for debugging
 
 ## Evolution Notes
 
@@ -147,9 +196,19 @@ Each admin page has a `<script>` tag before `admin-common.js`:
 - events.json is now a read-only snapshot exported by the build
 - Eliminated the two-writer race condition entirely
 
+### Phase 5: Interactive Calendar + Venue Management (current)
+- Added interactive calendar as homepage (`docs/index.html`) with 6-month lookahead
+- Client-side filtering: neighborhoods, text search, month navigation
+- `venues` table in PostgreSQL with neighborhood mapping and alias support
+- Venue merge capability in admin UI (consolidates duplicate venues)
+- Per-source scraper status cards in admin (replaced public page source logs)
+- Custom scrapers: SeeTickets (Growlers), Wix (Graceland), Elfsight (Lafayette's, Nashoba)
+- Static "This Week" page moved to `docs/thisweek.html`
+
 ## Known Limitations
 
 - Image uploads via Import commit to GitHub `artifacts/` folder (not Render). Render storage is ephemeral.
 - The existing Vercel serverless API routes (`api/admin/*`) are legacy and unused when `__API_BASE` is set.
 - Without `DATABASE_URL`, the build falls back to events.json as a local data store (useful for development).
 - Event deduplication across sources (scrapers + vision imports) is basic — see FEATURES.md #16.
+- Generic scrapers (JSON-LD) depend on venue sites implementing structured data — some venues don't.

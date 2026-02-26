@@ -7,22 +7,24 @@ A daily-updating live music calendar for Memphis, Tennessee. Built for [WYXR 91.
 
 ## How It Works
 
-A Python script runs twice daily (midnight and noon Central) via GitHub Actions. It pulls event data from multiple sources, merges everything into a PostgreSQL database (the single source of truth), and publishes a static HTML calendar. A password-protected admin UI lets you add/edit/feature/deactivate events, upload artifacts, and monitor scraper health.
+A Python script runs twice daily (midnight and noon Central) via GitHub Actions. It pulls event data from multiple sources, merges everything into a PostgreSQL database (the single source of truth), and publishes both an interactive calendar (homepage) and a static "This Week" page. A password-protected admin UI lets you add/edit/feature/deactivate events, manage venues and neighborhoods, upload artifacts, and monitor scraper health.
 
 ### Sources (checked daily)
 
 | Source | Method | Notes |
 |--------|--------|-------|
 | Ticketmaster | API | Best coverage for major venues |
-| Venue websites | Custom scrapers | Hi Tone, Minglewood, Hernando's, Crosstown, GPAC |
+| Venue websites | Custom scrapers | Hi Tone, Minglewood, Hernando's, Growlers, Graceland, Lafayette's, Nashoba, Crosstown, GPAC, and more |
 | Artifacts (images/pages) | Claude Vision API + HTML parsing | Upload flyers or saved web pages |
 | Admin UI | Direct to PostgreSQL | Manual entries, edits, featured picks |
 
-### Venues tracked
+### Venues tracked (15)
 
-**Scraped automatically:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Crosstown Arts/Green Room, Germantown PAC, B.B. King's, FedExForum, Graceland Soundstage
+**Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland Soundstage, Lafayette's Music Room, Nashoba
 
-**Manual entry via admin UI or artifact upload:** Bar DKDC, B-Side Memphis, Orpheum Theatre, Lafayette's Music Room, Overton Park Shell
+**Generic scrapers:** Crosstown Arts/Green Room, FedExForum, Germantown PAC, Overton Park Shell
+
+**Manual entry via admin UI or artifact upload:** B.B. King's Blues Club, Orpheum Theatre, Bar DKDC, B-Side Memphis
 
 Want to add your venue? Email [contact@wyxr.org](mailto:contact@wyxr.org).
 
@@ -33,25 +35,27 @@ GitHub Actions (twice daily: midnight + noon Central)
   -> Python fetches from all sources
   -> Merges into PostgreSQL (single source of truth)
   -> Exports data/events.json (read-only snapshot)
-  -> Generates docs/index.html
+  -> Generates docs/thisweek.html (static 8-day calendar)
   -> Commits & pushes
   -> Triggers Vercel redeploy
 
 Render (Backend API)
   -> Flask REST API at concert-calendar-api.onrender.com
-  -> PostgreSQL database (events + scrape_logs)
-  -> Admin auth (JWT), event CRUD, import, scraper status
+  -> PostgreSQL database (events + scrape_logs + venues)
+  -> Admin auth (JWT), event CRUD, venue management, import, scraper status
 
 Vercel (Frontend)
-  -> Serves docs/index.html (public calendar)
-  -> Serves docs/admin/ (admin UI — Events + Import, Scrapers)
+  -> Serves docs/index.html (interactive calendar with 6-month lookahead)
+  -> Serves docs/thisweek.html (static "This Week" page)
+  -> Serves docs/admin/ (admin UI — Events, Import, Scrapers, Venues)
 ```
 
 ### Data Flow
 
 - **Admin edits** go directly to PostgreSQL via the Render API
 - **Scrapers** fetch external sources, merge into PostgreSQL, then export `events.json` as a snapshot
-- **HTML generation** reads active events from PostgreSQL to build the public calendar
+- **Static HTML** is generated from PostgreSQL during the build (8-day "This Week" page)
+- **Interactive calendar** fetches events from the API with a 6-month window, filters client-side
 - **`data/events.json`** is a read-only export — never edited directly
 
 ## Setup
@@ -92,14 +96,24 @@ Add these as GitHub Secrets (Settings -> Secrets -> Actions):
 
 ### 4. Test It
 
-Trigger a manual run from the **Actions** tab -> **Daily Concert Calendar Update** -> **Run workflow**. Or use the "Run Scrapers" button in the admin Scrapers tab.
+Trigger a manual run from the **Actions** tab -> **Daily Concert Calendar Update** -> **Run workflow**. Or use the "Trigger Build" button in the admin Tools tab.
 
 ## Admin UI
 
 Visit `/admin/` on your Vercel deployment to manage events:
 
-- **Events tab** — List all events, toggle featured/active, search, filter, edit, add new, import artifacts
-- **Scrapers tab** — Monitor scraper health, view run logs, run scrapers on demand, prune old events
+- **Events tab** — List all events, toggle featured/active, search, filter, edit, add new
+- **Import** — Upload images (Claude Vision) or saved web pages (HTML parsing)
+- **Tools tab** — Per-source scraper status cards with run history, trigger builds, prune old events
+- **Venues tab** — Manage venue-to-neighborhood mapping, merge duplicate venues
+
+## Interactive Calendar
+
+The homepage (`/`) is an interactive calendar with:
+- **6-month lookahead** — browse events months in advance
+- **Neighborhood filtering** — filter by area (Midtown, Downtown, etc.) via chips
+- **Text search** — find events by artist, venue, or keyword
+- **Month navigation** — browse forward/backward through months
 
 ## Uploading Artifacts
 
@@ -108,14 +122,15 @@ Use the **Import** section within the Events tab to upload event sources:
 - **Images** (PNG, JPG, WebP, GIF) — flyers, screenshots of event listings. Processed by Claude Vision API.
 - **Web pages** (MHTML, HTML) — saved venue calendars. Parsed directly with BeautifulSoup.
 
-Uploaded files are committed to the `artifacts/` folder in the repo. Hit "Run Scrapers" to process them immediately, or wait for the next daily run. Artifacts older than 24 hours are automatically cleaned up.
+Uploaded files are committed to the `artifacts/` folder in the repo. Hit "Trigger Build" to process them immediately, or wait for the next daily run. Artifacts older than 24 hours are automatically cleaned up.
 
 ## Adding a New Venue
 
-1. Add the venue to `VENUES` in `src/config.py` with `name`, `aliases`, `calendar_url`, and `scraper` type
+1. Add the venue to `VENUES` in `src/config.py` with `name`, `aliases`, `neighborhood`, `calendar_url`, and `scraper` type
 2. The generic scraper handles JSON-LD and common CMS patterns (Squarespace, WordPress Events Calendar, etc.)
-3. If needed, add a custom parser in `src/sources/venue_scrapers.py`
+3. If needed, add a custom parser in `src/sources/venue_scrapers.py` — existing parsers include SeeTickets (Growlers), Wix (Graceland), and Elfsight (Lafayette's, Nashoba)
 4. For Instagram-only venues, set `scraper: "manual_only"` and use the admin UI or artifact upload
+5. After adding, seed the venue in `db.py` `_seed_venues_if_empty()` and assign a neighborhood
 
 ## Project Structure
 
@@ -125,7 +140,8 @@ concert-calendar/
 │   └── daily.yml              # GitHub Actions schedule (2x daily)
 ├── backend/
 │   ├── app.py                 # Flask REST API (Render)
-│   ├── db.py                  # PostgreSQL queries
+│   ├── db.py                  # PostgreSQL queries (events, venues, scrape_logs)
+│   ├── gunicorn_conf.py       # Gunicorn config (preload_app, lifecycle hooks)
 │   ├── auth.py                # JWT auth for Flask
 │   ├── requirements.txt       # Backend dependencies
 │   └── Procfile               # Render start command
@@ -135,15 +151,15 @@ concert-calendar/
 │   └── _auth.py               # JWT helpers (Vercel)
 ├── src/
 │   ├── main.py                # Orchestrator (fetch -> merge -> DB -> HTML)
-│   ├── config.py              # Venues, keywords, settings
+│   ├── config.py              # Venues, neighborhoods, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
 │   ├── date_utils.py          # Shared date parsing
 │   ├── http_utils.py          # HTTP client with retry logic
 │   ├── normalize.py           # Deduplication logic
-│   ├── generate_html.py       # Static page generator
+│   ├── generate_html.py       # Static "This Week" page generator
 │   └── sources/
 │       ├── ticketmaster.py    # Ticketmaster Discovery API
-│       ├── venue_scrapers.py  # Individual venue website scrapers
+│       ├── venue_scrapers.py  # Venue website scrapers (custom + generic)
 │       ├── events_json.py     # Read/write data/events.json
 │       └── artifacts.py       # Image + web page artifact processing
 ├── data/
@@ -152,10 +168,11 @@ concert-calendar/
 │   ├── schema.sql             # PostgreSQL schema
 │   └── migrate_json_to_db.py  # Migration to PostgreSQL
 ├── docs/
-│   ├── index.html             # Published calendar (auto-generated)
-│   ├── admin/                 # Admin UI (login, events, import, scrapers)
+│   ├── index.html             # Interactive calendar (homepage)
+│   ├── thisweek.html          # Static "This Week" page (auto-generated)
+│   ├── admin/                 # Admin UI (login, events, import, scrapers, venues)
 │   └── log.json               # Latest run log
-├── vercel.json                # Vercel config
+├── vercel.json                # Vercel config (redirects, rewrites)
 ├── requirements.txt
 └── README.md
 ```
@@ -172,7 +189,7 @@ export TICKETMASTER_API_KEY="your_key"
 # Dry run — prints results without writing files
 python -m src.main --dry-run
 
-# Full run — generates docs/index.html
+# Full run — generates docs/thisweek.html
 # Without DATABASE_URL, falls back to events.json as data store
 python -m src.main
 ```
