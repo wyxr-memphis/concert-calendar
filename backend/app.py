@@ -295,8 +295,13 @@ def admin_events_bulk():
 @require_auth
 def admin_venues_list():
     """List all venues with neighborhoods and event counts."""
-    venues = get_all_venues()
-    return jsonify(serialize_list(venues))
+    import traceback
+    try:
+        venues = get_all_venues()
+        return jsonify(serialize_list(venues))
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e), "traceback": traceback.format_exc()}), 500
 
 
 @app.route("/api/admin/venues", methods=["POST"])
@@ -811,6 +816,65 @@ def admin_trigger_build():
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "ok"})
+
+
+@app.route("/api/debug/db-check", methods=["GET"])
+def debug_db_check():
+    """Temporary diagnostic endpoint to check DB state."""
+    import traceback
+    from backend.db import get_cursor
+    results = {}
+    try:
+        with get_cursor(commit=False) as cur:
+            # Check if venues table exists
+            cur.execute("""
+                SELECT EXISTS (
+                    SELECT FROM information_schema.tables
+                    WHERE table_name = 'venues'
+                )
+            """)
+            results["venues_table_exists"] = cur.fetchone()["exists"]
+
+            # Check if neighborhood column exists on events
+            cur.execute("""
+                SELECT EXISTS (
+                    SELECT FROM information_schema.columns
+                    WHERE table_name = 'events' AND column_name = 'neighborhood'
+                )
+            """)
+            results["events_neighborhood_col"] = cur.fetchone()["exists"]
+
+            if results["venues_table_exists"]:
+                cur.execute("SELECT COUNT(*) AS count FROM venues")
+                results["venue_count"] = cur.fetchone()["count"]
+
+                # Try the actual query
+                cur.execute("""
+                    SELECT v.*,
+                           COUNT(e.id) FILTER (WHERE e.is_active = true) AS event_count
+                    FROM venues v
+                    LEFT JOIN events e ON LOWER(e.venue) = LOWER(v.name)
+                    GROUP BY v.id
+                    ORDER BY v.name
+                    LIMIT 2
+                """)
+                rows = cur.fetchall()
+                results["sample_venues"] = [dict(r) for r in rows]
+                # Convert non-serializable types
+                for v in results["sample_venues"]:
+                    for k, val in v.items():
+                        if hasattr(val, "isoformat"):
+                            v[k] = val.isoformat()
+                        elif hasattr(val, "hex"):
+                            v[k] = str(val)
+
+        results["status"] = "ok"
+    except Exception as e:
+        results["status"] = "error"
+        results["error"] = str(e)
+        results["traceback"] = traceback.format_exc()
+
+    return jsonify(results)
 
 
 if __name__ == "__main__":
