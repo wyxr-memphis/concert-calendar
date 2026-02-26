@@ -333,29 +333,6 @@ def generate_html(
         .src-error .src-dot {{ color: #ef9a9a; }}
         footer a {{ color: var(--wyxr-dim); }}
         footer a:hover {{ color: var(--wyxr-yellow); }}
-        .page-nav {{
-            display: flex;
-            gap: 0;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--wyxr-border);
-        }}
-        .page-nav a {{
-            padding: 10px 20px;
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.9em;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--wyxr-dim);
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.2s;
-        }}
-        .page-nav a:hover {{ color: var(--wyxr-yellow); }}
-        .page-nav a.active {{
-            color: var(--wyxr-black);
-            background: var(--wyxr-yellow);
-            border-bottom-color: var(--wyxr-yellow);
-        }}
     </style>
 </head>
 <body>
@@ -367,11 +344,6 @@ def generate_html(
             <span class="meta-badge">{total_events} show{"s" if total_events != 1 else ""} &middot; next 8 days</span>
         </div>
     </header>
-
-    <nav class="page-nav">
-        <a href="/" class="active">This Week</a>
-        <a href="/calendar.html">Full Calendar</a>
-    </nav>
 
     <main>
         {event_sections}
@@ -390,7 +362,7 @@ def generate_html(
         </details>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
-        <a href="/calendar.html">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
+        <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
     </footer>
 </body>
 </html>"""

@@ -1186,7 +1186,7 @@
                 const aliases = (v.aliases || []).join(', ');
                 const count = v.event_count || 0;
 
-                const nhOptions = NEIGHBORHOODS.map(n =>
+                const nhOptions = [...NEIGHBORHOODS].sort().map(n =>
                     `<option value="${esc(n)}"${v.neighborhood === n ? ' selected' : ''}>${esc(n)}</option>`
                 ).join('');
 
@@ -1216,7 +1216,7 @@
                         <td>
                             <select class="unmapped-nh-select" data-venue-name="${esc(u.name)}">
                                 <option value="">— Select —</option>
-                                ${NEIGHBORHOODS.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('')}
+                                ${[...NEIGHBORHOODS].sort().map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('')}
                             </select>
                         </td>
                         <td>

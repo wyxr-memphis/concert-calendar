@@ -44,7 +44,7 @@ from src.sources import (
 
 # Output paths
 DOCS_DIR = Path(__file__).parent.parent / "docs"
-INDEX_PATH = DOCS_DIR / "index.html"
+INDEX_PATH = DOCS_DIR / "thisweek.html"
 LOG_PATH = DOCS_DIR / "log.json"
 
 # PostgreSQL connection

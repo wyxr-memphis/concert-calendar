@@ -305,6 +305,7 @@
                 custom.forEach(n => { if (!all.includes(n)) all.push(n); });
             } catch(e) {}
             const sel = document.getElementById('neighborhood');
+            all.sort();
             all.forEach(n => {
                 const opt = document.createElement('option');
                 opt.value = n;
