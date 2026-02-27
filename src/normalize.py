@@ -58,9 +58,21 @@ def _artists_match(a: str, b: str) -> bool:
     if na == nb:
         return True
 
-    # One contains the other (handles "Lucero" vs "Lucero with special guests")
-    if na in nb or nb in na:
+    # Empty strings should not match
+    if not na or not nb:
+        return False
+
+    # Check if removing all spaces makes them match (handles "slamhound" vs "slam hound")
+    na_nospace = na.replace(' ', '')
+    nb_nospace = nb.replace(' ', '')
+    if na_nospace == nb_nospace and len(na_nospace) >= 5:
         return True
+
+    # One contains the other (handles "Lucero" vs "Lucero with special guests")
+    # But require significant length to avoid false positives
+    if len(na) >= 5 and len(nb) >= 5:
+        if na in nb or nb in na:
+            return True
 
     # High overlap of words (handles word order differences)
     words_a = set(na.split())
@@ -68,12 +80,27 @@ def _artists_match(a: str, b: str) -> bool:
     if not words_a or not words_b:
         return False
 
+    # Remove very short words that don't help (single letters, "w", "at", etc)
+    words_a = {w for w in words_a if len(w) > 2}
+    words_b = {w for w in words_b if len(w) > 2}
+
+    if not words_a or not words_b:
+        # If only short words remain, check if the original normalized strings are very similar
+        return na == nb
+
     intersection = words_a & words_b
     union = words_a | words_b
     jaccard = len(intersection) / len(union)
 
-    # If >60% word overlap, likely same event
-    if jaccard > 0.6:
+    # If >70% word overlap, likely same event (increased from 60% for stricter matching)
+    if jaccard > 0.7:
+        return True
+
+    # Special case: if all words from the shorter name are in the longer name
+    # (e.g., "Demola" should match "Demola Live")
+    shorter = words_a if len(words_a) <= len(words_b) else words_b
+    longer = words_b if len(words_a) <= len(words_b) else words_a
+    if len(shorter) > 0 and shorter.issubset(longer):
         return True
 
     return False

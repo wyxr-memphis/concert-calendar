@@ -73,14 +73,24 @@ def normalize_text(text: str) -> str:
     punctuation, and collapses whitespace.
     """
     text = text.lower().strip()
+
     # Remove "the " prefix
     text = re.sub(r'^the\s+', '', text)
-    # Remove common suffixes that don't help distinguish events
-    text = re.sub(r'\s*(live|concert|tour|show|presents?|featuring|feat\.?|ft\.?)\s*$', '', text)
-    # Remove punctuation
-    text = re.sub(r'[^\w\s]', '', text)
+
+    # Remove bracketed content like [small room-downstairs], [big room-upstairs]
+    text = re.sub(r'\s*\[([^\]]+)\]\s*', ' ', text)
+    text = re.sub(r'\s*\(([^\)]+)\)\s*', ' ', text)
+
+    # Remove common suffixes that don't help distinguish events (more aggressive)
+    # Match anywhere in string, not just at end
+    text = re.sub(r'\s*(live!?|concert|tour|show|presents?|featuring|feat\.?|ft\.?|ep release party?|release party?)\s*', ' ', text, flags=re.IGNORECASE)
+
+    # Replace punctuation with spaces (fixes "Land/Divided" vs "Land / Divided")
+    text = re.sub(r'[^\w\s]', ' ', text)
+
     # Collapse whitespace
     text = re.sub(r'\s+', ' ', text).strip()
+
     return text
 
 

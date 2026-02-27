@@ -343,9 +343,77 @@
             });
         }
 
+        // ---- Deduplication ----
+        function normalizeForDedup(text) {
+            if (!text) return '';
+            let s = text.toLowerCase().trim();
+            // Remove "the " prefix
+            s = s.replace(/^the\s+/g, '');
+            // Remove bracketed content
+            s = s.replace(/\s*\[([^\]]+)\]\s*/g, ' ');
+            s = s.replace(/\s*\(([^\)]+)\)\s*/g, ' ');
+            // Remove common words
+            s = s.replace(/\s*(live!?|concert|tour|show|presents?|featuring|feat\.?|ft\.?|ep release party?|release party?)\s*/gi, ' ');
+            // Replace punctuation with spaces
+            s = s.replace(/[^\w\s]/g, ' ');
+            // Collapse whitespace
+            s = s.replace(/\s+/g, ' ').trim();
+            return s;
+        }
+
+        function deduplicateEvents(events) {
+            // Group by date + venue, then dedupe by normalized title
+            const groups = {};
+            events.forEach(e => {
+                const key = `${e.date}|${normalizeForDedup(e.venue || '')}`;
+                if (!groups[key]) groups[key] = [];
+                groups[key].push(e);
+            });
+
+            const deduped = [];
+            Object.values(groups).forEach(group => {
+                const seen = [];
+                group.forEach(event => {
+                    const normalized = normalizeForDedup(event.title || '');
+                    const isDup = seen.some(s => {
+                        const sNorm = normalizeForDedup(s.title || '');
+                        // Exact match
+                        if (normalized === sNorm) return true;
+                        // Space-removed match (handles "slamhound" vs "slam hound")
+                        const noSpaceA = normalized.replace(/\s+/g, '');
+                        const noSpaceB = sNorm.replace(/\s+/g, '');
+                        if (noSpaceA === noSpaceB && noSpaceA.length >= 5) return true;
+                        // One contains the other (min length 5)
+                        if (normalized.length >= 5 && sNorm.length >= 5) {
+                            if (normalized.includes(sNorm) || sNorm.includes(normalized)) return true;
+                        }
+                        // Word overlap check
+                        const wordsA = normalized.split(' ').filter(w => w.length > 2);
+                        const wordsB = sNorm.split(' ').filter(w => w.length > 2);
+                        if (wordsA.length && wordsB.length) {
+                            const intersection = wordsA.filter(w => wordsB.includes(w)).length;
+                            const union = new Set([...wordsA, ...wordsB]).size;
+                            if (intersection / union > 0.7) return true;
+                            // All words from shorter in longer
+                            const shorter = wordsA.length <= wordsB.length ? wordsA : wordsB;
+                            const longer = wordsA.length <= wordsB.length ? wordsB : wordsA;
+                            if (shorter.every(w => longer.includes(w))) return true;
+                        }
+                        return false;
+                    });
+                    if (!isDup) {
+                        seen.push(event);
+                    }
+                });
+                deduped.push(...seen);
+            });
+
+            return deduped;
+        }
+
         // ---- Filtering ----
         function getFilteredEvents() {
-            return allEvents.filter(e => {
+            const filtered = allEvents.filter(e => {
                 // Month filter
                 const d = new Date(e.date + 'T12:00:00');
                 if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
@@ -364,6 +432,9 @@
 
                 return true;
             });
+
+            // Deduplicate after filtering
+            return deduplicateEvents(filtered);
         }
 
         // ---- Rendering ----
