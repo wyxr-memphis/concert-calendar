@@ -201,6 +201,129 @@
             margin-bottom: 16px;
         }
 
+        /* Email Signup Banner */
+        .signup-banner {
+            background-color: #FFCF2D;
+            color: #000000;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+            border-top: 3px solid #000;
+            border-bottom: 3px solid #000;
+            margin: 0 0 16px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .signup-banner-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .signup-banner-headline {
+            font-family: 'Anybody', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: #000000;
+        }
+        .signup-banner-sub {
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: #3D3B3E;
+        }
+        .signup-banner-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            min-width: 280px;
+        }
+        .signup-banner-input-row {
+            display: flex;
+            gap: 8px;
+        }
+        .signup-banner-email {
+            flex: 1;
+            background: #FFFFFF;
+            border: 2px solid #000000;
+            border-radius: 4px;
+            padding: 10px 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #000000;
+        }
+        .signup-banner-email:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+        }
+        .signup-banner-email::placeholder {
+            color: #999;
+        }
+        .signup-banner-submit {
+            background: #000000;
+            color: #FFCF2D;
+            border: none;
+            padding: 10px 20px;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .signup-banner-submit:hover {
+            opacity: 0.9;
+        }
+        .signup-banner-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .signup-banner-error {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: #F54F73;
+            margin: 0;
+            min-height: 16px;
+        }
+        .signup-banner-close {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #000000;
+            font-size: 24px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: opacity 0.2s;
+        }
+        .signup-banner-close:hover {
+            opacity: 0.7;
+        }
+        .signup-banner-success {
+            background-color: #FFCF2D;
+            color: #000000;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-top: 3px solid #000;
+            border-bottom: 3px solid #000;
+            margin: 0 0 16px 0;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+        }
+
         /* Footer */
         footer {
             margin-top: 40px;
@@ -218,6 +341,32 @@
             .month-nav { gap: 8px; }
             .month-label { font-size: 0.95em; min-width: 150px; }
             .filter-bar { padding: 8px 0; }
+
+            /* Banner stacks on mobile */
+            .signup-banner {
+                padding: 16px;
+                padding-top: 36px;
+            }
+            .signup-banner-text {
+                width: 100%;
+            }
+            .signup-banner-headline {
+                font-size: 18px;
+            }
+            .signup-banner-sub {
+                font-size: 13px;
+            }
+            .signup-banner-form {
+                width: 100%;
+                min-width: unset;
+            }
+            .signup-banner-input-row {
+                flex-direction: column;
+            }
+            .signup-banner-email,
+            .signup-banner-submit {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -225,6 +374,28 @@
     <header>
         <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
     </header>
+
+    <!-- Email Signup Banner -->
+    <div class="signup-banner" id="wyxr-signup-banner">
+        <div class="signup-banner-text">
+            <span class="signup-banner-headline">📬 Never miss a Memphis show.</span>
+            <span class="signup-banner-sub">Weekly picks from WYXR DJs — free, every week.</span>
+        </div>
+        <div class="signup-banner-form">
+            <div class="signup-banner-input-row">
+                <input
+                    type="email"
+                    class="signup-banner-email"
+                    id="signup-email"
+                    placeholder="your@email.com"
+                    aria-label="Email address for WYXR weekly picks"
+                />
+                <button class="signup-banner-submit" type="button" id="signup-submit">Get the List</button>
+            </div>
+            <p class="signup-banner-error" id="signup-error" aria-live="polite"></p>
+        </div>
+        <button class="signup-banner-close" id="signup-close" aria-label="Dismiss signup banner">✕</button>
+    </div>
 
     <div class="filter-bar">
         <div class="month-nav">
@@ -282,6 +453,135 @@
         const eventList = document.getElementById('eventList');
         const eventCount = document.getElementById('eventCount');
         const loadingState = document.getElementById('loadingState');
+
+        // ---- Email Signup Banner ----
+        (function initSignupBanner() {
+            const banner = document.getElementById('wyxr-signup-banner');
+            const emailInput = document.getElementById('signup-email');
+            const submitBtn = document.getElementById('signup-submit');
+            const errorMsg = document.getElementById('signup-error');
+            const closeBtn = document.getElementById('signup-close');
+
+            if (!banner) return;
+
+            // Check session storage on load
+            if (sessionStorage.getItem('wyxr_signup_banner_dismissed')) {
+                banner.remove();
+                return;
+            }
+
+            // Show success state if previously submitted
+            if (sessionStorage.getItem('wyxr_signup_banner_success')) {
+                showSuccessState();
+                return;
+            }
+
+            // Dismiss handler
+            closeBtn.addEventListener('click', () => {
+                sessionStorage.setItem('wyxr_signup_banner_dismissed', '1');
+                banner.style.transition = 'opacity 0.2s, max-height 0.25s';
+                banner.style.opacity = '0';
+                banner.style.maxHeight = '0';
+                banner.style.overflow = 'hidden';
+                banner.style.paddingTop = '0';
+                banner.style.paddingBottom = '0';
+                setTimeout(() => banner.remove(), 300);
+            });
+
+            // Email validation
+            function isValidEmail(email) {
+                return email.includes('@') && email.includes('.') && email.length > 5;
+            }
+
+            // Strip HTML tags from Mailchimp error messages
+            function stripHtml(html) {
+                const tmp = document.createElement('div');
+                tmp.innerHTML = html;
+                return tmp.textContent || tmp.innerText || '';
+            }
+
+            // Submit to Mailchimp via JSONP
+            function submitToMailchimp(email) {
+                const url = 'https://us19.list-manage.com/subscribe/post-json' +
+                    '?u=47895ac8529b378064f16c794' +
+                    '&id=00ff34e7f0' +
+                    '&c=mailchimpCallback' +
+                    '&EMAIL=' + encodeURIComponent(email);
+
+                return new Promise((resolve, reject) => {
+                    window.mailchimpCallback = (data) => {
+                        delete window.mailchimpCallback;
+                        if (data.result === 'success') {
+                            resolve(data.msg);
+                        } else {
+                            reject(data.msg);
+                        }
+                    };
+
+                    const script = document.createElement('script');
+                    script.src = url;
+                    script.onerror = () => {
+                        delete window.mailchimpCallback;
+                        reject('Network error. Please try again.');
+                    };
+                    document.body.appendChild(script);
+                    script.onload = () => script.remove();
+                });
+            }
+
+            // Show success state
+            function showSuccessState(message) {
+                const successMsg = message || "✅ You're on the list! Check your inbox for this week's Memphis picks.";
+                banner.innerHTML = `<div class="signup-banner-success">${successMsg}</div>`;
+                sessionStorage.setItem('wyxr_signup_banner_success', '1');
+            }
+
+            // Form submission
+            async function handleSubmit(e) {
+                e.preventDefault();
+                const email = emailInput.value.trim();
+
+                // Clear previous errors
+                errorMsg.textContent = '';
+
+                // Validate email
+                if (!isValidEmail(email)) {
+                    errorMsg.textContent = '⚠ Please enter a valid email address.';
+                    emailInput.focus();
+                    return;
+                }
+
+                // Disable form during submission
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submitting...';
+
+                try {
+                    const response = await submitToMailchimp(email);
+                    showSuccessState();
+                } catch (error) {
+                    const errorText = stripHtml(error);
+
+                    // Handle "already subscribed" as success
+                    if (errorText.toLowerCase().includes('already subscribed') ||
+                        errorText.toLowerCase().includes('is already a list member')) {
+                        showSuccessState("✅ You're already on the list! 🎶");
+                    } else {
+                        // Show actual error
+                        errorMsg.textContent = errorText || 'Something went wrong. Please try again.';
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Get the List';
+                    }
+                }
+            }
+
+            // Event listeners
+            submitBtn.addEventListener('click', handleSubmit);
+            emailInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    handleSubmit(e);
+                }
+            });
+        })();
 
         // ---- Data Loading ----
         async function loadAllEvents() {
