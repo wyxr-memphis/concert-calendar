@@ -502,6 +502,8 @@
 
             // Submit to Mailchimp via hidden iframe (standard embedded form method)
             function submitToMailchimp(email) {
+                console.log('[Mailchimp] Starting submission for:', email);
+
                 return new Promise((resolve, reject) => {
                     // Create hidden iframe for form submission
                     const iframe = document.createElement('iframe');
@@ -514,6 +516,8 @@
                     form.action = 'https://wyxr.us19.list-manage.com/subscribe/post';
                     form.method = 'POST';
                     form.target = 'mailchimp-signup-iframe';
+
+                    console.log('[Mailchimp] Form action:', form.action);
 
                     // Add form fields
                     const fields = {
@@ -535,27 +539,33 @@
 
                     // Handle iframe load (success or error from Mailchimp)
                     iframe.onload = function() {
+                        console.log('[Mailchimp] Iframe loaded');
                         try {
                             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                             const bodyText = iframeDoc.body.textContent || iframeDoc.body.innerText || '';
+                            console.log('[Mailchimp] Response text:', bodyText.substring(0, 200));
 
                             // Check for success indicators
                             if (bodyText.toLowerCase().includes('thank') ||
                                 bodyText.toLowerCase().includes('almost finished') ||
                                 bodyText.toLowerCase().includes('check your email')) {
+                                console.log('[Mailchimp] Success detected');
                                 resolve('Success! Check your email to confirm your subscription.');
                             }
                             // Check for already subscribed
                             else if (bodyText.toLowerCase().includes('already subscribed') ||
                                      bodyText.toLowerCase().includes('is already a list member')) {
+                                console.log('[Mailchimp] Already subscribed detected');
                                 resolve('already_subscribed');
                             }
                             // Otherwise assume success (can't read iframe due to CORS)
                             else {
+                                console.log('[Mailchimp] No clear response, assuming success');
                                 // Assume success if no error detected
                                 resolve('Success! Check your email to confirm your subscription.');
                             }
                         } catch (e) {
+                            console.log('[Mailchimp] CORS error (expected), assuming success:', e.message);
                             // CORS prevents reading iframe content - assume success
                             resolve('Success! Check your email to confirm your subscription.');
                         }
