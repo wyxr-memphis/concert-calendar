@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-27T05:55:56.429015+00:00",
+  "run_timestamp": "2026-02-27T17:29:31.282314+00:00",
   "date_range": {
     "start": "2026-02-27",
     "end": "2026-03-06"
   },
-  "total_events_db": 415,
-  "total_active_display": 87,
+  "total_events_db": 356,
+  "total_active_display": 72,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 92,
+      "events_found": 90,
       "events_after_filter": 72,
-      "events_filtered": 20,
+      "events_filtered": 18,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -115,8 +115,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 87,
-      "events_after_filter": 87,
+      "events_found": 72,
+      "events_after_filter": 72,
       "events_filtered": 0,
       "error": null
     }
@@ -125,13 +125,6 @@
     {
       "artist": "Gia Welch/JD Westmoreland",
       "venue": "South Main Sounds",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Robert Allen Parker w/ PLAY SOME SKYNYRD",
-      "venue": "10th Inning Bar & Grill",
       "date": "2026-02-27",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
@@ -179,13 +172,6 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
-      "artist": "Flintwick",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Gill-Yum",
       "venue": "Growlers",
       "date": "2026-02-27",
@@ -193,18 +179,11 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
-      "artist": "Lumen",
-      "venue": "Growlers",
+      "artist": "Sammy QaDan & The Second Hand Smokers",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "The Depths",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Sammy QaDan & The Second Hand Smokers",
@@ -228,32 +207,11 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Ghetto Shit Vol 3. [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "GHETTO SHIT VOL.3",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Artifacts (Venue flyer)"
-    },
-    {
       "artist": "TRICK MIRROR EP RELEASE",
       "venue": "Hi-Tone Cafe",
       "date": "2026-02-27",
       "time": null,
       "source": "Artifacts (Venue flyer)"
-    },
-    {
-      "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
@@ -284,13 +242,6 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
-      "artist": "Demola",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "DEMOLA LIVE!",
       "venue": "Minglewood Hall",
       "date": "2026-02-27",
@@ -303,13 +254,6 @@
       "date": "2026-02-27",
       "time": null,
       "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Land / Divided",
-      "venue": "Nashoba",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
     },
     {
       "artist": "Land/Divided",
@@ -354,13 +298,6 @@
       "source": "import (bandsintown.mhtml)"
     },
     {
-      "artist": "Sanguine",
-      "venue": "Growlers",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
       "artist": "Slam Hound",
       "venue": "Growlers",
       "date": "2026-02-28",
@@ -368,11 +305,11 @@
       "source": "Venue: Growlers"
     },
     {
-      "artist": "Slamhound",
-      "venue": "Growlers",
+      "artist": "Dirty Streets",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Dirty Streets",
@@ -387,27 +324,6 @@
       "date": "2026-02-28",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Encircled Throne",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": "6:30 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "FACEROT / ENCIRCLED THRONE / RUINED GOD / SIBYL",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Artifacts (Venue flyer)"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
@@ -480,11 +396,11 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-01",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
@@ -513,13 +429,6 @@
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-02",
-      "time": null,
-      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -578,39 +487,11 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-03",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-03",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-03",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
       "time": "8 PM",
       "source": "Ticketmaster"
-    },
-    {
-      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-04",
-      "time": null,
-      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
@@ -634,6 +515,13 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-05",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
@@ -641,7 +529,7 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Soundhaus [Small Room-Downstairs]",
+      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
       "time": null,
@@ -697,11 +585,11 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "artist": "IV and the Strange Band",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
@@ -712,6 +600,13 @@
     },
     {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thee Supreme Show [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-06",
       "time": null,
