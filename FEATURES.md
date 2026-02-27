@@ -141,10 +141,51 @@ Planning doc for upcoming features.
 
 ---
 
+## 17. Email Signup (Mailchimp)
+
+**Problem:** Visitors to the concert calendar have no way to subscribe for updates or newsletters. The WYXR Mailchimp list is already embedded on Concert.wyxr.org and should be surfaced here too.
+
+**Implementation:**
+- Add a compact Mailchimp signup form to the footer of `docs/index.html`
+- Use the same Mailchimp list as Concert.wyxr.org (form action URL needs to be pulled from that page — format: `https://wyxr.us##.list-manage.com/subscribe/post?u=...&id=...`)
+- Style to match the existing dark WYXR theme (yellow on black)
+- Keep it minimal: email field + submit button, no extra fields
+
+**Steps:**
+1. Retrieve the Mailchimp form action URL from Concert.wyxr.org
+2. Add the signup form HTML to `docs/index.html` footer area
+3. Style inline with existing CSS variables
+
+**Effort:** Low
+
+---
+
+## 18. Event Submission Form (Community Events)
+
+**Problem:** Community members, promoters, and venues have no self-service way to submit events for consideration. Currently all events come from scrapers, the Ticketmaster API, or admin manual entry.
+
+**What this looks like:**
+- A public form (on the calendar page or a separate `/submit` page) where anyone can submit an event
+- Fields: Artist/Event name, Venue, Date, Time, Ticket URL, Contact email (for follow-up)
+- Submissions go to a moderation queue — admin reviews and approves before publishing
+- Optional: email confirmation to submitter
+
+**Implementation:**
+- Add a `POST /api/events/submit` endpoint to the Flask API that writes to a `pending_events` table
+- Add an admin review view at `/admin/pending/` to approve or reject submissions
+- Add the submission form to the public calendar page (or a linked `/submit.html`)
+- Send a simple confirmation email via SendGrid or similar (optional)
+
+**Effort:** Medium
+
+---
+
 ## Priority
 
 | # | Feature | Effort | Value | Status |
 |---|---------|--------|-------|--------|
+| 17 | Email signup (Mailchimp) | Low | High | Pending — needs Mailchimp action URL from Concert.wyxr.org |
+| 18 | Event submission form | Medium | High | Pending — enables community contributions |
 | 3 | Custom domain | Low | High | Pending — config only |
 | 4 | Event feed (JSON/RSS) | Medium | High | Pending — unlocks website integration |
 | 9 | Venue link enhancement | Low-Med | Medium | Pending |
