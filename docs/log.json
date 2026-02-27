@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-02-26T23:11:23.615137+00:00",
+  "run_timestamp": "2026-02-27T05:55:56.429015+00:00",
   "date_range": {
-    "start": "2026-02-26",
-    "end": "2026-03-05"
+    "start": "2026-02-27",
+    "end": "2026-03-06"
   },
-  "total_events_db": 369,
-  "total_active_display": 82,
+  "total_events_db": 415,
+  "total_active_display": 87,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 90,
+      "events_found": 92,
       "events_after_filter": 72,
-      "events_filtered": 18,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -83,8 +83,8 @@
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 14,
+      "events_found": 14,
+      "events_after_filter": 13,
       "events_filtered": 1,
       "error": null
     },
@@ -108,111 +108,20 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 140,
-      "events_after_filter": 13,
-      "events_filtered": 127,
+      "events_after_filter": 12,
+      "events_filtered": 128,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 82,
-      "events_after_filter": 82,
+      "events_found": 87,
+      "events_after_filter": 87,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-26",
-      "time": "10PM",
-      "source": "Artifacts (Instagram flyer)"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Xavier Lynn + opener Black Cream",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-26",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Kenny Wayne Shepherd",
-      "venue": "Graceland Soundstage",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "Artifacts (Bandsintown page)"
-    },
-    {
-      "artist": "Big River Crossing",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-26",
-      "time": "7:30PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Prison Affair / D. Sablu / Decoration Policy [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Prison Affair / D. Sablu / Decoration Policy [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "PRISON AFFAIR / D.SABLU / DECORATION POLICY",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": null,
-      "source": "Artifacts (Venue flyer)"
-    },
-    {
-      "artist": "Valories / Avon Park / Massey Lane [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Valories / Avon Park / Massey Lane [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Valories with AVON PARK & MASSEY LANE",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-26",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Betsy Spring",
-      "venue": "Nashoba",
-      "date": "2026-02-26",
-      "time": "7 PM",
-      "source": "Venue: Nashoba"
-    },
     {
       "artist": "Gia Welch/JD Westmoreland",
       "venue": "South Main Sounds",
@@ -319,6 +228,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Ghetto Shit Vol 3. [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "GHETTO SHIT VOL.3",
       "venue": "Hi-Tone Cafe",
       "date": "2026-02-27",
@@ -331,6 +247,13 @@
       "date": "2026-02-27",
       "time": null,
       "source": "Artifacts (Venue flyer)"
+    },
+    {
+      "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
@@ -494,6 +417,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "TILT",
       "venue": "Lafayette's Music Room",
       "date": "2026-02-28",
@@ -564,6 +494,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "DRAG BINGO",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-01",
@@ -576,6 +513,13 @@
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -648,11 +592,25 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
       "time": "8 PM",
       "source": "Ticketmaster"
+    },
+    {
+      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
@@ -676,6 +634,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Soundhaus [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Soundhaus [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
@@ -694,6 +666,69 @@
       "venue": "Nashoba",
       "date": "2026-03-05",
       "time": "7 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-06",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opera Memphis: Pretty Little Room",
+      "venue": "Crosstown Theater",
+      "date": "2026-03-06",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Half Dollar Rodeo",
+      "venue": "Growlers",
+      "date": "2026-03-06",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "IV and the Strange Band",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-06",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thee Supreme Show [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Chinese Connection Dub Embassy",
+      "venue": "Nashoba",
+      "date": "2026-03-06",
+      "time": "8 PM",
       "source": "Venue: Nashoba"
     }
   ]
