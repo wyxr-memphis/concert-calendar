@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mailchimp Test Form</title>
+</head>
+<body>
+    <h1>Direct Mailchimp Test</h1>
+    <p>This form submits directly to Mailchimp. After clicking submit, you should be redirected to a Mailchimp confirmation page.</p>
+
+    <form action="https://us19.list-manage.com/subscribe/post" method="POST">
+        <input type="hidden" name="u" value="47895ac8529b378064f16c794">
+        <input type="hidden" name="id" value="00ff34e7f0">
+
+        <label>Email: <input type="email" name="EMAIL" required></label><br><br>
+
+        <!-- Bot honeypot -->
+        <input type="text" name="b_47895ac8529b378064f16c794_00ff34e7f0" tabindex="-1" value="" style="position: absolute; left: -5000px;">
+
+        <button type="submit">Subscribe</button>
+    </form>
+
+    <h2>Instructions:</h2>
+    <ol>
+        <li>Enter a real email address</li>
+        <li>Click "Subscribe"</li>
+        <li>You should be redirected to a Mailchimp page</li>
+        <li>Check your email for a confirmation message</li>
+        <li>Check your Mailchimp dashboard to see if the email appeared</li>
+    </ol>
+</body>
+</html>
