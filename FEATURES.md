@@ -180,6 +180,16 @@ Planning doc for upcoming features.
 
 ---
 
+## 19. Sponsor Callout (Admin + Display)
+
+**Problem:** No way to surface sponsors on the calendar or manage them through the admin.
+
+**Specs TBD** — will define display placement, admin UI, rotation logic, and content fields when ready.
+
+**Effort:** TBD
+
+---
+
 ## Priority
 
 | # | Feature | Effort | Value | Status |
@@ -193,3 +203,4 @@ Planning doc for upcoming features.
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
 | 16 | Deduplication improvements | Medium | High | Pending |
+| 19 | Sponsor callout (admin + display) | TBD | High | Pending — specs TBD |
