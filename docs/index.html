@@ -293,35 +293,18 @@
             margin: 0;
             min-height: 16px;
         }
-        .signup-banner-close {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: none;
-            border: none;
-            color: #000000;
-            font-size: 24px;
-            line-height: 1;
-            cursor: pointer;
-            padding: 4px 8px;
-            transition: opacity 0.2s;
-        }
-        .signup-banner-close:hover {
-            opacity: 0.7;
-        }
         .signup-banner-success {
             background-color: #FFCF2D;
             color: #000000;
             padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            text-align: center;
             border-top: 3px solid #000;
             border-bottom: 3px solid #000;
             margin: 0 0 16px 0;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 16px;
+            line-height: 1.5;
         }
 
         /* Footer */
@@ -394,7 +377,6 @@
             </div>
             <p class="signup-banner-error" id="signup-error" aria-live="polite"></p>
         </div>
-        <button class="signup-banner-close" id="signup-close" aria-label="Dismiss signup banner">✕</button>
     </div>
 
     <div class="filter-bar">
@@ -460,33 +442,14 @@
             const emailInput = document.getElementById('signup-email');
             const submitBtn = document.getElementById('signup-submit');
             const errorMsg = document.getElementById('signup-error');
-            const closeBtn = document.getElementById('signup-close');
 
             if (!banner) return;
-
-            // Check session storage on load
-            if (sessionStorage.getItem('wyxr_signup_banner_dismissed')) {
-                banner.remove();
-                return;
-            }
 
             // Show success state if previously submitted
             if (sessionStorage.getItem('wyxr_signup_banner_success')) {
                 showSuccessState();
                 return;
             }
-
-            // Dismiss handler
-            closeBtn.addEventListener('click', () => {
-                sessionStorage.setItem('wyxr_signup_banner_dismissed', '1');
-                banner.style.transition = 'opacity 0.2s, max-height 0.25s';
-                banner.style.opacity = '0';
-                banner.style.maxHeight = '0';
-                banner.style.overflow = 'hidden';
-                banner.style.paddingTop = '0';
-                banner.style.paddingBottom = '0';
-                setTimeout(() => banner.remove(), 300);
-            });
 
             // Email validation
             function isValidEmail(email) {
@@ -591,7 +554,7 @@
             // Show success state
             function showSuccessState(message) {
                 const successMsg = message || "✅ You're on the list! Check your inbox for this week's Memphis picks.";
-                banner.innerHTML = `<div class="signup-banner-success">${successMsg}</div>`;
+                banner.innerHTML = `<p class="signup-banner-success">${successMsg}</p>`;
                 sessionStorage.setItem('wyxr_signup_banner_success', '1');
             }
 
