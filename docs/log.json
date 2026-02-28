@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-27T17:29:31.282314+00:00",
+  "run_timestamp": "2026-02-28T01:14:10.949274+00:00",
   "date_range": {
-    "start": "2026-02-27",
-    "end": "2026-03-06"
+    "start": "2026-02-28",
+    "end": "2026-03-07"
   },
-  "total_events_db": 356,
-  "total_active_display": 72,
+  "total_events_db": 429,
+  "total_active_display": 85,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,57 +19,57 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 90,
-      "events_after_filter": 72,
-      "events_filtered": 18,
+      "events_after_filter": 70,
+      "events_filtered": 20,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
-      "events_after_filter": 33,
-      "events_filtered": 1,
+      "events_after_filter": 31,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
-      "events_filtered": 0,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 8,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 52,
-      "events_after_filter": 4,
-      "events_filtered": 48,
+      "events_after_filter": 2,
+      "events_filtered": 50,
       "error": null
     },
     {
@@ -108,167 +108,20 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 140,
-      "events_after_filter": 12,
-      "events_filtered": 128,
+      "events_after_filter": 11,
+      "events_filtered": 129,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 72,
-      "events_after_filter": 72,
+      "events_found": 85,
+      "events_after_filter": 85,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Gia Welch/JD Westmoreland",
-      "venue": "South Main Sounds",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Will Hoge",
-      "venue": "1884 Lounge",
-      "date": "2026-02-27",
-      "time": "9:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "TOBY VEST & THE DREAM MACHINE / JEFF HULETT",
-      "venue": "B-Side Memphis",
-      "date": "2026-02-27",
-      "time": "9PM",
-      "source": "Artifacts (Instagram flyer)"
-    },
-    {
-      "artist": "Wilshire + Ozark Riviera (Arkansas) Whip Appeal (New Orleans)",
-      "venue": "Bar DKDC",
-      "date": "2026-02-27",
-      "time": "LATER",
-      "source": "Artifacts (Later show)"
-    },
-    {
-      "artist": "An Evening with Corey Lou & DaVillage",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-27",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "New York Philharmonic\u2019s Audrey Wright plays Zwilich Violin Concerto",
-      "venue": "Crosstown Theater",
-      "date": "2026-02-27",
-      "time": "6:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Keith Anderson",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-27",
-      "time": "7:30 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Gill-Yum",
-      "venue": "Growlers",
-      "date": "2026-02-27",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Sammy QaDan & The Second Hand Smokers",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-27",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Sammy QaDan & The Second Hand Smokers",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-27",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Ghetto Shit Vol 3. [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Ghetto Shit Vol 3. [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "TRICK MIRROR EP RELEASE",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Artifacts (Venue flyer)"
-    },
-    {
-      "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Trick Mirror EP Release Party [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Area 51",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-27",
-      "time": "6 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Cody Clark",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-27",
-      "time": "9:30 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "DEMOLA LIVE!",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Will Hoge",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-27",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Land/Divided",
-      "venue": "Nashoba",
-      "date": "2026-02-27",
-      "time": "8 PM",
-      "source": "Venue: Nashoba"
-    },
-    {
-      "artist": "Bryan Hayes Music",
-      "venue": "Raven & Lily",
-      "date": "2026-02-27",
-      "time": "6:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
     {
       "artist": "Negro Terror - Black and Brutal Memphis Rock Tribute",
       "venue": "B-Side",
@@ -319,11 +172,25 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Dirty Streets",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-02-28",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "The Eastwoods",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-02-28",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
@@ -403,6 +270,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-01",
@@ -429,6 +310,13 @@
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -487,6 +375,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
@@ -508,6 +403,20 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-05",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-05",
@@ -530,6 +439,20 @@
     },
     {
       "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Soundhaus [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
       "time": null,
@@ -592,6 +515,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "IV and the Strange Band",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-06",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-06",
@@ -618,11 +555,165 @@
       "date": "2026-03-06",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thee Supreme Show [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "IBEX CLONE",
+      "venue": "LAMPLIGHTER LOUNGE",
+      "date": "2026-03-06",
+      "time": "9PM",
+      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
+    },
+    {
+      "artist": "PONS",
+      "venue": "LAMPLIGHTER LOUNGE",
+      "date": "2026-03-06",
+      "time": "9PM",
+      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
+    },
+    {
+      "artist": "THE NARROWS",
+      "venue": "LAMPLIGHTER LOUNGE",
+      "date": "2026-03-06",
+      "time": "9PM",
+      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
     },
     {
       "artist": "Chinese Connection Dub Embassy",
       "venue": "Nashoba",
       "date": "2026-03-06",
+      "time": "8 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opera Memphis: Pretty Little Room",
+      "venue": "Crosstown Theater",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Peanut Butter & Jam: Iris Collective Animal Jam",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-07",
+      "time": "10:30\u202fAM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Shorty and the Grooves",
+      "venue": "Growlers",
+      "date": "2026-03-07",
+      "time": "6:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Lenox Creek",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Lenox Creek",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Lenox Creek",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Line So Thin",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Pulse - Tribute to Pink Floyd",
+      "venue": "Nashoba",
+      "date": "2026-03-07",
       "time": "8 PM",
       "source": "Venue: Nashoba"
     }
