@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-02-28T05:35:59.384289+00:00",
+  "run_timestamp": "2026-02-28T17:14:24.630076+00:00",
   "date_range": {
     "start": "2026-02-28",
     "end": "2026-03-07"
   },
-  "total_events_db": 528,
-  "total_active_display": 102,
+  "total_events_db": 652,
+  "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -27,33 +27,33 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 90,
+      "events_found": 88,
       "events_after_filter": 70,
-      "events_filtered": 20,
+      "events_filtered": 18,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
+      "events_found": 32,
       "events_after_filter": 31,
-      "events_filtered": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
+      "events_found": 20,
       "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -67,9 +67,9 @@
     {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 52,
-      "events_after_filter": 2,
-      "events_filtered": 50,
+      "events_found": 77,
+      "events_after_filter": 26,
+      "events_filtered": 51,
       "error": null
     },
     {
@@ -115,8 +115,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 102,
+      "events_found": 126,
+      "events_after_filter": 126,
       "events_filtered": 0,
       "error": null
     }
@@ -186,11 +186,25 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Dirty Streets",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-02-28",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "The Eastwoods",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-02-28",
       "time": "8:00 PM",
       "source": "import (bandsintown.mhtml)"
+    },
+    {
+      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-02-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
@@ -298,6 +312,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-01",
@@ -333,11 +361,32 @@
       "source": "Artifacts (Venue flyer)"
     },
     {
+      "artist": "Joe Restivo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-01",
+      "time": "12 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Trouble No More",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-01",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
       "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
       "venue": "Minglewood Hall",
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -424,6 +473,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
@@ -459,6 +515,20 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-05",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-05",
@@ -515,7 +585,7 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Soundhaus [Small Room-Downstairs]",
+      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
       "time": null,
@@ -541,6 +611,27 @@
       "date": "2026-03-05",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Soundhaus [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Soundhaus [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Almost Elton John",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-05",
+      "time": "7 PM",
+      "source": "Venue: Lafayette's Music Room"
     },
     {
       "artist": "Adam Heart - the Songs of Billy Joel and the Beatles",
@@ -599,6 +690,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "IV and the Strange Band",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-06",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-06",
@@ -653,6 +758,27 @@
       "date": "2026-03-06",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thee Supreme Show [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Basketcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-06",
+      "time": "9:30 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Mudflap King",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-06",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
     },
     {
       "artist": "IBEX CLONE",
@@ -739,6 +865,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Lenox Creek",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Lenox Creek",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-07",
@@ -795,7 +935,7 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-07",
       "time": null,
@@ -821,6 +961,34 @@
       "date": "2026-03-07",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Amber McCain Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-07",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Area 51",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-07",
+      "time": "9 PM",
+      "source": "Venue: Lafayette's Music Room"
     },
     {
       "artist": "Line So Thin",
