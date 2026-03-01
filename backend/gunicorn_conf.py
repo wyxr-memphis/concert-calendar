@@ -1,13 +1,11 @@
 """Gunicorn configuration for Render deployment.
 
 Key settings:
-- preload_app disabled: Render's "New primary port detected" restart kills
-  the first boot and starts a second. With preload_app=True the second boot's
-  worker fork fails (resource conflict with dying old process). Loading the
-  app per-worker avoids this. DB init is still deferred to first request.
-- graceful_timeout: How long old workers have to finish during deploys.
-  Low value so the old process releases the port quickly for the new one.
-- keep_alive: Render's load balancer needs connections kept open.
+- preload_app=True loads app in master before forking workers (critical for Render).
+- graceful_timeout: Low value so old workers release port quickly during deploys.
+- control_socket_disable: Gunicorn 25 added a control socket that can conflict
+  with Render's process management — stale socket files between deploys prevent
+  worker forking. Disabled since we don't use the control socket features.
 - Lifecycle hooks: Log worker fork/exit/abort for debugging deploy issues.
 """
 
@@ -20,6 +18,7 @@ bind = f"0.0.0.0:{os.environ.get('PORT', '10000')}"
 # --- Timeouts ---
 timeout = 120           # Max time for a request to complete
 graceful_timeout = 10   # Max time for old workers to finish during shutdown
+keepalive = 5           # Keep connections open for Render's load balancer
 
 # --- Workers ---
 workers = int(os.environ.get("WEB_CONCURRENCY", 1))
@@ -29,6 +28,11 @@ workers = int(os.environ.get("WEB_CONCURRENCY", 1))
 # Combined with deferred DB init (first real request triggers init_db),
 # this is safe: the master loads Python code only, no DB connections.
 preload_app = True
+
+# --- Disable control socket (gunicorn 25+) ---
+# The control socket file persists between Render deploys and can prevent
+# workers from spawning when a stale socket exists from the old process.
+control_socket_disable = True
 
 # --- Lifecycle hooks for visibility ---
 
