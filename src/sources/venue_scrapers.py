@@ -583,9 +583,13 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
 
 
 def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Landers Center events - filter for music and concerts only."""
+    """Parse Landers Center events - filter for music and concerts only.
+
+    Events are in <div class="eventItem entry"> containers.
+    Title is in <h3 class="title">, tagline in <h4 class="tagline">.
+    Date is in <div class="date"> with month/day spans.
+    """
     events = []
-    current_year = date.today().year
 
     # Music/concert keywords for filtering
     music_keywords = [
@@ -602,79 +606,72 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
         "harlem globetrotters", "globetrotter",
         "disney on ice", "ice show", "skating",
         "blippi", "kid show", "children", "family show",
-        "wrestling", "wwe", "basketball", "hockey", "game"
+        "wrestling", "wwe", "basketball", "hockey", "game", "hustle"
     ]
 
-    # Look for event cards or list items
-    event_items = soup.find_all(["div", "article", "li"], class_=lambda x: x and any(
-        term in str(x).lower() for term in ["event", "show", "listing"]
-    ))
+    # Find event items specifically - <div class="eventItem entry ...">
+    event_items = soup.find_all("div", class_=lambda x: x and "eventItem" in x)
 
     for item in event_items:
         try:
-            # Extract event title
-            title_elem = item.find(["h2", "h3", "h4", "a"], class_=lambda x: x and "title" in str(x).lower()) or \
-                        item.find(["h2", "h3", "h4"])
-
+            # Extract event title from <h3 class="title">
+            title_elem = item.find("h3", class_="title")
             if not title_elem:
                 continue
 
-            title = title_elem.get_text(strip=True)
-            if not title or len(title) < 3:
+            # Get title text (inside the <a> tag)
+            title_link = title_elem.find("a")
+            if not title_link:
                 continue
 
-            # Filter: Check if this is a music event
-            title_lower = title.lower()
+            title = title_link.get_text(strip=True)
+            url = title_link.get("href", "")
+
+            # Make URL absolute if needed
+            if url and not url.startswith("http"):
+                url = f"https://www.landerscenter.com{url}"
+
+            # Check for tagline (subtitle with performer names)
+            tagline_elem = item.find("h4", class_="tagline")
+            tagline = tagline_elem.get_text(strip=True) if tagline_elem else ""
+
+            # Combine title and tagline for filtering
+            combined_text = f"{title} {tagline}".lower()
 
             # Skip non-music events
-            if any(keyword in title_lower for keyword in exclude_keywords):
+            if any(keyword in combined_text for keyword in exclude_keywords):
                 continue
 
             # Only include if it has music keywords
-            if not any(keyword in title_lower for keyword in music_keywords):
+            if not any(keyword in combined_text for keyword in music_keywords):
                 continue
 
-            # Extract date
-            date_elem = item.find(["time", "span", "div"], class_=lambda x: x and "date" in str(x).lower())
+            # Extract date from <div class="date">
+            date_elem = item.find("div", class_="date")
             if not date_elem:
-                date_text = item.get_text()
-                # Try to find date pattern in text
-                import re
-                date_match = re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2}', date_text, re.IGNORECASE)
-                if date_match:
-                    date_str = date_match.group()
-                else:
-                    continue
-            else:
-                date_str = date_elem.get_text(strip=True)
+                continue
 
-            # Parse date
-            event_date = None
-            for fmt in ["%B %d", "%b %d", "%m/%d", "%B %d, %Y", "%b %d, %Y"]:
-                try:
-                    parsed = datetime.strptime(date_str, fmt)
-                    if parsed.year == 1900:
-                        parsed = parsed.replace(year=current_year)
-                        # If date is in the past, assume next year
-                        if parsed.date() < date.today():
-                            parsed = parsed.replace(year=current_year + 1)
-                    event_date = parsed.date()
-                    break
-                except ValueError:
-                    continue
+            # Date is in format: <span class="m-date__month">Mar</span><span class="m-date__day">13</span>
+            month_span = date_elem.find("span", class_=lambda x: x and "month" in str(x).lower())
+            day_span = date_elem.find("span", class_=lambda x: x and "day" in str(x).lower())
 
+            if not month_span or not day_span:
+                continue
+
+            date_str = f"{month_span.get_text(strip=True)} {day_span.get_text(strip=True)}"
+
+            # Parse date using shared utility
+            event_date = parse_date_text(date_str)
             if not event_date:
                 continue
 
-            # Extract time
-            time_elem = item.find(["time", "span"], class_=lambda x: x and "time" in str(x).lower())
-            time_str = time_elem.get_text(strip=True) if time_elem else None
-
-            # Extract URL
-            link_elem = item.find("a", href=True)
-            url = link_elem["href"] if link_elem else None
-            if url and url.startswith("/"):
-                url = f"https://www.landerscenter.com{url}"
+            # Extract time from <h5 class="time">
+            time_elem = item.find("h5", class_="time")
+            time_str = None
+            if time_elem:
+                start_span = time_elem.find("span", class_="start")
+                if start_span:
+                    time_str = start_span.get_text(strip=True)
 
             events.append(Event(
                 artist=title,
@@ -684,6 +681,7 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 source=f"Venue: {venue_name}",
                 url=url,
             ))
+
         except Exception:
             continue
 
