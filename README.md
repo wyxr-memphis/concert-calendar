@@ -177,20 +177,39 @@ concert-calendar/
 └── README.md
 ```
 
-## Run Locally
+## Local Development
+
+Full local development environment with backend, frontend, and admin interface:
 
 ```bash
-git clone https://github.com/wyxr-memphis/concert-calendar.git
-cd concert-calendar
-pip install -r requirements.txt
+# 1. Set up environment variables
+cp .env.example .env
+# Edit .env with your credentials (DATABASE_URL, ADMIN_PASSWORD, etc.)
 
-export TICKETMASTER_API_KEY="your_key"
+# 2. Start backend (terminal 1)
+./run_local_backend.sh
 
+# 3. Start frontend (terminal 2)
+./run_local_frontend.sh
+
+# 4. Open in browser
+open http://localhost:8000/admin/local.html
+```
+
+**Local URLs:**
+- Admin: `http://localhost:8000/admin/local.html`
+- Homepage: `http://localhost:8000/local_index_home.html`
+- Backend API: `http://localhost:5001/api/events`
+
+See **[LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md)** for complete setup guide, troubleshooting, and pre-push testing.
+
+### Quick Scraper Test
+
+```bash
 # Dry run — prints results without writing files
 python -m src.main --dry-run
 
-# Full run — generates docs/thisweek.html
-# Without DATABASE_URL, falls back to events.json as data store
+# Full run — generates docs/thisweek.html and updates database
 python -m src.main
 ```
 
