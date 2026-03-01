@@ -26,9 +26,15 @@ logs/
 .env
 .env.local
 .env.*
+!.env.example
 
 # Claude Code local settings (contains permission strings with API keys)
 .claude/
+
+# Local development pages
+docs/admin/local.html
+docs/admin/local_index.html
+docs/local_index_home.html
 
 # Artifacts (large binary images processed locally)
 artifacts/

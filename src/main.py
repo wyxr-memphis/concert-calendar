@@ -235,7 +235,8 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             cur.execute(
                 """INSERT INTO events (title, venue, date, start_time, ticket_url,
                    source, neighborhood, is_featured, is_active)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING id""",
                 (
                     title, venue, date_str,
                     entry.get("start_time"),
@@ -246,6 +247,16 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     entry.get("is_active", True),
                 ),
             )
+            new_row = cur.fetchone()
+            if new_row:
+                # Add to lookup to prevent duplicates within this batch
+                db_key_to_row[key] = {
+                    "id": new_row["id"],
+                    "title": title,
+                    "venue": venue,
+                    "date": date_str,
+                    "source": entry.get("source", "scraper"),
+                }
             added += 1
 
     # Prune past events
