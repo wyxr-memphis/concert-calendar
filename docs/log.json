@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-01T22:42:22.365762+00:00",
+  "run_timestamp": "2026-03-01T23:01:59.708750+00:00",
   "date_range": {
     "start": "2026-03-01",
     "end": "2026-03-08"
   },
-  "total_events_db": 455,
-  "total_active_display": 89,
+  "total_events_db": 255,
+  "total_active_display": 51,
   "data_store": "postgresql",
   "sources": [
     {
@@ -131,8 +131,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 89,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
     }
@@ -147,70 +147,28 @@
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "DRAG BINGO",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-01",
       "time": null,
       "source": "Artifacts (Venue flyer)"
     },
     {
       "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -238,21 +196,7 @@
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-02",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-02",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-02",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -287,21 +231,7 @@
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-03",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-03",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-03",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -315,84 +245,28 @@
     },
     {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-04",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-04",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-04",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-05",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-05",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-05",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-05",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "Soundhaus [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Soundhaus [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Soundhaus [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-05",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -434,63 +308,21 @@
     },
     {
       "artist": "IV and the Strange Band",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-06",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "IV and the Strange Band",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-06",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "IV and the Strange Band",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-06",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-06",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "Thee Supreme Show [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Thee Supreme Show [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Thee Supreme Show [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-06",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -574,84 +406,28 @@
     },
     {
       "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-07",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-07",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-07",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Lenox Creek",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-07",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Lenox Creek",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-07",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Lenox Creek",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-07",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-07",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "SooperFlat & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "SooperFlat & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "SooperFlat & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-07",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -693,63 +469,21 @@
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-08",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-08",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-08",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-08",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Live Kill & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Live Kill & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Live Kill & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-08",
       "time": null,
       "source": "Venue: Hi Tone"
