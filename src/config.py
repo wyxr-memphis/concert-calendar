@@ -129,10 +129,10 @@ VENUES = {
     },
     "orpheum": {
         "name": "Orpheum Theatre",
-        "aliases": ["orpheum", "orpheum theatre", "halloran centre"],
+        "aliases": ["orpheum", "orpheum theatre", "halloran centre", "halloran center"],
         "neighborhood": "Downtown/Beale Street",
-        "calendar_url": None,
-        "scraper": "manual_only",
+        "calendar_url": "https://www.orpheum-memphis.com/events?genres%5B0%5D=8229&view=",
+        "scraper": "generic",
     },
     "bar-dkdc": {
         "name": "Bar DKDC",
@@ -155,6 +155,13 @@ VENUES = {
         "calendar_url": "https://nashoba.live/event-calendar/",
         "scraper": "elfsight",
         "elfsight_widget_id": "cec78113-2599-4130-ba51-5401b108a2b2",
+    },
+    "landers-center": {
+        "name": "Landers Center",
+        "aliases": ["landers center", "landers centre", "the landers center", "landers"],
+        "neighborhood": "Germantown",  # Southaven, MS but close to Memphis
+        "calendar_url": "https://www.landerscenter.com/events",
+        "scraper": "landers",
     },
 }
 

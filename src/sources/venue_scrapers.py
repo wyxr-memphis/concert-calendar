@@ -8,7 +8,7 @@ from typing import List, Optional
 import requests
 import json
 import re
-from datetime import datetime
+from datetime import datetime, date
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
 from ..http_utils import get_with_retry
@@ -104,6 +104,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         elif scraper_type == "elfsight":
             widget_id = venue_info.get("elfsight_widget_id", "")
             events = _parse_elfsight(name, url, widget_id)
+        elif scraper_type == "landers":
+            events = _parse_landers(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -566,6 +568,114 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
 
             events.append(Event(
                 artist=name,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Landers Center events - filter for music and concerts only."""
+    events = []
+    current_year = date.today().year
+
+    # Music/concert keywords for filtering
+    music_keywords = [
+        "concert", "tour", "live", "music", "band", "artist",
+        "singer", "gospel", "worship", "christian", "jam",
+        "tribute", "rock", "country", "blues", "jazz", "soul",
+        "hip hop", "r&b", "rap", "dj", "festival"
+    ]
+
+    # Non-music events to exclude
+    exclude_keywords = [
+        "comedy", "comedian", "stand-up", "stand up",
+        "rodeo", "circus", "monster jam", "monster truck",
+        "harlem globetrotters", "globetrotter",
+        "disney on ice", "ice show", "skating",
+        "blippi", "kid show", "children", "family show",
+        "wrestling", "wwe", "basketball", "hockey", "game"
+    ]
+
+    # Look for event cards or list items
+    event_items = soup.find_all(["div", "article", "li"], class_=lambda x: x and any(
+        term in str(x).lower() for term in ["event", "show", "listing"]
+    ))
+
+    for item in event_items:
+        try:
+            # Extract event title
+            title_elem = item.find(["h2", "h3", "h4", "a"], class_=lambda x: x and "title" in str(x).lower()) or \
+                        item.find(["h2", "h3", "h4"])
+
+            if not title_elem:
+                continue
+
+            title = title_elem.get_text(strip=True)
+            if not title or len(title) < 3:
+                continue
+
+            # Filter: Check if this is a music event
+            title_lower = title.lower()
+
+            # Skip non-music events
+            if any(keyword in title_lower for keyword in exclude_keywords):
+                continue
+
+            # Only include if it has music keywords
+            if not any(keyword in title_lower for keyword in music_keywords):
+                continue
+
+            # Extract date
+            date_elem = item.find(["time", "span", "div"], class_=lambda x: x and "date" in str(x).lower())
+            if not date_elem:
+                date_text = item.get_text()
+                # Try to find date pattern in text
+                import re
+                date_match = re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2}', date_text, re.IGNORECASE)
+                if date_match:
+                    date_str = date_match.group()
+                else:
+                    continue
+            else:
+                date_str = date_elem.get_text(strip=True)
+
+            # Parse date
+            event_date = None
+            for fmt in ["%B %d", "%b %d", "%m/%d", "%B %d, %Y", "%b %d, %Y"]:
+                try:
+                    parsed = datetime.strptime(date_str, fmt)
+                    if parsed.year == 1900:
+                        parsed = parsed.replace(year=current_year)
+                        # If date is in the past, assume next year
+                        if parsed.date() < date.today():
+                            parsed = parsed.replace(year=current_year + 1)
+                    event_date = parsed.date()
+                    break
+                except ValueError:
+                    continue
+
+            if not event_date:
+                continue
+
+            # Extract time
+            time_elem = item.find(["time", "span"], class_=lambda x: x and "time" in str(x).lower())
+            time_str = time_elem.get_text(strip=True) if time_elem else None
+
+            # Extract URL
+            link_elem = item.find("a", href=True)
+            url = link_elem["href"] if link_elem else None
+            if url and url.startswith("/"):
+                url = f"https://www.landerscenter.com{url}"
+
+            events.append(Event(
+                artist=title,
                 venue=venue_name,
                 date=event_date,
                 time=time_str,

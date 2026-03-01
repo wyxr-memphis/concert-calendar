@@ -363,10 +363,11 @@ def _seed_venues_if_empty():
         ("Graceland Soundstage", "South Memphis (Graceland/Stax)", ["graceland soundstage", "graceland live", "guest house theater"]),
         ("FedExForum", "Downtown/Beale Street", ["fedexforum", "fedex forum"]),
         ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac"]),
-        ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre"]),
+        ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre", "halloran center"]),
         ("Bar DKDC", "Crosstown/Broad Avenue", ["bar dkdc", "dkdc"]),
         ("B-Side Memphis", "South Main Arts District", ["b-side", "bside", "b side", "b-side memphis"]),
         ("Nashoba", "Germantown", ["nashoba", "nashoba live", "nashoba memphis"]),
+        ("Landers Center", "Germantown", ["landers center", "landers centre", "the landers center", "landers"]),
     ]
 
     with get_cursor(commit=False) as cur:
