@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Concert Calendar</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -319,41 +320,151 @@
         footer a { color: var(--wyxr-dim); }
         footer a:hover { color: var(--wyxr-yellow); }
 
+        /* Top Navigation Bar */
+        .top-nav-bar {
+            background-color: #1a1a1a;
+            color: #C6C5C3;
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            padding: 7px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            border-bottom: 1px solid #2e2e2e;
+            margin: -20px -16px 16px -16px;
+        }
+        .top-nav-bar a {
+            color: #C6C5C3;
+            text-decoration: none;
+            transition: color 0.15s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            white-space: nowrap;
+        }
+        .top-nav-bar a:hover {
+            color: var(--wyxr-yellow);
+        }
+        .top-nav-bar .nav-divider {
+            color: #3D3B3E;
+            user-select: none;
+        }
+        .wtmm-short { display: none; }
+
         /* Responsive */
+        @media (max-width: 768px) {
+            /* Neighborhood chips - horizontal scroll, no wrap */
+            .chip-row {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 8px;
+                scrollbar-width: none;
+            }
+            .chip-row::-webkit-scrollbar {
+                display: none;
+            }
+            .chip {
+                flex-shrink: 0;
+            }
+
+            /* Signup banner - compact collapsed state */
+            .signup-banner {
+                padding: 12px 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+            .signup-banner-text .signup-banner-sub,
+            .signup-banner-form {
+                display: none;
+            }
+            .signup-banner-headline::after {
+                content: ' — tap to sign up';
+                font-family: 'Inter', sans-serif;
+                font-weight: 400;
+                font-size: 13px;
+                opacity: 0.7;
+            }
+            .signup-banner.expanded {
+                padding: 16px;
+                padding-top: 36px;
+            }
+            .signup-banner.expanded .signup-banner-text .signup-banner-sub,
+            .signup-banner.expanded .signup-banner-form {
+                display: flex;
+            }
+            .signup-banner.expanded .signup-banner-headline::after {
+                display: none;
+            }
+            .signup-banner.success {
+                cursor: default;
+                padding: 10px 16px;
+            }
+
+            /* Reduce header bottom margin */
+            header {
+                margin-bottom: 0;
+            }
+        }
+
         @media (max-width: 600px) {
             .month-nav { gap: 8px; }
             .month-label { font-size: 0.95em; min-width: 150px; }
             .filter-bar { padding: 8px 0; }
 
-            /* Banner stacks on mobile */
-            .signup-banner {
-                padding: 16px;
-                padding-top: 36px;
-            }
-            .signup-banner-text {
+            /* Banner stacks on mobile when expanded */
+            .signup-banner.expanded .signup-banner-text {
                 width: 100%;
             }
-            .signup-banner-headline {
+            .signup-banner.expanded .signup-banner-headline {
                 font-size: 18px;
             }
-            .signup-banner-sub {
+            .signup-banner.expanded .signup-banner-sub {
                 font-size: 13px;
             }
-            .signup-banner-form {
+            .signup-banner.expanded .signup-banner-form {
                 width: 100%;
                 min-width: unset;
             }
-            .signup-banner-input-row {
+            .signup-banner.expanded .signup-banner-input-row {
                 flex-direction: column;
             }
-            .signup-banner-email,
-            .signup-banner-submit {
+            .signup-banner.expanded .signup-banner-email,
+            .signup-banner.expanded .signup-banner-submit {
                 width: 100%;
             }
+        }
+
+        @media (max-width: 360px) {
+            .wtmm-full { display: none; }
+            .wtmm-short { display: inline; }
         }
     </style>
 </head>
 <body>
+    <!-- Top Navigation Bar -->
+    <div class="top-nav-bar">
+        <a href="https://wyxr.org" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            WYXR 91.7 FM
+        </a>
+        <span class="nav-divider">·</span>
+        <a href="https://www.instagram.com/wheresthemusicmemphis/" target="_blank" rel="noopener">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span class="wtmm-full">Where's the Music Memphis</span>
+            <span class="wtmm-short">WTMM</span>
+        </a>
+    </div>
+
     <header>
         <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
     </header>
@@ -607,6 +718,30 @@
             emailInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     handleSubmit(e);
+                }
+            });
+        })();
+
+        // ---- Mobile Banner Expand/Collapse ----
+        (function initMobileBannerToggle() {
+            // Only attach on mobile
+            if (window.innerWidth > 768) return;
+
+            const banner = document.getElementById('wyxr-signup-banner');
+            if (!banner) return;
+
+            // Skip if already successful (banner won't be in collapsed state)
+            if (sessionStorage.getItem('wyxr_signup_banner_success')) return;
+
+            // Expand when tapping banner (but not the submit button or input)
+            banner.addEventListener('click', (e) => {
+                // Don't expand if clicking input or button
+                if (e.target.closest('.signup-banner-email')) return;
+                if (e.target.closest('.signup-banner-submit')) return;
+
+                // Expand banner
+                if (!banner.classList.contains('expanded')) {
+                    banner.classList.add('expanded');
                 }
             });
         })();
