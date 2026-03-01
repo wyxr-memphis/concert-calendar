@@ -132,7 +132,7 @@ VENUES = {
         "aliases": ["orpheum", "orpheum theatre", "halloran centre", "halloran center"],
         "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://www.orpheum-memphis.com/events?genres%5B0%5D=8229&view=",
-        "scraper": "generic",
+        "scraper": "orpheum",
     },
     "bar-dkdc": {
         "name": "Bar DKDC",

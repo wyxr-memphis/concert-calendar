@@ -104,6 +104,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         elif scraper_type == "elfsight":
             widget_id = venue_info.get("elfsight_widget_id", "")
             events = _parse_elfsight(name, url, widget_id)
+        elif scraper_type == "orpheum":
+            events = _parse_orpheum(soup, name)
         elif scraper_type == "landers":
             events = _parse_landers(soup, name)
         else:
@@ -685,4 +687,64 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
         except Exception:
             continue
 
+    return events
+
+
+def _parse_orpheum(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Orpheum Theatre events from orpheum-memphis.com.
+    
+    Events are in h1 elements with links to /events/[slug].
+    Dates are in sibling <p class="font-medium"> elements.
+    """
+    events = []
+    
+    # Find all h1 elements (event titles)
+    for h1 in soup.find_all('h1'):
+        try:
+            # Look for link to event detail page
+            link = h1.find('a', href=lambda x: x and '/events/' in str(x))
+            if not link:
+                continue
+            
+            title = link.get_text(strip=True)
+            url = link.get('href')
+            
+            # Make URL absolute if needed
+            if url and not url.startswith('http'):
+                url = f"https://www.orpheum-memphis.com{url}"
+            
+            # Find the parent container and look for date
+            container = h1.parent
+            date_elem = None
+            
+            # Walk up the tree looking for the date element
+            for _ in range(10):  # Limit depth to avoid infinite loop
+                if not container:
+                    break
+                date_elem = container.find('p', class_='font-medium')
+                if date_elem:
+                    break
+                container = container.parent
+            
+            if not date_elem:
+                continue
+            
+            date_text = date_elem.get_text(strip=True)
+            
+            # Parse date using shared utility
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+            
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+            
+        except Exception:
+            continue
+    
     return events
