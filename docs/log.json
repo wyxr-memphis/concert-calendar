@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-02-28T17:14:24.630076+00:00",
+  "run_timestamp": "2026-03-01T05:55:05.163240+00:00",
   "date_range": {
-    "start": "2026-02-28",
-    "end": "2026-03-07"
+    "start": "2026-03-01",
+    "end": "2026-03-08"
   },
-  "total_events_db": 652,
-  "total_active_display": 126,
+  "total_events_db": 722,
+  "total_active_display": 140,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,33 +27,33 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 88,
+      "events_found": 89,
       "events_after_filter": 70,
-      "events_filtered": 18,
+      "events_filtered": 19,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 32,
-      "events_after_filter": 31,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
+      "events_after_filter": 19,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -68,8 +68,8 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 77,
-      "events_after_filter": 26,
-      "events_filtered": 51,
+      "events_after_filter": 24,
+      "events_filtered": 53,
       "error": null
     },
     {
@@ -108,174 +108,20 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 140,
-      "events_after_filter": 11,
-      "events_filtered": 129,
+      "events_after_filter": 10,
+      "events_filtered": 130,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 126,
-      "events_after_filter": 126,
+      "events_found": 140,
+      "events_after_filter": 140,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Negro Terror - Black and Brutal Memphis Rock Tribute",
-      "venue": "B-Side",
-      "date": "2026-02-28",
-      "time": "7:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Coco's Super Awesome Birthday w/ Turnstyles, Fake! + Frank McLallen",
-      "venue": "Bar DKDC",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Tiger Pro Wrestling",
-      "venue": "Crosstown Arts",
-      "date": "2026-02-28",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Gold Strike Casino Resort",
-      "date": "2026-02-28",
-      "time": "5:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Slam Hound",
-      "venue": "Growlers",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dirty Streets",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "The Eastwoods",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-02-28",
-      "time": "8:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Facerot / Encircled Throne / Ruined God / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-02-28",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "TILT",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-28",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Twin Soul",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-02-28",
-      "time": "9 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "COTTAGE CHEMISTRY: A HEATED RIVALRY DANCE PARTY",
-      "venue": "Minglewood Hall",
-      "date": "2026-02-28",
-      "time": "9 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Bluff City Bandits",
-      "venue": "Nashoba",
-      "date": "2026-02-28",
-      "time": "8 PM",
-      "source": "Venue: Nashoba"
-    },
-    {
-      "artist": "Tribal Fest - Memphis, TN",
-      "venue": "Ok Corral Memphis",
-      "date": "2026-02-28",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Rum Boogie Cafe",
-      "date": "2026-02-28",
-      "time": "3:00 PM",
-      "source": "import (bandsintown.mhtml)"
-    },
     {
       "artist": "Drum Tao",
       "venue": "Germantown Performing Arts Center",
@@ -317,6 +163,20 @@
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
@@ -361,6 +221,13 @@
       "source": "Artifacts (Venue flyer)"
     },
     {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-01",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Joe Restivo",
       "venue": "Lafayette's Music Room",
       "date": "2026-03-01",
@@ -380,6 +247,13 @@
       "date": "2026-03-01",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -480,6 +354,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Monaleo - Who Did The Body Tour",
       "venue": "Minglewood Hall",
       "date": "2026-03-03",
@@ -522,6 +403,20 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-05",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-05",
@@ -586,6 +481,20 @@
     },
     {
       "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-05",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Soundhaus [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-05",
       "time": null,
@@ -697,11 +606,11 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "artist": "IV and the Strange Band",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-06",
-      "time": null,
-      "source": "Venue: Hi Tone"
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
@@ -726,6 +635,27 @@
     },
     {
       "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Sprocess Of Suffocation / Grave Lurker / Interna [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thee Supreme Show [Big Room-Upstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-06",
       "time": null,
@@ -785,21 +715,21 @@
       "venue": "LAMPLIGHTER LOUNGE",
       "date": "2026-03-06",
       "time": "9PM",
-      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
+      "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)"
     },
     {
       "artist": "PONS",
       "venue": "LAMPLIGHTER LOUNGE",
       "date": "2026-03-06",
       "time": "9PM",
-      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
+      "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)"
     },
     {
       "artist": "THE NARROWS",
       "venue": "LAMPLIGHTER LOUNGE",
       "date": "2026-03-06",
       "time": "9PM",
-      "source": "Artifacts (Concert flyer - 1702 Madison Ave, Memphis, TN)"
+      "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)"
     },
     {
       "artist": "Chinese Connection Dub Embassy",
@@ -872,6 +802,20 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Lenox Creek",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-07",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Lenox Creek",
       "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-07",
@@ -936,6 +880,20 @@
     },
     {
       "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SooperFlat & more [Small Room-Downstairs]",
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-07",
       "time": null,
@@ -1003,6 +961,146 @@
       "date": "2026-03-07",
       "time": "8 PM",
       "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Germantown Symphony Orchestra: American Mosaic",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-08",
+      "time": "2:00\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-08",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Live Kill & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Back in Time: Huey Lewis & the News Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-08",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
     }
   ]
 }
