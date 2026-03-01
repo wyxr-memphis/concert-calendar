@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.models import Event, SourceResult, normalize_text
 from src.normalize import deduplicate
 from src.generate_html import generate_html
-from src.config import START_DATE, END_DATE
+from src.config import START_DATE, END_DATE, normalize_venue_name
 from src.sources.events_json import (
     EVENTS_JSON_PATH,
     load_events_json,
@@ -626,8 +626,14 @@ def _merge_events(
 
 
 def _normalized_key(title: str, venue: str, date_str: str) -> str:
-    """Compute a normalized key for matching: artist|venue|date."""
-    return f"{normalize_text(title)}|{normalize_text(venue)}|{date_str}"
+    """Compute a normalized key for matching: artist|venue|date.
+
+    Venue names are canonicalized via config.py's alias map before
+    normalization, so "Hi-Tone Cafe", "Hi Tone", "Hi-Tone" all produce
+    the same key.
+    """
+    canonical_venue = normalize_venue_name(venue)
+    return f"{normalize_text(title)}|{normalize_text(canonical_venue)}|{date_str}"
 
 
 def _entry_to_event(entry: dict) -> Event | None:
