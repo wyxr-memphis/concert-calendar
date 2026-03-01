@@ -158,7 +158,7 @@ Venue scrapers use a 6-month date range (`SCRAPER_END_DATE`) for the interactive
 ## Deployment Status
 
 - **Render backend:** `https://concert-calendar-api.onrender.com` (Starter plan, always-on)
-- **Vercel frontend:** `https://concert-calendar-eight.vercel.app`
+- **Vercel frontend:** `https://concert-calendar.wyxr.org`
 - **PostgreSQL:** Render Starter plan, `events` + `scrape_logs` + `venues` tables
 - **Scrape logging:** Enabled via `DATABASE_URL` GitHub Actions secret
 - **Trigger Build:** Admin Tools tab, calls GitHub Actions workflow_dispatch

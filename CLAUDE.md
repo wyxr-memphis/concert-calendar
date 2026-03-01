@@ -7,7 +7,7 @@ This document provides context for AI assistants working on the Memphis Concert 
 A daily-updating live music calendar for Memphis, Tennessee, built for WYXR 91.7 FM DJs.
 
 **Architecture:**
-- **Frontend:** Vercel at `concert-calendar-eight.vercel.app` (static HTML + interactive JS)
+- **Frontend:** Vercel at `concert-calendar.wyxr.org` (static HTML + interactive JS)
 - **Backend API:** Flask on Render at `concert-calendar-api.onrender.com`
 - **Database:** PostgreSQL on Render (single source of truth)
 - **Build:** GitHub Actions 2x daily (midnight + noon Central)

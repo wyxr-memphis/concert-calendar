@@ -48,7 +48,7 @@ Planning doc for upcoming features.
 
 ## 3. Custom Domain
 
-**Problem:** The calendar lives at `concert-calendar.vercel.app`. A branded domain (e.g., `shows.wyxr.org`) would look more professional.
+**Problem:** The calendar lives at `concert-calendar.wyxr.org` (branded domain). ✅ Implemented!
 
 **Steps:**
 1. Choose a subdomain (e.g., `shows.wyxr.org`)

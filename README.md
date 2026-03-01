@@ -2,8 +2,8 @@
 
 A daily-updating live music calendar for Memphis, Tennessee. Built for [WYXR 91.7 FM](https://wyxr.org) DJs to reference on-air.
 
-**Live page:** [concert-calendar-eight.vercel.app](https://concert-calendar-eight.vercel.app)
-**Admin:** [concert-calendar-eight.vercel.app/admin/](https://concert-calendar-eight.vercel.app/admin/)
+**Live page:** [concert-calendar.wyxr.org](https://concert-calendar.wyxr.org)
+**Admin:** [concert-calendar.wyxr.org/admin/](https://concert-calendar.wyxr.org/admin/)
 
 ## How It Works
 
