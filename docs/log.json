@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-01T23:01:59.708750+00:00",
+  "run_timestamp": "2026-03-02T05:56:00.657566+00:00",
   "date_range": {
-    "start": "2026-03-01",
-    "end": "2026-03-08"
+    "start": "2026-03-02",
+    "end": "2026-03-09"
   },
-  "total_events_db": 255,
-  "total_active_display": 51,
+  "total_events_db": 260,
+  "total_active_display": 46,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -28,8 +28,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 88,
-      "events_after_filter": 70,
-      "events_filtered": 18,
+      "events_after_filter": 68,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -68,17 +68,17 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 77,
-      "events_after_filter": 24,
-      "events_filtered": 53,
+      "events_after_filter": 22,
+      "events_filtered": 55,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -100,16 +100,16 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 59,
-      "events_after_filter": 27,
-      "events_filtered": 32,
+      "events_after_filter": 26,
+      "events_filtered": 33,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
+      "events_after_filter": 16,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -118,6 +118,14 @@
       "events_found": 140,
       "events_after_filter": 10,
       "events_filtered": 130,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -131,69 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Drum Tao",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-01",
-      "time": "3:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "DRAG BINGO",
-      "venue": "Hi Tone",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Artifacts (Venue flyer)"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Joe Restivo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-01",
-      "time": "12 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Trouble No More",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-01",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Big Head Todd & the Monsters \u2013 Winter Tour 2026",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-01",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
       "venue": "Hi Tone",
@@ -377,6 +329,13 @@
       "source": "Venue: Orpheum Theatre"
     },
     {
+      "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. Central High Jazz band",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-06",
+      "time": "6:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
       "artist": "Recent Future + General Labor",
       "venue": "Crosstown Arts",
       "date": "2026-03-07",
@@ -405,6 +364,13 @@
       "source": "Venue: Growlers"
     },
     {
+      "artist": "Dead Lounge with Spaceman\u2019s Dead Friends and Gia Welch",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
       "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-07",
@@ -415,7 +381,7 @@
       "artist": "Lenox Creek",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-07",
-      "time": "8:00PM",
+      "time": "10:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
@@ -459,6 +425,13 @@
       "date": "2026-03-07",
       "time": "8 PM",
       "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Ted Horrell and Conan Stanley",
+      "venue": "South Main Sounds",
+      "date": "2026-03-07",
+      "time": "7:00PM",
+      "source": "Venue: South Main Sounds"
     },
     {
       "artist": "Germantown Symphony Orchestra: American Mosaic",
