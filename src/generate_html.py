@@ -284,6 +284,7 @@ def generate_html(
         Last built {run_time_str}<br>
         <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
     </footer>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>"""
 
