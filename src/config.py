@@ -96,8 +96,8 @@ VENUES = {
         "name": "Overton Park Shell",
         "aliases": ["levitt shell", "overton park shell", "the shell"],
         "neighborhood": "Midtown",
-        "calendar_url": "https://overtonparkshell.org/calendar",
-        "scraper": "generic",
+        "calendar_url": "https://overtonparkshell.org/eventpage?view=list",
+        "scraper": "overton_shell",
     },
     "bb-kings": {
         "name": "B.B. King's Blues Club",
@@ -155,6 +155,13 @@ VENUES = {
         "calendar_url": "https://nashoba.live/event-calendar/",
         "scraper": "elfsight",
         "elfsight_widget_id": "cec78113-2599-4130-ba51-5401b108a2b2",
+    },
+    "south-main-sounds": {
+        "name": "South Main Sounds",
+        "aliases": ["south main sounds", "south main sounds memphis"],
+        "neighborhood": "South Main Arts District",
+        "calendar_url": "https://southmainsounds.com/shows",
+        "scraper": "south_main_sounds",
     },
     "landers-center": {
         "name": "Landers Center",

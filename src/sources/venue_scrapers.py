@@ -106,6 +106,10 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_elfsight(name, url, widget_id)
         elif scraper_type == "orpheum":
             events = _parse_orpheum(soup, name)
+        elif scraper_type == "overton_shell":
+            events = _parse_overton_shell(soup, name)
+        elif scraper_type == "south_main_sounds":
+            events = _parse_south_main_sounds(soup, name)
         elif scraper_type == "landers":
             events = _parse_landers(soup, name)
         else:
@@ -745,4 +749,134 @@ def _parse_orpheum(soup: BeautifulSoup, venue_name: str) -> List[Event]:
         except Exception:
             continue
     
+    return events
+
+
+def _parse_overton_shell(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Overton Park Shell events from Squarespace event list.
+
+    Upcoming events are in <article class="eventlist-event--upcoming">.
+    Date is in <time class="event-date" datetime="YYYY-MM-DD">.
+    Title is in <h1 class="eventlist-title">.
+    """
+    events = []
+
+    for article in soup.select("article.eventlist-event--upcoming"):
+        try:
+            # Title
+            title_link = article.select_one("a.eventlist-title-link")
+            if not title_link:
+                continue
+
+            title = title_link.get_text(strip=True)
+            url = title_link.get("href", "")
+            if url and not url.startswith("http"):
+                url = f"https://overtonparkshell.org{url}"
+
+            # Date from <time class="event-date" datetime="YYYY-MM-DD">
+            date_elem = article.select_one("time.event-date")
+            if not date_elem:
+                continue
+
+            date_attr = date_elem.get("datetime", "")
+            if not date_attr:
+                continue
+
+            event_date = date.fromisoformat(date_attr)
+
+            # Start time
+            time_elem = article.select_one("time.event-time-localized-start")
+            time_str = time_elem.get_text(strip=True) if time_elem else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_south_main_sounds(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse South Main Sounds events from Bandzoogle table.
+
+    Events are in <table> rows: <tr class="border-accent">.
+    Title in td.event-name, date in td.event-date .date-long time.from .date.
+    Dates have no year — infer from current date.
+    """
+    events = []
+    current_year = date.today().year
+
+    for row in soup.select("table.table-style tr.border-accent"):
+        try:
+            # Title — first span.text without text-tertiary class
+            title_elem = row.select_one("td.event-name span.text:not(.text-tertiary)")
+            if not title_elem:
+                continue
+
+            title = title_elem.get_text(strip=True)
+
+            # Strip "at South Main Sounds" suffix from title
+            for suffix in [" at South Main Sounds!", " at South Main Sounds"]:
+                if title.endswith(suffix):
+                    title = title[:-len(suffix)]
+                    break
+
+            # Link
+            link_elem = row.select_one("td.event-name a.event_details")
+            url = ""
+            if link_elem:
+                url = link_elem.get("href", "")
+                if url and not url.startswith("http"):
+                    url = f"https://southmainsounds.com{url}"
+
+            # Date — "Saturday, March 7" (no year)
+            date_elem = row.select_one("td.event-date .date-long time.from .date")
+            if not date_elem:
+                continue
+
+            date_text = date_elem.get_text(strip=True)
+
+            # Parse date — format: "Saturday, March 7"
+            event_date = None
+            try:
+                # Remove day-of-week prefix
+                parts = date_text.split(", ", 1)
+                if len(parts) == 2:
+                    date_text = parts[1]
+
+                parsed = datetime.strptime(f"{date_text} {current_year}", "%B %d %Y")
+                event_date = parsed.date()
+
+                # If date is in the past, assume next year
+                if event_date < date.today():
+                    event_date = event_date.replace(year=current_year + 1)
+            except ValueError:
+                continue
+
+            if not event_date:
+                continue
+
+            # Start time — "7:00PM"
+            time_elem = row.select_one("td.event-date .date-long time.from .time")
+            time_str = time_elem.get_text(strip=True) if time_elem else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+
+        except Exception:
+            continue
+
     return events
