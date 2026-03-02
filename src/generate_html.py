@@ -132,6 +132,7 @@ def generate_html(
         }}
         .header-banner {{
             width: 100%;
+            height: auto;
             display: block;
             border-radius: 6px;
         }}
