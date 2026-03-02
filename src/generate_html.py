@@ -267,7 +267,10 @@ def generate_html(
 </head>
 <body>
     <header>
-        <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
+        <picture>
+            <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
+            <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
+        </picture>
         <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
         <div class="header-meta">
             <span class="updated">Updated {run_time_str}</span>

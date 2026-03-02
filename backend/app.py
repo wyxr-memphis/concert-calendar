@@ -20,6 +20,7 @@ from datetime import datetime
 
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
+from flask_compress import Compress
 import requests as http_requests
 
 from backend.db import (
@@ -58,6 +59,9 @@ app = Flask(__name__)
 # CORS: allow Vercel frontend and localhost
 ALLOWED_ORIGINS = os.environ.get("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
+
+# Gzip/brotli compression for JSON responses (~70% reduction)
+Compress(app)
 
 
 # ---------------------------------------------------------------------------
@@ -127,7 +131,9 @@ def public_events():
         end_date=end_date,
         featured_only=featured_only,
     )
-    return jsonify(serialize_list(events))
+    resp = jsonify(serialize_list(events))
+    resp.headers["Cache-Control"] = "public, max-age=1800"
+    return resp
 
 
 @app.route("/api/events/<event_id>", methods=["GET"])
@@ -143,10 +149,12 @@ def public_event_detail(event_id):
 def public_neighborhoods():
     """Get neighborhoods with event counts."""
     rows = get_neighborhoods_with_counts()
-    return jsonify([
+    resp = jsonify([
         {"name": r["neighborhood"], "event_count": r["event_count"]}
         for r in rows
     ])
+    resp.headers["Cache-Control"] = "public, max-age=1800"
+    return resp
 
 
 # ---------------------------------------------------------------------------

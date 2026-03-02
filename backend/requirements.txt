@@ -1,5 +1,6 @@
 flask>=3.0.0
 flask-cors>=4.0.0
+flask-compress>=1.14
 gunicorn>=21.2.0
 psycopg2-binary>=2.9.9
 beautifulsoup4>=4.12.0

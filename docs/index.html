@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Concert Calendar</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://concert-calendar-api.onrender.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -466,7 +467,10 @@
     </div>
 
     <header>
-        <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner">
+        <picture>
+            <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
+            <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
+        </picture>
     </header>
 
     <!-- Email Signup Banner -->
@@ -512,7 +516,7 @@
 
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        <a href="/admin/">Admin</a>
+        <a href="/admin/">Admin</a> &middot; <a href="#" id="refreshData">Refresh data</a>
     </footer>
 
     <script>
@@ -746,26 +750,79 @@
             });
         })();
 
-        // ---- Data Loading ----
-        async function loadAllEvents() {
+        // ---- Data Loading (stale-while-revalidate with localStorage) ----
+        const CACHE_KEY = 'wyxr_events_cache';
+
+        function getCachedEvents() {
+            try {
+                const raw = localStorage.getItem(CACHE_KEY);
+                if (!raw) return null;
+                return JSON.parse(raw);
+            } catch { return null; }
+        }
+
+        function setCachedEvents(events) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify(events));
+            } catch { /* quota exceeded — ignore */ }
+        }
+
+        function showEvents(events) {
+            allEvents = events;
+            loadingState.style.display = 'none';
+            eventList.style.display = 'block';
+            buildChips();
+            renderEvents();
+        }
+
+        async function fetchFreshEvents(bustCache) {
             const startDate = new Date(minYear, minMonth, 1).toISOString().split('T')[0];
             const endDate = new Date(maxYear, maxMonth + 1, 0).toISOString().split('T')[0];
+            let url = `${API_BASE}/api/events?start_date=${startDate}&end_date=${endDate}`;
+            if (bustCache) url += `&_t=${Date.now()}`;
 
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error(`API error ${resp.status}`);
+            return resp.json();
+        }
+
+        async function loadAllEvents() {
+            // 1. Instant render from cache if available
+            const cached = getCachedEvents();
+            if (cached && cached.length > 0) {
+                showEvents(cached);
+            }
+
+            // 2. Fetch fresh data in background
             try {
-                const resp = await fetch(
-                    `${API_BASE}/api/events?start_date=${startDate}&end_date=${endDate}`
-                );
-                if (!resp.ok) throw new Error(`API error ${resp.status}`);
-                allEvents = await resp.json();
-                loadingState.style.display = 'none';
-                eventList.style.display = 'block';
-                buildChips();
-                renderEvents();
+                const fresh = await fetchFreshEvents(false);
+                const changed = JSON.stringify(fresh) !== JSON.stringify(allEvents);
+                setCachedEvents(fresh);
+                if (changed) showEvents(fresh);
             } catch (err) {
-                loadingState.textContent = 'Failed to load events. Please refresh.';
-                console.error('Load error:', err);
+                if (!cached || cached.length === 0) {
+                    loadingState.textContent = 'Failed to load events. Please refresh.';
+                } else {
+                    console.warn('API fetch failed, showing cached data:', err);
+                }
             }
         }
+
+        // "Refresh data" link — clears cache and forces fresh fetch
+        document.getElementById('refreshData')?.addEventListener('click', async (e) => {
+            e.preventDefault();
+            localStorage.removeItem(CACHE_KEY);
+            loadingState.textContent = 'Refreshing...';
+            loadingState.style.display = 'block';
+            try {
+                const fresh = await fetchFreshEvents(true);
+                setCachedEvents(fresh);
+                showEvents(fresh);
+            } catch (err) {
+                loadingState.textContent = 'Failed to refresh. Please try again.';
+                console.error('Refresh error:', err);
+            }
+        });
 
         // ---- Neighborhood Chips ----
         function buildChips() {
