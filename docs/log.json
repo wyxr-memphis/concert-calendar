@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-03T05:53:41.280575+00:00",
+  "run_timestamp": "2026-03-03T13:44:09.338274+00:00",
   "date_range": {
     "start": "2026-03-03",
     "end": "2026-03-10"
   },
-  "total_events_db": 264,
-  "total_active_display": 53,
+  "total_events_db": 273,
+  "total_active_display": 62,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,17 +19,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 11,
+      "events_after_filter": 9,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 86,
+      "events_found": 85,
       "events_after_filter": 67,
-      "events_filtered": 19,
+      "events_filtered": 18,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 62,
+      "events_after_filter": 62,
       "events_filtered": 0,
       "error": null
     }
@@ -152,6 +152,13 @@
       "date": "2026-03-03",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "MARY HATLEY BAND",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-03",
+      "time": "9PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "The Lawrence Graduate Bayreuth Tuben Quintet",
@@ -189,11 +196,32 @@
       "source": "Ticketmaster"
     },
     {
+      "artist": "AUBREY MCCRADY",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-04",
+      "time": "10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "SYMMETRY JAZZ",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-04",
+      "time": "7PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-03-04",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "DEVIL TRAIN",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-05",
+      "time": "10PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -243,6 +271,13 @@
       "date": "2026-03-06",
       "time": "8 PM",
       "source": "manual"
+    },
+    {
+      "artist": "MASSEY LANE/CROOKED DEIHL/MUSIC BY KOTA",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-06",
+      "time": "9PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Opera Memphis: Pretty Little Room",
@@ -350,6 +385,20 @@
       "source": "Venue: South Main Sounds"
     },
     {
+      "artist": "GUITAR CENTER RECITAL",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-07",
+      "time": "12PM to 5PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "MP AWARDS PARTY",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-07",
+      "time": "6PM - 10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Recent Future + General Labor",
       "venue": "Crosstown Arts",
       "date": "2026-03-07",
@@ -448,6 +497,13 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "PRIVATE BIRTHDAY PARTY w/OBILVION/MDS/MYSTRIO",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-08",
+      "time": "6 to 10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Germantown Symphony Orchestra: American Mosaic",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-08",
@@ -474,6 +530,13 @@
       "date": "2026-03-08",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "ALICE HASEN W/WEEJY ROGERS",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-10",
+      "time": "8PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
