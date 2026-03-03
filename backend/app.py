@@ -47,6 +47,12 @@ from backend.db import (
     normalize_venue_from_db,
     get_neighborhoods_with_counts,
     backfill_neighborhoods,
+    create_submission,
+    get_submissions,
+    get_submission_by_id,
+    update_submission_status,
+    delete_submission,
+    get_pending_submission_count,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -155,6 +161,87 @@ def public_neighborhoods():
     ])
     resp.headers["Cache-Control"] = "public, max-age=1800"
     return resp
+
+
+# ---------------------------------------------------------------------------
+# Public Submission Endpoint
+# ---------------------------------------------------------------------------
+
+@app.route("/api/submissions", methods=["POST"])
+def public_submit_event():
+    """Accept a community event submission."""
+    body = request.get_json(silent=True) or {}
+
+    # Honeypot check — silently discard but return success
+    if body.get("website", "").strip():
+        return jsonify({
+            "success": True,
+            "message": "Event submitted successfully. It will appear on the calendar after review.",
+        })
+
+    # Validation
+    errors = []
+    artist_name = (body.get("artist_name") or "").strip()
+    venue = (body.get("venue") or "").strip()
+    event_date = (body.get("event_date") or "").strip()
+    event_time = (body.get("event_time") or "").strip() or None
+    description = (body.get("description") or "").strip() or None
+    submitter_name = (body.get("submitter_name") or "").strip()
+    submitter_email = (body.get("submitter_email") or "").strip()
+
+    if not artist_name:
+        errors.append("Artist / band name is required")
+    elif len(artist_name) > 200:
+        errors.append("Artist name must be 200 characters or less")
+
+    if not venue:
+        errors.append("Venue is required")
+    elif len(venue) > 200:
+        errors.append("Venue must be 200 characters or less")
+
+    if not event_date:
+        errors.append("Event date is required")
+    else:
+        try:
+            from datetime import date as _date
+            parsed_date = _date.fromisoformat(event_date)
+            if parsed_date < _date.today():
+                errors.append("Event date must be today or in the future")
+        except ValueError:
+            errors.append("Invalid date format")
+
+    if not submitter_name:
+        errors.append("Your name is required")
+    elif len(submitter_name) > 100:
+        errors.append("Name must be 100 characters or less")
+
+    if not submitter_email:
+        errors.append("Email is required")
+    elif "@" not in submitter_email or "." not in submitter_email:
+        errors.append("Please enter a valid email address")
+
+    if description and len(description) > 500:
+        errors.append("Description must be 500 characters or less")
+
+    if errors:
+        return jsonify({"success": False, "errors": errors}), 400
+
+    # Save
+    create_submission({
+        "artist_name": artist_name,
+        "venue": venue,
+        "event_date": event_date,
+        "event_time": event_time,
+        "description": description,
+        "submitter_name": submitter_name,
+        "submitter_email": submitter_email,
+        "honeypot": body.get("website", ""),
+    })
+
+    return jsonify({
+        "success": True,
+        "message": "Event submitted successfully. It will appear on the calendar after review.",
+    })
 
 
 # ---------------------------------------------------------------------------
@@ -411,6 +498,113 @@ def admin_venues_backfill():
     """Backfill neighborhoods on existing events based on venue names."""
     result = backfill_neighborhoods()
     return jsonify({"ok": True, **result})
+
+
+# ---------------------------------------------------------------------------
+# Admin Submission Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/submissions", methods=["GET"])
+@require_auth
+def admin_submissions_list():
+    """List submissions, optionally filtered by status."""
+    status = request.args.get("status")
+    submissions = get_submissions(status=status)
+    return jsonify({
+        "submissions": serialize_list(submissions),
+        "count": len(submissions),
+    })
+
+
+@app.route("/api/admin/submissions/pending-count", methods=["GET"])
+@require_auth
+def admin_submissions_pending_count():
+    """Get count of pending submissions (for badge)."""
+    count = get_pending_submission_count()
+    return jsonify({"count": count})
+
+
+@app.route("/api/admin/submissions/<int:submission_id>/approve", methods=["POST"])
+@require_auth
+def admin_submission_approve(submission_id):
+    """Approve a submission — creates a real event."""
+    sub = get_submission_by_id(submission_id)
+    if not sub:
+        return jsonify({"error": "Submission not found"}), 404
+    if sub["status"] != "pending":
+        return jsonify({"error": f"Submission already {sub['status']}"}), 400
+
+    # Create the event using the same logic as admin "Add Event"
+    event_data = {
+        "title": sub["artist_name"],
+        "venue": sub["venue"],
+        "date": sub["event_date"].isoformat() if hasattr(sub["event_date"], "isoformat") else sub["event_date"],
+        "source": "submission",
+        "is_active": True,
+        "is_featured": False,
+    }
+    if sub.get("event_time"):
+        t = sub["event_time"]
+        if hasattr(t, "strftime"):
+            event_data["start_time"] = t.strftime("%-I:%M %p").replace(":00 ", " ")
+        else:
+            event_data["start_time"] = str(t)
+    if sub.get("description"):
+        event_data["description"] = sub["description"]
+
+    # Look up venue neighborhood from DB
+    venue_match = normalize_venue_from_db(sub["venue"])
+    if venue_match:
+        event_data["venue"] = venue_match[0]  # canonical name
+        if venue_match[1]:
+            event_data["neighborhood"] = venue_match[1]
+
+    event = create_event(event_data)
+    event_id = str(event["id"]) if event else None
+
+    # Mark submission as approved
+    update_submission_status(submission_id, "approved", created_event_id=event_id)
+
+    return jsonify(serialize_event(event)), 201
+
+
+@app.route("/api/admin/submissions/<int:submission_id>/mark-approved", methods=["POST"])
+@require_auth
+def admin_submission_mark_approved(submission_id):
+    """Mark a submission as approved without creating an event.
+
+    Used by the "Edit & Approve" flow where the event is created
+    separately via the event edit form.
+    """
+    sub = get_submission_by_id(submission_id)
+    if not sub:
+        return jsonify({"error": "Submission not found"}), 404
+
+    created_event_id = (request.get_json(silent=True) or {}).get("event_id")
+    update_submission_status(submission_id, "approved", created_event_id=created_event_id)
+    return jsonify({"success": True, "message": "Submission marked as approved"})
+
+
+@app.route("/api/admin/submissions/<int:submission_id>/reject", methods=["POST"])
+@require_auth
+def admin_submission_reject(submission_id):
+    """Reject a submission (soft-delete)."""
+    sub = get_submission_by_id(submission_id)
+    if not sub:
+        return jsonify({"error": "Submission not found"}), 404
+
+    update_submission_status(submission_id, "rejected")
+    return jsonify({"success": True, "message": "Submission rejected"})
+
+
+@app.route("/api/admin/submissions/<int:submission_id>", methods=["DELETE"])
+@require_auth
+def admin_submission_delete(submission_id):
+    """Hard-delete a submission."""
+    sub = delete_submission(submission_id)
+    if not sub:
+        return jsonify({"error": "Submission not found"}), 404
+    return jsonify({"success": True, "message": "Submission deleted"})
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit an Event — Memphis Concert Calendar</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://concert-calendar-api.onrender.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wyxr-yellow: #FFCF2D;
+            --wyxr-black: #000000;
+            --wyxr-white: #FFFFFF;
+            --wyxr-charcoal: #1A1A1A;
+            --wyxr-gray: #888888;
+            --wyxr-dim: #666666;
+            --wyxr-border: #2A2A2A;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            background: var(--wyxr-black);
+            color: var(--wyxr-white);
+            line-height: 1.5;
+        }
+
+        /* Header */
+        header { margin-bottom: 24px; }
+        .header-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
+        /* Page Title */
+        .page-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.3em;
+            font-weight: 800;
+            color: var(--wyxr-yellow);
+            margin: 20px 0 8px;
+        }
+        .page-subtitle {
+            color: var(--wyxr-gray);
+            font-size: 0.9em;
+            margin-bottom: 24px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--wyxr-white);
+            margin-bottom: 6px;
+        }
+        .form-group label .required {
+            color: var(--wyxr-yellow);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            font-size: 0.95em;
+            border: 1px solid var(--wyxr-border);
+            border-radius: 4px;
+            background: var(--wyxr-charcoal);
+            color: var(--wyxr-white);
+            font-family: 'Inter', sans-serif;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--wyxr-yellow);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--wyxr-dim);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .form-group .char-count {
+            font-size: 0.75em;
+            color: var(--wyxr-dim);
+            text-align: right;
+            margin-top: 4px;
+        }
+        .form-group .field-hint {
+            font-size: 0.8em;
+            color: var(--wyxr-dim);
+            margin-top: 4px;
+        }
+        .form-group .field-error {
+            font-size: 0.8em;
+            color: #F54F73;
+            margin-top: 4px;
+            display: none;
+        }
+        .form-group.has-error input,
+        .form-group.has-error textarea {
+            border-color: #F54F73;
+        }
+        .form-group.has-error .field-error {
+            display: block;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Honeypot — hidden from humans */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            padding: 12px 32px;
+            font-family: 'Anybody', sans-serif;
+            font-size: 1em;
+            font-weight: 700;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: opacity 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: var(--wyxr-charcoal);
+            border: 2px solid var(--wyxr-yellow);
+            border-radius: 6px;
+            padding: 24px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+        }
+        .success-message h3 {
+            font-family: 'Anybody', sans-serif;
+            color: var(--wyxr-yellow);
+            margin-bottom: 8px;
+        }
+        .success-message p {
+            color: var(--wyxr-gray);
+            font-size: 0.9em;
+        }
+        .success-message .submit-another-btn {
+            background: transparent;
+            color: var(--wyxr-yellow);
+            border: 1px solid var(--wyxr-yellow);
+            padding: 8px 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        .success-message .submit-another-btn:hover {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+        }
+
+        /* Error Banner */
+        .error-banner {
+            background: #2a1a1a;
+            border: 1px solid #F54F73;
+            border-radius: 4px;
+            padding: 12px 16px;
+            color: #F54F73;
+            font-size: 0.85em;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid var(--wyxr-border);
+            font-size: 0.8em;
+            color: #555;
+            text-align: center;
+        }
+        footer a { color: var(--wyxr-dim); }
+        footer a:hover { color: var(--wyxr-yellow); }
+
+        @media (max-width: 500px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <picture>
+                <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
+                <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
+            </picture>
+        </a>
+    </header>
+
+    <h1 class="page-title">Submit an Event</h1>
+    <p class="page-subtitle">Know about an upcoming show? Let us know and we'll add it to the calendar.</p>
+
+    <div class="error-banner" id="errorBanner"></div>
+
+    <div class="success-message" id="successMessage">
+        <h3>Thanks!</h3>
+        <p>Your event has been submitted and will appear on the calendar after review by our team.</p>
+        <button class="submit-another-btn" id="submitAnotherBtn">Submit Another Event</button>
+    </div>
+
+    <form id="submitForm" novalidate>
+        <div class="form-group">
+            <label for="artistName">Artist / Band Name <span class="required">*</span></label>
+            <input type="text" id="artistName" name="artist_name" maxlength="200" placeholder="e.g. Lucero" required>
+            <div class="field-error" id="artistNameError"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="venue">Venue <span class="required">*</span></label>
+            <input type="text" id="venue" name="venue" maxlength="200" placeholder="e.g. Hi Tone" list="venueList" required>
+            <datalist id="venueList">
+                <option value="Hi Tone">
+                <option value="Minglewood Hall">
+                <option value="Growlers">
+                <option value="Hernando's Hideaway">
+                <option value="Crosstown Arts">
+                <option value="Lafayette's Music Room">
+                <option value="Overton Park Shell">
+                <option value="B.B. King's Blues Club">
+                <option value="Graceland Soundstage">
+                <option value="FedExForum">
+                <option value="Germantown Performing Arts Center">
+                <option value="Orpheum Theatre">
+                <option value="Bar DKDC">
+                <option value="B-Side Memphis">
+                <option value="Nashoba">
+                <option value="Landers Center">
+                <option value="South Main Sounds">
+            </datalist>
+            <div class="field-error" id="venueError"></div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="eventDate">Date <span class="required">*</span></label>
+                <input type="date" id="eventDate" name="event_date" required>
+                <div class="field-error" id="eventDateError"></div>
+            </div>
+            <div class="form-group">
+                <label for="eventTime">Time</label>
+                <input type="time" id="eventTime" name="event_time">
+                <div class="field-hint">Doors time (optional)</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description / Notes</label>
+            <textarea id="description" name="description" maxlength="500" placeholder="Set times, openers, age restrictions, cover info..."></textarea>
+            <div class="char-count"><span id="descCharCount">0</span>/500</div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="submitterName">Your Name <span class="required">*</span></label>
+                <input type="text" id="submitterName" name="submitter_name" maxlength="100" required>
+                <div class="field-error" id="submitterNameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="submitterEmail">Your Email <span class="required">*</span></label>
+                <input type="email" id="submitterEmail" name="submitter_email" placeholder="you@example.com" required>
+                <div class="field-error" id="submitterEmailError"></div>
+            </div>
+        </div>
+
+        <!-- Honeypot -->
+        <div class="hp-field" aria-hidden="true">
+            <label for="website">Do not fill this in</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Submit Event</button>
+    </form>
+
+    <footer>
+        <a href="/">&larr; Back to calendar</a>
+    </footer>
+
+    <script>
+    (function() {
+        'use strict';
+
+        const API_BASE = 'https://concert-calendar-api.onrender.com';
+        const form = document.getElementById('submitForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const errorBanner = document.getElementById('errorBanner');
+        const successMessage = document.getElementById('successMessage');
+
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('eventDate').setAttribute('min', today);
+
+        // Character count for description
+        document.getElementById('description').addEventListener('input', function() {
+            document.getElementById('descCharCount').textContent = this.value.length;
+        });
+
+        // Clear field errors on input
+        form.querySelectorAll('input, textarea').forEach(input => {
+            input.addEventListener('input', () => {
+                const group = input.closest('.form-group');
+                if (group) group.classList.remove('has-error');
+            });
+        });
+
+        // Validate form
+        function validate() {
+            let valid = true;
+            const errors = [];
+
+            function setError(fieldId, errorId, msg) {
+                document.getElementById(errorId).textContent = msg;
+                document.getElementById(fieldId).closest('.form-group').classList.add('has-error');
+                errors.push(msg);
+                valid = false;
+            }
+
+            function clearError(fieldId, errorId) {
+                document.getElementById(errorId).textContent = '';
+                document.getElementById(fieldId).closest('.form-group').classList.remove('has-error');
+            }
+
+            // Artist name
+            const artistName = document.getElementById('artistName').value.trim();
+            if (!artistName) {
+                setError('artistName', 'artistNameError', 'Artist / band name is required');
+            } else {
+                clearError('artistName', 'artistNameError');
+            }
+
+            // Venue
+            const venue = document.getElementById('venue').value.trim();
+            if (!venue) {
+                setError('venue', 'venueError', 'Venue is required');
+            } else {
+                clearError('venue', 'venueError');
+            }
+
+            // Date
+            const eventDate = document.getElementById('eventDate').value;
+            if (!eventDate) {
+                setError('eventDate', 'eventDateError', 'Event date is required');
+            } else if (eventDate < today) {
+                setError('eventDate', 'eventDateError', 'Event date must be today or in the future');
+            } else {
+                clearError('eventDate', 'eventDateError');
+            }
+
+            // Submitter name
+            const submitterName = document.getElementById('submitterName').value.trim();
+            if (!submitterName) {
+                setError('submitterName', 'submitterNameError', 'Your name is required');
+            } else {
+                clearError('submitterName', 'submitterNameError');
+            }
+
+            // Email
+            const email = document.getElementById('submitterEmail').value.trim();
+            if (!email) {
+                setError('submitterEmail', 'submitterEmailError', 'Email is required');
+            } else if (!email.includes('@') || !email.includes('.')) {
+                setError('submitterEmail', 'submitterEmailError', 'Please enter a valid email address');
+            } else {
+                clearError('submitterEmail', 'submitterEmailError');
+            }
+
+            return valid;
+        }
+
+        // Submit form
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            errorBanner.style.display = 'none';
+
+            if (!validate()) return;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            const payload = {
+                artist_name: document.getElementById('artistName').value.trim(),
+                venue: document.getElementById('venue').value.trim(),
+                event_date: document.getElementById('eventDate').value,
+                event_time: document.getElementById('eventTime').value || '',
+                description: document.getElementById('description').value.trim(),
+                submitter_name: document.getElementById('submitterName').value.trim(),
+                submitter_email: document.getElementById('submitterEmail').value.trim(),
+                website: document.getElementById('website').value,
+            };
+
+            try {
+                const resp = await fetch(`${API_BASE}/api/submissions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+
+                const data = await resp.json();
+
+                if (resp.ok && data.success) {
+                    // Show success
+                    form.style.display = 'none';
+                    successMessage.style.display = 'block';
+                } else {
+                    // Show validation errors
+                    const msgs = data.errors || [data.message || 'Something went wrong'];
+                    errorBanner.innerHTML = msgs.map(m => `<div>${m}</div>`).join('');
+                    errorBanner.style.display = 'block';
+                }
+            } catch (err) {
+                errorBanner.textContent = 'Network error. Please check your connection and try again.';
+                errorBanner.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Event';
+            }
+        });
+
+        // Submit another
+        document.getElementById('submitAnotherBtn').addEventListener('click', () => {
+            form.reset();
+            document.getElementById('descCharCount').textContent = '0';
+            form.style.display = 'block';
+            successMessage.style.display = 'none';
+            errorBanner.style.display = 'none';
+        });
+    })();
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

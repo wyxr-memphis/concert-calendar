@@ -289,6 +289,7 @@
     <script>
         const params = new URLSearchParams(window.location.search);
         const eventId = params.get('id');
+        const fromSubmission = params.get('from_submission');
         const isEdit = !!eventId;
         let currentEvent = null;
 
@@ -319,13 +320,39 @@
             if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
-                if (isEdit) loadEvent();
+                if (isEdit) {
+                    loadEvent();
+                } else if (fromSubmission) {
+                    prefillFromSubmission();
+                }
             }
         });
 
         if (isEdit) {
             document.getElementById('pageTitle').textContent = 'EDIT EVENT';
             document.getElementById('deactivateBtn').style.display = '';
+        } else if (fromSubmission) {
+            document.getElementById('pageTitle').textContent = 'EDIT & APPROVE SUBMISSION';
+        }
+
+        function prefillFromSubmission() {
+            const fieldMap = {
+                'title': 'title',
+                'venue': 'venue',
+                'date': 'date',
+                'start_time': 'start_time',
+                'description': 'description',
+            };
+            for (const [urlKey, fieldId] of Object.entries(fieldMap)) {
+                const val = params.get(urlKey);
+                if (val) {
+                    const el = document.getElementById(fieldId);
+                    if (el) el.value = val;
+                }
+            }
+            // Set source
+            const sourceField = document.getElementById('source');
+            if (sourceField) sourceField.value = 'submission';
         }
 
         // Image URL preview
@@ -457,8 +484,20 @@
                 }
 
                 if (result.resp.ok || result.data.ok) {
+                    // If this was from a submission, mark it as approved (without creating a duplicate event)
+                    if (fromSubmission) {
+                        try {
+                            await AdminAPI.apiJSON(`/api/admin/submissions/${fromSubmission}/mark-approved`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({}),
+                            });
+                        } catch (e) {
+                            console.warn('Failed to mark submission as approved:', e);
+                        }
+                    }
                     showStatus('Saved!', 'success');
-                    setTimeout(() => { window.location.href = '/admin/'; }, 800);
+                    setTimeout(() => { window.location.href = '/admin/#submissions'; }, 800);
                 } else {
                     showStatus(result.data.error || 'Save failed', 'error');
                 }

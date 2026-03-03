@@ -102,7 +102,30 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_events_neighborhood ON events(neighborhood);
         """)
 
-    # Step 4: Seed venues if table is empty
+    # Step 4: Create submissions table
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS submissions (
+              id SERIAL PRIMARY KEY,
+              artist_name VARCHAR(200) NOT NULL,
+              venue VARCHAR(200) NOT NULL,
+              event_date DATE NOT NULL,
+              event_time TIME,
+              description TEXT,
+              submitter_name VARCHAR(100) NOT NULL,
+              submitter_email VARCHAR(254) NOT NULL,
+              status VARCHAR(20) DEFAULT 'pending',
+              submitted_at TIMESTAMP DEFAULT NOW(),
+              reviewed_at TIMESTAMP,
+              reviewed_by VARCHAR(100),
+              created_event_id VARCHAR(255),
+              honeypot VARCHAR(255)
+            );
+            CREATE INDEX IF NOT EXISTS idx_submissions_status ON submissions(status);
+            CREATE INDEX IF NOT EXISTS idx_submissions_date ON submissions(submitted_at DESC);
+        """)
+
+    # Step 5: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
@@ -741,3 +764,79 @@ def get_scraper_status_summary():
             for s in per_source.values()
         ],
     }
+
+
+# ---------------------------------------------------------------------------
+# Submission queries
+# ---------------------------------------------------------------------------
+
+def create_submission(data):
+    """Insert a new community event submission."""
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO submissions
+               (artist_name, venue, event_date, event_time, description,
+                submitter_name, submitter_email, honeypot)
+               VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+               RETURNING *""",
+            (
+                data["artist_name"],
+                data["venue"],
+                data["event_date"],
+                data.get("event_time"),
+                data.get("description"),
+                data["submitter_name"],
+                data["submitter_email"],
+                data.get("honeypot"),
+            ),
+        )
+        return cur.fetchone()
+
+
+def get_submissions(status=None):
+    """Get submissions, optionally filtered by status."""
+    query = "SELECT * FROM submissions"
+    params = []
+    if status:
+        query += " WHERE status = %s"
+        params.append(status)
+    query += " ORDER BY submitted_at DESC"
+    with get_cursor(commit=False) as cur:
+        cur.execute(query, params)
+        return cur.fetchall()
+
+
+def get_submission_by_id(submission_id):
+    """Get a single submission by ID."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM submissions WHERE id = %s", (submission_id,))
+        return cur.fetchone()
+
+
+def update_submission_status(submission_id, status, reviewed_by="admin", created_event_id=None):
+    """Update a submission's status (pending -> approved/rejected)."""
+    with get_cursor() as cur:
+        cur.execute(
+            """UPDATE submissions
+               SET status = %s, reviewed_at = NOW(), reviewed_by = %s,
+                   created_event_id = %s
+               WHERE id = %s
+               RETURNING *""",
+            (status, reviewed_by, created_event_id, submission_id),
+        )
+        return cur.fetchone()
+
+
+def delete_submission(submission_id):
+    """Hard-delete a submission."""
+    with get_cursor() as cur:
+        cur.execute("DELETE FROM submissions WHERE id = %s RETURNING *", (submission_id,))
+        return cur.fetchone()
+
+
+def get_pending_submission_count():
+    """Get count of pending submissions."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT COUNT(*) AS count FROM submissions WHERE status = 'pending'")
+        row = cur.fetchone()
+        return row["count"] if row else 0
