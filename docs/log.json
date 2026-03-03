@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-03T13:44:09.338274+00:00",
+  "run_timestamp": "2026-03-03T17:37:35.290640+00:00",
   "date_range": {
     "start": "2026-03-03",
     "end": "2026-03-10"
   },
-  "total_events_db": 273,
-  "total_active_display": 62,
+  "total_events_db": 275,
+  "total_active_display": 64,
   "data_store": "postgresql",
   "sources": [
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 22,
+      "events_filtered": 55,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 62,
+      "events_found": 64,
+      "events_after_filter": 64,
       "events_filtered": 0,
       "error": null
     }
@@ -504,6 +504,13 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
+      "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MVSTRIO",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-08",
+      "time": "6 to 10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Germantown Symphony Orchestra: American Mosaic",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-08",
@@ -533,6 +540,13 @@
     },
     {
       "artist": "ALICE HASEN W/WEEJY ROGERS",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-10",
+      "time": "8PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "ALICE HASEN W/WEEZY ROGERS",
       "venue": "B-Side Memphis",
       "date": "2026-03-10",
       "time": "8PM",
