@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-03T17:37:35.290640+00:00",
+  "run_timestamp": "2026-03-03T22:34:42.405583+00:00",
   "date_range": {
     "start": "2026-03-03",
     "end": "2026-03-10"
   },
-  "total_events_db": 275,
-  "total_active_display": 64,
+  "total_events_db": 286,
+  "total_active_display": 67,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
       "error": null
     },
@@ -35,16 +35,16 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 31,
+      "events_found": 33,
+      "events_after_filter": 32,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 64,
+      "events_found": 67,
+      "events_after_filter": 67,
       "events_filtered": 0,
       "error": null
     }
@@ -158,7 +158,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-03",
       "time": "9PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "The Lawrence Graduate Bayreuth Tuben Quintet",
@@ -196,18 +196,32 @@
       "source": "Ticketmaster"
     },
     {
+      "artist": "Monaleo \u2013 Who Did The Body Tour \u2013 POSTPONED",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-03",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
       "artist": "AUBREY MCCRADY",
       "venue": "B-Side Memphis",
       "date": "2026-03-04",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "SYMMETRY JAZZ",
       "venue": "B-Side Memphis",
       "date": "2026-03-04",
       "time": "7PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-04",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Seize and Desist / Shakira Chinchilla / Thunder Gun [Small Room-Downstairs]",
@@ -221,7 +235,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-05",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -277,7 +291,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-06",
       "time": "9PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "Opera Memphis: Pretty Little Room",
@@ -389,14 +403,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-07",
       "time": "12PM to 5PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "MP AWARDS PARTY",
       "venue": "B-Side Memphis",
       "date": "2026-03-07",
       "time": "6PM - 10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "Recent Future + General Labor",
@@ -497,6 +511,13 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
+      "artist": "PRIVATE BIRTHDAY PARTY w/OBILVI0N/MDS/MVSTRI0",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-08",
+      "time": "6 to 10PM",
+      "source": "Artifacts (Instagram handle visible)"
+    },
+    {
       "artist": "PRIVATE BIRTHDAY PARTY w/OBILVION/MDS/MYSTRIO",
       "venue": "B-Side Memphis",
       "date": "2026-03-08",
@@ -543,7 +564,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-10",
       "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram handle visible)"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
