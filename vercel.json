@@ -1,5 +1,6 @@
 {
   "outputDirectory": "docs",
+  "cleanUrls": true,
   "redirects": [
     { "source": "/calendar.html", "destination": "/", "permanent": true }
   ],
