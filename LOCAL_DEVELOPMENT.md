@@ -86,6 +86,7 @@ This uses Python's built-in HTTP server to serve the `docs/` directory.
 **Pages:**
 - `http://localhost:8000/docs/` - Homepage (interactive calendar)
 - `http://localhost:8000/docs/thisweek.html` - Static "This Week" page
+- `http://localhost:8000/docs/feed.xml` - RSS 2.0 feed (next 60 days of events)
 - `http://localhost:8000/docs/admin/local.html` - **Local admin login** (points to localhost:5000)
 - `http://localhost:8000/docs/admin/login.html` - Production admin login (points to Render)
 

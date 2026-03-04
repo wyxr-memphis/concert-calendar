@@ -73,9 +73,10 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 ## Important Files
 
 ### Core Application
-- `src/main.py` - Orchestrator (fetch → merge → prune → HTML)
+- `src/main.py` - Orchestrator (fetch → merge → prune → HTML → RSS)
 - `src/config.py` - Venues, neighborhoods, keywords, date ranges
 - `src/normalize.py` - Deduplication logic
+- `src/generate_rss.py` - RSS 2.0 feed generator (60-day window)
 - `backend/app.py` - Flask REST API
 - `backend/db.py` - PostgreSQL queries
 
@@ -94,6 +95,10 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 - `backend/gunicorn_conf.py` - Gunicorn config
 - `vercel.json` - Vercel config
 - `scripts/schema.sql` - PostgreSQL schema
+
+### Feeds
+- `docs/feed.xml` - RSS 2.0 feed (next 60 days, auto-generated each build)
+- Feed URL: `concert-calendar.wyxr.org/feed.xml`
 
 ## Venues (15 total)
 

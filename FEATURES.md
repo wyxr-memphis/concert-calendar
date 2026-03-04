@@ -60,21 +60,11 @@ Planning doc for upcoming features.
 
 ---
 
-## 4. Event Feed (JSON / RSS) for Website Embedding
+## ~~4. Event Feed (JSON / RSS) for Website Embedding~~ ✅
 
-**Problem:** The calendar data is locked inside a standalone HTML page. WYXR's main website should be able to pull event data and display it natively.
+**Implemented:** RSS 2.0 feed at `concert-calendar.wyxr.org/feed.xml`. Generated automatically every build (2x daily) with the next 60 days of events. Each item includes artist, venue, date, time, price, genre, rich HTML content, image enclosures, and WYXR Presents/Pick badges. Used for WYXR app integration.
 
-**What this looks like:**
-- A public JSON feed (`/feed.json`) with a clean, documented schema
-- An RSS/Atom feed (`/feed.xml`) for feed readers and automation
-- Optionally, an embeddable JS widget
-
-**Implementation:**
-- Generate `docs/feed.json` during build with events array, timestamps, date range
-- Generate `docs/feed.xml` in RSS 2.0 format
-- Add CORS headers so any site can fetch client-side
-
-**Effort:** Medium
+**Files:** `src/generate_rss.py`, integrated in `src/main.py` Step 7.
 
 ---
 
@@ -195,9 +185,9 @@ Planning doc for upcoming features.
 | # | Feature | Effort | Value | Status |
 |---|---------|--------|-------|--------|
 | 17 | Email signup (Mailchimp) | Low | High | Pending — needs Mailchimp action URL from Concert.wyxr.org |
-| 18 | Event submission form | Medium | High | Pending — enables community contributions |
+| 18 | Event submission form | Medium | High | ✅ Completed — /submit page + admin review |
 | 3 | Custom domain | Low | High | Pending — config only |
-| 4 | Event feed (JSON/RSS) | Medium | High | Pending — unlocks website integration |
+| 4 | Event feed (RSS) | Medium | High | ✅ Completed — feed.xml for WYXR app |
 | 9 | Venue link enhancement | Low-Med | Medium | Pending |
 | 11 | JSON-LD parser consolidation | Medium | Medium | Pending — code quality |
 | 14 | Genre / category tags | Medium | Medium | Pending |

@@ -36,6 +36,7 @@ GitHub Actions (twice daily: midnight + noon Central)
   -> Merges into PostgreSQL (single source of truth)
   -> Exports data/events.json (read-only snapshot)
   -> Generates docs/thisweek.html (static 8-day calendar)
+  -> Generates docs/feed.xml (RSS feed, next 60 days)
   -> Commits & pushes
   -> Triggers Vercel redeploy
 
@@ -47,6 +48,7 @@ Render (Backend API)
 Vercel (Frontend)
   -> Serves docs/index.html (interactive calendar with 6-month lookahead)
   -> Serves docs/thisweek.html (static "This Week" page)
+  -> Serves docs/feed.xml (RSS 2.0 feed for app integration)
   -> Serves docs/admin/ (admin UI — Events, Import, Scrapers, Venues)
 ```
 
@@ -107,6 +109,10 @@ Visit `/admin/` on your Vercel deployment to manage events:
 - **Tools tab** — Per-source scraper status cards with run history, trigger builds, prune old events
 - **Venues tab** — Manage venue-to-neighborhood mapping, merge duplicate venues
 
+## RSS Feed
+
+An RSS 2.0 feed is available at [`concert-calendar.wyxr.org/feed.xml`](https://concert-calendar.wyxr.org/feed.xml) for integration with the WYXR app, feed readers, and other platforms. It includes the next 60 days of events, updated automatically with every build (twice daily). Each item includes artist, venue, date, time, price, genre, and WYXR Presents/Pick badges.
+
 ## Interactive Calendar
 
 The homepage (`/`) is an interactive calendar with:
@@ -150,13 +156,14 @@ concert-calendar/
 │   ├── rebuild.py             # Vercel serverless: trigger rebuild
 │   └── _auth.py               # JWT helpers (Vercel)
 ├── src/
-│   ├── main.py                # Orchestrator (fetch -> merge -> DB -> HTML)
+│   ├── main.py                # Orchestrator (fetch -> merge -> DB -> HTML -> RSS)
 │   ├── config.py              # Venues, neighborhoods, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
 │   ├── date_utils.py          # Shared date parsing
 │   ├── http_utils.py          # HTTP client with retry logic
 │   ├── normalize.py           # Deduplication logic
 │   ├── generate_html.py       # Static "This Week" page generator
+│   ├── generate_rss.py        # RSS 2.0 feed generator (60-day window)
 │   └── sources/
 │       ├── ticketmaster.py    # Ticketmaster Discovery API
 │       ├── venue_scrapers.py  # Venue website scrapers (custom + generic)
@@ -170,6 +177,7 @@ concert-calendar/
 ├── docs/
 │   ├── index.html             # Interactive calendar (homepage)
 │   ├── thisweek.html          # Static "This Week" page (auto-generated)
+│   ├── feed.xml               # RSS 2.0 feed (auto-generated, 60-day window)
 │   ├── admin/                 # Admin UI (login, events, import, scrapers, venues)
 │   └── log.json               # Latest run log
 ├── vercel.json                # Vercel config (redirects, rewrites)
