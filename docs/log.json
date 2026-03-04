@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-04T05:48:46.495824+00:00",
+  "run_timestamp": "2026-03-04T16:48:20.018411+00:00",
   "date_range": {
     "start": "2026-03-04",
     "end": "2026-03-11"
   },
-  "total_events_db": 285,
-  "total_active_display": 64,
+  "total_events_db": 289,
+  "total_active_display": 65,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,7 +19,7 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 10,
+      "events_found": 12,
       "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
@@ -27,25 +27,25 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 90,
+      "events_found": 89,
       "events_after_filter": 71,
-      "events_filtered": 19,
+      "events_filtered": 18,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
+      "events_found": 20,
       "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -99,16 +99,16 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 58,
+      "events_found": 57,
       "events_after_filter": 25,
-      "events_filtered": 33,
+      "events_filtered": 32,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 64,
+      "events_found": 65,
+      "events_after_filter": 65,
       "events_filtered": 0,
       "error": null
     }
@@ -151,14 +151,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-04",
       "time": "10PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "SYMMETRY JAZZ",
       "venue": "B-Side Memphis",
       "date": "2026-03-04",
       "time": "7PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
@@ -179,7 +179,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-05",
       "time": "10PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -235,7 +235,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-06",
       "time": "9PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Opera Memphis: Pretty Little Room",
@@ -347,14 +347,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-07",
       "time": "12PM to 5PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "MP AWARDS PARTY",
       "venue": "B-Side Memphis",
       "date": "2026-03-07",
       "time": "6PM - 10PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Recent Future + General Labor",
@@ -476,6 +476,13 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
+      "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MYSTRIO",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-08",
+      "time": "6 to 10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Germantown Symphony Orchestra: American Mosaic",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-08",
@@ -508,7 +515,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-10",
       "time": "8PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
@@ -564,7 +571,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-11",
       "time": "10PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
