@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-04T17:33:59.474946+00:00",
+  "run_timestamp": "2026-03-04T18:33:30.081904+00:00",
   "date_range": {
     "start": "2026-03-04",
     "end": "2026-03-11"
   },
-  "total_events_db": 290,
+  "total_events_db": 291,
   "total_active_display": 65,
   "data_store": "postgresql",
   "sources": [
