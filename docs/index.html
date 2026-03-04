@@ -18,6 +18,7 @@
             --wyxr-gray: #888888;
             --wyxr-dim: #666666;
             --wyxr-border: #2A2A2A;
+            --wyxr-presents-blue: #5BBCE4;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -335,10 +336,10 @@
         /* WYXR Presents — Pinned Section */
         .presents-section {
             margin-bottom: 24px;
-            border: 2px solid var(--wyxr-yellow);
+            border: 2px solid var(--wyxr-presents-blue);
             border-radius: 6px;
             padding: 16px;
-            background: linear-gradient(135deg, rgba(255, 207, 45, 0.08) 0%, rgba(255, 207, 45, 0.02) 100%);
+            background: linear-gradient(135deg, rgba(91, 188, 228, 0.08) 0%, rgba(91, 188, 228, 0.02) 100%);
         }
         .presents-header {
             font-family: 'Anybody', sans-serif;
@@ -346,7 +347,7 @@
             font-weight: 800;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--wyxr-yellow);
+            color: var(--wyxr-presents-blue);
             margin-bottom: 12px;
             display: flex;
             align-items: center;
@@ -357,7 +358,7 @@
             display: inline-block;
             width: 6px;
             height: 6px;
-            background: var(--wyxr-yellow);
+            background: var(--wyxr-presents-blue);
             border-radius: 50%;
             animation: presents-pulse 2s ease-in-out infinite;
         }
@@ -367,7 +368,7 @@
         }
         .presents-badge {
             display: inline-block;
-            background: var(--wyxr-yellow);
+            background: var(--wyxr-presents-blue);
             color: var(--wyxr-black);
             font-family: 'Anybody', sans-serif;
             font-size: 0.65em;
@@ -380,7 +381,7 @@
             margin-right: 6px;
         }
         .presents-event {
-            border-left: 4px solid var(--wyxr-yellow);
+            border-left: 4px solid var(--wyxr-presents-blue);
             padding: 8px 0 8px 12px;
             margin-bottom: 8px;
         }
@@ -388,7 +389,7 @@
         .presents-event .artist {
             font-size: 1.05em;
             font-weight: 700;
-            color: var(--wyxr-yellow);
+            color: var(--wyxr-presents-blue);
         }
         .presents-event a { color: inherit; text-decoration: none; }
         .presents-event a:hover .artist { text-decoration: underline; }
