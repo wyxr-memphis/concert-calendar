@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.models import Event, SourceResult, normalize_text
 from src.normalize import deduplicate
 from src.generate_html import generate_html
+from src.generate_rss import generate_rss
 from src.config import START_DATE, END_DATE, normalize_venue_name
 from src.sources.events_json import (
     EVENTS_JSON_PATH,
@@ -302,6 +303,45 @@ def _load_active_events_from_db(start_date, end_date) -> List[dict]:
     return events
 
 
+def _load_events_for_rss(days: int = 60) -> List[dict]:
+    """Load active events for the next N days with all fields (for RSS feed)."""
+    import psycopg2
+    import psycopg2.extras
+    from datetime import timedelta
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    today = date.today()
+    end = today + timedelta(days=days)
+    cur.execute(
+        """SELECT * FROM events
+        WHERE is_active = true AND date >= %s AND date <= %s
+        ORDER BY date, is_wyxr_presents DESC, is_featured DESC, start_time""",
+        (str(today), str(end)),
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    events = []
+    for row in rows:
+        events.append({
+            "id": str(row["id"]),
+            "title": row["title"] or "",
+            "venue": row["venue"] or "",
+            "date": str(row["date"]),
+            "start_time": row["start_time"],
+            "doors_time": row["doors_time"],
+            "ticket_url": row["ticket_url"],
+            "ticket_price": row["ticket_price"],
+            "image_url": row["image_url"],
+            "description": row["description"],
+            "genre": row["genre"],
+            "source": row["source"] or "unknown",
+            "is_featured": row["is_featured"],
+            "is_wyxr_presents": row.get("is_wyxr_presents", False),
+        })
+    return events
+
+
 # ---------------------------------------------------------------------------
 # Main build
 # ---------------------------------------------------------------------------
@@ -460,6 +500,18 @@ def run(dry_run: bool = False) -> None:
     with open(INDEX_PATH, "w", encoding="utf-8") as f:
         f.write(html_output)
     print(f"\n  Wrote {INDEX_PATH}")
+
+    # Generate RSS feed (next 60 days)
+    if use_db:
+        try:
+            rss_events = _load_events_for_rss(days=60)
+            rss_output = generate_rss(rss_events, run_timestamp)
+            rss_path = DOCS_DIR / "feed.xml"
+            with open(rss_path, "w", encoding="utf-8") as f:
+                f.write(rss_output)
+            print(f"  Wrote {rss_path} ({len(rss_events)} events)")
+        except Exception as e:
+            print(f"  WARNING: Could not generate RSS feed: {e}")
 
     # Write log
     log_data = {
