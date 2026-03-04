@@ -402,6 +402,16 @@ def admin_events_bulk():
 
 
 # ---------------------------------------------------------------------------
+# Public Venue List (for submit form)
+# ---------------------------------------------------------------------------
+
+@app.route("/api/venues", methods=["GET"])
+def public_venues_list():
+    """Public list of venue names for the submit form autocomplete."""
+    venues = get_all_venues()
+    return jsonify([v["name"] for v in venues])
+
+
 # Admin Venue Endpoints
 # ---------------------------------------------------------------------------
 
