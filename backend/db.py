@@ -125,7 +125,11 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_submissions_date ON submissions(submitted_at DESC);
         """)
 
-    # Step 5: Seed venues if table is empty
+    # Step 5: Add is_wyxr_presents column
+    with get_cursor() as cur:
+        cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS is_wyxr_presents BOOLEAN DEFAULT false")
+
+    # Step 6: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
@@ -150,7 +154,7 @@ def get_active_events(start_date=None, end_date=None, featured_only=False):
     if featured_only:
         query += " AND is_featured = true"
 
-    query += " ORDER BY date ASC, is_featured DESC, start_time ASC"
+    query += " ORDER BY date ASC, is_wyxr_presents DESC, is_featured DESC, start_time ASC"
 
     with get_cursor(commit=False) as cur:
         cur.execute(query, params)
@@ -194,7 +198,7 @@ def create_event(data):
     fields = [
         "title", "venue", "date", "start_time", "doors_time",
         "ticket_url", "ticket_price", "image_url", "description",
-        "genre", "source", "neighborhood", "is_featured", "is_active",
+        "genre", "source", "neighborhood", "is_featured", "is_wyxr_presents", "is_active",
     ]
     present = {k: data[k] for k in fields if k in data}
     columns = ", ".join(present.keys())
@@ -215,7 +219,7 @@ def update_event(event_id, data):
     allowed = [
         "title", "venue", "date", "start_time", "doors_time",
         "ticket_url", "ticket_price", "image_url", "description",
-        "genre", "source", "neighborhood", "is_featured", "is_active",
+        "genre", "source", "neighborhood", "is_featured", "is_wyxr_presents", "is_active",
     ]
     updates = {k: data[k] for k in allowed if k in data}
     if not updates:
@@ -262,6 +266,16 @@ def toggle_featured(event_id, is_featured):
         return cur.fetchone()
 
 
+def toggle_wyxr_presents(event_id, is_wyxr_presents):
+    """Toggle WYXR Presents status."""
+    with get_cursor() as cur:
+        cur.execute(
+            "UPDATE events SET is_wyxr_presents = %s, updated_at = NOW() WHERE id = %s RETURNING *",
+            (is_wyxr_presents, event_id),
+        )
+        return cur.fetchone()
+
+
 def bulk_action(action, ids):
     """Bulk operations on events."""
     if not ids:
@@ -270,6 +284,8 @@ def bulk_action(action, ids):
     action_map = {
         "feature": "UPDATE events SET is_featured = true, updated_at = NOW()",
         "unfeature": "UPDATE events SET is_featured = false, updated_at = NOW()",
+        "presents": "UPDATE events SET is_wyxr_presents = true, updated_at = NOW()",
+        "unpresents": "UPDATE events SET is_wyxr_presents = false, updated_at = NOW()",
         "deactivate": "UPDATE events SET is_active = false, updated_at = NOW()",
     }
     base_query = action_map.get(action)
@@ -300,7 +316,7 @@ def bulk_insert_events(events_list):
             fields = [
                 "title", "venue", "date", "start_time", "doors_time",
                 "ticket_url", "ticket_price", "image_url", "description",
-                "genre", "source", "neighborhood", "is_featured", "is_active",
+                "genre", "source", "neighborhood", "is_featured", "is_wyxr_presents", "is_active",
             ]
             present = {k: data[k] for k in fields if k in data}
             columns = ", ".join(present.keys())

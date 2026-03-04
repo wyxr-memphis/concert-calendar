@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS events (
   genre TEXT,
   source TEXT DEFAULT 'manual',
   is_featured BOOLEAN DEFAULT false,
+  is_wyxr_presents BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()

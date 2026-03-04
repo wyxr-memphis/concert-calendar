@@ -148,6 +148,7 @@ def _load_events_from_db() -> List[dict]:
             "genre": row["genre"],
             "source": row["source"] or "unknown",
             "is_featured": row["is_featured"],
+            "is_wyxr_presents": row.get("is_wyxr_presents", False),
             "is_active": row["is_active"],
             "created_at": row["created_at"].isoformat() if row["created_at"] else None,
             "updated_at": row["updated_at"].isoformat() if row["updated_at"] else None,
@@ -278,7 +279,7 @@ def _load_active_events_from_db(start_date, end_date) -> List[dict]:
     cur.execute(
         """SELECT * FROM events
         WHERE is_active = true AND date >= %s AND date <= %s
-        ORDER BY date, is_featured DESC, start_time""",
+        ORDER BY date, is_wyxr_presents DESC, is_featured DESC, start_time""",
         (str(start_date), str(end_date)),
     )
     rows = cur.fetchall()
@@ -295,6 +296,7 @@ def _load_active_events_from_db(start_date, end_date) -> List[dict]:
             "ticket_url": row["ticket_url"],
             "source": row["source"] or "unknown",
             "is_featured": row["is_featured"],
+            "is_wyxr_presents": row.get("is_wyxr_presents", False),
             "is_active": row["is_active"],
         })
     return events

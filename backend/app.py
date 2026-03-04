@@ -32,6 +32,7 @@ from backend.db import (
     update_event,
     soft_delete_event,
     toggle_featured,
+    toggle_wyxr_presents,
     bulk_action,
     bulk_insert_events,
     delete_events_before,
@@ -367,6 +368,21 @@ def admin_events_toggle_featured(event_id):
     return jsonify(serialize_event(event))
 
 
+@app.route("/api/admin/events/<event_id>/presents", methods=["PATCH"])
+@require_auth
+def admin_events_toggle_presents(event_id):
+    """Toggle WYXR Presents status."""
+    body = request.get_json(silent=True) or {}
+    is_wyxr_presents = body.get("is_wyxr_presents", False)
+
+    existing = get_event_by_id(event_id)
+    if not existing:
+        return jsonify({"error": "Event not found"}), 404
+
+    event = toggle_wyxr_presents(event_id, is_wyxr_presents)
+    return jsonify(serialize_event(event))
+
+
 @app.route("/api/admin/events/bulk", methods=["POST"])
 @require_auth
 def admin_events_bulk():
@@ -375,8 +391,8 @@ def admin_events_bulk():
     action = body.get("action")
     ids = body.get("ids", [])
 
-    if action not in ("feature", "unfeature", "deactivate"):
-        return jsonify({"error": "action must be feature, unfeature, or deactivate"}), 400
+    if action not in ("feature", "unfeature", "presents", "unpresents", "deactivate"):
+        return jsonify({"error": "action must be feature, unfeature, presents, unpresents, or deactivate"}), 400
 
     if not ids:
         return jsonify({"error": "ids array is required"}), 400

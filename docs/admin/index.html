@@ -948,6 +948,7 @@
                         <button class="filter-tab active" data-filter="all">All</button>
                         <button class="filter-tab" data-filter="active">Active</button>
                         <button class="filter-tab" data-filter="inactive">Inactive</button>
+                        <button class="filter-tab" data-filter="presents">Presents</button>
                         <button class="filter-tab" data-filter="featured">Featured</button>
                         <button class="filter-tab" data-filter="upcoming">Upcoming</button>
                         <button class="filter-tab" data-filter="past">Past</button>
@@ -961,6 +962,7 @@
                             <th class="col-title">Title</th>
                             <th class="col-venue">Venue</th>
                             <th class="col-time">Time</th>
+                            <th class="col-toggle">P</th>
                             <th class="col-toggle">Star</th>
                             <th class="col-toggle">Active</th>
                         </tr>
@@ -1216,6 +1218,7 @@
                 switch (currentFilter) {
                     case 'active': return e.is_active !== false;
                     case 'inactive': return e.is_active === false;
+                    case 'presents': return e.is_wyxr_presents === true;
                     case 'featured': return e.is_featured === true;
                     case 'upcoming': return e.date >= today;
                     case 'past': return e.date < today;
@@ -1233,7 +1236,7 @@
             const page = filteredEvents.slice(start, start + PAGE_SIZE);
 
             if (page.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:32px;">No events found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#888;padding:32px;">No events found</td></tr>';
                 return;
             }
 
@@ -1241,6 +1244,8 @@
                 const d = e.date ? new Date(e.date + 'T12:00:00') : null;
                 const dateStr = d ? d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', weekday: 'short' }) : '';
                 const inactive = e.is_active === false ? ' class="inactive"' : '';
+                const presentsIcon = e.is_wyxr_presents ? '&#128251;' : '&#9675;';
+                const presentsStyle = e.is_wyxr_presents ? 'opacity:1' : 'opacity:0.3';
                 const star = e.is_featured ? '&#9733;' : '&#9734;';
                 const active = e.is_active !== false ? '&#10003;' : '&#10007;';
                 const starColor = e.is_featured ? 'color:#FFCF2D' : 'color:#ccc';
@@ -1251,6 +1256,7 @@
                     <td class="col-title">${esc(e.title || '')}</td>
                     <td class="col-venue">${esc(e.venue || '')}</td>
                     <td class="col-time">${esc(e.start_time || '')}</td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${presentsStyle}" data-action="presents" data-id="${esc(e.id)}" title="Toggle WYXR Presents">${presentsIcon}</button></td>
                     <td class="col-toggle"><button class="toggle-btn" style="${starColor}" data-action="featured" data-id="${esc(e.id)}" title="Toggle featured">${star}</button></td>
                     <td class="col-toggle"><button class="toggle-btn" style="${activeColor}" data-action="active" data-id="${esc(e.id)}" title="Toggle active">${active}</button></td>
                 </tr>`;
@@ -1292,7 +1298,8 @@
             const event = allEvents.find(e => e.id === id);
             if (!event) return;
 
-            const key = field === 'featured' ? 'is_featured' : 'is_active';
+            const keyMap = { featured: 'is_featured', presents: 'is_wyxr_presents', active: 'is_active' };
+            const key = keyMap[field] || 'is_active';
             const newVal = !event[key];
 
             // Optimistic update
@@ -1301,7 +1308,13 @@
 
             try {
                 let resp, data;
-                if (field === 'featured') {
+                if (field === 'presents') {
+                    ({ resp, data } = await AdminAPI.apiJSON(`/api/admin/events/${id}/presents`, {
+                        method: 'PATCH',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ is_wyxr_presents: newVal }),
+                    }));
+                } else if (field === 'featured') {
                     ({ resp, data } = await AdminAPI.apiJSON(`/api/admin/events/${id}/featured`, {
                         method: 'PATCH',
                         headers: { 'Content-Type': 'application/json' },

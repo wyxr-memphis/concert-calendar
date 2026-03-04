@@ -312,8 +312,9 @@
 
         /* Submit Event Button */
         .submit-event-link {
-            display: inline-block;
-            margin: 12px 0 4px;
+            display: block;
+            width: fit-content;
+            margin: 12px auto 4px;
             padding: 8px 20px;
             font-family: 'Anybody', sans-serif;
             font-size: 0.85em;
@@ -329,6 +330,79 @@
         .submit-event-link:hover {
             background: var(--wyxr-yellow);
             color: var(--wyxr-black);
+        }
+
+        /* WYXR Presents — Pinned Section */
+        .presents-section {
+            margin-bottom: 24px;
+            border: 2px solid var(--wyxr-yellow);
+            border-radius: 6px;
+            padding: 16px;
+            background: linear-gradient(135deg, rgba(255, 207, 45, 0.08) 0%, rgba(255, 207, 45, 0.02) 100%);
+        }
+        .presents-header {
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.85em;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--wyxr-yellow);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .presents-header::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: var(--wyxr-yellow);
+            border-radius: 50%;
+            animation: presents-pulse 2s ease-in-out infinite;
+        }
+        @keyframes presents-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        .presents-badge {
+            display: inline-block;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.65em;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+        .presents-event {
+            border-left: 4px solid var(--wyxr-yellow);
+            padding: 8px 0 8px 12px;
+            margin-bottom: 8px;
+        }
+        .presents-event:last-child { margin-bottom: 0; }
+        .presents-event .artist {
+            font-size: 1.05em;
+            font-weight: 700;
+            color: var(--wyxr-yellow);
+        }
+        .presents-event a { color: inherit; text-decoration: none; }
+        .presents-event a:hover .artist { text-decoration: underline; }
+        .presents-event .date-line {
+            font-size: 0.85em;
+            color: var(--wyxr-gray);
+            margin-top: 2px;
+        }
+
+        /* Bottom Search */
+        .bottom-search {
+            margin: 24px 0;
+            padding-top: 16px;
+            border-top: 1px solid var(--wyxr-border);
         }
 
         /* Footer */
@@ -523,9 +597,6 @@
             <span class="month-label" id="monthLabel">February 2026</span>
             <button id="nextMonth">Next &rarr;</button>
         </div>
-        <div class="search-row">
-            <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues...">
-        </div>
         <div class="chip-row" id="chipRow">
             <button class="chip active" data-neighborhood="all">All</button>
         </div>
@@ -536,6 +607,10 @@
     <main id="eventList" style="display:none;">
         <div class="event-count" id="eventCount"></div>
     </main>
+
+    <div class="bottom-search">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues...">
+    </div>
 
     <footer>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
@@ -981,6 +1056,55 @@
         }
 
         // ---- Rendering ----
+        function renderPresentsSection() {
+            // Remove old presents section
+            eventList.querySelector('.presents-section')?.remove();
+
+            const todayStr = new Date().toISOString().split('T')[0];
+            const presentsEvents = allEvents.filter(e => {
+                if (!e.is_wyxr_presents || e.is_active === false) return false;
+                if (e.date < todayStr) return false;
+                // Apply search filter
+                if (searchInput.value.trim()) {
+                    const query = searchInput.value.trim().toLowerCase();
+                    const text = `${e.title || ''} ${e.venue || ''} ${e.neighborhood || ''}`.toLowerCase();
+                    if (!text.includes(query)) return false;
+                }
+                // Apply neighborhood filter
+                const activeChip = document.querySelector('.chip.active');
+                const activeNeighborhood = activeChip ? activeChip.dataset.neighborhood : 'all';
+                if (activeNeighborhood !== 'all') {
+                    const nh = e.neighborhood || 'Other';
+                    if (nh !== activeNeighborhood) return false;
+                }
+                return true;
+            });
+
+            if (presentsEvents.length === 0) return;
+
+            let presentsHtml = '';
+            presentsEvents.forEach(e => {
+                const d = new Date(e.date + 'T12:00:00');
+                const dateStr = d.toLocaleDateString('en-US', {
+                    weekday: 'long', month: 'long', day: 'numeric'
+                });
+                let line = `<span class="artist">${esc(e.title)}</span>`;
+                line += ` <span class="venue">@ ${esc(e.venue || '')}</span>`;
+                const dateLine = `<div class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</div>`;
+
+                if (e.ticket_url) {
+                    presentsHtml += `<div class="presents-event"><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener"><span class="presents-badge">WYXR Presents</span>${line}</a>${dateLine}</div>`;
+                } else {
+                    presentsHtml += `<div class="presents-event"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div>`;
+                }
+            });
+
+            const presentsSection = document.createElement('div');
+            presentsSection.className = 'presents-section';
+            presentsSection.innerHTML = `<div class="presents-header">WYXR Presents</div>${presentsHtml}`;
+            eventList.insertBefore(presentsSection, eventList.querySelector('.event-count')?.nextSibling || eventList.querySelector('.day-section') || eventList.firstChild);
+        }
+
         function renderEvents() {
             const filtered = getFilteredEvents();
 
@@ -994,6 +1118,7 @@
                 p.className = 'no-events';
                 p.textContent = 'No events found for this month with the current filters.';
                 eventList.appendChild(p);
+                renderPresentsSection();
                 return;
             }
 
@@ -1041,8 +1166,9 @@
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
 
-                        const cls = e.is_featured ? ' class="featured event--featured"' : '';
-                        const badge = e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
+                        const cls = (e.is_wyxr_presents || e.is_featured) ? ' class="featured event--featured"' : '';
+                        const badge = e.is_wyxr_presents ? '<span class="presents-badge">WYXR Presents</span> '
+                            : e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
 
                         if (e.ticket_url) {
                             eventLines += `<li${cls}><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${badge}${line}</a></li>`;
@@ -1057,8 +1183,9 @@
 
                         let artistItems = '';
                         events.forEach(e => {
-                            const badge = e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
-                            const cls = e.is_featured ? ' class="featured event--featured"' : '';
+                            const badge = e.is_wyxr_presents ? '<span class="presents-badge">WYXR Presents</span> '
+                                : e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
+                            const cls = (e.is_wyxr_presents || e.is_featured) ? ' class="featured event--featured"' : '';
                             let artistText = `${badge}<span class="artist">${esc(e.title)}</span>`;
                             if (!allSameTime && e.start_time) {
                                 artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
@@ -1082,6 +1209,8 @@
                 section.innerHTML = `<h2>${dayName}</h2><ul>${eventLines}</ul>`;
                 eventList.appendChild(section);
             });
+
+            renderPresentsSection();
         }
 
         // ---- Month Navigation ----

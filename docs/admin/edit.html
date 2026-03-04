@@ -265,8 +265,12 @@
 
             <div class="checkbox-group">
                 <label>
+                    <input type="checkbox" id="is_wyxr_presents">
+                    WYXR Presents
+                </label>
+                <label>
                     <input type="checkbox" id="is_featured">
-                    Featured
+                    Featured (WYXR Pick)
                 </label>
                 <label>
                     <input type="checkbox" id="is_active" checked>
@@ -428,6 +432,7 @@
                     const el = document.getElementById(f);
                     if (el && currentEvent[f] != null) el.value = currentEvent[f];
                 });
+                document.getElementById('is_wyxr_presents').checked = !!currentEvent.is_wyxr_presents;
                 document.getElementById('is_featured').checked = !!currentEvent.is_featured;
                 document.getElementById('is_active').checked = currentEvent.is_active !== false;
                 updateImagePreview();
@@ -448,6 +453,7 @@
                 const val = document.getElementById(f).value.trim();
                 formData[f] = val || null;
             });
+            formData.is_wyxr_presents = document.getElementById('is_wyxr_presents').checked;
             formData.is_featured = document.getElementById('is_featured').checked;
             formData.is_active = document.getElementById('is_active').checked;
 
