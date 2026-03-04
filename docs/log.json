@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-04T18:33:30.081904+00:00",
+  "run_timestamp": "2026-03-04T19:15:49.153522+00:00",
   "date_range": {
     "start": "2026-03-04",
     "end": "2026-03-11"
   },
-  "total_events_db": 291,
-  "total_active_display": 65,
+  "total_events_db": 286,
+  "total_active_display": 60,
   "data_store": "postgresql",
   "sources": [
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 65,
+      "events_found": 60,
+      "events_after_filter": 60,
       "events_filtered": 0,
       "error": null
     }
@@ -392,13 +392,6 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Dead Lounge with Spaceman\u2019s Deas Friends and Gia Welch",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-07",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
       "artist": "Lenox Creek",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-07",
@@ -455,27 +448,6 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "PRIVATE BIRTHDAY PARTY w/OBILVI0N/MDS/MVSTRI0",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-08",
-      "time": "6 to 10PM",
-      "source": "Artifacts (Instagram handle visible)"
-    },
-    {
-      "artist": "PRIVATE BIRTHDAY PARTY w/OBILVION/MDS/MYSTRIO",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-08",
-      "time": "6 to 10PM",
-      "source": "Artifacts (Instagram calendar - March 2026)"
-    },
-    {
-      "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MVSTRIO",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-08",
-      "time": "6 to 10PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
       "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MYSTRIO",
       "venue": "B-Side Memphis",
       "date": "2026-03-08",
@@ -509,13 +481,6 @@
       "date": "2026-03-08",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "ALICE HASEN W/WEEJY ROGERS",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-10",
-      "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
