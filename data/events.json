@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-03-05T05:52:37.132670+00:00",
+  "updated_at": "2026-03-05T16:05:52.256639+00:00",
   "events": [
     {
       "id": "fc9edcd2-9c87-47ea-9f0c-9239e89f9cba",
@@ -19,26 +19,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T13:44:34.860215+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
-    },
-    {
-      "id": "a5f6126b-4de7-4a9f-989f-bbfc4518184b",
-      "title": "Adam Heart - the Songs of Billy Joel and the Beatles",
-      "venue": "Nashoba",
-      "date": "2026-03-05",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://nashoba.live/vip-experience-2/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Nashoba",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "9c1f722a-eba8-4089-9e89-515101d29258",
@@ -57,7 +38,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "a5f6126b-4de7-4a9f-989f-bbfc4518184b",
+      "title": "Adam Heart - the Songs of Billy Joel and the Beatles",
+      "venue": "Nashoba",
+      "date": "2026-03-05",
+      "start_time": "7 PM",
+      "doors_time": null,
+      "ticket_url": "https://nashoba.live/vip-experience-2/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Nashoba",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b9d8a3a8-86cd-49e4-bad1-87753c4df756",
@@ -76,7 +76,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ac3670a0-ff11-4ccb-869d-4535fc0866cf",
@@ -95,7 +95,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "599658ee-5c1d-4415-9efd-0dac25f1f5bb",
@@ -114,7 +114,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e8494999-b73b-4b94-85bb-7718e40172e2",
@@ -133,7 +133,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "11a8da6d-b923-4eaa-9ade-a429597ac441",
@@ -152,7 +152,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "283e1e0e-f5c9-40f6-ace7-d6e41df95fdf",
@@ -171,7 +171,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3e5a5d88-1a3b-4133-83f2-c322ae6a2a27",
@@ -190,7 +190,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2d895407-74df-4650-9cbf-8ba8adaac778",
@@ -209,7 +209,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "d61fa78c-b0a1-4d41-ba79-333ad9b57e23",
@@ -228,7 +228,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ccd2eecd-7ce4-44f0-94f5-6410963bdaac",
@@ -266,7 +266,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1cb31d2e-b99e-488f-8158-34551002b74a",
@@ -285,26 +285,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "9b430e75-d0aa-43ea-bdde-e87dbc02f25f",
-      "title": "MASSEY LANE/CROOKED DEIHL/MUSIC BY KOTA",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-06",
-      "start_time": "9PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Artifacts (Instagram event calendar)",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-03T13:44:34.860215+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7aee335b-2e26-4ed1-aba6-848c8345f1eb",
@@ -323,12 +304,12 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
-      "id": "0c37019b-d925-456e-a86e-03ff687b3e4f",
-      "title": "THE NARROWS",
-      "venue": "Lamplighter Lounge",
+      "id": "9b430e75-d0aa-43ea-bdde-e87dbc02f25f",
+      "title": "MASSEY LANE/CROOKED DEIHL/MUSIC BY KOTA",
+      "venue": "B-Side Memphis",
       "date": "2026-03-06",
       "start_time": "9PM",
       "doors_time": null,
@@ -337,12 +318,12 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)",
+      "source": "Artifacts (Instagram event calendar)",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "created_at": "2026-03-03T13:44:34.860215+00:00",
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "1d297ebe-10dc-42bd-8f02-6dfcbb4ae6c2",
@@ -361,26 +342,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
-      "id": "291a8c0a-f1b9-4f4e-9d3d-89e799fc9a0e",
-      "title": "Thee Supreme Show [Big Room-Upstairs]",
-      "venue": "Hi Tone",
+      "id": "0c37019b-d925-456e-a86e-03ff687b3e4f",
+      "title": "THE NARROWS",
+      "venue": "Lamplighter Lounge",
       "date": "2026-03-06",
-      "start_time": null,
+      "start_time": "9PM",
       "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/thee-supreme-show-big-room-upstairs-2/hi-tone-cafe/memphis-tennessee/",
+      "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Venue: Hi Tone",
+      "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "created_at": "2026-02-28T01:14:23.790542+00:00",
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "fb1af412-aa1e-44eb-aa6d-bb7672cd5351",
@@ -399,7 +380,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "291a8c0a-f1b9-4f4e-9d3d-89e799fc9a0e",
+      "title": "Thee Supreme Show [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/thee-supreme-show-big-room-upstairs-2/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T17:14:38.669628+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "05c87abc-0141-47ca-aec8-2c2ce2196f5d",
@@ -418,26 +418,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "f47fd61e-5a95-4202-a1e1-ee025d3cea02",
-      "title": "eno, N8, Freewill, Brian Hamilton",
-      "venue": "Growlers",
-      "date": "2026-03-07",
-      "start_time": "10:00PM",
-      "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/sonic-bloom-featuring-eno-n8-freewill-and-brian-hamilton/683165?afflky=Growlers",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Growlers",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-03T05:53:55.322234+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8f80f151-ca40-48b1-9bbe-c8eecefac080",
@@ -456,7 +437,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "f47fd61e-5a95-4202-a1e1-ee025d3cea02",
+      "title": "eno, N8, Freewill, Brian Hamilton",
+      "venue": "Growlers",
+      "date": "2026-03-07",
+      "start_time": "10:00PM",
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/sonic-bloom-featuring-eno-n8-freewill-and-brian-hamilton/683165?afflky=Growlers",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Growlers",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-03T05:53:55.322234+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e9b4cd57-73b2-4087-9110-21558b87cf55",
@@ -475,7 +475,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "623c0173-e465-4d6e-9446-4a5a6b75405f",
@@ -494,7 +494,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T13:44:34.860215+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "c6f7fc8d-2df3-46ce-8fe1-d0c0024e5785",
@@ -513,7 +513,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "91a15418-717c-444f-92a6-a9b7513832a5",
@@ -532,7 +532,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b326d097-1640-4cbe-be2e-b0823826ab75",
@@ -551,7 +551,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T13:44:34.860215+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "c66a7ed8-08d0-429f-bb47-bf31333663f5",
@@ -570,7 +570,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1447a82a-0013-4f52-9e53-0797aa75ca12",
@@ -589,7 +589,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ab967216-d252-4373-a878-edc290056bcc",
@@ -608,7 +608,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a35fb098-bfd5-445e-a945-bcf6ecd8d41a",
@@ -627,7 +627,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "75953c96-554e-42b6-a414-e2cca3e3610f",
@@ -646,7 +646,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f469a5c8-76e8-47c8-9253-8729b187af2b",
@@ -665,7 +665,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T22:56:39.033150+00:00",
-      "updated_at": "2026-03-04T22:56:54.532496+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "263d422b-0bf6-4577-87eb-33bc2d004544",
@@ -684,26 +684,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "3fa91967-a20b-45d2-8318-fb20c6fde811",
-      "title": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-07",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/scoochie-boochie-dj-zirk-uncl-aunti-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "28c223c0-0a63-4858-a82d-0f3600d82d21",
@@ -722,7 +703,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "3fa91967-a20b-45d2-8318-fb20c6fde811",
+      "title": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-07",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/scoochie-boochie-dj-zirk-uncl-aunti-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T23:11:37.848637+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "97b1ad70-b2dc-4b23-a772-1b8af8e5c57a",
@@ -741,7 +741,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "413eb19b-f447-40be-b264-9256bde2a731",
@@ -760,7 +760,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f3e67c4c-14fc-4608-bfa3-dcab1004dbbb",
@@ -779,7 +779,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1607343b-31e1-40fe-a238-4c44b33cc7a2",
@@ -798,7 +798,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T16:48:50.584979+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "91ca8c7e-c2b7-430c-b201-864c29cfc50c",
@@ -817,26 +817,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "1e196f5d-d190-43d1-afcb-473f7d873b11",
-      "title": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-08",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/Chicken-Sht-Bingo-NO-COVER/678982?afflky=HernandosHideAWay",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hernando's Hideaway",
-      "is_featured": true,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e74a3307-3b1a-480a-8d2c-b7b91f73c32e",
@@ -855,7 +836,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "1e196f5d-d190-43d1-afcb-473f7d873b11",
+      "title": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/Chicken-Sht-Bingo-NO-COVER/678982?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hernando's Hideaway",
+      "is_featured": true,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T01:14:23.790542+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b71b3488-da5f-489f-8a8e-13ab2d09961e",
@@ -874,7 +874,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f4d3d079-86fe-4c0a-8fcc-8d7170dc56d9",
@@ -893,7 +893,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "75d4477d-00ad-4ca1-91a7-3f76394cfb4e",
@@ -912,7 +912,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b3979c4a-44de-4ee2-8ba6-8c7052c73414",
@@ -931,7 +931,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "34e69682-6085-4021-a6b8-bd98b860d89d",
@@ -950,7 +950,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T17:37:55.573537+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "73306f9e-6ffe-49ae-a64c-c2243cb33272",
@@ -969,7 +969,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "424da75b-3f8c-425b-ac63-f6090538792a",
@@ -988,7 +988,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bffaae18-e8bf-416a-9934-47a33cec2555",
@@ -1007,7 +1007,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "c48604b9-f52c-442e-adfd-457fd7f3de59",
@@ -1026,7 +1026,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2313d1cf-bf64-47af-bf4e-4a21103b085b",
@@ -1035,36 +1035,17 @@
       "date": "2026-03-11",
       "start_time": "7 PM",
       "doors_time": null,
-      "ticket_url": "https://www.ticketmaster.com/josiah-queen-the-mt-zion-tour-memphis-tennessee-03-11-2026/event/1B006319C7F53CAD",
+      "ticket_url": "https://www.orpheum-memphis.com/events/josiah-queen-the-mt-zion-tour",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Ticketmaster",
+      "source": "Venue: Orpheum Theatre",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "cf04349e-bd94-4b2f-a267-4d3aa5b72789",
-      "title": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-11",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/open-mic-night-no-cover-for-musicians/683374?afflky=HernandosHideAWay",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hernando's Hideaway",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b991f662-d0ab-48fa-a4b4-9c519842b29a",
@@ -1083,7 +1064,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "cf04349e-bd94-4b2f-a267-4d3aa5b72789",
+      "title": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-11",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/open-mic-night-no-cover-for-musicians/683374?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hernando's Hideaway",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-03T22:35:02.818549+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7c659b3f-531b-4472-9a7b-0733c2dde28e",
@@ -1102,7 +1102,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "447b93e3-ed72-48dc-8ee5-34235676cb6b",
@@ -1121,7 +1121,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "de0b7981-7217-4f1e-90d0-041e7914c94d",
@@ -1159,7 +1159,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1cb0b216-b66d-47ef-abcb-04ca6e8dbcea",
@@ -1178,7 +1178,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b62c1c73-d8c8-4fa9-86a9-3c68535b649c",
@@ -1197,14 +1197,14 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a2742a1a-4176-432b-913c-eb56289b7ced",
       "title": "Winter Jam",
       "venue": "Landers Center",
       "date": "2026-03-13",
-      "start_time": "5:00 PM",
+      "start_time": "6:50 PM",
       "doors_time": null,
       "ticket_url": "https://www.landerscenter.com/events/detail/wj2026",
       "ticket_price": null,
@@ -1216,7 +1216,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2ef90a2f-5ee8-42f6-b6a9-a04a86736498",
@@ -1235,7 +1235,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e00c2258-563c-4462-9823-0e7f79aad8ee",
@@ -1254,26 +1254,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "f26344c3-ec6c-4d32-8c05-a9031f784cbc",
-      "title": "The Pinch",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-13",
-      "start_time": "6 PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Lafayette's Music Room",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c9c39016-17f4-4b93-a808-9a48dcfab1e4",
@@ -1292,7 +1273,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "f26344c3-ec6c-4d32-8c05-a9031f784cbc",
+      "title": "The Pinch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-13",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Lafayette's Music Room",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T17:14:38.669628+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "33f5b520-a9aa-4f45-908c-84425a31a20d",
@@ -1311,7 +1311,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f310b747-e063-4a23-a5f4-9f79bd37b184",
@@ -1330,7 +1330,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "930bb443-b9ed-4887-8614-17bbcf4dd9c9",
@@ -1349,7 +1349,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9fa7727f-ea80-420e-bbb9-1cccfe249276",
@@ -1368,7 +1368,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ac1d7705-9eef-43bd-9e38-44ff2e4c2e0a",
@@ -1387,64 +1387,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "01444168-e525-4ff9-8fd5-a3fe8d82e4b0",
-      "title": "Sveltedy / Nexxy / Houseparty [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-13",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/sveltedy-nexxy-houseparty-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "54600fdc-bcc8-43dc-b0d5-347b870337ae",
-      "title": "A J Croce",
-      "venue": "Graceland Soundstage",
-      "date": "2026-03-13",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.gracelandlive.com/ajcroce",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Graceland Soundstage",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "6b6c24d7-4cb5-4f36-9dbf-c11149477b97",
-      "title": "The Reverend Peyton\u2019s Big Damn Band",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-13",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/the-reverend-peytons-big-damn-band/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "581602a0-4cb2-447c-91fa-8f478572341d",
@@ -1463,7 +1406,64 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "6b6c24d7-4cb5-4f36-9dbf-c11149477b97",
+      "title": "The Reverend Peyton\u2019s Big Damn Band",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-13",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/the-reverend-peytons-big-damn-band/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "54600fdc-bcc8-43dc-b0d5-347b870337ae",
+      "title": "A J Croce",
+      "venue": "Graceland Soundstage",
+      "date": "2026-03-13",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.gracelandlive.com/ajcroce",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Graceland Soundstage",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "01444168-e525-4ff9-8fd5-a3fe8d82e4b0",
+      "title": "Sveltedy / Nexxy / Houseparty [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-13",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/sveltedy-nexxy-houseparty-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-04T05:49:12.058442+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "939d2d15-53df-4632-85a0-b13182c7cec4",
@@ -1482,7 +1482,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "767f8300-56e0-467a-b3f9-e711f3af6343",
@@ -1501,7 +1501,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "0aedb4fc-27b0-4dcf-bb99-cd45e03adb01",
@@ -1520,7 +1520,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "357842b4-05bd-4550-8f59-759bc9928a15",
@@ -1539,7 +1539,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "58bd7a32-3700-493f-869d-286412f537f4",
@@ -1558,7 +1558,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b8a0dbc3-c7f4-4ee2-a7d2-9a1bb2d6d992",
@@ -1577,7 +1577,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c89f96bc-69b6-4433-bcf7-3fc1863212ef",
@@ -1596,45 +1596,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T05:56:06.299878+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "f4f39667-b74e-497e-80d7-bc4c9cf2b4e5",
-      "title": "Bakithi Kumalo and The South African All-Stars",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-14",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.orpheum-memphis.com/events/bakithi-kumalo",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Orpheum Theatre",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "ad371295-e4e3-4cdc-84f6-f3654335d859",
-      "title": "Hashtronaut / Decoration Policy / Wagoneer [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-14",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/hashtronaut-decoration-policy-wagoneer-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "211d07e5-f86a-48eb-bf14-3cf56975c1f8",
@@ -1653,26 +1615,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "98b95f2b-809e-42f8-987c-23fa61f75a2d",
-      "title": "Christopher Cross",
-      "venue": "Graceland Soundstage",
-      "date": "2026-03-14",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.gracelandlive.com/christopher-cross",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Graceland Soundstage",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "52716779-2c64-479a-9a60-9ff8bb39d07b",
@@ -1691,26 +1634,64 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
-      "id": "7490b376-332f-431c-b7c4-753e8251f445",
-      "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "start_time": "3:00PM",
+      "id": "f4f39667-b74e-497e-80d7-bc4c9cf2b4e5",
+      "title": "Bakithi Kumalo and The South African All-Stars",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-14",
+      "start_time": null,
       "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/chicken-sht-bingo-with-hillbilly-mojo-memphis-no-cover/681142?afflky=HernandosHideAWay",
+      "ticket_url": "https://www.orpheum-memphis.com/events/bakithi-kumalo",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Venue: Hernando's Hideaway",
+      "source": "Venue: Orpheum Theatre",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "created_at": "2026-03-01T22:20:48.941553+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "ad371295-e4e3-4cdc-84f6-f3654335d859",
+      "title": "Hashtronaut / Decoration Policy / Wagoneer [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-14",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/hashtronaut-decoration-policy-wagoneer-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T01:14:23.790542+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "98b95f2b-809e-42f8-987c-23fa61f75a2d",
+      "title": "Christopher Cross",
+      "venue": "Graceland Soundstage",
+      "date": "2026-03-14",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.gracelandlive.com/christopher-cross",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Graceland Soundstage",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "42199243-90f8-4ebb-b98b-76b1c98ae2de",
@@ -1729,7 +1710,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
+    },
+    {
+      "id": "7490b376-332f-431c-b7c4-753e8251f445",
+      "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-15",
+      "start_time": "3:00PM",
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/chicken-sht-bingo-with-hillbilly-mojo-memphis-no-cover/681142?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hernando's Hideaway",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-03T22:35:02.818549+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ab32f2ef-ce5a-4391-8c16-5548104b5e12",
@@ -1748,7 +1748,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b075bf21-8eb2-45bd-b5d6-4c8f337f0576",
@@ -1767,7 +1767,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e6a71b24-34ca-4084-bc1e-1e59fe55eb6f",
@@ -1786,7 +1786,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "75ad6202-055b-4895-9275-120dbd80933b",
@@ -1805,7 +1805,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-04T22:59:02.333213+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "43a31fd4-49ab-4751-a157-89963f649ab6",
@@ -1824,7 +1824,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "34b532d2-a32d-4264-80ee-296b32839551",
@@ -1843,7 +1843,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1a98f930-885e-4f4e-b3e8-fe529d2e8058",
@@ -1862,7 +1862,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9cb8c5a0-1794-4cf6-805a-77a820124b77",
@@ -1881,7 +1881,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "42028fb9-2fc7-4dd4-b46d-eb8f010a1dfa",
@@ -1900,7 +1900,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "abd65502-c3f4-420e-acf0-6245dd508656",
@@ -1919,7 +1919,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "db95fd7c-5066-40f5-864f-83a93d4069ec",
@@ -1938,7 +1938,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "222f8014-0cb3-40d1-af71-a462b6c338ba",
@@ -1957,7 +1957,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "602a3435-c17a-402a-b010-e82c7597894b",
@@ -1976,7 +1976,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "52ba8edb-5558-4323-aa97-9491729e82e8",
@@ -1995,7 +1995,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "aeb164d5-df2a-489f-8401-e0be600ed584",
@@ -2014,7 +2014,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b1f708ef-2f75-4440-a48a-e9f97a2ec0cd",
@@ -2033,7 +2033,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8e1f42f9-e18c-4ec4-89c5-d1514e4494b2",
@@ -2052,7 +2052,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e44062b8-8175-4a3e-b979-3f33ef11f5c1",
@@ -2071,7 +2071,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7ddcc306-edbc-412a-a3a0-d7a28449f271",
@@ -2090,7 +2090,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b33549e3-933c-4c66-baa9-9dd4b243b001",
@@ -2109,7 +2109,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "d0d86e27-2e95-4160-a2d5-682ead5bf5d3",
@@ -2128,7 +2128,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "08d2b936-35ad-4b86-8ca8-5ef5ba312bba",
@@ -2147,7 +2147,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7b0926ba-0443-46a3-9e86-92136539abc7",
@@ -2166,7 +2166,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e81b43e2-d3d2-43e3-bdba-d8128ecb76c7",
@@ -2185,7 +2185,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "35409266-ce67-4bf0-a2d2-30abae5a37d8",
@@ -2204,7 +2204,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b839ff0e-4e47-463e-9be3-e830cebb841d",
@@ -2223,7 +2223,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "37f001db-b6f6-47ec-bb76-5e5f73da836c",
@@ -2242,45 +2242,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "78ba0f63-558b-45f1-94d3-2c2deedbb07f",
-      "title": "Jammy Jam: The Pajama Jam Reloaded [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-21",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/jammy-jam-the-pajama-jam-reloaded-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "a7d079c1-0b10-4668-9fb4-ca82bdb4d44c",
-      "title": "4 The Girlz And The Gays [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-21",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/4-the-girlz-and-the-gays-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "d593723b-4fc6-4be7-9e8d-25cc52673852",
@@ -2299,7 +2261,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "78ba0f63-558b-45f1-94d3-2c2deedbb07f",
+      "title": "Jammy Jam: The Pajama Jam Reloaded [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-21",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/jammy-jam-the-pajama-jam-reloaded-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T05:55:20.991835+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "a7d079c1-0b10-4668-9fb4-ca82bdb4d44c",
+      "title": "4 The Girlz And The Gays [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-21",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/4-the-girlz-and-the-gays-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T23:11:37.848637+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bf96aae8-dfa0-4ac1-8015-90bf1ae2d3f4",
@@ -2318,7 +2318,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "099c31fd-bdd5-480e-b8ad-4af47cbd4f5e",
@@ -2337,7 +2337,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "cfa298d8-7bd8-4b3d-b5af-cee72a33a547",
@@ -2356,7 +2356,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b4d72934-8da7-488b-9352-9b21e4878321",
@@ -2375,45 +2375,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "0485da6c-1b05-447a-b19c-dbc96f269af3",
-      "title": "Brendan Walter",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-24",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/brendan-walter/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "f82609c3-b7ec-439d-96f4-777a99845651",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-24",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-29/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "5d12e2e8-1669-4a4f-9c21-b0fb2daed8df",
@@ -2432,7 +2394,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "0485da6c-1b05-447a-b19c-dbc96f269af3",
+      "title": "Brendan Walter",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-24",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/brendan-walter/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "f82609c3-b7ec-439d-96f4-777a99845651",
+      "title": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-24",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-29/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-27T17:29:44.266637+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a8cdd525-9687-4fb0-81de-0e3d63eec9b0",
@@ -2451,7 +2451,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1dfff387-92a9-4ec9-807e-210093eaa30a",
@@ -2470,7 +2470,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "34e7c136-2b42-40a2-aa8b-1339bd761d15",
@@ -2489,7 +2489,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "5735489e-0f17-46c6-8680-3997b1e89dd4",
@@ -2508,7 +2508,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "09fb6931-00f3-426a-8920-f510efafc27b",
@@ -2527,7 +2527,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f685aea6-7c56-4d39-b08b-16e48627c88d",
@@ -2546,7 +2546,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "cb38e196-c073-47a1-9cd0-3e390e17cef5",
@@ -2565,7 +2565,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "463e5a97-d45a-4f16-b0fc-cd9b10f03cbc",
@@ -2584,7 +2584,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f8ffeb98-d045-4184-982b-5dc173f50ef1",
@@ -2603,7 +2603,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a5772ecc-0f29-4463-a84b-ee3ebf4b4bf6",
@@ -2622,7 +2622,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "4279a949-0584-42c0-b0f5-d0a91d24b124",
@@ -2641,7 +2641,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "75040af5-2d12-43ac-8e1f-fcceb52ed77f",
@@ -2660,7 +2660,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T23:00:39.632690+00:00",
-      "updated_at": "2026-03-04T23:00:39.632690+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "5a070362-5bc8-413d-b4c1-423ca7fa0f72",
@@ -2679,7 +2679,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "73264e5f-0453-448d-9a80-c9abfdc33925",
@@ -2698,26 +2698,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "8af7f447-d608-4eb2-92b6-a748f97d7e4f",
-      "title": "Risky Whispers / Wicker / F!rst / Ivy Dinosaur [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-27",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/risky-whispers-wicker-frst-ivy-dinosaur-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8434dc3b-d531-4798-a9f5-1ca3a5f3adcc",
@@ -2736,7 +2717,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "8af7f447-d608-4eb2-92b6-a748f97d7e4f",
+      "title": "Risky Whispers / Wicker / F!rst / Ivy Dinosaur [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-27",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/risky-whispers-wicker-frst-ivy-dinosaur-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T01:14:23.790542+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b3592a25-d10f-42f7-a353-045f16747bc5",
@@ -2755,7 +2755,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "000fcca1-03a0-4905-a2d6-3de9fd2d11c4",
@@ -2774,7 +2774,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "91ad03f1-013e-4a45-a83e-2943acb32f3b",
@@ -2793,7 +2793,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7ffd1a21-76e2-4852-81bc-323fdc387539",
@@ -2812,7 +2812,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3aa943c7-261d-41cb-af0c-8c71f9669589",
@@ -2831,7 +2831,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f1c838d6-88ce-44f3-a9df-50cea90c3749",
@@ -2850,7 +2850,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "92cb461e-376d-4fdc-b1a2-ba00b3e32367",
@@ -2869,7 +2869,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "43d07acf-3ec5-4b6e-ac15-fa98e511468c",
@@ -2888,7 +2888,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3e73f12f-da54-4d60-acfc-a38412e4a67f",
@@ -2907,7 +2907,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8f246c1e-f7ae-4840-b9ea-24550c6164eb",
@@ -2926,7 +2926,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9f4fe902-4cdb-432b-a069-f363537d3ced",
@@ -2945,7 +2945,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8c680450-0513-4221-8804-0933b5ad804c",
@@ -2964,26 +2964,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "66a9afcf-70b9-4f75-a840-2e18471529ad",
-      "title": "Vandoliers [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-31",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/vandoliers-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a74fac52-199f-4ce2-a51a-b4cf5f9932af",
@@ -3002,7 +2983,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c69f7d30-9a33-450e-81fe-41292fd33818",
@@ -3021,26 +3002,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
-      "id": "b7a0065a-1391-4871-b765-6de5fae35ac6",
-      "title": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-01",
+      "id": "66a9afcf-70b9-4f75-a840-2e18471529ad",
+      "title": "Vandoliers [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-31",
       "start_time": null,
       "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/open-mic-night-no-cover-for-musicians/683374?afflky=HernandosHideAWay",
+      "ticket_url": "https://hitonecafe.com/event/vandoliers-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Venue: Hernando's Hideaway",
+      "source": "Venue: Hi Tone",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "created_at": "2026-03-01T05:55:20.991835+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7b466f34-53ea-43dc-8204-2b075170ec43",
@@ -3059,7 +3040,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "b7a0065a-1391-4871-b765-6de5fae35ac6",
+      "title": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-01",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/open-mic-night-no-cover-for-musicians/683374?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hernando's Hideaway",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-03T22:35:02.818549+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f375f64c-f056-44e5-a86e-7e3780356ccb",
@@ -3078,7 +3078,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "523ce795-ec0d-4177-a38c-3c978ce7a1be",
@@ -3097,7 +3097,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9c72e9fb-eeeb-46cb-8055-9c86160feb35",
@@ -3116,7 +3116,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bb820e23-8caf-4652-83de-ed8840fc321d",
@@ -3135,7 +3135,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "0f502e7e-79b0-4978-8947-b4d751e5ef52",
@@ -3154,7 +3154,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "656d2233-9c7b-4ee2-b93f-7d0cb0838bb0",
@@ -3173,7 +3173,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "0c0b6fd0-3f41-4173-a68e-aa42d14db774",
@@ -3192,7 +3192,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a5f0fd76-2b50-4114-a0d4-1485a724634b",
@@ -3211,7 +3211,7 @@
       "is_wyxr_presents": true,
       "is_active": true,
       "created_at": "2026-03-04T18:11:08.327993+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "2093ef31-e5ab-4537-a8d1-49d826490dac",
@@ -3230,7 +3230,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "75ca6217-7261-484a-9d18-bd1e19881f45",
@@ -3249,7 +3249,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "cc192278-412f-46d6-997e-a92de4c9a700",
@@ -3268,7 +3268,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "b2bf45ba-f347-4296-81bd-66a0ae1f3489",
+      "title": "Big Barton",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-09",
+      "start_time": "8:00PM",
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/big-barton/683531?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hernando's Hideaway",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-05T05:52:50.729839+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "279915c0-eed4-48d9-8d36-342c5c8133d7",
@@ -3287,7 +3306,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "20c1e39f-b799-4242-9cd5-e2b8d0176b4d",
@@ -3306,7 +3325,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9dd73700-e6b4-4aaa-86c5-ecf77e3efd3f",
@@ -3325,7 +3344,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7f34e0e6-be2b-4ed0-a603-d89aab77ee7f",
@@ -3344,7 +3363,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "cbd06e4a-a4d6-4cd6-834f-65a4b775bdd9",
@@ -3363,7 +3382,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "cd753ce0-bc73-47be-824b-6dccb332297b",
@@ -3382,26 +3401,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "98ac631e-5dcf-4dfa-b711-f3c370654494",
-      "title": "The 3 Shredders Tour [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-11",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/the-3-shredders-tour-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "4653b88a-4ba4-4826-a581-807d98cd94a4",
@@ -3420,7 +3420,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
+    },
+    {
+      "id": "98ac631e-5dcf-4dfa-b711-f3c370654494",
+      "title": "The 3 Shredders Tour [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-11",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/the-3-shredders-tour-small-room-downstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T17:17:33.875995+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "01120dbb-1eb3-4fc7-b8b1-46e1dc51cb4e",
@@ -3439,7 +3458,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "caf7771c-c349-4d90-b038-e0ec2e0c1fda",
@@ -3458,7 +3477,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3cbc2c7b-045d-42cb-ad6c-76c525f3f3e2",
@@ -3477,45 +3496,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
-    },
-    {
-      "id": "e401d27b-ab0d-4307-af54-a7610a8aaa5b",
-      "title": "Devin the Dude",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-14",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/devin-the-dude/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "1ff9ab60-e24a-4660-bbde-d8add6d34295",
-      "title": "David and Tamela Mann: The Love & Relationship Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-14",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.orpheum-memphis.com/events/david-tamela-mann",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Orpheum Theatre",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "54034a94-212a-4ff9-9cca-b39ffa52ce2c",
@@ -3534,7 +3515,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "e401d27b-ab0d-4307-af54-a7610a8aaa5b",
+      "title": "Devin the Dude",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-14",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/devin-the-dude/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "1ff9ab60-e24a-4660-bbde-d8add6d34295",
+      "title": "David and Tamela Mann: The Love & Relationship Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-04-14",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.orpheum-memphis.com/events/david-tamela-mann",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Orpheum Theatre",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T22:20:48.941553+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3a623dc6-9e6b-4992-8cb3-6bb9d0ddaa6a",
@@ -3553,7 +3572,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c99b04e7-7ecf-4d0c-9c5b-0c1570c8089b",
@@ -3572,26 +3591,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
-    },
-    {
-      "id": "1987cfe3-a58b-4ac4-8b22-0a5e6638072c",
-      "title": "Howard Jones",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-16",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/howard-jones/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "fa89823c-e2bd-49fb-9238-80e754002246",
@@ -3610,26 +3610,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "efc21f6d-bdec-4292-91ce-796734f0e776",
-      "title": "Travis Tritt",
-      "venue": "Graceland Soundstage",
-      "date": "2026-04-16",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.gracelandlive.com/travis-tritt",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Graceland Soundstage",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bf487709-150b-4bbc-bc95-165901788d91",
@@ -3648,7 +3629,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "efc21f6d-bdec-4292-91ce-796734f0e776",
+      "title": "Travis Tritt",
+      "venue": "Graceland Soundstage",
+      "date": "2026-04-16",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.gracelandlive.com/travis-tritt",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Graceland Soundstage",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "1987cfe3-a58b-4ac4-8b22-0a5e6638072c",
+      "title": "Howard Jones",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-16",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/howard-jones/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9ee7df9c-1338-4499-9e39-e0cb377f01b1",
@@ -3667,7 +3686,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1e093bdb-94a4-4223-86ba-79189e6af30a",
@@ -3686,7 +3705,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "5590f603-cd27-4f69-9a09-f83422f5d7d7",
@@ -3705,64 +3724,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
-    },
-    {
-      "id": "cde8d2e7-3314-4b8d-8846-e5f91b18708c",
-      "title": "Good Vibes Comedy Festival *Friday All Day Pass*",
-      "venue": "Hi Tone",
-      "date": "2026-04-17",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/good-vibes-comedy-festival-friday-all-day-pass/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "852f0358-3fea-46fd-bf30-82a35598b151",
-      "title": "Good Vibes Comedy Festival *Single Show Pass*",
-      "venue": "Hi Tone",
-      "date": "2026-04-17",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/good-vibes-comedy-festival-single-show-pass-2/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "57ed6085-9886-4314-b48d-0d7661038cb6",
-      "title": "The Crane Wives \u2013 ACT I  w/ special guest Lilith Max",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-17",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/the-crane-wives-act-i-w-special-guest-lilith-max/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "bc645661-ebbc-4f19-a556-88056b5ea89a",
@@ -3781,7 +3743,64 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "852f0358-3fea-46fd-bf30-82a35598b151",
+      "title": "Good Vibes Comedy Festival *Single Show Pass*",
+      "venue": "Hi Tone",
+      "date": "2026-04-17",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/good-vibes-comedy-festival-single-show-pass-2/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T17:17:33.875995+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "cde8d2e7-3314-4b8d-8846-e5f91b18708c",
+      "title": "Good Vibes Comedy Festival *Friday All Day Pass*",
+      "venue": "Hi Tone",
+      "date": "2026-04-17",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/good-vibes-comedy-festival-friday-all-day-pass/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T05:36:17.060312+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "57ed6085-9886-4314-b48d-0d7661038cb6",
+      "title": "The Crane Wives \u2013 ACT I  w/ special guest Lilith Max",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-17",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/the-crane-wives-act-i-w-special-guest-lilith-max/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "6a702e72-ce8c-47d8-8caa-964e497d2bde",
@@ -3800,7 +3819,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "eec9f81e-e648-48ce-9bdc-6551cc64294f",
@@ -3819,26 +3838,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "56c21b06-a554-4a8b-a2a4-bfdc7c39b9d1",
-      "title": "Van Duren and Sophie Chertow Return to South Main Sounds",
-      "venue": "South Main Sounds",
-      "date": "2026-04-18",
-      "start_time": "7:00PM",
-      "doors_time": null,
-      "ticket_url": "https://southmainsounds.com/go/events/6473189?feature_id=493153&occurrence_id=754481239&popup=1",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: South Main Sounds",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "26e5c07d-aa4f-4eac-a192-e7893dfeee63",
@@ -3857,7 +3857,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
+    },
+    {
+      "id": "56c21b06-a554-4a8b-a2a4-bfdc7c39b9d1",
+      "title": "Van Duren and Sophie Chertow Return to South Main Sounds",
+      "venue": "South Main Sounds",
+      "date": "2026-04-18",
+      "start_time": "7:00PM",
+      "doors_time": null,
+      "ticket_url": "https://southmainsounds.com/go/events/6473189?feature_id=493153&occurrence_id=754481239&popup=1",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: South Main Sounds",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-02T05:56:12.387860+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "ac494c63-4a5a-4df0-ae7d-18bdc374b668",
@@ -3876,7 +3895,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bf0b2b15-a8e1-463d-b08f-27c9341a90bd",
@@ -3895,7 +3914,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "6af5dc1d-f178-42ed-b02e-52c4cac04e9f",
@@ -3914,7 +3933,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T16:48:50.584979+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "27fcd409-4249-4826-b53f-dc3d5875b3ca",
@@ -3933,7 +3952,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c9a2fe93-8685-449c-956c-bbed95e932c0",
@@ -3952,7 +3971,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T15:53:23.839496+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
       "id": "f7c29ad7-26bb-4b44-a3ca-33f650567b94",
@@ -3971,7 +3990,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T05:49:12.058442+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "08d3221a-039e-479e-bfb8-e7ffcf4f7251",
@@ -3990,7 +4009,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2538969c-6bd4-454f-ba52-9cb12fdc5d56",
@@ -4009,7 +4028,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f30913bb-f94e-4877-b739-efb9af36b940",
@@ -4028,7 +4047,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "d4784684-1820-4f3c-966e-e766e19e0a05",
@@ -4047,7 +4066,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f15d4522-3339-4e49-9de9-9955b7d4ead7",
@@ -4066,26 +4085,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "5442f666-f006-49ba-bde6-dc8e9f78b179",
-      "title": "[POSTPONED] Michael Martin Murphey",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-24",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.orpheum-memphis.com/events/michael-martin-murphey",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Orpheum Theatre",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9d672e73-8933-40c5-9f6d-1ae810e1aaf7",
@@ -4104,7 +4104,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "5442f666-f006-49ba-bde6-dc8e9f78b179",
+      "title": "[POSTPONED] Michael Martin Murphey",
+      "venue": "Orpheum Theatre",
+      "date": "2026-04-24",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.orpheum-memphis.com/events/michael-martin-murphey",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Orpheum Theatre",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T22:20:48.941553+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9865f476-ae27-4a9c-9f2a-357ea54bf546",
@@ -4123,7 +4142,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1d57188c-74ee-47c7-aa1d-7cf68a91d78c",
@@ -4142,7 +4161,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9fa1f8c9-c39a-4d86-81be-2d0383af8655",
@@ -4161,26 +4180,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "d1f1baab-0944-4b3e-8179-96edd93591f0",
-      "title": "Muck Sticky",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-25",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/muck-sticky/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-02T17:39:55.866314+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "0fbfd90d-d313-4f31-801e-b21c37575b60",
@@ -4199,7 +4199,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "d1f1baab-0944-4b3e-8179-96edd93591f0",
+      "title": "Muck Sticky",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-25",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/muck-sticky/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-02T17:39:55.866314+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f728702d-bc80-4a12-a34c-20bc3ca544c8",
@@ -4218,7 +4237,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "52453b43-f9cf-43d8-9293-e79fdb27b1ae",
@@ -4237,7 +4256,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8f30dc91-0cff-409e-bcc0-931b8c5655a2",
@@ -4256,7 +4275,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1a5bf983-07b1-476d-b8b8-273bde1bc91b",
@@ -4275,7 +4294,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T05:36:17.060312+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bc84a2ac-1cfc-4fdd-85c8-dc92219dcb7d",
@@ -4294,7 +4313,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a2900b05-25d0-442a-9ec3-cf6ce89fee79",
@@ -4313,7 +4332,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "1f681b0f-085d-484a-b433-6954981cc6fa",
@@ -4332,7 +4351,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b22eccf4-4e42-43a0-a1d0-4a10561cc4d9",
@@ -4351,7 +4370,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "6467c8b9-a21d-4cf4-a968-d9c6d71b3146",
@@ -4370,7 +4389,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "b16c5c56-e78b-4033-b0b8-cffb3c86abac",
@@ -4389,7 +4408,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c124dbfa-9d84-4d57-b412-aaf93b216d99",
@@ -4408,7 +4427,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T17:17:33.875995+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c747224c-dde8-4661-b8f7-725d5b0a9214",
@@ -4427,7 +4446,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "679d8099-9c80-4d37-8f75-c832e3103ded",
@@ -4446,45 +4465,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "4b258ccf-e2a7-4a95-802a-f6a8b10376a8",
-      "title": "The Orchestra Unplugged: Stravinsky's Rite of Spring - What A Riot!",
-      "venue": "Orpheum Theatre",
-      "date": "2026-05-07",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.orpheum-memphis.com/events/the-orchestra-unplugged-stravinskys-rite-of-spring-what-a-riot",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Orpheum Theatre",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "f5c2607d-32e0-4cb7-946f-920392fe3c3e",
-      "title": "Floetry Presents: Say Yes Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-05-07",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://www.orpheum-memphis.com/events/floetry-presents-say-yes-tour",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Orpheum Theatre",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-04T16:48:50.584979+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "a1ce27df-bed3-40a3-b032-40572758d20b",
@@ -4503,7 +4484,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "4b258ccf-e2a7-4a95-802a-f6a8b10376a8",
+      "title": "The Orchestra Unplugged: Stravinsky's Rite of Spring - What A Riot!",
+      "venue": "Orpheum Theatre",
+      "date": "2026-05-07",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.orpheum-memphis.com/events/the-orchestra-unplugged-stravinskys-rite-of-spring-what-a-riot",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Orpheum Theatre",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T22:20:48.941553+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "f5c2607d-32e0-4cb7-946f-920392fe3c3e",
+      "title": "Floetry Presents: Say Yes Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-05-07",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://www.orpheum-memphis.com/events/floetry-presents-say-yes-tour",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Orpheum Theatre",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-04T16:48:50.584979+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bbfc792e-91a4-4027-87e3-81e7fb2bc4fe",
@@ -4522,45 +4541,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "8fed939d-0734-43a6-bae0-81bebe6bf5d7",
-      "title": "Black Marble [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-08",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/black-marble-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "e473f105-c97e-4499-ac2e-2bec66395f81",
-      "title": "A Foreigner\u2019s Journey To Boston",
-      "venue": "Minglewood Hall",
-      "date": "2026-05-08",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/a-foreigners-journey-to-boston/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Minglewood Hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "04f82695-3eae-4983-b6cb-e93b6dd6b5a3",
@@ -4579,7 +4560,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T05:56:06.299878+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "8fed939d-0734-43a6-bae0-81bebe6bf5d7",
+      "title": "Black Marble [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/black-marble-big-room-upstairs/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-28T01:14:23.790542+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e628990c-babf-4aeb-8d4e-45dbe7d8094a",
@@ -4598,16 +4598,16 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
-      "id": "8ee1b543-8975-4b19-8832-4e42195cf245",
-      "title": "Emo Nite",
+      "id": "e473f105-c97e-4499-ac2e-2bec66395f81",
+      "title": "A Foreigner\u2019s Journey To Boston",
       "venue": "Minglewood Hall",
-      "date": "2026-05-09",
+      "date": "2026-05-08",
       "start_time": null,
       "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/emo-nite-2/",
+      "ticket_url": "https://minglewoodhallmemphis.com/event/a-foreigners-journey-to-boston/",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -4616,8 +4616,8 @@
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-03-03T22:35:02.818549+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "708aed37-184e-40df-872f-83b4b4d7337c",
@@ -4636,7 +4636,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "8ee1b543-8975-4b19-8832-4e42195cf245",
+      "title": "Emo Nite",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-09",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/emo-nite-2/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Minglewood Hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-03T22:35:02.818549+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e3d365a4-e7d5-4681-84c6-b2a8b4c1dfc4",
@@ -4655,26 +4674,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "8786b712-3a55-444d-87b8-6e25c5ed95f7",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-12",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-36/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "23f515bb-1ff3-4c04-89ad-a2e2d3128eef",
@@ -4693,7 +4693,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "8786b712-3a55-444d-87b8-6e25c5ed95f7",
+      "title": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-12",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-36/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-27T17:29:44.266637+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9b164758-e7cf-4e02-8fba-9b394a92f575",
@@ -4712,7 +4731,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "8f9c9cab-1c56-4a82-9dea-0bf6695d2bc3",
@@ -4731,7 +4750,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e6e44501-82a7-4c59-a386-0a50f69da3ff",
@@ -4750,7 +4769,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-01T22:20:48.941553+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9de96b36-6601-43b1-a8da-d2c5bc2ab1b1",
@@ -4769,7 +4788,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f1847f87-ac60-4bdc-9160-d3f613ec9844",
@@ -4788,7 +4807,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-04T16:48:50.584979+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7114185d-4337-4d0a-b295-7f0df4f5362a",
@@ -4807,7 +4826,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "61154330-84f8-4413-b20c-bc6484e6a869",
@@ -4826,7 +4845,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "92dfc618-25b9-49b8-b96b-be49b398ee43",
@@ -4845,7 +4864,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "20189825-ac1f-4194-90fb-b7f3c73ebd54",
@@ -4864,7 +4883,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "d81986d4-b32b-40e3-aa35-41481047883e",
@@ -4883,7 +4902,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c02d4104-f90b-4737-be2f-ae9bdb8bc64f",
@@ -4902,7 +4921,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "00300232-76ea-45cc-939b-544cb6349ddb",
@@ -4921,7 +4940,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "abef2a12-5989-45ee-a6fd-3d513dfef2ea",
@@ -4940,7 +4959,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f6785ad2-a696-4c0b-b69b-a656fa60ca31",
@@ -4959,7 +4978,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7c7652ce-963f-45c5-b0a7-43a4a6bbb834",
@@ -4978,7 +4997,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T23:11:37.848637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2b09b964-6f52-475d-9623-fa48e09b27e8",
@@ -4997,7 +5016,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "727089c0-320a-45fd-b21f-beb92891ffbb",
@@ -5016,7 +5035,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "4b308289-aa38-49c2-9e7f-3b1bd44f6df1",
@@ -5035,7 +5054,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "59c3d169-ea72-4991-a950-445b4abe5e72",
@@ -5054,7 +5073,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "3ce6224b-8b88-4149-bbeb-620a896c39a9",
@@ -5073,7 +5092,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T17:14:38.669628+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "564b6a8b-381b-4fa9-b7d4-de4763fd3a7b",
@@ -5092,26 +5111,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "bed768b4-1546-4c37-99bb-10109ad7e13a",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-16",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-41/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hi Tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-03-01T05:55:20.991835+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "c02c1492-6ebb-47aa-8cf4-30e2ca13a388",
@@ -5130,7 +5130,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "bed768b4-1546-4c37-99bb-10109ad7e13a",
+      "title": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-16",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-41/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-01T05:55:20.991835+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "7bee9cc7-d67a-4dee-ae45-226a72857736",
@@ -5149,7 +5168,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "6a4d4139-cc07-4636-a51b-ff86df7c027a",
@@ -5168,7 +5187,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-28T01:14:23.790542+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "fa883a30-b930-4542-a569-3fe967fef85c",
@@ -5187,7 +5206,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "063bdc33-c734-4191-b9f7-2f4e27305172",
@@ -5206,7 +5225,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e1f34898-dca3-41d5-b4f1-511b93653d00",
@@ -5225,7 +5244,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "2d8cd14a-ea5c-4fe2-9f54-ba687de16360",
@@ -5244,7 +5263,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "6b657424-b994-496a-aaf4-71722e2e4c54",
@@ -5263,7 +5282,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "f3e294be-707e-4ed9-957a-3a2d9ee3cbef",
@@ -5282,7 +5301,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "24c8d844-e8ff-44cb-910e-863ee2fb332a",
@@ -5301,7 +5320,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "28c5d2b8-332a-4f18-a807-d82510cac15b",
@@ -5320,7 +5339,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "638968b1-1912-4788-86db-e912c910955a",
@@ -5339,7 +5358,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "e037b511-c65d-4798-bded-658afdfe132b",
@@ -5358,7 +5377,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "bb2035b3-ad4d-4104-afe4-e85e1301976d",
@@ -5377,7 +5396,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "827438be-8017-4e6f-8a60-0ef067aa839d",
+      "title": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-09-01",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-52/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Venue: Hi Tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-03-05T05:52:50.729839+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     },
     {
       "id": "9cbfbb01-e69e-4a0d-bb01-210a0dc7d1eb",
@@ -5396,43 +5434,313 @@
       "is_wyxr_presents": false,
       "is_active": false,
       "created_at": "2026-03-04T16:57:38.936190+00:00",
-      "updated_at": "2026-03-04T19:15:58.606476+00:00"
+      "updated_at": "2026-03-05T05:52:50.729839+00:00"
     },
     {
-      "id": "evt_1772689970260_288",
-      "title": "Big Barton",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-09",
-      "start_time": "8:00PM",
-      "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/big-barton/683531?afflky=HernandosHideAWay",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "Venue: Hernando's Hideaway",
-      "is_featured": false,
-      "is_active": true,
-      "created_at": "2026-03-05T05:52:37.132670+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
-    },
-    {
-      "id": "evt_1772689970263_289",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-01",
+      "id": "evt_1772726817365_286",
+      "title": "Massey Lane, Crooked Deihl",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-06",
       "start_time": null,
       "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-52/hi-tone-cafe/memphis-tennessee/",
+      "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "Venue: Hi Tone",
+      "source": "Artifacts (Friday listings)",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-03-05T05:52:37.132670+00:00",
-      "updated_at": "2026-03-05T05:52:37.132670+00:00"
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817366_287",
+      "title": "Trinity Adair & Phillip Bond",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Friday listings)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817367_288",
+      "title": "Izzy Arthurs, Speaker Girl, Attack Dog",
+      "venue": "Havenhaus",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Friday listings)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817368_289",
+      "title": "Ibex Clone, Pons, The Narrows",
+      "venue": "Lamplighter",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Friday listings)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817369_290",
+      "title": "Central High Jazz Band",
+      "venue": "Memphis Central Library",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Friday listings)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817370_291",
+      "title": "Sky King",
+      "venue": "Momma's",
+      "date": "2026-03-06",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Friday listings)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817372_292",
+      "title": "Hillbilly Mojo",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817373_293",
+      "title": "Live Kill, Celestial Wizard, Ashes Reign",
+      "venue": "Hi Tone",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817374_294",
+      "title": "Double D's",
+      "venue": "Huey's Collierville",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817375_295",
+      "title": "Tequila Mockingbird",
+      "venue": "Huey's Germantown",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817376_296",
+      "title": "The Chaulkies",
+      "venue": "Huey's Midtown",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817378_297",
+      "title": "Jack & The Fat Men",
+      "venue": "Huey's Millington",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817379_298",
+      "title": "The Fabulous Doovays",
+      "venue": "Huey's Poplar",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817380_299",
+      "title": "Twin Soul Duo",
+      "venue": "Huey's Southaven",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817381_300",
+      "title": "Jhonwes Walker Band",
+      "venue": "Huey's Southwind",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817382_301",
+      "title": "Heartbreak Hill",
+      "venue": "Hueys Downtown",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
+    },
+    {
+      "id": "evt_1772726817383_302",
+      "title": "Huey Lewis & The News Tribute, Joe Restivo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-08",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "Artifacts (Sunday 3.8 listing)",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-03-05T16:05:52.256639+00:00",
+      "updated_at": "2026-03-05T16:05:52.256639+00:00"
     }
   ]
 }

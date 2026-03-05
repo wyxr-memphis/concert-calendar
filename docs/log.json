@@ -1,35 +1,35 @@
 {
-  "run_timestamp": "2026-03-05T05:52:37.132670+00:00",
+  "run_timestamp": "2026-03-05T16:05:52.256639+00:00",
   "date_range": {
     "start": "2026-03-05",
     "end": "2026-03-12"
   },
-  "total_events_db": 286,
-  "total_active_display": 63,
+  "total_events_db": 303,
+  "total_active_display": 80,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "API request failed: 504 Server Error: Gateway Time-out for url: https://app.ticketmaster.com/discovery/v2/events.json?ap"
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
+      "events_found": 88,
       "events_after_filter": 71,
-      "events_filtered": 18,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 63,
+      "events_found": 80,
+      "events_after_filter": 80,
       "events_filtered": 0,
       "error": null
     }
@@ -203,11 +203,25 @@
       "source": "manual"
     },
     {
+      "artist": "Massey Lane, Crooked Deihl",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
+    },
+    {
       "artist": "MASSEY LANE/CROOKED DEIHL/MUSIC BY KOTA",
       "venue": "B-Side Memphis",
       "date": "2026-03-06",
       "time": "9PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "Trinity Adair & Phillip Bond",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
     },
     {
       "artist": "Opera Memphis: Pretty Little Room",
@@ -222,6 +236,13 @@
       "date": "2026-03-06",
       "time": "8:00PM",
       "source": "Venue: Growlers"
+    },
+    {
+      "artist": "Izzy Arthurs, Speaker Girl, Attack Dog",
+      "venue": "Havenhaus",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
     },
     {
       "artist": "IV and the Strange Band",
@@ -259,6 +280,13 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Ibex Clone, Pons, The Narrows",
+      "venue": "Lamplighter",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
+    },
+    {
       "artist": "IBEX CLONE",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-06",
@@ -278,6 +306,20 @@
       "date": "2026-03-06",
       "time": "9PM",
       "source": "Artifacts (Concert flyer for Lamplighter Lounge, 1702 Madison Ave, Memphis, TN)"
+    },
+    {
+      "artist": "Central High Jazz Band",
+      "venue": "Memphis Central Library",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
+    },
+    {
+      "artist": "Sky King",
+      "venue": "Momma's",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday listings)"
     },
     {
       "artist": "Chinese Connection Dub Embassy",
@@ -441,6 +483,13 @@
       "source": "Venue: Germantown Performing Arts Center"
     },
     {
+      "artist": "Hillbilly Mojo",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
       "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-08",
@@ -455,11 +504,81 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Live Kill, Celestial Wizard, Ashes Reign",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Double D's",
+      "venue": "Huey's Collierville",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's Germantown",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's Midtown",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Jack & The Fat Men",
+      "venue": "Huey's Millington",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "The Fabulous Doovays",
+      "venue": "Huey's Poplar",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Twin Soul Duo",
+      "venue": "Huey's Southaven",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Jhonwes Walker Band",
+      "venue": "Huey's Southwind",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
+      "artist": "Heartbreak Hill",
+      "venue": "Hueys Downtown",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
+    },
+    {
       "artist": "Back in Time: Huey Lewis & the News Tribute",
       "venue": "Lafayette's Music Room",
       "date": "2026-03-08",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Huey Lewis & The News Tribute, Joe Restivo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-08",
+      "time": null,
+      "source": "Artifacts (Sunday 3.8 listing)"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
@@ -543,7 +662,7 @@
       "venue": "Orpheum Theatre",
       "date": "2026-03-11",
       "time": "7 PM",
-      "source": "Ticketmaster"
+      "source": "Venue: Orpheum Theatre"
     },
     {
       "artist": "WYXR's Pull Up featuring Late Night Cardigan",
