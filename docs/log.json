@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-05T18:46:30.950821+00:00",
+  "run_timestamp": "2026-03-05T18:52:52.225546+00:00",
   "date_range": {
     "start": "2026-03-05",
     "end": "2026-03-12"
   },
-  "total_events_db": 311,
-  "total_active_display": 80,
+  "total_events_db": 324,
+  "total_active_display": 90,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,8 +19,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 22,
-      "events_filtered": 55,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 80,
+      "events_found": 90,
+      "events_after_filter": 90,
       "events_filtered": 0,
       "error": null
     }
@@ -214,7 +214,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-06",
       "time": null,
-      "source": "Artifacts (Friday listings)"
+      "source": "Artifacts (Friday 3.6 event listing)"
     },
     {
       "artist": "MASSEY LANE/CROOKED DEIHL/MUSIC BY KOTA",
@@ -222,6 +222,20 @@
       "date": "2026-03-06",
       "time": "9PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "One After 901 - A Beatles Tribute",
+      "venue": "Bar DKDC",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Instagram @bar_dkdc)"
+    },
+    {
+      "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-06",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
@@ -249,7 +263,7 @@
       "venue": "Havenhaus",
       "date": "2026-03-06",
       "time": null,
-      "source": "Artifacts (Friday listings)"
+      "source": "Artifacts (Friday 3.6 event listing)"
     },
     {
       "artist": "IV and the Strange Band",
@@ -280,6 +294,13 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Basketcase, Mudflap King",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday 3.6 event listing)"
+    },
+    {
       "artist": "Mudflap King",
       "venue": "Lafayette's Music Room",
       "date": "2026-03-06",
@@ -287,18 +308,25 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Ibex Clone, Pons, The Narrows",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-06",
+      "time": null,
+      "source": "Artifacts (Friday 3.6 event listing)"
+    },
+    {
       "artist": "Central High Jazz Band",
       "venue": "Memphis Central Library",
       "date": "2026-03-06",
       "time": null,
-      "source": "Artifacts (Friday listings)"
+      "source": "Artifacts (Friday 3.6 event listing)"
     },
     {
       "artist": "Sky King",
       "venue": "Momma's",
       "date": "2026-03-06",
       "time": null,
-      "source": "Artifacts (Friday listings)"
+      "source": "Artifacts (Friday 3.6 event listing)"
     },
     {
       "artist": "Chinese Connection Dub Embassy",
@@ -341,6 +369,13 @@
       "date": "2026-03-07",
       "time": "6PM - 10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Recent Future + General Labor",
@@ -473,7 +508,7 @@
       "venue": "Hernando's Hideaway",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
@@ -494,63 +529,63 @@
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Double D's",
       "venue": "Huey's Collierville",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Tequila Mockingbird",
       "venue": "Huey's Germantown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "The Chaulkies",
       "venue": "Huey's Midtown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Jack & The Fat Men",
       "venue": "Huey's Millington",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "The Fabulous Doovays",
       "venue": "Huey's Poplar",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Twin Soul Duo",
       "venue": "Huey's Southaven",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Jhonwes Walker Band",
       "venue": "Huey's Southwind",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Heartbreak Hill",
       "venue": "Hueys Downtown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
     },
     {
       "artist": "Back in Time: Huey Lewis & the News Tribute",
@@ -564,7 +599,14 @@
       "venue": "Lafayette's Music Room",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
+      "source": "Artifacts (Sunday March 8th event listing)"
+    },
+    {
+      "artist": "Like Really Creative; Muse: Speed Portrait Swap",
+      "venue": "Bar DKDC",
+      "date": "2026-03-09",
+      "time": null,
+      "source": "Artifacts (Instagram @bar_dkdc)"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
@@ -572,6 +614,20 @@
       "date": "2026-03-10",
       "time": "8PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "CosmicIdents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY)",
+      "venue": "Bar DKDC",
+      "date": "2026-03-10",
+      "time": null,
+      "source": "Artifacts (Special Tuesday Show - Instagram @bar_dkdc)"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
@@ -644,6 +700,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-11",
@@ -670,6 +733,13 @@
       "date": "2026-03-12",
       "time": "6PM",
       "source": "manual"
+    },
+    {
+      "artist": "Memphis Dyke Night",
+      "venue": "Bar DKDC",
+      "date": "2026-03-12",
+      "time": null,
+      "source": "Artifacts (Special Thursday Event - Instagram @bar_dkdc)"
     },
     {
       "artist": "Crosstown Arts Film Series: Hardware",
