@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-05T18:52:52.225546+00:00",
+  "run_timestamp": "2026-03-06T05:50:02.928237+00:00",
   "date_range": {
-    "start": "2026-03-05",
-    "end": "2026-03-12"
+    "start": "2026-03-06",
+    "end": "2026-03-13"
   },
-  "total_events_db": 324,
-  "total_active_display": 90,
+  "total_events_db": 333,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,17 +19,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 72,
-      "events_filtered": 17,
+      "events_found": 92,
+      "events_after_filter": 73,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 21,
+      "events_filtered": 56,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -116,8 +116,8 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 140,
-      "events_after_filter": 10,
-      "events_filtered": 130,
+      "events_after_filter": 9,
+      "events_filtered": 131,
       "error": null
     },
     {
@@ -131,63 +131,21 @@
     {
       "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 90,
-      "events_after_filter": 90,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DEVIL TRAIN",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-05",
-      "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
-      "artist": "Memphis Kee at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-05",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Deerfields / Violets Are Blue / Steel Waves [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Soundhaus [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-05",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Almost Elton John",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-05",
-      "time": "7 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Adam Heart - the Songs of Billy Joel and the Beatles",
-      "venue": "Nashoba",
-      "date": "2026-03-05",
-      "time": "7 PM",
-      "source": "Venue: Nashoba"
-    },
     {
       "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
       "venue": "Crosstown Green Room",
@@ -229,6 +187,13 @@
       "date": "2026-03-06",
       "time": null,
       "source": "Artifacts (Instagram @bar_dkdc)"
+    },
+    {
+      "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-06",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "\u201cMemphis R&B Is Not Dead\u201d with Trinity Adair & Phillip Bond",
@@ -312,6 +277,13 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-06",
       "time": null,
+      "source": "Artifacts (Friday listings)"
+    },
+    {
+      "artist": "Ibex Clone, Pons, The Narrows",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-06",
+      "time": null,
       "source": "Artifacts (Friday 3.6 event listing)"
     },
     {
@@ -369,6 +341,13 @@
       "date": "2026-03-07",
       "time": "6PM - 10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Recent Future + General Labor",
@@ -476,6 +455,13 @@
       "source": "Venue: Nashoba"
     },
     {
+      "artist": "Ted Horrell and Canaan Stanley",
+      "venue": "South Main Sounds",
+      "date": "2026-03-07",
+      "time": "6:00PM",
+      "source": "Venue: South Main Sounds"
+    },
+    {
       "artist": "Ted Horrell and Conan Stanley",
       "venue": "South Main Sounds",
       "date": "2026-03-07",
@@ -508,7 +494,7 @@
       "venue": "Hernando's Hideaway",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
@@ -529,63 +515,63 @@
       "venue": "Hi-Tone Cafe",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Double D's",
       "venue": "Huey's Collierville",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Tequila Mockingbird",
       "venue": "Huey's Germantown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "The Chaulkies",
       "venue": "Huey's Midtown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Jack & The Fat Men",
       "venue": "Huey's Millington",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "The Fabulous Doovays",
       "venue": "Huey's Poplar",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Twin Soul Duo",
       "venue": "Huey's Southaven",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Jhonwes Walker Band",
       "venue": "Huey's Southwind",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Heartbreak Hill",
       "venue": "Hueys Downtown",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Back in Time: Huey Lewis & the News Tribute",
@@ -599,7 +585,7 @@
       "venue": "Lafayette's Music Room",
       "date": "2026-03-08",
       "time": null,
-      "source": "Artifacts (Sunday March 8th event listing)"
+      "source": "Artifacts (Sunday 3.8 event listing)"
     },
     {
       "artist": "Like Really Creative; Muse: Speed Portrait Swap",
@@ -616,11 +602,25 @@
       "source": "Artifacts (Instagram event calendar)"
     },
     {
+      "artist": "Comedians: TV Buddha (IL), Parking (KY) & Guyscrapers (NY)",
+      "venue": "Bar DKDC",
+      "date": "2026-03-10",
+      "time": null,
+      "source": "Artifacts (Special Tuesday Show - Instagram @bar_dkdc)"
+    },
+    {
       "artist": "CosmicIdents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY)",
       "venue": "Bar DKDC",
       "date": "2026-03-10",
       "time": null,
       "source": "Artifacts (Special Tuesday Show - Instagram @bar_dkdc)"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
@@ -707,11 +707,25 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-11",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-11",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Eggy",
@@ -756,6 +770,13 @@
       "source": "Venue: Germantown Performing Arts Center"
     },
     {
+      "artist": "Bog Boys & more [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-12",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Sarah Spain Acoustic",
       "venue": "Lafayette's Music Room",
       "date": "2026-03-12",
@@ -775,6 +796,153 @@
       "date": "2026-03-12",
       "time": "7 PM",
       "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
+      "venue": "Bar DKDC",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Artifacts (Instagram @bar_dkdc)"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Creative Arts Ensemble: Playing with Paper with Angi Cooper",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-13",
+      "time": "6:00\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "A J Croce",
+      "venue": "Graceland Soundstage",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Venue: Graceland Soundstage"
+    },
+    {
+      "artist": "Massey Lane",
+      "venue": "Growlers",
+      "date": "2026-03-13",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "Parker Barrow",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-13",
+      "time": "7:30PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sveltedy / Nexxy / Houseparty [Small Room-Downstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Trailer Park Baby Tour 2026 [Big Room-Upstairs]",
+      "venue": "Hi-Tone Cafe",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Southbound",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-13",
+      "time": "9:30 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "The Pinch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Winter Jam",
+      "venue": "Landers Center",
+      "date": "2026-03-13",
+      "time": "6:50 PM",
+      "source": "Venue: Landers Center"
+    },
+    {
+      "artist": "The Reverend Peyton\u2019s Big Damn Band",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Almost Famous",
+      "venue": "Nashoba",
+      "date": "2026-03-13",
+      "time": "8 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. The Soul INgredient",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-13",
+      "time": "6:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
     }
   ]
 }
