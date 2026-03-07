@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-07T05:40:14.317099+00:00",
+  "run_timestamp": "2026-03-07T17:15:47.307095+00:00",
   "date_range": {
     "start": "2026-03-07",
     "end": "2026-03-14"
   },
-  "total_events_db": 343,
-  "total_active_display": 107,
+  "total_events_db": 356,
+  "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,17 +19,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 92,
+      "events_found": 90,
       "events_after_filter": 73,
-      "events_filtered": 19,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -43,17 +43,17 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
+      "events_found": 20,
       "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -107,17 +107,17 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 17,
+      "events_found": 16,
       "events_after_filter": 16,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 140,
-      "events_after_filter": 8,
-      "events_filtered": 132,
+      "events_found": 141,
+      "events_after_filter": 13,
+      "events_filtered": 128,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 107,
-      "events_after_filter": 107,
+      "events_found": 112,
+      "events_after_filter": 112,
       "events_filtered": 0,
       "error": null
     }
@@ -179,21 +179,28 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-07",
       "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Recent Future + General Labor",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-07",
+      "time": "7:30 PM",
       "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opera Memphis: Pretty Little Room",
@@ -518,6 +525,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Adult Tap Class",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-10",
@@ -551,6 +565,13 @@
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -697,6 +718,20 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
