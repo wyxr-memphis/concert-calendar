@@ -1,19 +1,19 @@
 {
-  "run_timestamp": "2026-03-07T17:15:47.307095+00:00",
+  "run_timestamp": "2026-03-08T05:47:46.377538+00:00",
   "date_range": {
-    "start": "2026-03-07",
-    "end": "2026-03-14"
+    "start": "2026-03-08",
+    "end": "2026-03-15"
   },
-  "total_events_db": 356,
-  "total_active_display": 112,
+  "total_events_db": 334,
+  "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 1,
-      "events_filtered": 2,
+      "events_found": 7,
+      "events_after_filter": 4,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -28,32 +28,32 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 90,
-      "events_after_filter": 73,
-      "events_filtered": 17,
+      "events_after_filter": 71,
+      "events_filtered": 19,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
+      "events_after_filter": 33,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
+      "events_after_filter": 18,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 28,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -68,8 +68,8 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 77,
-      "events_after_filter": 19,
-      "events_filtered": 58,
+      "events_after_filter": 17,
+      "events_filtered": 60,
       "error": null
     },
     {
@@ -99,8 +99,8 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 25,
+      "events_found": 56,
+      "events_after_filter": 24,
       "events_filtered": 32,
       "error": null
     },
@@ -116,16 +116,16 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 141,
-      "events_after_filter": 13,
-      "events_filtered": 128,
+      "events_after_filter": 12,
+      "events_filtered": 129,
       "error": null
     },
     {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_after_filter": 4,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -139,202 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 112,
-      "events_after_filter": 112,
+      "events_found": 99,
+      "events_after_filter": 99,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Shorty and the Grooves",
-      "venue": "Growlers",
-      "date": "2026-03-07",
-      "time": "6:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Thin So Thin, Ripken, & More",
-      "venue": "1884 Lounge",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "GUITAR CENTER RECITAL",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-07",
-      "time": "12PM to 5PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
-      "artist": "MP AWARDS PARTY",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-07",
-      "time": "6PM - 10PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Recent Future + General Labor",
-      "venue": "Crosstown Green Room",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Opera Memphis: Pretty Little Room",
-      "venue": "Crosstown Theater",
-      "date": "2026-03-07",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "DJ Bizzle Bluebland",
-      "venue": "Eight & Sand",
-      "date": "2026-03-07",
-      "time": "8 PM",
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Peanut Butter & Jam: Iris Collective Animal Jam",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-07",
-      "time": "10:30\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "eno, N8, Freewill, Brian Hamilton",
-      "venue": "Growlers",
-      "date": "2026-03-07",
-      "time": "10:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Shorty & The Grooves, Above Jupiter, Mary Hatley",
-      "venue": "Growlers",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Lepcy, Steele, Seraph, Blazebunny",
-      "venue": "Havenhaus",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Dead Lounge with Spaceman\u2019s Dead Friends and Gia Welch",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-07",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Lenox Creek",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-07",
-      "time": "10:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Scoochie Boochie / DJ Zirk / Uncl Aunti [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "SooperFlat & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Amber McCain Band",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-07",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Area 51",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-07",
-      "time": "9 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Area 51, Amber McCain Band",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Shiba Shiba, Phases",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Line So Thin",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Curtis B Scott, Danny Banks",
-      "venue": "Momma's",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
-    {
-      "artist": "Pulse - Tribute to Pink Floyd",
-      "venue": "Nashoba",
-      "date": "2026-03-07",
-      "time": "8 PM",
-      "source": "Venue: Nashoba"
-    },
-    {
-      "artist": "Ted Horrell and Conan Stanley",
-      "venue": "South Main Sounds",
-      "date": "2026-03-07",
-      "time": "7:00PM",
-      "source": "Venue: South Main Sounds"
-    },
-    {
-      "artist": "Ted Horrell, Conan Stanley",
-      "venue": "South Main Sounds",
-      "date": "2026-03-07",
-      "time": null,
-      "source": "Artifacts (Saturday 3.7 event listing)"
-    },
     {
       "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MYSTRIO",
       "venue": "B-Side Memphis",
@@ -469,11 +280,11 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "ALICE HASEN W/WEEZY ROGERS",
-      "venue": "B-Side Memphis",
+      "artist": "Goner Presents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY) - Special Tuesday Show",
+      "venue": "Bar DKDC",
       "date": "2026-03-10",
-      "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "time": null,
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Thelma and the Sleaze",
@@ -483,25 +294,18 @@
       "source": "Venue: Hernando's Hideaway"
     },
     {
-      "artist": "Comedians: TV Buddha (IL), Parking (KY) & Guyscrapers (NY)",
-      "venue": "Bar DKDC",
+      "artist": "ALICE HASEN W/WEEZY ROGERS",
+      "venue": "B-Side Memphis",
       "date": "2026-03-10",
-      "time": null,
-      "source": "Artifacts (Special Tuesday Show - Instagram @bar_dkdc)"
+      "time": "8PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
-      "artist": "Condiments: TV Buddha (IL), Parking (KY) & Guyscrapers (NY) - Special Tuesday Show",
-      "venue": "Bar DKDC",
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
       "date": "2026-03-10",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
-    },
-    {
-      "artist": "Confidents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY)",
-      "venue": "Bar DKDC",
-      "date": "2026-03-10",
-      "time": null,
-      "source": "Artifacts (Instagram @bar_dkdc - Special Tuesday Show)"
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
@@ -565,6 +369,13 @@
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -728,6 +539,20 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
@@ -850,8 +675,8 @@
       "artist": "The Hot Sardines",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-14",
-      "time": "8:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
+      "time": "8 PM",
+      "source": "Ticketmaster"
     },
     {
       "artist": "Christopher Cross",
@@ -917,6 +742,13 @@
       "source": "Venue: Nashoba"
     },
     {
+      "artist": "Bakithi Kumalo",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-14",
+      "time": "7:30 PM",
+      "source": "Ticketmaster"
+    },
+    {
       "artist": "Bakithi Kumalo and The South African All-Stars",
       "venue": "Orpheum Theatre",
       "date": "2026-03-14",
@@ -927,8 +759,85 @@
       "artist": "Diana Ross",
       "venue": "Orpheum Theatre",
       "date": "2026-03-14",
+      "time": "8 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Fred Eaglesmith & Tif Ginn",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-15",
+      "time": "7:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Dale Watson",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-15",
+      "time": "3:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-15",
+      "time": "3:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-15",
       "time": null,
-      "source": "Venue: Orpheum Theatre"
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Permanent Disfigurement / Human Shield / Blood Channel[Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-15",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Papa Don McMinn Musician Support Fund Benefit",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-15",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
     }
   ]
 }
