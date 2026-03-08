@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-08T05:47:46.377538+00:00",
+  "run_timestamp": "2026-03-08T17:17:27.152351+00:00",
   "date_range": {
     "start": "2026-03-08",
     "end": "2026-03-15"
   },
-  "total_events_db": 334,
-  "total_active_display": 99,
+  "total_events_db": 348,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,33 +27,33 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 90,
+      "events_found": 88,
       "events_after_filter": 71,
-      "events_filtered": 19,
+      "events_filtered": 17,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
+      "events_found": 34,
       "events_after_filter": 33,
-      "events_filtered": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
+      "events_found": 18,
       "events_after_filter": 18,
-      "events_filtered": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -75,8 +75,8 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
+      "events_found": 12,
+      "events_after_filter": 11,
       "events_filtered": 1,
       "error": null
     },
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 99,
-      "events_after_filter": 99,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
@@ -336,6 +336,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Adult Tap Class",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-10",
@@ -369,6 +376,13 @@
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -543,6 +557,20 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
@@ -768,6 +796,13 @@
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
