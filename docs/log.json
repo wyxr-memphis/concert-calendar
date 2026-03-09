@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-08T17:17:27.152351+00:00",
+  "run_timestamp": "2026-03-09T06:01:03.969448+00:00",
   "date_range": {
-    "start": "2026-03-08",
-    "end": "2026-03-15"
+    "start": "2026-03-09",
+    "end": "2026-03-16"
   },
-  "total_events_db": 348,
-  "total_active_display": 104,
+  "total_events_db": 338,
+  "total_active_display": 92,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 88,
-      "events_after_filter": 71,
+      "events_found": 87,
+      "events_after_filter": 70,
       "events_filtered": 17,
       "error": null
     },
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 28,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 17,
-      "events_filtered": 60,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -100,8 +100,8 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 56,
-      "events_after_filter": 24,
-      "events_filtered": 32,
+      "events_after_filter": 23,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -139,132 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 104,
+      "events_found": 92,
+      "events_after_filter": 92,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "PRIVATE BIRTHDAY PARTY w/OBLIVION/MDS/MYSTRIO",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-08",
-      "time": "6 to 10PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
-      "artist": "Germantown Symphony Orchestra: American Mosaic",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-08",
-      "time": "2:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Hillbilly Mojo",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Melissa Carper, Bonnie Montgomery, Jimmy Daddy Davis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-08",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Live Kill & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Live Kill, Celestial Wizard, Ashes Reign",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Double D's",
-      "venue": "Huey's Collierville",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's Germantown",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "The Chaulkies",
-      "venue": "Huey's Midtown",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Jack & The Fat Men",
-      "venue": "Huey's Millington",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "The Fabulous Doovays",
-      "venue": "Huey's Poplar",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Twin Soul Duo",
-      "venue": "Huey's Southaven",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Jhonwes Walker Band",
-      "venue": "Huey's Southwind",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Heartbreak Hill",
-      "venue": "Hueys Downtown",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
-    {
-      "artist": "Back in Time: Huey Lewis & the News Tribute",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-08",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Huey Lewis & The News Tribute, Joe Restivo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-08",
-      "time": null,
-      "source": "Artifacts (Sunday 3.8 event listing)"
-    },
     {
       "artist": "Like Really Creative; Muse: Speed Portrait Swap",
       "venue": "Bar DKDC",
@@ -343,6 +224,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Adult Tap Class",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-10",
@@ -376,6 +264,13 @@
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -564,6 +459,20 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
@@ -796,6 +705,13 @@
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
