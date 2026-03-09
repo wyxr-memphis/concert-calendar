@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-09T06:01:03.969448+00:00",
+  "run_timestamp": "2026-03-09T17:42:07.566490+00:00",
   "date_range": {
     "start": "2026-03-09",
     "end": "2026-03-16"
   },
-  "total_events_db": 338,
-  "total_active_display": 92,
+  "total_events_db": 346,
+  "total_active_display": 98,
   "data_store": "postgresql",
   "sources": [
     {
@@ -43,8 +43,8 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 19,
+      "events_after_filter": 19,
       "events_filtered": 0,
       "error": null
     },
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 16,
+      "events_filtered": 61,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -99,9 +99,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 56,
+      "events_found": 55,
       "events_after_filter": 23,
-      "events_filtered": 33,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 92,
+      "events_found": 98,
+      "events_after_filter": 98,
       "events_filtered": 0,
       "error": null
     }
@@ -180,6 +180,13 @@
       "date": "2026-03-10",
       "time": "8PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
@@ -315,6 +322,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-11",
@@ -376,6 +390,13 @@
       "date": "2026-03-12",
       "time": "10:00\u202fAM",
       "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Think Piink Launch Party at Growlers - Memphis, TN",
+      "venue": "Growlers",
+      "date": "2026-03-12",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
     },
     {
       "artist": "Bog Boys & more [Small Room-Downstairs]",
@@ -466,6 +487,20 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
@@ -705,6 +740,13 @@
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
