@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-10T14:54:51.704886+00:00",
+  "run_timestamp": "2026-03-10T15:05:41.227175+00:00",
   "date_range": {
     "start": "2026-03-10",
     "end": "2026-03-17"
   },
-  "total_events_db": 479,
-  "total_active_display": 144,
+  "total_events_db": 487,
+  "total_active_display": 150,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,10 +19,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 16,
-      "events_filtered": 61,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -107,8 +107,8 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 144,
-      "events_after_filter": 144,
+      "events_found": 150,
+      "events_after_filter": 150,
       "events_filtered": 0,
       "error": null
     }
@@ -155,14 +155,14 @@
     },
     {
       "artist": "Thelma and the Sleaze",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-10",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "ALICE HASEN W/WEEZY ROGERS",
-      "venue": "B-Side Memphis",
+      "venue": "B-Side Bar",
       "date": "2026-03-10",
       "time": "8PM",
       "source": "Artifacts (Instagram event calendar)"
@@ -176,70 +176,70 @@
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-10",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -308,78 +308,85 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
+      "artist": "KARAOKE W/ BONNER",
+      "venue": "B-Side Bar",
+      "date": "2026-03-11",
+      "time": "10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "KARAOKE W/CONNER",
-      "venue": "B-Side Memphis",
+      "venue": "B-Side Bar",
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-11",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -393,14 +400,14 @@
     },
     {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-11",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-11",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -455,6 +462,13 @@
       "source": "manual"
     },
     {
+      "artist": "DEVIL TRAIN",
+      "venue": "B-Side Bar",
+      "date": "2026-03-12",
+      "time": "10PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Memphis Dyke Night",
       "venue": "Bar DKDC",
       "date": "2026-03-12",
@@ -498,7 +512,7 @@
     },
     {
       "artist": "Bog Boys & more [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-12",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -533,7 +547,7 @@
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -553,6 +567,13 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
+      "artist": "PROVING GROUND w/ GIA WELCH",
+      "venue": "B-Side Bar",
+      "date": "2026-03-13",
+      "time": "8PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
       "venue": "Bar DKDC",
       "date": "2026-03-13",
@@ -568,133 +589,140 @@
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Opening Reception",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -750,21 +778,21 @@
     },
     {
       "artist": "Parker Barrow",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-13",
       "time": "7:30PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Sveltedy / Nexxy / Houseparty [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-13",
       "time": null,
       "source": "Venue: Hi Tone"
     },
     {
       "artist": "Trailer Park Baby Tour 2026 [Big Room-Upstairs]",
-      "venue": "Hi-Tone Cafe",
+      "venue": "Hi Tone",
       "date": "2026-03-13",
       "time": null,
       "source": "Venue: Hi Tone"
@@ -826,13 +854,6 @@
       "source": "Venue: Overton Park Shell"
     },
     {
-      "artist": "Speaker Girl",
-      "venue": "The Green Room at Crosstown Arts",
-      "date": "2026-03-13",
-      "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
       "artist": "Matthew West",
       "venue": "Winter Jam",
       "date": "2026-03-13",
@@ -847,11 +868,25 @@
       "source": "manual"
     },
     {
+      "artist": "ALT 72",
+      "venue": "B-Side Bar",
+      "date": "2026-03-14",
+      "time": "6 to 8PM",
+      "source": "Artifacts (Instagram event calendar)"
+    },
+    {
       "artist": "Mic Harrison",
       "venue": "B-Side Bar",
       "date": "2026-03-14",
       "time": "9:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "OWLBEAR/ MIC HARRISON & THE HIGH SCORE/ BEN ABNEY",
+      "venue": "B-Side Bar",
+      "date": "2026-03-14",
+      "time": "9PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Subteens + Heels",
@@ -911,17 +946,24 @@
     },
     {
       "artist": "Bakithi Kumalo",
-      "venue": "Halloran Centre for Performing Arts & Education",
+      "venue": "Halloran Centre at The Orpheum",
       "date": "2026-03-14",
       "time": "7:30 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "Ryan Kidd and the Kobras w/The 714s & Three vs. Turnpike",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-14",
       "time": "7:30PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Hashtronaut",
+      "venue": "Hi Tone",
+      "date": "2026-03-14",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "Hashtronaut / Decoration Policy / Wagoneer [Small Room-Downstairs]",
@@ -1001,85 +1043,78 @@
       "source": "Ticketmaster"
     },
     {
-      "artist": "Hashtronaut",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-03-14",
-      "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
       "artist": "Fred Eaglesmith & Tif Ginn",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Green Room",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-15",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -1092,32 +1127,32 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
-      "artist": "Dale Watson",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-15",
-      "time": "3:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
       "artist": "Chicken Sh*t Bingo With Dale Watson",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-15",
       "time": "3:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-15",
       "time": "3:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
+      "venue": "Hernando's Hide-A-Way",
       "date": "2026-03-15",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Dale Watson",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-15",
+      "time": "3:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "Permanent Disfigurement / Human Shield / Blood Channel[Small Room-Downstairs]",
@@ -1139,6 +1174,13 @@
       "date": "2026-03-15",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "JD WESTMORELNAD BAND",
+      "venue": "B-Side Bar",
+      "date": "2026-03-16",
+      "time": "10PM",
+      "source": "Artifacts (Instagram event calendar)"
     },
     {
       "artist": "Adult Tap Class",
