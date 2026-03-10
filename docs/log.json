@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-09T17:42:07.566490+00:00",
+  "run_timestamp": "2026-03-10T05:50:29.651679+00:00",
   "date_range": {
-    "start": "2026-03-09",
-    "end": "2026-03-16"
+    "start": "2026-03-10",
+    "end": "2026-03-17"
   },
-  "total_events_db": 346,
-  "total_active_display": 98,
+  "total_events_db": 361,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 87,
-      "events_after_filter": 70,
+      "events_found": 89,
+      "events_after_filter": 72,
       "events_filtered": 17,
       "error": null
     },
@@ -99,8 +99,8 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 23,
+      "events_found": 62,
+      "events_after_filter": 30,
       "events_filtered": 32,
       "error": null
     },
@@ -123,9 +123,9 @@
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 5,
+      "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,27 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 98,
-      "events_after_filter": 98,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Like Really Creative; Muse: Speed Portrait Swap",
-      "venue": "Bar DKDC",
-      "date": "2026-03-09",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi-Tone Cafe",
-      "date": "2026-03-09",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
     {
       "artist": "Goner Presents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY) - Special Tuesday Show",
       "venue": "Bar DKDC",
@@ -180,6 +166,13 @@
       "date": "2026-03-10",
       "time": "8PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-10",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
@@ -271,6 +264,13 @@
       "date": "2026-03-11",
       "time": "10PM",
       "source": "Artifacts (Instagram event calendar)"
+    },
+    {
+      "artist": "The City of Tomorrow: A Town Hall",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-11",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -494,6 +494,20 @@
       "venue": "Crosstown Green Room",
       "date": "2026-03-13",
       "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Opening Reception",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Speaker Girl, Joybomb, & Sunweight",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-13",
+      "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
@@ -798,6 +812,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
+      "venue": "Crosstown Green Room",
+      "date": "2026-03-15",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
       "artist": "Chicken Sh*t Bingo With Dale Watson",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
@@ -831,6 +852,20 @@
       "date": "2026-03-15",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Adult Tap Class",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-17",
+      "time": "10:00\u202fAM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-17",
+      "time": null,
+      "source": "Venue: Hi Tone"
     }
   ]
 }
