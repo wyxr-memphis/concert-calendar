@@ -79,7 +79,12 @@ VENUES = {
     },
     "crosstown-arts": {
         "name": "Crosstown Arts",
-        "aliases": ["crosstown arts", "the green room", "green room crosstown", "crosstown concourse"],
+        "aliases": [
+            "crosstown arts", "the green room", "green room crosstown", "crosstown concourse",
+            "crosstown arts green room", "crosstown arts, the green room",
+            "crosstown arts the green room", "crosstown arts galleries",
+            "crosstown theater", "crosstown arts theater",
+        ],
         "neighborhood": "Crosstown/Broad Avenue",
         "calendar_url": "https://crosstownarts.org/calendar/",
         "scraper": "generic",
