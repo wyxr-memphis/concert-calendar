@@ -982,6 +982,19 @@
                     <button class="btn-secondary" id="backfillBtn">Backfill Neighborhoods</button>
                 </div>
 
+                <!-- Merge Into Modal (for unmapped venues) -->
+                <div id="mergeIntoModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;">
+                    <div style="background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:24px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
+                        <h3 style="margin:0 0 8px;font-size:1em;">Merge into existing venue</h3>
+                        <p id="mergeIntoLabel" style="color:#aaa;font-size:0.85em;margin:0 0 14px;"></p>
+                        <select id="mergeIntoSelect" style="width:100%;padding:8px 10px;background:#111;color:#fff;border:1px solid #444;border-radius:4px;margin-bottom:16px;font-size:0.9em;"></select>
+                        <div style="display:flex;gap:10px;justify-content:flex-end;">
+                            <button class="btn-secondary" id="mergeIntoCancel">Cancel</button>
+                            <button class="btn-primary" id="mergeIntoConfirm" disabled>Merge</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Merge Panel -->
                 <div class="merge-panel" id="mergePanel">
                     <h3>Merge Venues</h3>
@@ -1663,7 +1676,7 @@
                 btn.addEventListener('click', async () => {
                     const venueId = btn.dataset.venueId;
                     const venueName = btn.dataset.venueName;
-                    if (!confirm(`Delete venue "${venueName}"?\n\nThis cannot be undone.`)) return;
+                    if (!confirm(`Delete venue "${venueName}"?\n\nIf future events are imported with this name, it will reappear in the unmapped venues list.`)) return;
                     try {
                         const { resp, data } = await AdminAPI.apiJSON(`/api/admin/venues/${venueId}`, {
                             method: 'DELETE',
@@ -1715,17 +1728,25 @@
             tbody.querySelectorAll('.merge-into-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     const unmappedName = btn.dataset.venueName;
-                    const target = prompt(`Merge "${unmappedName}" into which existing venue?\n\nExisting venues:\n${allVenues.map(v => '  ' + v.name).join('\n')}`);
-                    if (!target) return;
+                    const modal = document.getElementById('mergeIntoModal');
+                    const label = document.getElementById('mergeIntoLabel');
+                    const select = document.getElementById('mergeIntoSelect');
+                    const confirmBtn = document.getElementById('mergeIntoConfirm');
 
-                    const match = allVenues.find(v => v.name.toLowerCase() === target.toLowerCase());
-                    if (!match) {
-                        showStatus(`No venue named "${target}" found. Type the exact name.`, 'error', 'venueStatusBar');
-                        return;
-                    }
+                    label.textContent = `Merge "${unmappedName}" into which existing venue?`;
+                    select.innerHTML = '<option value="">— Select venue —</option>' +
+                        allVenues.map(v => `<option value="${esc(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`).join('');
+                    confirmBtn.disabled = true;
+                    modal.style.display = 'flex';
 
-                    // Create the unmapped venue first, then merge
-                    mergeUnmappedInto(unmappedName, match);
+                    select.onchange = () => { confirmBtn.disabled = !select.value; };
+
+                    confirmBtn.onclick = () => {
+                        const match = allVenues.find(v => v.id === select.value);
+                        if (!match) return;
+                        modal.style.display = 'none';
+                        mergeUnmappedInto(unmappedName, match);
+                    };
                 });
             });
 
@@ -1829,6 +1850,11 @@
             localStorage.setItem('custom_neighborhoods', JSON.stringify(custom));
             showStatus(`Added neighborhood "${trimmed}"`, 'success', 'venueStatusBar');
             renderVenueTable();
+        });
+
+        // Merge Into Modal (cancel)
+        document.getElementById('mergeIntoCancel').addEventListener('click', () => {
+            document.getElementById('mergeIntoModal').style.display = 'none';
         });
 
         // Merge Venues

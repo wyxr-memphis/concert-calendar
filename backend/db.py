@@ -425,9 +425,20 @@ def _seed_venues_if_empty():
         venue_count = row["count"] if row else 0
 
     if venue_count > 0:
-        # Ensure new venues are added even if table already has data
+        # Ensure new venues are added even if table already has data.
+        # Skip if the venue already exists by name OR as an alias of another venue
+        # (prevents re-creating venues that were merged away).
         for name, neighborhood, aliases in _SEED_VENUES:
             try:
+                with get_cursor(commit=False) as cur:
+                    cur.execute(
+                        """SELECT 1 FROM venues
+                           WHERE LOWER(name) = LOWER(%s)
+                              OR LOWER(%s) = ANY(SELECT LOWER(unnest(aliases)))""",
+                        (name, name),
+                    )
+                    if cur.fetchone():
+                        continue  # Already exists by name or as alias — skip
                 with get_cursor() as cur:
                     cur.execute(
                         """INSERT INTO venues (name, neighborhood, aliases)
