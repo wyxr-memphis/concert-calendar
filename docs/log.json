@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-11T05:53:14.651800+00:00",
+  "run_timestamp": "2026-03-11T17:43:26.210726+00:00",
   "date_range": {
     "start": "2026-03-11",
     "end": "2026-03-18"
   },
-  "total_events_db": 404,
-  "total_active_display": 89,
+  "total_events_db": 420,
+  "total_active_display": 95,
   "data_store": "postgresql",
   "sources": [
     {
@@ -43,17 +43,17 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
+      "events_found": 19,
       "events_after_filter": 19,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,26 +139,19 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 89,
+      "events_found": 95,
+      "events_after_filter": 95,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
     {
-      "artist": "Eggy",
-      "venue": "1884 Lounge",
-      "date": "2026-03-11",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
       "artist": "KARAOKE W/ CONNER",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-11",
       "time": "10PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -176,7 +169,7 @@
     },
     {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-11",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
@@ -201,6 +194,13 @@
       "date": "2026-03-11",
       "time": null,
       "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Hillbilly Mojo",
+      "venue": "Momma's",
+      "date": "2026-03-11",
+      "time": "7 PM",
+      "source": "submission"
     },
     {
       "artist": "Gable Price",
@@ -239,10 +239,10 @@
     },
     {
       "artist": "DEVIL TRAIN",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-12",
       "time": "10PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Memphis Dyke Night",
@@ -261,13 +261,6 @@
     {
       "artist": "Crosstown Arts Film Series: Hardware",
       "venue": "Crosstown Arts",
-      "date": "2026-03-12",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Crosstown Arts Film Series: Hardware",
-      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-12",
       "time": "7 PM",
       "source": "Venue: Crosstown Arts"
@@ -351,10 +344,10 @@
     },
     {
       "artist": "PROVING GROUND w/ GIA WELCH",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-13",
       "time": "8PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -407,7 +400,7 @@
     },
     {
       "artist": "Parker Barrow",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-13",
       "time": "7:30PM",
       "source": "Venue: Hernando's Hideaway"
@@ -441,6 +434,13 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Missed Dunks at Summer League, Frank McLallen, Late Night Cardigan",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-13",
+      "time": "9 PM",
+      "source": "submission"
+    },
+    {
       "artist": "Katy Nichole",
       "venue": "Landers Center",
       "date": "2026-03-13",
@@ -469,11 +469,25 @@
       "source": "Venue: Minglewood Hall"
     },
     {
+      "artist": "Jon Hay",
+      "venue": "Momma's",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "submission"
+    },
+    {
       "artist": "Almost Famous",
       "venue": "Nashoba",
       "date": "2026-03-13",
       "time": "8 PM",
       "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "5 O'Clock Shadow",
+      "venue": "Neil's Music Room",
+      "date": "2026-03-13",
+      "time": "8 PM",
+      "source": "submission"
     },
     {
       "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. The Soul INgredient",
@@ -498,24 +512,24 @@
     },
     {
       "artist": "ALT 72",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "6 to 8PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Mic Harrison",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "9:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "OWLBEAR/ MIC HARRISON & THE HIGH SCORE/ BEN ABNEY",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "9PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Subteens + Heels",
@@ -554,7 +568,7 @@
     },
     {
       "artist": "Ryan Kidd and the Kobras w/The 714s & Three vs. Turnpike",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-14",
       "time": "7:30PM",
       "source": "Venue: Hernando's Hideaway"
@@ -602,6 +616,20 @@
       "source": "Venue: Minglewood Hall"
     },
     {
+      "artist": "Peter Blunt System",
+      "venue": "Momma's",
+      "date": "2026-03-14",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Sky King",
+      "venue": "Momma's",
+      "date": "2026-03-14",
+      "time": null,
+      "source": "submission"
+    },
+    {
       "artist": "Ghost Town Blues Band",
       "venue": "Nashoba",
       "date": "2026-03-14",
@@ -631,7 +659,7 @@
     },
     {
       "artist": "Fred Eaglesmith & Tif Ginn",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
@@ -652,28 +680,28 @@
     },
     {
       "artist": "Chicken Sh*t Bingo With Dale Watson",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": "3:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": "3:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Dale Watson",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": "3:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
@@ -700,11 +728,18 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "The Grindhouse",
+      "venue": "Momma's",
+      "date": "2026-03-15",
+      "time": null,
+      "source": "submission"
+    },
+    {
       "artist": "JD WESTMORELNAD BAND",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-16",
       "time": "10PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -729,10 +764,10 @@
     },
     {
       "artist": "SONGWRITER SERIES - CLAY AYERS/ CHARLES CASHION/NATHAN SMITH",
-      "venue": "B-Side Bar",
+      "venue": "B-Side Memphis",
       "date": "2026-03-18",
       "time": "8PM",
-      "source": "Artifacts (Instagram schedule)"
+      "source": "Artifacts (Instagram flyer)"
     },
     {
       "artist": "Raq baby",
@@ -750,7 +785,7 @@
     },
     {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hide-A-Way",
+      "venue": "Hernando's Hideaway",
       "date": "2026-03-18",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
@@ -761,6 +796,13 @@
       "date": "2026-03-18",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Hillbilly Mojo Duo",
+      "venue": "Momma's",
+      "date": "2026-03-18",
+      "time": null,
+      "source": "submission"
     },
     {
       "artist": "Rodd Bland",
