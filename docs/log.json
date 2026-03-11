@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-10T17:40:52.835882+00:00",
+  "run_timestamp": "2026-03-11T01:14:00.875322+00:00",
   "date_range": {
-    "start": "2026-03-10",
-    "end": "2026-03-17"
+    "start": "2026-03-11",
+    "end": "2026-03-18"
   },
-  "total_events_db": 412,
-  "total_active_display": 94,
+  "total_events_db": 402,
+  "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 72,
-      "events_filtered": 17,
+      "events_found": 92,
+      "events_after_filter": 73,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -43,25 +43,25 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 19,
+      "events_found": 20,
       "events_after_filter": 19,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 9,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -100,15 +100,15 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 61,
-      "events_after_filter": 30,
-      "events_filtered": 31,
+      "events_after_filter": 29,
+      "events_filtered": 32,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -123,8 +123,8 @@
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -139,90 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 89,
+      "events_after_filter": 89,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Goner Presents: TV Buddha (IL), Parking (KY) & Guyscrapers (NY) - Special Tuesday Show",
-      "venue": "Bar DKDC",
-      "date": "2026-03-10",
-      "time": null,
-      "source": "Artifacts (Venue event listing)"
-    },
-    {
-      "artist": "Thelma and the Sleaze",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-03-10",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "ALICE HASEN W/WEEZY ROGERS",
-      "venue": "B-Side Bar",
-      "date": "2026-03-10",
-      "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-03-10",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Jazz Jam Session: Hosted by Morrell Pruitte Jr.",
-      "venue": "Crosstown Arts",
-      "date": "2026-03-10",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-10",
-      "time": "10:00\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "JMSN",
-      "venue": "Growlers",
-      "date": "2026-03-10",
-      "time": "8:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-10",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-10",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Susan Marshall w/ Joe Restivo",
-      "venue": "Itta Bena Fine Dining",
-      "date": "2026-03-10",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Wesley Wolffe, Melinda",
-      "venue": "Memphis Print Shop",
-      "date": "2026-03-10",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
     {
       "artist": "Eggy",
       "venue": "1884 Lounge",
@@ -231,11 +154,11 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
-      "artist": "KARAOKE W/CONNER",
+      "artist": "KARAOKE W/ CONNER",
       "venue": "B-Side Bar",
       "date": "2026-03-11",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -294,7 +217,7 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
-      "artist": "Josiah Queen: The Mt. Zion Tour",
+      "artist": "Josiah Queen - The Mt. Zion Tour",
       "venue": "Orpheum Theatre",
       "date": "2026-03-11",
       "time": "7 PM",
@@ -319,7 +242,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-12",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
     },
     {
       "artist": "Memphis Dyke Night",
@@ -344,7 +267,7 @@
     },
     {
       "artist": "Crosstown Arts Film Series: Hardware",
-      "venue": "Crosstown Theater",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-12",
       "time": "7 PM",
       "source": "Venue: Crosstown Arts"
@@ -431,7 +354,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-13",
       "time": "8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -460,13 +383,6 @@
       "date": "2026-03-13",
       "time": "6:00\u202fPM",
       "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Gia Welch",
-      "venue": "Gia Welch Happy Hour",
-      "date": "2026-03-13",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
       "artist": "A J Croce",
@@ -585,7 +501,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-14",
       "time": "6 to 8PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
     },
     {
       "artist": "Mic Harrison",
@@ -599,7 +515,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-14",
       "time": "9PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
     },
     {
       "artist": "Subteens + Heels",
@@ -788,7 +704,14 @@
       "venue": "B-Side Bar",
       "date": "2026-03-16",
       "time": "10PM",
-      "source": "Artifacts (Instagram event calendar)"
+      "source": "Artifacts (Instagram event listing)"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-16",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Adult Tap Class",
@@ -803,6 +726,48 @@
       "date": "2026-03-17",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "SONGWRITER SERIES - CLAY AYERS/ CHARLES CASHION/NATHAN SMITH",
+      "venue": "B-Side Bar",
+      "date": "2026-03-18",
+      "time": "8PM",
+      "source": "Artifacts (Instagram event listing)"
+    },
+    {
+      "artist": "Raq baby",
+      "venue": "Growlers",
+      "date": "2026-03-18",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-18",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-03-18",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "The Driftless Revelers  [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-18",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Rum Boogie Cafe",
+      "date": "2026-03-18",
+      "time": "6:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     }
   ]
 }
