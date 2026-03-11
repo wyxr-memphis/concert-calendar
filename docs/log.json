@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-11T01:14:00.875322+00:00",
+  "run_timestamp": "2026-03-11T05:53:14.651800+00:00",
   "date_range": {
     "start": "2026-03-11",
     "end": "2026-03-18"
   },
-  "total_events_db": 402,
+  "total_events_db": 404,
   "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 73,
-      "events_filtered": 19,
+      "events_found": 91,
+      "events_after_filter": 74,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -60,17 +60,17 @@
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 9,
-      "events_filtered": 1,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 16,
-      "events_filtered": 61,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -158,7 +158,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-11",
       "time": "10PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "The City of Tomorrow: A Town Hall",
@@ -242,7 +242,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-12",
       "time": "10PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Memphis Dyke Night",
@@ -354,7 +354,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-13",
       "time": "8PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -501,7 +501,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-14",
       "time": "6 to 8PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Mic Harrison",
@@ -515,7 +515,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-14",
       "time": "9PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Subteens + Heels",
@@ -704,7 +704,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-16",
       "time": "10PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -732,7 +732,7 @@
       "venue": "B-Side Bar",
       "date": "2026-03-18",
       "time": "8PM",
-      "source": "Artifacts (Instagram event listing)"
+      "source": "Artifacts (Instagram schedule)"
     },
     {
       "artist": "Raq baby",
