@@ -1569,8 +1569,12 @@
                     `<option value="${esc(n)}"${v.neighborhood === n ? ' selected' : ''}>${esc(n)}</option>`
                 ).join('');
 
+                const deleteBtn = count === 0
+                    ? `<button class="btn-secondary delete-venue-btn" data-venue-id="${esc(v.id)}" data-venue-name="${esc(v.name)}" style="padding:2px 8px;font-size:0.8em;color:#c62828;margin-left:6px;" title="Delete venue (no events)">✕</button>`
+                    : '';
+
                 return `<tr data-venue-id="${esc(v.id)}">
-                    <td><strong class="venue-name-link" data-venue-id="${esc(v.id)}" data-current-name="${esc(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong></td>
+                    <td><strong class="venue-name-link" data-venue-id="${esc(v.id)}" data-current-name="${esc(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong>${deleteBtn}</td>
                     <td>
                         <select data-venue-id="${esc(v.id)}" class="venue-nh-select">
                             <option value=""${!v.neighborhood ? ' selected' : ''}>— Not assigned —</option>
@@ -1650,6 +1654,28 @@
                         showStatus('Neighborhood updated', 'success', 'venueStatusBar');
                     } catch (err) {
                         showStatus('Failed to update: ' + err.message, 'error', 'venueStatusBar');
+                    }
+                });
+            });
+
+            // Delete venue buttons (only shown for venues with 0 events)
+            tbody.querySelectorAll('.delete-venue-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const venueId = btn.dataset.venueId;
+                    const venueName = btn.dataset.venueName;
+                    if (!confirm(`Delete venue "${venueName}"?\n\nThis cannot be undone.`)) return;
+                    try {
+                        const { resp, data } = await AdminAPI.apiJSON(`/api/admin/venues/${venueId}`, {
+                            method: 'DELETE',
+                        });
+                        if (resp.ok) {
+                            showStatus(`Deleted "${venueName}"`, 'success', 'venueStatusBar');
+                            loadVenues();
+                        } else {
+                            showStatus(data.error || 'Delete failed', 'error', 'venueStatusBar');
+                        }
+                    } catch (err) {
+                        showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
                     }
                 });
             });
