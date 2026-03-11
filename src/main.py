@@ -213,9 +213,11 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             # Don't overwrite admin/manual entries
             if db_row["source"] in ("admin", "manual"):
                 continue
-            # Update scraped fields
+            # Update scraped fields (including title/venue to keep in sync with website)
             cur.execute(
                 """UPDATE events SET
+                    title = COALESCE(%s, title),
+                    venue = COALESCE(%s, venue),
                     start_time = COALESCE(%s, start_time),
                     ticket_url = COALESCE(%s, ticket_url),
                     source = COALESCE(%s, source),
@@ -223,6 +225,8 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     updated_at = NOW()
                 WHERE id = %s""",
                 (
+                    title,
+                    venue,
                     entry.get("start_time"),
                     entry.get("ticket_url"),
                     entry.get("source"),
@@ -647,6 +651,7 @@ def _merge_events(
             if entry.get("source") in ("admin", "manual"):
                 continue
             # Update automated fields, preserve admin-editable fields
+            entry["title"] = event.artist  # Update title in case website updated it
             entry["start_time"] = event.time or entry.get("start_time")
             entry["ticket_url"] = event.url or entry.get("ticket_url")
             entry["source"] = event.source or entry.get("source")

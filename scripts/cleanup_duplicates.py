@@ -18,6 +18,7 @@ from collections import defaultdict
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from src.models import normalize_text
+from src.config import normalize_venue_name
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
 
@@ -34,8 +35,9 @@ except ImportError:
 
 
 def normalized_key(title: str, venue: str, date: str) -> str:
-    """Compute normalized key for matching."""
-    return f"{normalize_text(title)}|{normalize_text(venue)}|{date}"
+    """Compute normalized key for matching (same logic as _normalized_key in main.py)."""
+    canonical_venue = normalize_venue_name(venue)
+    return f"{normalize_text(title)}|{normalize_text(canonical_venue)}|{date}"
 
 
 def detail_score(event: dict) -> int:
