@@ -190,22 +190,7 @@
                 <div class="form-group">
                     <label for="venue">Venue</label>
                     <input type="text" id="venue" list="venueList">
-                    <datalist id="venueList">
-                        <option value="Hi Tone">
-                        <option value="Minglewood Hall">
-                        <option value="Growlers">
-                        <option value="Hernando's Hideaway">
-                        <option value="Crosstown Arts">
-                        <option value="Lafayette's Music Room">
-                        <option value="Overton Park Shell">
-                        <option value="B.B. King's Blues Club">
-                        <option value="Graceland Soundstage">
-                        <option value="FedExForum">
-                        <option value="Germantown Performing Arts Center">
-                        <option value="Orpheum Theatre">
-                        <option value="Bar DKDC">
-                        <option value="B-Side Memphis">
-                    </datalist>
+                    <datalist id="venueList"></datalist>
                 </div>
                 <div class="form-group">
                     <label for="date">Date <span class="req">*</span></label>
@@ -320,10 +305,25 @@
         }
         populateNeighborhoods();
 
+        async function populateVenueList() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues');
+                if (!resp.ok) return;
+                const dl = document.getElementById('venueList');
+                dl.innerHTML = '';
+                (Array.isArray(data) ? data : []).forEach(v => {
+                    const opt = document.createElement('option');
+                    opt.value = v.name;
+                    dl.appendChild(opt);
+                });
+            } catch (e) { /* silently ignore — field still works without suggestions */ }
+        }
+
         AdminAPI.checkAuth().then(ok => {
             if (ok) {
                 document.getElementById('loadingMsg').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
+                populateVenueList();
                 if (isEdit) {
                     loadEvent();
                 } else if (fromSubmission) {
