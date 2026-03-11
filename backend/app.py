@@ -40,6 +40,7 @@ from backend.db import (
     get_scraper_status_summary,
     get_all_venues,
     get_unmapped_venues,
+    dismiss_venue_name,
     get_venue_by_id,
     create_venue,
     update_venue,
@@ -524,6 +525,21 @@ def admin_venues_backfill():
     """Backfill neighborhoods on existing events based on venue names."""
     result = backfill_neighborhoods()
     return jsonify({"ok": True, **result})
+
+
+@app.route("/api/admin/venues/dismiss", methods=["POST"])
+@require_auth
+def admin_venues_dismiss():
+    """Dismiss an unmapped venue name (mark it as not a real venue).
+
+    The name will re-appear if new events are imported with that venue name after this call.
+    """
+    data = request.get_json() or {}
+    name = (data.get("name") or "").strip()
+    if not name:
+        return jsonify({"error": "name is required"}), 400
+    dismiss_venue_name(name)
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------------------

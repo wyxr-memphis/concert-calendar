@@ -65,3 +65,10 @@ CREATE TABLE IF NOT EXISTS submissions (
 
 CREATE INDEX IF NOT EXISTS idx_submissions_status ON submissions(status);
 CREATE INDEX IF NOT EXISTS idx_submissions_date ON submissions(submitted_at DESC);
+
+-- Dismissed venue names (unmapped venue names that are not real venues)
+-- A dismissed name re-appears automatically if new events are imported after the dismissal date
+CREATE TABLE IF NOT EXISTS dismissed_venue_names (
+    name TEXT PRIMARY KEY,
+    dismissed_at TIMESTAMPTZ DEFAULT NOW()
+);

@@ -1601,6 +1601,7 @@
                         <td>
                             <button class="btn-secondary add-unmapped-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;">Add</button>
                             <button class="btn-secondary merge-into-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;">Merge into...</button>
+                            <button class="btn-secondary dismiss-unmapped-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;color:#888;" title="Not a real venue — hide until new events import this name">Dismiss</button>
                         </td>
                         <td style="text-align:right;">${u.event_count || 0}</td>
                     </tr>`;
@@ -1699,6 +1700,36 @@
 
                     // Create the unmapped venue first, then merge
                     mergeUnmappedInto(unmappedName, match);
+                });
+            });
+
+            // Dismiss buttons for unmapped venues
+            tbody.querySelectorAll('.dismiss-unmapped-btn').forEach(btn => {
+                btn.addEventListener('click', async () => {
+                    const name = btn.dataset.venueName;
+                    btn.disabled = true;
+                    btn.textContent = 'Dismissing...';
+
+                    try {
+                        const { resp, data } = await AdminAPI.apiJSON('/api/admin/venues/dismiss', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ name }),
+                        });
+
+                        if (resp.ok || data.ok) {
+                            showStatus(`"${name}" dismissed — will reappear if new events import this name`, 'success', 'venueStatusBar');
+                            loadVenues();
+                        } else {
+                            showStatus(data.error || 'Dismiss failed', 'error', 'venueStatusBar');
+                            btn.disabled = false;
+                            btn.textContent = 'Dismiss';
+                        }
+                    } catch (err) {
+                        showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+                        btn.disabled = false;
+                        btn.textContent = 'Dismiss';
+                    }
                 });
             });
         }

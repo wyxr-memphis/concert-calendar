@@ -394,7 +394,7 @@ def _seed_venues_if_empty():
         ("Hi Tone", "Midtown", ["hi tone", "hi-tone", "hi tone café", "hi tone cafe", "the hi-tone"]),
         ("Minglewood Hall", "Midtown", ["minglewood", "minglewood hall", "1555 madison"]),
         ("Growlers", "Overton Square/Cooper-Young", ["growlers", "growlers memphis", "901 growlers"]),
-        ("Hernando's Hideaway", "Midtown", ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway"]),
+        ("Hernando's Hideaway", "Midtown", ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway", "hernando's hide-a-way", "hernandos hide-a-way"]),
         ("Crosstown Arts", "Crosstown/Broad Avenue", ["crosstown arts", "the green room", "green room crosstown", "crosstown concourse"]),
         ("Lafayette's Music Room", "Overton Square/Cooper-Young", ["lafayettes", "lafayette's", "lafayettes music room", "lafayette's music room"]),
         ("Overton Park Shell", "Midtown", ["levitt shell", "overton park shell", "the shell"]),
@@ -455,7 +455,11 @@ def get_all_venues():
 
 
 def get_unmapped_venues():
-    """Find venue names in events that don't match any venue in the venues table."""
+    """Find venue names in events that don't match any venue in the venues table.
+
+    Dismissed venue names are hidden unless a new event was imported after the dismissal date,
+    in which case they re-appear automatically.
+    """
     with get_cursor(commit=False) as cur:
         cur.execute("""
             SELECT e.venue AS name,
@@ -471,9 +475,31 @@ def get_unmapped_venues():
                      OR LOWER(e.venue) = ANY(SELECT LOWER(unnest(v.aliases)))
               )
             GROUP BY e.venue
+            HAVING NOT EXISTS (
+                SELECT 1 FROM dismissed_venue_names d
+                WHERE LOWER(d.name) = LOWER(e.venue)
+                  AND d.dismissed_at >= (
+                      SELECT MAX(e2.created_at) FROM events e2
+                      WHERE LOWER(e2.venue) = LOWER(e.venue) AND e2.is_active = true
+                  )
+            )
             ORDER BY COUNT(*) DESC, e.venue
         """)
         return cur.fetchall()
+
+
+def dismiss_venue_name(name):
+    """Mark an unmapped venue name as dismissed (not a real venue).
+
+    The name will re-appear in unmapped venues if new events are imported after this dismissal.
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO dismissed_venue_names (name, dismissed_at)
+               VALUES (%s, NOW())
+               ON CONFLICT (name) DO UPDATE SET dismissed_at = NOW()""",
+            (name,),
+        )
 
 
 def get_venue_by_id(venue_id):
