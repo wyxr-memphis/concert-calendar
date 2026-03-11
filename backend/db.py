@@ -129,7 +129,16 @@ def init_db():
     with get_cursor() as cur:
         cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS is_wyxr_presents BOOLEAN DEFAULT false")
 
-    # Step 6: Seed venues if table is empty
+    # Step 6: Create dismissed_venue_names table (added with Dismiss button feature)
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS dismissed_venue_names (
+                name TEXT PRIMARY KEY,
+                dismissed_at TIMESTAMPTZ DEFAULT NOW()
+            )
+        """)
+
+    # Step 8: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
