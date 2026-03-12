@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-12T17:43:40.417386+00:00",
+  "run_timestamp": "2026-03-12T21:37:11.881116+00:00",
   "date_range": {
     "start": "2026-03-12",
     "end": "2026-03-19"
   },
-  "total_events_db": 408,
-  "total_active_display": 92,
+  "total_events_db": 412,
+  "total_active_display": 90,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,10 +19,10 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 3,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Hi Tone",
@@ -35,8 +35,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
+      "events_found": 34,
+      "events_after_filter": 33,
       "events_filtered": 1,
       "error": null
     },
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 16,
-      "events_filtered": 61,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 92,
+      "events_found": 90,
+      "events_after_filter": 90,
       "events_filtered": 0,
       "error": null
     }
@@ -217,13 +217,6 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
-      "artist": "Billy Idol",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-12",
-      "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
       "artist": "\u2018Billy Idol Should Be Dead\u2019 Memphis Premiere",
       "venue": "Minglewood Hall",
       "date": "2026-03-12",
@@ -239,7 +232,7 @@
     },
     {
       "artist": "Speaker Girl, Joybomb, & Sunweight",
-      "venue": "Crosstown Arts",
+      "venue": "Crosstown Arts Green Room",
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -322,13 +315,6 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
-      "artist": "CANCELED \u2013 Parker Barrow",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-13",
-      "time": "7:30PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
       "artist": "Parker Barrow",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-13",
@@ -383,13 +369,6 @@
       "date": "2026-03-13",
       "time": "6:50 PM",
       "source": "Venue: Landers Center"
-    },
-    {
-      "artist": "The Reverend Peyton\u2019s Big Damn Band",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-13",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
     },
     {
       "artist": "Jon Hay",
@@ -684,6 +663,13 @@
       "date": "2026-03-17",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "YOBREEZYE",
+      "venue": "Swamp Bar",
+      "date": "2026-03-17",
+      "time": null,
+      "source": "Artifacts (DJ nights flyer)"
     },
     {
       "artist": "SONGWRITER SERIES - CLAY AYERS/ CHARLES CASHION/NATHAN SMITH",
