@@ -1,43 +1,43 @@
 {
-  "run_timestamp": "2026-03-11T17:43:26.210726+00:00",
+  "run_timestamp": "2026-03-12T05:55:03.973317+00:00",
   "date_range": {
-    "start": "2026-03-11",
-    "end": "2026-03-18"
+    "start": "2026-03-12",
+    "end": "2026-03-19"
   },
-  "total_events_db": 420,
-  "total_active_display": 95,
+  "total_events_db": 405,
+  "total_active_display": 91,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 4,
+      "events_found": 6,
+      "events_after_filter": 3,
       "events_filtered": 3,
       "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 91,
-      "events_after_filter": 74,
-      "events_filtered": 17,
+      "events_found": 89,
+      "events_after_filter": 73,
+      "events_filtered": 16,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
+      "events_after_filter": 33,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -107,8 +107,8 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -139,97 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 95,
-      "events_after_filter": 95,
+      "events_found": 91,
+      "events_after_filter": 91,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "KARAOKE W/ CONNER",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-11",
-      "time": "10PM",
-      "source": "Artifacts (Instagram flyer)"
-    },
-    {
-      "artist": "The City of Tomorrow: A Town Hall",
-      "venue": "Crosstown Arts",
-      "date": "2026-03-11",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-11",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-11",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-11",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Susan Marshall w/ Logan Hanna",
-      "venue": "Itta Bena Fine Dining",
-      "date": "2026-03-11",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Eggy",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-11",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Hillbilly Mojo",
-      "venue": "Momma's",
-      "date": "2026-03-11",
-      "time": "7 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Gable Price",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-11",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Jervis Campbell",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-11",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Josiah Queen - The Mt. Zion Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-11",
-      "time": "7 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Rum Boogie Cafe",
-      "date": "2026-03-11",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
     {
       "artist": "WYXR's Pull Up featuring Late Night Cardigan",
       "venue": "WYXR",
@@ -327,6 +243,13 @@
       "date": "2026-03-13",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Missed Dunks at Summer League, Frank McLallen, Late Night Cardigan",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-13",
+      "time": "9 PM",
+      "source": "submission"
     },
     {
       "artist": "The Hooten Hallers",
@@ -432,13 +355,6 @@
       "date": "2026-03-13",
       "time": "6 PM",
       "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Missed Dunks at Summer League, Frank McLallen, Late Night Cardigan",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-13",
-      "time": "9 PM",
-      "source": "submission"
     },
     {
       "artist": "Katy Nichole",
@@ -810,6 +726,62 @@
       "date": "2026-03-18",
       "time": "6:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Crosstown Arts Film Series: Beyond the Black Rainbow",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-19",
+      "time": "7 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Resident Artist Talk",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-19",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Ember and Oak Prime",
+      "date": "2026-03-19",
+      "time": "6:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "New Edition",
+      "venue": "FedExForum",
+      "date": "2026-03-19",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Toni Braxton",
+      "venue": "FedExForum",
+      "date": "2026-03-19",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Joshua Quimby",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-19",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Rev Down Trio *Matinee show* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-19",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Shara's Songwriter Showcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-19",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
     }
   ]
 }
