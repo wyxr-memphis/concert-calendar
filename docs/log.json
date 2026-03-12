@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-12T05:55:03.973317+00:00",
+  "run_timestamp": "2026-03-12T17:43:40.417386+00:00",
   "date_range": {
     "start": "2026-03-12",
     "end": "2026-03-19"
   },
-  "total_events_db": 405,
-  "total_active_display": 91,
+  "total_events_db": 408,
+  "total_active_display": 92,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 73,
+      "events_found": 90,
+      "events_after_filter": 74,
       "events_filtered": 16,
       "error": null
     },
@@ -36,8 +36,8 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 33,
-      "events_filtered": 2,
+      "events_after_filter": 34,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 16,
+      "events_filtered": 61,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 91,
-      "events_after_filter": 91,
+      "events_found": 92,
+      "events_after_filter": 92,
       "events_filtered": 0,
       "error": null
     }
@@ -320,6 +320,13 @@
       "date": "2026-03-13",
       "time": "7:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "CANCELED \u2013 Parker Barrow",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-13",
+      "time": "7:30PM",
+      "source": "Venue: Hernando's Hideaway"
     },
     {
       "artist": "Parker Barrow",
