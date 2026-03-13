@@ -166,6 +166,36 @@ def public_neighborhoods():
 
 
 # ---------------------------------------------------------------------------
+# Slack Notifications
+# ---------------------------------------------------------------------------
+
+def _notify_slack_new_submission(artist_name, venue, event_date, event_time, submitter_name, description=None):
+    """Post a new submission notification to Slack. Fails silently."""
+    webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
+    if not webhook_url:
+        return
+
+    time_str = f" at {event_time}" if event_time else ""
+    desc_str = f"\n> {description}" if description else ""
+    admin_url = "https://concert-calendar.wyxr.org/admin/#submissions"
+
+    text = (
+        f":musical_note: *New event submission needs review*\n"
+        f"*Artist:* {artist_name}\n"
+        f"*Venue:* {venue}\n"
+        f"*Date:* {event_date}{time_str}\n"
+        f"*Submitted by:* {submitter_name}"
+        f"{desc_str}\n"
+        f"<{admin_url}|Review in Admin UI>"
+    )
+
+    try:
+        http_requests.post(webhook_url, json={"text": text}, timeout=5)
+    except Exception:
+        pass
+
+
+# ---------------------------------------------------------------------------
 # Public Submission Endpoint
 # ---------------------------------------------------------------------------
 
@@ -239,6 +269,10 @@ def public_submit_event():
         "submitter_email": submitter_email,
         "honeypot": body.get("website", ""),
     })
+
+    _notify_slack_new_submission(
+        artist_name, venue, event_date, event_time, submitter_name, description
+    )
 
     return jsonify({
         "success": True,
