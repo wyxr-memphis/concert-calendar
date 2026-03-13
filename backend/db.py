@@ -314,6 +314,43 @@ def delete_events_before(before_date):
         return cur.rowcount
 
 
+def is_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
+    """Return True if an event with similar title+venue already exists on this date.
+
+    Uses SequenceMatcher similarity so OCR/handwriting variations don't create dupes.
+    Both title and venue must meet the threshold (default 80%).
+    """
+    from difflib import SequenceMatcher
+
+    def _norm(s):
+        # Inline normalize: lowercase, strip punctuation, collapse whitespace
+        import re
+        s = s.lower().strip()
+        s = re.sub(r'^the\s+', '', s)
+        s = re.sub(r'[^\w\s]', ' ', s)
+        s = re.sub(r'\s+', ' ', s).strip()
+        return s
+
+    def _sim(a, b):
+        return SequenceMatcher(None, a, b).ratio()
+
+    norm_title = _norm(title)
+    norm_venue = _norm(venue)
+
+    with get_cursor() as cur:
+        cur.execute(
+            "SELECT title, venue FROM events WHERE date = %s AND is_active = TRUE",
+            (date_str,),
+        )
+        existing = cur.fetchall()
+
+    return any(
+        _sim(_norm(row["title"]), norm_title) >= threshold and
+        _sim(_norm(row["venue"]), norm_venue) >= threshold
+        for row in existing
+    )
+
+
 def bulk_insert_events(events_list):
     """Insert multiple events at once. Returns list of created events."""
     if not events_list:

@@ -38,6 +38,7 @@ from backend.db import (
     toggle_wyxr_presents,
     bulk_action,
     bulk_insert_events,
+    is_fuzzy_duplicate,
     delete_events_before,
     get_scrape_logs,
     get_scraper_status_summary,
@@ -840,6 +841,9 @@ def admin_import_confirm():
             skipped.append(evt.get("title", "?"))
             continue
         evt["date"] = iso_date
+        if is_fuzzy_duplicate(evt.get("title", ""), evt.get("venue", ""), iso_date):
+            skipped.append(evt.get("title", "?"))
+            continue
         valid.append(evt)
 
     if not valid:
@@ -1233,30 +1237,11 @@ def _process_slack_image(file_id: str, channel_id: str):
             return
 
         # 4. Filter to date range and skip duplicates already in DB (fuzzy match)
-        from backend.db import get_cursor
-        from src.models import normalize_text
-        from difflib import SequenceMatcher
-
-        def _similar(a, b):
-            return SequenceMatcher(None, a, b).ratio()
-
         events_to_insert = []
         for event in events:
             if not (START_DATE <= event.date <= SCRAPER_END_DATE):
                 continue
-            norm_title = normalize_text(event.artist)
-            norm_venue = normalize_text(event.venue)
-            with get_cursor() as cur:
-                cur.execute(
-                    "SELECT title, venue FROM events WHERE date = %s AND is_active = TRUE",
-                    (event.date.isoformat(),),
-                )
-                existing = cur.fetchall()
-            if any(
-                _similar(normalize_text(row["title"]), norm_title) >= 0.8 and
-                _similar(normalize_text(row["venue"]), norm_venue) >= 0.8
-                for row in existing
-            ):
+            if is_fuzzy_duplicate(event.artist, event.venue, event.date.isoformat()):
                 continue
             events_to_insert.append(event)
 
