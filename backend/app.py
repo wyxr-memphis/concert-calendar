@@ -1232,21 +1232,27 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 4. Filter to date range and skip duplicates already in DB
+        # 4. Filter to date range and skip duplicates already in DB (normalized fuzzy match)
         from backend.db import get_cursor
+        from src.models import normalize_text
         events_to_insert = []
         for event in events:
             if not (START_DATE <= event.date <= SCRAPER_END_DATE):
                 continue
+            norm_title = normalize_text(event.artist)
+            norm_venue = normalize_text(event.venue)
             with get_cursor() as cur:
                 cur.execute(
-                    """SELECT id FROM events
-                       WHERE LOWER(title) = LOWER(%s) AND LOWER(venue) = LOWER(%s) AND date = %s
-                       LIMIT 1""",
-                    (event.artist, event.venue, event.date.isoformat()),
+                    "SELECT title, venue FROM events WHERE date = %s AND is_active = TRUE",
+                    (event.date.isoformat(),),
                 )
-                if cur.fetchone():
-                    continue
+                existing = cur.fetchall()
+            if any(
+                normalize_text(row["title"]) == norm_title and
+                normalize_text(row["venue"]) == norm_venue
+                for row in existing
+            ):
+                continue
             events_to_insert.append(event)
 
         if not events_to_insert:
