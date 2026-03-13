@@ -433,7 +433,9 @@ def _run_vision_api(image_bytes: bytes, media_type: str, filename: str) -> List[
 
     client = anthropic.Anthropic()
 
-    prompt = f"""Analyze this image and extract music/concert events for the date range {START_DATE} to {SCRAPER_END_DATE}.
+    prompt = f"""Analyze this image and extract music/concert events.
+
+Today's date is {START_DATE}. The target date range is {START_DATE} to {SCRAPER_END_DATE}.
 
 For EACH visible event, extract:
 - artist/act name
@@ -441,23 +443,29 @@ For EACH visible event, extract:
 - date (in any format visible)
 - time (if visible)
 
-IMPORTANT: Extract all events visible in the image within the next 6 months.
-Include events from any upcoming weeks or months shown.
+IMPORTANT YEAR RULE: If no year is shown on the image, assume the most logical upcoming year.
+- If the month/day appears to be coming up soon, use the current year ({START_DATE.year}).
+- If the month has already passed this year, use next year ({START_DATE.year + 1}).
+- Never assume a past year just because no year is written — these are always upcoming events.
+- Example: seeing "March 15-22" when today is March 13, 2026 → dates are in 2026.
+
+IMPORTANT: Extract ALL events visible in the image. Do not filter by date range yourself —
+include everything and let the system handle filtering.
 
 Return ONLY a valid JSON array, no other text:
 [
   {{
     "artist": "Artist Name",
     "venue": "Venue Name",
-    "date": "2/15/2026",
+    "date": "3/15/2026",
     "time": "9 PM",
-    "source_note": "Brief description - e.g. 'Instagram', 'Bandsintown', 'website'"
+    "source_note": "Brief description - e.g. 'Instagram', 'flyer', 'schedule'"
   }}
 ]
 
 If no events found, return: []
 
-Extract all visible events for the target week, even if text is small."""
+Extract all visible events, even if text is small or handwritten."""
 
     message = client.messages.create(
         model="claude-sonnet-4-6",
