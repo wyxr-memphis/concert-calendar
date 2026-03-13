@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-13T15:07:55.170414+00:00",
+  "run_timestamp": "2026-03-13T15:14:52.922686+00:00",
   "date_range": {
     "start": "2026-03-13",
     "end": "2026-03-20"
   },
-  "total_events_db": 434,
-  "total_active_display": 117,
+  "total_events_db": 465,
+  "total_active_display": 131,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,8 +19,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 21,
+      "events_found": 53,
+      "events_after_filter": 49,
       "events_filtered": 0,
       "error": null
     },
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 117,
-      "events_after_filter": 117,
+      "events_found": 131,
+      "events_after_filter": 131,
       "events_filtered": 0,
       "error": null
     }
@@ -179,7 +179,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-13",
       "time": "8PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -315,6 +315,13 @@
       "source": "Venue: Overton Park Shell"
     },
     {
+      "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
+      "venue": "The Bar",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Artifacts (Event flyer)"
+    },
+    {
       "artist": "Matthew West",
       "venue": "Winter Jam",
       "date": "2026-03-13",
@@ -333,7 +340,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "6 to 8PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Mic Harrison",
@@ -347,7 +354,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "9PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Subteens + Heels",
@@ -476,6 +483,13 @@
       "source": "Ticketmaster"
     },
     {
+      "artist": "Subteens + Heels",
+      "venue": "The Bar",
+      "date": "2026-03-14",
+      "time": null,
+      "source": "Artifacts (Event flyer)"
+    },
+    {
       "artist": "Fred Eaglesmith & Tif Ginn",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
@@ -553,11 +567,18 @@
       "source": "submission"
     },
     {
+      "artist": "Sunday Tea Dance with Rosami + Friends",
+      "venue": "The Bar",
+      "date": "2026-03-15",
+      "time": null,
+      "source": "Artifacts (Event flyer)"
+    },
+    {
       "artist": "JD WESTMORELNAD BAND",
       "venue": "B-Side Memphis",
       "date": "2026-03-16",
       "time": "10PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
@@ -630,11 +651,11 @@
       "source": "Artifacts (Handwritten schedule)"
     },
     {
-      "artist": "Writers in the Round",
+      "artist": "Los Psychosis, Thought, + Despera",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-17",
-      "time": "8PM",
-      "source": "Artifacts (Handwritten schedule - TUES)"
+      "time": "9PM",
+      "source": "Artifacts (Handwritten schedule)"
     },
     {
       "artist": "Writers in the Round",
@@ -644,6 +665,13 @@
       "source": "Artifacts (TUES event)"
     },
     {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "8PM",
+      "source": "Artifacts (Handwritten schedule - TUES)"
+    },
+    {
       "artist": "YOBREEZYE",
       "venue": "Swamp Bar",
       "date": "2026-03-17",
@@ -651,11 +679,18 @@
       "source": "Artifacts (Event flyer)"
     },
     {
+      "artist": "Writers in the Round",
+      "venue": "TUES",
+      "date": "2026-03-17",
+      "time": "8PM",
+      "source": "Artifacts (Handwritten schedule)"
+    },
+    {
       "artist": "SONGWRITER SERIES - CLAY AYERS/ CHARLES CASHION/NATHAN SMITH",
       "venue": "B-Side Memphis",
       "date": "2026-03-18",
       "time": "8PM",
-      "source": "Artifacts (Instagram flyer)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Raq baby",
@@ -690,7 +725,7 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-18",
       "time": "8pm",
-      "source": "Artifacts (WED event)"
+      "source": "Artifacts (Handwritten schedule - WEDS)"
     },
     {
       "artist": "Opossums, Joe Glass, Barrelays",
@@ -698,6 +733,13 @@
       "date": "2026-03-18",
       "time": "8pm",
       "source": "Artifacts (Handwritten schedule - WEDS)"
+    },
+    {
+      "artist": "Opposums, Joe Glass, Barrelays",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-18",
+      "time": "8pm",
+      "source": "Artifacts (Handwritten schedule)"
     },
     {
       "artist": "Hillbilly Mojo Duo",
@@ -712,6 +754,20 @@
       "date": "2026-03-18",
       "time": "6:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Dan Auerbach (Black Keys) DJ set w/ DJ Bizzle Bluebland",
+      "venue": "Bar DKDC",
+      "date": "2026-03-19",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "DEVIL TRAIN",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-19",
+      "time": "10PM",
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Crosstown Arts Film Series: Beyond the Black Rainbow",
@@ -788,7 +844,21 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-19",
       "time": "9pm",
+      "source": "Artifacts (Handwritten schedule)"
+    },
+    {
+      "artist": "Burlesque Karaoke",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-19",
+      "time": "9pm",
       "source": "Artifacts (Handwritten schedule - THURS)"
+    },
+    {
+      "artist": "Hans Condor (Nashville)",
+      "venue": "The Bar",
+      "date": "2026-03-19",
+      "time": null,
+      "source": "Artifacts (Special Thursday Show)"
     },
     {
       "artist": "Ladysmith Black Mambazo",
@@ -803,6 +873,13 @@
       "date": "2026-03-20",
       "time": "6:30\u202fPM",
       "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "STOLEN FACES",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-20",
+      "time": "9PM",
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Folk All Y\u2019all: Will Kimbrough in Tribute to Todd Snider",
@@ -928,6 +1005,13 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-20",
       "time": "8pm",
+      "source": "Artifacts (Handwritten schedule)"
+    },
+    {
+      "artist": "Rusty, J. Robot, Data Drums",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-20",
+      "time": "8pm",
       "source": "Artifacts (FRI event)"
     },
     {
@@ -957,6 +1041,20 @@
       "date": "2026-03-20",
       "time": "7:00PM",
       "source": "Venue: South Main Sounds"
+    },
+    {
+      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
+      "venue": "The Bar",
+      "date": "2026-03-20",
+      "time": "EARLY",
+      "source": "Artifacts (Event flyer)"
+    },
+    {
+      "artist": "Late Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
+      "venue": "The Bar",
+      "date": "2026-03-20",
+      "time": "LATE NIGHT",
+      "source": "Artifacts (Event flyer)"
     },
     {
       "artist": "Jay Allen\u2019s Living Gracefully Tour",
