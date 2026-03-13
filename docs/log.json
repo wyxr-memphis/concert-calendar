@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-13T17:28:59.188103+00:00",
+  "run_timestamp": "2026-03-13T18:41:44.133911+00:00",
   "date_range": {
     "start": "2026-03-13",
     "end": "2026-03-20"
   },
-  "total_events_db": 472,
-  "total_active_display": 134,
+  "total_events_db": 479,
+  "total_active_display": 139,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,8 +19,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 46,
-      "events_after_filter": 43,
+      "events_found": 50,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     },
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 15,
-      "events_filtered": 62,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -99,9 +99,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 60,
+      "events_found": 61,
       "events_after_filter": 28,
-      "events_filtered": 32,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 134,
-      "events_after_filter": 134,
+      "events_found": 139,
+      "events_after_filter": 139,
       "events_filtered": 0,
       "error": null
     }
@@ -179,7 +179,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-13",
       "time": "8PM",
-      "source": "Artifacts (Instagram - March calendar)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -193,7 +193,7 @@
       "venue": "Bar DKDC",
       "date": "2026-03-13",
       "time": null,
-      "source": "Artifacts (Bar DKDC venue listing)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Jeremy Stanfill",
@@ -340,7 +340,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "6 to 8PM",
-      "source": "Artifacts (Instagram - March calendar)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Mic Harrison",
@@ -354,14 +354,14 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-14",
       "time": "9PM",
-      "source": "Artifacts (Instagram - March calendar)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "Subteens + Heels",
       "venue": "Bar DKDC",
       "date": "2026-03-14",
       "time": null,
-      "source": "Artifacts (Bar DKDC venue listing)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Subteens + Heels",
@@ -501,7 +501,7 @@
       "venue": "Bar DKDC",
       "date": "2026-03-15",
       "time": null,
-      "source": "Artifacts (Bar DKDC venue listing)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
@@ -665,6 +665,20 @@
       "source": "Artifacts (Handwritten schedule)"
     },
     {
+      "artist": "Los Psychosis, Thought, + Despera",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "9PM",
+      "source": "Artifacts (Handwritten schedule)"
+    },
+    {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "8PM",
+      "source": "Artifacts (Handwritten schedule - TUES)"
+    },
+    {
       "artist": "Writers in the Round",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-17",
@@ -742,6 +756,13 @@
       "source": "Artifacts (Handwritten schedule - WEDS)"
     },
     {
+      "artist": "Opossums, The Glass, Barrelays",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-18",
+      "time": "8pm",
+      "source": "Artifacts (Handwritten schedule - WED)"
+    },
+    {
       "artist": "Opposums, Joe Glass, Barrelays",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-18",
@@ -781,7 +802,7 @@
       "venue": "Bar DKDC",
       "date": "2026-03-19",
       "time": null,
-      "source": "Artifacts (Bar DKDC venue listing - Special Thursday Show)"
+      "source": "Artifacts (Special Thursday Show)"
     },
     {
       "artist": "Crosstown Arts Film Series: Beyond the Black Rainbow",
@@ -858,6 +879,13 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-19",
       "time": "9pm",
+      "source": "Artifacts (Handwritten schedule - THURS)"
+    },
+    {
+      "artist": "Burlesque Karaoke",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-19",
+      "time": "9pm",
       "source": "Artifacts (THURS event)"
     },
     {
@@ -886,7 +914,7 @@
       "venue": "B-Side Memphis",
       "date": "2026-03-20",
       "time": "9PM",
-      "source": "Artifacts (Instagram - March calendar)"
+      "source": "Artifacts (Instagram calendar)"
     },
     {
       "artist": "DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
@@ -900,7 +928,7 @@
       "venue": "Bar DKDC",
       "date": "2026-03-20",
       "time": "EARLY",
-      "source": "Artifacts (Event flyer)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Greg Cartwright, Jeremy Scott + Graham Winchester",
@@ -914,7 +942,7 @@
       "venue": "Bar DKDC",
       "date": "2026-03-20",
       "time": "LATE NIGHT",
-      "source": "Artifacts (Event flyer)"
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Folk All Y\u2019all: Will Kimbrough in Tribute to Todd Snider",
@@ -1030,6 +1058,13 @@
     },
     {
       "artist": "RUST, J. Robot, Data Drums",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-20",
+      "time": "8pm",
+      "source": "Artifacts (Handwritten schedule - FRI)"
+    },
+    {
+      "artist": "Rusty, J. Robot, Data Drums",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-20",
       "time": "8pm",
