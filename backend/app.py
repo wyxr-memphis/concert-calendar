@@ -1180,14 +1180,29 @@ def _process_slack_image(file_id: str, channel_id: str):
         download_url = file_info.get("url_private_download") or file_info.get("url_private")
         mimetype = file_info.get("mimetype", "image/jpeg")
         filename = file_info.get("name", "slack_upload.jpg")
-        caption = (file_info.get("initial_comment") or {}).get("comment", "")
+        print(f"[slack] file info: name={filename} mimetype={mimetype} url={'yes' if download_url else 'no'}", flush=True)
 
         if not download_url:
             _slack_post_message(channel_id, "⚠️ Could not retrieve image URL from Slack.")
             return
 
+        # Find message caption via channel history (initial_comment is empty for UI uploads)
+        caption = ""
+        history_resp = http_requests.get(
+            "https://slack.com/api/conversations.history",
+            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+            params={"channel": channel_id, "limit": 10},
+            timeout=10,
+        )
+        for msg in history_resp.json().get("messages", []):
+            if any(f.get("id") == file_id for f in msg.get("files", [])):
+                caption = (msg.get("text") or "").lower()
+                break
+        print(f"[slack] caption={caption!r}", flush=True)
+
         # Only process if caption contains "add to calendar"
-        if "add to calendar" not in caption.lower():
+        if "add to calendar" not in caption:
+            print(f"[slack] ignoring — no 'add to calendar' in caption", flush=True)
             return
 
         if not mimetype.startswith("image/"):
