@@ -36,7 +36,7 @@ except ImportError:
     PILLOW_AVAILABLE = False
 
 from ..models import Event, SourceResult
-from ..config import START_DATE, END_DATE, normalize_venue_name
+from ..config import START_DATE, SCRAPER_END_DATE, normalize_venue_name
 from ..date_utils import parse_date_text
 
 SOURCE_NAME = "Artifacts (Vision-Extracted)"
@@ -78,7 +78,7 @@ def fetch() -> SourceResult:
             result.events_found += len(events)
 
             for event in events:
-                if START_DATE <= event.date <= END_DATE:
+                if START_DATE <= event.date <= SCRAPER_END_DATE:
                     result.events.append(event)
 
         except Exception as e:
@@ -418,7 +418,7 @@ def _extract_events_from_image(image_path: Path) -> List[Event]:
 
     client = anthropic.Anthropic()
 
-    prompt = f"""Analyze this image and extract music/concert events for the week of {START_DATE} to {END_DATE}.
+    prompt = f"""Analyze this image and extract music/concert events for the date range {START_DATE} to {SCRAPER_END_DATE}.
 
 For EACH visible event, extract:
 - artist/act name
@@ -426,8 +426,8 @@ For EACH visible event, extract:
 - date (in any format visible)
 - time (if visible)
 
-IMPORTANT: Focus on events in {START_DATE.strftime('%B %Y')} (this week/month).
-Skip events from other months if visible.
+IMPORTANT: Extract all events visible in the image within the next 6 months.
+Include events from any upcoming weeks or months shown.
 
 Return ONLY a valid JSON array, no other text:
 [
