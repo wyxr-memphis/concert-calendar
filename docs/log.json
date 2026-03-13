@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-13T05:52:50.109494+00:00",
+  "run_timestamp": "2026-03-13T15:07:55.170414+00:00",
   "date_range": {
     "start": "2026-03-13",
     "end": "2026-03-20"
   },
-  "total_events_db": 413,
-  "total_active_display": 112,
+  "total_events_db": 434,
+  "total_active_display": 117,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,8 +19,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 25,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -35,17 +35,17 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
+      "events_found": 33,
       "events_after_filter": 32,
-      "events_filtered": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 19,
+      "events_found": 18,
       "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 112,
-      "events_after_filter": 112,
+      "events_found": 117,
+      "events_after_filter": 117,
       "events_filtered": 0,
       "error": null
     }
@@ -585,14 +585,14 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-16",
       "time": "8:30",
-      "source": "Artifacts (OPEN STAGE)"
+      "source": "Artifacts (Handwritten schedule - OPEN STAGE)"
     },
     {
       "artist": "SUN freakshow",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-16",
       "time": "8:30",
-      "source": "Artifacts (Handwritten schedule - OPEN STAGE)"
+      "source": "Artifacts (OPEN STAGE)"
     },
     {
       "artist": "Adult Tap Class",
@@ -607,6 +607,13 @@
       "date": "2026-03-17",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Los Psychosis, Thought, & Despera",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "9PM",
+      "source": "Artifacts (Event listing)"
     },
     {
       "artist": "Los Psychosis, Thought, + Despera",
@@ -630,11 +637,18 @@
       "source": "Artifacts (Handwritten schedule - TUES)"
     },
     {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "8PM",
+      "source": "Artifacts (TUES event)"
+    },
+    {
       "artist": "YOBREEZYE",
       "venue": "Swamp Bar",
       "date": "2026-03-17",
       "time": null,
-      "source": "Artifacts (DJ nights flyer)"
+      "source": "Artifacts (Event flyer)"
     },
     {
       "artist": "SONGWRITER SERIES - CLAY AYERS/ CHARLES CASHION/NATHAN SMITH",
@@ -670,6 +684,13 @@
       "date": "2026-03-18",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Opossums, Joe Glass, Barrelays",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-18",
+      "time": "8pm",
+      "source": "Artifacts (WED event)"
     },
     {
       "artist": "Opossums, Joe Glass, Barrelays",
@@ -754,6 +775,13 @@
       "date": "2026-03-19",
       "time": "6 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Burlesque Karaoke",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-19",
+      "time": "9pm",
+      "source": "Artifacts (THURS event)"
     },
     {
       "artist": "Burlesque Karaoke",
@@ -894,6 +922,13 @@
       "date": "2026-03-20",
       "time": "8pm",
       "source": "Artifacts (Handwritten schedule - FRI)"
+    },
+    {
+      "artist": "Rusty, J. Robot, Data Drums",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-20",
+      "time": "8pm",
+      "source": "Artifacts (FRI event)"
     },
     {
       "artist": "Phil Wickham",
