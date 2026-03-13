@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-13T15:14:52.922686+00:00",
+  "run_timestamp": "2026-03-13T15:24:40.679059+00:00",
   "date_range": {
     "start": "2026-03-13",
     "end": "2026-03-20"
   },
-  "total_events_db": 465,
-  "total_active_display": 131,
+  "total_events_db": 470,
+  "total_active_display": 133,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,8 +19,8 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 49,
+      "events_found": 27,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 15,
-      "events_filtered": 62,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 131,
-      "events_after_filter": 131,
+      "events_found": 133,
+      "events_after_filter": 133,
       "events_filtered": 0,
       "error": null
     }
@@ -180,6 +180,13 @@
       "date": "2026-03-13",
       "time": "8PM",
       "source": "Artifacts (Instagram calendar)"
+    },
+    {
+      "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
+      "venue": "Bar DKDC",
+      "date": "2026-03-13",
+      "time": null,
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
@@ -315,13 +322,6 @@
       "source": "Venue: Overton Park Shell"
     },
     {
-      "artist": "Magik Hours, Louise Page + Arc of Quasar Duo",
-      "venue": "The Bar",
-      "date": "2026-03-13",
-      "time": null,
-      "source": "Artifacts (Event flyer)"
-    },
-    {
       "artist": "Matthew West",
       "venue": "Winter Jam",
       "date": "2026-03-13",
@@ -355,6 +355,13 @@
       "date": "2026-03-14",
       "time": "9PM",
       "source": "Artifacts (Instagram calendar)"
+    },
+    {
+      "artist": "Subteens + Heels",
+      "venue": "Bar DKDC",
+      "date": "2026-03-14",
+      "time": null,
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "Subteens + Heels",
@@ -483,18 +490,18 @@
       "source": "Ticketmaster"
     },
     {
-      "artist": "Subteens + Heels",
-      "venue": "The Bar",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Artifacts (Event flyer)"
-    },
-    {
       "artist": "Fred Eaglesmith & Tif Ginn",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-15",
       "time": "7:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Sunday Tea Dance with Rosami + Friends",
+      "venue": "Bar DKDC",
+      "date": "2026-03-15",
+      "time": null,
+      "source": "Artifacts (Venue event listing)"
     },
     {
       "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
@@ -567,13 +574,6 @@
       "source": "submission"
     },
     {
-      "artist": "Sunday Tea Dance with Rosami + Friends",
-      "venue": "The Bar",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "Artifacts (Event flyer)"
-    },
-    {
       "artist": "JD WESTMORELNAD BAND",
       "venue": "B-Side Memphis",
       "date": "2026-03-16",
@@ -606,7 +606,7 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-16",
       "time": "8:30",
-      "source": "Artifacts (Handwritten schedule - OPEN STAGE)"
+      "source": "Artifacts (OPEN STAGE)"
     },
     {
       "artist": "SUN freakshow",
@@ -662,14 +662,14 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-17",
       "time": "8PM",
-      "source": "Artifacts (TUES event)"
+      "source": "Artifacts (Handwritten schedule - TUES)"
     },
     {
       "artist": "Writers in the Round",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-17",
       "time": "8PM",
-      "source": "Artifacts (Handwritten schedule - TUES)"
+      "source": "Artifacts (TUES event)"
     },
     {
       "artist": "YOBREEZYE",
@@ -770,6 +770,13 @@
       "source": "Artifacts (Instagram calendar)"
     },
     {
+      "artist": "Hans Condor (Nashville)",
+      "venue": "Bar DKDC",
+      "date": "2026-03-19",
+      "time": null,
+      "source": "Artifacts (Venue event listing - Special Thursday Show)"
+    },
+    {
       "artist": "Crosstown Arts Film Series: Beyond the Black Rainbow",
       "venue": "Crosstown Arts Green Room",
       "date": "2026-03-19",
@@ -844,7 +851,7 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-03-19",
       "time": "9pm",
-      "source": "Artifacts (Handwritten schedule)"
+      "source": "Artifacts (THURS event)"
     },
     {
       "artist": "Burlesque Karaoke",
@@ -852,13 +859,6 @@
       "date": "2026-03-19",
       "time": "9pm",
       "source": "Artifacts (Handwritten schedule - THURS)"
-    },
-    {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "The Bar",
-      "date": "2026-03-19",
-      "time": null,
-      "source": "Artifacts (Special Thursday Show)"
     },
     {
       "artist": "Ladysmith Black Mambazo",
@@ -880,6 +880,34 @@
       "date": "2026-03-20",
       "time": "9PM",
       "source": "Artifacts (Instagram calendar)"
+    },
+    {
+      "artist": "DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": null,
+      "source": "Artifacts (Venue event listing - Late Night of the Pisces)"
+    },
+    {
+      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": "EARLY",
+      "source": "Artifacts (Event flyer)"
+    },
+    {
+      "artist": "Greg Cartwright, Jeremy Scott + Graham Winchester",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": null,
+      "source": "Artifacts (Venue event listing - Early Songwriter Circle)"
+    },
+    {
+      "artist": "Late Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": "LATE NIGHT",
+      "source": "Artifacts (Event flyer)"
     },
     {
       "artist": "Folk All Y\u2019all: Will Kimbrough in Tribute to Todd Snider",
@@ -1041,20 +1069,6 @@
       "date": "2026-03-20",
       "time": "7:00PM",
       "source": "Venue: South Main Sounds"
-    },
-    {
-      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
-      "venue": "The Bar",
-      "date": "2026-03-20",
-      "time": "EARLY",
-      "source": "Artifacts (Event flyer)"
-    },
-    {
-      "artist": "Late Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
-      "venue": "The Bar",
-      "date": "2026-03-20",
-      "time": "LATE NIGHT",
-      "source": "Artifacts (Event flyer)"
     },
     {
       "artist": "Jay Allen\u2019s Living Gracefully Tour",
