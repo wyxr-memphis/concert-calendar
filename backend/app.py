@@ -1180,9 +1180,14 @@ def _process_slack_image(file_id: str, channel_id: str):
         download_url = file_info.get("url_private_download") or file_info.get("url_private")
         mimetype = file_info.get("mimetype", "image/jpeg")
         filename = file_info.get("name", "slack_upload.jpg")
+        caption = (file_info.get("initial_comment") or {}).get("comment", "")
 
         if not download_url:
             _slack_post_message(channel_id, "⚠️ Could not retrieve image URL from Slack.")
+            return
+
+        # Only process if caption contains "add to calendar"
+        if "add to calendar" not in caption.lower():
             return
 
         if not mimetype.startswith("image/"):
@@ -1306,18 +1311,16 @@ def slack_events():
     if not _verify_slack_signature(raw_body, request.headers):
         return jsonify({"error": "Invalid signature"}), 403
 
-    # Handle message event with file attachment and "add to calendar" trigger
+    # Handle file_shared event — caption check happens inside background thread via files.info
     event = body.get("event", {})
-    if event.get("type") == "message" and event.get("subtype") == "file_share":
-        channel_id = event.get("channel")
-        message_text = (event.get("text") or "").lower()
-        files = event.get("files", [])
-        file_id = files[0].get("id") if files else None
+    if event.get("type") == "file_shared":
+        channel_id = event.get("channel_id") or event.get("channel")
+        file_id = event.get("file_id")
 
         if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
             return jsonify({"ok": True})  # Wrong channel, ignore
 
-        if "add to calendar" in message_text and file_id and channel_id:
+        if file_id and channel_id:
             threading.Thread(
                 target=_process_slack_image,
                 args=(file_id, channel_id),
