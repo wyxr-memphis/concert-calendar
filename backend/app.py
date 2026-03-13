@@ -1306,16 +1306,18 @@ def slack_events():
     if not _verify_slack_signature(raw_body, request.headers):
         return jsonify({"error": "Invalid signature"}), 403
 
-    # Handle file_shared event
+    # Handle message event with file attachment and "add to calendar" trigger
     event = body.get("event", {})
-    if event.get("type") == "file_shared":
-        channel_id = event.get("channel_id") or event.get("channel")
-        file_id = event.get("file_id")
+    if event.get("type") == "message" and event.get("subtype") == "file_share":
+        channel_id = event.get("channel")
+        message_text = (event.get("text") or "").lower()
+        files = event.get("files", [])
+        file_id = files[0].get("id") if files else None
 
         if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
             return jsonify({"ok": True})  # Wrong channel, ignore
 
-        if file_id and channel_id:
+        if "add to calendar" in message_text and file_id and channel_id:
             threading.Thread(
                 target=_process_slack_image,
                 args=(file_id, channel_id),
