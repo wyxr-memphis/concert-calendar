@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-13T01:45:18.495289+00:00",
+  "run_timestamp": "2026-03-13T05:52:50.109494+00:00",
   "date_range": {
     "start": "2026-03-13",
     "end": "2026-03-20"
   },
-  "total_events_db": 409,
-  "total_active_display": 109,
+  "total_events_db": 413,
+  "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,17 +19,17 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 91,
+      "events_found": 90,
       "events_after_filter": 74,
-      "events_filtered": 17,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -60,8 +60,8 @@
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 9,
-      "events_filtered": 1,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 109,
-      "events_after_filter": 109,
+      "events_found": 112,
+      "events_after_filter": 112,
       "events_filtered": 0,
       "error": null
     }
@@ -567,11 +567,25 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "MON*O RAG",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-16",
+      "time": "9pm",
+      "source": "Artifacts (Handwritten schedule)"
+    },
+    {
       "artist": "MON\u2022D RAG",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-16",
       "time": "9pm",
       "source": "Artifacts (Handwritten schedule)"
+    },
+    {
+      "artist": "SUN freakshow",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-16",
+      "time": "8:30",
+      "source": "Artifacts (OPEN STAGE)"
     },
     {
       "artist": "SUN freakshow",
@@ -593,6 +607,13 @@
       "date": "2026-03-17",
       "time": null,
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Los Psychosis, Thought, + Despera",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-17",
+      "time": "9PM",
+      "source": "Artifacts (Handwritten schedule)"
     },
     {
       "artist": "Los Psychosis, Thought, + Despera",
