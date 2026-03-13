@@ -110,6 +110,42 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 
 Venue scrapers use 6-month range (`SCRAPER_END_DATE`) for interactive calendar.
 
+## Slack Image Upload Pipeline
+
+DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in Slack to add events without touching the admin UI.
+
+### How it works
+1. User uploads an image to #wyxr-concert-calendar with the caption **"add to calendar"**
+2. Slack fires a `file_shared` event to `POST /api/slack/events`
+3. Backend downloads the image, checks the caption via `conversations.history`
+4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image
+5. New events are deduplicated and inserted into PostgreSQL
+6. GitHub Actions rebuild is triggered
+7. Bot replies in the channel with a list of added events
+
+### Environment variables (Render)
+| Variable | Source |
+|---|---|
+| `SLACK_BOT_TOKEN` | api.slack.com → OAuth & Permissions → Bot User OAuth Token |
+| `SLACK_SIGNING_SECRET` | api.slack.com → Basic Information → Signing Secret |
+| `SLACK_CHANNEL_ID` | Right-click channel in Slack → View channel details → Channel ID |
+
+### Slack app config (api.slack.com)
+- **OAuth scopes:** `files:read`, `chat:write`, `channels:history`
+- **Event Subscriptions → Request URL:** `https://concert-calendar-api.onrender.com/api/slack/events`
+- **Subscribe to bot events:** `file_shared`
+- Bot must be invited to the channel: `/invite @WYXR Concert Calendar`
+
+### Key implementation files
+- `backend/app.py` — `slack_events()` route, `_process_slack_image()` background thread
+- `src/sources/artifacts.py` — `extract_events_from_image_bytes()` public entry point
+
+### Debugging
+- All Slack activity logs with `[slack]` prefix in Render logs
+- If no `[slack]` lines appear after upload: bot not in channel, wrong event subscription, or needs reinstall
+- If "No events extracted": check Vision response in logs — year assumption issues are common for handwritten schedules with no year shown (prompt instructs Claude to assume current/next year)
+- Reinstall app after any scope changes: api.slack.com → OAuth & Permissions → Reinstall to WYXR
+
 ## Common Tasks
 
 ### Add a new venue
