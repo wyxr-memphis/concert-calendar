@@ -460,7 +460,7 @@ If no events found, return: []
 Extract all visible events for the target week, even if text is small."""
 
     message = client.messages.create(
-        model="claude-sonnet-4-5-20250929",
+        model="claude-sonnet-4-6",
         max_tokens=4096,
         messages=[
             {
