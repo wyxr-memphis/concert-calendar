@@ -411,9 +411,24 @@ def _extract_events_from_image(image_path: Path) -> List[Event]:
     if not ANTHROPIC_AVAILABLE:
         print(f"  Skipping {image_path.name}: anthropic library not installed")
         return []
-
-    # Optimize image if needed (resize/compress large images)
     image_bytes, media_type = _optimize_image(image_path)
+    return _run_vision_api(image_bytes, media_type, image_path.name)
+
+
+def extract_events_from_image_bytes(image_bytes: bytes, filename: str, media_type: str) -> List[Event]:
+    """Extract events from image bytes using Claude Vision API.
+
+    Public entry point for non-file-based callers (e.g. Slack image uploads).
+    """
+    if not ANTHROPIC_AVAILABLE:
+        print(f"  Skipping {filename}: anthropic library not installed")
+        return []
+    image_bytes, media_type = _optimize_image_bytes(image_bytes, media_type)
+    return _run_vision_api(image_bytes, media_type, filename)
+
+
+def _run_vision_api(image_bytes: bytes, media_type: str, filename: str) -> List[Event]:
+    """Call Claude Vision API on image bytes and return extracted events."""
     image_data = base64.standard_b64encode(image_bytes).decode("utf-8")
 
     client = anthropic.Anthropic()
@@ -479,10 +494,11 @@ Extract all visible events for the target week, even if text is small."""
         print(f"  Error: {str(e)[:80]}")
         return []
 
+    source_path = Path(filename)
     events = []
     for item in events_data:
         try:
-            event = _parse_vision_event(item, image_path)
+            event = _parse_vision_event(item, source_path)
             if event:
                 events.append(event)
         except Exception:
@@ -546,6 +562,36 @@ def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
         print(f"    Could not optimize {image_path.name}: {str(e)[:50]}")
         with open(image_path, "rb") as f:
             return f.read(), _get_media_type(image_path.suffix)
+
+
+def _optimize_image_bytes(image_bytes: bytes, media_type: str) -> Tuple[bytes, str]:
+    """Optimize image bytes for Claude vision API by resizing if too large."""
+    file_size_mb = len(image_bytes) / (1024 * 1024)
+
+    if file_size_mb < 3:
+        return image_bytes, media_type
+
+    if not PILLOW_AVAILABLE:
+        print(f"    Warning: image is {file_size_mb:.1f}MB but PIL not available for optimization")
+        return image_bytes, media_type
+
+    try:
+        img = Image.open(io.BytesIO(image_bytes))
+        original_size = img.size
+
+        if img.width > 1024 or img.height > 2048:
+            ratio = min(1024 / img.width, 2048 / img.height)
+            new_size = (int(img.width * ratio), int(img.height * ratio))
+            img = img.resize(new_size, Image.Resampling.LANCZOS)
+            print(f"    Resized image from {original_size} to {new_size}")
+
+        output = io.BytesIO()
+        img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
+        return output.getvalue(), "image/jpeg"
+
+    except Exception as e:
+        print(f"    Could not optimize image: {str(e)[:50]}")
+        return image_bytes, media_type
 
 
 def _get_media_type(suffix: str) -> str:

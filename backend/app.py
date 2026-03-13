@@ -12,9 +12,12 @@ Deploy on Render:
 """
 
 import base64
+import hashlib
+import hmac
 import json
 import os
 import re
+import threading
 import uuid
 from datetime import datetime
 
@@ -1109,6 +1112,217 @@ def admin_trigger_build():
         return jsonify({"ok": True, "message": "Build triggered"})
     else:
         return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+
+
+# ---------------------------------------------------------------------------
+# Slack Event Handler — image uploads → Claude Vision → DB insert → rebuild
+# ---------------------------------------------------------------------------
+
+_SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
+_SLACK_SIGNING_SECRET = os.environ.get("SLACK_SIGNING_SECRET", "")
+_SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
+
+
+def _verify_slack_signature(raw_body: str, headers) -> bool:
+    """Verify Slack request signature using HMAC-SHA256."""
+    if not _SLACK_SIGNING_SECRET:
+        return False
+
+    timestamp = headers.get("X-Slack-Request-Timestamp", "")
+    slack_sig = headers.get("X-Slack-Signature", "")
+
+    if not timestamp or not slack_sig:
+        return False
+
+    import time as _time
+    try:
+        if abs(_time.time() - float(timestamp)) > 300:
+            return False
+    except (ValueError, TypeError):
+        return False
+
+    sig_basestring = f"v0:{timestamp}:{raw_body}"
+    expected = "v0=" + hmac.new(
+        _SLACK_SIGNING_SECRET.encode(),
+        sig_basestring.encode(),
+        hashlib.sha256,
+    ).hexdigest()
+
+    return hmac.compare_digest(expected, slack_sig)
+
+
+def _slack_post_message(channel_id: str, text: str):
+    """Post a message to a Slack channel via chat.postMessage. Fails silently."""
+    if not _SLACK_BOT_TOKEN:
+        return
+    try:
+        http_requests.post(
+            "https://slack.com/api/chat.postMessage",
+            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+            json={"channel": channel_id, "text": text},
+            timeout=10,
+        )
+    except Exception:
+        pass
+
+
+def _process_slack_image(file_id: str, channel_id: str):
+    """Background thread: download Slack image, extract events via Claude Vision, save, rebuild."""
+    try:
+        # 1. Get file info
+        resp = http_requests.get(
+            "https://slack.com/api/files.info",
+            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+            params={"file": file_id},
+            timeout=10,
+        )
+        file_info = resp.json().get("file", {})
+        download_url = file_info.get("url_private_download") or file_info.get("url_private")
+        mimetype = file_info.get("mimetype", "image/jpeg")
+        filename = file_info.get("name", "slack_upload.jpg")
+
+        if not download_url:
+            _slack_post_message(channel_id, "⚠️ Could not retrieve image URL from Slack.")
+            return
+
+        if not mimetype.startswith("image/"):
+            return  # Not an image, ignore silently
+
+        # 2. Download the image
+        img_resp = http_requests.get(
+            download_url,
+            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+            timeout=30,
+        )
+        if img_resp.status_code != 200:
+            _slack_post_message(channel_id, "⚠️ Could not download image from Slack.")
+            return
+
+        image_bytes = img_resp.content
+
+        # 3. Extract events via Claude Vision
+        from src.sources.artifacts import extract_events_from_image_bytes
+        from src.config import START_DATE, SCRAPER_END_DATE
+        events = extract_events_from_image_bytes(image_bytes, filename, mimetype)
+
+        if not events:
+            _slack_post_message(
+                channel_id,
+                "⚠️ No events could be extracted from that image. Try the admin UI for manual entry.",
+            )
+            return
+
+        # 4. Filter to date range and skip duplicates already in DB
+        from backend.db import get_cursor
+        events_to_insert = []
+        for event in events:
+            if not (START_DATE <= event.date <= SCRAPER_END_DATE):
+                continue
+            with get_cursor() as cur:
+                cur.execute(
+                    """SELECT id FROM events
+                       WHERE LOWER(title) = LOWER(%s) AND LOWER(venue) = LOWER(%s) AND date = %s
+                       LIMIT 1""",
+                    (event.artist, event.venue, event.date.isoformat()),
+                )
+                if cur.fetchone():
+                    continue
+            events_to_insert.append(event)
+
+        if not events_to_insert:
+            _slack_post_message(
+                channel_id,
+                "⚠️ No new events found — all extracted events are already in the calendar.",
+            )
+            return
+
+        # 5. Insert into DB
+        event_dicts = []
+        for e in events_to_insert:
+            d = {
+                "title": e.artist,
+                "venue": e.venue,
+                "date": e.date.isoformat(),
+                "source": e.source or "Slack Image",
+                "is_active": True,
+                "is_featured": False,
+            }
+            if e.time:
+                d["start_time"] = e.time
+            event_dicts.append(d)
+
+        bulk_insert_events(event_dicts)
+
+        # 6. Trigger GitHub Actions rebuild
+        github_pat = os.environ.get("GITHUB_PAT", "")
+        github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+        build_triggered = False
+        if github_pat:
+            build_resp = http_requests.post(
+                f"https://api.github.com/repos/{github_repo}/actions/workflows/daily.yml/dispatches",
+                headers={
+                    "Authorization": f"Bearer {github_pat}",
+                    "Accept": "application/vnd.github.v3+json",
+                },
+                json={"ref": "main"},
+                timeout=10,
+            )
+            build_triggered = build_resp.status_code == 204
+
+        # 7. Post results back to Slack
+        n = len(events_to_insert)
+        lines = [f"✅ *{n} event{'s' if n != 1 else ''} added from image:*"]
+        for e in events_to_insert:
+            date_str = e.date.strftime("%a %b %-d")
+            lines.append(f"• {e.artist} — {e.venue} — {date_str}")
+        if build_triggered:
+            lines.append("\n📅 Calendar rebuild triggered — live in ~2 minutes")
+
+        _slack_post_message(channel_id, "\n".join(lines))
+
+    except Exception as exc:
+        print(f"[slack] Error processing image: {exc}", flush=True)
+        try:
+            _slack_post_message(channel_id, f"⚠️ Error processing image: {str(exc)[:100]}")
+        except Exception:
+            pass
+
+
+@app.route("/api/slack/events", methods=["POST"])
+def slack_events():
+    """Handle Slack event webhook (file uploads → Claude Vision → DB insert → rebuild)."""
+    raw_body = request.get_data(as_text=True)
+
+    try:
+        body = json.loads(raw_body) if raw_body else {}
+    except json.JSONDecodeError:
+        return jsonify({"error": "Invalid JSON"}), 400
+
+    # URL verification challenge (sent by Slack during app setup)
+    if body.get("type") == "url_verification":
+        return jsonify({"challenge": body.get("challenge")})
+
+    # Verify Slack request signature
+    if not _verify_slack_signature(raw_body, request.headers):
+        return jsonify({"error": "Invalid signature"}), 403
+
+    # Handle file_shared event
+    event = body.get("event", {})
+    if event.get("type") == "file_shared":
+        channel_id = event.get("channel_id") or event.get("channel")
+        file_id = event.get("file_id")
+
+        if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
+            return jsonify({"ok": True})  # Wrong channel, ignore
+
+        if file_id and channel_id:
+            threading.Thread(
+                target=_process_slack_image,
+                args=(file_id, channel_id),
+                daemon=True,
+            ).start()
+
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------------------
