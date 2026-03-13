@@ -481,6 +481,7 @@ Extract all visible events for the target week, even if text is small."""
     )
 
     response_text = message.content[0].text.strip()
+    print(f"  Vision response: {response_text[:300]}", flush=True)
 
     try:
         start = response_text.find("[")
@@ -494,6 +495,7 @@ Extract all visible events for the target week, even if text is small."""
         print(f"  Error: {str(e)[:80]}")
         return []
 
+    print(f"  Vision extracted {len(events_data)} raw items", flush=True)
     source_path = Path(filename)
     events = []
     for item in events_data:
@@ -501,7 +503,10 @@ Extract all visible events for the target week, even if text is small."""
             event = _parse_vision_event(item, source_path)
             if event:
                 events.append(event)
-        except Exception:
+            else:
+                print(f"  Skipped item (parse failed): {item}", flush=True)
+        except Exception as e:
+            print(f"  Exception on item {item}: {e}", flush=True)
             continue
 
     return events
