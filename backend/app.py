@@ -1313,14 +1313,20 @@ def slack_events():
 
     # Handle file_shared event — caption check happens inside background thread via files.info
     event = body.get("event", {})
-    if event.get("type") == "file_shared":
+    event_type = event.get("type")
+    print(f"[slack] event type={event_type} keys={list(event.keys())}", flush=True)
+
+    if event_type == "file_shared":
         channel_id = event.get("channel_id") or event.get("channel")
         file_id = event.get("file_id")
+        print(f"[slack] file_shared channel_id={channel_id} file_id={file_id} expected={_SLACK_CHANNEL_ID}", flush=True)
 
         if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
-            return jsonify({"ok": True})  # Wrong channel, ignore
+            print(f"[slack] ignoring — channel mismatch", flush=True)
+            return jsonify({"ok": True})
 
         if file_id and channel_id:
+            print(f"[slack] starting background thread for file {file_id}", flush=True)
             threading.Thread(
                 target=_process_slack_image,
                 args=(file_id, channel_id),
