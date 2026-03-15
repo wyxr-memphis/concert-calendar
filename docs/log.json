@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-03-15T06:06:46.345918+00:00",
+  "run_timestamp": "2026-03-15T17:21:38.052918+00:00",
   "date_range": {
     "start": "2026-03-15",
     "end": "2026-03-22"
@@ -11,9 +11,9 @@
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 5,
+      "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -35,25 +35,25 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
+      "events_found": 32,
       "events_after_filter": 32,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 19,
+      "events_found": 18,
       "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
