@@ -1,34 +1,34 @@
 {
-  "run_timestamp": "2026-03-14T17:20:41.523128+00:00",
+  "run_timestamp": "2026-03-15T06:06:46.345918+00:00",
   "date_range": {
-    "start": "2026-03-14",
-    "end": "2026-03-21"
+    "start": "2026-03-15",
+    "end": "2026-03-22"
   },
-  "total_events_db": 482,
-  "total_active_display": 129,
+  "total_events_db": 469,
+  "total_active_display": 123,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
+      "events_found": 5,
+      "events_after_filter": 4,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 10,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 91,
-      "events_after_filter": 75,
+      "events_found": 89,
+      "events_after_filter": 73,
       "events_filtered": 16,
       "error": null
     },
@@ -36,24 +36,24 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_after_filter": 32,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 19,
-      "events_after_filter": 19,
-      "events_filtered": 0,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 36,
+      "events_filtered": 66,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -83,8 +83,8 @@
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -99,25 +99,25 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 61,
-      "events_after_filter": 27,
-      "events_filtered": 34,
+      "events_found": 58,
+      "events_after_filter": 26,
+      "events_filtered": 32,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 141,
-      "events_after_filter": 10,
-      "events_filtered": 131,
+      "events_found": 142,
+      "events_after_filter": 15,
+      "events_filtered": 127,
       "error": null
     },
     {
@@ -131,175 +131,21 @@
     {
       "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 129,
-      "events_after_filter": 129,
+      "events_found": 123,
+      "events_after_filter": 123,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Circle Birds, Ultra Frog, The Narrows, Mistie Rae",
-      "venue": "Wiseacre Brewing Company (Downtown)",
-      "date": "2026-03-14",
-      "time": "5PM",
-      "source": "manual"
-    },
-    {
-      "artist": "ALT 72",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-14",
-      "time": "6 PM - 8 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Mic Harrison",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-14",
-      "time": "9:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Owlbear / Mic Harrison & The High Score / Ben Abney",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-14",
-      "time": "9 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Subteens + Heels",
-      "venue": "Bar DKDC",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "The Hot Sardines",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-14",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Christopher Cross",
-      "venue": "Graceland Soundstage",
-      "date": "2026-03-14",
-      "time": "8:00 PM",
-      "source": "Venue: Graceland Soundstage"
-    },
-    {
-      "artist": "KenTheMan",
-      "venue": "Growlers",
-      "date": "2026-03-14",
-      "time": "8:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-14",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Ryan Kidd and the Kobras w/The 714s & Three vs. Turnpike",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-14",
-      "time": "7:30PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Hashtronaut",
-      "venue": "Hi Tone",
-      "date": "2026-03-14",
-      "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Hashtronaut / Decoration Policy / Wagoneer [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Not Your Nails / DJ Dragonfly [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Generation X",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-14",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Seeing Red",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-14",
-      "time": "9 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Bingo Loco",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
-    },
-    {
-      "artist": "Peter Blunt System",
-      "venue": "Momma's",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "submission"
-    },
-    {
-      "artist": "Sky King",
-      "venue": "Momma's",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "submission"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Nashoba",
-      "date": "2026-03-14",
-      "time": "8 PM",
-      "source": "Venue: Nashoba"
-    },
-    {
-      "artist": "Bakithi Kumalo",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-14",
-      "time": "7:30 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Bakithi Kumalo and The South African All-Stars",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-14",
-      "time": null,
-      "source": "Venue: Orpheum Theatre"
-    },
-    {
-      "artist": "Diana Ross",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-14",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
     {
       "artist": "Fred Eaglesmith & Tif Ginn",
       "venue": "Hernando's Hideaway",
@@ -854,6 +700,13 @@
       "source": "submission"
     },
     {
+      "artist": "Uncle Sam",
+      "venue": "Neil\u2019s",
+      "date": "2026-03-20",
+      "time": "7 PM",
+      "source": "submission"
+    },
+    {
       "artist": "2 Birds 1 Stone, Izzy Robinson and Samantha Long",
       "venue": "South Main Sounds",
       "date": "2026-03-20",
@@ -922,6 +775,13 @@
       "date": "2026-03-21",
       "time": "Late",
       "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
+    },
+    {
+      "artist": "JOURNEY - Final Frontier Tour (An Evening With)",
+      "venue": "FedExForum",
+      "date": "2026-03-21",
+      "time": "7:30 PM",
+      "source": "Ticketmaster"
     },
     {
       "artist": "Wyly Bigger",
@@ -1048,6 +908,104 @@
       "date": "2026-03-21",
       "time": "9 PM",
       "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Obituary",
+      "venue": "1884 Lounge",
+      "date": "2026-03-22",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Aberrant / Nolan Void / Lyelack / El Chupazebras",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-22",
+      "time": "9 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "ABERRANT/ NOLAN VOID/ LYELACK/ EL CHUPAZERRAS",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-22",
+      "time": "9PM",
+      "source": "Artifacts (Instagram calendar)"
+    },
+    {
+      "artist": "Kafe Kirk: \u201cMEMPHIS SOUL STEW\u201d feat. Kenneth Whalum III with Jim Spake & Kirk Smothers",
+      "venue": "Crosstown Theater",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-22",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-22",
+      "time": null,
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Play Some Skynyrd",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-22",
+      "time": "5 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "San Salida, Robert Traxler, Neon Glittery",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-22",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
+    },
+    {
+      "artist": "San Salida, Robert Traxler, Neon Glittery",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-22",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Loflin Yard",
+      "date": "2026-03-22",
+      "time": "12:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Loflin Yard",
+      "date": "2026-03-22",
+      "time": "12:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Obituary: Out of the Swamp",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-22",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "The Grindhouse",
+      "venue": "Momma's",
+      "date": "2026-03-22",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Aaron English",
+      "venue": "Unity of Memphis",
+      "date": "2026-03-22",
+      "time": "10:30 AM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     }
   ]
 }
