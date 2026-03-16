@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-16T06:20:55.046112+00:00",
+  "run_timestamp": "2026-03-16T17:55:33.987863+00:00",
   "date_range": {
     "start": "2026-03-16",
     "end": "2026-03-23"
   },
-  "total_events_db": 453,
+  "total_events_db": 455,
   "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
@@ -52,25 +52,25 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 27,
-      "events_filtered": 3,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 9,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 35,
+      "events_filtered": 67,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -107,8 +107,8 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 15,
+      "events_after_filter": 15,
       "events_filtered": 0,
       "error": null
     },
