@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-15T17:21:38.052918+00:00",
+  "run_timestamp": "2026-03-16T06:20:55.046112+00:00",
   "date_range": {
-    "start": "2026-03-15",
-    "end": "2026-03-22"
+    "start": "2026-03-16",
+    "end": "2026-03-23"
   },
-  "total_events_db": 469,
-  "total_active_display": 123,
+  "total_events_db": 453,
+  "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 73,
+      "events_found": 88,
+      "events_after_filter": 72,
       "events_filtered": 16,
       "error": null
     },
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 27,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 36,
-      "events_filtered": 66,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -100,8 +100,8 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 58,
-      "events_after_filter": 26,
-      "events_filtered": 32,
+      "events_after_filter": 27,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -139,118 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 123,
-      "events_after_filter": 123,
+      "events_found": 110,
+      "events_after_filter": 110,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Fred Eaglesmith & Tif Ginn",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "time": "7:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Sunday Tea Dance with Rosami + Friends",
-      "venue": "Bar DKDC",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "Artifacts (Event listing)"
-    },
-    {
-      "artist": "Sunday Tea Dance with Rosamii + Friends",
-      "venue": "Bar DKDC",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "SOLD OUT \u2013 Will Graves and Soul: \u201cThat\u2019s the Way of the World\u201d, Tribute to Earth Wind & Fire",
-      "venue": "Crosstown Arts",
-      "date": "2026-03-15",
-      "time": "7:30 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-15",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Dale Watson",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "time": "3:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "time": "3:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Dale Watson",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-15",
-      "time": "3:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Permanent Disfigurement / Human Shield / Blood Channel[Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Huey's Millington",
-      "date": "2026-03-15",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Papa Don McMinn Musician Support Fund Benefit",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-15",
-      "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Freakshow Open Stage",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-15",
-      "time": "8:30 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
-    },
-    {
-      "artist": "Freakshow Open Stage",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-15",
-      "time": "8:30 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
-    },
-    {
-      "artist": "The Grindhouse",
-      "venue": "Momma's",
-      "date": "2026-03-15",
-      "time": null,
-      "source": "submission"
-    },
     {
       "artist": "JD Westmoreland Band",
       "venue": "B-Side Memphis",
@@ -1006,6 +901,20 @@
       "date": "2026-03-22",
       "time": "10:30 AM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-23",
+      "time": "10 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "Organ Fairchild [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-23",
+      "time": "8:00 PM",
+      "source": "Venue: Hi Tone"
     }
   ]
 }
