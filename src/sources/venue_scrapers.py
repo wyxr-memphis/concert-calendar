@@ -14,6 +14,7 @@ from ..models import Event, SourceResult
 from ..http_utils import get_with_retry
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
+    TICKETMASTER_API_KEY,
     normalize_venue_name, is_music_event,
 )
 from ..date_utils import parse_date_text
@@ -82,6 +83,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     name = venue_info["name"]
     url = venue_info["calendar_url"]
     result = SourceResult(source_name=f"Venue: {name}")
+    scraper_type = venue_info.get("scraper", "generic")
+
+    # Ticketmaster venue scraper — queries TM API by venue ID, no webpage fetch
+    if scraper_type == "ticketmaster_venue":
+        return _fetch_ticketmaster_venue(venue_info)
 
     try:
         response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
@@ -112,6 +118,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_south_main_sounds(soup, name)
         elif scraper_type == "landers":
             events = _parse_landers(soup, name)
+        elif scraper_type == "crosstown_arts":
+            events = _parse_crosstown_arts(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -140,6 +148,139 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         result.error_message = f"Parse error: {str(e)[:80]}"
 
     return result
+
+
+def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
+    """Fetch events from Ticketmaster API by venue ID."""
+    name = venue_info["name"]
+    venue_id = venue_info.get("ticketmaster_venue_id", "")
+    result = SourceResult(source_name=f"Venue: {name}")
+
+    if not TICKETMASTER_API_KEY or not venue_id:
+        result.success = False
+        result.error_message = "Missing TICKETMASTER_API_KEY or ticketmaster_venue_id"
+        return result
+
+    try:
+        params = {
+            "apikey": TICKETMASTER_API_KEY,
+            "venueId": venue_id,
+            "classificationName": "music",
+            "startDateTime": f"{START_DATE.isoformat()}T00:00:00Z",
+            "endDateTime": f"{SCRAPER_END_DATE.isoformat()}T23:59:59Z",
+            "size": 50,
+            "sort": "date,asc",
+        }
+        response = get_with_retry(
+            "https://app.ticketmaster.com/discovery/v2/events.json",
+            params=params,
+            timeout=15,
+        )
+        response.raise_for_status()
+        data = response.json()
+
+        events_data = data.get("_embedded", {}).get("events", [])
+        result.events_found = len(events_data)
+
+        for event_data in events_data:
+            try:
+                dates = event_data.get("dates", {}).get("start", {})
+                date_str = dates.get("localDate")
+                if not date_str:
+                    continue
+                event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+                if not (START_DATE <= event_date <= SCRAPER_END_DATE):
+                    result.events_filtered += 1
+                    continue
+
+                time_str = None
+                local_time = dates.get("localTime")
+                if local_time:
+                    try:
+                        t = datetime.strptime(local_time, "%H:%M:%S")
+                        time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+                    except ValueError:
+                        pass
+
+                result.events.append(Event(
+                    artist=event_data.get("name", "").strip(),
+                    venue=name,
+                    date=event_date,
+                    time=time_str,
+                    source=f"Venue: {name}",
+                    url=event_data.get("url"),
+                ))
+            except Exception:
+                continue
+
+        if result.events_found == 0:
+            result.error_message = "0 events from Ticketmaster for this venue"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Ticketmaster API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
+def _parse_crosstown_arts(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Crosstown Arts events — WordPress with The Events Calendar v6+.
+
+    The Events Calendar v6 uses new class names vs legacy v5. We also apply
+    is_music_event() because Crosstown's calendar mixes music and gallery events.
+    """
+    events = []
+
+    for article in soup.select("article.tribe-events-calendar-list__event"):
+        try:
+            title_el = article.select_one(".tribe-events-calendar-list__event-title-link")
+            if not title_el:
+                continue
+            title = title_el.get_text(strip=True)
+            if not title or not is_music_event(title, ""):
+                continue
+            # Crosstown's calendar includes film screenings — exclude them
+            if re.search(r'\bfilm\b', title, re.I):
+                continue
+
+            date_el = article.select_one("time.tribe-events-calendar-list__event-datetime")
+            if not date_el:
+                continue
+            dt_attr = date_el.get("datetime")
+            event_date = None
+            if dt_attr:
+                try:
+                    event_date = datetime.strptime(dt_attr[:10], "%Y-%m-%d").date()
+                except ValueError:
+                    pass
+            if not event_date:
+                event_date = parse_date_text(date_el.get_text(strip=True))
+            if not event_date:
+                continue
+
+            time_str = None
+            date_text = date_el.get_text(strip=True)
+            time_match = re.search(r"@\s*(\d{1,2}:\d{2}\s*[ap]m)", date_text, re.I)
+            if time_match:
+                time_str = time_match.group(1).strip()
+
+            url = title_el.get("href")
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
+        except Exception:
+            continue
+
+    return events
 
 
 def _try_jsonld(soup: BeautifulSoup, venue_name: str) -> List[Event]:

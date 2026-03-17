@@ -87,7 +87,7 @@ VENUES = {
         ],
         "neighborhood": "Crosstown/Broad Avenue",
         "calendar_url": "https://crosstownarts.org/calendar/",
-        "scraper": "generic",
+        "scraper": "crosstown_arts",
     },
     "lafayettes": {
         "name": "Lafayette's Music Room",
@@ -123,7 +123,8 @@ VENUES = {
         "aliases": ["fedexforum", "fedex forum"],
         "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://www.fedexforum.com/events",
-        "scraper": "generic",
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZpZAE6vlA",
     },
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",

@@ -7,14 +7,10 @@ Planning doc for upcoming features.
 ## Pending Fixes & New Sources
 
 ### Scrapers to Fix
-- **FedExForum** — generic scraper returning 0 events, page structure may have changed
-- **Overton Park Shell** — generic scraper returning 0 events (may be seasonal)
-- **Crosstown Arts** — generic scraper gets events but coverage is inconsistent
+- **Overton Park Shell** — scraper on hold; waiting for new season announcement
 
 ### New Venues to Add
-- **Lamplighter Lounge** — appears in Bandsintown data but not in VENUES config; need to determine scraping approach
 - **Beale Street venues** — Blues City Cafe, Rum Boogie Cafe, Silky O'Sullivan's, Alfred's on Beale (nightly live music, not currently tracked)
-- **Railgarten** — frequent outdoor shows, not currently tracked
 - **Loflin Yard** — live music events, not currently tracked
 - **Wiseacre Brewing** — hosts live music, not currently tracked
 - **The Halloran Centre** — currently an Orpheum alias but has its own event calendar
