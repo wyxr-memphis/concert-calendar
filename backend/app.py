@@ -951,7 +951,7 @@ def public_sponsors():
     today = date.today()
     sponsors = get_active_sponsors(today)
     resp = jsonify(serialize_list(sponsors))
-    resp.headers["Cache-Control"] = "public, max-age=1800"
+    resp.headers["Cache-Control"] = "public, max-age=120, stale-while-revalidate=300"
     return resp
 
 

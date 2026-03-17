@@ -21,6 +21,12 @@
       ]
     },
     {
+      "source": "/sponsors/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300" }
+      ]
+    },
+    {
       "source": "/(.*\\.(?:png|webp|jpg|jpeg|svg|ico))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }
