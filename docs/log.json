@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-17T06:02:34.648130+00:00",
+  "run_timestamp": "2026-03-17T17:54:11.949656+00:00",
   "date_range": {
     "start": "2026-03-17",
     "end": "2026-03-24"
   },
-  "total_events_db": 454,
+  "total_events_db": 455,
   "total_active_display": 119,
   "data_store": "postgresql",
   "sources": [
@@ -35,8 +35,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
