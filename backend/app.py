@@ -59,6 +59,12 @@ from backend.db import (
     update_submission_status,
     delete_submission,
     get_pending_submission_count,
+    get_active_sponsors,
+    get_all_sponsors,
+    get_sponsor_by_id,
+    create_sponsor,
+    update_sponsor,
+    delete_sponsor,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -932,6 +938,117 @@ def admin_scraper_status():
     """Get scraper status dashboard summary."""
     summary = get_scraper_status_summary()
     return jsonify(summary)
+
+
+# ---------------------------------------------------------------------------
+# Sponsor Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/sponsors", methods=["GET"])
+def public_sponsors():
+    """Get active sponsors for today (public, no auth)."""
+    from datetime import date
+    today = date.today()
+    sponsors = get_active_sponsors(today)
+    resp = jsonify(serialize_list(sponsors))
+    resp.headers["Cache-Control"] = "public, max-age=1800"
+    return resp
+
+
+@app.route("/api/admin/sponsors", methods=["GET"])
+@require_auth
+def admin_sponsors_list():
+    """List all sponsors for admin view."""
+    sponsors = get_all_sponsors()
+    return jsonify(serialize_list(sponsors))
+
+
+@app.route("/api/admin/sponsors", methods=["POST"])
+@require_auth
+def admin_sponsors_create():
+    """Create a new sponsor."""
+    body = request.get_json(silent=True) or {}
+    required = ["name", "image_url", "display_after_date", "start_date", "end_date"]
+    for field in required:
+        if not body.get(field):
+            return jsonify({"error": f"{field} is required"}), 400
+    sponsor = create_sponsor(body)
+    return jsonify(serialize_event(sponsor)), 201
+
+
+@app.route("/api/admin/sponsors/<sponsor_id>", methods=["PUT"])
+@require_auth
+def admin_sponsors_update(sponsor_id):
+    """Update a sponsor."""
+    body = request.get_json(silent=True) or {}
+    sponsor = get_sponsor_by_id(sponsor_id)
+    if not sponsor:
+        return jsonify({"error": "Sponsor not found"}), 404
+    updated = update_sponsor(sponsor_id, body)
+    return jsonify(serialize_event(updated))
+
+
+@app.route("/api/admin/sponsors/<sponsor_id>", methods=["DELETE"])
+@require_auth
+def admin_sponsors_delete(sponsor_id):
+    """Hard-delete a sponsor."""
+    sponsor = delete_sponsor(sponsor_id)
+    if not sponsor:
+        return jsonify({"error": "Sponsor not found"}), 404
+    return jsonify({"ok": True})
+
+
+@app.route("/api/admin/sponsors/upload-image", methods=["POST"])
+@require_auth
+def admin_sponsors_upload_image():
+    """Upload a sponsor image to docs/sponsors/ in GitHub repo."""
+    f = request.files.get("image")
+    if not f:
+        return jsonify({"error": "No image file provided"}), 400
+
+    filename = f.filename or ""
+    ext = os.path.splitext(filename)[1].lower()
+
+    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
+        return jsonify({"error": f"File type {ext} not allowed"}), 400
+
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+
+    if not github_pat:
+        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+
+    file_data = f.read()
+    safe_name = "".join(c for c in filename if c.isalnum() or c in ".-_ ").strip()
+    if not safe_name:
+        safe_name = f"sponsor_{uuid.uuid4().hex[:8]}{ext}"
+
+    github_path = f"docs/sponsors/{safe_name}"
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+
+    sha = None
+    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
+    if existing.status_code == 200:
+        sha = existing.json().get("sha")
+
+    put_data = {
+        "message": f"Upload sponsor image: {safe_name}",
+        "content": base64.b64encode(file_data).decode("ascii"),
+    }
+    if sha:
+        put_data["sha"] = sha
+
+    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
+
+    if resp.status_code in (200, 201):
+        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
+        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
+    else:
+        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
 
 
 # ---------------------------------------------------------------------------

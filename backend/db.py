@@ -138,6 +138,25 @@ def init_db():
             )
         """)
 
+    # Step 7: Create sponsors table
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS sponsors (
+              id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+              name TEXT NOT NULL,
+              image_url TEXT NOT NULL,
+              link_url TEXT,
+              display_after_date DATE NOT NULL,
+              start_date DATE NOT NULL,
+              end_date DATE NOT NULL,
+              is_active BOOLEAN DEFAULT true,
+              created_at TIMESTAMPTZ DEFAULT NOW(),
+              updated_at TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE INDEX IF NOT EXISTS idx_sponsors_dates ON sponsors (start_date, end_date)
+              WHERE is_active = true;
+        """)
+
     # Step 8: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
@@ -939,3 +958,92 @@ def get_pending_submission_count():
         cur.execute("SELECT COUNT(*) AS count FROM submissions WHERE status = 'pending'")
         row = cur.fetchone()
         return row["count"] if row else 0
+
+
+# ---------------------------------------------------------------------------
+# Sponsor queries
+# ---------------------------------------------------------------------------
+
+def get_active_sponsors(today=None):
+    """Get active sponsors whose date range includes today (or the given date)."""
+    if today is None:
+        from datetime import date as _date
+        today = _date.today()
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT * FROM sponsors
+               WHERE is_active = true
+                 AND start_date <= %s
+                 AND end_date >= %s
+               ORDER BY display_after_date, start_date""",
+            (today, today),
+        )
+        return cur.fetchall()
+
+
+def get_sponsors_for_rss(today=None, days=60):
+    """Get active sponsors whose range overlaps the next N days."""
+    from datetime import date as _date, timedelta
+    if today is None:
+        today = _date.today()
+    end = today + timedelta(days=days)
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT * FROM sponsors
+               WHERE is_active = true
+                 AND start_date <= %s
+                 AND end_date >= %s
+               ORDER BY start_date""",
+            (end, today),
+        )
+        return cur.fetchall()
+
+
+def get_all_sponsors():
+    """Get all sponsors for admin view, sorted by start_date desc."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM sponsors ORDER BY start_date DESC, created_at DESC")
+        return cur.fetchall()
+
+
+def get_sponsor_by_id(sponsor_id):
+    """Get a single sponsor by ID."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM sponsors WHERE id = %s", (sponsor_id,))
+        return cur.fetchone()
+
+
+def create_sponsor(data):
+    """Insert a new sponsor. Returns the created sponsor."""
+    fields = ["name", "image_url", "link_url", "display_after_date", "start_date", "end_date", "is_active"]
+    present = {k: data[k] for k in fields if k in data}
+    columns = ", ".join(present.keys())
+    placeholders = ", ".join(["%s"] * len(present))
+    query = f"INSERT INTO sponsors ({columns}) VALUES ({placeholders}) RETURNING *"
+    with get_cursor() as cur:
+        cur.execute(query, list(present.values()))
+        return cur.fetchone()
+
+
+def update_sponsor(sponsor_id, data):
+    """Update a sponsor. Returns updated sponsor."""
+    allowed = ["name", "image_url", "link_url", "display_after_date", "start_date", "end_date", "is_active"]
+    updates = {k: data[k] for k in allowed if k in data}
+    if not updates:
+        return get_sponsor_by_id(sponsor_id)
+
+    set_clauses = [f"{k} = %s" for k in updates]
+    set_clauses.append("updated_at = NOW()")
+    params = list(updates.values()) + [sponsor_id]
+
+    query = f"UPDATE sponsors SET {', '.join(set_clauses)} WHERE id = %s RETURNING *"
+    with get_cursor() as cur:
+        cur.execute(query, params)
+        return cur.fetchone()
+
+
+def delete_sponsor(sponsor_id):
+    """Hard-delete a sponsor."""
+    with get_cursor() as cur:
+        cur.execute("DELETE FROM sponsors WHERE id = %s RETURNING *", (sponsor_id,))
+        return cur.fetchone()

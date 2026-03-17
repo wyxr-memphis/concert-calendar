@@ -138,6 +138,25 @@
 
         /* Events List */
         .day-section { margin-bottom: 28px; }
+        .sponsor-callout {
+            margin: 1rem 0 2rem;
+            position: relative;
+            max-width: 500px;
+        }
+        .sponsor-callout .sponsor-label {
+            font-size: 0.65rem;
+            color: var(--wyxr-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .sponsor-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
         h2 {
             font-family: 'Anybody', sans-serif;
             font-size: 1em;
@@ -634,6 +653,7 @@
 
         // State
         let allEvents = [];
+        let allSponsors = [];
         let currentMonth = new Date().getMonth();
         let currentYear = new Date().getFullYear();
         let activeNeighborhood = 'all';
@@ -900,12 +920,17 @@
                 showEvents(cached);
             }
 
-            // 2. Fetch fresh data in background
+            // 2. Fetch fresh events + sponsors in parallel
             try {
-                const fresh = await fetchFreshEvents(false);
+                const [fresh, sponsors] = await Promise.all([
+                    fetchFreshEvents(false),
+                    fetch(`${API_BASE}/api/sponsors`).then(r => r.ok ? r.json() : []).catch(() => []),
+                ]);
+                allSponsors = Array.isArray(sponsors) ? sponsors : [];
                 const changed = JSON.stringify(fresh) !== JSON.stringify(allEvents);
                 setCachedEvents(fresh);
                 if (changed) showEvents(fresh);
+                else renderEvents(); // re-render to inject sponsor cards
             } catch (err) {
                 if (!cached || cached.length === 0) {
                     loadingState.textContent = 'Failed to load events. Please refresh.';
@@ -1120,8 +1145,8 @@
             eventCount.textContent = `${filtered.length} show${filtered.length !== 1 ? 's' : ''} in ${monthNames[currentMonth]} ${currentYear}`;
 
             if (filtered.length === 0) {
-                // Remove old day sections
-                eventList.querySelectorAll('.day-section').forEach(s => s.remove());
+                // Remove old day sections and sponsor callouts
+                eventList.querySelectorAll('.day-section, .sponsor-callout').forEach(s => s.remove());
                 eventList.querySelector('.no-events')?.remove();
                 const p = document.createElement('p');
                 p.className = 'no-events';
@@ -1132,7 +1157,7 @@
             }
 
             // Remove old content
-            eventList.querySelectorAll('.day-section, .no-events').forEach(s => s.remove());
+            eventList.querySelectorAll('.day-section, .no-events, .sponsor-callout').forEach(s => s.remove());
 
             // Group by date
             const byDate = {};
@@ -1217,6 +1242,18 @@
                 section.className = 'day-section';
                 section.innerHTML = `<h2>${dayName}</h2><ul>${eventLines}</ul>`;
                 eventList.appendChild(section);
+
+                // Inject sponsor callout after this date's section if any sponsor targets it
+                const daySponsors = allSponsors.filter(s => s.display_after_date === dateStr);
+                daySponsors.forEach(s => {
+                    const callout = document.createElement('div');
+                    callout.className = 'sponsor-callout';
+                    const imgHtml = s.link_url
+                        ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener"><img src="${esc(s.image_url)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy"></a>`
+                        : `<img src="${esc(s.image_url)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy">`;
+                    callout.innerHTML = `<span class="sponsor-label">Sponsored</span>${imgHtml}`;
+                    eventList.appendChild(callout);
+                });
             });
 
             renderPresentsSection();

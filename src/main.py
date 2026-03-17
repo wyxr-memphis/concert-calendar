@@ -307,6 +307,38 @@ def _load_active_events_from_db(start_date, end_date) -> List[dict]:
     return events
 
 
+def _load_sponsors_for_rss(days: int = 60) -> List[dict]:
+    """Load active sponsors whose date range overlaps the next N days."""
+    import psycopg2
+    import psycopg2.extras
+    from datetime import timedelta
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    today = date.today()
+    end = today + timedelta(days=days)
+    cur.execute(
+        """SELECT * FROM sponsors
+        WHERE is_active = true AND start_date <= %s AND end_date >= %s
+        ORDER BY start_date""",
+        (str(end), str(today)),
+    )
+    rows = cur.fetchall()
+    conn.close()
+
+    sponsors = []
+    for row in rows:
+        sponsors.append({
+            "id": str(row["id"]),
+            "name": row["name"] or "",
+            "image_url": row["image_url"] or "",
+            "link_url": row["link_url"],
+            "display_after_date": str(row["display_after_date"]),
+            "start_date": str(row["start_date"]),
+            "end_date": str(row["end_date"]),
+        })
+    return sponsors
+
+
 def _load_events_for_rss(days: int = 60) -> List[dict]:
     """Load active events for the next N days with all fields (for RSS feed)."""
     import psycopg2
@@ -509,11 +541,12 @@ def run(dry_run: bool = False) -> None:
     if use_db:
         try:
             rss_events = _load_events_for_rss(days=60)
-            rss_output = generate_rss(rss_events, run_timestamp)
+            rss_sponsors = _load_sponsors_for_rss(days=60)
+            rss_output = generate_rss(rss_events, run_timestamp, sponsors=rss_sponsors)
             rss_path = DOCS_DIR / "feed.xml"
             with open(rss_path, "w", encoding="utf-8") as f:
                 f.write(rss_output)
-            print(f"  Wrote {rss_path} ({len(rss_events)} events)")
+            print(f"  Wrote {rss_path} ({len(rss_events)} events, {len(rss_sponsors)} sponsors)")
         except Exception as e:
             print(f"  WARNING: Could not generate RSS feed: {e}")
 

@@ -72,3 +72,18 @@ CREATE TABLE IF NOT EXISTS dismissed_venue_names (
     name TEXT PRIMARY KEY,
     dismissed_at TIMESTAMPTZ DEFAULT NOW()
 );
+
+-- Sponsor callouts (promotional graphics shown inline in the calendar and RSS feed)
+CREATE TABLE IF NOT EXISTS sponsors (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name TEXT NOT NULL,
+  image_url TEXT NOT NULL,
+  link_url TEXT,
+  display_after_date DATE NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_sponsors_dates ON sponsors (start_date, end_date) WHERE is_active = true;

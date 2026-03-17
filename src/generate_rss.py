@@ -7,16 +7,22 @@ from typing import List
 from zoneinfo import ZoneInfo
 
 
-def generate_rss(events: List[dict], build_date: datetime) -> str:
+def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] = None) -> str:
     """Generate an RSS 2.0 XML feed from event dicts.
 
     Events should be dicts with all DB fields (title, venue, date,
     start_time, doors_time, ticket_url, ticket_price, image_url,
     description, genre, is_featured, is_wyxr_presents, etc.).
+
+    Sponsors (optional) are promotional callouts inserted as RSS items
+    with a Sponsored category and an enclosure for the image.
     """
     items_xml = []
     for event in events:
         items_xml.append(_render_item(event))
+
+    for sponsor in (sponsors or []):
+        items_xml.append(_render_sponsor_item(sponsor))
 
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -131,6 +137,50 @@ def _render_item(event: dict) -> str:
         f"{image_xml}\n"
         f"            <pubDate>{pub_date_str}</pubDate>\n"
         f'            <guid isPermaLink="false">wyxr-concert-{_esc(str(event_id))}</guid>\n'
+        "        </item>\n"
+    )
+
+
+def _render_sponsor_item(sponsor: dict) -> str:
+    """Render a sponsor callout as an RSS <item>."""
+    name = sponsor.get("name", "")
+    image_url = sponsor.get("image_url", "")
+    link_url = sponsor.get("link_url") or "https://concert-calendar.wyxr.org"
+    start_date = str(sponsor.get("start_date", ""))
+
+    pub_date_str = ""
+    try:
+        d = date.fromisoformat(start_date)
+        ct = ZoneInfo("America/Chicago")
+        pub_dt = datetime(d.year, d.month, d.day, 12, 0, 0, tzinfo=ct)
+        pub_date_str = format_datetime(pub_dt)
+    except (ValueError, TypeError):
+        pass
+
+    enclosure_xml = ""
+    if image_url:
+        enclosure_xml = (
+            f'\n            <enclosure url="{_esc(image_url)}"'
+            ' type="image/jpeg" length="0"/>'
+        )
+
+    sponsor_id = sponsor.get("id", name)
+
+    img_html = ""
+    if image_url:
+        img_html = f'<p><a href="{_esc(link_url)}"><img src="{_esc(image_url)}" style="max-width:100%;" /></a></p>'
+    content_html = f"<p><strong>Sponsored</strong></p><p>{_esc(name)}</p>{img_html}"
+
+    return (
+        "        <item>\n"
+        f"            <title>{_esc(name)}</title>\n"
+        f"            <link>{_esc(link_url)}</link>\n"
+        "            <category>Sponsored</category>\n"
+        f"            <description>{_esc(name)}</description>\n"
+        f"            <content:encoded><![CDATA[{content_html}]]></content:encoded>"
+        f"{enclosure_xml}\n"
+        f"            <pubDate>{pub_date_str}</pubDate>\n"
+        f'            <guid isPermaLink="false">wyxr-sponsor-{_esc(str(sponsor_id))}</guid>\n'
         "        </item>\n"
     )
 

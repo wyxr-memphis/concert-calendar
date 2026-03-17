@@ -916,6 +916,7 @@
             <button class="nav-tab active" data-tab="submissions" id="submissionsTab">Submissions</button>
             <button class="nav-tab" data-tab="events">Events</button>
             <button class="nav-tab" data-tab="venues">Venues</button>
+            <button class="nav-tab" data-tab="sponsors">Sponsors</button>
             <button class="nav-tab" data-tab="tools">Tools</button>
         </nav>
 
@@ -1026,6 +1027,87 @@
                         <tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
                     </tbody>
                 </table>
+            </div>
+
+            <!-- SPONSORS TAB -->
+            <div class="tab-content" id="tab-sponsors">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+                    <h2 style="font-size:1.1em;font-weight:700;">Sponsor Callouts</h2>
+                    <button class="btn-primary" id="addSponsorBtn">+ Add Sponsor</button>
+                </div>
+                <p style="font-size:0.85em;color:#666;margin-bottom:20px;">
+                    Sponsor cards appear inline between day sections in the public calendar and in the RSS feed.
+                    Set <strong>Display After Date</strong> to control placement — the card appears right after that date's event list.
+                </p>
+                <div class="status-bar" id="sponsorStatusBar"></div>
+                <table class="event-table" id="sponsorTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Display After</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th style="text-align:center;">Active</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="sponsorBody">
+                        <tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- Sponsor Edit Modal -->
+                <div id="sponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
+                    <div style="background:#fff;border-radius:8px;padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
+                        <h3 id="sponsorModalTitle" style="margin:0 0 20px;font-size:1.1em;font-weight:700;">Add Sponsor</h3>
+                        <div style="display:flex;flex-direction:column;gap:14px;">
+                            <div>
+                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Name (internal label)</label>
+                                <input type="text" id="sName" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="e.g. Minglewood April Promo">
+                            </div>
+                            <div>
+                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Image URL</label>
+                                <div style="display:flex;gap:8px;">
+                                    <input type="text" id="sImageUrl" style="flex:1;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                    <label style="cursor:pointer;">
+                                        <input type="file" id="sImageFile" accept="image/*" style="display:none">
+                                        <span class="btn-secondary" style="white-space:nowrap;padding:8px 12px;display:inline-block;">Upload</span>
+                                    </label>
+                                </div>
+                                <div id="sImagePreview" style="margin-top:8px;display:none;">
+                                    <img id="sPreviewImg" src="" alt="Preview" style="max-width:100%;max-height:200px;border-radius:4px;border:1px solid #eee;">
+                                </div>
+                            </div>
+                            <div>
+                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Link URL (optional)</label>
+                                <input type="text" id="sLinkUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                            </div>
+                            <div>
+                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Display After Date <span style="color:#888;font-weight:400;">(card appears after this date's events)</span></label>
+                                <input type="date" id="sDisplayAfterDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                            </div>
+                            <div style="display:flex;gap:12px;">
+                                <div style="flex:1;">
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start Date</label>
+                                    <input type="date" id="sStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                </div>
+                                <div style="flex:1;">
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End Date</label>
+                                    <input type="date" id="sEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;gap:8px;">
+                                <input type="checkbox" id="sIsActive" checked style="width:16px;height:16px;cursor:pointer;">
+                                <label for="sIsActive" style="font-size:0.9em;font-weight:600;cursor:pointer;">Active</label>
+                            </div>
+                        </div>
+                        <div id="sponsorModalError" style="display:none;margin-top:12px;padding:10px;background:#ffebee;color:#c62828;border-radius:4px;font-size:0.85em;"></div>
+                        <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
+                            <button class="btn-secondary" id="sponsorModalCancel">Cancel</button>
+                            <button class="btn-primary" id="sponsorModalSave">Save</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- TOOLS TAB -->
@@ -1153,7 +1235,7 @@
         // Handle hash navigation (for redirects and bookmarks)
         function handleHashChange() {
             const hash = window.location.hash.slice(1); // Remove #
-            if (hash === 'submissions' || hash === 'tools' || hash === 'events' || hash === 'venues') {
+            if (hash === 'submissions' || hash === 'tools' || hash === 'events' || hash === 'venues' || hash === 'sponsors') {
                 switchToTab(hash);
             }
         }
@@ -1955,6 +2037,208 @@
                 }
             } catch (err) {
                 showStatus('Error: ' + err.message, 'error', 'venueStatusBar');
+            }
+        });
+
+        // ========================================================================
+        // SPONSORS TAB FUNCTIONALITY
+        // ========================================================================
+
+        let allSponsorsAdmin = [];
+        let editingSponsorId = null;
+
+        document.querySelector('[data-tab="sponsors"]').addEventListener('click', () => {
+            loadSponsors();
+        });
+
+        async function loadSponsors() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/sponsors');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                allSponsorsAdmin = Array.isArray(data) ? data : [];
+                renderSponsorTable();
+            } catch (err) {
+                document.getElementById('sponsorBody').innerHTML =
+                    `<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Failed to load sponsors: ${esc(err.message)}</td></tr>`;
+            }
+        }
+
+        function renderSponsorTable() {
+            const tbody = document.getElementById('sponsorBody');
+            if (allSponsorsAdmin.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No sponsors yet. Click "+ Add Sponsor" to create one.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = allSponsorsAdmin.map(s => {
+                const activeBtn = s.is_active
+                    ? `<button class="toggle-btn" title="Deactivate" onclick="toggleSponsorActive('${s.id}', false)">✅</button>`
+                    : `<button class="toggle-btn" title="Activate" onclick="toggleSponsorActive('${s.id}', true)">⬜</button>`;
+                const thumb = s.image_url
+                    ? `<img src="${esc(s.image_url)}" style="height:32px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
+                    : '';
+                return `<tr style="${s.is_active ? '' : 'opacity:0.5;'}">
+                    <td>${thumb}${esc(s.name)}</td>
+                    <td>${esc(s.display_after_date || '')}</td>
+                    <td>${esc(s.start_date || '')}</td>
+                    <td>${esc(s.end_date || '')}</td>
+                    <td style="text-align:center;">${activeBtn}</td>
+                    <td style="white-space:nowrap;">
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;" onclick="openSponsorModal('${s.id}')">Edit</button>
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:#c62828;margin-left:4px;" onclick="deleteSponsor('${s.id}')">Delete</button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        async function toggleSponsorActive(id, isActive) {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/sponsors/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ is_active: isActive }),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                await loadSponsors();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'sponsorStatusBar');
+            }
+        }
+
+        async function deleteSponsor(id) {
+            const sponsor = allSponsorsAdmin.find(s => s.id === id);
+            if (!confirm(`Delete sponsor "${sponsor?.name || id}"? This cannot be undone.`)) return;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/sponsors/${id}`, { method: 'DELETE' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                showStatus('Sponsor deleted.', 'success', 'sponsorStatusBar');
+                await loadSponsors();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'sponsorStatusBar');
+            }
+        }
+
+        function openSponsorModal(id) {
+            editingSponsorId = id || null;
+            const modal = document.getElementById('sponsorModal');
+            const errorEl = document.getElementById('sponsorModalError');
+            errorEl.style.display = 'none';
+            document.getElementById('sponsorModalTitle').textContent = id ? 'Edit Sponsor' : 'Add Sponsor';
+
+            if (id) {
+                const s = allSponsorsAdmin.find(x => x.id === id);
+                if (s) {
+                    document.getElementById('sName').value = s.name || '';
+                    document.getElementById('sImageUrl').value = s.image_url || '';
+                    document.getElementById('sLinkUrl').value = s.link_url || '';
+                    document.getElementById('sDisplayAfterDate').value = s.display_after_date || '';
+                    document.getElementById('sStartDate').value = s.start_date || '';
+                    document.getElementById('sEndDate').value = s.end_date || '';
+                    document.getElementById('sIsActive').checked = s.is_active !== false;
+                    updateImagePreview(s.image_url);
+                }
+            } else {
+                document.getElementById('sName').value = '';
+                document.getElementById('sImageUrl').value = '';
+                document.getElementById('sLinkUrl').value = '';
+                document.getElementById('sDisplayAfterDate').value = '';
+                document.getElementById('sStartDate').value = '';
+                document.getElementById('sEndDate').value = '';
+                document.getElementById('sIsActive').checked = true;
+                updateImagePreview('');
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function updateImagePreview(url) {
+            const preview = document.getElementById('sImagePreview');
+            const img = document.getElementById('sPreviewImg');
+            if (url) {
+                img.src = url;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        document.getElementById('sImageUrl').addEventListener('input', function() {
+            updateImagePreview(this.value);
+        });
+
+        document.getElementById('sImageFile').addEventListener('change', async function() {
+            if (!this.files || !this.files[0]) return;
+            const file = this.files[0];
+            const saveBtn = document.getElementById('sponsorModalSave');
+            const errorEl = document.getElementById('sponsorModalError');
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Uploading...';
+            try {
+                const formData = new FormData();
+                formData.append('image', file);
+                const resp = await AdminAPI.apiFetch('/api/admin/sponsors/upload-image', { method: 'POST', body: formData });
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                document.getElementById('sImageUrl').value = data.image_url;
+                updateImagePreview(data.image_url);
+            } catch (err) {
+                errorEl.textContent = 'Upload failed: ' + err.message;
+                errorEl.style.display = 'block';
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save';
+            }
+        });
+
+        document.getElementById('sponsorModalCancel').addEventListener('click', () => {
+            document.getElementById('sponsorModal').style.display = 'none';
+        });
+
+        document.getElementById('addSponsorBtn').addEventListener('click', () => {
+            openSponsorModal(null);
+        });
+
+        document.getElementById('sponsorModalSave').addEventListener('click', async () => {
+            const errorEl = document.getElementById('sponsorModalError');
+            errorEl.style.display = 'none';
+
+            const body = {
+                name: document.getElementById('sName').value.trim(),
+                image_url: document.getElementById('sImageUrl').value.trim(),
+                link_url: document.getElementById('sLinkUrl').value.trim() || null,
+                display_after_date: document.getElementById('sDisplayAfterDate').value,
+                start_date: document.getElementById('sStartDate').value,
+                end_date: document.getElementById('sEndDate').value,
+                is_active: document.getElementById('sIsActive').checked,
+            };
+
+            if (!body.name || !body.image_url || !body.display_after_date || !body.start_date || !body.end_date) {
+                errorEl.textContent = 'Name, Image URL, Display After Date, Start Date, and End Date are required.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            const saveBtn = document.getElementById('sponsorModalSave');
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
+            try {
+                const url = editingSponsorId ? `/api/admin/sponsors/${editingSponsorId}` : '/api/admin/sponsors';
+                const method = editingSponsorId ? 'PUT' : 'POST';
+                const { resp, data } = await AdminAPI.apiJSON(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                document.getElementById('sponsorModal').style.display = 'none';
+                showStatus(editingSponsorId ? 'Sponsor updated.' : 'Sponsor created.', 'success', 'sponsorStatusBar');
+                await loadSponsors();
+            } catch (err) {
+                errorEl.textContent = 'Error: ' + err.message;
+                errorEl.style.display = 'block';
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save';
             }
         });
 
