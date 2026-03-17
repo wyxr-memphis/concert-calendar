@@ -1248,11 +1248,9 @@
                 daySponsors.forEach(s => {
                     const callout = document.createElement('div');
                     callout.className = 'sponsor-callout';
-                    // encodeURI preserves the URL structure but encodes spaces/special chars in the path
-                    const encodedImg = encodeURI(s.image_url);
                     const imgHtml = s.link_url
-                        ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener"><img src="${esc(encodedImg)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy"></a>`
-                        : `<img src="${esc(encodedImg)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy">`;
+                        ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener"><img src="${esc(s.image_url)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy"></a>`
+                        : `<img src="${esc(s.image_url)}" alt="${esc(s.name)}" class="sponsor-img" loading="lazy">`;
                     callout.innerHTML = `<span class="sponsor-label">Sponsored</span>${imgHtml}`;
                     eventList.appendChild(callout);
                 });

@@ -1018,10 +1018,14 @@ def admin_sponsors_upload_image():
     if not github_pat:
         return jsonify({"error": "GITHUB_PAT not configured"}), 500
 
+    import re as _re
     file_data = f.read()
-    safe_name = "".join(c for c in filename if c.isalnum() or c in ".-_ ").strip()
-    if not safe_name:
-        safe_name = f"sponsor_{uuid.uuid4().hex[:8]}{ext}"
+    # Sanitize: timestamp prefix + alphanumeric/hyphen only — no spaces or special chars
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    base = os.path.splitext(filename)[0]
+    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
+    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "sponsor"
+    safe_name = f"{ts}_{clean_base}{ext}"
 
     github_path = f"docs/sponsors/{safe_name}"
     api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
@@ -1045,9 +1049,7 @@ def admin_sponsors_upload_image():
     resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
 
     if resp.status_code in (200, 201):
-        from urllib.parse import quote
-        encoded_name = quote(safe_name)
-        image_url = f"https://concert-calendar.wyxr.org/sponsors/{encoded_name}"
+        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
         return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
     else:
         return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
