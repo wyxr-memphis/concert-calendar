@@ -1045,7 +1045,9 @@ def admin_sponsors_upload_image():
     resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
 
     if resp.status_code in (200, 201):
-        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
+        from urllib.parse import quote
+        encoded_name = quote(safe_name)
+        image_url = f"https://concert-calendar.wyxr.org/sponsors/{encoded_name}"
         return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
     else:
         return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
