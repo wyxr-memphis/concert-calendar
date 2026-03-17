@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-16T17:55:33.987863+00:00",
+  "run_timestamp": "2026-03-17T06:02:34.648130+00:00",
   "date_range": {
-    "start": "2026-03-16",
-    "end": "2026-03-23"
+    "start": "2026-03-17",
+    "end": "2026-03-24"
   },
-  "total_events_db": 455,
-  "total_active_display": 110,
+  "total_events_db": 454,
+  "total_active_display": 119,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 88,
-      "events_after_filter": 72,
+      "events_found": 87,
+      "events_after_filter": 71,
       "events_filtered": 16,
       "error": null
     },
@@ -75,8 +75,8 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
+      "events_found": 16,
+      "events_after_filter": 15,
       "events_filtered": 1,
       "error": null
     },
@@ -139,40 +139,19 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 119,
+      "events_after_filter": 119,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
     {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-16",
-      "time": "10 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-16",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "D RAG",
+      "artist": "Los Psychosis, Thought, Despera",
       "venue": "Lamplighter Lounge",
-      "date": "2026-03-16",
+      "date": "2026-03-17",
       "time": "9 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Monday)"
-    },
-    {
-      "artist": "MON\u2022D RAG",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-16",
-      "time": "9pm",
-      "source": "Artifacts (Handwritten schedule)"
+      "source": "Artifacts (Handwritten weekly schedule - Tuesday)"
     },
     {
       "artist": "Adult Tap Class",
@@ -196,13 +175,6 @@
       "source": "Artifacts (Handwritten schedule)"
     },
     {
-      "artist": "Los Psychosis, Thought, Despera",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-17",
-      "time": "9 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Tuesday)"
-    },
-    {
       "artist": "Writers in the Round",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-17",
@@ -222,6 +194,13 @@
       "date": "2026-03-17",
       "time": null,
       "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
+    },
+    {
+      "artist": "Opossums, Joe Glass, Barroloyo",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-18",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule - Wednesday, doors 8pm)"
     },
     {
       "artist": "Songwriter Series - Clay Ayers / Charles Cashion / Nathan Smith",
@@ -257,13 +236,6 @@
       "date": "2026-03-18",
       "time": null,
       "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Opossums, Joe Glass, Barroloyo",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-18",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Wednesday, doors 8pm)"
     },
     {
       "artist": "Hillbilly Mojo Duo",
@@ -596,7 +568,7 @@
     },
     {
       "artist": "Uncle Sam",
-      "venue": "Neil\u2019s",
+      "venue": "Neil's Music Room",
       "date": "2026-03-20",
       "time": "7 PM",
       "source": "submission"
@@ -805,6 +777,13 @@
       "source": "Venue: Nashoba"
     },
     {
+      "artist": "San Salida, Robert Traxler, Neon Glittery",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-22",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
+    },
+    {
       "artist": "Obituary",
       "venue": "1884 Lounge",
       "date": "2026-03-22",
@@ -854,20 +833,6 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
-      "artist": "San Salida, Robert Traxler, Neon Glittery",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-22",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
-    },
-    {
-      "artist": "San Salida, Robert Traxler, Neon Glittery",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-22",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Sunday)"
-    },
-    {
       "artist": "Brimstone Jones",
       "venue": "Loflin Yard",
       "date": "2026-03-22",
@@ -896,6 +861,13 @@
       "source": "submission"
     },
     {
+      "artist": "Baptist Health & Wellness Series: 901 Goats Presents Goat Yoga",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-22",
+      "time": "2:00\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
       "artist": "Aaron English",
       "venue": "Unity of Memphis",
       "date": "2026-03-22",
@@ -915,6 +887,97 @@
       "date": "2026-03-23",
       "time": "8:00 PM",
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-23",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Brendan Walter",
+      "venue": "1884 Lounge",
+      "date": "2026-03-24",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Brian Dolzani",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-24",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Brian Dolzani the Loner - Music of Neil Young",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-24",
+      "time": "8 PM - 9:30 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-24",
+      "time": "10 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-03-24",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Sound Fuzion",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-24",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Adult Tap Class",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-24",
+      "time": "10:00\u202fAM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-24",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Brendan Walter",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-24",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Robert Plant",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-24",
+      "time": "7:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Robert Plant with Saving Grace and Suzi Dian: Spring Fever 2026",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-24",
+      "time": null,
+      "source": "Venue: Orpheum Theatre"
+    },
+    {
+      "artist": "Rosie Flores",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-24",
+      "time": "7:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     }
   ]
 }
