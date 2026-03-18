@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-18T06:05:03.202706+00:00",
+  "run_timestamp": "2026-03-18T17:55:26.961502+00:00",
   "date_range": {
     "start": "2026-03-18",
     "end": "2026-03-25"
   },
-  "total_events_db": 467,
+  "total_events_db": 468,
   "total_active_display": 127,
   "data_store": "postgresql",
   "sources": [
@@ -35,8 +35,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 34,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 35,
+      "events_filtered": 67,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
