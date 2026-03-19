@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-19T06:00:43.497683+00:00",
+  "run_timestamp": "2026-03-19T17:49:45.284353+00:00",
   "date_range": {
     "start": "2026-03-19",
     "end": "2026-03-26"
   },
-  "total_events_db": 457,
-  "total_active_display": 138,
+  "total_events_db": 459,
+  "total_active_display": 137,
   "data_store": "postgresql",
   "sources": [
     {
@@ -35,8 +35,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 35,
-      "events_filtered": 67,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 138,
-      "events_after_filter": 138,
+      "events_found": 137,
+      "events_after_filter": 137,
       "events_filtered": 0,
       "error": null
     }
@@ -487,13 +487,6 @@
       "venue": "The Summit",
       "date": "2026-03-20",
       "time": "6:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Mike Doughty benefit for WYXR",
-      "venue": "First Congo Church",
-      "date": "2026-03-21",
-      "time": "7:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
