@@ -87,3 +87,19 @@ CREATE TABLE IF NOT EXISTS sponsors (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS idx_sponsors_dates ON sponsors (start_date, end_date) WHERE is_active = true;
+
+-- Calendar sponsor (single featured sponsor shown above the event list)
+CREATE TABLE IF NOT EXISTS calendar_sponsor (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name        TEXT NOT NULL,
+  image_url   TEXT NOT NULL,
+  link_url    TEXT,
+  copy_line   TEXT,
+  start_date  DATE NOT NULL,
+  end_date    DATE NOT NULL,
+  is_active   BOOLEAN DEFAULT true,
+  created_at  TIMESTAMPTZ DEFAULT NOW(),
+  updated_at  TIMESTAMPTZ DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_cal_sponsor_dates
+  ON calendar_sponsor (start_date, end_date) WHERE is_active = true;

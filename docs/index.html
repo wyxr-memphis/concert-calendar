@@ -232,117 +232,167 @@
             margin-bottom: 16px;
         }
 
-        /* Email Signup Banner */
-        .signup-banner {
-            background-color: #FFCF2D;
-            color: #000000;
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-            position: relative;
-            border-top: 3px solid #000;
-            border-bottom: 3px solid #000;
-            margin: 0 0 16px 0;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .signup-banner-text {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-        .signup-banner-headline {
+        /* Subscribe link (in header, next to Submit an Event) */
+        .subscribe-link {
+            display: inline-block;
+            margin-left: 10px;
+            padding: 8px 16px;
             font-family: 'Anybody', sans-serif;
-            font-weight: 800;
-            font-size: 22px;
-            line-height: 1.2;
+            font-size: 0.85em;
+            font-weight: 700;
+            color: var(--wyxr-gray);
+            border: 1px solid var(--wyxr-border);
+            border-radius: 4px;
+            text-decoration: none;
             text-transform: uppercase;
-            color: #000000;
+            letter-spacing: 0.03em;
+            transition: all 0.2s;
+            cursor: pointer;
+            background: none;
         }
-        .signup-banner-sub {
-            font-family: 'Inter', sans-serif;
-            font-weight: 400;
-            font-size: 14px;
-            color: #3D3B3E;
+        .subscribe-link:hover {
+            border-color: var(--wyxr-gray);
+            color: var(--wyxr-white);
         }
-        .signup-banner-form {
+        .header-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px auto 4px;
+        }
+
+        /* Subscribe modal */
+        .subscribe-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+        }
+        .subscribe-modal.open { display: flex; }
+        .subscribe-modal-card {
+            background: #1A1A1A;
+            border: 1px solid var(--wyxr-border);
+            border-radius: 8px;
+            padding: 28px 24px 24px;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+        .subscribe-modal-close {
+            position: absolute;
+            top: 12px; right: 14px;
+            background: none;
+            border: none;
+            color: var(--wyxr-gray);
+            font-size: 1.4em;
+            cursor: pointer;
+            line-height: 1;
+        }
+        .subscribe-modal-close:hover { color: var(--wyxr-white); }
+        .subscribe-modal-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.1em;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+        .subscribe-modal-sub {
+            font-size: 0.85em;
+            color: var(--wyxr-dim);
+            margin-bottom: 16px;
+        }
+        .subscribe-modal-form {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            flex: 1;
-            min-width: 280px;
+            gap: 10px;
         }
-        .signup-banner-input-row {
+        .subscribe-modal-input-row {
             display: flex;
             gap: 8px;
         }
-        .signup-banner-email {
+        .subscribe-modal-email {
             flex: 1;
-            background: #FFFFFF;
-            border: 2px solid #000000;
+            background: var(--wyxr-charcoal);
+            border: 1px solid var(--wyxr-border);
             border-radius: 4px;
-            padding: 10px 14px;
+            padding: 10px 12px;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #000000;
+            font-size: 0.9em;
+            color: var(--wyxr-white);
         }
-        .signup-banner-email:focus {
+        .subscribe-modal-email:focus {
             outline: none;
-            border-color: #000000;
-            box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+            border-color: var(--wyxr-yellow);
         }
-        .signup-banner-email::placeholder {
-            color: #999;
-        }
-        .signup-banner-submit {
-            background: #000000;
-            color: #FFCF2D;
+        .subscribe-modal-email::placeholder { color: var(--wyxr-dim); }
+        .subscribe-modal-submit {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
             border: none;
-            padding: 10px 20px;
+            padding: 10px 18px;
             font-family: 'Anybody', sans-serif;
             font-weight: 700;
-            font-size: 14px;
+            font-size: 0.85em;
             text-transform: uppercase;
             cursor: pointer;
+            border-radius: 4px;
             white-space: nowrap;
             transition: opacity 0.2s;
         }
-        .signup-banner-submit:hover {
-            opacity: 0.9;
-        }
-        .signup-banner-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-        .signup-banner-error {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
+        .subscribe-modal-submit:hover { opacity: 0.88; }
+        .subscribe-modal-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .subscribe-modal-error {
+            font-size: 0.8em;
             color: #F54F73;
-            margin: 0;
             min-height: 16px;
         }
-        .signup-banner-success {
-            background-color: #FFCF2D;
-            color: #000000;
-            padding: 20px 24px;
+        .subscribe-modal-success {
             text-align: center;
-            border-top: 3px solid #000;
-            border-bottom: 3px solid #000;
-            margin: 0 0 16px 0;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 16px;
+            padding: 12px 0 4px;
+            font-size: 0.95em;
+            color: var(--wyxr-white);
             line-height: 1.5;
+        }
+
+        /* Calendar Sponsor Banner */
+        #calendarSponsorBanner {
+            margin: 0 0 20px;
+            text-align: center;
+        }
+        .cal-sponsor-label {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--wyxr-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+        .cal-sponsor-img {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 600 / 120;
+            object-fit: cover;
+            border-radius: 4px;
+            margin: 0 auto;
+        }
+        .cal-sponsor-copy {
+            margin-top: 6px;
+            font-size: 0.8em;
+            color: var(--wyxr-dim);
+            font-style: italic;
         }
 
         /* Submit Event Button */
         .submit-event-link {
-            display: block;
+            display: inline-block;
             width: fit-content;
-            margin: 12px auto 4px;
             padding: 8px 20px;
             font-family: 'Anybody', sans-serif;
             font-size: 0.85em;
@@ -498,39 +548,6 @@
                 flex-shrink: 0;
             }
 
-            /* Signup banner - compact collapsed state */
-            .signup-banner {
-                padding: 12px 16px;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .signup-banner-text .signup-banner-sub,
-            .signup-banner-form {
-                display: none;
-            }
-            .signup-banner-headline::after {
-                content: ' — tap to sign up';
-                font-family: 'Inter', sans-serif;
-                font-weight: 400;
-                font-size: 13px;
-                opacity: 0.7;
-            }
-            .signup-banner.expanded {
-                padding: 16px;
-                padding-top: 36px;
-            }
-            .signup-banner.expanded .signup-banner-text .signup-banner-sub,
-            .signup-banner.expanded .signup-banner-form {
-                display: flex;
-            }
-            .signup-banner.expanded .signup-banner-headline::after {
-                display: none;
-            }
-            .signup-banner.success {
-                cursor: default;
-                padding: 10px 16px;
-            }
-
             /* Reduce header bottom margin */
             header {
                 margin-bottom: 0;
@@ -541,28 +558,6 @@
             .month-nav { gap: 8px; }
             .month-label { font-size: 0.95em; min-width: 150px; }
             .filter-bar { padding: 8px 0; }
-
-            /* Banner stacks on mobile when expanded */
-            .signup-banner.expanded .signup-banner-text {
-                width: 100%;
-            }
-            .signup-banner.expanded .signup-banner-headline {
-                font-size: 18px;
-            }
-            .signup-banner.expanded .signup-banner-sub {
-                font-size: 13px;
-            }
-            .signup-banner.expanded .signup-banner-form {
-                width: 100%;
-                min-width: unset;
-            }
-            .signup-banner.expanded .signup-banner-input-row {
-                flex-direction: column;
-            }
-            .signup-banner.expanded .signup-banner-email,
-            .signup-banner.expanded .signup-banner-submit {
-                width: 100%;
-            }
         }
 
         @media (max-width: 360px) {
@@ -595,27 +590,31 @@
             <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
             <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
         </picture>
-        <a href="/submit" class="submit-event-link">Submit an Event</a>
+        <div class="header-links">
+            <a href="/submit" class="submit-event-link">Submit an Event</a>
+            <button class="subscribe-link" id="subscribeBtn" type="button">📧 Subscribe</button>
+        </div>
     </header>
 
-    <!-- Email Signup Banner -->
-    <div class="signup-banner" id="wyxr-signup-banner">
-        <div class="signup-banner-text">
-            <span class="signup-banner-headline">📬 Never miss a Memphis show.</span>
-            <span class="signup-banner-sub">Weekly picks from WYXR DJs — free, every week.</span>
-        </div>
-        <div class="signup-banner-form">
-            <div class="signup-banner-input-row">
-                <input
-                    type="email"
-                    class="signup-banner-email"
-                    id="signup-email"
-                    placeholder="your@email.com"
-                    aria-label="Email address for WYXR weekly picks"
-                />
-                <button class="signup-banner-submit" type="button" id="signup-submit">Get the List</button>
+    <!-- Subscribe Modal -->
+    <div class="subscribe-modal" id="subscribeModal" role="dialog" aria-modal="true" aria-label="Subscribe to WYXR weekly picks">
+        <div class="subscribe-modal-card">
+            <button class="subscribe-modal-close" id="subscribeModalClose" aria-label="Close">✕</button>
+            <p class="subscribe-modal-title">📬 Never miss a Memphis show.</p>
+            <p class="subscribe-modal-sub">Weekly picks from WYXR DJs — free, every week.</p>
+            <div class="subscribe-modal-form" id="subscribeForm">
+                <div class="subscribe-modal-input-row">
+                    <input
+                        type="email"
+                        class="subscribe-modal-email"
+                        id="subscribe-email"
+                        placeholder="your@email.com"
+                        aria-label="Email address for WYXR weekly picks"
+                    />
+                    <button class="subscribe-modal-submit" type="button" id="subscribe-submit">Get the List</button>
+                </div>
+                <p class="subscribe-modal-error" id="subscribe-error" aria-live="polite"></p>
             </div>
-            <p class="signup-banner-error" id="signup-error" aria-live="polite"></p>
         </div>
     </div>
 
@@ -628,6 +627,15 @@
         <div class="chip-row" id="chipRow">
             <button class="chip active" data-neighborhood="all">All</button>
         </div>
+    </div>
+
+    <!-- Calendar Sponsor Banner -->
+    <div id="calendarSponsorBanner" style="display:none;">
+        <span class="cal-sponsor-label">Presented by</span>
+        <a id="calSponsorLink" href="#" target="_blank" rel="noopener sponsored">
+            <img id="calSponsorImg" src="" alt="" class="cal-sponsor-img" loading="eager">
+        </a>
+        <p id="calSponsorCopy" class="cal-sponsor-copy"></p>
     </div>
 
     <div class="loading-state" id="loadingState">Loading events...</div>
@@ -654,6 +662,7 @@
         // State
         let allEvents = [];
         let allSponsors = [];
+        let calendarSponsor = null;
         let currentMonth = new Date().getMonth();
         let currentYear = new Date().getFullYear();
         let activeNeighborhood = 'all';
@@ -678,59 +687,66 @@
         const eventCount = document.getElementById('eventCount');
         const loadingState = document.getElementById('loadingState');
 
-        // ---- Email Signup Banner ----
-        (function initSignupBanner() {
-            const banner = document.getElementById('wyxr-signup-banner');
-            const emailInput = document.getElementById('signup-email');
-            const submitBtn = document.getElementById('signup-submit');
-            const errorMsg = document.getElementById('signup-error');
+        // ---- Subscribe Modal ----
+        (function initSubscribeModal() {
+            const modal = document.getElementById('subscribeModal');
+            const openBtn = document.getElementById('subscribeBtn');
+            const closeBtn = document.getElementById('subscribeModalClose');
+            const emailInput = document.getElementById('subscribe-email');
+            const submitBtn = document.getElementById('subscribe-submit');
+            const errorMsg = document.getElementById('subscribe-error');
+            const form = document.getElementById('subscribeForm');
 
-            if (!banner) return;
+            if (!modal || !openBtn) return;
 
-            // Show success state if previously submitted
+            // If already subscribed, hide the button or show checkmark
             if (sessionStorage.getItem('wyxr_signup_banner_success')) {
-                showSuccessState();
+                openBtn.textContent = '✓ Subscribed';
+                openBtn.disabled = true;
+                openBtn.style.opacity = '0.5';
                 return;
             }
 
-            // Email validation
+            function openModal() {
+                modal.classList.add('open');
+                setTimeout(() => emailInput && emailInput.focus(), 50);
+            }
+
+            function closeModal() {
+                modal.classList.remove('open');
+            }
+
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeModal();
+            });
+
             function isValidEmail(email) {
                 return email.includes('@') && email.includes('.') && email.length > 5;
             }
 
-            // Strip HTML tags from Mailchimp error messages
-            function stripHtml(html) {
-                const tmp = document.createElement('div');
-                tmp.innerHTML = html;
-                return tmp.textContent || tmp.innerText || '';
-            }
-
-            // Submit to Mailchimp via hidden iframe (standard embedded form method)
             function submitToMailchimp(email) {
-                console.log('[Mailchimp] Starting submission for:', email);
-
                 return new Promise((resolve, reject) => {
-                    // Create hidden iframe for form submission
                     const iframe = document.createElement('iframe');
                     iframe.name = 'mailchimp-signup-iframe';
                     iframe.style.display = 'none';
                     document.body.appendChild(iframe);
 
-                    // Create form
-                    const form = document.createElement('form');
-                    form.action = 'https://wyxr.us19.list-manage.com/subscribe/post';
-                    form.method = 'POST';
-                    form.target = 'mailchimp-signup-iframe';
+                    const formEl = document.createElement('form');
+                    formEl.action = 'https://wyxr.us19.list-manage.com/subscribe/post';
+                    formEl.method = 'POST';
+                    formEl.target = 'mailchimp-signup-iframe';
 
-                    console.log('[Mailchimp] Form action:', form.action);
-
-                    // Add form fields
                     const fields = {
                         'u': '47895ac8529b378064f16c794',
                         'id': 'b1e96a041d',
                         'f_id': '008334e7f0',
                         'EMAIL': email,
-                        'b_47895ac8529b378064f16c794_b1e96a041d': '' // Bot honeypot field
+                        'b_47895ac8529b378064f16c794_b1e96a041d': ''
                     };
 
                     Object.entries(fields).forEach(([name, value]) => {
@@ -738,105 +754,67 @@
                         input.type = 'hidden';
                         input.name = name;
                         input.value = value;
-                        form.appendChild(input);
+                        formEl.appendChild(input);
                     });
 
-                    document.body.appendChild(form);
+                    document.body.appendChild(formEl);
 
-                    // Handle iframe load (success or error from Mailchimp)
                     iframe.onload = function() {
-                        console.log('[Mailchimp] Iframe loaded');
                         try {
                             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
                             const bodyText = iframeDoc.body.textContent || iframeDoc.body.innerText || '';
-                            console.log('[Mailchimp] Response text:', bodyText.substring(0, 200));
-
-                            // Check for success indicators
-                            if (bodyText.toLowerCase().includes('thank') ||
-                                bodyText.toLowerCase().includes('almost finished') ||
-                                bodyText.toLowerCase().includes('check your email')) {
-                                console.log('[Mailchimp] Success detected');
-                                resolve('Success! Check your email to confirm your subscription.');
-                            }
-                            // Check for already subscribed
-                            else if (bodyText.toLowerCase().includes('already subscribed') ||
-                                     bodyText.toLowerCase().includes('is already a list member')) {
-                                console.log('[Mailchimp] Already subscribed detected');
+                            if (bodyText.toLowerCase().includes('already subscribed') ||
+                                bodyText.toLowerCase().includes('is already a list member')) {
                                 resolve('already_subscribed');
-                            }
-                            // Otherwise assume success (can't read iframe due to CORS)
-                            else {
-                                console.log('[Mailchimp] No clear response, assuming success');
-                                // Assume success if no error detected
-                                resolve('Success! Check your email to confirm your subscription.');
+                            } else {
+                                resolve('success');
                             }
                         } catch (e) {
-                            console.log('[Mailchimp] CORS error (expected), assuming success:', e.message);
-                            // CORS prevents reading iframe content - assume success
-                            resolve('Success! Check your email to confirm your subscription.');
+                            resolve('success');
                         }
-
-                        // Cleanup
-                        setTimeout(() => {
-                            form.remove();
-                            iframe.remove();
-                        }, 1000);
+                        setTimeout(() => { formEl.remove(); iframe.remove(); }, 1000);
                     };
 
-                    // Handle timeout
-                    setTimeout(() => {
-                        reject('Request timed out. Please try again.');
-                    }, 10000);
-
-                    // Submit form
-                    form.submit();
+                    setTimeout(() => reject('Request timed out. Please try again.'), 10000);
+                    formEl.submit();
                 });
             }
 
-            // Show success state
-            function showSuccessState(message) {
-                const successMsg = message || "✅ You're on the list! Check your inbox for this week's Memphis picks.";
-                banner.innerHTML = `<p class="signup-banner-success">${successMsg}</p>`;
+            function showSuccess(message) {
+                form.innerHTML = `<p class="subscribe-modal-success">${message}</p>`;
                 sessionStorage.setItem('wyxr_signup_banner_success', '1');
+                openBtn.textContent = '✓ Subscribed';
+                openBtn.disabled = true;
+                openBtn.style.opacity = '0.5';
             }
 
-            // Form submission
             async function handleSubmit(e) {
                 e.preventDefault();
                 const email = emailInput.value.trim();
-
-                // Clear previous errors
                 errorMsg.textContent = '';
 
-                // Validate email
                 if (!isValidEmail(email)) {
                     errorMsg.textContent = '⚠ Please enter a valid email address.';
                     emailInput.focus();
                     return;
                 }
 
-                // Disable form during submission
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Submitting...';
 
                 try {
                     const response = await submitToMailchimp(email);
-
-                    // Handle "already subscribed" response
                     if (response === 'already_subscribed') {
-                        showSuccessState("✅ You're already on the list! 🎶");
+                        showSuccess("✅ You're already on the list! 🎶");
                     } else {
-                        showSuccessState();
+                        showSuccess("✅ You're on the list! Check your inbox for this week's Memphis picks.");
                     }
                 } catch (error) {
-                    const errorText = typeof error === 'string' ? stripHtml(error) : error.toString();
-
-                    // Handle "already subscribed" as success
+                    const errorText = typeof error === 'string' ? error : error.toString();
                     if (errorText.toLowerCase().includes('already subscribed') ||
                         errorText.toLowerCase().includes('is already a list member')) {
-                        showSuccessState("✅ You're already on the list! 🎶");
+                        showSuccess("✅ You're already on the list! 🎶");
                     } else {
-                        // Show actual error
                         errorMsg.textContent = errorText || 'Something went wrong. Please try again.';
                         submitBtn.disabled = false;
                         submitBtn.textContent = 'Get the List';
@@ -844,36 +822,9 @@
                 }
             }
 
-            // Event listeners
             submitBtn.addEventListener('click', handleSubmit);
             emailInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    handleSubmit(e);
-                }
-            });
-        })();
-
-        // ---- Mobile Banner Expand/Collapse ----
-        (function initMobileBannerToggle() {
-            // Only attach on mobile
-            if (window.innerWidth > 768) return;
-
-            const banner = document.getElementById('wyxr-signup-banner');
-            if (!banner) return;
-
-            // Skip if already successful (banner won't be in collapsed state)
-            if (sessionStorage.getItem('wyxr_signup_banner_success')) return;
-
-            // Expand when tapping banner (but not the submit button or input)
-            banner.addEventListener('click', (e) => {
-                // Don't expand if clicking input or button
-                if (e.target.closest('.signup-banner-email')) return;
-                if (e.target.closest('.signup-banner-submit')) return;
-
-                // Expand banner
-                if (!banner.classList.contains('expanded')) {
-                    banner.classList.add('expanded');
-                }
+                if (e.key === 'Enter') handleSubmit(e);
             });
         })();
 
@@ -892,6 +843,33 @@
             try {
                 localStorage.setItem(CACHE_KEY, JSON.stringify(events));
             } catch { /* quota exceeded — ignore */ }
+        }
+
+        function renderCalendarSponsor() {
+            const banner = document.getElementById('calendarSponsorBanner');
+            if (!banner) return;
+            if (!calendarSponsor) {
+                banner.style.display = 'none';
+                return;
+            }
+            const link = document.getElementById('calSponsorLink');
+            const img = document.getElementById('calSponsorImg');
+            const copy = document.getElementById('calSponsorCopy');
+            if (calendarSponsor.link_url) {
+                link.href = calendarSponsor.link_url;
+            } else {
+                link.removeAttribute('href');
+                link.style.cursor = 'default';
+            }
+            img.src = calendarSponsor.image_url;
+            img.alt = calendarSponsor.name || 'Calendar Sponsor';
+            if (calendarSponsor.copy_line) {
+                copy.textContent = calendarSponsor.copy_line;
+                copy.style.display = 'block';
+            } else {
+                copy.style.display = 'none';
+            }
+            banner.style.display = 'block';
         }
 
         function showEvents(events) {
@@ -920,13 +898,16 @@
                 showEvents(cached);
             }
 
-            // 2. Fetch fresh events + sponsors in parallel
+            // 2. Fetch fresh events + sponsors + calendar sponsor in parallel
             try {
-                const [fresh, sponsors] = await Promise.all([
+                const [fresh, sponsors, calSponsor] = await Promise.all([
                     fetchFreshEvents(false),
                     fetch(`${API_BASE}/api/sponsors`).then(r => r.ok ? r.json() : []).catch(() => []),
+                    fetch(`${API_BASE}/api/calendar-sponsor`).then(r => r.ok ? r.json() : null).catch(() => null),
                 ]);
                 allSponsors = Array.isArray(sponsors) ? sponsors : [];
+                calendarSponsor = (calSponsor && calSponsor.id) ? calSponsor : null;
+                renderCalendarSponsor();
                 const changed = JSON.stringify(fresh) !== JSON.stringify(allEvents);
                 setCachedEvents(fresh);
                 if (changed) showEvents(fresh);

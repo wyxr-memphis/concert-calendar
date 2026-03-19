@@ -157,7 +157,26 @@ def init_db():
               WHERE is_active = true;
         """)
 
-    # Step 8: Seed venues if table is empty
+    # Step 8: Create calendar_sponsor table
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS calendar_sponsor (
+              id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+              name        TEXT NOT NULL,
+              image_url   TEXT NOT NULL,
+              link_url    TEXT,
+              copy_line   TEXT,
+              start_date  DATE NOT NULL,
+              end_date    DATE NOT NULL,
+              is_active   BOOLEAN DEFAULT true,
+              created_at  TIMESTAMPTZ DEFAULT NOW(),
+              updated_at  TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE INDEX IF NOT EXISTS idx_cal_sponsor_dates
+              ON calendar_sponsor (start_date, end_date) WHERE is_active = true;
+        """)
+
+    # Step 9: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
@@ -1046,4 +1065,76 @@ def delete_sponsor(sponsor_id):
     """Hard-delete a sponsor."""
     with get_cursor() as cur:
         cur.execute("DELETE FROM sponsors WHERE id = %s RETURNING *", (sponsor_id,))
+        return cur.fetchone()
+
+
+# ---------------------------------------------------------------------------
+# Calendar sponsor queries
+# ---------------------------------------------------------------------------
+
+def get_active_calendar_sponsor(today=None):
+    """Get the single active calendar sponsor for today, or None."""
+    if today is None:
+        from datetime import date as _date
+        today = _date.today()
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT * FROM calendar_sponsor
+               WHERE is_active = true
+                 AND start_date <= %s
+                 AND end_date >= %s
+               ORDER BY start_date DESC
+               LIMIT 1""",
+            (today, today),
+        )
+        return cur.fetchone()
+
+
+def get_all_calendar_sponsors():
+    """Get all calendar sponsors for admin view."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM calendar_sponsor ORDER BY start_date DESC, created_at DESC")
+        return cur.fetchall()
+
+
+def get_calendar_sponsor_by_id(sponsor_id):
+    """Get a single calendar sponsor by ID."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM calendar_sponsor WHERE id = %s", (sponsor_id,))
+        return cur.fetchone()
+
+
+def create_calendar_sponsor(data):
+    """Insert a new calendar sponsor. Returns the created row."""
+    fields = ["name", "image_url", "link_url", "copy_line", "start_date", "end_date", "is_active"]
+    present = {k: data[k] for k in fields if k in data}
+    columns = ", ".join(present.keys())
+    placeholders = ", ".join(["%s"] * len(present))
+    query = f"INSERT INTO calendar_sponsor ({columns}) VALUES ({placeholders}) RETURNING *"
+    with get_cursor() as cur:
+        cur.execute(query, list(present.values()))
+        return cur.fetchone()
+
+
+def update_calendar_sponsor(sponsor_id, data):
+    """Update a calendar sponsor. Returns the updated row."""
+    allowed = ["name", "image_url", "link_url", "copy_line", "start_date", "end_date", "is_active"]
+    updates = {k: data[k] for k in allowed if k in data}
+    if not updates:
+        return get_calendar_sponsor_by_id(sponsor_id)
+
+    set_clauses = [f"{k} = %s" for k in updates]
+    set_clauses.append("updated_at = NOW()")
+    params = list(updates.values()) + [sponsor_id]
+
+    query = f"UPDATE calendar_sponsor SET {', '.join(set_clauses)} WHERE id = %s RETURNING *"
+    with get_cursor() as cur:
+        cur.execute(query, params)
+        return cur.fetchone()
+
+
+def delete_calendar_sponsor(sponsor_id):
+    """Hard-delete a calendar sponsor."""
+    with get_cursor() as cur:
+        cur.execute("DELETE FROM calendar_sponsor WHERE id = %s RETURNING *", (sponsor_id,))
         return cur.fetchone()

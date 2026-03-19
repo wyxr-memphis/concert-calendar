@@ -28,6 +28,7 @@ import requests as http_requests
 
 from backend.db import (
     init_db,
+    get_cursor,
     get_active_events,
     get_event_by_id,
     get_all_events,
@@ -65,6 +66,12 @@ from backend.db import (
     create_sponsor,
     update_sponsor,
     delete_sponsor,
+    get_active_calendar_sponsor,
+    get_all_calendar_sponsors,
+    get_calendar_sponsor_by_id,
+    create_calendar_sponsor,
+    update_calendar_sponsor,
+    delete_calendar_sponsor,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1048,6 +1055,135 @@ def admin_sponsors_upload_image():
 
     resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
 
+    if resp.status_code in (200, 201):
+        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
+        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
+    else:
+        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+
+
+# ---------------------------------------------------------------------------
+# Calendar Sponsor Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/calendar-sponsor", methods=["GET"])
+def public_calendar_sponsor():
+    """Get the active calendar sponsor for today (public, no auth)."""
+    from datetime import date
+    today = date.today()
+    sponsor = get_active_calendar_sponsor(today)
+    resp = jsonify(serialize_event(sponsor) if sponsor else {})
+    resp.headers["Cache-Control"] = "public, max-age=120, stale-while-revalidate=300"
+    return resp
+
+
+@app.route("/api/admin/calendar-sponsor", methods=["GET"])
+@require_auth
+def admin_calendar_sponsor_list():
+    """List all calendar sponsors for admin view."""
+    sponsors = get_all_calendar_sponsors()
+    return jsonify(serialize_list(sponsors))
+
+
+@app.route("/api/admin/calendar-sponsor", methods=["POST"])
+@require_auth
+def admin_calendar_sponsor_create():
+    """Create a new calendar sponsor. Returns 409 if date range overlaps an existing active record."""
+    body = request.get_json(silent=True) or {}
+    required = ["name", "image_url", "start_date", "end_date"]
+    for field in required:
+        if not body.get(field):
+            return jsonify({"error": f"{field} is required"}), 400
+
+    # Singleton enforcement: check for overlapping active records
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT id, name FROM calendar_sponsor
+               WHERE is_active = true
+                 AND start_date <= %s
+                 AND end_date >= %s""",
+            (body["end_date"], body["start_date"]),
+        )
+        overlap = cur.fetchone()
+    if overlap:
+        return jsonify({"error": f"Date range overlaps existing active sponsor \"{overlap['name']}\". Deactivate or delete it first."}), 409
+
+    sponsor = create_calendar_sponsor(body)
+    return jsonify(serialize_event(sponsor)), 201
+
+
+@app.route("/api/admin/calendar-sponsor/<sponsor_id>", methods=["PUT"])
+@require_auth
+def admin_calendar_sponsor_update(sponsor_id):
+    """Update a calendar sponsor."""
+    body = request.get_json(silent=True) or {}
+    sponsor = get_calendar_sponsor_by_id(sponsor_id)
+    if not sponsor:
+        return jsonify({"error": "Calendar sponsor not found"}), 404
+    updated = update_calendar_sponsor(sponsor_id, body)
+    return jsonify(serialize_event(updated))
+
+
+@app.route("/api/admin/calendar-sponsor/<sponsor_id>", methods=["DELETE"])
+@require_auth
+def admin_calendar_sponsor_delete(sponsor_id):
+    """Hard-delete a calendar sponsor."""
+    sponsor = delete_calendar_sponsor(sponsor_id)
+    if not sponsor:
+        return jsonify({"error": "Calendar sponsor not found"}), 404
+    return jsonify({"ok": True})
+
+
+@app.route("/api/admin/calendar-sponsor/upload-image", methods=["POST"])
+@require_auth
+def admin_calendar_sponsor_upload_image():
+    """Upload a calendar sponsor image to docs/sponsors/ in GitHub repo."""
+    f = request.files.get("image")
+    if not f:
+        return jsonify({"error": "No image file provided"}), 400
+
+    import base64
+    import re as _re
+    from datetime import datetime
+
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+
+    if not github_pat:
+        return jsonify({"error": "GITHUB_PAT not configured"}), 500
+
+    file_data = f.read()
+    filename = f.filename or "sponsor.jpg"
+    ext = os.path.splitext(filename)[1].lower() or ".jpg"
+    allowed_exts = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+    if ext not in allowed_exts:
+        return jsonify({"error": "Invalid file type"}), 400
+
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    base = os.path.splitext(filename)[0]
+    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
+    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "cal_sponsor"
+    safe_name = f"{ts}_{clean_base}{ext}"
+
+    github_path = f"docs/sponsors/{safe_name}"
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+    sha = None
+    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
+    if existing.status_code == 200:
+        sha = existing.json().get("sha")
+
+    put_data = {
+        "message": f"Upload calendar sponsor image: {safe_name}",
+        "content": base64.b64encode(file_data).decode("ascii"),
+    }
+    if sha:
+        put_data["sha"] = sha
+
+    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
     if resp.status_code in (200, 201):
         image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
         return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})

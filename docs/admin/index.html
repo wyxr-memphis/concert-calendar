@@ -1031,6 +1031,94 @@
 
             <!-- SPONSORS TAB -->
             <div class="tab-content" id="tab-sponsors">
+
+                <!-- Calendar Sponsor sub-section -->
+                <div style="margin-bottom:32px;">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                        <h2 style="font-size:1.1em;font-weight:700;">Calendar Sponsor</h2>
+                        <button class="btn-primary" id="addCalSponsorBtn">+ Set Calendar Sponsor</button>
+                    </div>
+                    <p style="font-size:0.85em;color:#666;margin-bottom:6px;">
+                        A single featured sponsor shown above the event list. One active sponsor per date range.
+                    </p>
+                    <p style="font-size:0.8em;color:#999;margin-bottom:16px;">
+                        Recommended image size: <strong>600 × 120px</strong> (5:1 horizontal banner)
+                    </p>
+                    <div class="status-bar" id="calSponsorStatusBar"></div>
+                    <table class="event-table" id="calSponsorTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Copy Line</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th style="text-align:center;">Active</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="calSponsorBody">
+                            <tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Calendar Sponsor Modal -->
+                    <div id="calSponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
+                        <div style="background:#fff;border-radius:8px;padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
+                            <h3 id="calSponsorModalTitle" style="margin:0 0 20px;font-size:1.1em;font-weight:700;">Set Calendar Sponsor</h3>
+                            <div style="display:flex;flex-direction:column;gap:14px;">
+                                <div>
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Name (internal label)</label>
+                                    <input type="text" id="csName" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="e.g. Memphis Tourism Spring 2026">
+                                </div>
+                                <div>
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Image URL <span style="color:#888;font-weight:400;">(600 × 120px recommended)</span></label>
+                                    <div style="display:flex;gap:8px;">
+                                        <input type="text" id="csImageUrl" style="flex:1;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                        <label style="cursor:pointer;">
+                                            <input type="file" id="csImageFile" accept="image/*" style="display:none">
+                                            <span class="btn-secondary" style="white-space:nowrap;padding:8px 12px;display:inline-block;">Upload</span>
+                                        </label>
+                                    </div>
+                                    <div id="csImagePreview" style="margin-top:8px;display:none;">
+                                        <img id="csPreviewImg" src="" alt="Preview" style="max-width:300px;height:60px;object-fit:cover;border-radius:4px;border:1px solid #eee;">
+                                        <div style="font-size:0.75em;color:#999;margin-top:2px;">Preview at 300×60 (actual: 600×120)</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Link URL (optional)</label>
+                                    <input type="text" id="csLinkUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                </div>
+                                <div>
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Copy Line (optional)</label>
+                                    <input type="text" id="csCopyLine" maxlength="120" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="Proud supporter of live music in Memphis">
+                                </div>
+                                <div style="display:flex;gap:12px;">
+                                    <div style="flex:1;">
+                                        <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start Date</label>
+                                        <input type="date" id="csStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                    </div>
+                                    <div style="flex:1;">
+                                        <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End Date</label>
+                                        <input type="date" id="csEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                    </div>
+                                </div>
+                                <div style="display:flex;align-items:center;gap:8px;">
+                                    <input type="checkbox" id="csIsActive" checked style="width:16px;height:16px;cursor:pointer;">
+                                    <label for="csIsActive" style="font-size:0.9em;font-weight:600;cursor:pointer;">Active</label>
+                                </div>
+                            </div>
+                            <div id="calSponsorModalError" style="display:none;margin-top:12px;padding:10px;background:#ffebee;color:#c62828;border-radius:4px;font-size:0.85em;"></div>
+                            <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
+                                <button class="btn-secondary" id="calSponsorModalCancel">Cancel</button>
+                                <button class="btn-primary" id="calSponsorModalSave">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+
+                <!-- Sponsor Callouts sub-section -->
                 <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
                     <h2 style="font-size:1.1em;font-weight:700;">Sponsor Callouts</h2>
                     <button class="btn-primary" id="addSponsorBtn">+ Add Sponsor</button>
@@ -2044,12 +2132,216 @@
         // SPONSORS TAB FUNCTIONALITY
         // ========================================================================
 
-        let allSponsorsAdmin = [];
-        let editingSponsorId = null;
+        // ---- Calendar Sponsor ----
+
+        let allCalSponsorsAdmin = [];
+        let editingCalSponsorId = null;
 
         document.querySelector('[data-tab="sponsors"]').addEventListener('click', () => {
+            loadCalSponsors();
             loadSponsors();
         });
+
+        async function loadCalSponsors() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/calendar-sponsor');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                allCalSponsorsAdmin = Array.isArray(data) ? data : [];
+                renderCalSponsorTable();
+            } catch (err) {
+                document.getElementById('calSponsorBody').innerHTML =
+                    `<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Failed to load: ${esc(err.message)}</td></tr>`;
+            }
+        }
+
+        function renderCalSponsorTable() {
+            const tbody = document.getElementById('calSponsorBody');
+            if (allCalSponsorsAdmin.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No calendar sponsor set. Click "+ Set Calendar Sponsor" to add one.</td></tr>';
+                return;
+            }
+            tbody.innerHTML = allCalSponsorsAdmin.map(s => {
+                const activeBtn = s.is_active
+                    ? `<button class="toggle-btn" title="Deactivate" onclick="toggleCalSponsorActive('${s.id}', false)">✅</button>`
+                    : `<button class="toggle-btn" title="Activate" onclick="toggleCalSponsorActive('${s.id}', true)">⬜</button>`;
+                const thumb = s.image_url
+                    ? `<img src="${esc(s.image_url)}" style="height:28px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
+                    : '';
+                return `<tr style="${s.is_active ? '' : 'opacity:0.5;'}">
+                    <td>${thumb}${esc(s.name)}</td>
+                    <td style="color:#666;font-size:0.9em;">${esc(s.copy_line || '—')}</td>
+                    <td>${esc(s.start_date || '')}</td>
+                    <td>${esc(s.end_date || '')}</td>
+                    <td style="text-align:center;">${activeBtn}</td>
+                    <td style="white-space:nowrap;">
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;" onclick="openCalSponsorModal('${s.id}')">Edit</button>
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:#c62828;margin-left:4px;" onclick="deleteCalSponsor('${s.id}')">Delete</button>
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        async function toggleCalSponsorActive(id, isActive) {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/calendar-sponsor/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ is_active: isActive }),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                await loadCalSponsors();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'calSponsorStatusBar');
+            }
+        }
+
+        async function deleteCalSponsor(id) {
+            const s = allCalSponsorsAdmin.find(x => x.id === id);
+            if (!confirm(`Delete calendar sponsor "${s?.name || id}"? This cannot be undone.`)) return;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/calendar-sponsor/${id}`, { method: 'DELETE' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                showStatus('Calendar sponsor deleted.', 'success', 'calSponsorStatusBar');
+                await loadCalSponsors();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'calSponsorStatusBar');
+            }
+        }
+
+        function openCalSponsorModal(id) {
+            editingCalSponsorId = id || null;
+            const modal = document.getElementById('calSponsorModal');
+            const errorEl = document.getElementById('calSponsorModalError');
+            errorEl.style.display = 'none';
+            document.getElementById('calSponsorModalTitle').textContent = id ? 'Edit Calendar Sponsor' : 'Set Calendar Sponsor';
+
+            if (id) {
+                const s = allCalSponsorsAdmin.find(x => x.id === id);
+                if (s) {
+                    document.getElementById('csName').value = s.name || '';
+                    document.getElementById('csImageUrl').value = s.image_url || '';
+                    document.getElementById('csLinkUrl').value = s.link_url || '';
+                    document.getElementById('csCopyLine').value = s.copy_line || '';
+                    document.getElementById('csStartDate').value = s.start_date || '';
+                    document.getElementById('csEndDate').value = s.end_date || '';
+                    document.getElementById('csIsActive').checked = s.is_active !== false;
+                    updateCalSponsorPreview(s.image_url);
+                }
+            } else {
+                document.getElementById('csName').value = '';
+                document.getElementById('csImageUrl').value = '';
+                document.getElementById('csLinkUrl').value = '';
+                document.getElementById('csCopyLine').value = '';
+                document.getElementById('csStartDate').value = '';
+                document.getElementById('csEndDate').value = '';
+                document.getElementById('csIsActive').checked = true;
+                updateCalSponsorPreview('');
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function updateCalSponsorPreview(url) {
+            const preview = document.getElementById('csImagePreview');
+            const img = document.getElementById('csPreviewImg');
+            if (url) {
+                img.src = url;
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        }
+
+        document.getElementById('csImageUrl').addEventListener('input', function() {
+            updateCalSponsorPreview(this.value);
+        });
+
+        document.getElementById('csImageFile').addEventListener('change', async function() {
+            if (!this.files || !this.files[0]) return;
+            const file = this.files[0];
+            const saveBtn = document.getElementById('calSponsorModalSave');
+            const errorEl = document.getElementById('calSponsorModalError');
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Uploading...';
+            try {
+                const formData = new FormData();
+                formData.append('image', file);
+                const resp = await AdminAPI.apiFetch('/api/admin/calendar-sponsor/upload-image', { method: 'POST', body: formData });
+                const data = await resp.json();
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                document.getElementById('csImageUrl').value = data.image_url;
+                updateCalSponsorPreview(data.image_url);
+            } catch (err) {
+                errorEl.textContent = 'Upload failed: ' + err.message;
+                errorEl.style.display = 'block';
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save';
+            }
+        });
+
+        document.getElementById('calSponsorModalCancel').addEventListener('click', () => {
+            document.getElementById('calSponsorModal').style.display = 'none';
+        });
+
+        document.getElementById('addCalSponsorBtn').addEventListener('click', () => {
+            openCalSponsorModal(null);
+        });
+
+        document.getElementById('calSponsorModalSave').addEventListener('click', async () => {
+            const errorEl = document.getElementById('calSponsorModalError');
+            errorEl.style.display = 'none';
+
+            const body = {
+                name: document.getElementById('csName').value.trim(),
+                image_url: document.getElementById('csImageUrl').value.trim(),
+                link_url: document.getElementById('csLinkUrl').value.trim() || null,
+                copy_line: document.getElementById('csCopyLine').value.trim() || null,
+                start_date: document.getElementById('csStartDate').value,
+                end_date: document.getElementById('csEndDate').value,
+                is_active: document.getElementById('csIsActive').checked,
+            };
+
+            if (!body.name || !body.image_url || !body.start_date || !body.end_date) {
+                errorEl.textContent = 'Name, Image URL, Start Date, and End Date are required.';
+                errorEl.style.display = 'block';
+                return;
+            }
+
+            const saveBtn = document.getElementById('calSponsorModalSave');
+            saveBtn.disabled = true;
+            saveBtn.textContent = 'Saving...';
+
+            try {
+                const url = editingCalSponsorId ? `/api/admin/calendar-sponsor/${editingCalSponsorId}` : '/api/admin/calendar-sponsor';
+                const method = editingCalSponsorId ? 'PUT' : 'POST';
+                const { resp, data } = await AdminAPI.apiJSON(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (!resp.ok) {
+                    const msg = data.error || `HTTP ${resp.status}`;
+                    errorEl.textContent = msg;
+                    errorEl.style.display = 'block';
+                    return;
+                }
+                document.getElementById('calSponsorModal').style.display = 'none';
+                showStatus(editingCalSponsorId ? 'Calendar sponsor updated.' : 'Calendar sponsor created.', 'success', 'calSponsorStatusBar');
+                await loadCalSponsors();
+            } catch (err) {
+                errorEl.textContent = 'Error: ' + err.message;
+                errorEl.style.display = 'block';
+            } finally {
+                saveBtn.disabled = false;
+                saveBtn.textContent = 'Save';
+            }
+        });
+
+        // ---- Sponsor Callouts ----
+
+        let allSponsorsAdmin = [];
+        let editingSponsorId = null;
 
         async function loadSponsors() {
             try {
