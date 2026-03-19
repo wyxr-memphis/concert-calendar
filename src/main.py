@@ -163,7 +163,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
     - Events with a UUID id (from DB) are updated in place
     - Events with an evt_ id (new from scrapers) are inserted
     - Never overwrites admin/manual source entries
-    - Prunes events with date < today
+    - Past events are retained (not pruned) for historical record
     """
     import psycopg2
     import psycopg2.extras
@@ -265,14 +265,9 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                 }
             added += 1
 
-    # Prune past events
-    today_str = date.today().isoformat()
-    cur.execute("DELETE FROM events WHERE date < %s", (today_str,))
-    pruned = cur.rowcount
-
     conn.commit()
     conn.close()
-    return {"added": added, "updated": updated, "pruned": pruned}
+    return {"added": added, "updated": updated, "pruned": 0}
 
 
 def _load_active_events_from_db(start_date, end_date) -> List[dict]:
@@ -472,15 +467,7 @@ def run(dry_run: bool = False) -> None:
     merged = _merge_events(existing_events, automated_events, run_timestamp)
     print(f"  After merge: {len(merged)}")
 
-    # ---- STEP 4: Prune past events (in memory) ----
-    today_str = date.today().isoformat()
-    before_prune = len(merged)
-    merged = [e for e in merged if e.get("date", "") >= today_str]
-    pruned = before_prune - len(merged)
-    if pruned:
-        print(f"  Pruned {pruned} past events (before {today_str})")
-
-    # ---- STEP 5: Save to data store ----
+    # ---- STEP 4: Save to data store ----
     if not dry_run:
         if use_db:
             try:
