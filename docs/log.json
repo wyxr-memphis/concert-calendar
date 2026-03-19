@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-19T17:49:45.284353+00:00",
+  "run_timestamp": "2026-03-19T20:07:20.810450+00:00",
   "date_range": {
     "start": "2026-03-19",
     "end": "2026-03-26"
   },
   "total_events_db": 459,
-  "total_active_display": 137,
+  "total_active_display": 136,
   "data_store": "postgresql",
   "sources": [
     {
@@ -66,11 +66,11 @@
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 35,
+      "events_filtered": 67,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -139,8 +139,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 137,
-      "events_after_filter": 137,
+      "events_found": 136,
+      "events_after_filter": 136,
       "events_filtered": 0,
       "error": null
     }
@@ -229,13 +229,6 @@
       "date": "2026-03-19",
       "time": "6 PM",
       "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Burlesque Karaoke",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-19",
-      "time": "9pm",
-      "source": "Artifacts (Handwritten schedule - THURS)"
     },
     {
       "artist": "Burlesque Karaoke",
@@ -819,6 +812,13 @@
       "source": "Venue: Overton Park Shell"
     },
     {
+      "artist": "Songwriters Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-24",
+      "time": "7 PM",
+      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
+    },
+    {
       "artist": "Brendan Walter",
       "venue": "1884 Lounge",
       "date": "2026-03-24",
@@ -873,13 +873,6 @@
       "date": "2026-03-24",
       "time": null,
       "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Songwriters Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-24",
-      "time": "7 PM",
-      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
     },
     {
       "artist": "Brendan Walter",
