@@ -2261,6 +2261,11 @@
             const file = this.files[0];
             const saveBtn = document.getElementById('calSponsorModalSave');
             const errorEl = document.getElementById('calSponsorModalError');
+
+            // Show local preview immediately (before Vercel deploys the CDN URL)
+            const localUrl = URL.createObjectURL(file);
+            updateCalSponsorPreview(localUrl);
+
             saveBtn.disabled = true;
             saveBtn.textContent = 'Uploading...';
             try {
@@ -2270,10 +2275,11 @@
                 const data = await resp.json();
                 if (!resp.ok) throw new Error(data.error || `${resp.status}`);
                 document.getElementById('csImageUrl').value = data.image_url;
-                updateCalSponsorPreview(data.image_url);
+                // Keep local preview — CDN URL won't resolve until Vercel deploys (~1 min)
             } catch (err) {
                 errorEl.textContent = 'Upload failed: ' + err.message;
                 errorEl.style.display = 'block';
+                updateCalSponsorPreview('');
             } finally {
                 saveBtn.disabled = false;
                 saveBtn.textContent = 'Save';
