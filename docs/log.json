@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-18T17:55:26.961502+00:00",
+  "run_timestamp": "2026-03-19T06:00:43.497683+00:00",
   "date_range": {
-    "start": "2026-03-18",
-    "end": "2026-03-25"
+    "start": "2026-03-19",
+    "end": "2026-03-26"
   },
-  "total_events_db": 468,
-  "total_active_display": 127,
+  "total_events_db": 457,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -27,9 +27,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 86,
+      "events_found": 85,
       "events_after_filter": 70,
-      "events_filtered": 16,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -43,8 +43,8 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 20,
+      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     },
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -75,8 +75,8 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
+      "events_found": 17,
+      "events_after_filter": 16,
       "events_filtered": 1,
       "error": null
     },
@@ -139,69 +139,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 127,
-      "events_after_filter": 127,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Opossums, Joe Glass, Barroloyo",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-18",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Wednesday, doors 8pm)"
-    },
-    {
-      "artist": "Songwriter Series - Clay Ayers / Charles Cashion / Nathan Smith",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-18",
-      "time": "8 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Raq baby",
-      "venue": "Growlers",
-      "date": "2026-03-18",
-      "time": "8:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-18",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-18",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "The Driftless Revelers  [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-18",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Hillbilly Mojo Duo",
-      "venue": "Momma's",
-      "date": "2026-03-18",
-      "time": null,
-      "source": "submission"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Rum Boogie Cafe",
-      "date": "2026-03-18",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
     {
       "artist": "Dan Auerbach (Black Keys) DJ set w/ DJ Bizzle Bluebland",
       "venue": "Bar DKDC",
@@ -742,6 +686,13 @@
       "source": "Venue: Nashoba"
     },
     {
+      "artist": "Memphis Reset Day",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-21",
+      "time": "12:00\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
       "artist": "San Salida, Robert Traxler, Neon Glittery",
       "venue": "Lamplighter Lounge",
       "date": "2026-03-22",
@@ -1034,6 +985,132 @@
       "date": "2026-03-25",
       "time": null,
       "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-26",
+      "time": "10 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "BLQ901 Social Hour feat DJ NinoXO",
+      "venue": "Bar DKDC",
+      "date": "2026-03-26",
+      "time": null,
+      "source": "Artifacts (Monthly schedule flyer - Bar DKDC, Special Thursday Event)"
+    },
+    {
+      "artist": "Crosstown Arts Film Series: Stepping Into the Unknown: Films from the Bob Dylan Center",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-26",
+      "time": "7 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Sound Fuzion",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-26",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Ember and Oak Prime",
+      "date": "2026-03-26",
+      "time": "6:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Cozmo",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "DJ Ss",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "DJ SS, Inja, MC Tempo, Dubvendor",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "MC Tempo",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Saturna",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "SoulJunk",
+      "venue": "Growlers",
+      "date": "2026-03-26",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-26",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Southern Grind Sessions ft. Thompson Square",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-26",
+      "time": "6 PM",
+      "source": "Ticketmaster"
+    },
+    {
+      "artist": "Karaoke with Kacee",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-26",
+      "time": "9 PM",
+      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
+    },
+    {
+      "artist": "Lee Gilliland and Julian Wong",
+      "venue": "Nashoba",
+      "date": "2026-03-26",
+      "time": "7 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "March Madness #Sweet16",
+      "venue": "Nashoba",
+      "date": "2026-03-26",
+      "time": "6:02 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-26",
+      "time": null,
+      "source": "Venue: Orpheum Theatre"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: \u00a1Mu\u00e9vete! Latin Rhythms in the ParK",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-26",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
     }
   ]
 }
