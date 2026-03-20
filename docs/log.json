@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-20T02:47:11.412573+00:00",
+  "run_timestamp": "2026-03-20T05:55:48.791539+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 515,
-  "total_active_display": 164,
+  "total_events_db": 523,
+  "total_active_display": 166,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 85,
-      "events_after_filter": 69,
-      "events_filtered": 16,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,14 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 3,
@@ -81,6 +65,14 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 102,
@@ -89,42 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 21,
-      "events_filtered": 129,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +105,43 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 21,
+      "events_filtered": 129,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 39,
       "events_after_filter": 13,
       "events_filtered": 26,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,10 +153,18 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 84,
+      "events_after_filter": 69,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 164,
-      "events_after_filter": 164,
+      "events_found": 166,
+      "events_after_filter": 166,
       "events_filtered": 0,
       "error": null
     }
@@ -710,6 +710,13 @@
       "source": "Venue: B.B. King's Blues Club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-22",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Kafe Kirk: \u201cMEMPHIS SOUL STEW\u201d feat. Kenneth Whalum III with Jim Spake & Kirk Smothers",
       "venue": "Crosstown Arts",
       "date": "2026-03-22",
@@ -862,6 +869,13 @@
       "date": "2026-03-23",
       "time": "10 PM",
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-23",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Organ Fairchild [Small Room-Downstairs]",
