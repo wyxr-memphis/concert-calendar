@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-03-20T01:02:48.082597+00:00",
+  "run_timestamp": "2026-03-20T01:24:18.820091+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 85,
-      "events_after_filter": 69,
-      "events_filtered": 16,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -41,43 +41,19 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 34,
-      "events_filtered": 68,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 17,
       "events_after_filter": 16,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 150,
@@ -137,11 +105,43 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 15,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 39,
       "events_after_filter": 13,
       "events_filtered": 26,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 85,
+      "events_after_filter": 69,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -219,7 +219,7 @@
     },
     {
       "artist": "Folk All Y\u2019all: Will Kimbrough in Tribute to Todd Snider",
-      "venue": "Crosstown Arts Green Room",
+      "venue": "Crosstown Arts",
       "date": "2026-03-20",
       "time": "5:00 pm",
       "source": "Venue: Crosstown Arts"
@@ -625,7 +625,7 @@
     },
     {
       "artist": "Kafe Kirk: \u201cMEMPHIS SOUL STEW\u201d feat. Kenneth Whalum III with Jim Spake & Kirk Smothers",
-      "venue": "Crosstown Theater",
+      "venue": "Crosstown Arts",
       "date": "2026-03-22",
       "time": "6:00 pm",
       "source": "Venue: Crosstown Arts"
@@ -772,7 +772,7 @@
     },
     {
       "artist": "Sound Fuzion",
-      "venue": "Crosstown Arts Green Room",
+      "venue": "Crosstown Arts",
       "date": "2026-03-24",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -919,14 +919,14 @@
     },
     {
       "artist": "Crosstown Arts Film Series: Stepping Into the Unknown: Films from the Bob Dylan Center",
-      "venue": "Crosstown Arts Green Room",
+      "venue": "Crosstown Arts",
       "date": "2026-03-26",
       "time": "7 PM",
       "source": "Venue: Crosstown Arts"
     },
     {
       "artist": "Sound Fuzion",
-      "venue": "Crosstown Arts Green Room",
+      "venue": "Crosstown Arts",
       "date": "2026-03-26",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
@@ -1059,7 +1059,7 @@
     },
     {
       "artist": "Evergreen Sound Sessions: LJ1S & Brandon Blvd",
-      "venue": "Crosstown Arts Green Room",
+      "venue": "Crosstown Arts",
       "date": "2026-03-27",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
