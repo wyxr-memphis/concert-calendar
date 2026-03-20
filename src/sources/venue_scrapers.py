@@ -99,6 +99,10 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "ticketmaster_venue":
         return _fetch_ticketmaster_venue(venue_info)
 
+    # SiteWrench calendar API — JSON, no webpage fetch
+    if scraper_type == "sitewrench":
+        return _fetch_sitewrench_venue(venue_info)
+
     try:
         response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
         response.raise_for_status()
@@ -231,6 +235,74 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
     except requests.exceptions.RequestException as e:
         result.success = False
         result.error_message = f"Ticketmaster API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
+def _fetch_sitewrench_venue(venue_info: dict) -> SourceResult:
+    """Fetch events from a SiteWrench calendar API (e.g. Huey's)."""
+    name = venue_info["name"]
+    result = SourceResult(source_name=f"Venue: {name}")
+
+    api_token = venue_info.get("sitewrench_api_token", "")
+    site_id = venue_info.get("sitewrench_site_id", "")
+    page_part_id = venue_info.get("sitewrench_page_part_id", "")
+
+    if not api_token or not page_part_id:
+        result.success = False
+        result.error_message = "Missing sitewrench_api_token or sitewrench_page_part_id"
+        return result
+
+    try:
+        url = (f"https://api.sitewrench.com/pageparts/calendars/{page_part_id}/events"
+               f"?key={api_token}&token={api_token}&siteId={site_id}")
+
+        resp = get_with_retry(url, headers=HEADERS, timeout=15)
+        resp.raise_for_status()
+        data = resp.json()
+
+        result.events_found = 0
+        for item in data:
+            if not item.get("IsActive", True):
+                continue
+            title = item.get("Subject", "").strip()
+            if not title:
+                continue
+
+            start_str = item.get("StartDateTimeInTimeZone", "")
+            if not start_str:
+                continue
+
+            dt = datetime.fromisoformat(start_str)
+            event_date = dt.date()
+            time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+
+            # Build venue display name: "Huey's (Midtown)"
+            location = item.get("Location", "").strip()
+            display_venue = f"{name} ({location})" if location else name
+
+            result.events_found += 1
+
+            if not (START_DATE <= event_date <= SCRAPER_END_DATE):
+                result.events_filtered += 1
+            else:
+                result.events.append(Event(
+                    artist=title,
+                    venue=display_venue,
+                    date=event_date,
+                    time=time_str,
+                    source=f"Venue: {name}",
+                ))
+
+        if result.events_found == 0:
+            result.error_message = "0 events from SiteWrench API"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"SiteWrench API error: {str(e)[:80]}"
     except Exception as e:
         result.success = False
         result.error_message = f"Parse error: {str(e)[:80]}"

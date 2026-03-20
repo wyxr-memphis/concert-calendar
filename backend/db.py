@@ -522,6 +522,7 @@ def _seed_venues_if_empty():
         ("Landers Center", "Germantown", ["landers center", "landers centre", "the landers center", "landers"]),
         ("South Main Sounds", "South Main Arts District", ["south main sounds", "south main sounds memphis"]),
         ("Flyway Brewing", None, ["flyway brewing", "flyway brewing memphis", "flyway"]),
+        ("Huey's", None, ["hueys", "huey's", "huey's burgers"]),
     ]
 
     with get_cursor(commit=False) as cur:

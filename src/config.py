@@ -183,6 +183,16 @@ VENUES = {
         "calendar_url": "https://www.flywaybrewingmemphis.com/events",
         "scraper": "flyway",
     },
+    "hueys": {
+        "name": "Huey's",
+        "aliases": ["hueys", "huey's", "huey's burgers"],
+        "neighborhood": None,  # Multiple locations — neighborhood comes from event data
+        "calendar_url": "https://hueyburger.com/music-menu",
+        "scraper": "sitewrench",
+        "sitewrench_api_token": "ea377e351372004c21f6e59e9236b3f668bb3976",
+        "sitewrench_site_id": "3018",
+        "sitewrench_page_part_id": "458501",
+    },
 }
 
 # ---------------------------------------------------------------------------
