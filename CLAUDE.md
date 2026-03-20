@@ -86,7 +86,7 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 - `src/sources/artifacts.py` - Claude Vision for image processing
 
 ### Admin UI
-- `docs/admin/` - Admin interface (Events, Import, Scrapers, Venues tabs)
+- `docs/admin/` - Admin interface (Events, Import, Scrapers, Venues, Sponsors tabs)
 - `docs/admin/admin-common.js` - Shared admin utilities (auth, API calls)
 - All admin pages use `window.__API_BASE` to point to Render backend
 
@@ -145,6 +145,26 @@ DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in S
 - If no `[slack]` lines appear after upload: bot not in channel, wrong event subscription, or needs reinstall
 - If "No events extracted": check Vision response in logs — year assumption issues are common for handwritten schedules with no year shown (prompt instructs Claude to assume current/next year)
 - Reinstall app after any scope changes: api.slack.com → OAuth & Permissions → Reinstall to WYXR
+
+## Sponsor System
+
+### Sponsor Callouts
+Inline promotional cards that appear between day sections in the calendar and RSS feed. Managed in the Admin → Sponsors tab → "Sponsor Callouts" section.
+- DB table: `sponsors` (name, image_url, link_url, display_after_date, start_date, end_date, is_active)
+- Public API: `GET /api/sponsors`
+- Admin API: `GET/POST /api/admin/sponsors`, `PUT/DELETE /api/admin/sponsors/<id>`, `POST /api/admin/sponsors/upload-image`
+
+### Calendar Sponsor
+A single featured sponsor banner shown above the event list (below the filter bar). One active sponsor per date range — POST returns 409 on overlap.
+- DB table: `calendar_sponsor` (name, image_url, link_url, copy_line, start_date, end_date, is_active)
+- Recommended image size: **600 × 120px** (5:1 horizontal). Any aspect ratio works — image displays at natural proportions, max-width 600px.
+- Public API: `GET /api/calendar-sponsor` — returns single object or `{}`
+- Admin API: `GET/POST /api/admin/calendar-sponsor`, `PUT/DELETE /api/admin/calendar-sponsor/<id>`, `POST /api/admin/calendar-sponsor/upload-image`
+- Managed in Admin → Sponsors tab → "Calendar Sponsor" section (top of tab)
+- **Image upload timing:** Image commits to `docs/sponsors/` via GitHub Contents API → Vercel redeploys (~1 min). Preview in modal uses local blob URL immediately; CDN URL goes live after deploy.
+
+### Subscribe Modal
+Email signup (Mailchimp) was previously a full yellow banner. Now a compact "📧 Subscribe" button in the header opens a dark modal. Same Mailchimp iframe form + sessionStorage success state (`wyxr_signup_banner_success`). If already subscribed, button shows "✓ Subscribed" (disabled).
 
 ## Common Tasks
 
