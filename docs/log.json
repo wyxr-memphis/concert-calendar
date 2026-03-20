@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-20T02:26:02.637395+00:00",
+  "run_timestamp": "2026-03-20T02:47:11.412573+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 500,
-  "total_active_display": 156,
+  "total_events_db": 515,
+  "total_active_display": 164,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,34 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 85,
+      "events_after_filter": 69,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -49,35 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 2,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 85,
-      "events_after_filter": 69,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -89,10 +89,42 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 21,
+      "events_filtered": 129,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -105,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 21,
-      "events_filtered": 129,
       "error": null
     },
     {
@@ -134,14 +150,6 @@
       "events_found": 39,
       "events_after_filter": 13,
       "events_filtered": 26,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -155,8 +163,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 156,
-      "events_after_filter": 156,
+      "events_found": 164,
+      "events_after_filter": 164,
       "events_filtered": 0,
       "error": null
     }
@@ -182,6 +190,27 @@
       "date": "2026-03-20",
       "time": "9 PM",
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-20",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-20",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-20",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
@@ -429,6 +458,27 @@
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-21",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-21",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-21",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Early Memphis Magic Night with Joe Turner Jackson Maness",
       "venue": "Bar DKDC",
       "date": "2026-03-21",
@@ -644,6 +694,20 @@
       "date": "2026-03-22",
       "time": "9PM",
       "source": "Artifacts (Instagram calendar)"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-22",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-22",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Kafe Kirk: \u201cMEMPHIS SOUL STEW\u201d feat. Kenneth Whalum III with Jim Spake & Kirk Smothers",
