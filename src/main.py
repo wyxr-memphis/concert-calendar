@@ -177,6 +177,16 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
         key = _normalized_key(row["title"] or "", row["venue"] or "", str(row["date"]))
         db_key_to_row[key] = row
 
+    # Pre-load all venues into memory for O(1) lookups instead of per-event queries
+    cur.execute("SELECT name, neighborhood, aliases FROM venues")
+    venue_lookup = {}  # lowercase name/alias -> (canonical_name, neighborhood)
+    for vrow in cur.fetchall():
+        canonical = vrow["name"]
+        hood = vrow.get("neighborhood")
+        venue_lookup[canonical.lower()] = (canonical, hood)
+        for alias in (vrow.get("aliases") or []):
+            venue_lookup[alias.lower()] = (canonical, hood)
+
     added = 0
     updated = 0
     timestamp = run_timestamp.isoformat()
@@ -190,23 +200,13 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
 
         key = _normalized_key(title, venue, date_str)
 
-        # Normalize venue name and get neighborhood from venues table
+        # Normalize venue name and get neighborhood from in-memory lookup
         neighborhood = entry.get("neighborhood")
-        try:
-            cur.execute(
-                """SELECT name, neighborhood FROM venues
-                   WHERE LOWER(name) = LOWER(%s)
-                   OR LOWER(%s) = ANY(SELECT LOWER(unnest(aliases)))
-                   LIMIT 1""",
-                (venue, venue),
-            )
-            venue_row = cur.fetchone()
-            if venue_row:
-                venue = venue_row["name"]
-                if not neighborhood:
-                    neighborhood = venue_row.get("neighborhood")
-        except Exception:
-            pass  # Continue with original venue name
+        venue_match = venue_lookup.get(venue.lower())
+        if venue_match:
+            venue = venue_match[0]
+            if not neighborhood:
+                neighborhood = venue_match[1]
 
         if key in db_key_to_row:
             db_row = db_key_to_row[key]

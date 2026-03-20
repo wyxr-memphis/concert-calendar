@@ -5,16 +5,45 @@ from contextlib import contextmanager
 
 import psycopg2
 import psycopg2.extras
+from psycopg2.pool import ThreadedConnectionPool
 
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
 
 # Register UUID adapter
 psycopg2.extras.register_uuid()
 
+# Connection pool — initialized lazily on first use
+_pool = None
+
+
+def _get_pool():
+    """Get or create the connection pool."""
+    global _pool
+    if _pool is None or _pool.closed:
+        _pool = ThreadedConnectionPool(
+            minconn=2,
+            maxconn=10,
+            dsn=DATABASE_URL,
+            connect_timeout=5,
+        )
+    return _pool
+
 
 def get_connection():
-    """Get a new database connection."""
-    return psycopg2.connect(DATABASE_URL, connect_timeout=5)
+    """Get a connection from the pool."""
+    return _get_pool().getconn()
+
+
+def _put_connection(conn):
+    """Return a connection to the pool."""
+    try:
+        _get_pool().putconn(conn)
+    except Exception:
+        # Pool closed or connection bad — just close it
+        try:
+            conn.close()
+        except Exception:
+            pass
 
 
 @contextmanager
@@ -30,7 +59,7 @@ def get_cursor(commit=True):
         conn.rollback()
         raise
     finally:
-        conn.close()
+        _put_connection(conn)
 
 
 def init_db():
@@ -555,9 +584,20 @@ def get_unmapped_venues():
 
     Dismissed venue names are hidden unless a new event was imported after the dismissal date,
     in which case they re-appear automatically.
+
+    Uses CTEs to pre-compute known names and dismissed names for efficient filtering.
     """
     with get_cursor(commit=False) as cur:
         cur.execute("""
+            WITH known_names AS (
+                SELECT LOWER(name) AS lname FROM venues
+                UNION
+                SELECT LOWER(unnest(aliases)) FROM venues
+            ),
+            dismissed AS (
+                SELECT LOWER(name) AS lname, dismissed_at
+                FROM dismissed_venue_names
+            )
             SELECT e.venue AS name,
                    COUNT(*) AS event_count,
                    MAX(e.date) AS latest_date
@@ -565,19 +605,12 @@ def get_unmapped_venues():
             WHERE e.venue IS NOT NULL
               AND e.venue != ''
               AND e.is_active = true
-              AND NOT EXISTS (
-                  SELECT 1 FROM venues v
-                  WHERE LOWER(v.name) = LOWER(e.venue)
-                     OR LOWER(e.venue) = ANY(SELECT LOWER(unnest(v.aliases)))
-              )
+              AND LOWER(e.venue) NOT IN (SELECT lname FROM known_names)
             GROUP BY e.venue
             HAVING NOT EXISTS (
-                SELECT 1 FROM dismissed_venue_names d
-                WHERE LOWER(d.name) = LOWER(e.venue)
-                  AND d.dismissed_at >= (
-                      SELECT MAX(e2.created_at) FROM events e2
-                      WHERE LOWER(e2.venue) = LOWER(e.venue) AND e2.is_active = true
-                  )
+                SELECT 1 FROM dismissed d
+                WHERE d.lname = LOWER(e.venue)
+                  AND d.dismissed_at >= MAX(e.created_at)
             )
             ORDER BY COUNT(*) DESC, e.venue
         """)

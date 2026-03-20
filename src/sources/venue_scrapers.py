@@ -63,18 +63,27 @@ def fetch() -> SourceResult:
 
 
 def fetch_individual() -> List[SourceResult]:
-    """Fetch events from each venue separately (for detailed logging)."""
+    """Fetch events from each venue separately (for detailed logging).
+
+    Scrapes all venues in parallel using a thread pool (max 8 workers)
+    since each scraper is independent with no shared state.
+    """
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    venues_to_scrape = [
+        (venue_key, venue_info)
+        for venue_key, venue_info in VENUES.items()
+        if venue_info.get("calendar_url") and venue_info.get("scraper", "generic") != "manual_only"
+    ]
+
     results = []
-
-    for venue_key, venue_info in VENUES.items():
-        url = venue_info.get("calendar_url")
-        scraper_type = venue_info.get("scraper", "generic")
-
-        if not url or scraper_type == "manual_only":
-            continue
-
-        venue_result = _scrape_venue(venue_key, venue_info)
-        results.append(venue_result)
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        future_to_venue = {
+            executor.submit(_scrape_venue, venue_key, venue_info): venue_key
+            for venue_key, venue_info in venues_to_scrape
+        }
+        for future in as_completed(future_to_venue):
+            results.append(future.result())
 
     return results
 

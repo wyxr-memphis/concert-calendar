@@ -544,6 +544,24 @@ def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
     )
 
 
+def _resize_and_compress(img: "Image.Image", label: str = "image") -> Tuple[bytes, str]:
+    """Shared resize/compress logic for images exceeding size limits.
+
+    Resizes to max 1024x2048 and compresses to JPEG quality 85.
+    """
+    original_size = img.size
+
+    if img.width > 1024 or img.height > 2048:
+        ratio = min(1024 / img.width, 2048 / img.height)
+        new_size = (int(img.width * ratio), int(img.height * ratio))
+        img = img.resize(new_size, Image.Resampling.LANCZOS)
+        print(f"    Resized {label} from {original_size} to {new_size}")
+
+    output = io.BytesIO()
+    img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
+    return output.getvalue(), "image/jpeg"
+
+
 def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
     """Optimize image for Claude vision API by resizing if too large."""
     file_size_mb = image_path.stat().st_size / (1024 * 1024)
@@ -559,18 +577,7 @@ def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
 
     try:
         img = Image.open(image_path)
-        original_size = img.size
-
-        if img.width > 1024 or img.height > 2048:
-            ratio = min(1024 / img.width, 2048 / img.height)
-            new_size = (int(img.width * ratio), int(img.height * ratio))
-            img = img.resize(new_size, Image.Resampling.LANCZOS)
-            print(f"    Resized {image_path.name} from {original_size} to {new_size}")
-
-        output = io.BytesIO()
-        img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
-        return output.getvalue(), "image/jpeg"
-
+        return _resize_and_compress(img, label=image_path.name)
     except Exception as e:
         print(f"    Could not optimize {image_path.name}: {str(e)[:50]}")
         with open(image_path, "rb") as f:
@@ -590,18 +597,7 @@ def _optimize_image_bytes(image_bytes: bytes, media_type: str) -> Tuple[bytes, s
 
     try:
         img = Image.open(io.BytesIO(image_bytes))
-        original_size = img.size
-
-        if img.width > 1024 or img.height > 2048:
-            ratio = min(1024 / img.width, 2048 / img.height)
-            new_size = (int(img.width * ratio), int(img.height * ratio))
-            img = img.resize(new_size, Image.Resampling.LANCZOS)
-            print(f"    Resized image from {original_size} to {new_size}")
-
-        output = io.BytesIO()
-        img.convert("RGB").save(output, format="JPEG", quality=85, optimize=True)
-        return output.getvalue(), "image/jpeg"
-
+        return _resize_and_compress(img)
     except Exception as e:
         print(f"    Could not optimize image: {str(e)[:50]}")
         return image_bytes, media_type
