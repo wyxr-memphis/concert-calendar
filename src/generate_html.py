@@ -112,6 +112,20 @@ def generate_html(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Next 8 Days</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <meta name="description" content="What's happening in Memphis this week? Live music listings for the next 8 days. From WYXR 91.7 FM.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek.html">
+    <meta property="og:title" content="Memphis Live Music — Next 8 Days">
+    <meta property="og:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek.html">
+    <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
+    <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Memphis Live Music — Next 8 Days">
+    <meta name="twitter:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
+    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
