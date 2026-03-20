@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-20T05:55:48.791539+00:00",
+  "run_timestamp": "2026-03-20T17:30:54.175485+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 523,
+  "total_events_db": 529,
   "total_active_display": 166,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
@@ -49,19 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -69,6 +53,14 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -81,14 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 58,
@@ -97,19 +81,19 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
       "events_after_filter": 5,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,12 +129,28 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 15,
       "events_after_filter": 15,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
     },
     {
       "name": "Venue: Hi Tone",
@@ -170,6 +170,20 @@
     }
   ],
   "events": [
+    {
+      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": "Early",
+      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
+    },
+    {
+      "artist": "Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry (Late)",
+      "venue": "Bar DKDC",
+      "date": "2026-03-20",
+      "time": "Late",
+      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
+    },
     {
       "artist": "Ladysmith Black Mambazo",
       "venue": "Germantown Performing Arts Center",
@@ -220,13 +234,6 @@
       "source": "Artifacts (Bar DKDC venue listing - Late Night of the Pisces)"
     },
     {
-      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Early",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
       "artist": "Greg Cartwright, Jeremy Scott + Graham Winchester",
       "venue": "Bar DKDC",
       "date": "2026-03-20",
@@ -235,13 +242,6 @@
     },
     {
       "artist": "Late Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Late",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry (Late)",
       "venue": "Bar DKDC",
       "date": "2026-03-20",
       "time": "Late",
