@@ -170,6 +170,35 @@
             display: block;
             border-radius: 4px;
         }
+        /* Inline Subscribe Callout */
+        .subscribe-callout {
+            margin: 1rem 0 2rem;
+            max-width: 500px;
+            padding: 16px 20px;
+            border: 1px solid var(--wyxr-border);
+            border-left: 3px solid var(--wyxr-yellow);
+            border-radius: 4px;
+            background: var(--wyxr-charcoal);
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        .subscribe-callout:hover { border-color: var(--wyxr-yellow); }
+        .subscribe-callout-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+            color: var(--wyxr-gray);
+            line-height: 1.5;
+        }
+        .subscribe-callout-cta {
+            display: inline;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            color: var(--wyxr-yellow);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-left: 4px;
+        }
         h2 {
             font-family: 'Anybody', sans-serif;
             font-size: 1em;
@@ -507,6 +536,62 @@
         footer a { color: var(--wyxr-dim); }
         footer a:hover { color: var(--wyxr-yellow); }
 
+        /* Sticky Subscribe Footer */
+        .subscribe-footer {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            z-index: 50;
+            background: var(--wyxr-charcoal);
+            border-top: 1px solid var(--wyxr-yellow);
+            transform: translateY(100%);
+            transition: transform 0.35s ease-out;
+            padding: 0 16px;
+        }
+        .subscribe-footer.visible { transform: translateY(0); }
+        .subscribe-footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            height: 46px;
+        }
+        .subscribe-footer-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: var(--wyxr-white);
+            white-space: nowrap;
+        }
+        .subscribe-footer-cta {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            border: none;
+            padding: 6px 18px;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .subscribe-footer-cta:hover { opacity: 0.88; }
+        .subscribe-footer-close {
+            background: none;
+            border: none;
+            color: var(--wyxr-gray);
+            font-size: 1.2em;
+            cursor: pointer;
+            padding: 4px 8px;
+            line-height: 1;
+        }
+        .subscribe-footer-close:hover { color: var(--wyxr-white); }
+        body.has-subscribe-footer { padding-bottom: 50px; }
+
         /* Top Navigation Bar */
         .top-nav-bar {
             background-color: #1a1a1a;
@@ -564,6 +649,9 @@
             header {
                 margin-bottom: 0;
             }
+            .subscribe-footer-inner { height: 42px; gap: 8px; }
+            .subscribe-footer-text { font-size: 0.78em; }
+            .subscribe-footer-cta { padding: 5px 14px; font-size: 0.75em; }
         }
 
         @media (max-width: 600px) {
@@ -575,6 +663,8 @@
         @media (max-width: 360px) {
             .wtmm-full { display: none; }
             .wtmm-short { display: inline; }
+            .subscribe-footer-text { display: none; }
+            .subscribe-footer-inner::before { content: '\1F4E7'; font-size: 1em; }
         }
     </style>
 </head>
@@ -665,6 +755,15 @@
         <a href="/admin/">Admin</a> &middot; <a href="#" id="refreshData">Refresh data</a>
     </footer>
 
+    <!-- Sticky Subscribe Footer -->
+    <div class="subscribe-footer" id="subscribeFooter" role="complementary" aria-label="Subscribe to newsletter">
+        <div class="subscribe-footer-inner">
+            <span class="subscribe-footer-text">Get weekly DJ picks from WYXR</span>
+            <button class="subscribe-footer-cta" id="subscribeFooterBtn" type="button">Subscribe</button>
+            <button class="subscribe-footer-close" id="subscribeFooterClose" type="button" aria-label="Dismiss">&times;</button>
+        </div>
+    </div>
+
     <script>
     (function() {
         'use strict';
@@ -672,6 +771,7 @@
         const API_BASE = 'https://concert-calendar-api.onrender.com';
 
         // State
+        let openSubscribeModal = null;
         let allEvents = [];
         let allSponsors = [];
         let calendarSponsor = null;
@@ -723,6 +823,7 @@
                 modal.classList.add('open');
                 setTimeout(() => emailInput && emailInput.focus(), 50);
             }
+            openSubscribeModal = openModal;
 
             function closeModal() {
                 modal.classList.remove('open');
@@ -838,6 +939,61 @@
             emailInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') handleSubmit(e);
             });
+        })();
+
+        // ---- Sticky Subscribe Footer ----
+        (function initSubscribeFooter() {
+            const footer = document.getElementById('subscribeFooter');
+            const cta = document.getElementById('subscribeFooterBtn');
+            const closeBtn = document.getElementById('subscribeFooterClose');
+
+            if (!footer || !cta) return;
+
+            const DISMISSED_KEY = 'wyxr_subscribe_footer_dismissed';
+            const SUBSCRIBED_KEY = 'wyxr_signup_banner_success';
+
+            if (sessionStorage.getItem(SUBSCRIBED_KEY) || sessionStorage.getItem(DISMISSED_KEY)) return;
+
+            let shown = false;
+
+            function show() {
+                if (shown) return;
+                shown = true;
+                footer.classList.add('visible');
+                document.body.classList.add('has-subscribe-footer');
+            }
+
+            function dismiss() {
+                footer.classList.remove('visible');
+                document.body.classList.remove('has-subscribe-footer');
+                sessionStorage.setItem(DISMISSED_KEY, '1');
+                if (observer) observer.disconnect();
+            }
+
+            cta.addEventListener('click', () => {
+                if (openSubscribeModal) openSubscribeModal();
+                dismiss();
+            });
+            closeBtn.addEventListener('click', dismiss);
+
+            // IntersectionObserver on a sentinel at 500px
+            const sentinel = document.createElement('div');
+            sentinel.style.cssText = 'height:1px;width:1px;position:absolute;top:500px;left:0;pointer-events:none;';
+            sentinel.setAttribute('aria-hidden', 'true');
+            document.body.appendChild(sentinel);
+
+            let observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) show();
+                });
+            }, { threshold: 0 });
+            observer.observe(sentinel);
+
+            // Auto-dismiss if user subscribes via another path
+            const check = setInterval(() => {
+                if (sessionStorage.getItem(SUBSCRIBED_KEY)) { dismiss(); clearInterval(check); }
+            }, 1000);
+            setTimeout(() => clearInterval(check), 600000);
         })();
 
         // ---- Data Loading (stale-while-revalidate with localStorage) ----
@@ -1139,7 +1295,7 @@
 
             if (filtered.length === 0) {
                 // Remove old day sections and sponsor callouts
-                eventList.querySelectorAll('.day-section, .sponsor-callout').forEach(s => s.remove());
+                eventList.querySelectorAll('.day-section, .sponsor-callout, .subscribe-callout').forEach(s => s.remove());
                 eventList.querySelector('.no-events')?.remove();
                 const p = document.createElement('p');
                 p.className = 'no-events';
@@ -1150,7 +1306,7 @@
             }
 
             // Remove old content
-            eventList.querySelectorAll('.day-section, .no-events, .sponsor-callout').forEach(s => s.remove());
+            eventList.querySelectorAll('.day-section, .no-events, .sponsor-callout, .subscribe-callout').forEach(s => s.remove());
 
             // Group by date
             const byDate = {};
@@ -1163,6 +1319,18 @@
                 byDate[e.date].push(e);
             });
             dateOrder.sort();
+
+            // Inline subscribe callouts — every 4th day section
+            const isSubscribed = sessionStorage.getItem('wyxr_signup_banner_success');
+            let daySectionIndex = 0;
+            const SUBSCRIBE_INTERVAL = 4;
+            const SUBSCRIBE_COPY = [
+                { text: 'Never miss a Memphis show.', cta: 'Get the weekly list \u2192' },
+                { text: 'Free every Friday: DJ picks + this week\u2019s best shows.', cta: 'Subscribe \u2192' },
+                { text: 'WYXR DJs pick the best shows each week.', cta: 'Get it free \u2192' },
+                { text: 'This calendar updates daily. Want a Friday summary?', cta: 'Subscribe \u2192' },
+            ];
+            let subscribeCopyIndex = 0;
 
             dateOrder.forEach(dateStr => {
                 const dayEvents = byDate[dateStr];
@@ -1247,6 +1415,24 @@
                     callout.innerHTML = `<span class="sponsor-label">Sponsored</span>${imgHtml}`;
                     eventList.appendChild(callout);
                 });
+
+                // Inline subscribe callout every Nth day section
+                daySectionIndex++;
+                if (!isSubscribed && daySectionIndex % SUBSCRIBE_INTERVAL === 0) {
+                    const copy = SUBSCRIBE_COPY[subscribeCopyIndex % SUBSCRIBE_COPY.length];
+                    const sc = document.createElement('div');
+                    sc.className = 'subscribe-callout';
+                    sc.setAttribute('role', 'button');
+                    sc.setAttribute('tabindex', '0');
+                    sc.setAttribute('aria-label', 'Subscribe to weekly email');
+                    sc.innerHTML = `<span class="subscribe-callout-text">${copy.text}</span><span class="subscribe-callout-cta">${copy.cta}</span>`;
+                    sc.addEventListener('click', () => openSubscribeModal && openSubscribeModal());
+                    sc.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSubscribeModal && openSubscribeModal(); }
+                    });
+                    eventList.appendChild(sc);
+                    subscribeCopyIndex++;
+                }
             });
 
             renderPresentsSection();
