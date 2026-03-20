@@ -48,10 +48,7 @@
             color: var(--wyxr-white);
             margin-bottom: 10px;
         }
-        header p {
-            color: var(--wyxr-gray);
-            font-size: 0.97em;
-        }
+        header p { color: var(--wyxr-gray); font-size: 0.97em; }
         header a { color: var(--wyxr-yellow); text-decoration: none; }
         header a:hover { text-decoration: underline; }
 
@@ -159,7 +156,6 @@
             margin: 12px 0;
             line-height: 1.55;
         }
-        pre .comment { color: var(--wyxr-dim); }
 
         .alert {
             border: 1px solid #3a3000;
@@ -169,6 +165,73 @@
             font-size: 0.9em;
             color: #e8d060;
             margin-bottom: 20px;
+        }
+
+        /* Request form */
+        .request-form {
+            background: #111;
+            border: 1px solid var(--wyxr-border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+        .form-row { margin-bottom: 16px; }
+        .form-row label {
+            display: block;
+            font-size: 0.88em;
+            font-weight: 600;
+            color: #c0c0c0;
+            margin-bottom: 6px;
+        }
+        .form-row label .req { color: #ff7070; margin-left: 2px; }
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #3a3a3a;
+            border-radius: 5px;
+            padding: 9px 12px;
+            font-size: 0.92em;
+            color: #e0e0e0;
+            font-family: inherit;
+            transition: border-color 0.15s;
+        }
+        .form-row input:focus,
+        .form-row textarea:focus {
+            outline: none;
+            border-color: var(--wyxr-yellow);
+        }
+        .form-row textarea { resize: vertical; min-height: 72px; }
+        .form-error {
+            color: #ff7070;
+            font-size: 0.88em;
+            margin-top: 12px;
+            display: none;
+        }
+        .form-submit {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            border: none;
+            border-radius: 5px;
+            padding: 10px 28px;
+            font-size: 0.95em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.15s;
+            margin-top: 4px;
+        }
+        .form-submit:hover { opacity: 0.88; }
+        .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+        .form-success {
+            display: none;
+            background: #0d1f0d;
+            border: 1px solid #2e5c2e;
+            border-radius: 8px;
+            padding: 20px 24px;
+            color: #7ec87e;
+            font-size: 0.95em;
+            margin-top: 16px;
+            line-height: 1.6;
         }
 
         footer {
@@ -194,12 +257,42 @@
 <div class="base-url">https://concert-calendar-api.onrender.com/api/v1/</div>
 
 <h2>Authentication</h2>
-<p>Every request to <code>/api/v1/</code> requires an API key sent as a request header:</p>
+<p>Every request to <code>/api/v1/</code> requires an official WYXR API key sent as a request header:</p>
 <pre>X-API-Key: wyxr_your_key_here</pre>
-<p>To get a key, email <a href="mailto:robby@wyxr.org">robby@wyxr.org</a> with a brief description of what you're building.</p>
+<p>Keys are issued by WYXR and are not automatically generated — requests are reviewed before a key is provided. Use the form below to request access.</p>
 
 <div class="alert">
-    ⚠️ Keep your key private. If you believe it has been compromised, email us to revoke it.
+    ⚠️ Keep your key private. If you believe it has been compromised, email <a href="mailto:robby@wyxr.org" style="color:#e8d060;">robby@wyxr.org</a> to revoke it.
+</div>
+
+<h2>Request an API Key</h2>
+<p>Tell us a bit about yourself and what you're building. We'll review your request and respond by email.</p>
+
+<div class="request-form" id="requestForm">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div class="form-row" style="flex:1;min-width:180px;">
+            <label>Name <span class="req">*</span></label>
+            <input type="text" id="rfName" placeholder="Your full name" autocomplete="name">
+        </div>
+        <div class="form-row" style="flex:1;min-width:180px;">
+            <label>Email <span class="req">*</span></label>
+            <input type="email" id="rfEmail" placeholder="you@example.com" autocomplete="email">
+        </div>
+    </div>
+    <div class="form-row">
+        <label>Organization / Company</label>
+        <input type="text" id="rfCompany" placeholder="Memphis Flyer, personal project, etc.">
+    </div>
+    <div class="form-row">
+        <label>What are you building?</label>
+        <textarea id="rfUseCase" placeholder="Briefly describe how you plan to use the API…"></textarea>
+    </div>
+    <div class="form-error" id="rfError"></div>
+    <button class="form-submit" id="rfSubmit">Request Access</button>
+</div>
+
+<div class="form-success" id="rfSuccess">
+    ✓ Request received! We'll review it and follow up at the email you provided. This usually takes a day or two.
 </div>
 
 <h2>Endpoints</h2>
@@ -293,8 +386,45 @@
 <p>Events are scraped from 15+ Memphis venues including Hi Tone, Minglewood Hall, Overton Park Shell, Crosstown Arts, FedExForum, Growlers, Lafayette's Music Room, and more. The calendar has a 6-month lookahead window and is updated automatically at midnight and noon Central.</p>
 
 <footer>
-    <a href="/">← Concert Calendar</a> &middot; <a href="/admin/">Admin</a> &middot; Built for <a href="https://wyxr.org">WYXR 91.7 FM</a>
+    <a href="/">← Concert Calendar</a> &middot; Built for <a href="https://wyxr.org">WYXR 91.7 FM</a>
 </footer>
 
+<script>
+    const API_BASE = 'https://concert-calendar-api.onrender.com';
+
+    document.getElementById('rfSubmit').addEventListener('click', async () => {
+        const name = document.getElementById('rfName').value.trim();
+        const email = document.getElementById('rfEmail').value.trim();
+        const company = document.getElementById('rfCompany').value.trim();
+        const use_case = document.getElementById('rfUseCase').value.trim();
+        const errEl = document.getElementById('rfError');
+        errEl.style.display = 'none';
+
+        if (!name) { errEl.textContent = 'Name is required.'; errEl.style.display = 'block'; return; }
+        if (!email || !email.includes('@')) { errEl.textContent = 'A valid email is required.'; errEl.style.display = 'block'; return; }
+
+        const btn = document.getElementById('rfSubmit');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        try {
+            const resp = await fetch(API_BASE + '/api/request-key', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, company, use_case }),
+            });
+            const data = await resp.json();
+            if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+
+            document.getElementById('requestForm').style.display = 'none';
+            document.getElementById('rfSuccess').style.display = 'block';
+        } catch (err) {
+            errEl.textContent = 'Something went wrong: ' + err.message;
+            errEl.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Request Access';
+        }
+    });
+</script>
 </body>
 </html>

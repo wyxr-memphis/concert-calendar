@@ -79,6 +79,9 @@ from backend.db import (
     log_api_request,
     get_api_key_usage,
     get_v1_events,
+    create_api_key_request,
+    list_api_key_requests,
+    update_api_key_request,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1797,6 +1800,74 @@ def admin_api_keys_usage(key_id):
         {"day": r["day"].isoformat(), "requests": r["requests"]}
         for r in rows
     ])
+
+
+# ---------------------------------------------------------------------------
+# Public API Key Request Endpoint
+# ---------------------------------------------------------------------------
+
+@app.route("/api/request-key", methods=["POST"])
+@cross_origin()
+def public_request_api_key():
+    """Accept a public API key request (pending admin approval)."""
+    body = request.get_json(silent=True) or {}
+
+    name = (body.get("name") or "").strip()
+    email = (body.get("email") or "").strip()
+    company = (body.get("company") or "").strip() or None
+    use_case = (body.get("use_case") or "").strip() or None
+
+    errors = []
+    if not name:
+        errors.append("Name is required")
+    if not email or "@" not in email:
+        errors.append("A valid email is required")
+    if errors:
+        return jsonify({"error": ", ".join(errors)}), 400
+
+    create_api_key_request(name=name, email=email, company=company, use_case=use_case)
+    return jsonify({"ok": True}), 201
+
+
+# ---------------------------------------------------------------------------
+# Admin API Key Request Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/api-key-requests", methods=["GET"])
+@require_auth
+def admin_api_key_requests_list():
+    """List API key requests, optionally filtered by status."""
+    status = request.args.get("status")
+    rows = list_api_key_requests(status=status)
+    return jsonify(serialize_list(rows))
+
+
+@app.route("/api/admin/api-key-requests/<request_id>/approve", methods=["POST"])
+@require_auth
+def admin_api_key_requests_approve(request_id):
+    """Approve a key request — generates a real key and emails the requester."""
+    rows = list_api_key_requests()
+    req = next((r for r in rows if str(r["id"]) == request_id), None)
+    if not req:
+        return jsonify({"error": "Request not found"}), 404
+    if req["status"] != "pending":
+        return jsonify({"error": f"Request already {req['status']}"}), 400
+
+    key_row = create_api_key(
+        name=req["name"],
+        email=req["email"],
+        notes=f"Company: {req['company'] or '—'}  Use case: {req['use_case'] or '—'}",
+    )
+    update_api_key_request(request_id, "approved", api_key_id=str(key_row["id"]))
+    return jsonify({"ok": True, "key": serialize_event(key_row)}), 201
+
+
+@app.route("/api/admin/api-key-requests/<request_id>/reject", methods=["POST"])
+@require_auth
+def admin_api_key_requests_reject(request_id):
+    """Reject an API key request."""
+    update_api_key_request(request_id, "rejected")
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------------------

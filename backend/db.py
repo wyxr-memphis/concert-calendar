@@ -238,6 +238,23 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_request_logs_created ON api_request_logs(created_at);
         """)
 
+    # Step 12: Create api_key_requests table (public access requests, pending admin approval)
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS api_key_requests (
+              id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+              name         TEXT NOT NULL,
+              email        TEXT NOT NULL,
+              company      TEXT,
+              use_case     TEXT,
+              status       TEXT DEFAULT 'pending',
+              submitted_at TIMESTAMPTZ DEFAULT NOW(),
+              reviewed_at  TIMESTAMPTZ,
+              api_key_id   UUID REFERENCES api_keys(id)
+            );
+            CREATE INDEX IF NOT EXISTS idx_api_key_requests_status ON api_key_requests(status);
+        """)
+
     # Step 11: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
@@ -1288,6 +1305,42 @@ def get_api_key_usage(key_id, days=30) -> list:
             (key_id, days),
         )
         return cur.fetchall()
+
+
+def create_api_key_request(name, email, company=None, use_case=None) -> dict:
+    """Insert a new API key request (pending approval)."""
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO api_key_requests (name, email, company, use_case)
+               VALUES (%s, %s, %s, %s) RETURNING *""",
+            (name, email, company, use_case),
+        )
+        return cur.fetchone()
+
+
+def list_api_key_requests(status=None) -> list:
+    """Get API key requests, optionally filtered by status."""
+    query = "SELECT * FROM api_key_requests"
+    params = []
+    if status:
+        query += " WHERE status = %s"
+        params.append(status)
+    query += " ORDER BY submitted_at DESC"
+    with get_cursor(commit=False) as cur:
+        cur.execute(query, params)
+        return cur.fetchall()
+
+
+def update_api_key_request(request_id, status, api_key_id=None) -> dict:
+    """Update a request's status (approved/rejected) and optionally link an api_key."""
+    with get_cursor() as cur:
+        cur.execute(
+            """UPDATE api_key_requests
+               SET status = %s, reviewed_at = NOW(), api_key_id = %s
+               WHERE id = %s RETURNING *""",
+            (status, api_key_id, request_id),
+        )
+        return cur.fetchone()
 
 
 def get_v1_events(start_date=None, end_date=None, featured_only=False,

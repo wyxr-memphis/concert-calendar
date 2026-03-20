@@ -130,3 +130,17 @@ CREATE TABLE IF NOT EXISTS api_request_logs (
 );
 CREATE INDEX IF NOT EXISTS idx_request_logs_key ON api_request_logs(api_key_id);
 CREATE INDEX IF NOT EXISTS idx_request_logs_created ON api_request_logs(created_at);
+
+-- Public API key requests (pending admin approval before a key is issued)
+CREATE TABLE IF NOT EXISTS api_key_requests (
+  id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  name         TEXT NOT NULL,
+  email        TEXT NOT NULL,
+  company      TEXT,
+  use_case     TEXT,
+  status       TEXT DEFAULT 'pending',
+  submitted_at TIMESTAMPTZ DEFAULT NOW(),
+  reviewed_at  TIMESTAMPTZ,
+  api_key_id   UUID REFERENCES api_keys(id)
+);
+CREATE INDEX IF NOT EXISTS idx_api_key_requests_status ON api_key_requests(status);

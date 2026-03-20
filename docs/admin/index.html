@@ -1201,9 +1201,21 @@
 
             <!-- API KEYS TAB -->
             <div class="tab-content" id="tab-api-keys">
+
+                <!-- Pending Requests -->
+                <div id="apiKeyRequestsSection" style="margin-bottom:32px;">
+                    <h2 class="section-title" style="margin-bottom:4px;">Pending Requests</h2>
+                    <p class="section-subtitle" style="margin-bottom:12px;">API access requests submitted via the docs page.</p>
+                    <div id="apiKeyRequestsBody">
+                        <div style="color:#888;font-size:0.9em;">Loading...</div>
+                    </div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
                     <div>
-                        <h2 class="section-title" style="margin-bottom:4px;">API Keys</h2>
+                        <h2 class="section-title" style="margin-bottom:4px;">Issued Keys</h2>
                         <p class="section-subtitle">Manage third-party access to <code>/api/v1/</code> endpoints. <a href="/api" target="_blank" style="color:#1976d2;">View docs</a></p>
                     </div>
                     <button class="btn-primary" id="newApiKeyBtn">+ New Key</button>
@@ -3127,6 +3139,92 @@
         // API KEYS TAB
         // ========================================================================
 
+        async function loadApiKeyRequests() {
+            const el = document.getElementById('apiKeyRequestsBody');
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/api-key-requests');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+
+                const pending = data.filter(r => r.status === 'pending');
+                const reviewed = data.filter(r => r.status !== 'pending');
+
+                if (!data.length) {
+                    el.innerHTML = '<div style="color:#888;font-size:0.9em;padding:8px 0;">No requests yet.</div>';
+                    return;
+                }
+
+                let html = '';
+
+                if (pending.length) {
+                    html += `<table class="preview-table" style="margin-bottom:16px;">
+                        <thead><tr>
+                            <th>Name</th><th>Email</th><th>Company</th><th>Use Case</th><th>Submitted</th><th style="width:140px;"></th>
+                        </tr></thead>
+                        <tbody>${pending.map(r => `<tr>
+                            <td>${esc(r.name)}</td>
+                            <td>${esc(r.email)}</td>
+                            <td>${esc(r.company || '—')}</td>
+                            <td style="max-width:220px;white-space:normal;">${esc(r.use_case || '—')}</td>
+                            <td style="white-space:nowrap;">${r.submitted_at ? new Date(r.submitted_at).toLocaleDateString() : '—'}</td>
+                            <td>
+                                <button class="btn-primary" style="padding:4px 12px;font-size:0.82em;margin-right:4px;" onclick="approveKeyRequest('${esc(r.id)}')">Approve</button>
+                                <button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#c62828;" onclick="rejectKeyRequest('${esc(r.id)}')">Reject</button>
+                            </td>
+                        </tr>`).join('')}</tbody>
+                    </table>`;
+                } else {
+                    html += '<div style="color:#888;font-size:0.9em;padding:4px 0 12px;">No pending requests.</div>';
+                }
+
+                if (reviewed.length) {
+                    html += `<details style="font-size:0.88em;">
+                        <summary style="cursor:pointer;color:#888;margin-bottom:8px;">Show ${reviewed.length} reviewed request${reviewed.length !== 1 ? 's' : ''}</summary>
+                        <table class="preview-table" style="margin-top:8px;">
+                            <thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Status</th><th>Reviewed</th></tr></thead>
+                            <tbody>${reviewed.map(r => `<tr>
+                                <td>${esc(r.name)}</td>
+                                <td>${esc(r.email)}</td>
+                                <td>${esc(r.company || '—')}</td>
+                                <td>${r.status === 'approved'
+                                    ? '<span style="color:#2e7d32;font-weight:600;">Approved</span>'
+                                    : '<span style="color:#c62828;font-weight:600;">Rejected</span>'}</td>
+                                <td>${r.reviewed_at ? new Date(r.reviewed_at).toLocaleDateString() : '—'}</td>
+                            </tr>`).join('')}</tbody>
+                        </table>
+                    </details>`;
+                }
+
+                el.innerHTML = html;
+            } catch (err) {
+                el.innerHTML = `<div style="color:#c62828;font-size:0.9em;">Failed to load requests: ${esc(err.message)}</div>`;
+            }
+        }
+
+        async function approveKeyRequest(id) {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-key-requests/${id}/approve`, { method: 'POST' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                // Show the generated key
+                document.getElementById('keyRevealValue').textContent = data.key.key;
+                document.getElementById('keyRevealModal').style.display = 'flex';
+                await loadApiKeyRequests();
+                await loadApiKeys();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'apiKeyStatusBar');
+            }
+        }
+
+        async function rejectKeyRequest(id) {
+            if (!confirm('Reject this request?')) return;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-key-requests/${id}/reject`, { method: 'POST' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                await loadApiKeyRequests();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'apiKeyStatusBar');
+            }
+        }
+
         let allApiKeys = [];
 
         async function loadApiKeys() {
@@ -3298,10 +3396,11 @@
             document.getElementById('keyRevealModal').style.display = 'none';
         });
 
-        // Load API keys when tab is opened
+        // Load API keys + requests when tab is opened
         document.querySelectorAll('.nav-tab').forEach(tab => {
             if (tab.dataset.tab === 'api-keys') {
                 tab.addEventListener('click', () => {
+                    loadApiKeyRequests();
                     if (!allApiKeys.length) loadApiKeys();
                 });
             }
