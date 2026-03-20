@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-20T00:55:59.291207+00:00",
+  "run_timestamp": "2026-03-20T01:02:48.082597+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 461,
-  "total_active_display": 140,
+  "total_events_db": 472,
+  "total_active_display": 144,
   "data_store": "postgresql",
   "sources": [
     {
@@ -139,16 +139,16 @@
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 1,
+      "events_found": 39,
+      "events_after_filter": 13,
+      "events_filtered": 26,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 140,
-      "events_after_filter": 140,
+      "events_found": 144,
+      "events_after_filter": 144,
       "events_filtered": 0,
       "error": null
     }
@@ -230,6 +230,13 @@
       "date": "2026-03-20",
       "time": "9:30 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Machine Town w/ LJ Cates",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-20",
+      "time": "6 PM",
+      "source": "Venue: Flyway Brewing"
     },
     {
       "artist": "ABERRANT",
@@ -771,6 +778,13 @@
       "source": "Venue: Crosstown Arts"
     },
     {
+      "artist": "Alexis Jade & Carter Wenger",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-24",
+      "time": "4 PM",
+      "source": "Venue: Flyway Brewing"
+    },
+    {
       "artist": "Adult Tap Class",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-03-24",
@@ -832,6 +846,13 @@
       "date": "2026-03-25",
       "time": "6:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Bobbie Stacks & Kevin Kilgore",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-25",
+      "time": "4 PM",
+      "source": "Venue: Flyway Brewing"
     },
     {
       "artist": "John Paul Keith",
@@ -916,6 +937,13 @@
       "date": "2026-03-26",
       "time": "6:00 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Jad Tariq",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-26",
+      "time": "4 PM",
+      "source": "Venue: Flyway Brewing"
     },
     {
       "artist": "Cozmo",
