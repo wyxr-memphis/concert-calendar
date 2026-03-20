@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-20T02:10:25.166070+00:00",
+  "run_timestamp": "2026-03-20T02:26:02.637395+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 490,
-  "total_active_display": 154,
+  "total_events_db": 500,
+  "total_active_display": 156,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,17 +19,9 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -38,6 +30,14 @@
       "events_found": 20,
       "events_after_filter": 20,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,14 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -73,11 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 85,
+      "events_after_filter": 69,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -89,6 +89,14 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 58,
@@ -97,11 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -113,14 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 39,
@@ -129,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -145,18 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 85,
-      "events_after_filter": 69,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 154,
-      "events_after_filter": 154,
+      "events_found": 156,
+      "events_after_filter": 156,
       "events_filtered": 0,
       "error": null
     }
@@ -401,6 +401,13 @@
       "source": "Venue: South Main Sounds"
     },
     {
+      "artist": "Thumpdaddy",
+      "venue": "Southland",
+      "date": "2026-03-20",
+      "time": "6 PM",
+      "source": "submission"
+    },
+    {
       "artist": "Jay Allen\u2019s Living Gracefully Tour",
       "venue": "The Summit",
       "date": "2026-03-20",
@@ -602,6 +609,13 @@
       "date": "2026-03-21",
       "time": "12:00\u202fPM",
       "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Kreston Smith",
+      "venue": "Raven & Lily Sommerville",
+      "date": "2026-03-21",
+      "time": "6 PM",
+      "source": "submission"
     },
     {
       "artist": "San Salida, Robert Traxler, Neon Glittery",
