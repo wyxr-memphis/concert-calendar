@@ -16,7 +16,7 @@ from ..http_utils import get_with_retry
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
-    normalize_venue_name, is_music_event,
+    normalize_venue_name, is_music_event, EXCLUDE_KEYWORDS, MUSIC_KEYWORDS,
 )
 from ..date_utils import parse_date_text
 
@@ -1044,13 +1044,15 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     apps_data = data.get("appsWarmupData", {})
     wix_events_app = apps_data.get("140603ad-af8d-84a5-2c80-a0f60cb47351", {})
 
+    # Pick the widget component with the most events (page may have multiple widgets)
     raw_events = []
     for widget_data in wix_events_app.values():
         if isinstance(widget_data, dict):
             nested = widget_data.get("events", {})
             if isinstance(nested, dict) and "events" in nested:
-                raw_events = nested["events"]
-                break
+                candidate = nested["events"]
+                if len(candidate) > len(raw_events):
+                    raw_events = candidate
 
     for event in raw_events:
         try:
@@ -1058,9 +1060,12 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             if not title:
                 continue
 
-            # Apply music filter — Flyway hosts non-music events (e.g. lectures)
-            if not is_music_event(title):
-                continue
+            # Exclude clearly non-music events (comedy, lectures, markets).
+            # Don't require music keywords — artist-name-only titles won't match them.
+            text = title.lower()
+            if any(kw in text for kw in EXCLUDE_KEYWORDS):
+                if not any(mk in text for mk in MUSIC_KEYWORDS):
+                    continue
 
             start_date_str = (event.get("scheduling") or {}).get("config", {}).get("startDate")
             if not start_date_str:

@@ -192,6 +192,7 @@ EXCLUDE_KEYWORDS = [
     "comedy", "stand-up", "standup", "stand up", "comedian", "open mic comedy",
     "theatre", "theater", "play", "musical theater", "broadway",
     "art opening", "art show", "gallery opening", "exhibition",
+    "lecture", "lecture series",
     "poetry reading", "spoken word", "book signing", "book reading",
     "trivia", "trivia night", "bingo", "game night",
     "drag brunch",  # keep drag shows with music, but brunch is usually not a concert
