@@ -1214,7 +1214,11 @@
 
         // ---- Filtering ----
         function getFilteredEvents() {
+            const todayStr = new Date().toISOString().split('T')[0];
             const filtered = allEvents.filter(e => {
+                // Hide past events
+                if (e.date < todayStr) return false;
+
                 // Month filter
                 const d = new Date(e.date + 'T12:00:00');
                 if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
