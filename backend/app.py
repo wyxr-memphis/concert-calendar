@@ -22,7 +22,7 @@ import uuid
 from datetime import datetime
 
 from flask import Flask, request, jsonify, make_response
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_compress import Compress
 import requests as http_requests
 
@@ -72,6 +72,13 @@ from backend.db import (
     create_calendar_sponsor,
     update_calendar_sponsor,
     delete_calendar_sponsor,
+    get_api_key,
+    create_api_key,
+    list_api_keys,
+    update_api_key,
+    log_api_request,
+    get_api_key_usage,
+    get_v1_events,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1602,6 +1609,194 @@ def slack_events():
             ).start()
 
     return jsonify({"ok": True})
+
+
+# ---------------------------------------------------------------------------
+# Public API v1 — key-authenticated, CORS open
+# ---------------------------------------------------------------------------
+
+def _validate_api_key(req):
+    """Returns (key_row, None) on success or (None, error_response) on failure."""
+    key = req.headers.get("X-API-Key") or req.args.get("api_key")
+    if not key:
+        return None, ({"error": "Missing API key. Get one at concert-calendar.wyxr.org/api."}, 401)
+    row = get_api_key(key)
+    if not row or not row["is_active"]:
+        return None, ({"error": "Invalid or revoked API key."}, 401)
+    return row, None
+
+
+def _log_api_request_async(key_id, key_prefix, endpoint, query_params, ip, status_code, duration_ms):
+    """Fire-and-forget: log an API request in the background."""
+    threading.Thread(
+        target=log_api_request,
+        args=(key_id, key_prefix, endpoint, query_params, ip, status_code, duration_ms),
+        daemon=True,
+    ).start()
+
+
+@app.route("/api/v1/events", methods=["GET"])
+@cross_origin()
+def v1_events():
+    """Authenticated public events API with extended filters."""
+    import time as _time
+    t0 = _time.time()
+
+    key_row, err = _validate_api_key(request)
+    if err:
+        return jsonify(err[0]), err[1]
+
+    start_date = request.args.get("start_date")
+    end_date = request.args.get("end_date")
+    featured_only = request.args.get("featured_only", "").lower() == "true"
+    neighborhood = request.args.get("neighborhood")
+    venue = request.args.get("venue")
+    limit = request.args.get("limit", 100, type=int)
+
+    events = get_v1_events(
+        start_date=start_date,
+        end_date=end_date,
+        featured_only=featured_only,
+        neighborhood=neighborhood,
+        venue=venue,
+        limit=limit,
+    )
+
+    duration_ms = int((_time.time() - t0) * 1000)
+    _log_api_request_async(
+        str(key_row["id"]),
+        key_row["key"][:12],
+        "/api/v1/events",
+        request.query_string.decode()[:500],
+        request.remote_addr,
+        200,
+        duration_ms,
+    )
+
+    resp = jsonify(serialize_list(events))
+    resp.headers["Cache-Control"] = "public, max-age=300"
+    return resp
+
+
+@app.route("/api/v1/venues", methods=["GET"])
+@cross_origin()
+def v1_venues():
+    """Authenticated venues list."""
+    key_row, err = _validate_api_key(request)
+    if err:
+        return jsonify(err[0]), err[1]
+
+    venues = get_all_venues()
+    data = [
+        {
+            "name": v["name"],
+            "neighborhood": v.get("neighborhood"),
+        }
+        for v in venues
+    ]
+    _log_api_request_async(
+        str(key_row["id"]), key_row["key"][:12],
+        "/api/v1/venues", "", request.remote_addr, 200, 0,
+    )
+    return jsonify(data)
+
+
+@app.route("/api/v1/neighborhoods", methods=["GET"])
+@cross_origin()
+def v1_neighborhoods():
+    """Authenticated neighborhoods list."""
+    key_row, err = _validate_api_key(request)
+    if err:
+        return jsonify(err[0]), err[1]
+
+    rows = get_neighborhoods_with_counts()
+    _log_api_request_async(
+        str(key_row["id"]), key_row["key"][:12],
+        "/api/v1/neighborhoods", "", request.remote_addr, 200, 0,
+    )
+    resp = jsonify([
+        {"name": r["neighborhood"], "event_count": r["event_count"]}
+        for r in rows
+    ])
+    return resp
+
+
+# ---------------------------------------------------------------------------
+# Admin API Key Endpoints
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/api-keys", methods=["GET"])
+@require_auth
+def admin_api_keys_list():
+    """List all API keys."""
+    keys = list_api_keys()
+    result = []
+    for k in keys:
+        d = serialize_event(k)
+        # Mask the key — show prefix only
+        if d.get("key"):
+            d["key_display"] = d["key"][:16] + "..."
+            del d["key"]
+        result.append(d)
+    return jsonify(result)
+
+
+@app.route("/api/admin/api-keys", methods=["POST"])
+@require_auth
+def admin_api_keys_create():
+    """Create a new API key."""
+    body = request.get_json(silent=True) or {}
+    name = (body.get("name") or "").strip()
+    if not name:
+        return jsonify({"error": "name is required"}), 400
+
+    row = create_api_key(
+        name=name,
+        email=(body.get("email") or "").strip() or None,
+        notes=(body.get("notes") or "").strip() or None,
+    )
+    d = serialize_event(row)
+    # Return the full key once — it cannot be retrieved again
+    return jsonify(d), 201
+
+
+@app.route("/api/admin/api-keys/<key_id>", methods=["PUT"])
+@require_auth
+def admin_api_keys_update(key_id):
+    """Update name/email/notes/is_active on an API key."""
+    body = request.get_json(silent=True) or {}
+    allowed = ["name", "email", "notes", "is_active"]
+    kwargs = {k: body[k] for k in allowed if k in body}
+    row = update_api_key(key_id, **kwargs)
+    if not row:
+        return jsonify({"error": "API key not found"}), 404
+    d = serialize_event(row)
+    if d.get("key"):
+        d["key_display"] = d["key"][:16] + "..."
+        del d["key"]
+    return jsonify(d)
+
+
+@app.route("/api/admin/api-keys/<key_id>", methods=["DELETE"])
+@require_auth
+def admin_api_keys_revoke(key_id):
+    """Revoke an API key (set is_active=false)."""
+    row = update_api_key(key_id, is_active=False)
+    if not row:
+        return jsonify({"error": "API key not found"}), 404
+    return jsonify({"ok": True})
+
+
+@app.route("/api/admin/api-keys/<key_id>/usage", methods=["GET"])
+@require_auth
+def admin_api_keys_usage(key_id):
+    """Usage stats for an API key: requests/day last 30 days."""
+    days = request.args.get("days", 30, type=int)
+    rows = get_api_key_usage(key_id, days=days)
+    return jsonify([
+        {"day": r["day"].isoformat(), "requests": r["requests"]}
+        for r in rows
+    ])
 
 
 # ---------------------------------------------------------------------------

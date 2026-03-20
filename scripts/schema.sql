@@ -103,3 +103,30 @@ CREATE TABLE IF NOT EXISTS calendar_sponsor (
 );
 CREATE INDEX IF NOT EXISTS idx_cal_sponsor_dates
   ON calendar_sponsor (start_date, end_date) WHERE is_active = true;
+
+-- Public API keys (honor system — no hard rate limiting)
+CREATE TABLE IF NOT EXISTS api_keys (
+  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  key         TEXT UNIQUE NOT NULL,
+  name        TEXT NOT NULL,
+  email       TEXT,
+  notes       TEXT,
+  is_active   BOOLEAN DEFAULT TRUE,
+  created_at  TIMESTAMPTZ DEFAULT NOW(),
+  last_used_at TIMESTAMPTZ
+);
+
+-- Per-key request log for usage analytics
+CREATE TABLE IF NOT EXISTS api_request_logs (
+  id          BIGSERIAL PRIMARY KEY,
+  api_key_id  UUID REFERENCES api_keys(id),
+  key_prefix  TEXT,
+  endpoint    TEXT,
+  query_params TEXT,
+  ip          TEXT,
+  status_code INTEGER,
+  duration_ms INTEGER,
+  created_at  TIMESTAMPTZ DEFAULT NOW()
+);
+CREATE INDEX IF NOT EXISTS idx_request_logs_key ON api_request_logs(api_key_id);
+CREATE INDEX IF NOT EXISTS idx_request_logs_created ON api_request_logs(created_at);

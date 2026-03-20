@@ -917,6 +917,7 @@
             <button class="nav-tab" data-tab="events">Events</button>
             <button class="nav-tab" data-tab="venues">Venues</button>
             <button class="nav-tab" data-tab="sponsors">Sponsors</button>
+            <button class="nav-tab" data-tab="api-keys">API Keys</button>
             <button class="nav-tab" data-tab="tools">Tools</button>
         </nav>
 
@@ -1198,6 +1199,76 @@
                 </div>
             </div>
 
+            <!-- API KEYS TAB -->
+            <div class="tab-content" id="tab-api-keys">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+                    <div>
+                        <h2 class="section-title" style="margin-bottom:4px;">API Keys</h2>
+                        <p class="section-subtitle">Manage third-party access to <code>/api/v1/</code> endpoints. <a href="/api" target="_blank" style="color:#1976d2;">View docs</a></p>
+                    </div>
+                    <button class="btn-primary" id="newApiKeyBtn">+ New Key</button>
+                </div>
+                <div id="apiKeyStatusBar"></div>
+                <table class="preview-table" id="apiKeysTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Key Prefix</th>
+                            <th>Created</th>
+                            <th>Last Used</th>
+                            <th>Status</th>
+                            <th style="width:120px;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="apiKeysBody">
+                        <tr><td colspan="7" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- Usage panel -->
+                <div id="apiKeyUsagePanel" style="display:none;margin-top:24px;padding:20px;border:1px solid #e0e0e0;border-radius:6px;background:#fff;">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                        <h3 style="font-size:1em;font-weight:700;" id="usagePanelTitle">Usage</h3>
+                        <button id="usagePanelClose" style="border:none;background:none;cursor:pointer;font-size:1.2em;color:#888;">&times;</button>
+                    </div>
+                    <div id="usagePanelBody" style="font-size:0.9em;color:#444;"></div>
+                </div>
+
+                <!-- New Key Modal -->
+                <div id="newApiKeyModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+                    <div style="background:#fff;border-radius:8px;padding:28px;width:420px;max-width:95vw;">
+                        <h3 style="margin-bottom:16px;font-size:1.1em;">New API Key</h3>
+                        <div id="newKeyError" style="display:none;color:#c62828;margin-bottom:12px;font-size:0.9em;"></div>
+                        <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Name <span style="color:#c62828;">*</span></label>
+                        <input type="text" id="newKeyName" placeholder="e.g. Memphis Flyer" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:12px;font-size:0.95em;">
+                        <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Email</label>
+                        <input type="email" id="newKeyEmail" placeholder="contact@example.com" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:12px;font-size:0.95em;">
+                        <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Notes</label>
+                        <textarea id="newKeyNotes" rows="2" placeholder="What are they building?" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:16px;font-size:0.95em;resize:vertical;"></textarea>
+                        <div style="display:flex;gap:8px;justify-content:flex-end;">
+                            <button class="btn-secondary" id="newKeyCancel">Cancel</button>
+                            <button class="btn-primary" id="newKeySave">Create Key</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key reveal modal (shown once after creation) -->
+                <div id="keyRevealModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;align-items:center;justify-content:center;">
+                    <div style="background:#fff;border-radius:8px;padding:28px;width:480px;max-width:95vw;">
+                        <h3 style="margin-bottom:8px;font-size:1.1em;">API Key Created</h3>
+                        <p style="font-size:0.9em;color:#555;margin-bottom:16px;">Copy this key now — it won't be shown again.</p>
+                        <div style="display:flex;gap:8px;align-items:center;">
+                            <code id="keyRevealValue" style="flex:1;background:#f5f5f5;border:1px solid #ddd;padding:10px 12px;border-radius:4px;font-size:0.85em;word-break:break-all;"></code>
+                            <button class="btn-secondary" id="copyKeyBtn" style="white-space:nowrap;">Copy</button>
+                        </div>
+                        <div style="margin-top:16px;text-align:right;">
+                            <button class="btn-primary" id="keyRevealClose">Done</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- TOOLS TAB -->
             <div class="tab-content" id="tab-tools">
                 <!-- SECTION 1: Upload & Import -->
@@ -1323,7 +1394,7 @@
         // Handle hash navigation (for redirects and bookmarks)
         function handleHashChange() {
             const hash = window.location.hash.slice(1); // Remove #
-            if (hash === 'submissions' || hash === 'tools' || hash === 'events' || hash === 'venues' || hash === 'sponsors') {
+            if (['submissions', 'tools', 'events', 'venues', 'sponsors', 'api-keys'].includes(hash)) {
                 switchToTab(hash);
             }
         }
@@ -3052,6 +3123,189 @@
                 </div>`;
             }
         }
+        // ========================================================================
+        // API KEYS TAB
+        // ========================================================================
+
+        let allApiKeys = [];
+
+        async function loadApiKeys() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/api-keys');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                allApiKeys = data;
+                renderApiKeys();
+            } catch (err) {
+                showStatus('Failed to load API keys: ' + err.message, 'error', 'apiKeyStatusBar');
+            }
+        }
+
+        function renderApiKeys() {
+            const tbody = document.getElementById('apiKeysBody');
+            if (!allApiKeys.length) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#888;padding:24px;">No API keys yet</td></tr>';
+                return;
+            }
+            tbody.innerHTML = allApiKeys.map(k => {
+                const created = k.created_at ? new Date(k.created_at).toLocaleDateString() : '—';
+                const lastUsed = k.last_used_at ? new Date(k.last_used_at).toLocaleDateString() : 'Never';
+                const statusBadge = k.is_active
+                    ? '<span style="color:#2e7d32;font-weight:600;">Active</span>'
+                    : '<span style="color:#c62828;font-weight:600;">Revoked</span>';
+                return `<tr data-id="${esc(k.id)}">
+                    <td>${esc(k.name)}</td>
+                    <td>${esc(k.email || '—')}</td>
+                    <td><code style="font-size:0.82em;background:#f5f5f5;padding:2px 6px;border-radius:3px;">${esc(k.key_display || '—')}</code></td>
+                    <td>${created}</td>
+                    <td>${lastUsed}</td>
+                    <td>${statusBadge}</td>
+                    <td>
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;margin-right:4px;" onclick="showKeyUsage('${esc(k.id)}','${esc(k.name)}')">Usage</button>
+                        ${k.is_active
+                            ? `<button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#c62828;" onclick="revokeApiKey('${esc(k.id)}','${esc(k.name)}')">Revoke</button>`
+                            : `<button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#2e7d32;" onclick="reactivateApiKey('${esc(k.id)}')">Reactivate</button>`
+                        }
+                    </td>
+                </tr>`;
+            }).join('');
+        }
+
+        async function revokeApiKey(id, name) {
+            if (!confirm(`Revoke API key for "${name}"? Any apps using it will stop working.`)) return;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-keys/${id}`, { method: 'DELETE' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                showStatus('Key revoked.', 'success', 'apiKeyStatusBar');
+                await loadApiKeys();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'apiKeyStatusBar');
+            }
+        }
+
+        async function reactivateApiKey(id) {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-keys/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ is_active: true }),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                showStatus('Key reactivated.', 'success', 'apiKeyStatusBar');
+                await loadApiKeys();
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'apiKeyStatusBar');
+            }
+        }
+
+        async function showKeyUsage(id, name) {
+            const panel = document.getElementById('apiKeyUsagePanel');
+            const title = document.getElementById('usagePanelTitle');
+            const body = document.getElementById('usagePanelBody');
+            title.textContent = `Usage — ${name} (last 30 days)`;
+            body.textContent = 'Loading...';
+            panel.style.display = 'block';
+            panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-keys/${id}/usage`);
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                if (!data.length) {
+                    body.innerHTML = '<span style="color:#888;">No requests logged yet.</span>';
+                    return;
+                }
+                const max = Math.max(...data.map(d => d.requests), 1);
+                body.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:0.88em;">
+                    <thead><tr>
+                        <th style="text-align:left;padding:4px 8px;border-bottom:1px solid #eee;">Date</th>
+                        <th style="text-align:right;padding:4px 8px;border-bottom:1px solid #eee;">Requests</th>
+                        <th style="padding:4px 8px;border-bottom:1px solid #eee;"></th>
+                    </tr></thead>
+                    <tbody>${data.map(row => {
+                        const pct = Math.round((row.requests / max) * 100);
+                        return `<tr>
+                            <td style="padding:4px 8px;">${esc(row.day)}</td>
+                            <td style="text-align:right;padding:4px 8px;font-weight:600;">${row.requests}</td>
+                            <td style="padding:4px 8px;width:120px;">
+                                <div style="height:8px;background:#FFCF2D;border-radius:2px;width:${pct}%;"></div>
+                            </td>
+                        </tr>`;
+                    }).join('')}</tbody>
+                </table>`;
+            } catch (err) {
+                body.textContent = 'Error: ' + err.message;
+            }
+        }
+
+        document.getElementById('usagePanelClose').addEventListener('click', () => {
+            document.getElementById('apiKeyUsagePanel').style.display = 'none';
+        });
+
+        document.getElementById('newApiKeyBtn').addEventListener('click', () => {
+            document.getElementById('newKeyName').value = '';
+            document.getElementById('newKeyEmail').value = '';
+            document.getElementById('newKeyNotes').value = '';
+            document.getElementById('newKeyError').style.display = 'none';
+            document.getElementById('newApiKeyModal').style.display = 'flex';
+        });
+
+        document.getElementById('newKeyCancel').addEventListener('click', () => {
+            document.getElementById('newApiKeyModal').style.display = 'none';
+        });
+
+        document.getElementById('newKeySave').addEventListener('click', async () => {
+            const name = document.getElementById('newKeyName').value.trim();
+            const email = document.getElementById('newKeyEmail').value.trim();
+            const notes = document.getElementById('newKeyNotes').value.trim();
+            const errEl = document.getElementById('newKeyError');
+            errEl.style.display = 'none';
+
+            if (!name) {
+                errEl.textContent = 'Name is required.';
+                errEl.style.display = 'block';
+                return;
+            }
+
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/api-keys', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, notes }),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+
+                document.getElementById('newApiKeyModal').style.display = 'none';
+
+                // Show full key once
+                document.getElementById('keyRevealValue').textContent = data.key;
+                document.getElementById('keyRevealModal').style.display = 'flex';
+
+                await loadApiKeys();
+            } catch (err) {
+                errEl.textContent = 'Error: ' + err.message;
+                errEl.style.display = 'block';
+            }
+        });
+
+        document.getElementById('copyKeyBtn').addEventListener('click', () => {
+            const val = document.getElementById('keyRevealValue').textContent;
+            navigator.clipboard.writeText(val).then(() => {
+                document.getElementById('copyKeyBtn').textContent = 'Copied!';
+                setTimeout(() => { document.getElementById('copyKeyBtn').textContent = 'Copy'; }, 2000);
+            });
+        });
+
+        document.getElementById('keyRevealClose').addEventListener('click', () => {
+            document.getElementById('keyRevealModal').style.display = 'none';
+        });
+
+        // Load API keys when tab is opened
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            if (tab.dataset.tab === 'api-keys') {
+                tab.addEventListener('click', () => {
+                    if (!allApiKeys.length) loadApiKeys();
+                });
+            }
+        });
     </script>
 </body>
 </html>

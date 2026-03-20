@@ -205,7 +205,40 @@ def init_db():
               ON calendar_sponsor (start_date, end_date) WHERE is_active = true;
         """)
 
-    # Step 9: Seed venues if table is empty
+    # Step 9: Create api_keys table
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS api_keys (
+              id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+              key         TEXT UNIQUE NOT NULL,
+              name        TEXT NOT NULL,
+              email       TEXT,
+              notes       TEXT,
+              is_active   BOOLEAN DEFAULT TRUE,
+              created_at  TIMESTAMPTZ DEFAULT NOW(),
+              last_used_at TIMESTAMPTZ
+            )
+        """)
+
+    # Step 10: Create api_request_logs table
+    with get_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS api_request_logs (
+              id          BIGSERIAL PRIMARY KEY,
+              api_key_id  UUID REFERENCES api_keys(id),
+              key_prefix  TEXT,
+              endpoint    TEXT,
+              query_params TEXT,
+              ip          TEXT,
+              status_code INTEGER,
+              duration_ms INTEGER,
+              created_at  TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE INDEX IF NOT EXISTS idx_request_logs_key ON api_request_logs(api_key_id);
+            CREATE INDEX IF NOT EXISTS idx_request_logs_created ON api_request_logs(created_at);
+        """)
+
+    # Step 11: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
     except Exception as e:
@@ -1173,3 +1206,117 @@ def delete_calendar_sponsor(sponsor_id):
     with get_cursor() as cur:
         cur.execute("DELETE FROM calendar_sponsor WHERE id = %s RETURNING *", (sponsor_id,))
         return cur.fetchone()
+
+
+# ---------------------------------------------------------------------------
+# API Key queries
+# ---------------------------------------------------------------------------
+
+def get_api_key(key: str):
+    """Look up an API key by its key string. Returns row or None."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM api_keys WHERE key = %s", (key,))
+        return cur.fetchone()
+
+
+def create_api_key(name, email=None, notes=None) -> dict:
+    """Generate a new API key and insert it. Returns the created row."""
+    import secrets as _secrets
+    key = "wyxr_" + _secrets.token_urlsafe(32)
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO api_keys (key, name, email, notes)
+               VALUES (%s, %s, %s, %s) RETURNING *""",
+            (key, name, email, notes),
+        )
+        return cur.fetchone()
+
+
+def list_api_keys() -> list:
+    """Get all API keys ordered by creation date."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT * FROM api_keys ORDER BY created_at DESC")
+        return cur.fetchall()
+
+
+def update_api_key(key_id, **fields) -> dict:
+    """Update name/email/notes/is_active on an API key."""
+    allowed = ["name", "email", "notes", "is_active"]
+    updates = {k: fields[k] for k in allowed if k in fields}
+    if not updates:
+        with get_cursor(commit=False) as cur:
+            cur.execute("SELECT * FROM api_keys WHERE id = %s", (key_id,))
+            return cur.fetchone()
+    set_clauses = [f"{k} = %s" for k in updates]
+    params = list(updates.values()) + [key_id]
+    query = f"UPDATE api_keys SET {', '.join(set_clauses)} WHERE id = %s RETURNING *"
+    with get_cursor() as cur:
+        cur.execute(query, params)
+        return cur.fetchone()
+
+
+def log_api_request(key_id, key_prefix, endpoint, query_params, ip, status_code, duration_ms):
+    """Insert a request log entry and update last_used_at. Fails silently."""
+    try:
+        with get_cursor() as cur:
+            cur.execute(
+                """INSERT INTO api_request_logs
+                   (api_key_id, key_prefix, endpoint, query_params, ip, status_code, duration_ms)
+                   VALUES (%s, %s, %s, %s, %s, %s, %s)""",
+                (key_id, key_prefix, endpoint, query_params, ip, status_code, duration_ms),
+            )
+        if key_id:
+            with get_cursor() as cur:
+                cur.execute(
+                    "UPDATE api_keys SET last_used_at = NOW() WHERE id = %s",
+                    (key_id,),
+                )
+    except Exception as e:
+        print(f"[api_log] Error logging request: {e}", flush=True)
+
+
+def get_api_key_usage(key_id, days=30) -> list:
+    """Daily request counts for a key over the last N days."""
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT DATE(created_at) AS day, COUNT(*) AS requests
+               FROM api_request_logs
+               WHERE api_key_id = %s
+                 AND created_at >= NOW() - (%s * INTERVAL '1 day')
+               GROUP BY DATE(created_at)
+               ORDER BY day""",
+            (key_id, days),
+        )
+        return cur.fetchall()
+
+
+def get_v1_events(start_date=None, end_date=None, featured_only=False,
+                   neighborhood=None, venue=None, limit=100):
+    """Get active events for the v1 public API with extended filters."""
+    query = "SELECT * FROM events WHERE is_active = true"
+    params = []
+
+    if start_date:
+        query += " AND date >= %s"
+        params.append(start_date)
+    if end_date:
+        query += " AND date <= %s"
+        params.append(end_date)
+    if featured_only:
+        query += " AND is_featured = true"
+    if neighborhood:
+        query += " AND neighborhood = %s"
+        params.append(neighborhood)
+    if venue:
+        query += " AND LOWER(venue) = LOWER(%s)"
+        params.append(venue)
+
+    query += " ORDER BY date ASC, is_wyxr_presents DESC, is_featured DESC, start_time ASC"
+
+    limit = min(int(limit), 500)
+    query += " LIMIT %s"
+    params.append(limit)
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(query, params)
+        return cur.fetchall()
