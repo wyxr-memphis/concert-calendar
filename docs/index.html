@@ -1343,10 +1343,32 @@
                     weekday: 'long', month: 'long', day: 'numeric'
                 }).toUpperCase();
 
-                // Group by venue
+                // Separate featured (WYXR Pick / Presents) from normal events
+                const featuredEvents = dayEvents.filter(e => e.is_featured || e.is_wyxr_presents);
+                const normalEvents = dayEvents.filter(e => !e.is_featured && !e.is_wyxr_presents);
+
+                let eventLines = '';
+
+                // 1. Render featured events first — each as standalone line at top
+                featuredEvents.forEach(e => {
+                    let line = `<span class="artist">${esc(e.title)}</span> — `;
+                    line += `<span class="venue">${esc(e.venue || '')}</span>`;
+                    if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
+
+                    const badge = e.is_wyxr_presents ? '<span class="presents-badge">WYXR Presents</span> '
+                        : '<span class="featured-badge">WYXR Pick</span> ';
+
+                    if (e.ticket_url) {
+                        eventLines += `<li class="featured event--featured"><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${badge}${line}</a></li>`;
+                    } else {
+                        eventLines += `<li class="featured event--featured">${badge}${line}</li>`;
+                    }
+                });
+
+                // 2. Group remaining normal events by venue
                 const venueGroups = {};
                 const venueOrder = [];
-                dayEvents.forEach(e => {
+                normalEvents.forEach(e => {
                     const key = (e.venue || '').toLowerCase();
                     if (!venueGroups[key]) {
                         venueGroups[key] = [];
@@ -1355,7 +1377,6 @@
                     venueGroups[key].push(e);
                 });
 
-                let eventLines = '';
                 venueOrder.forEach(venueKey => {
                     const events = venueGroups[venueKey];
 
@@ -1365,14 +1386,10 @@
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
 
-                        const cls = (e.is_wyxr_presents || e.is_featured) ? ' class="featured event--featured"' : '';
-                        const badge = e.is_wyxr_presents ? '<span class="presents-badge">WYXR Presents</span> '
-                            : e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
-
                         if (e.ticket_url) {
-                            eventLines += `<li${cls}><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${badge}${line}</a></li>`;
+                            eventLines += `<li><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${line}</a></li>`;
                         } else {
-                            eventLines += `<li${cls}>${badge}${line}</li>`;
+                            eventLines += `<li>${line}</li>`;
                         }
                     } else {
                         const venueName = events[0].venue || '';
@@ -1382,17 +1399,14 @@
 
                         let artistItems = '';
                         events.forEach(e => {
-                            const badge = e.is_wyxr_presents ? '<span class="presents-badge">WYXR Presents</span> '
-                                : e.is_featured ? '<span class="featured-badge">WYXR Pick</span> ' : '';
-                            const cls = (e.is_wyxr_presents || e.is_featured) ? ' class="featured event--featured"' : '';
-                            let artistText = `${badge}<span class="artist">${esc(e.title)}</span>`;
+                            let artistText = `<span class="artist">${esc(e.title)}</span>`;
                             if (!allSameTime && e.start_time) {
                                 artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
                             }
                             if (e.ticket_url) {
-                                artistItems += `<li${cls}><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${artistText}</a></li>`;
+                                artistItems += `<li><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${artistText}</a></li>`;
                             } else {
-                                artistItems += `<li${cls}>${artistText}</li>`;
+                                artistItems += `<li>${artistText}</li>`;
                             }
                         });
 
