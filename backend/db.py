@@ -492,6 +492,7 @@ def _seed_venues_if_empty():
         ("Nashoba", "Germantown", ["nashoba", "nashoba live", "nashoba memphis"]),
         ("Landers Center", "Germantown", ["landers center", "landers centre", "the landers center", "landers"]),
         ("South Main Sounds", "South Main Arts District", ["south main sounds", "south main sounds memphis"]),
+        ("Flyway Brewing", None, ["flyway brewing", "flyway brewing memphis", "flyway"]),
     ]
 
     with get_cursor(commit=False) as cur:

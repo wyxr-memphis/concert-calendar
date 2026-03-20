@@ -9,6 +9,7 @@ import requests
 import json
 import re
 from datetime import datetime, date
+from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult
 from ..http_utils import get_with_retry
@@ -120,6 +121,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_landers(soup, name)
         elif scraper_type == "crosstown_arts":
             events = _parse_crosstown_arts(soup, name)
+        elif scraper_type == "flyway":
+            events = _parse_flyway(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -1017,6 +1020,69 @@ def _parse_south_main_sounds(soup: BeautifulSoup, venue_name: str) -> List[Event
                 url=url,
             ))
 
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Flyway Brewing events from Wix warmup data JSON blob."""
+    events = []
+    CENTRAL = ZoneInfo("America/Chicago")
+
+    script_tag = soup.find("script", {"id": "wix-warmup-data"})
+    if not script_tag or not script_tag.string:
+        return events
+
+    try:
+        data = json.loads(script_tag.string)
+    except (json.JSONDecodeError, ValueError):
+        return events
+
+    # Navigate to the events list; search all widget components for an 'events' list
+    apps_data = data.get("appsWarmupData", {})
+    wix_events_app = apps_data.get("140603ad-af8d-84a5-2c80-a0f60cb47351", {})
+
+    raw_events = []
+    for widget_data in wix_events_app.values():
+        if isinstance(widget_data, dict):
+            nested = widget_data.get("events", {})
+            if isinstance(nested, dict) and "events" in nested:
+                raw_events = nested["events"]
+                break
+
+    for event in raw_events:
+        try:
+            title = event.get("title", "").strip()
+            if not title:
+                continue
+
+            # Apply music filter — Flyway hosts non-music events (e.g. lectures)
+            if not is_music_event(title):
+                continue
+
+            start_date_str = (event.get("scheduling") or {}).get("config", {}).get("startDate")
+            if not start_date_str:
+                continue
+
+            dt_utc = datetime.fromisoformat(start_date_str.replace("Z", "+00:00"))
+            dt_local = dt_utc.astimezone(CENTRAL)
+            event_date = dt_local.date()
+
+            time_str = dt_local.strftime("%-I:%M %p").replace(":00 ", " ")
+
+            slug = event.get("slug", "")
+            url = f"https://www.flywaybrewingmemphis.com/events/{slug}" if slug else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+                url=url,
+            ))
         except Exception:
             continue
 

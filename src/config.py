@@ -176,6 +176,13 @@ VENUES = {
         "calendar_url": "https://www.landerscenter.com/events",
         "scraper": "landers",
     },
+    "flyway-brewing": {
+        "name": "Flyway Brewing",
+        "aliases": ["flyway brewing", "flyway brewing memphis", "flyway"],
+        "neighborhood": None,  # East Memphis — not in current neighborhood list; shows as "Other"
+        "calendar_url": "https://www.flywaybrewingmemphis.com/events",
+        "scraper": "flyway",
+    },
 }
 
 # ---------------------------------------------------------------------------
