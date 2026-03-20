@@ -946,12 +946,12 @@
                 <div class="controls">
                     <input type="text" class="search-input" id="searchInput" placeholder="Search by title or venue...">
                     <div class="filter-tabs">
-                        <button class="filter-tab active" data-filter="all">All</button>
+                        <button class="filter-tab" data-filter="all">All</button>
                         <button class="filter-tab" data-filter="active">Active</button>
                         <button class="filter-tab" data-filter="inactive">Inactive</button>
                         <button class="filter-tab" data-filter="presents">Presents</button>
                         <button class="filter-tab" data-filter="featured">Featured</button>
-                        <button class="filter-tab" data-filter="upcoming">Upcoming</button>
+                        <button class="filter-tab active" data-filter="upcoming">Upcoming</button>
                         <button class="filter-tab" data-filter="past">Past</button>
                     </div>
                 </div>
@@ -1288,7 +1288,7 @@
         let allEvents = [];
         let filteredEvents = [];
         let currentPage = 0;
-        let currentFilter = 'all';
+        let currentFilter = 'upcoming';
 
         // Tab switching
         function switchToTab(tabName) {
