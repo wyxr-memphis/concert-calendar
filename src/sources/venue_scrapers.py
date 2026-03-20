@@ -136,6 +136,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_crosstown_arts(soup, name)
         elif scraper_type == "flyway":
             events = _parse_flyway(soup, name)
+        elif scraper_type == "bbkings":
+            events = _parse_bbkings(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -1101,6 +1103,49 @@ def _parse_south_main_sounds(soup: BeautifulSoup, venue_name: str) -> List[Event
                 url=url,
             ))
 
+        except Exception:
+            continue
+
+    return events
+
+
+def _parse_bbkings(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse B.B. King's Blues Club events from Webflow CMS collection.
+
+    Events are in div.event7_item cards with:
+    - h3 for artist name
+    - div.text-size-small for time
+    - div[fs-cmsfilter-field="date"] for date (e.g. "Mar 19", no year)
+    """
+    events = []
+    current_year = date.today().year
+
+    for item in soup.select("div.event7_item"):
+        try:
+            title_el = item.select_one("h3")
+            date_el = item.select_one("[fs-cmsfilter-field='date']")
+            if not title_el or not date_el:
+                continue
+
+            title = title_el.get_text(strip=True)
+            if not title:
+                continue
+
+            date_text = date_el.get_text(strip=True)
+            event_date = parse_date_text(date_text)
+            if not event_date:
+                continue
+
+            time_el = item.select_one(".event7_name-wrapper .text-size-small")
+            time_str = time_el.get_text(strip=True) if time_el else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=f"Venue: {venue_name}",
+            ))
         except Exception:
             continue
 

@@ -108,8 +108,8 @@ VENUES = {
         "name": "B.B. King's Blues Club",
         "aliases": ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"],
         "neighborhood": "Downtown/Beale Street",
-        "calendar_url": None,
-        "scraper": "manual_only",
+        "calendar_url": "https://bbkings.com/memphis/music",
+        "scraper": "bbkings",
     },
     "graceland-soundstage": {
         "name": "Graceland Soundstage",
