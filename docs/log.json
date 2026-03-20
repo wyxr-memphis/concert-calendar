@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-19T20:32:01.388938+00:00",
+  "run_timestamp": "2026-03-20T00:55:59.291207+00:00",
   "date_range": {
-    "start": "2026-03-19",
-    "end": "2026-03-26"
+    "start": "2026-03-20",
+    "end": "2026-03-27"
   },
-  "total_events_db": 459,
-  "total_active_display": 136,
+  "total_events_db": 461,
+  "total_active_display": 140,
   "data_store": "postgresql",
   "sources": [
     {
@@ -28,8 +28,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 85,
-      "events_after_filter": 70,
-      "events_filtered": 15,
+      "events_after_filter": 69,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -52,8 +52,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -68,8 +68,8 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 102,
-      "events_after_filter": 35,
-      "events_filtered": 67,
+      "events_after_filter": 34,
+      "events_filtered": 68,
       "error": null
     },
     {
@@ -92,8 +92,8 @@
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_after_filter": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -116,8 +116,8 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 150,
-      "events_after_filter": 22,
-      "events_filtered": 128,
+      "events_after_filter": 21,
+      "events_filtered": 129,
       "error": null
     },
     {
@@ -137,113 +137,23 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 136,
-      "events_after_filter": 136,
+      "events_found": 140,
+      "events_after_filter": 140,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Dan Auerbach (Black Keys) DJ set w/ DJ Bizzle Bluebland",
-      "venue": "Bar DKDC",
-      "date": "2026-03-19",
-      "time": null,
-      "source": "manual"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-19",
-      "time": "10 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Hans Condor (Nashville)",
-      "venue": "Bar DKDC",
-      "date": "2026-03-19",
-      "time": null,
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC, Special Thursday Show)"
-    },
-    {
-      "artist": "Crosstown Arts Film Series: Beyond the Black Rainbow",
-      "venue": "Crosstown Arts Green Room",
-      "date": "2026-03-19",
-      "time": "7 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Resident Artist Talk",
-      "venue": "Crosstown Arts Green Room",
-      "date": "2026-03-19",
-      "time": "6 PM",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Ember and Oak Prime",
-      "date": "2026-03-19",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "New Edition",
-      "venue": "FedExForum",
-      "date": "2026-03-19",
-      "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "New Edition: The New Edition Way Tour",
-      "venue": "FedExForum",
-      "date": "2026-03-19",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Toni Braxton",
-      "venue": "FedExForum",
-      "date": "2026-03-19",
-      "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Joshua Quimby",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-19",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Rev Down Trio *Matinee show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-19",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Shara's Songwriter Showcase",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-19",
-      "time": "6 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Burlesque Karaoke",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-19",
-      "time": "9pm",
-      "source": "Artifacts (Handwritten schedule - THURS)"
-    },
-    {
-      "artist": "March Madness #FirstRound",
-      "venue": "Nashoba",
-      "date": "2026-03-19",
-      "time": "6:02 PM",
-      "source": "Venue: Nashoba"
-    },
     {
       "artist": "Ladysmith Black Mambazo",
       "venue": "Germantown Performing Arts Center",
@@ -1097,6 +1007,132 @@
       "date": "2026-03-26",
       "time": "5:30\u202fPM",
       "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Indie Sleaze Night: DJ Livin & DJ Rhinestonee",
+      "venue": "Bar DKDC",
+      "date": "2026-03-27",
+      "time": "9 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "Electric 30 / Village Instincts / Hill Billy Mojo",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-27",
+      "time": "9 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Belle Meade Social",
+      "date": "2026-03-27",
+      "time": "6:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Evergreen Sound Sessions: LJ1S & Brandon Blvd",
+      "venue": "Crosstown Arts Green Room",
+      "date": "2026-03-27",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Jazz in the Box: Master Jazz Guitar Series featuring Randy Napoleon",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-27",
+      "time": "7:00\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
+    },
+    {
+      "artist": "Council Hill",
+      "venue": "Growlers",
+      "date": "2026-03-27",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-27",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Gary Clark Jr.",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-27",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Raise Your Paddle [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Risky Whispers / Wicker / F!rst / Ivy Dinosaur [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-27",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Formerly Known As",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-27",
+      "time": "9:30 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Souled Out",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-03-27",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "TURNT! $un Ra$hco P. Cohraner",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-27",
+      "time": "9 PM",
+      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
+    },
+    {
+      "artist": "Alexis Jade",
+      "venue": "Momma's",
+      "date": "2026-03-27",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Mississippi Moon Festival Presents: MoonShroom",
+      "venue": "Nashoba",
+      "date": "2026-03-27",
+      "time": "9 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Jason Isbell",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-27",
+      "time": "7:00 PM",
+      "source": "Venue: Orpheum Theatre"
+    },
+    {
+      "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. The Galaxy\u2019s Edge Quintet",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-27",
+      "time": "6:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Joe Austin & The Tallahatchies",
+      "venue": "Tony's Trophy Room",
+      "date": "2026-03-27",
+      "time": "8:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     }
   ]
 }
