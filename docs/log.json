@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-20T01:24:18.820091+00:00",
+  "run_timestamp": "2026-03-20T02:10:25.166070+00:00",
   "date_range": {
     "start": "2026-03-20",
     "end": "2026-03-27"
   },
-  "total_events_db": 472,
-  "total_active_display": 144,
+  "total_events_db": 490,
+  "total_active_display": 154,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 17,
@@ -53,6 +37,22 @@
       "success": true,
       "events_found": 20,
       "events_after_filter": 20,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -73,19 +73,27 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 34,
+      "events_filtered": 68,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 58,
       "events_after_filter": 27,
       "events_filtered": 31,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 21,
-      "events_filtered": 129,
       "error": null
     },
     {
@@ -97,26 +105,18 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 21,
+      "events_filtered": 129,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
       "events_filtered": 0,
       "error": null
     },
@@ -129,6 +129,22 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 15,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 85,
@@ -137,18 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 144,
-      "events_after_filter": 144,
+      "events_found": 154,
+      "events_after_filter": 154,
       "events_filtered": 0,
       "error": null
     }
@@ -643,6 +651,76 @@
       "date": "2026-03-22",
       "time": null,
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "3 Mississippi",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-03-22",
+      "time": "8 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Downtown)",
+      "date": "2026-03-22",
+      "time": "3 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Heartbreak Hill",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-03-22",
+      "time": "3 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Even Odds",
+      "venue": "Huey's (Millington)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Danny Banks Band",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "The Bugaloos",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-03-22",
+      "time": "3 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "Ken Houston Duo",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
+      "artist": "El Ced & Groove Nation",
+      "venue": "Huey's (Southwind)",
+      "date": "2026-03-22",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
     },
     {
       "artist": "Play Some Skynyrd",
