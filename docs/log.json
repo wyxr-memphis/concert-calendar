@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-20T17:30:54.175485+00:00",
+  "run_timestamp": "2026-03-21T05:45:14.109935+00:00",
   "date_range": {
-    "start": "2026-03-20",
-    "end": "2026-03-27"
+    "start": "2026-03-21",
+    "end": "2026-03-28"
   },
-  "total_events_db": 529,
-  "total_active_display": 166,
+  "total_events_db": 537,
+  "total_active_display": 158,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -25,14 +25,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
@@ -41,10 +33,26 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 23,
+      "events_after_filter": 21,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -57,30 +65,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 34,
-      "events_filtered": 68,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 58,
-      "events_after_filter": 27,
-      "events_filtered": 31,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 12,
@@ -89,11 +73,27 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 102,
+      "events_after_filter": 32,
+      "events_filtered": 70,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 58,
+      "events_after_filter": 26,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -105,19 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 13,
-      "events_filtered": 26,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -129,10 +121,26 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 12,
+      "events_filtered": 27,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -145,304 +153,23 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 84,
-      "events_after_filter": 69,
+      "events_found": 82,
+      "events_after_filter": 67,
       "events_filtered": 15,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 166,
-      "events_after_filter": 166,
+      "events_found": 158,
+      "events_after_filter": 158,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Early Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Early",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry (Late)",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Late",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "Ladysmith Black Mambazo",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-20",
-      "time": "8:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
-      "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. D\u2019Monet",
-      "venue": "Overton Park Shell",
-      "date": "2026-03-20",
-      "time": "6:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
-    },
-    {
-      "artist": "Stolen Faces",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-20",
-      "time": "9 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-20",
-      "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-20",
-      "time": "12:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-20",
-      "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": null,
-      "source": "Artifacts (Bar DKDC venue listing - Late Night of the Pisces)"
-    },
-    {
-      "artist": "Greg Cartwright, Jeremy Scott + Graham Winchester",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": null,
-      "source": "Artifacts (Bar DKDC venue listing - Early Songwriter Circle)"
-    },
-    {
-      "artist": "Late Night of the Pisces w/ DJ Brilli, Fatherdad, Jayxavaire + DJ Larry",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Late",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "Songwriter Circle featuring Greg Cartwright, Jeremy Scott + Graham Winchester (Early)",
-      "venue": "Bar DKDC",
-      "date": "2026-03-20",
-      "time": "Early",
-      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
-    },
-    {
-      "artist": "Folk All Y\u2019all: Will Kimbrough in Tribute to Todd Snider",
-      "venue": "Crosstown Arts",
-      "date": "2026-03-20",
-      "time": "5:00 pm",
-      "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Earnestine & Hazel's",
-      "date": "2026-03-20",
-      "time": "9:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Machine Town w/ LJ Cates",
-      "venue": "Flyway Brewing",
-      "date": "2026-03-20",
-      "time": "6 PM",
-      "source": "Venue: Flyway Brewing"
-    },
-    {
-      "artist": "ABERRANT",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "10:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Defcon",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "10:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Echo Pilot",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "7:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Morrigan",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "10:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Onsra",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "10:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Thundergun",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Tori.Wave",
-      "venue": "Growlers",
-      "date": "2026-03-20",
-      "time": "10:00PM",
-      "source": "Venue: Growlers"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-20",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "The Dirty Crows",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-20",
-      "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "!El Chavos\u00a1. & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "It\u2019s a circus birthday show! [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-20",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "JAM-JAM1",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-20",
-      "time": "9:30 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Motel California (Eagles Tribute)",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-03-20",
-      "time": "6 PM",
-      "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Russ T., J. Robot, Data Drums",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-20",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Friday)"
-    },
-    {
-      "artist": "Russt, J. Robot, Data Drums",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-20",
-      "time": "8 PM",
-      "source": "Artifacts (Handwritten weekly schedule - Friday)"
-    },
-    {
-      "artist": "Phil Wickham",
-      "venue": "Landers Center",
-      "date": "2026-03-20",
-      "time": "7:00 PM",
-      "source": "Venue: Landers Center"
-    },
-    {
-      "artist": "Phil Wickham Ticket + Hotel Deals",
-      "venue": "Landers Center",
-      "date": "2026-03-20",
-      "time": "7 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Song Of The Saints Tour with Phil Wickham",
-      "venue": "Landers Center",
-      "date": "2026-03-20",
-      "time": "7 PM",
-      "source": "Ticketmaster"
-    },
-    {
-      "artist": "Tauren Wells",
-      "venue": "Landers Center",
-      "date": "2026-03-20",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Alexis Jade",
-      "venue": "Momma's",
-      "date": "2026-03-20",
-      "time": null,
-      "source": "submission"
-    },
-    {
-      "artist": "Uncle Sam",
-      "venue": "Neil's Music Room",
-      "date": "2026-03-20",
-      "time": "7 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "2 Birds 1 Stone, Izzy Robinson and Samantha Long",
-      "venue": "South Main Sounds",
-      "date": "2026-03-20",
-      "time": "7:00PM",
-      "source": "Venue: South Main Sounds"
-    },
-    {
-      "artist": "Thumpdaddy",
-      "venue": "Southland",
-      "date": "2026-03-20",
-      "time": "6 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Jay Allen\u2019s Living Gracefully Tour",
-      "venue": "The Summit",
-      "date": "2026-03-20",
-      "time": "6:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
     {
       "artist": "Robert Earl Keen",
       "venue": "Germantown Performing Arts Center",
@@ -871,6 +598,13 @@
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-23",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Memphis Jones",
       "venue": "B.B. King's Blues Club",
       "date": "2026-03-23",
@@ -932,6 +666,20 @@
       "date": "2026-03-24",
       "time": "10 PM",
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-24",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-24",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Brimstone Jones",
@@ -1249,6 +997,13 @@
       "source": "Venue: Growlers"
     },
     {
+      "artist": "Gary Clark Jr.",
+      "venue": "Growlers",
+      "date": "2026-03-27",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
       "artist": "John Paul Keith",
       "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-03-27",
@@ -1315,8 +1070,8 @@
       "artist": "Jason Isbell",
       "venue": "Orpheum Theatre",
       "date": "2026-03-27",
-      "time": "7:00 PM",
-      "source": "Venue: Orpheum Theatre"
+      "time": "8 PM",
+      "source": "Ticketmaster"
     },
     {
       "artist": "Shell on Wheels Presents 5 Fridays of Jazz ft. The Galaxy\u2019s Edge Quintet",
@@ -1331,6 +1086,195 @@
       "date": "2026-03-27",
       "time": "8:30 PM",
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Paul Taylor & Friends",
+      "venue": "B-Side Memphis",
+      "date": "2026-03-28",
+      "time": "8 PM",
+      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-28",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Gary Clark Jr.",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-28",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Taylor Hollingsworth",
+      "venue": "Bar DKDC",
+      "date": "2026-03-28",
+      "time": "9:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Taylor Hollingsworth w/ Greg Cartwright + Friends",
+      "venue": "Bar DKDC",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Artifacts (Monthly schedule flyer - Bar DKDC)"
+    },
+    {
+      "artist": "Chinese Connection Dub Embassy",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-28",
+      "time": "7:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Chinese Connection Dub Embassy: \u201cForever Inna Vibe\u201d",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-28",
+      "time": "7:30 pm",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Flyway Spring Market",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-28",
+      "time": "10 AM",
+      "source": "Venue: Flyway Brewing"
+    },
+    {
+      "artist": "Joey Frendo",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-28",
+      "time": "5 PM",
+      "source": "Venue: Flyway Brewing"
+    },
+    {
+      "artist": "Lavier",
+      "venue": "Growlers",
+      "date": "2026-03-28",
+      "time": "12:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Murkury",
+      "venue": "Growlers",
+      "date": "2026-03-28",
+      "time": "12:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "Placeholders",
+      "venue": "Growlers",
+      "date": "2026-03-28",
+      "time": "8:00PM",
+      "source": "Venue: Growlers"
+    },
+    {
+      "artist": "Relentless Breeze + Amy from Finance",
+      "venue": "Hampline Brewing Company",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Kenny Brown",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-03-28",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Deep October",
+      "venue": "Hi Tone",
+      "date": "2026-03-28",
+      "time": "6:30 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Dug / Null / Pressed / Chora [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Vibes & Volume [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Walt Phelan",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-03-28",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "G Wiz & the Soular System, Redbone Jelly, Moses Crouch, BA Barber",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-28",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
+    },
+    {
+      "artist": "Becky Robinson",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-28",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Becky Robinson: The Beasts In Me Tour",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Bobbie & Frankie",
+      "venue": "Momma's",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Almost Elton John and the Rocketmen",
+      "venue": "Nashoba",
+      "date": "2026-03-28",
+      "time": "9 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "March Madness #Elite8",
+      "venue": "Nashoba",
+      "date": "2026-03-28",
+      "time": "6:02 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Los Tigres del Mundo",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Venue: Orpheum Theatre"
+    },
+    {
+      "artist": "Los Tigres del Norte",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-28",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "TL Experience",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "Venue: Orpheum Theatre"
     }
   ]
 }
