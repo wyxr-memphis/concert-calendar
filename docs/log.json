@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-21T05:45:14.109935+00:00",
+  "run_timestamp": "2026-03-21T17:19:55.951318+00:00",
   "date_range": {
     "start": "2026-03-21",
     "end": "2026-03-28"
   },
-  "total_events_db": 537,
-  "total_active_display": 158,
+  "total_events_db": 540,
+  "total_active_display": 157,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,16 +19,32 @@
     {
       "name": "Artifacts (Vision-Extracted)",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
       "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -41,26 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 21,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -73,19 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 32,
-      "events_filtered": 70,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 150,
+      "events_after_filter": 21,
+      "events_filtered": 129,
       "error": null
     },
     {
@@ -94,14 +102,6 @@
       "events_found": 58,
       "events_after_filter": 26,
       "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 21,
-      "events_filtered": 129,
       "error": null
     },
     {
@@ -121,22 +121,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 12,
-      "events_filtered": 27,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 18,
@@ -153,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 32,
+      "events_filtered": 70,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 82,
@@ -161,10 +153,18 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 158,
+      "events_found": 157,
+      "events_after_filter": 157,
       "events_filtered": 0,
       "error": null
     }
@@ -540,13 +540,6 @@
       "date": "2026-03-22",
       "time": "5 PM",
       "source": "Venue: Lafayette's Music Room"
-    },
-    {
-      "artist": "Robert Traxler, Sansalida, Neon Glittery",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-22",
-      "time": null,
-      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
     },
     {
       "artist": "Brimstone Jones",
