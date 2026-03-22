@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-03-22T05:56:52.468543+00:00",
+  "run_timestamp": "2026-03-22T17:20:10.854112+00:00",
   "date_range": {
     "start": "2026-03-22",
     "end": "2026-03-29"
@@ -33,6 +33,14 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 19,
@@ -41,11 +49,27 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 80,
+      "events_after_filter": 65,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
+      "events_found": 34,
       "events_after_filter": 34,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,27 +89,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 58,
-      "events_after_filter": 25,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
       "events_after_filter": 4,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 56,
+      "events_after_filter": 25,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -105,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -121,35 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 15,
+      "events_after_filter": 15,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 30,
-      "events_filtered": 72,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 80,
-      "events_after_filter": 65,
-      "events_filtered": 15,
+      "events_found": 39,
+      "events_after_filter": 12,
+      "events_filtered": 27,
       "error": null
     },
     {
