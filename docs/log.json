@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-23T06:12:11.120533+00:00",
+  "run_timestamp": "2026-03-23T17:45:46.695622+00:00",
   "date_range": {
     "start": "2026-03-23",
     "end": "2026-03-30"
   },
-  "total_events_db": 552,
+  "total_events_db": 553,
   "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
@@ -27,25 +27,33 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
+      "events_found": 33,
       "events_after_filter": 33,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 13,
-      "events_filtered": 4,
+      "events_found": 102,
+      "events_after_filter": 29,
+      "events_filtered": 73,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 29,
-      "events_filtered": 73,
+      "events_found": 56,
+      "events_after_filter": 26,
+      "events_filtered": 30,
       "error": null
     },
     {
@@ -89,6 +97,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 150,
@@ -97,35 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 26,
-      "events_filtered": 30,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
+      "events_found": 14,
+      "events_after_filter": 13,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,10 +129,26 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 15,
       "events_after_filter": 15,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -150,14 +158,6 @@
       "events_found": 80,
       "events_after_filter": 65,
       "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
