@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-23T17:45:46.695622+00:00",
+  "run_timestamp": "2026-03-24T06:02:35.986420+00:00",
   "date_range": {
-    "start": "2026-03-23",
-    "end": "2026-03-30"
+    "start": "2026-03-24",
+    "end": "2026-03-31"
   },
-  "total_events_db": 553,
-  "total_active_display": 126,
+  "total_events_db": 557,
+  "total_active_display": 129,
   "data_store": "postgresql",
   "sources": [
     {
@@ -35,8 +35,32 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 12,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -49,26 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -89,22 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 150,
@@ -113,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
+      "events_found": 5,
+      "events_after_filter": 4,
       "events_filtered": 1,
       "error": null
     },
@@ -126,6 +118,14 @@
       "events_found": 39,
       "events_after_filter": 12,
       "events_filtered": 27,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 80,
@@ -161,57 +153,23 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 126,
-      "events_after_filter": 126,
+      "events_found": 129,
+      "events_after_filter": 129,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-23",
-      "time": "10 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-23",
-      "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-23",
-      "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Organ Fairchild [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-23",
-      "time": "8:00 PM",
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Drag (\u2665 Drag \u2665)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-23",
-      "time": null,
-      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-03-23",
-      "time": "5:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
-    },
     {
       "artist": "Songwriters Round",
       "venue": "Lamplighter Lounge",
@@ -295,13 +253,6 @@
       "date": "2026-03-24",
       "time": null,
       "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Brendan Walter",
-      "venue": "Minglewood Hall",
-      "date": "2026-03-24",
-      "time": null,
-      "source": "Venue: Minglewood Hall"
     },
     {
       "artist": "Robert Plant",
@@ -416,6 +367,13 @@
       "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
     },
     {
+      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
+      "venue": "Orpheum Theatre",
+      "date": "2026-03-26",
+      "time": null,
+      "source": "Venue: Orpheum Theatre"
+    },
+    {
       "artist": "Devil Train",
       "venue": "B-Side Memphis",
       "date": "2026-03-26",
@@ -521,6 +479,13 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
+      "artist": "Next Top Comic [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-26",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
       "artist": "Southern Grind Sessions ft. Thompson Square",
       "venue": "Lafayette's Music Room",
       "date": "2026-03-26",
@@ -549,13 +514,6 @@
       "source": "Venue: Nashoba"
     },
     {
-      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-26",
-      "time": null,
-      "source": "Venue: Orpheum Theatre"
-    },
-    {
       "artist": "Baptist Health & Wellness Series: \u00a1Mu\u00e9vete! Latin Rhythms in the ParK",
       "venue": "Overton Park Shell",
       "date": "2026-03-26",
@@ -575,6 +533,13 @@
       "date": "2026-03-27",
       "time": "9 PM",
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-27",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Beale St Blues Band",
@@ -731,11 +696,25 @@
       "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
     },
     {
+      "artist": "Relentless Breeze + Amy from Finance",
+      "venue": "Hampline Brewing Company",
+      "date": "2026-03-28",
+      "time": null,
+      "source": "submission"
+    },
+    {
       "artist": "Gary Clark Jr.",
       "venue": "Hernando's Hideaway",
       "date": "2026-03-28",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-28",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Taylor Hollingsworth",
@@ -799,13 +778,6 @@
       "date": "2026-03-28",
       "time": "8:00PM",
       "source": "Venue: Growlers"
-    },
-    {
-      "artist": "Relentless Breeze + Amy from Finance",
-      "venue": "Hampline Brewing Company",
-      "date": "2026-03-28",
-      "time": null,
-      "source": "submission"
     },
     {
       "artist": "Kenny Brown",
@@ -892,18 +864,18 @@
       "source": "Venue: Orpheum Theatre"
     },
     {
-      "artist": "Los Tigres del Norte",
-      "venue": "Orpheum Theatre",
-      "date": "2026-03-28",
-      "time": "8 PM",
-      "source": "Ticketmaster"
-    },
-    {
       "artist": "The Tl Experience",
       "venue": "Orpheum Theatre",
       "date": "2026-03-28",
       "time": "7 PM",
       "source": "Ticketmaster"
+    },
+    {
+      "artist": "Don Was & the Pan-Detroit Ensemble",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-03-29",
+      "time": "7:30\u202fPM",
+      "source": "Venue: Germantown Performing Arts Center"
     },
     {
       "artist": "Memphis Reggae Nights w/ El Hakim",
@@ -918,13 +890,6 @@
       "date": "2026-03-29",
       "time": "7:30 PM",
       "source": "Venue: Crosstown Arts"
-    },
-    {
-      "artist": "Don Was & the Pan-Detroit Ensemble",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-29",
-      "time": "7:30\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
     },
     {
       "artist": "John Paul Keith",
@@ -1049,6 +1014,62 @@
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-03-30",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Maria Somerville + opener Colle",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-31",
+      "time": "7:30 PM",
+      "source": "Venue: Crosstown Arts"
+    },
+    {
+      "artist": "Maria Somerville",
+      "venue": "Crosstown Arts",
+      "date": "2026-03-31",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-03-31",
+      "time": "7:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-31",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Vandoliers [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-03-31",
+      "time": "7:00 PM",
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Paper Wings",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-31",
+      "time": "8:00 PM",
+      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+    },
+    {
+      "artist": "Watchhouse",
+      "venue": "Minglewood Hall",
+      "date": "2026-03-31",
+      "time": "7:00 PM",
+      "source": "Venue: Minglewood Hall"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-03-31",
       "time": "5:30\u202fPM",
       "source": "Venue: Overton Park Shell"
     }
