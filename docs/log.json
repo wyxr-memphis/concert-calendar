@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-24T14:29:36.931499+00:00",
+  "run_timestamp": "2026-03-24T17:50:55.711890+00:00",
   "date_range": {
     "start": "2026-03-24",
     "end": "2026-03-31"
   },
-  "total_events_db": 558,
+  "total_events_db": 560,
   "total_active_display": 129,
   "data_store": "postgresql",
   "sources": [
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 34,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +49,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +73,26 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 56,
+      "events_after_filter": 26,
+      "events_filtered": 30,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
       "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 12,
       "events_filtered": 1,
       "error": null
     },
@@ -86,6 +102,14 @@
       "events_found": 150,
       "events_after_filter": 19,
       "events_filtered": 131,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 80,
+      "events_after_filter": 65,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -129,35 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 56,
-      "events_after_filter": 26,
-      "events_filtered": 30,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 80,
-      "events_after_filter": 65,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 12,
-      "events_filtered": 1,
       "error": null
     },
     {
