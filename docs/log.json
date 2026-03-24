@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-24T06:02:35.986420+00:00",
+  "run_timestamp": "2026-03-24T14:29:36.931499+00:00",
   "date_range": {
     "start": "2026-03-24",
     "end": "2026-03-31"
   },
-  "total_events_db": 557,
+  "total_events_db": 558,
   "total_active_display": 129,
   "data_store": "postgresql",
   "sources": [
@@ -41,18 +41,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 12,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -65,43 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 29,
-      "events_filtered": 73,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 56,
-      "events_after_filter": 26,
-      "events_filtered": 30,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 19,
-      "events_filtered": 131,
       "error": null
     },
     {
@@ -113,11 +81,27 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 19,
+      "events_filtered": 131,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 39,
       "events_after_filter": 12,
       "events_filtered": 27,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 15,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,11 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
+      "events_found": 102,
+      "events_after_filter": 29,
+      "events_filtered": 73,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 56,
+      "events_after_filter": 26,
+      "events_filtered": 30,
       "error": null
     },
     {
@@ -158,6 +150,14 @@
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 12,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -241,13 +241,6 @@
       "source": "Venue: Flyway Brewing"
     },
     {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-03-24",
-      "time": "10:00\u202fAM",
-      "source": "Venue: Germantown Performing Arts Center"
-    },
-    {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-03-24",
@@ -288,6 +281,13 @@
       "date": "2026-03-25",
       "time": "9 PM",
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
+    },
+    {
+      "artist": "Radiodiffusion Internasionaal",
+      "venue": "Bar DKDC",
+      "date": "2026-03-25",
+      "time": "8 PM - Close",
+      "source": "Artifacts (Printed concert flyer - vinyl DJ night featuring vintage funk, pop, psych, soul)"
     },
     {
       "artist": "Beale St Blues Band",
