@@ -789,16 +789,21 @@
         let allEvents = [];
         let allSponsors = [];
         let calendarSponsor = null;
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
+        // Effective "today" respects 4am Central rollover (defined below in Date helpers)
+        // Bootstrap a temporary version here for initialization before the function exists.
+        // We re-use the same logic inline since getTodayStr() isn't defined yet at this point.
+        const _initNow = new Date();
+        const _initCentral = new Date(_initNow.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+        if (_initCentral.getHours() < 4) _initCentral.setDate(_initCentral.getDate() - 1);
+        let currentMonth = _initCentral.getMonth();
+        let currentYear = _initCentral.getFullYear();
         let activeNeighborhood = 'all';
         let searchQuery = '';
         let searchTimer = null;
 
         // Month bounds (current month through 6 months ahead)
-        const now = new Date();
-        const minMonth = now.getMonth();
-        const minYear = now.getFullYear();
+        const minMonth = _initCentral.getMonth();
+        const minYear = _initCentral.getFullYear();
         const maxDate = new Date(minYear, minMonth + 6, 0);
         const maxMonth = maxDate.getMonth();
         const maxYear = maxDate.getFullYear();
@@ -1226,9 +1231,23 @@
             return deduped;
         }
 
+        // ---- Date helpers ----
+        // Returns "today" in YYYY-MM-DD using Central time, with a 4am rollover.
+        // Before 4am, the previous calendar day is still considered "today" so
+        // late-night concert-goers can still see that night's shows.
+        function getTodayStr() {
+            const now = new Date();
+            const central = new Date(now.toLocaleString('en-US', { timeZone: 'America/Chicago' }));
+            if (central.getHours() < 4) central.setDate(central.getDate() - 1);
+            const y = central.getFullYear();
+            const m = String(central.getMonth() + 1).padStart(2, '0');
+            const d = String(central.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+
         // ---- Filtering ----
         function getFilteredEvents() {
-            const todayStr = new Date().toISOString().split('T')[0];
+            const todayStr = getTodayStr();
             const filtered = allEvents.filter(e => {
                 // Hide past events
                 if (e.date < todayStr) return false;
@@ -1261,7 +1280,7 @@
             // Remove old presents section
             eventList.querySelector('.presents-section')?.remove();
 
-            const todayStr = new Date().toISOString().split('T')[0];
+            const todayStr = getTodayStr();
             const presentsEvents = allEvents.filter(e => {
                 if (!e.is_wyxr_presents || e.is_active === false) return false;
                 if (e.date < todayStr) return false;
