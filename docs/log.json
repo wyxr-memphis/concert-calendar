@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-25T06:03:33.991809+00:00",
+  "run_timestamp": "2026-03-25T17:52:25.595687+00:00",
   "date_range": {
     "start": "2026-03-25",
     "end": "2026-04-01"
   },
-  "total_events_db": 562,
-  "total_active_display": 121,
+  "total_events_db": 564,
+  "total_active_display": 122,
   "data_store": "postgresql",
   "sources": [
     {
@@ -41,26 +41,26 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 20,
+      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 29,
-      "events_filtered": 73,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +81,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 55,
       "events_after_filter": 25,
       "events_filtered": 30,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,18 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 11,
-      "events_filtered": 28,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -129,18 +121,34 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 40,
+      "events_after_filter": 12,
+      "events_filtered": 28,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 102,
+      "events_after_filter": 29,
+      "events_filtered": 73,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,18 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 121,
-      "events_after_filter": 121,
+      "events_found": 122,
+      "events_after_filter": 122,
       "events_filtered": 0,
       "error": null
     }
@@ -322,6 +322,13 @@
       "venue": "Flyway Brewing",
       "date": "2026-03-26",
       "time": "4 PM",
+      "source": "Venue: Flyway Brewing"
+    },
+    {
+      "artist": "Slowdown & Big Tendy presents Finger Board Night",
+      "venue": "Flyway Brewing",
+      "date": "2026-03-26",
+      "time": "7 PM",
       "source": "Venue: Flyway Brewing"
     },
     {
