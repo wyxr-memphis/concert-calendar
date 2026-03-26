@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-03-25T17:52:25.595687+00:00",
+  "run_timestamp": "2026-03-26T06:13:44.253091+00:00",
   "date_range": {
-    "start": "2026-03-25",
-    "end": "2026-04-01"
+    "start": "2026-03-26",
+    "end": "2026-04-02"
   },
-  "total_events_db": 564,
-  "total_active_display": 122,
+  "total_events_db": 568,
+  "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 12,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 34,
-      "events_after_filter": 33,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 20,
@@ -49,11 +33,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 102,
+      "events_after_filter": 29,
+      "events_filtered": 73,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,27 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 25,
-      "events_filtered": 30,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 150,
-      "events_after_filter": 19,
-      "events_filtered": 131,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -113,19 +89,51 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 25,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 19,
+      "events_filtered": 131,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 12,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 12,
-      "events_filtered": 28,
+      "events_after_filter": 11,
+      "events_filtered": 29,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 29,
-      "events_filtered": 73,
+      "events_found": 78,
+      "events_after_filter": 64,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -153,114 +161,15 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 79,
-      "events_after_filter": 64,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 122,
-      "events_after_filter": 122,
+      "events_found": 116,
+      "events_after_filter": 116,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Alex Green & The Rolling Head Orchestra",
-      "venue": "B-Side Memphis",
-      "date": "2026-03-25",
-      "time": "9 PM",
-      "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
-    },
-    {
-      "artist": "Radiodiffusion Internasionaal",
-      "venue": "Bar DKDC",
-      "date": "2026-03-25",
-      "time": "8 PM - Close",
-      "source": "Artifacts (Printed concert flyer - vinyl DJ night featuring vintage funk, pop, psych, soul)"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-25",
-      "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-03-25",
-      "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
-    },
-    {
-      "artist": "Juno Avent",
-      "venue": "Blind Alley Bayou",
-      "date": "2026-03-25",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Bobbie Stacks & Kevin Kilgore",
-      "venue": "Flyway Brewing",
-      "date": "2026-03-25",
-      "time": "4 PM",
-      "source": "Venue: Flyway Brewing"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-03-25",
-      "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-03-25",
-      "time": null,
-      "source": "Venue: Hernando's Hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-25",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Bingo",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-03-25",
-      "time": null,
-      "source": "Artifacts (Handwritten weekly schedule on composition notebook cover)"
-    },
-    {
-      "artist": "Hillbilly Mojo Duo",
-      "venue": "Momma's",
-      "date": "2026-03-25",
-      "time": null,
-      "source": "submission"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Rum Boogie Cafe",
-      "date": "2026-03-25",
-      "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
-    },
-    {
-      "artist": "DJ Babo",
-      "venue": "Swamp Bar",
-      "date": "2026-03-25",
-      "time": null,
-      "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
-    },
     {
       "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
       "venue": "Orpheum Theatre",
@@ -801,6 +710,20 @@
       "source": "Artifacts (Monthly schedule flyer - B-Side Memphis Instagram)"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-29",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-03-29",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Mahogany Chamber Music Series: \u201cAn Afternoon in Havana\u201d",
       "venue": "Crosstown Arts",
       "date": "2026-03-29",
@@ -836,13 +759,6 @@
       "source": "Venue: Hi Tone"
     },
     {
-      "artist": "Ethan Smith Trio",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-03-29",
-      "time": "6 PM",
-      "source": "Venue: Huey's"
-    },
-    {
       "artist": "Five O'Clock Shadow",
       "venue": "Huey's (Cordova)",
       "date": "2026-03-29",
@@ -871,15 +787,22 @@
       "source": "Venue: Huey's"
     },
     {
+      "artist": "Ethan Smith Trio",
+      "venue": "Huey's Collierville",
+      "date": "2026-03-29",
+      "time": "6 PM",
+      "source": "Venue: Huey's"
+    },
+    {
       "artist": "The Settlers",
-      "venue": "Huey's (Poplar)",
+      "venue": "Huey's Poplar",
       "date": "2026-03-29",
       "time": "3 PM",
       "source": "Venue: Huey's"
     },
     {
       "artist": "Three Mississippi",
-      "venue": "Huey's (Southaven)",
+      "venue": "Huey's Southaven",
       "date": "2026-03-29",
       "time": "6 PM",
       "source": "Venue: Huey's"
@@ -1018,11 +941,46 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Dancing With The Stars: Live! - 2026 Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-04-01",
+      "time": "7:30 PM",
+      "source": "Ticketmaster"
+    },
+    {
       "artist": "DJ Jay B",
       "venue": "Swamp Bar",
       "date": "2026-04-01",
       "time": null,
       "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
+    },
+    {
+      "artist": "Dale & Ray",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-02",
+      "time": "8:00PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Indianna Watford Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-02",
+      "time": "6 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Karaoke",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-02",
+      "time": "9:30 PM",
+      "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Bailey Bigger at the Side Set",
+      "venue": "Nashoba",
+      "date": "2026-04-02",
+      "time": "7 PM",
+      "source": "Venue: Nashoba"
     }
   ]
 }
