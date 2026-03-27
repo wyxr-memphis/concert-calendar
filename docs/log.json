@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-27T06:13:58.746321+00:00",
+  "run_timestamp": "2026-03-27T17:43:35.136141+00:00",
   "date_range": {
     "start": "2026-03-27",
     "end": "2026-04-03"
   },
-  "total_events_db": 574,
-  "total_active_display": 104,
+  "total_events_db": 577,
+  "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 19,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 12,
       "events_after_filter": 11,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 19,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,34 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 26,
-      "events_filtered": 40,
+      "events_found": 102,
+      "events_after_filter": 28,
+      "events_filtered": 74,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 150,
-      "events_after_filter": 17,
-      "events_filtered": 133,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +89,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 17,
+      "events_filtered": 133,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 66,
+      "events_after_filter": 26,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -121,6 +129,14 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -131,25 +147,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 65,
+      "events_found": 82,
+      "events_after_filter": 68,
       "events_filtered": 14,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 28,
-      "events_filtered": 74,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 34,
-      "events_after_filter": 33,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -163,8 +163,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 104,
+      "events_found": 105,
+      "events_after_filter": 105,
       "events_filtered": 0,
       "error": null
     }
@@ -872,6 +872,13 @@
     },
     {
       "artist": "Emergency Broadcast [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thungergun / Syprus / Blackmail [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-03",
       "time": null,
