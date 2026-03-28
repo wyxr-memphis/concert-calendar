@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-28T06:00:12.143111+00:00",
+  "run_timestamp": "2026-03-28T17:22:51.410312+00:00",
   "date_range": {
     "start": "2026-03-28",
     "end": "2026-04-04"
   },
-  "total_events_db": 609,
+  "total_events_db": 610,
   "total_active_display": 95,
   "data_store": "postgresql",
   "sources": [
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 10,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
@@ -41,18 +33,42 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 12,
+      "events_after_filter": 10,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 26,
+      "events_filtered": 76,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -65,35 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 25,
-      "events_filtered": 41,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -105,11 +97,27 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 66,
+      "events_after_filter": 25,
+      "events_filtered": 41,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 9,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -117,6 +125,14 @@
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
     },
@@ -129,35 +145,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 82,
       "events_after_filter": 68,
       "events_filtered": 14,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 10,
-      "events_filtered": 31,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 26,
-      "events_filtered": 76,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
