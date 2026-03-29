@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-03-29T06:12:23.646411+00:00",
+  "run_timestamp": "2026-03-29T17:23:47.568907+00:00",
   "date_range": {
     "start": "2026-03-29",
     "end": "2026-04-05"
   },
-  "total_events_db": 611,
+  "total_events_db": 612,
   "total_active_display": 66,
   "data_store": "postgresql",
   "sources": [
@@ -41,22 +41,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 26,
-      "events_filtered": 76,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 16,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 3,
@@ -65,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -81,6 +65,22 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 26,
+      "events_filtered": 76,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
@@ -89,19 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 65,
+      "events_after_filter": 25,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -113,19 +105,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 25,
-      "events_filtered": 41,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 150,
       "events_after_filter": 14,
       "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
