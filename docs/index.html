@@ -797,6 +797,13 @@
         if (_initCentral.getHours() < 4) _initCentral.setDate(_initCentral.getDate() - 1);
         let currentMonth = _initCentral.getMonth();
         let currentYear = _initCentral.getFullYear();
+        // If 7 or fewer days remain in the current month (including today), start on next month
+        const _daysInMonth = new Date(_initCentral.getFullYear(), _initCentral.getMonth() + 1, 0).getDate();
+        const _daysRemaining = _daysInMonth - _initCentral.getDate() + 1; // +1 counts today
+        if (_daysRemaining <= 7) {
+            currentMonth++;
+            if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+        }
         let activeNeighborhood = 'all';
         let searchQuery = '';
         let searchTimer = null;
