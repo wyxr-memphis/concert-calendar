@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-30T17:47:20.719931+00:00",
+  "run_timestamp": "2026-03-31T06:17:20.133618+00:00",
   "date_range": {
-    "start": "2026-03-30",
-    "end": "2026-04-06"
+    "start": "2026-03-31",
+    "end": "2026-04-07"
   },
-  "total_events_db": 620,
-  "total_active_display": 42,
+  "total_events_db": 638,
+  "total_active_display": 54,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,44 +33,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 10,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
       "events_after_filter": 33,
       "events_filtered": 1,
       "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -81,10 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 16,
+      "events_after_filter": 16,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +81,43 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 64,
       "events_after_filter": 25,
       "events_filtered": 39,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 14,
+      "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 8,
+      "events_filtered": 33,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,27 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 150,
-      "events_after_filter": 14,
-      "events_filtered": 136,
+      "events_found": 78,
+      "events_after_filter": 64,
+      "events_filtered": 14,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 8,
-      "events_filtered": 33,
       "error": null
     },
     {
@@ -153,37 +161,15 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 79,
-      "events_after_filter": 65,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
+      "events_found": 54,
+      "events_after_filter": 54,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-03-30",
-      "time": null,
-      "source": "Venue: Hi Tone"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-03-30",
-      "time": "5:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
-    },
     {
       "artist": "Maria Somerville + opener Colle",
       "venue": "Crosstown Arts",
@@ -248,6 +234,20 @@
       "source": "Venue: Overton Park Shell"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-01",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-01",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Jad Tariq",
       "venue": "Flyway Brewing",
       "date": "2026-04-01",
@@ -290,6 +290,20 @@
       "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
     },
     {
+      "artist": "Ashton Ryker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-02",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-02",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
       "artist": "Rice Drewry w/ Gerry Finney",
       "venue": "Flyway Brewing",
       "date": "2026-04-02",
@@ -325,6 +339,13 @@
       "source": "Venue: Nashoba"
     },
     {
+      "artist": "Baptist Health & Wellness Series: \u00a1Mu\u00e9vete! Latin Rhythms in the ParK",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-02",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
       "artist": "80s Night: DJ Livin & DJ Rhinestonee",
       "venue": "Bar Keough",
       "date": "2026-04-03",
@@ -344,6 +365,27 @@
       "date": "2026-04-03",
       "time": "7 PM",
       "source": "submission"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-03",
+      "time": "8:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-03",
+      "time": "12:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-03",
+      "time": "4:00 pm",
+      "source": "Venue: B.B. King's Blues Club"
     },
     {
       "artist": "Ellis Bullard at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -463,6 +505,48 @@
       "date": "2026-04-04",
       "time": "7:00PM",
       "source": "Venue: South Main Sounds"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-06",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
+    },
+    {
+      "artist": "Bobbie Stacks & Kevin Kilgore",
+      "venue": "Flyway Brewing",
+      "date": "2026-04-07",
+      "time": "4 PM",
+      "source": "Venue: Flyway Brewing"
+    },
+    {
+      "artist": "Chuck Mead",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-07",
+      "time": "7:30PM",
+      "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Trivia Night",
+      "venue": "Nashoba",
+      "date": "2026-04-07",
+      "time": "7 PM",
+      "source": "Venue: Nashoba"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-07",
+      "time": "5:30\u202fPM",
+      "source": "Venue: Overton Park Shell"
     }
   ]
 }
