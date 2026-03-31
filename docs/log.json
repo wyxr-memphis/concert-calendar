@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-31T06:17:20.133618+00:00",
+  "run_timestamp": "2026-03-31T12:44:36.367959+00:00",
   "date_range": {
     "start": "2026-03-31",
     "end": "2026-04-07"
   },
-  "total_events_db": 638,
-  "total_active_display": 54,
+  "total_events_db": 649,
+  "total_active_display": 65,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
       "events_after_filter": 33,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,11 +49,35 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 25,
+      "events_filtered": 77,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 150,
+      "events_after_filter": 14,
+      "events_filtered": 136,
       "error": null
     },
     {
@@ -97,19 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 150,
-      "events_after_filter": 14,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 8,
-      "events_filtered": 33,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,10 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -145,6 +145,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 8,
+      "events_filtered": 33,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 2,
@@ -153,18 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
+      "events_found": 65,
+      "events_after_filter": 65,
       "events_filtered": 0,
       "error": null
     }
@@ -211,6 +211,13 @@
       "date": "2026-03-31",
       "time": "7:00 PM",
       "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-03-31",
+      "time": "7 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer - recurring Tuesday event)"
     },
     {
       "artist": "Paper Wings",
@@ -276,6 +283,13 @@
       "source": "Venue: Hi Tone"
     },
     {
+      "artist": "Bingo (event)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-01",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer - recurring Wednesday event)"
+    },
+    {
       "artist": "Dancing With The Stars: Live! - 2026 Tour",
       "venue": "Orpheum Theatre",
       "date": "2026-04-01",
@@ -330,6 +344,13 @@
       "date": "2026-04-02",
       "time": "9:30 PM",
       "source": "Venue: Lafayette's Music Room"
+    },
+    {
+      "artist": "Burlesque Karaoke (event)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-02",
+      "time": "9 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer - recurring Thursday event)"
     },
     {
       "artist": "Bailey Bigger at the Side Set",
@@ -430,6 +451,34 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Bugs Exist in the Garden Tour",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-03",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
+      "artist": "JVLIX",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-03",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
+      "artist": "Macy Moose",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-03",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
+      "artist": "Sandalwood",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-03",
+      "time": "8 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
       "artist": "Landslide",
       "venue": "Nashoba",
       "date": "2026-04-03",
@@ -500,11 +549,39 @@
       "source": "Venue: Lafayette's Music Room"
     },
     {
+      "artist": "Hayden Hunter",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-04",
+      "time": "9:30 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
+      "artist": "Izzy Arthurs",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-04",
+      "time": "9:30 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
+      "artist": "Rosehaven Motor Hotel",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-04",
+      "time": "9:30 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
+    },
+    {
       "artist": "CJ Starnes Returns to South Main Sounds!",
       "venue": "South Main Sounds",
       "date": "2026-04-04",
       "time": "7:00PM",
       "source": "Venue: South Main Sounds"
+    },
+    {
+      "artist": "Kashjimer",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-05",
+      "time": "5 PM",
+      "source": "Artifacts (Handwritten weekly schedule flyer)"
     },
     {
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
