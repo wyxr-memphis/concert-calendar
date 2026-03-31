@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-03-31T12:44:36.367959+00:00",
+  "run_timestamp": "2026-03-31T13:18:36.563425+00:00",
   "date_range": {
     "start": "2026-03-31",
     "end": "2026-04-07"
   },
   "total_events_db": 649,
-  "total_active_display": 65,
+  "total_active_display": 64,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
@@ -41,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -57,14 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 102,
@@ -73,11 +81,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 150,
-      "events_after_filter": 14,
-      "events_filtered": 136,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -86,14 +110,6 @@
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -113,6 +129,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 8,
+      "events_filtered": 33,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 10,
@@ -121,19 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
+      "events_found": 150,
+      "events_after_filter": 14,
+      "events_filtered": 136,
       "error": null
     },
     {
@@ -145,26 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 8,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 65,
+      "events_found": 64,
+      "events_after_filter": 64,
       "events_filtered": 0,
       "error": null
     }
@@ -232,13 +232,6 @@
       "date": "2026-03-31",
       "time": "8 PM",
       "source": "Ticketmaster"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-03-31",
-      "time": "5:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
     },
     {
       "artist": "Beale Street Blues Band",
