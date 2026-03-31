@@ -797,6 +797,12 @@
         if (_initCentral.getHours() < 4) _initCentral.setDate(_initCentral.getDate() - 1);
         let currentMonth = _initCentral.getMonth();
         let currentYear = _initCentral.getFullYear();
+        // When ≤7 days remain in the starting month, spill events from the next month into the same view
+        const _initDaysInMonth = new Date(minYear, minMonth + 1, 0).getDate();
+        const _initDaysRemaining = _initDaysInMonth - _initCentral.getDate() + 1; // +1 counts today
+        const _spillIntoNextMonth = _initDaysRemaining <= 7;
+        const _spillNextMonth = minMonth === 11 ? 0 : minMonth + 1;
+        const _spillNextYear = minMonth === 11 ? minYear + 1 : minYear;
         let activeNeighborhood = 'all';
         let searchQuery = '';
         let searchTimer = null;
@@ -1131,7 +1137,11 @@
             let totalInMonth = 0;
             allEvents.forEach(e => {
                 const d = new Date(e.date + 'T12:00:00');
-                if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) {
+                const onInitialMonth = (currentYear === minYear && currentMonth === minMonth);
+                const inRange = (onInitialMonth && _spillIntoNextMonth)
+                    ? ((d.getMonth() === minMonth && d.getFullYear() === minYear) || (d.getMonth() === _spillNextMonth && d.getFullYear() === _spillNextYear))
+                    : (d.getMonth() === currentMonth && d.getFullYear() === currentYear);
+                if (inRange) {
                     totalInMonth++;
                     const nh = e.neighborhood || 'Other';
                     counts[nh] = (counts[nh] || 0) + 1;
@@ -1252,9 +1262,17 @@
                 // Hide past events
                 if (e.date < todayStr) return false;
 
-                // Month filter
+                // Month filter — when viewing the initial month with ≤7 days remaining,
+                // also include next month's events so the calendar isn't nearly empty
                 const d = new Date(e.date + 'T12:00:00');
-                if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
+                const onInitialMonth = (currentYear === minYear && currentMonth === minMonth);
+                if (onInitialMonth && _spillIntoNextMonth) {
+                    const inCurrent = (d.getMonth() === minMonth && d.getFullYear() === minYear);
+                    const inNext = (d.getMonth() === _spillNextMonth && d.getFullYear() === _spillNextYear);
+                    if (!inCurrent && !inNext) return false;
+                } else {
+                    if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
+                }
 
                 // Neighborhood filter
                 if (activeNeighborhood !== 'all') {
@@ -1516,7 +1534,15 @@
         ];
 
         function updateMonthDisplay() {
-            monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            const onInitialMonth = (currentYear === minYear && currentMonth === minMonth);
+            if (onInitialMonth && _spillIntoNextMonth) {
+                const label = _spillNextYear !== minYear
+                    ? `${monthNames[minMonth]} ${minYear} – ${monthNames[_spillNextMonth]} ${_spillNextYear}`
+                    : `${monthNames[minMonth]} – ${monthNames[_spillNextMonth]} ${minYear}`;
+                monthLabel.textContent = label;
+            } else {
+                monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            }
 
             // Disable prev if at min
             prevBtn.disabled = (currentYear === minYear && currentMonth <= minMonth);
