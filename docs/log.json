@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-03-31T17:50:35.011071+00:00",
+  "run_timestamp": "2026-03-31T19:55:16.100714+00:00",
   "date_range": {
     "start": "2026-03-31",
     "end": "2026-04-07"
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 25,
-      "events_filtered": 77,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,11 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 102,
+      "events_after_filter": 25,
+      "events_filtered": 77,
       "error": null
     },
     {
@@ -69,14 +69,6 @@
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -89,27 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 25,
-      "events_filtered": 39,
       "error": null
     },
     {
@@ -118,6 +94,22 @@
       "events_found": 150,
       "events_after_filter": 14,
       "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 8,
+      "events_filtered": 33,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,19 +129,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 8,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 33,
       "events_after_filter": 33,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 25,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -517,7 +517,7 @@
       "artist": "Joe Stamm Band",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-04",
-      "time": "8:00PM",
+      "time": "9:00PM",
       "source": "Venue: Hernando's Hideaway"
     },
     {
