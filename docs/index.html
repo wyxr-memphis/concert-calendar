@@ -808,6 +808,25 @@
         const maxMonth = maxDate.getMonth();
         const maxYear = maxDate.getFullYear();
 
+        // Spill: when ≤7 days remain in current month, also show next month on initial view
+        const _daysInInitMonth = new Date(minYear, minMonth + 1, 0).getDate();
+        const _daysRemaining = _daysInInitMonth - _initCentral.getDate() + 1;
+        const _spill = _daysRemaining <= 7;
+        const _spillMonth = (minMonth + 1) % 12;
+        const _spillYear = minMonth === 11 ? minYear + 1 : minYear;
+
+        function isSpilledView() {
+            return _spill && currentMonth === minMonth && currentYear === minYear;
+        }
+        function getDisplayLabel() {
+            if (isSpilledView()) {
+                return _spillYear !== minYear
+                    ? `${monthNames[minMonth]} ${minYear} \u2013 ${monthNames[_spillMonth]} ${_spillYear}`
+                    : `${monthNames[minMonth]} \u2013 ${monthNames[_spillMonth]} ${minYear}`;
+            }
+            return `${monthNames[currentMonth]} ${currentYear}`;
+        }
+
         // DOM refs
         const monthLabel = document.getElementById('monthLabel');
         const prevBtn = document.getElementById('prevMonth');
@@ -1131,7 +1150,10 @@
             let totalInMonth = 0;
             allEvents.forEach(e => {
                 const d = new Date(e.date + 'T12:00:00');
-                if (d.getMonth() === currentMonth && d.getFullYear() === currentYear) {
+                const inRange = isSpilledView()
+                    ? ((d.getMonth() === minMonth && d.getFullYear() === minYear) || (d.getMonth() === _spillMonth && d.getFullYear() === _spillYear))
+                    : (d.getMonth() === currentMonth && d.getFullYear() === currentYear);
+                if (inRange) {
                     totalInMonth++;
                     const nh = e.neighborhood || 'Other';
                     counts[nh] = (counts[nh] || 0) + 1;
@@ -1254,7 +1276,13 @@
 
                 // Month filter
                 const d = new Date(e.date + 'T12:00:00');
-                if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
+                if (isSpilledView()) {
+                    const inCurrent = (d.getMonth() === minMonth && d.getFullYear() === minYear);
+                    const inNext = (d.getMonth() === _spillMonth && d.getFullYear() === _spillYear);
+                    if (!inCurrent && !inNext) return false;
+                } else {
+                    if (d.getMonth() !== currentMonth || d.getFullYear() !== currentYear) return false;
+                }
 
                 // Neighborhood filter
                 if (activeNeighborhood !== 'all') {
@@ -1328,7 +1356,7 @@
         function renderEvents() {
             const filtered = getFilteredEvents();
 
-            eventCount.textContent = `${filtered.length} show${filtered.length !== 1 ? 's' : ''} in ${monthNames[currentMonth]} ${currentYear}`;
+            eventCount.textContent = `${filtered.length} show${filtered.length !== 1 ? 's' : ''} in ${getDisplayLabel()}`;
 
             if (filtered.length === 0) {
                 // Remove old day sections and sponsor callouts
@@ -1516,7 +1544,7 @@
         ];
 
         function updateMonthDisplay() {
-            monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+            monthLabel.textContent = getDisplayLabel();
 
             // Disable prev if at min
             prevBtn.disabled = (currentYear === minYear && currentMonth <= minMonth);
