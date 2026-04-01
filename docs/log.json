@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-01T06:26:52.680887+00:00",
+  "run_timestamp": "2026-04-01T17:43:30.874407+00:00",
   "date_range": {
     "start": "2026-04-01",
     "end": "2026-04-08"
   },
-  "total_events_db": 756,
+  "total_events_db": 758,
   "total_active_display": 77,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "Ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -28,8 +28,8 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 34,
-      "events_after_filter": 32,
-      "events_filtered": 2,
+      "events_after_filter": 33,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,19 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 102,
-      "events_after_filter": 25,
-      "events_filtered": 77,
       "error": null
     },
     {
@@ -65,10 +57,10 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -89,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 64,
@@ -107,9 +91,25 @@
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 150,
-      "events_after_filter": 14,
+      "events_found": 151,
+      "events_after_filter": 15,
       "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -118,14 +118,6 @@
       "events_found": 41,
       "events_after_filter": 8,
       "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -158,6 +150,14 @@
       "events_found": 76,
       "events_after_filter": 62,
       "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 102,
+      "events_after_filter": 25,
+      "events_filtered": 77,
       "error": null
     },
     {
