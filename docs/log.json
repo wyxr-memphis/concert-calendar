@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-02T06:13:29.467245+00:00",
+  "run_timestamp": "2026-04-02T17:43:15.369020+00:00",
   "date_range": {
     "start": "2026-04-02",
     "end": "2026-04-09"
   },
-  "total_events_db": 770,
-  "total_active_display": 93,
+  "total_events_db": 775,
+  "total_active_display": 94,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,26 +27,10 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -57,11 +41,27 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 27,
+      "events_filtered": 77,
       "error": null
     },
     {
@@ -73,19 +73,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
+      "events_found": 151,
+      "events_after_filter": 15,
+      "events_filtered": 136,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -97,42 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 151,
-      "events_after_filter": 15,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 10,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +113,42 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 7,
+      "events_filtered": 34,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 77,
-      "events_after_filter": 64,
+      "events_found": 78,
+      "events_after_filter": 65,
       "events_filtered": 13,
       "error": null
     },
@@ -163,8 +163,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 93,
-      "events_after_filter": 93,
+      "events_found": 94,
+      "events_after_filter": 94,
       "events_filtered": 0,
       "error": null
     }
@@ -211,6 +211,13 @@
       "date": "2026-04-02",
       "time": "8:00PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-02",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Indianna Watford Acoustic",
