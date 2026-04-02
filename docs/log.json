@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-02T17:43:15.369020+00:00",
+  "run_timestamp": "2026-04-02T21:30:11.358065+00:00",
   "date_range": {
     "start": "2026-04-02",
     "end": "2026-04-09"
   },
-  "total_events_db": 775,
-  "total_active_display": 94,
+  "total_events_db": 785,
+  "total_active_display": 95,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,58 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 27,
+      "events_filtered": 77,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -49,43 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 27,
-      "events_filtered": 77,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 151,
-      "events_after_filter": 15,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_after_filter": 20,
+      "events_filtered": 131,
       "error": null
     },
     {
@@ -97,34 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 7,
-      "events_filtered": 34,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -137,6 +129,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 10,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 33,
@@ -145,15 +145,7 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 78,
-      "events_after_filter": 65,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -161,10 +153,18 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 80,
+      "events_after_filter": 67,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 95,
+      "events_after_filter": 95,
       "events_filtered": 0,
       "error": null
     }
@@ -638,6 +638,13 @@
       "date": "2026-04-07",
       "time": "7:30PM",
       "source": "Venue: Hernando's Hideaway"
+    },
+    {
+      "artist": "Ethereal Tomb / Age of Extinction [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-07",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
