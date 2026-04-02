@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-02T21:36:35.654876+00:00",
+  "run_timestamp": "2026-04-02T21:41:45.929307+00:00",
   "date_range": {
     "start": "2026-04-02",
     "end": "2026-04-09"
   },
-  "total_events_db": 788,
-  "total_active_display": 96,
+  "total_events_db": 792,
+  "total_active_display": 98,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,35 +25,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 80,
-      "events_after_filter": 67,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 27,
-      "events_filtered": 77,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,20 +41,12 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -97,35 +65,19 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 152,
-      "events_after_filter": 22,
-      "events_filtered": 130,
       "error": null
     },
     {
@@ -137,19 +89,27 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 152,
+      "events_after_filter": 22,
+      "events_filtered": 130,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 27,
+      "events_filtered": 77,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 22,
       "events_after_filter": 10,
       "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,10 +121,50 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 80,
+      "events_after_filter": 67,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 96,
-      "events_after_filter": 96,
+      "events_found": 98,
+      "events_after_filter": 98,
       "events_filtered": 0,
       "error": null
     }
@@ -302,6 +302,20 @@
       "date": "2026-04-03",
       "time": "4:00 pm",
       "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "GRAHAM WINCHESTERS SONG SWAP FEATURING FRANK MCLALLEN AND JESSE JAMES DAVIS *super early",
+      "venue": "Bar DKDC",
+      "date": "2026-04-03",
+      "time": "5PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Relentless Breeze",
+      "venue": "Bar DKDC",
+      "date": "2026-04-03",
+      "time": "7-9 PM",
+      "source": "Artifacts (Flyer - 2026 Spring in Memphis event)"
     },
     {
       "artist": "Jombi",
