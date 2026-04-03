@@ -10,7 +10,7 @@ from functools import wraps
 
 from flask import request, jsonify
 
-SECRET_KEY = os.environ.get("ADMIN_SECRET_KEY", "")
+SECRET_KEY = os.environ.get("ADMIN_SECRET_KEY") or __import__("secrets").token_hex(32)
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 TOKEN_EXPIRY_SECONDS = 8 * 60 * 60  # 8 hours
 
