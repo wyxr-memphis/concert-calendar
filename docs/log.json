@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-03T06:13:17.572537+00:00",
+  "run_timestamp": "2026-04-03T17:28:02.679370+00:00",
   "date_range": {
     "start": "2026-04-03",
     "end": "2026-04-10"
   },
-  "total_events_db": 801,
-  "total_active_display": 100,
+  "total_events_db": 807,
+  "total_active_display": 102,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 19,
+      "events_found": 18,
       "events_after_filter": 17,
-      "events_filtered": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,34 +49,10 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -85,6 +61,30 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 25,
+      "events_filtered": 79,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -105,27 +105,27 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 156,
+      "events_after_filter": 28,
+      "events_filtered": 128,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 9,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 155,
-      "events_after_filter": 26,
-      "events_filtered": 129,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 25,
-      "events_filtered": 79,
       "error": null
     },
     {
@@ -145,26 +145,26 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 9,
-      "events_filtered": 13,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 66,
+      "events_found": 80,
+      "events_after_filter": 67,
       "events_filtered": 13,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 100,
-      "events_after_filter": 100,
+      "events_found": 102,
+      "events_after_filter": 102,
       "events_filtered": 0,
       "error": null
     }
@@ -256,6 +256,13 @@
     },
     {
       "artist": "Emergency Broadcast [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-03",
+      "time": null,
+      "source": "Venue: Hi Tone"
+    },
+    {
+      "artist": "Thungergun / Cyprus / Blackmail [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-03",
       "time": null,
@@ -561,6 +568,13 @@
       "date": "2026-04-06",
       "time": "4:00 pm",
       "source": "Venue: B.B. King's Blues Club"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-06",
+      "time": null,
+      "source": "Venue: Hi Tone"
     },
     {
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
