@@ -189,7 +189,7 @@ VENUES = {
         "neighborhood": None,  # Multiple locations — neighborhood comes from event data
         "calendar_url": "https://hueyburger.com/music-menu",
         "scraper": "sitewrench",
-        "sitewrench_api_token": "ea377e351372004c21f6e59e9236b3f668bb3976",
+        "sitewrench_api_token": os.environ.get("SITEWRENCH_API_TOKEN", "ea377e351372004c21f6e59e9236b3f668bb3976"),
         "sitewrench_site_id": "3018",
         "sitewrench_page_part_id": "458501",
     },
