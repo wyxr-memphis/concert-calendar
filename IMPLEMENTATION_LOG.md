@@ -208,7 +208,45 @@ Venue scrapers use a 6-month date range (`SCRAPER_END_DATE`) for the interactive
 ## Known Limitations
 
 - Image uploads via Import commit to GitHub `artifacts/` folder (not Render). Render storage is ephemeral.
-- The existing Vercel serverless API routes (`api/admin/*`) are legacy and unused when `__API_BASE` is set.
 - Without `DATABASE_URL`, the build falls back to events.json as a local data store (useful for development).
 - Event deduplication across sources (scrapers + vision imports) is basic — see FEATURES.md #16.
 - Generic scrapers (JSON-LD) depend on venue sites implementing structured data — some venues don't.
+
+---
+
+## Migration: PostgreSQL as Single Source of Truth (Consolidation)
+
+### Pre-Implementation Analysis
+
+**Current state (what's already done):**
+- Frontend (`docs/index.html`) already fetches from Render API — NOT from `events.json`
+- Admin UI already points to Flask backend via `window.__API_BASE`
+- Scrapers already write to PostgreSQL via `_save_events_to_db()`
+- `source` column exists with `DEFAULT 'manual'`
+- Source priority partially implemented (skips `"admin"` and `"manual"` on upsert)
+
+**What still needs to change:**
+1. Standardize source values to `manual`, `scraper:{name}`, `artifact` convention
+2. Add full source priority: manual > scraper > artifact
+3. Admin edits must set source to `"manual"` when saving
+4. Remove Vercel serverless functions (`api/` directory) — all have Flask equivalents
+5. GitHub Actions should stop committing data files
+6. Clean up residual `events.json` references
+
+### Task Checklist
+
+- [ ] Step 1: Standardize source column values
+- [ ] Step 2: Full source priority in scraper upsert
+- [ ] Step 3: Verify public events API endpoint
+- [ ] CHECKPOINT 1
+- [ ] Step 4: Confirm frontend uses API (already done)
+- [ ] Step 5: Verify Vercel functions are redundant
+- [ ] Step 6: Remove `api/` directory and update vercel.json
+- [ ] CHECKPOINT 2
+- [ ] Step 7: GitHub Actions stops committing data files
+- [ ] Step 8: Clean up residual references
+- [ ] CHECKPOINT 3
+
+### Decisions Made
+
+_(Updated as implementation proceeds)_

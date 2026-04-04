@@ -392,12 +392,15 @@ def admin_events_create():
 @app.route("/api/admin/events/<event_id>", methods=["PUT"])
 @require_auth
 def admin_events_update(event_id):
-    """Full update of an event."""
+    """Full update of an event. Promotes source to 'manual' (admin-edited = protected)."""
     body = request.get_json(silent=True) or {}
 
     existing = get_event_by_id(event_id)
     if not existing:
         return jsonify({"error": "Event not found"}), 404
+
+    # Admin edits promote event to "manual" source (protected from scraper overwrite)
+    body["source"] = "manual"
 
     event = update_event(event_id, body)
     return jsonify(serialize_event(event))
@@ -856,7 +859,7 @@ def admin_import_confirm():
     valid = []
     skipped = []
     for evt in events_to_import:
-        evt.setdefault("source", "import")
+        evt.setdefault("source", "artifact")
         evt.setdefault("is_featured", False)
         evt.setdefault("is_active", True)
         iso_date = _normalize_date_iso(evt.get("date", ""))
@@ -1526,7 +1529,7 @@ def _process_slack_image(file_id: str, channel_id: str):
                 "title": e.artist,
                 "venue": e.venue,
                 "date": e.date.isoformat(),
-                "source": e.source or "Slack Image",
+                "source": "artifact",
                 "is_active": True,
                 "is_featured": False,
             }
