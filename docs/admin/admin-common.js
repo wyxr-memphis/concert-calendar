@@ -6,12 +6,11 @@
  *
  * Configuration:
  *   Set window.__API_BASE before including this script to point to
- *   the Render backend URL. If not set, falls back to same-origin
- *   (Vercel serverless functions).
+ *   the Render backend URL.
  */
 
 const AdminAPI = (() => {
-    // API base URL — empty string means same-origin
+    // API base URL — must be set via window.__API_BASE
     const BASE = window.__API_BASE || '';
 
     function getToken() {

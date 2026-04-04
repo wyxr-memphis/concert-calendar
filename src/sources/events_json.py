@@ -1,7 +1,9 @@
-"""Events JSON source — reads from data/events.json.
+"""Events JSON snapshot helpers.
 
-This is the central event database. The daily build merges automated events
-into this file, and the admin UI edits it directly via the GitHub API.
+PostgreSQL is the single source of truth. This module provides helpers
+for exporting/loading data/events.json as a backup snapshot and as a
+fallback when the database is unavailable (e.g., local development
+without DATABASE_URL).
 """
 
 import json

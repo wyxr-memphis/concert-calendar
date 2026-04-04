@@ -39,7 +39,7 @@ from ..models import Event, SourceResult
 from ..config import START_DATE, SCRAPER_END_DATE, normalize_venue_name
 from ..date_utils import parse_date_text
 
-SOURCE_NAME = "Artifacts (Vision-Extracted)"
+SOURCE_NAME = "artifact"
 ARTIFACTS_DIR = Path(__file__).parent.parent.parent / "artifacts"
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
@@ -252,7 +252,7 @@ def _parse_bandsintown_html(soup: BeautifulSoup, source_path: Path) -> List[Even
                 venue=normalize_venue_name(venue_text) if venue_text else "Venue TBA",
                 date=event_date,
                 time=time_str,
-                source=f"Artifacts (Bandsintown page)",
+                source="artifact",
                 url=url or None,
             ))
 
@@ -366,7 +366,7 @@ def _parse_generic_event_html(soup: BeautifulSoup, source_path: Path) -> List[Ev
                     artist=title,
                     venue=normalize_venue_name(venue),
                     date=event_date,
-                    source=f"Artifacts ({source_path.name})",
+                    source="artifact",
                 ))
             if events:
                 return events
@@ -397,7 +397,7 @@ def _parse_jsonld_event(data: dict, source_path: Path) -> Optional[Event]:
         venue=normalize_venue_name(venue) if venue else "Venue TBA",
         date=event_date,
         time=time_str,
-        source=f"Artifacts ({source_path.name})",
+        source="artifact",
         url=url,
     )
 
@@ -540,7 +540,7 @@ def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
         venue=normalize_venue_name(venue) if venue else "Venue TBA",
         date=event_date,
         time=time_str if time_str else None,
-        source=f"Artifacts ({source_note})" if source_note else SOURCE_NAME,
+        source="artifact",
     )
 
 

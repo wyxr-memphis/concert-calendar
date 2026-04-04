@@ -28,6 +28,12 @@ HEADERS = {
 }
 
 
+def _venue_source_tag(venue_name: str) -> str:
+    """Convert a venue name to a scraper source tag, e.g. 'Hi Tone' -> 'scraper:hi_tone'."""
+    slug = re.sub(r'[^a-z0-9]+', '_', venue_name.lower()).strip('_')
+    return f"scraper:{slug}"
+
+
 def fetch() -> SourceResult:
     """Fetch events from all configured venue websites."""
     result = SourceResult(source_name="Venue Websites")
@@ -225,7 +231,7 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
                     venue=name,
                     date=event_date,
                     time=time_str,
-                    source=f"Venue: {name}",
+                    source=_venue_source_tag(name),
                     url=event_data.get("url"),
                 ))
             except Exception:
@@ -296,7 +302,7 @@ def _fetch_sitewrench_venue(venue_info: dict) -> SourceResult:
                     venue=display_venue,
                     date=event_date,
                     time=time_str,
-                    source=f"Venue: {name}",
+                    source=_venue_source_tag(name),
                 ))
 
         if result.events_found == 0:
@@ -360,7 +366,7 @@ def _parse_crosstown_arts(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -431,7 +437,7 @@ def _jsonld_to_event(data: dict, default_venue: str) -> Optional[Event]:
         venue=venue,
         date=event_date,
         time=time_str,
-        source=f"Venue: {default_venue}",
+        source=_venue_source_tag(default_venue),
         url=url,
     )
 
@@ -525,7 +531,7 @@ def _try_generic_parse(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -560,7 +566,7 @@ def _parse_hi_tone(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 artist=title,
                 venue=venue_name,
                 date=event_date,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -595,7 +601,7 @@ def _parse_minglewood(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 artist=title,
                 venue=venue_name,
                 date=event_date,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -633,7 +639,7 @@ def _parse_hernandos(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -682,7 +688,7 @@ def _parse_growlers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -738,7 +744,7 @@ def _parse_graceland(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 artist=title,
                 venue=venue_name,
                 date=event_date,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -804,7 +810,7 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:
@@ -909,7 +915,7 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
 
@@ -969,7 +975,7 @@ def _parse_orpheum(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 artist=title,
                 venue=venue_name,
                 date=event_date,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
             
@@ -1020,7 +1026,7 @@ def _parse_overton_shell(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
 
@@ -1099,7 +1105,7 @@ def _parse_south_main_sounds(soup: BeautifulSoup, venue_name: str) -> List[Event
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
 
@@ -1144,7 +1150,7 @@ def _parse_bbkings(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
             ))
         except Exception:
             continue
@@ -1211,7 +1217,7 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 venue=venue_name,
                 date=event_date,
                 time=time_str,
-                source=f"Venue: {venue_name}",
+                source=_venue_source_tag(venue_name),
                 url=url,
             ))
         except Exception:

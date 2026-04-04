@@ -123,8 +123,7 @@
 
     <script>window.__API_BASE = 'https://concert-calendar-api.onrender.com';</script>
     <script>
-        // API base URL — set to Render backend URL in production
-        // Falls back to same-origin for Vercel serverless functions
+        // API base URL — must point to Render backend
         const API_BASE = window.__API_BASE || '';
 
         function apiUrl(path) {

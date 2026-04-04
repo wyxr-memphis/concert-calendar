@@ -64,6 +64,3 @@ jobs:
           git stash pop
           git add docs/ data/events.json
           git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
-
-      - name: Trigger Vercel redeploy
-        run: curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"

@@ -16,7 +16,7 @@ from ..config import (
     normalize_venue_name, is_music_event,
 )
 
-SOURCE_NAME = "Ticketmaster"
+SOURCE_NAME = "scraper:ticketmaster"
 BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json"
 
 

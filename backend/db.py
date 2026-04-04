@@ -255,6 +255,35 @@ def init_db():
             CREATE INDEX IF NOT EXISTS idx_api_key_requests_status ON api_key_requests(status);
         """)
 
+    # Step 13: Backfill source column to standardized values
+    # manual, scraper:{name}, artifact — idempotent migration
+    with get_cursor() as cur:
+        # Admin/manual sources stay as "manual"
+        cur.execute("""UPDATE events SET source = 'manual'
+                       WHERE source = 'admin'""")
+        # Submission-created events are manual
+        cur.execute("""UPDATE events SET source = 'manual'
+                       WHERE source = 'submission'""")
+        # Ticketmaster
+        cur.execute("""UPDATE events SET source = 'scraper:ticketmaster'
+                       WHERE source = 'Ticketmaster'""")
+        # Venue scrapers: "Venue: Hi Tone" -> "scraper:hi_tone"
+        cur.execute("""UPDATE events SET source = 'scraper:' || TRIM(BOTH '_' FROM
+                         LOWER(REGEXP_REPLACE(
+                           REGEXP_REPLACE(source, '^Venue: ', ''),
+                           '[^a-z0-9]+', '_', 'gi')))
+                       WHERE source LIKE 'Venue: %'""")
+        # Artifacts
+        cur.execute("""UPDATE events SET source = 'artifact'
+                       WHERE source LIKE 'Artifacts (%' OR source LIKE 'Slack Image%'""")
+        # Imports (HTML file imports) -> treat as artifact
+        cur.execute("""UPDATE events SET source = 'artifact'
+                       WHERE source LIKE 'import (%' OR source = 'import'""")
+        # Catch-all: anything that doesn't match known patterns -> scraper:unknown
+        cur.execute("""UPDATE events SET source = 'scraper:unknown'
+                       WHERE source NOT IN ('manual', 'artifact')
+                         AND source NOT LIKE 'scraper:%'""")
+
     # Step 11: Seed venues if table is empty
     try:
         _seed_venues_if_empty()
