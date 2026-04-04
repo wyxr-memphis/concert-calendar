@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-04-04T17:23:32.749049+00:00",
+  "run_timestamp": "2026-04-04T23:09:09.246914+00:00",
   "date_range": {
     "start": "2026-04-04",
     "end": "2026-04-11"
@@ -9,7 +9,7 @@
   "data_store": "postgresql",
   "sources": [
     {
-      "name": "Ticketmaster",
+      "name": "scraper:ticketmaster",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -17,7 +17,7 @@
       "error": null
     },
     {
-      "name": "Artifacts (Vision-Extracted)",
+      "name": "artifact",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,11 +49,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,11 +73,43 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 104,
       "events_after_filter": 23,
       "events_filtered": 81,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 156,
+      "events_after_filter": 27,
+      "events_filtered": 129,
       "error": null
     },
     {
@@ -97,22 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 156,
-      "events_after_filter": 27,
-      "events_filtered": 129,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -121,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 79,
-      "events_after_filter": 66,
-      "events_filtered": 13,
       "error": null
     },
     {
@@ -153,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 79,
+      "events_after_filter": 66,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -182,672 +182,672 @@
       "venue": "B-Side Memphis",
       "date": "2026-04-04",
       "time": "9:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-04",
       "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-04",
       "time": "12:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Flic's Pic's Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-04",
       "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Bori",
       "venue": "Blue Moon Event Center",
       "date": "2026-04-04",
       "time": "9:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Mach & Daddy",
       "venue": "Blue Moon Event Center",
       "date": "2026-04-04",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Deborah Swiney",
       "venue": "Crosstown Arts",
       "date": "2026-04-04",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Joyce Cobb",
       "venue": "Crosstown Arts",
       "date": "2026-04-04",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Memphis Women in Jazz: Deb Swiney, Patrice Williamson, & Joyce Cobb",
       "venue": "Crosstown Arts",
       "date": "2026-04-04",
       "time": "7:30 pm",
-      "source": "Venue: Crosstown Arts"
+      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Patrice Williamson",
       "venue": "Crosstown Arts",
       "date": "2026-04-04",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Wagoneer Album Release",
       "venue": "Flyway Brewing",
       "date": "2026-04-04",
       "time": "6 PM",
-      "source": "Venue: Flyway Brewing"
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Billingsley & Earp",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-04",
       "time": "6:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Breeze Cayolle",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-04",
       "time": null,
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Joe Stamm Band",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-04",
       "time": "9:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Memphis Punk Rock Flea Market  *free* [Both Rooms]",
       "venue": "Hi Tone",
       "date": "2026-04-04",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "SYNRGY [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-04",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Amber McCain Band",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-04",
       "time": "5 PM",
-      "source": "Venue: Lafayette's Music Room"
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Terry Greene & the Honey Golds",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-04",
       "time": "9:30 PM",
-      "source": "Venue: Lafayette's Music Room"
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Hayden Hunter",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-04",
       "time": "9:30 PM",
-      "source": "Artifacts (Handwritten weekly schedule flyer)"
+      "source": "artifact"
     },
     {
       "artist": "Izzy Arthurs",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-04",
       "time": "9:30 PM",
-      "source": "Artifacts (Handwritten weekly schedule flyer)"
+      "source": "artifact"
     },
     {
       "artist": "Rosehaven Motor Hotel",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-04",
       "time": "9:30 PM",
-      "source": "Artifacts (Handwritten weekly schedule flyer)"
+      "source": "artifact"
     },
     {
       "artist": "Shell on Wheels Presents Elizabeth king & The Jubilee Hummingbirds",
       "venue": "Overton Park Shell",
       "date": "2026-04-04",
       "time": "3:00\u202fPM",
-      "source": "Venue: Overton Park Shell"
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Chris Gales",
       "venue": "Rum Boogie Cafe",
       "date": "2026-04-04",
       "time": "3:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "CJ Starnes",
       "venue": "South Main Sounds",
       "date": "2026-04-04",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "CJ Starnes Returns to South Main Sounds!",
       "venue": "South Main Sounds",
       "date": "2026-04-04",
       "time": "7:00PM",
-      "source": "Venue: South Main Sounds"
+      "source": "scraper:south_main_sounds"
     },
     {
       "artist": "Timothy James",
       "venue": "Tin Roof Memphis",
       "date": "2026-04-04",
       "time": "10:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-05",
       "time": "12:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Flic's Pic's Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-05",
       "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-05",
       "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-05",
       "time": null,
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Easter Egg Hunt & more!  *no cover* [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-05",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Kashjimer",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-05",
       "time": "5 PM",
-      "source": "Artifacts (Handwritten weekly schedule flyer)"
+      "source": "artifact"
     },
     {
       "artist": "CELL Qtet",
       "venue": "B-Side Memphis",
       "date": "2026-04-06",
       "time": "9:30 PM",
-      "source": "Artifacts (Instagram post from artiepartie and bsidememphis)"
+      "source": "artifact"
     },
     {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-06",
       "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Memphis Jones",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-06",
       "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-06",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-04-06",
       "time": "5:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-07",
       "time": "8:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-07",
       "time": "4:00 pm",
-      "source": "Venue: B.B. King's Blues Club"
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Bobbie Stacks & Kevin Kilgore",
       "venue": "Flyway Brewing",
       "date": "2026-04-07",
       "time": "4 PM",
-      "source": "Venue: Flyway Brewing"
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Chuck Mead",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-07",
       "time": "7:30PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Ethereal Tomb / Age of Extinction [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-07",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Open Mic Comedy Night [big room-upstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-07",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Trivia Night",
       "venue": "Nashoba",
       "date": "2026-04-07",
       "time": "7 PM",
-      "source": "Venue: Nashoba"
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Baptist Health & Wellness Series: Zumba",
       "venue": "Overton Park Shell",
       "date": "2026-04-07",
       "time": "5:30\u202fPM",
-      "source": "Venue: Overton Park Shell"
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "WYXR Stereo Session - Elizabeth Barraclough's \"Hi\"",
       "venue": "Memphis Listening Lab",
       "date": "2026-04-08",
       "time": "6 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "DJ Rhinestonee",
       "venue": "Swamp Bar",
       "date": "2026-04-08",
       "time": null,
-      "source": "Artifacts (DJ nights schedule flyer - upcoming date in 2026)"
+      "source": "artifact"
     },
     {
       "artist": "Brett Bartschi",
       "venue": "Flyway Brewing",
       "date": "2026-04-08",
       "time": "4 PM",
-      "source": "Venue: Flyway Brewing"
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-08",
       "time": null,
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Enuff Z'Nuff",
       "venue": "RockHouse Live Memphis",
       "date": "2026-04-08",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "DJ Witnesse",
       "venue": "Cameo Bar",
       "date": "2026-04-09",
       "time": "8 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "The Sleeveens with Jeremy & The Drip Edges",
       "venue": "Goner Records",
       "date": "2026-04-09",
       "time": "5:30 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Christen Ball",
       "venue": "B-Side Memphis",
       "date": "2026-04-09",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Mary Hatley",
       "venue": "B-Side Memphis",
       "date": "2026-04-09",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Henri Herbert",
       "venue": "Blues City Cafe",
       "date": "2026-04-09",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Folk All Y\u2019all: Rebecca Loebe",
       "venue": "Crosstown Arts",
       "date": "2026-04-09",
       "time": "7:30 pm",
-      "source": "Venue: Crosstown Arts"
+      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Rebecca Loebe",
       "venue": "Crosstown Arts",
       "date": "2026-04-09",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Lilly Miller",
       "venue": "Growlers",
       "date": "2026-04-09",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Racoma",
       "venue": "Growlers",
       "date": "2026-04-09",
       "time": "7:30PM",
-      "source": "Venue: Growlers"
+      "source": "scraper:growlers"
     },
     {
       "artist": "Sequoia Rose",
       "venue": "Havenhaus",
       "date": "2026-04-09",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Big Barton",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-09",
       "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Lil\u2019 Wild Bill & The Juke Joint Allstars",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-09",
       "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Peter Blunt System",
       "venue": "Hi Tone",
       "date": "2026-04-09",
       "time": "7 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
-      "artist": "The Peter Blunt System [Small Room-Downstairs]",
+      "artist": "Peter Blunt System",
       "venue": "Hi Tone",
       "date": "2026-04-09",
       "time": "7 PM",
-      "source": "Venue: Hi Tone"
+      "source": "manual"
     },
     {
       "artist": "Karaoke",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-09",
       "time": "9:30 PM",
-      "source": "Venue: Lafayette's Music Room"
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Lauren Lolo Pritchard",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-09",
       "time": "6:30 PM",
-      "source": "Venue: Lafayette's Music Room"
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Lolo Pritchard: The Piano & Me Tour",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-09",
       "time": "6:30 PM",
-      "source": "Ticketmaster"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Ted Horrell Trio at the Side Set",
       "venue": "Nashoba",
       "date": "2026-04-09",
       "time": "7 PM",
-      "source": "Venue: Nashoba"
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Drake Bell",
       "venue": "Tin Roof Memphis",
       "date": "2026-04-09",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Henri Herbert",
       "venue": "Blues City Cafe",
       "date": "2026-04-10",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Sarah Dane",
       "venue": "Flyway Brewing",
       "date": "2026-04-10",
       "time": "4 PM",
-      "source": "Venue: Flyway Brewing"
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Ballet Memphis: Romeo and Juliet",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-04-10",
       "time": "7:30\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
+      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "Lil Xan",
       "venue": "Growlers",
       "date": "2026-04-10",
       "time": "11:00PM",
-      "source": "Venue: Growlers"
+      "source": "scraper:growlers"
     },
     {
       "artist": "Line So Thin",
       "venue": "Growlers",
       "date": "2026-04-10",
       "time": "7:30 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Smile Empty Soul",
       "venue": "Growlers",
       "date": "2026-04-10",
       "time": "7:30PM",
-      "source": "Venue: Growlers"
+      "source": "scraper:growlers"
     },
     {
       "artist": "McKinley James",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-10",
       "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Tongue & Cheek [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-10",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Just Liyah & Maxwell 90s Tribute",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-10",
       "time": "9 PM",
-      "source": "Ticketmaster"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Just Liyah: Aaliyah Tribute",
       "venue": "Lafayette's Music Room",
       "date": "2026-04-10",
       "time": "9 PM",
-      "source": "Venue: Lafayette's Music Room"
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Best of Both Worlds Rave: 20-Year Hannah Montana Nostalgia Celebration",
       "venue": "Minglewood Hall",
       "date": "2026-04-10",
       "time": "9:30 PM",
-      "source": "Ticketmaster"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Don Toliver: Octane Album Listening Experience",
       "venue": "Minglewood Hall",
       "date": "2026-04-10",
       "time": null,
-      "source": "Venue: Minglewood Hall"
+      "source": "scraper:minglewood_hall"
     },
     {
       "artist": "Heartless",
       "venue": "Nashoba",
       "date": "2026-04-10",
       "time": "8 PM",
-      "source": "Venue: Nashoba"
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Ghost Town Blues Band",
       "venue": "Neil's Grille and Bar",
       "date": "2026-04-10",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Louder Than Bombs: The Smiths/Morrissey cover band",
       "venue": "B-Side Memphis",
       "date": "2026-04-11",
       "time": "10:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Ballet Memphis: Romeo and Juliet Saturday Matinee",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-04-11",
       "time": "2:00\u202fPM",
-      "source": "Venue: Germantown Performing Arts Center"
+      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "Lil Xan",
       "venue": "Growlers",
       "date": "2026-04-11",
       "time": "8:00PM",
-      "source": "Venue: Growlers"
+      "source": "scraper:growlers"
     },
     {
       "artist": "JOHNNY PANDORA",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-11",
       "time": "8:00PM",
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Susan Marshall Jazz Brunch",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-11",
       "time": null,
-      "source": "Venue: Hernando's Hideaway"
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "The 3 Shredders Tour [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-11",
       "time": null,
-      "source": "Venue: Hi Tone"
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Erin Enderlin",
       "venue": "Johnny Cash Boyhood Home",
       "date": "2026-04-11",
       "time": "1:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Mae Estes",
       "venue": "Johnny Cash Boyhood Home",
       "date": "2026-04-11",
       "time": "1:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "DISCO, ALWAYS: A HARRY STYLES DANCE NIGHT",
       "venue": "Minglewood Hall",
       "date": "2026-04-11",
       "time": null,
-      "source": "Venue: Minglewood Hall"
+      "source": "scraper:minglewood_hall"
     },
     {
       "artist": "Seeing Red",
       "venue": "Nashoba",
       "date": "2026-04-11",
       "time": "8 PM",
-      "source": "Venue: Nashoba"
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Kreston Smith",
       "venue": "Raven & Lily Sommerville",
       "date": "2026-04-11",
       "time": "7 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Crooked Diehl",
       "venue": "Tin Roof Memphis",
       "date": "2026-04-11",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Tributaries Music Fest (Neil Young, REM, Talking Heads and MGs Cover Bands)",
       "venue": "Wiseacre Brewing Company (Downtown)",
       "date": "2026-04-11",
       "time": "3 PM",
-      "source": "submission"
+      "source": "manual"
     }
   ]
 }
