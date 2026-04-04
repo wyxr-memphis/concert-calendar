@@ -16,7 +16,7 @@ class Event:
     source: str = ""  # Where we found this event
     url: Optional[str] = None  # Link to event page/tickets
     is_featured: bool = False  # Highlighted on calendar
-    event_id: Optional[str] = None  # Stable ID from events.json
+    event_id: Optional[str] = None  # Stable ID from PostgreSQL
 
     @property
     def sort_key(self):
