@@ -4,9 +4,6 @@
   "redirects": [
     { "source": "/calendar.html", "destination": "/", "permanent": true }
   ],
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
-  ],
   "headers": [
     {
       "source": "/(index\\.html)?",
