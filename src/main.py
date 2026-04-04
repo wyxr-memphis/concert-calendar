@@ -67,6 +67,7 @@ def _create_scrape_log(scraper_name: str, started_at: datetime) -> Optional[str]
     """Create a scrape_logs entry. Returns the log ID or None."""
     if not _db_available():
         return None
+    conn = None
     try:
         import psycopg2
         import psycopg2.extras
@@ -78,17 +79,20 @@ def _create_scrape_log(scraper_name: str, started_at: datetime) -> Optional[str]
         )
         row = cur.fetchone()
         conn.commit()
-        conn.close()
         return str(row["id"]) if row else None
     except Exception as e:
         print(f"  [scrape_log] Could not create log entry: {e}")
         return None
+    finally:
+        if conn:
+            conn.close()
 
 
 def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
     """Update a scrape_logs entry."""
     if not log_id or not _db_available():
         return
+    conn = None
     try:
         import psycopg2
         import psycopg2.extras
@@ -99,7 +103,6 @@ def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
                     "events_updated", "events_skipped", "error_message", "details"]
         updates = {k: data[k] for k in allowed if k in data}
         if not updates:
-            conn.close()
             return
 
         set_clauses = []
@@ -114,9 +117,11 @@ def _update_scrape_log(log_id: Optional[str], data: dict) -> None:
         params.append(log_id)
         cur.execute(f"UPDATE scrape_logs SET {', '.join(set_clauses)} WHERE id = %s::uuid", params)
         conn.commit()
-        conn.close()
     except Exception as e:
         print(f"  [scrape_log] Could not update log entry: {e}")
+    finally:
+        if conn:
+            conn.close()
 
 
 # ---------------------------------------------------------------------------
@@ -504,11 +509,12 @@ def run(dry_run: bool = False) -> None:
     print(f"  After merge: {len(merged)}")
 
     # ---- STEP 4: Save to data store ----
+    db_stats = None
     if not dry_run:
         if use_db:
             try:
-                stats = _save_events_to_db(merged, run_timestamp)
-                print(f"  Saved to PostgreSQL: {stats['added']} added, {stats['updated']} updated, {stats['pruned']} pruned")
+                db_stats = _save_events_to_db(merged, run_timestamp)
+                print(f"  Saved to PostgreSQL: {db_stats['added']} added, {db_stats['updated']} updated, {db_stats['pruned']} pruned")
             except Exception as e:
                 print(f"  WARNING: Could not save to DB: {e}")
 
@@ -625,9 +631,12 @@ def run(dry_run: bool = False) -> None:
     # ---- STEP 8: Update scrape log ----
     if scrape_log_id:
         total_found = sum(sr.events_found for sr in all_source_results)
-        new_count = len(merged) - len(existing_events)
-        updated_count = sum(1 for sr in all_source_results if sr.success) - new_count
-        if updated_count < 0:
+        # Use actual DB stats if available, otherwise estimate from merge counts
+        if db_stats:
+            new_count = db_stats.get("added", 0)
+            updated_count = db_stats.get("updated", 0)
+        else:
+            new_count = max(len(merged) - len(existing_events), 0)
             updated_count = 0
 
         status = "success"

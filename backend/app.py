@@ -124,8 +124,7 @@ def _ensure_db():
         _db_ready = True
         print("[startup] Database initialized OK", flush=True)
     except Exception as e:
-        # Mark as ready even on failure — don't retry init on every request
-        _db_ready = True
+        # Leave _db_ready False so the next request retries initialization
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
 
 
@@ -320,7 +319,7 @@ def admin_login():
     body = request.get_json(silent=True) or {}
     password = body.get("password", "")
 
-    if password != ADMIN_PASSWORD:
+    if not hmac.compare_digest(password, ADMIN_PASSWORD):
         return jsonify({"error": "Invalid password"}), 401
 
     token = create_token()
@@ -1577,7 +1576,12 @@ def _process_slack_image(file_id: str, channel_id: str):
 @app.route("/api/slack/events", methods=["POST"])
 def slack_events():
     """Handle Slack event webhook (file uploads → Claude Vision → DB insert → rebuild)."""
-    raw_body = request.get_data(as_text=True)
+    raw_body_bytes = request.get_data()
+    raw_body = raw_body_bytes.decode("utf-8", errors="replace")
+
+    # Verify Slack request signature before processing any payload
+    if not _verify_slack_signature(raw_body, request.headers):
+        return jsonify({"error": "Invalid signature"}), 403
 
     try:
         body = json.loads(raw_body) if raw_body else {}
@@ -1587,10 +1591,6 @@ def slack_events():
     # URL verification challenge (sent by Slack during app setup)
     if body.get("type") == "url_verification":
         return jsonify({"challenge": body.get("challenge")})
-
-    # Verify Slack request signature
-    if not _verify_slack_signature(raw_body, request.headers):
-        return jsonify({"error": "Invalid signature"}), 403
 
     # Handle file_shared event — caption check happens inside background thread via files.info
     event = body.get("event", {})

@@ -133,7 +133,7 @@ def _detail_score(event: Event) -> int:
     if len(event.artist) > 20:
         score += 1  # Longer names often have more context
     # Prefer certain sources
-    preferred = ["Ticketmaster", "Venue:"]
+    preferred = ["scraper:ticketmaster", "scraper:"]
     if any(p in event.source for p in preferred):
         score += 1
     return score
