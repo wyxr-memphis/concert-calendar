@@ -192,112 +192,117 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
     import psycopg2
     import psycopg2.extras
     conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
-    cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-    # Build lookup of existing DB events by normalized key
-    cur.execute("SELECT id, title, venue, date, source FROM events")
-    db_key_to_row = {}
-    for row in cur.fetchall():
-        key = _normalized_key(row["title"] or "", row["venue"] or "", str(row["date"]))
-        db_key_to_row[key] = row
+        # Build lookup of existing DB events by normalized key
+        cur.execute("SELECT id, title, venue, date, source FROM events")
+        db_key_to_row = {}
+        for row in cur.fetchall():
+            key = _normalized_key(row["title"] or "", row["venue"] or "", str(row["date"]))
+            db_key_to_row[key] = row
 
-    # Pre-load all venues into memory for O(1) lookups instead of per-event queries
-    cur.execute("SELECT name, neighborhood, aliases FROM venues")
-    venue_lookup = {}  # lowercase name/alias -> (canonical_name, neighborhood)
-    for vrow in cur.fetchall():
-        canonical = vrow["name"]
-        hood = vrow.get("neighborhood")
-        venue_lookup[canonical.lower()] = (canonical, hood)
-        for alias in (vrow.get("aliases") or []):
-            venue_lookup[alias.lower()] = (canonical, hood)
+        # Pre-load all venues into memory for O(1) lookups instead of per-event queries
+        cur.execute("SELECT name, neighborhood, aliases FROM venues")
+        venue_lookup = {}  # lowercase name/alias -> (canonical_name, neighborhood)
+        for vrow in cur.fetchall():
+            canonical = vrow["name"]
+            hood = vrow.get("neighborhood")
+            venue_lookup[canonical.lower()] = (canonical, hood)
+            for alias in (vrow.get("aliases") or []):
+                venue_lookup[alias.lower()] = (canonical, hood)
 
-    added = 0
-    updated = 0
-    skipped = 0
-    timestamp = run_timestamp.isoformat()
+        added = 0
+        updated = 0
+        skipped = 0
+        timestamp = run_timestamp.isoformat()
 
-    for entry in merged:
-        title = (entry.get("title") or "").strip()
-        venue = (entry.get("venue") or "").strip()
-        date_str = (entry.get("date") or "").strip()
-        if not title or not date_str:
-            continue
-
-        key = _normalized_key(title, venue, date_str)
-        incoming_source = entry.get("source", "scraper:unknown")
-
-        # Normalize venue name and get neighborhood from in-memory lookup
-        neighborhood = entry.get("neighborhood")
-        venue_match = venue_lookup.get(venue.lower())
-        if venue_match:
-            venue = venue_match[0]
-            if not neighborhood:
-                neighborhood = venue_match[1]
-
-        if key in db_key_to_row:
-            db_row = db_key_to_row[key]
-            existing_source = db_row.get("source", "")
-            existing_priority = _source_priority(existing_source)
-            incoming_priority = _source_priority(incoming_source)
-
-            # Skip if existing source has higher priority
-            if existing_priority > incoming_priority:
-                skipped += 1
+        for entry in merged:
+            title = (entry.get("title") or "").strip()
+            venue = (entry.get("venue") or "").strip()
+            date_str = (entry.get("date") or "").strip()
+            if not title or not date_str:
                 continue
-            # Same priority (both scrapers) or incoming is higher — update
-            cur.execute(
-                """UPDATE events SET
-                    title = COALESCE(%s, title),
-                    venue = COALESCE(%s, venue),
-                    start_time = COALESCE(%s, start_time),
-                    ticket_url = COALESCE(%s, ticket_url),
-                    source = COALESCE(%s, source),
-                    neighborhood = COALESCE(neighborhood, %s),
-                    updated_at = NOW()
-                WHERE id = %s""",
-                (
-                    title,
-                    venue,
-                    entry.get("start_time"),
-                    entry.get("ticket_url"),
-                    incoming_source,
-                    neighborhood,
-                    db_row["id"],
-                ),
-            )
-            if cur.rowcount > 0:
-                updated += 1
-        else:
-            # New event — insert
-            cur.execute(
-                """INSERT INTO events (title, venue, date, start_time, ticket_url,
-                   source, neighborhood, is_featured, is_active)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-                RETURNING id""",
-                (
-                    title, venue, date_str,
-                    entry.get("start_time"),
-                    entry.get("ticket_url"),
-                    incoming_source,
-                    neighborhood,
-                    entry.get("is_featured", False),
-                    entry.get("is_active", True),
-                ),
-            )
-            new_row = cur.fetchone()
-            if new_row:
-                # Add to lookup to prevent duplicates within this batch
-                db_key_to_row[key] = {
-                    "id": new_row["id"],
-                    "title": title,
-                    "venue": venue,
-                    "date": date_str,
-                    "source": incoming_source,
-                }
-            added += 1
 
-    conn.commit()
-    conn.close()
+            key = _normalized_key(title, venue, date_str)
+            incoming_source = entry.get("source", "scraper:unknown")
+
+            # Normalize venue name and get neighborhood from in-memory lookup
+            neighborhood = entry.get("neighborhood")
+            venue_match = venue_lookup.get(venue.lower())
+            if venue_match:
+                venue = venue_match[0]
+                if not neighborhood:
+                    neighborhood = venue_match[1]
+
+            if key in db_key_to_row:
+                db_row = db_key_to_row[key]
+                existing_source = db_row.get("source", "")
+                existing_priority = _source_priority(existing_source)
+                incoming_priority = _source_priority(incoming_source)
+
+                # Skip if existing source has higher priority
+                if existing_priority > incoming_priority:
+                    skipped += 1
+                    continue
+                # Same priority (both scrapers) or incoming is higher — update
+                cur.execute(
+                    """UPDATE events SET
+                        title = COALESCE(%s, title),
+                        venue = COALESCE(%s, venue),
+                        start_time = COALESCE(%s, start_time),
+                        ticket_url = COALESCE(%s, ticket_url),
+                        source = COALESCE(%s, source),
+                        neighborhood = COALESCE(neighborhood, %s),
+                        updated_at = NOW()
+                    WHERE id = %s""",
+                    (
+                        title,
+                        venue,
+                        entry.get("start_time"),
+                        entry.get("ticket_url"),
+                        incoming_source,
+                        neighborhood,
+                        db_row["id"],
+                    ),
+                )
+                if cur.rowcount > 0:
+                    updated += 1
+            else:
+                # New event — insert
+                cur.execute(
+                    """INSERT INTO events (title, venue, date, start_time, ticket_url,
+                       source, neighborhood, is_featured, is_active)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    RETURNING id""",
+                    (
+                        title, venue, date_str,
+                        entry.get("start_time"),
+                        entry.get("ticket_url"),
+                        incoming_source,
+                        neighborhood,
+                        entry.get("is_featured", False),
+                        entry.get("is_active", True),
+                    ),
+                )
+                new_row = cur.fetchone()
+                if new_row:
+                    # Add to lookup to prevent duplicates within this batch
+                    db_key_to_row[key] = {
+                        "id": new_row["id"],
+                        "title": title,
+                        "venue": venue,
+                        "date": date_str,
+                        "source": incoming_source,
+                    }
+                added += 1
+
+        conn.commit()
+    except Exception:
+        conn.rollback()
+        raise
+    finally:
+        conn.close()
     return {"added": added, "updated": updated, "skipped": skipped, "pruned": 0}
 
 
@@ -707,7 +712,8 @@ def _merge_events(
             entry["title"] = event.artist  # Update title in case website updated it
             entry["start_time"] = event.time or entry.get("start_time")
             entry["ticket_url"] = event.url or entry.get("ticket_url")
-            entry["source"] = event.source or entry.get("source")
+            if event.source:
+                entry["source"] = event.source
             entry["updated_at"] = timestamp
         else:
             # New event — add it
