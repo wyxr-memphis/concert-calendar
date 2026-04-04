@@ -157,12 +157,36 @@ def _load_events_from_db() -> List[dict]:
     return events
 
 
+def _source_priority(source: str) -> int:
+    """Return priority level for a source. Higher = more authoritative.
+
+    Priority hierarchy:
+      3 = manual (admin-created/edited, never overwritten)
+      2 = scraper:{name} (automated scraper data)
+      1 = artifact (image/flyer extraction via Claude Vision)
+      0 = unknown
+    """
+    if not source:
+        return 0
+    if source == "manual":
+        return 3
+    if source.startswith("scraper:"):
+        return 2
+    if source == "artifact":
+        return 1
+    return 0
+
+
 def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
     """Upsert merged events to PostgreSQL. Returns stats dict.
 
+    Source priority hierarchy (highest to lowest):
+      1. manual — never overwritten by scrapers or artifacts
+      2. scraper:{name} — can overwrite artifacts, can update other scrapers
+      3. artifact — lowest confidence, overwritten by scrapers or manual
+
     - Events with a UUID id (from DB) are updated in place
     - Events with an evt_ id (new from scrapers) are inserted
-    - Never overwrites admin/manual source entries
     - Past events are retained (not pruned) for historical record
     """
     import psycopg2
@@ -189,6 +213,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
 
     added = 0
     updated = 0
+    skipped = 0
     timestamp = run_timestamp.isoformat()
 
     for entry in merged:
@@ -199,6 +224,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             continue
 
         key = _normalized_key(title, venue, date_str)
+        incoming_source = entry.get("source", "scraper:unknown")
 
         # Normalize venue name and get neighborhood from in-memory lookup
         neighborhood = entry.get("neighborhood")
@@ -210,10 +236,15 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
 
         if key in db_key_to_row:
             db_row = db_key_to_row[key]
-            # Don't overwrite admin/manual entries
-            if db_row["source"] in ("admin", "manual"):
+            existing_source = db_row.get("source", "")
+            existing_priority = _source_priority(existing_source)
+            incoming_priority = _source_priority(incoming_source)
+
+            # Skip if existing source has higher priority
+            if existing_priority > incoming_priority:
+                skipped += 1
                 continue
-            # Update scraped fields (including title/venue to keep in sync with website)
+            # Same priority (both scrapers) or incoming is higher — update
             cur.execute(
                 """UPDATE events SET
                     title = COALESCE(%s, title),
@@ -229,7 +260,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     venue,
                     entry.get("start_time"),
                     entry.get("ticket_url"),
-                    entry.get("source"),
+                    incoming_source,
                     neighborhood,
                     db_row["id"],
                 ),
@@ -247,7 +278,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     title, venue, date_str,
                     entry.get("start_time"),
                     entry.get("ticket_url"),
-                    entry.get("source", "scraper"),
+                    incoming_source,
                     neighborhood,
                     entry.get("is_featured", False),
                     entry.get("is_active", True),
@@ -261,13 +292,13 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                     "title": title,
                     "venue": venue,
                     "date": date_str,
-                    "source": entry.get("source", "scraper"),
+                    "source": incoming_source,
                 }
             added += 1
 
     conn.commit()
     conn.close()
-    return {"added": added, "updated": updated, "pruned": 0}
+    return {"added": added, "updated": updated, "skipped": skipped, "pruned": 0}
 
 
 def _load_active_events_from_db(start_date, end_date) -> List[dict]:
@@ -667,8 +698,10 @@ def _merge_events(
         if key in existing_by_key:
             idx = existing_by_key[key]
             entry = merged[idx]
-            # Don't touch admin entries
-            if entry.get("source") in ("admin", "manual"):
+            existing_priority = _source_priority(entry.get("source", ""))
+            incoming_priority = _source_priority(event.source)
+            # Skip if existing source has higher priority
+            if existing_priority > incoming_priority:
                 continue
             # Update automated fields, preserve admin-editable fields
             entry["title"] = event.artist  # Update title in case website updated it
