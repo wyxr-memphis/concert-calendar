@@ -260,7 +260,7 @@ def init_db():
     with get_cursor() as cur:
         # Admin/manual sources stay as "manual"
         cur.execute("""UPDATE events SET source = 'manual'
-                       WHERE source IN ('admin') AND source != 'manual'""")
+                       WHERE source = 'admin'""")
         # Submission-created events are manual
         cur.execute("""UPDATE events SET source = 'manual'
                        WHERE source = 'submission'""")
@@ -268,16 +268,17 @@ def init_db():
         cur.execute("""UPDATE events SET source = 'scraper:ticketmaster'
                        WHERE source = 'Ticketmaster'""")
         # Venue scrapers: "Venue: Hi Tone" -> "scraper:hi_tone"
-        cur.execute("""UPDATE events SET source = 'scraper:' || LOWER(REGEXP_REPLACE(
-                         REGEXP_REPLACE(source, '^Venue: ', ''),
-                         '[^a-z0-9]+', '_', 'gi'))
+        cur.execute("""UPDATE events SET source = 'scraper:' || TRIM(BOTH '_' FROM
+                         LOWER(REGEXP_REPLACE(
+                           REGEXP_REPLACE(source, '^Venue: ', ''),
+                           '[^a-z0-9]+', '_', 'gi')))
                        WHERE source LIKE 'Venue: %'""")
         # Artifacts
         cur.execute("""UPDATE events SET source = 'artifact'
                        WHERE source LIKE 'Artifacts (%' OR source LIKE 'Slack Image%'""")
         # Imports (HTML file imports) -> treat as artifact
         cur.execute("""UPDATE events SET source = 'artifact'
-                       WHERE source LIKE 'import (%'""")
+                       WHERE source LIKE 'import (%' OR source = 'import'""")
         # Catch-all: anything that doesn't match known patterns -> scraper:unknown
         cur.execute("""UPDATE events SET source = 'scraper:unknown'
                        WHERE source NOT IN ('manual', 'artifact')
