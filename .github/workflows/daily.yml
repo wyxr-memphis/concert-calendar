@@ -53,17 +53,3 @@ jobs:
               fi
             fi
           done || true
-
-      - name: Commit and push changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/ data/events.json
-          git stash
-          git pull --rebase origin main
-          git stash pop
-          git add docs/ data/events.json
-          git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
-
-      - name: Trigger Vercel redeploy
-        run: curl -s -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
