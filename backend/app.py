@@ -166,7 +166,7 @@ def public_events():
         featured_only=featured_only,
     )
     resp = jsonify(serialize_list(events))
-    resp.headers["Cache-Control"] = "public, max-age=1800"
+    resp.headers["Cache-Control"] = "public, max-age=120, stale-while-revalidate=300"
     return resp
 
 
@@ -187,7 +187,7 @@ def public_neighborhoods():
         {"name": r["neighborhood"], "event_count": r["event_count"]}
         for r in rows
     ])
-    resp.headers["Cache-Control"] = "public, max-age=1800"
+    resp.headers["Cache-Control"] = "public, max-age=120, stale-while-revalidate=300"
     return resp
 
 
