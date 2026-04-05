@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-05T00:03:56.615637+00:00",
+  "run_timestamp": "2026-04-05T00:07:43.443419+00:00",
   "date_range": {
     "start": "2026-04-05",
     "end": "2026-04-12"
   },
-  "total_events_db": 832,
-  "total_active_display": 92,
+  "total_events_db": 857,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,11 +49,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_found": 30,
+      "events_after_filter": 28,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -89,11 +81,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 25,
-      "events_filtered": 39,
+      "events_found": 10,
+      "events_after_filter": 7,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,11 +105,11 @@
       "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
+      "events_found": 64,
+      "events_after_filter": 25,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -118,6 +118,14 @@
       "events_found": 156,
       "events_after_filter": 26,
       "events_filtered": 130,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -153,18 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 92,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
@@ -255,6 +255,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Symmetry Jazz",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-07",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-07",
@@ -325,6 +332,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Karaoke w/ Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-08",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Brett Bartschi",
       "venue": "Flyway Brewing",
       "date": "2026-04-08",
@@ -367,10 +381,24 @@
       "source": "artifact"
     },
     {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-09",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Mary Hatley",
       "venue": "B-Side Memphis",
       "date": "2026-04-09",
       "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mary Hatley / Christen Ball",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-09",
+      "time": "8 PM - 9:45 PM",
       "source": "artifact"
     },
     {
@@ -486,7 +514,14 @@
       "source": "artifact"
     },
     {
-      "artist": "Joybomb, The Narrows + Massey Lane",
+      "artist": "Steve Selvidge Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-10",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Joybomb + The Narrows + Massey Lane",
       "venue": "Bar DKDC",
       "date": "2026-04-10",
       "time": null,
@@ -598,6 +633,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Louder Than Bombs",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-11",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Louder Than Bombs: The Smiths/Morrissey cover band",
       "venue": "B-Side Memphis",
       "date": "2026-04-11",
@@ -701,6 +743,20 @@
       "date": "2026-04-12",
       "time": "7 PM",
       "source": "scraper:orpheum_theatre"
+    },
+    {
+      "artist": "Mystrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-12",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Song Shack",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-12",
+      "time": "2 PM - 7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Strictly Jazz: The Music of David Sanborn ft. Dr. Bill Hurd",
