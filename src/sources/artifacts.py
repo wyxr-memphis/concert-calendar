@@ -443,11 +443,11 @@ For EACH visible event, extract:
 - date (in any format visible)
 - time (if visible)
 
-IMPORTANT YEAR RULE: If no year is shown on the image, assume the most logical upcoming year.
-- If the month/day appears to be coming up soon, use the current year ({START_DATE.year}).
-- If the month has already passed this year, use next year ({START_DATE.year + 1}).
-- Never assume a past year just because no year is written — these are always upcoming events.
-- Example: seeing "March 15-22" when today is March 13, 2026 → dates are in 2026.
+IMPORTANT YEAR RULE: If no year is shown on the image, default to the CURRENT year ({START_DATE.year}).
+- Use the current year ({START_DATE.year}) for any date in the current month or future months.
+- A few dates in the current month may have already passed (e.g. today is the 4th but the schedule starts on the 3rd) — that's normal, still use {START_DATE.year}.
+- Only use next year ({START_DATE.year + 1}) if the entire month shown has clearly passed (e.g. seeing a January schedule when it's already March).
+- These are always upcoming event schedules, typically posted right before or at the start of the month shown.
 
 IMPORTANT: Extract ALL events visible in the image. Do not filter by date range yourself —
 include everything and let the system handle filtering.
