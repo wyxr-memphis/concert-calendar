@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-06T06:55:53.462699+00:00",
+  "run_timestamp": "2026-04-06T17:38:51.173182+00:00",
   "date_range": {
     "start": "2026-04-06",
     "end": "2026-04-13"
   },
-  "total_events_db": 867,
-  "total_active_display": 106,
+  "total_events_db": 892,
+  "total_active_display": 109,
   "data_store": "postgresql",
   "sources": [
     {
@@ -19,18 +19,10 @@
     {
       "name": "artifact",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Growlers",
@@ -41,6 +33,14 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -49,19 +49,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,19 +81,19 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 21,
+      "events_filtered": 83,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,18 +105,26 @@
       "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
-      "events_filtered": 38,
+      "events_found": 22,
+      "events_after_filter": 8,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 156,
-      "events_after_filter": 26,
+      "events_found": 158,
+      "events_after_filter": 28,
       "events_filtered": 130,
       "error": null
     },
@@ -129,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 8,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 26,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -153,18 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 106,
+      "events_found": 109,
+      "events_after_filter": 109,
       "events_filtered": 0,
       "error": null
     }
@@ -263,6 +263,13 @@
     },
     {
       "artist": "Trivia Night",
+      "venue": "Nashoba",
+      "date": "2026-04-07",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Trivia Tuesday",
       "venue": "Nashoba",
       "date": "2026-04-07",
       "time": "7 PM",
@@ -491,6 +498,20 @@
       "date": "2026-04-09",
       "time": "6:30 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "PGA Tour: Masters Tournament",
+      "venue": "Nashoba",
+      "date": "2026-04-09",
+      "time": "10:23 AM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "SIDE SET: Ted Horrell Trio",
+      "venue": "Nashoba",
+      "date": "2026-04-09",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Ted Horrell Trio at the Side Set",
