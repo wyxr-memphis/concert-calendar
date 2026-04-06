@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-05T17:24:10.360892+00:00",
+  "run_timestamp": "2026-04-06T06:55:53.462699+00:00",
   "date_range": {
-    "start": "2026-04-05",
-    "end": "2026-04-12"
+    "start": "2026-04-06",
+    "end": "2026-04-13"
   },
-  "total_events_db": 862,
-  "total_active_display": 103,
+  "total_events_db": 867,
+  "total_active_display": 106,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -41,14 +41,6 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -57,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -73,18 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 13,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -94,6 +86,14 @@
       "events_found": 4,
       "events_after_filter": 3,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -108,8 +108,8 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 64,
-      "events_after_filter": 25,
-      "events_filtered": 39,
+      "events_after_filter": 26,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -121,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -163,55 +163,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 106,
+      "events_after_filter": 106,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-05",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-05",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-05",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-05",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Easter Egg Hunt & more!  *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-05",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Kashjimer",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-05",
-      "time": "5 PM",
-      "source": "artifact"
-    },
     {
       "artist": "CELL Qtet",
       "venue": "B-Side Memphis",
@@ -367,6 +325,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-08",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Enuff Z'Nuff",
       "venue": "RockHouse Live Memphis",
       "date": "2026-04-08",
@@ -414,6 +379,13 @@
       "date": "2026-04-09",
       "time": "8 PM - 9:45 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Ashton Ryker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-09",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Memphis Soul Factory",
@@ -542,7 +514,21 @@
       "source": "artifact"
     },
     {
-      "artist": "Joybomb, The Narrows + Massey Lane",
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-10",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-10",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Joybomb + The Narrows + Massey Lane",
       "venue": "Bar DKDC",
       "date": "2026-04-10",
       "time": null,
@@ -885,11 +871,46 @@
       "source": "artifact"
     },
     {
-      "artist": "Shankar-Ehsaan-Loy",
+      "artist": "Shankar Ehsaan Loy",
       "venue": "Orpheum Theatre",
       "date": "2026-04-12",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-13",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Graham Winchester Birthday Bonanza",
+      "venue": "Bar DKDC",
+      "date": "2026-04-13",
       "time": null,
-      "source": "scraper:orpheum_theatre"
+      "source": "artifact"
+    },
+    {
+      "artist": "The Lolly Bombs / Movienite [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "The Lolly Bombs [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-13",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
