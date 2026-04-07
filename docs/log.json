@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-04-07T06:20:16.412191+00:00",
+  "run_timestamp": "2026-04-07T17:52:50.302040+00:00",
   "date_range": {
     "start": "2026-04-07",
     "end": "2026-04-14"
   },
-  "total_events_db": 904,
+  "total_events_db": 909,
   "total_active_display": 117,
   "data_store": "postgresql",
   "sources": [
@@ -33,22 +33,6 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 36,
@@ -57,31 +41,7 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -89,42 +49,42 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 3,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 21,
+      "events_filtered": 83,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://nashoba.live/event-calendar/"
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 27,
-      "events_filtered": 131,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 8,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -137,27 +97,67 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 76,
-      "events_after_filter": 63,
-      "events_filtered": 13,
-      "error": null
+      "name": "Venue: Huey's",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 26,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 8,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 79,
+      "events_after_filter": 66,
+      "events_filtered": 13,
       "error": null
     },
     {
