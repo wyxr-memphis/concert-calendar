@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-04-06T18:36:11.768984+00:00",
+  "run_timestamp": "2026-04-07T06:20:16.412191+00:00",
   "date_range": {
-    "start": "2026-04-06",
-    "end": "2026-04-13"
+    "start": "2026-04-07",
+    "end": "2026-04-14"
   },
-  "total_events_db": 900,
+  "total_events_db": 904,
   "total_active_display": 117,
   "data_store": "postgresql",
   "sources": [
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -41,19 +41,19 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -65,26 +65,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 77,
-      "events_after_filter": 64,
-      "events_filtered": 13,
+      "events_found": 64,
+      "events_after_filter": 26,
+      "events_filtered": 38,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -108,32 +108,8 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 158,
-      "events_after_filter": 28,
-      "events_filtered": 130,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_after_filter": 27,
+      "events_filtered": 131,
       "error": null
     },
     {
@@ -145,11 +121,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 76,
+      "events_after_filter": 63,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -158,6 +150,14 @@
       "events_found": 104,
       "events_after_filter": 21,
       "events_filtered": 83,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -171,60 +171,11 @@
   ],
   "events": [
     {
-      "artist": "CELL Qtet",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-06",
-      "time": "9:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-06",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-06",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Like Really Creative Muse: Mystery",
-      "venue": "Bar DKDC",
-      "date": "2026-04-06",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Drag Night",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-06",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Revenge Bodies, Postule, Dinosauria",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-06",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-06",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
+      "artist": "Chuck Mead",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-07",
+      "time": "7:30PM",
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Symmetry Jazz",
@@ -253,13 +204,6 @@
       "date": "2026-04-07",
       "time": "4 PM",
       "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Chuck Mead",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-07",
-      "time": "7:30PM",
-      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Ethereal Tomb / Age of Extinction [Small Room-Downstairs]",
@@ -381,6 +325,13 @@
       "source": "manual"
     },
     {
+      "artist": "Folk All Y\u2019all: Rebecca Loebe",
+      "venue": "Crosstown Arts",
+      "date": "2026-04-09",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
       "artist": "The Sleeveens with Jeremy & The Drip Edges",
       "venue": "Goner Records",
       "date": "2026-04-09",
@@ -442,13 +393,6 @@
       "date": "2026-04-09",
       "time": "7:00 PM",
       "source": "artifact"
-    },
-    {
-      "artist": "Folk All Y\u2019all: Rebecca Loebe",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-09",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Rebecca Loebe",
@@ -535,13 +479,6 @@
       "source": "artifact"
     },
     {
-      "artist": "PGA Tour: Masters Tournament",
-      "venue": "Nashoba",
-      "date": "2026-04-09",
-      "time": "10:23 AM",
-      "source": "scraper:nashoba"
-    },
-    {
       "artist": "SIDE SET: Ted Horrell Trio",
       "venue": "Nashoba",
       "date": "2026-04-09",
@@ -570,6 +507,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Joybomb, The Narrows and Massey Lane",
+      "venue": "Bar DKDC",
+      "date": "2026-04-10",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-10",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-10",
@@ -582,20 +533,6 @@
       "date": "2026-04-10",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Joybomb + The Narrows + Massey Lane",
-      "venue": "Bar DKDC",
-      "date": "2026-04-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Joybomb, The Narrows and Massey Lane",
-      "venue": "Bar DKDC",
-      "date": "2026-04-10",
-      "time": null,
-      "source": "manual"
     },
     {
       "artist": "Henri Herbert",
@@ -689,6 +626,13 @@
       "source": "scraper:minglewood_hall"
     },
     {
+      "artist": "SOLD OUT \u2013 Don Toliver: Octane Album Listening Experience",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-10",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
       "artist": "Heartless",
       "venue": "Nashoba",
       "date": "2026-04-10",
@@ -703,6 +647,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Tributaries Music Fest (Neil Young, REM, Talking Heads and MGs Cover Bands)",
+      "venue": "Wiseacre Brewing Company (Downtown)",
+      "date": "2026-04-11",
+      "time": "3 PM",
+      "source": "manual"
+    },
+    {
       "artist": "Louder Than Bombs",
       "venue": "B-Side Memphis",
       "date": "2026-04-11",
@@ -715,6 +666,13 @@
       "date": "2026-04-11",
       "time": "10:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-11",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "LOB + Radar Blips",
@@ -806,13 +764,6 @@
       "date": "2026-04-11",
       "time": "7:00 PM",
       "source": "artifact"
-    },
-    {
-      "artist": "Tributaries Music Fest (Neil Young, REM, Talking Heads and MGs Cover Bands)",
-      "venue": "Wiseacre Brewing Company (Downtown)",
-      "date": "2026-04-11",
-      "time": "3 PM",
-      "source": "manual"
     },
     {
       "artist": "Legends of Indian Cinema Music: Shankar Mahadevan, Ehsaan Noorani, and Loy Mendonsa",
@@ -955,17 +906,17 @@
       "source": "scraper:ticketmaster"
     },
     {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-13",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Graham Winchester Birthday Bonanza",
       "venue": "Bar DKDC",
       "date": "2026-04-13",
       "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-13",
+      "time": "10 PM",
       "source": "artifact"
     },
     {
@@ -986,6 +937,55 @@
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-04-13",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Logan Hanna",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-14",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "CORBiN",
+      "venue": "Growlers",
+      "date": "2026-04-14",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Shelly Belly(Comedy Show) at Hernando\u2019s Hide-A-Way \u2013 Memphis",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-14",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Devin the Dude",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-14",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "David and Tamela Mann: The Love & Relationship Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-04-14",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-14",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
