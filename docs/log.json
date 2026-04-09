@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-09T22:35:26.589073+00:00",
+  "run_timestamp": "2026-04-09T22:49:07.098558+00:00",
   "date_range": {
     "start": "2026-04-09",
     "end": "2026-04-16"
   },
-  "total_events_db": 964,
-  "total_active_display": 145,
+  "total_events_db": 972,
+  "total_active_display": 149,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,15 +25,23 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 38,
       "events_after_filter": 37,
@@ -45,6 +53,14 @@
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -62,14 +78,6 @@
       "events_found": 13,
       "events_after_filter": 13,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
       "error": null
     },
     {
@@ -105,19 +113,11 @@
       "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 26,
-      "events_filtered": 132,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -126,6 +126,14 @@
       "events_found": 28,
       "events_after_filter": 12,
       "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 158,
+      "events_after_filter": 26,
+      "events_filtered": 132,
       "error": null
     },
     {
@@ -145,6 +153,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 8,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 79,
@@ -153,18 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 145,
-      "events_after_filter": 145,
+      "events_found": 149,
+      "events_after_filter": 149,
       "events_filtered": 0,
       "error": null
     }
@@ -570,6 +578,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Proving Ground",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-04-11",
+      "time": "1pm-4pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Relentless Breeze",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-04-11",
+      "time": "12pm-9pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
       "artist": "FullHouse",
       "venue": "Flyway Brewing",
       "date": "2026-04-11",
@@ -708,6 +730,13 @@
       "date": "2026-04-12",
       "time": "6:00 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Pickin and Pints with the Late Greats",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-04-12",
+      "time": "2-5pm",
+      "source": "scraper:crosstown_brewing_co"
     },
     {
       "artist": "The Lightning Express Show",
@@ -906,6 +935,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-04-14",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
       "artist": "CORBiN",
       "venue": "Growlers",
       "date": "2026-04-14",
@@ -1099,7 +1135,7 @@
       "venue": "Handy Park",
       "date": "2026-04-16",
       "time": null,
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Reed Turchi",
