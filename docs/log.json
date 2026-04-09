@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-04-09T23:07:40.625936+00:00",
+  "run_timestamp": "2026-04-09T23:40:48.081160+00:00",
   "date_range": {
     "start": "2026-04-09",
     "end": "2026-04-16"
   },
-  "total_events_db": 972,
+  "total_events_db": 981,
   "total_active_display": 149,
   "data_store": "postgresql",
   "sources": [
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,15 +41,15 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 38,
       "events_after_filter": 37,
@@ -73,14 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
@@ -89,7 +81,23 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -113,34 +121,18 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 12,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 8,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 12,
-      "events_filtered": 16,
+      "events_found": 13,
+      "events_after_filter": 8,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
