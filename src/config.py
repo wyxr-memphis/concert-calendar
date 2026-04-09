@@ -183,6 +183,13 @@ VENUES = {
         "calendar_url": "https://www.flywaybrewingmemphis.com/events",
         "scraper": "flyway",
     },
+    "crosstown-beer": {
+        "name": "Crosstown Brewing Co.",
+        "aliases": ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."],
+        "neighborhood": "Crosstown/Broad Avenue",
+        "calendar_url": "https://crosstownbeer.com/events/",
+        "scraper": "crosstown_beer",
+    },
     "hueys": {
         "name": "Huey's",
         "aliases": ["hueys", "huey's", "huey's burgers"],
