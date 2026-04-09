@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-08T18:01:31.185492+00:00",
+  "run_timestamp": "2026-04-09T06:22:39.053905+00:00",
   "date_range": {
-    "start": "2026-04-08",
-    "end": "2026-04-15"
+    "start": "2026-04-09",
+    "end": "2026-04-16"
   },
-  "total_events_db": 925,
-  "total_active_display": 125,
+  "total_events_db": 936,
+  "total_active_display": 135,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -35,10 +35,10 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,11 +49,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,20 +73,36 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 64,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 26,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -97,43 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 158,
       "events_after_filter": 26,
       "events_filtered": 132,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 13,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,101 +137,39 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 104,
+      "events_after_filter": 21,
+      "events_filtered": 83,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 28,
+      "events_after_filter": 12,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 65,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 125,
-      "events_after_filter": 125,
+      "events_found": 135,
+      "events_after_filter": 135,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "WYXR Stereo Session - Elizabeth Barraclough's \"Hi\"",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-04-08",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "DJ Rhinestonee",
-      "venue": "Swamp Bar",
-      "date": "2026-04-08",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Karaoke w/ Conner",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-08",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-08",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-08",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brett Bartschi",
-      "venue": "Flyway Brewing",
-      "date": "2026-04-08",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-08",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-08",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Bingo",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-08",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Enuff Z'Nuff",
-      "venue": "RockHouse Live Memphis",
-      "date": "2026-04-08",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "DJ Witnesse",
       "venue": "Cameo Bar",
@@ -647,6 +577,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Mala Leche",
+      "venue": "Growlers",
+      "date": "2026-04-11",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "JOHNNY PANDORA",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-11",
@@ -738,6 +675,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-12",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-12",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Strictly Jazz: The Music of David Sanborn ft. Dr. Bill Hurd",
       "venue": "Crosstown Arts",
       "date": "2026-04-12",
@@ -759,11 +710,25 @@
       "source": "scraper:germantown_performing_arts_center"
     },
     {
+      "artist": "Abberant, El Chupazebras, Charlie Conway",
+      "venue": "Growlers",
+      "date": "2026-04-12",
+      "time": "6:00PM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-12",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-12",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Memphis underworld presents: [Small Room-Downstairs]",
@@ -1025,18 +990,18 @@
       "source": "manual"
     },
     {
-      "artist": "Steel Panther \u2013 Twenty Twenty $ex Tour",
+      "artist": "Steel Panther - Twenty Twenty $ex Tour",
       "venue": "Minglewood Hall",
       "date": "2026-04-15",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Jeff Hulett",
       "venue": "Music Listening Lab",
       "date": "2026-04-15",
       "time": "6 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Baptist Health & Wellness Series: Pilates in the Park",
@@ -1044,6 +1009,111 @@
       "date": "2026-04-15",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-16",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Memphis Rhythm Revue",
+      "venue": "Cooper House Project",
+      "date": "2026-04-16",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Band Perry",
+      "venue": "Gold Strike Casino Resort",
+      "date": "2026-04-16",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Travis Tritt",
+      "venue": "Graceland Soundstage",
+      "date": "2026-04-16",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "SSX",
+      "venue": "Growlers",
+      "date": "2026-04-16",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Reed Turchi",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-16",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Good Vibes Comedy Festival *Thursday All Day Pass*",
+      "venue": "Hi Tone",
+      "date": "2026-04-16",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Angela Burton Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-16",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Karaoke",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-16",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Drake White",
+      "venue": "Landers Center",
+      "date": "2026-04-16",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "justin moore",
+      "venue": "Landers Center",
+      "date": "2026-04-16",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "justin moore",
+      "venue": "Landers Center",
+      "date": "2026-04-16",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Riley Green",
+      "venue": "Landers Center",
+      "date": "2026-04-16",
+      "time": "7:00 PM",
+      "source": "scraper:landers_center"
+    },
+    {
+      "artist": "Howard Jones",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-16",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Ken Applebaum",
+      "venue": "Nashoba",
+      "date": "2026-04-16",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
