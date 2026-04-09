@@ -33,6 +33,7 @@ jobs:
           GOOGLE_SHEET_CSV_URL: ${{ secrets.GOOGLE_SHEET_CSV_URL }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SITEWRENCH_API_TOKEN: ${{ secrets.SITEWRENCH_API_TOKEN }}
         run: python -m src.main
 
       - name: Clean up old artifacts
