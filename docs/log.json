@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-09T17:54:29.672925+00:00",
+  "run_timestamp": "2026-04-09T22:35:26.589073+00:00",
   "date_range": {
     "start": "2026-04-09",
     "end": "2026-04-16"
   },
-  "total_events_db": 947,
-  "total_active_display": 136,
+  "total_events_db": 964,
+  "total_active_display": 145,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 38,
@@ -49,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -61,6 +45,14 @@
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +65,26 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 21,
+      "events_filtered": 83,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -89,36 +97,12 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Nashoba",
@@ -129,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -145,26 +129,42 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 77,
-      "events_after_filter": 65,
+      "events_found": 79,
+      "events_after_filter": 67,
       "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 136,
-      "events_after_filter": 136,
+      "events_found": 145,
+      "events_after_filter": 145,
       "events_filtered": 0,
       "error": null
     }
@@ -272,7 +272,7 @@
       "artist": "Racoma",
       "venue": "Growlers",
       "date": "2026-04-09",
-      "time": "7:30PM",
+      "time": "8:00PM",
       "source": "scraper:growlers"
     },
     {
@@ -280,7 +280,7 @@
       "venue": "Handy Park",
       "date": "2026-04-09",
       "time": null,
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Sequoia Rose",
@@ -514,8 +514,15 @@
       "source": "artifact"
     },
     {
+      "artist": "Zac & Eric Play Records",
+      "venue": "Bar Keough",
+      "date": "2026-04-11",
+      "time": null,
+      "source": "manual"
+    },
+    {
       "artist": "Tributaries Music Fest (Neil Young, REM, Talking Heads and MGs Cover Bands)",
-      "venue": "Wiseacre Brewing Company (Downtown)",
+      "venue": "Wiseacre Brewing Company (Broad Ave)",
       "date": "2026-04-11",
       "time": "3 PM",
       "source": "manual"
@@ -815,6 +822,13 @@
       "source": "artifact"
     },
     {
+      "artist": "The Silly Bird Show - Burlesque with Bambi & Bryce Kirby",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-12",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Crooked Diehl",
       "venue": "Loflin Yard",
       "date": "2026-04-12",
@@ -871,6 +885,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Drag with Hunny & Juicy",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-13",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-04-13",
@@ -904,6 +925,13 @@
       "date": "2026-04-14",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Writers in the Round - Songwriters Night",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-14",
+      "time": "7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Devin the Dude",
@@ -983,10 +1011,24 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Freakshow Open Stage",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-15",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "The Convenience",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-15",
       "time": "8:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Convenience, Spllit, & Melinda",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-15",
+      "time": "9:30 PM",
       "source": "artifact"
     },
     {
@@ -1053,6 +1095,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Stax Music Academy",
+      "venue": "Handy Park",
+      "date": "2026-04-16",
+      "time": null,
+      "source": "submission"
+    },
+    {
       "artist": "Reed Turchi",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-16",
@@ -1079,6 +1128,20 @@
       "date": "2026-04-16",
       "time": "9:30 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Burlesque Karaoke",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-16",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mothcat, Hudson Haining, Phil Nye",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-16",
+      "time": "8 PM",
+      "source": "artifact"
     },
     {
       "artist": "Drake White",
