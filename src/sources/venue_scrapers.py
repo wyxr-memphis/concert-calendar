@@ -144,6 +144,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_flyway(soup, name)
         elif scraper_type == "bbkings":
             events = _parse_bbkings(soup, name)
+        elif scraper_type == "crosstown_beer":
+            events = _parse_crosstown_beer(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -1222,5 +1224,88 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             ))
         except Exception:
             continue
+
+    return events
+
+
+def _parse_crosstown_beer(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Crosstown Brewing Co. events from Elementor toggle accordion.
+
+    Each accordion item has a date in .elementor-tab-title and event lines in
+    .elementor-tab-content. Example content: "4-6pm Live Music – Mark Allen"
+    or "4-6pm Live Music – Mark Allen 7-9pm Trivia – Community".
+
+    Only "Live Music" segments are captured; trivia, dog shows, etc. are skipped.
+    """
+    events = []
+    today = date.today()
+
+    # Matches "Wednesday, March 25th" in the toggle title
+    DATE_RE = re.compile(
+        r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+"
+        r"(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?",
+        re.IGNORECASE,
+    )
+    # Time token: handles "6pm", "4-6pm", "12pm-9pm", "7:30pm-9pm"
+    _T = (
+        r"\d{1,2}"                                       # start hour
+        r"(?:\s*-\s*\d{1,2})?"                          # optional range like "4-6"
+        r"(?::\d{2})?"                                   # optional minutes
+        r"(?:am|pm)"                                     # am/pm (must follow for end of range)
+        r"(?:\s*-\s*\d{1,2}(?::\d{2})?(?:am|pm))?"     # optional explicit second half
+    )
+    # Matches an optional preceding time + "Live Music" + optional separator + artist name
+    # Stops before the next time token or end of string
+    LIVE_MUSIC_RE = re.compile(
+        rf"(?:({_T})\s+)?Live Music\s*[–\-,]?\s*(.+?)(?=\s+{_T}|$)",
+        re.IGNORECASE,
+    )
+
+    for item in soup.select(".elementor-toggle-item"):
+        title_el = item.select_one(".elementor-tab-title")
+        content_el = item.select_one(".elementor-tab-content")
+        if not title_el or not content_el:
+            continue
+
+        title_text = title_el.get_text(" ", strip=True)
+        content_text = content_el.get_text(" ", strip=True)
+
+        if "live music" not in content_text.lower():
+            continue
+
+        date_match = DATE_RE.search(title_text)
+        if not date_match:
+            continue
+
+        month_str = date_match.group(1)
+        day_str = date_match.group(2)
+
+        event_date = None
+        for year in (today.year, today.year + 1):
+            try:
+                candidate = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
+                if candidate >= today:
+                    event_date = candidate
+                    break
+            except ValueError:
+                continue
+
+        if not event_date:
+            continue
+
+        for m in LIVE_MUSIC_RE.finditer(content_text):
+            time_str = m.group(1)  # may be None
+            artist = (m.group(2) or "").strip()
+            if not artist:
+                artist = "Live Music"
+
+            events.append(Event(
+                artist=artist,
+                venue=venue_name,
+                date=event_date,
+                time=time_str,
+                source=_venue_source_tag(venue_name),
+                url="https://crosstownbeer.com/events/",
+            ))
 
     return events
