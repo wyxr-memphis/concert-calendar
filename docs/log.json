@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-09T06:22:39.053905+00:00",
+  "run_timestamp": "2026-04-09T17:54:29.672925+00:00",
   "date_range": {
     "start": "2026-04-09",
     "end": "2026-04-16"
   },
-  "total_events_db": 936,
-  "total_active_display": 135,
+  "total_events_db": 947,
+  "total_active_display": 136,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -49,26 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -83,8 +83,8 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
+      "events_found": 73,
+      "events_after_filter": 35,
       "events_filtered": 38,
       "error": null
     },
@@ -105,19 +105,19 @@
       "error": "Missing sitewrench_api_token or sitewrench_page_part_id"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 21,
-      "events_filtered": 83,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 28,
       "events_after_filter": 12,
       "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 21,
+      "events_filtered": 83,
       "error": null
     },
     {
@@ -163,8 +163,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 135,
-      "events_after_filter": 135,
+      "events_found": 136,
+      "events_after_filter": 136,
       "events_filtered": 0,
       "error": null
     }
@@ -274,6 +274,13 @@
       "date": "2026-04-09",
       "time": "7:30PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Stax Music Academy",
+      "venue": "Handy Park",
+      "date": "2026-04-09",
+      "time": null,
+      "source": "submission"
     },
     {
       "artist": "Sequoia Rose",
