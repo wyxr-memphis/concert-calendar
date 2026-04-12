@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-11T17:25:37.986970+00:00",
+  "run_timestamp": "2026-04-12T06:24:06.285152+00:00",
   "date_range": {
-    "start": "2026-04-11",
-    "end": "2026-04-18"
+    "start": "2026-04-12",
+    "end": "2026-04-19"
   },
-  "total_events_db": 993,
-  "total_active_display": 153,
+  "total_events_db": 996,
+  "total_active_display": 152,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -25,27 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 78,
+      "events_after_filter": 66,
+      "events_filtered": 12,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
+      "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -53,14 +53,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -84,8 +76,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 28,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -97,6 +89,14 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 72,
+      "events_after_filter": 32,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 13,
@@ -105,27 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 72,
-      "events_after_filter": 34,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 158,
-      "events_after_filter": 23,
-      "events_filtered": 135,
+      "events_after_filter": 22,
+      "events_filtered": 136,
       "error": null
     },
     {
@@ -137,11 +121,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 10,
-      "events_filtered": 18,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 18,
+      "events_filtered": 86,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 6,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -153,199 +153,31 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 8,
-      "events_filtered": 5,
+      "events_found": 28,
+      "events_after_filter": 9,
+      "events_filtered": 19,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 67,
-      "events_filtered": 12,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 153,
-      "events_after_filter": 153,
+      "events_found": 152,
+      "events_after_filter": 152,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Zac & Eric Play Records",
-      "venue": "Bar Keough",
-      "date": "2026-04-11",
-      "time": null,
-      "source": "manual"
-    },
-    {
-      "artist": "Tributaries Music Fest (Neil Young, REM, Talking Heads and MGs Cover Bands)",
-      "venue": "Wiseacre Brewing Company (Broad Ave)",
-      "date": "2026-04-11",
-      "time": "3 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Louder Than Bombs",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-11",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Louder Than Bombs: The Smiths/Morrissey cover band",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-11",
-      "time": "10:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-11",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-11",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-11",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "LOB + Radar Blips",
-      "venue": "Bar DKDC",
-      "date": "2026-04-11",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Proving Ground",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-11",
-      "time": "1pm-4pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Relentless Breeze",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-11",
-      "time": "12pm-9pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "FullHouse",
-      "venue": "Flyway Brewing",
-      "date": "2026-04-11",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Ballet Memphis: Romeo and Juliet Saturday Matinee",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-04-11",
-      "time": "2:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Lil Xan",
-      "venue": "Growlers",
-      "date": "2026-04-11",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Mala Leche",
-      "venue": "Growlers",
-      "date": "2026-04-11",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "JOHNNY PANDORA",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-11",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Susan Marshall Jazz Brunch",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-11",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "The 3 Shredders Tour [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-11",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Erin Enderlin",
-      "venue": "Johnny Cash Boyhood Home",
-      "date": "2026-04-11",
-      "time": "1:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mae Estes",
-      "venue": "Johnny Cash Boyhood Home",
-      "date": "2026-04-11",
-      "time": "1:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Waun Band, Neon Glittery, Russ T",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-11",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "DISCO, ALWAYS: A HARRY STYLES DANCE NIGHT",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-11",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Seeing Red",
-      "venue": "Nashoba",
-      "date": "2026-04-11",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Kreston Smith",
-      "venue": "Raven & Lily Sommerville",
-      "date": "2026-04-11",
-      "time": "7 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Crooked Diehl",
-      "venue": "Tin Roof Memphis",
-      "date": "2026-04-11",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Legends of Indian Cinema Music: Shankar Mahadevan, Ehsaan Noorani, and Loy Mendonsa",
       "venue": "Orpheum Theatre",
@@ -697,6 +529,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-15",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-15",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Comedy Night w/ Ben Pierce",
       "venue": "Bar DKDC",
       "date": "2026-04-15",
@@ -793,6 +639,13 @@
       "date": "2026-04-16",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-16",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "The Memphis Rhythm Revue",
@@ -1248,6 +1101,146 @@
       "date": "2026-04-18",
       "time": "7:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "Aberrant",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-19",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Song Shack",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-19",
+      "time": "2 PM - 7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Sunday Tea Dance with Nikki V, Brillianaire + Rosamii for the Collective Good",
+      "venue": "Bar DKDC",
+      "date": "2026-04-19",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Sky King",
+      "venue": "Flyway Brewing",
+      "date": "2026-04-19",
+      "time": "3 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Ruined god",
+      "venue": "Growlers",
+      "date": "2026-04-19",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-19",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "West Texas Exiles",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-19",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "West Texas Exiles at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-19",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Ash Leon presents: [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-19",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "El Ced & Groove Nation",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-04-19",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Delta Dukes",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Millington)",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Even Odds",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's Collierville",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Reba Russell Trio",
+      "venue": "Huey's Midtown",
+      "date": "2026-04-19",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's Poplar",
+      "date": "2026-04-19",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "2 Quarts Low",
+      "venue": "Huey's Southaven",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's Southwind",
+      "date": "2026-04-19",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Charlotte Taylor Band",
+      "venue": "Hueys Downtown",
+      "date": "2026-04-19",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Elevation Memphis: Tina Turner Experience",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-19",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
     }
   ]
 }
