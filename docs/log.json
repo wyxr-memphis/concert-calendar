@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-13T07:15:47.547567+00:00",
+  "run_timestamp": "2026-04-13T17:54:47.475580+00:00",
   "date_range": {
     "start": "2026-04-13",
     "end": "2026-04-20"
   },
-  "total_events_db": 999,
-  "total_active_display": 131,
+  "total_events_db": 1005,
+  "total_active_display": 134,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 76,
-      "events_after_filter": 64,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,26 +41,42 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 104,
+      "events_after_filter": 17,
+      "events_filtered": 87,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -81,27 +89,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 72,
+      "events_found": 69,
       "events_after_filter": 31,
-      "events_filtered": 41,
+      "events_filtered": 38,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 28,
+      "events_after_filter": 8,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -116,16 +116,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 17,
-      "events_filtered": 87,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,26 +145,34 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 8,
-      "events_filtered": 20,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 76,
+      "events_after_filter": 64,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 131,
-      "events_after_filter": 131,
+      "events_found": 134,
+      "events_after_filter": 134,
       "events_filtered": 0,
       "error": null
     }
@@ -452,6 +452,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Ashton Ryker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-16",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-16",
@@ -604,6 +611,20 @@
       "date": "2026-04-17",
       "time": null,
       "source": "manual"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-17",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-17",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Night of the Aries w/ Lady Shaun, DJ Brilli, DJ Larry and Jayxavaire",
