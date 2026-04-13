@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-12T17:28:53.408454+00:00",
+  "run_timestamp": "2026-04-13T07:15:47.547567+00:00",
   "date_range": {
-    "start": "2026-04-12",
-    "end": "2026-04-19"
+    "start": "2026-04-13",
+    "end": "2026-04-20"
   },
-  "total_events_db": 998,
-  "total_active_display": 152,
+  "total_events_db": 999,
+  "total_active_display": 131,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 76,
+      "events_after_filter": 64,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -49,35 +49,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 7,
+      "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 18,
-      "events_filtered": 86,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -85,14 +69,6 @@
       "success": true,
       "events_found": 13,
       "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -105,11 +81,27 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 72,
-      "events_after_filter": 32,
-      "events_filtered": 40,
+      "events_after_filter": 31,
+      "events_filtered": 41,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,252 +113,71 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 17,
+      "events_filtered": 87,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 9,
-      "events_filtered": 19,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
-      "events_after_filter": 6,
-      "events_filtered": 7,
+      "events_after_filter": 5,
+      "events_filtered": 8,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_found": 28,
+      "events_after_filter": 8,
+      "events_filtered": 20,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: Response ended prematurely"
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 152,
-      "events_after_filter": 152,
+      "events_found": 131,
+      "events_after_filter": 131,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Legends of Indian Cinema Music: Shankar Mahadevan, Ehsaan Noorani, and Loy Mendonsa",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-12",
-      "time": "7 PM",
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "Mystrio",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-12",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Song Shack",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-12",
-      "time": "2 PM - 7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-12",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-12",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-12",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Strictly Jazz: The Music of David Sanborn ft. Dr. Bill Hurd",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-12",
-      "time": "6:00 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Pickin and Pints with the Late Greats",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-12",
-      "time": "2-5pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "The Lightning Express Show",
-      "venue": "Flyway Brewing",
-      "date": "2026-04-12",
-      "time": "2 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Ballet Memphis: Romeo and Juliet",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-04-12",
-      "time": "2:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Abberant, El Chupazebras, Charlie Conway",
-      "venue": "Growlers",
-      "date": "2026-04-12",
-      "time": "6:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-12",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "1st Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Terry & The Wallbangers",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-04-12",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Memphis Rhythm Revue",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-04-12",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jack & Noah",
-      "venue": "Huey's (Millington)",
-      "date": "2026-04-12",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Bugaloos",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-04-12",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Double Ds",
-      "venue": "Huey's Collierville",
-      "date": "2026-04-12",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Chaulkies",
-      "venue": "Huey's Midtown",
-      "date": "2026-04-12",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Charlotte Taylor Band",
-      "venue": "Huey's Poplar",
-      "date": "2026-04-12",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Five O\u2019Clock Shadow",
-      "venue": "Huey's Southaven",
-      "date": "2026-04-12",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Pulse: Pink Floyd Tribute",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-04-12",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Bambi & Friends - Burlesque & Drag",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-12",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Silly Bird Show - Burlesque with Bambi & Bryce Kirby",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-12",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Crooked Diehl",
-      "venue": "Loflin Yard",
-      "date": "2026-04-12",
-      "time": "12:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Shankar Ehsaan Loy",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-12",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Graham Winchester Birthday Bonanza",
       "venue": "Bar DKDC",
@@ -667,6 +478,13 @@
       "date": "2026-04-16",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Do It Together April Pass",
+      "venue": "Growlers",
+      "date": "2026-04-16",
+      "time": null,
+      "source": "scraper:growlers"
     },
     {
       "artist": "SSX",
@@ -1241,6 +1059,41 @@
       "date": "2026-04-19",
       "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-20",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Pestilence Presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Cancer can KISS my ASS",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-04-20",
+      "time": "6 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Juicy Massacre + Hunny Blunt (DRAG)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-20",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-20",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
