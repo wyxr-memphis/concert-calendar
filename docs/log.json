@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-14T06:53:47.272252+00:00",
+  "run_timestamp": "2026-04-14T17:59:27.202503+00:00",
   "date_range": {
     "start": "2026-04-14",
     "end": "2026-04-21"
   },
-  "total_events_db": 1013,
-  "total_active_display": 140,
+  "total_events_db": 1015,
+  "total_active_display": 132,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 39,
+      "events_after_filter": 37,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -49,18 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 37,
-      "events_filtered": 2,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -73,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 31,
-      "events_filtered": 38,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -86,6 +94,22 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 31,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -105,26 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 7,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 17,
-      "events_filtered": 87,
+      "events_found": 29,
+      "events_after_filter": 8,
+      "events_filtered": 21,
       "error": null
     },
     {
@@ -161,18 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 140,
-      "events_after_filter": 140,
+      "events_found": 132,
+      "events_after_filter": 132,
       "events_filtered": 0,
       "error": null
     }
@@ -254,20 +254,6 @@
       "date": "2026-04-14",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: SWEAT",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-14",
-      "time": "9:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-14",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "DJ Alpha Whiskey",
@@ -382,11 +368,11 @@
       "source": "scraper:ticketmaster"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Pilates in the Park",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-15",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
+      "artist": "Mothcat, Hudson Haining, Phil Nye",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-16",
+      "time": "8 PM",
+      "source": "artifact"
     },
     {
       "artist": "Devil Train",
@@ -487,13 +473,6 @@
       "source": "artifact"
     },
     {
-      "artist": "Mothcat, Hudson Haining, Phil Nye",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-16",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Drake White",
       "venue": "Landers Center",
       "date": "2026-04-16",
@@ -582,13 +561,6 @@
       "venue": "Bar DKDC",
       "date": "2026-04-17",
       "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Adam Larson Band",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-17",
-      "time": "7:30 PM",
       "source": "artifact"
     },
     {
@@ -900,6 +872,13 @@
       "source": "scraper:south_main_sounds"
     },
     {
+      "artist": "The Chaulkies",
+      "venue": "Huey's Poplar",
+      "date": "2026-04-19",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "Aberrant",
       "venue": "B-Side Memphis",
       "date": "2026-04-19",
@@ -1005,13 +984,6 @@
       "source": "scraper:huey_s"
     },
     {
-      "artist": "The Chaulkies",
-      "venue": "Huey's Poplar",
-      "date": "2026-04-19",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
       "artist": "2 Quarts Low",
       "venue": "Huey's Southaven",
       "date": "2026-04-19",
@@ -1068,11 +1040,11 @@
       "source": "artifact"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-20",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
+      "artist": "Jontavious  Willis",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-21",
+      "time": "8:00 PM",
+      "source": "artifact"
     },
     {
       "artist": "Rodd Bland",
@@ -1110,27 +1082,6 @@
       "source": "artifact"
     },
     {
-      "artist": "GA-20 + Jontavious Willis at Hernando\u2019s Hide-A-Way \u2013 Memphis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-21",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Jontavious  Willis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-21",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Jontavious Willis at Hernando\u2019s Hide-A-Way Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-21",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-21",
@@ -1150,13 +1101,6 @@
       "date": "2026-04-21",
       "time": "7:00 PM",
       "source": "artifact"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-04-21",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     }
   ]
 }
