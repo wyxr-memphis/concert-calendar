@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-14T17:59:27.202503+00:00",
+  "run_timestamp": "2026-04-15T06:56:02.443433+00:00",
   "date_range": {
-    "start": "2026-04-14",
-    "end": "2026-04-21"
+    "start": "2026-04-15",
+    "end": "2026-04-22"
   },
-  "total_events_db": 1015,
-  "total_active_display": 132,
+  "total_events_db": 1017,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
+      "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 37,
+      "events_found": 10,
+      "events_after_filter": 8,
       "events_filtered": 2,
       "error": null
     },
@@ -44,32 +44,16 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
+      "events_after_filter": 17,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,10 +65,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 31,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -94,22 +94,6 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 69,
-      "events_after_filter": 31,
-      "events_filtered": 38,
       "error": null
     },
     {
@@ -123,32 +107,8 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 5,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -161,100 +121,63 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 4,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 75,
-      "events_after_filter": 63,
+      "events_found": 74,
+      "events_after_filter": 62,
       "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 17,
+      "events_filtered": 87,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 132,
-      "events_after_filter": 132,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Logan Hanna",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-14",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-14",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-14",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-14",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "CORBiN",
-      "venue": "Growlers",
-      "date": "2026-04-14",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Shelly Belly(Comedy Show) at Hernando\u2019s Hide-A-Way \u2013 Memphis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-14",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-14",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Writers in the Round - Songwriters Night",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-14",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Devin the Dude",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-14",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "David and Tamela Mann: The Love & Relationship Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-14",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "David And Tamela Mann: The Love And Relationship Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-14",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "DJ Alpha Whiskey",
       "venue": "Swamp Bar",
@@ -301,7 +224,7 @@
       "artist": "Connor Kelly & The Time Warp",
       "venue": "Growlers",
       "date": "2026-04-15",
-      "time": "7:00PM",
+      "time": "8:00PM",
       "source": "scraper:growlers"
     },
     {
@@ -1075,6 +998,13 @@
       "source": "scraper:flyway_brewing"
     },
     {
+      "artist": "CANCELED- GA-20 + Jontavious Willis",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-21",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
       "artist": "GA-20",
       "venue": "Hernando's Hideaway",
       "date": "2026-04-21",
@@ -1100,6 +1030,118 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-04-21",
       "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Alabama Shakes w/Mon Rov\u00eea",
+      "venue": "Grind City Amp",
+      "date": "2026-04-22",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Jocelyn Gould",
+      "venue": "Crosstown Arts",
+      "date": "2026-04-22",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "An Evening with David Sedaris",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-04-22",
+      "time": "7:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Alabama Shakes",
+      "venue": "Grind City Amphitheater",
+      "date": "2026-04-22",
+      "time": "5:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Raq baby",
+      "venue": "Growlers",
+      "date": "2026-04-22",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Hadley's Pub",
+      "date": "2026-04-22",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-22",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-22",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Jack & Noah on the Patio",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-04-22",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Gerry Finney on the Patio",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-04-22",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Patio Pirates on the Patio",
+      "venue": "Huey's (Millington)",
+      "date": "2026-04-22",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Wyly & The Coyotes on the Patio",
+      "venue": "Huey's Poplar",
+      "date": "2026-04-22",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Memphis Concrete",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-22",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Creative Placemaking Summit: Host Committee Welcome Reception",
+      "venue": "Overton Park Shell",
+      "date": "2026-04-22",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "VON GOGH",
+      "venue": "Swamp Bar",
+      "date": "2026-04-22",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Von G\u00f6gh",
+      "venue": "Swamp Bar",
+      "date": "2026-04-22",
+      "time": null,
       "source": "artifact"
     }
   ]
