@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-15T06:56:02.443433+00:00",
+  "run_timestamp": "2026-04-15T11:18:26.213332+00:00",
   "date_range": {
     "start": "2026-04-15",
     "end": "2026-04-22"
   },
-  "total_events_db": 1017,
+  "total_events_db": 1025,
   "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 11,
+      "events_after_filter": 11,
       "events_filtered": 0,
       "error": null
     },
@@ -27,9 +27,17 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 36,
+      "events_found": 35,
       "events_after_filter": 34,
-      "events_filtered": 2,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,19 +65,27 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 17,
+      "events_filtered": 87,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,22 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 158,
@@ -105,19 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 29,
       "events_after_filter": 8,
       "events_filtered": 21,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 4,
-      "events_filtered": 9,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 17,
-      "events_filtered": 87,
+      "events_found": 13,
+      "events_after_filter": 4,
+      "events_filtered": 9,
       "error": null
     },
     {
