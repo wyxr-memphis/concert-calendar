@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-15T11:18:26.213332+00:00",
+  "run_timestamp": "2026-04-15T18:01:07.510134+00:00",
   "date_range": {
     "start": "2026-04-15",
     "end": "2026-04-22"
   },
-  "total_events_db": 1025,
-  "total_active_display": 138,
+  "total_events_db": 1034,
+  "total_active_display": 141,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 36,
@@ -41,34 +33,26 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 18,
-      "events_after_filter": 17,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 34,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -81,35 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 31,
+      "events_found": 70,
+      "events_after_filter": 32,
       "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 158,
-      "events_after_filter": 22,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 8,
-      "events_filtered": 21,
       "error": null
     },
     {
@@ -121,18 +89,26 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 158,
+      "events_after_filter": 22,
+      "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 74,
-      "events_after_filter": 62,
-      "events_filtered": 12,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 15,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 4,
@@ -169,10 +153,26 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 8,
+      "events_filtered": 21,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 74,
+      "events_after_filter": 62,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 138,
-      "events_after_filter": 138,
+      "events_found": 141,
+      "events_after_filter": 141,
       "events_filtered": 0,
       "error": null
     }
@@ -487,6 +487,13 @@
       "source": "artifact"
     },
     {
+      "artist": "DJ Witnesse",
+      "venue": "Central Station Hotel",
+      "date": "2026-04-17",
+      "time": "9 PM",
+      "source": "submission"
+    },
+    {
       "artist": "Adam Larson Quartet featuring Kortland Whalum",
       "venue": "Crosstown Arts",
       "date": "2026-04-17",
@@ -641,10 +648,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-18",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-18",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-18",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
