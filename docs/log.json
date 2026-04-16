@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-16T06:57:38.283181+00:00",
+  "run_timestamp": "2026-04-16T11:15:03.596247+00:00",
   "date_range": {
     "start": "2026-04-16",
     "end": "2026-04-23"
   },
-  "total_events_db": 1046,
+  "total_events_db": 1047,
   "total_active_display": 144,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 33,
-      "events_filtered": 2,
+      "events_after_filter": 34,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,11 +41,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -61,30 +61,6 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -97,10 +73,50 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 15,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 158,
+      "events_after_filter": 22,
+      "events_filtered": 136,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -113,34 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 158,
-      "events_after_filter": 22,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -166,6 +158,14 @@
       "events_found": 104,
       "events_after_filter": 17,
       "events_filtered": 87,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
