@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-04-16T11:15:03.596247+00:00",
+  "run_timestamp": "2026-04-16T18:03:26.376905+00:00",
   "date_range": {
     "start": "2026-04-16",
     "end": "2026-04-23"
@@ -25,19 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -61,22 +61,6 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 70,
-      "events_after_filter": 32,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -89,11 +73,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 22,
-      "events_filtered": 136,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 104,
+      "events_after_filter": 17,
+      "events_filtered": 87,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 78,
+      "events_after_filter": 67,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -105,27 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 8,
-      "events_filtered": 21,
+      "events_found": 35,
+      "events_after_filter": 34,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,27 +129,43 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 78,
-      "events_after_filter": 67,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 104,
-      "events_after_filter": 17,
-      "events_filtered": 87,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 70,
+      "events_after_filter": 32,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 8,
+      "events_filtered": 21,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 158,
+      "events_after_filter": 22,
+      "events_filtered": 136,
       "error": null
     },
     {
