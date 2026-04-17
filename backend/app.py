@@ -17,9 +17,12 @@ import hmac
 import json
 import os
 import re
+import secrets
 import threading
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+from functools import wraps
+from zoneinfo import ZoneInfo
 
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
@@ -82,6 +85,10 @@ from backend.db import (
     create_api_key_request,
     list_api_key_requests,
     update_api_key_request,
+    health_events_14d,
+    health_recent_build_logs,
+    health_submissions,
+    health_ticketmaster,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1871,6 +1878,146 @@ def admin_api_key_requests_reject(request_id):
     """Reject an API key request."""
     update_api_key_request(request_id, "rejected")
     return jsonify({"ok": True})
+
+
+# ---------------------------------------------------------------------------
+# Admin health-check — signed read-only aggregation for the nightly audit runner
+# ---------------------------------------------------------------------------
+
+def require_health_token(fn):
+    """Bearer-token auth for the nightly audit runner.
+
+    Separate from the JWT @require_auth decorator: that one is for interactive
+    admin sessions; this one is for a sandboxed server-to-server caller that
+    cannot hold a JWT and cannot reach Postgres directly.
+    """
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        expected = os.environ.get("HEALTH_CHECK_TOKEN")
+        if not expected:
+            return jsonify({"error": "health endpoint not configured"}), 503
+        auth_header = request.headers.get("Authorization", "")
+        if not auth_header.startswith("Bearer "):
+            return jsonify({"error": "unauthorized"}), 401
+        provided = auth_header[7:]
+        if not secrets.compare_digest(provided, expected):
+            return jsonify({"error": "unauthorized"}), 401
+        return fn(*args, **kwargs)
+    return wrapper
+
+
+def _now_z():
+    """UTC ISO 8601 with a Z suffix."""
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+
+def _iso_z(dt):
+    """Serialize an aware datetime as ISO 8601 with a Z suffix; None passes through."""
+    if dt is None:
+        return None
+    return dt.isoformat(timespec="seconds").replace("+00:00", "Z")
+
+
+# Synthetic entries written to scrape_logs.details.sources[] by src/main.py
+# that aren't actual data fetchers — "Database" is the post-merge count,
+# "Events JSON" is its fallback, "Venue Websites" is a wrapper around the
+# individual venue runs. Excluded from the scrapers block.
+_SYNTHETIC_SOURCE_NAMES = {"Database", "Events JSON", "Venue Websites"}
+
+
+def _expected_scraper_source_names():
+    """Source names that should appear in scrape_logs.details.sources[].
+
+    Matches the literal source_name values emitted by src/sources/*.py on
+    success (scraper:ticketmaster, artifact, Venue: <canonical>), so the
+    runner can tell "never logged" from "recently succeeded." Venues with
+    scraper='manual_only' are skipped — they don't run.
+    """
+    from src.config import VENUES
+    names = {"scraper:ticketmaster", "artifact"}
+    for v in VENUES.values():
+        if v.get("scraper") == "manual_only":
+            continue
+        names.add(f"Venue: {v['name']}")
+    return names
+
+
+def _health_scrapers():
+    """Most recent per-source run extracted from calendar-build logs.
+
+    scrape_logs stores one row per entire build (scraper_name='calendar-build')
+    with per-source results nested in the details JSONB — mirrors what the
+    admin Scrapers tab already does via get_scraper_status_summary().
+    """
+    recent = health_recent_build_logs(limit=30)
+    now_utc = datetime.now(timezone.utc)
+    per_source = {}
+
+    for log in recent:
+        details = log.get("details")
+        if not details:
+            continue
+        if isinstance(details, str):
+            try:
+                details = json.loads(details)
+            except Exception:
+                continue
+        for src in details.get("sources", []):
+            name = src.get("name") or ""
+            if not name or name in _SYNTHETIC_SOURCE_NAMES or name in per_source:
+                continue
+            started = log.get("started_at")
+            hours = round((now_utc - started).total_seconds() / 3600.0, 1) if started else None
+            per_source[name] = {
+                "name": name,
+                "last_run_at": _iso_z(started),
+                "last_run_status": "success" if src.get("success") else "failed",
+                "last_result_count": src.get("events"),
+                "hours_since_last_run": hours,
+            }
+
+    for name in _expected_scraper_source_names():
+        if name not in per_source:
+            per_source[name] = {
+                "name": name,
+                "last_run_at": None,
+                "last_run_status": None,
+                "last_result_count": None,
+                "hours_since_last_run": None,
+            }
+
+    return sorted(per_source.values(), key=lambda x: x["name"])
+
+
+@app.route("/api/admin/health-check", methods=["GET"])
+@require_health_token
+def admin_health_check():
+    blocks = {}
+    errors = []
+
+    # Each block runs in isolation so one failing query doesn't kill the rest.
+    # The response body never carries the exception message, query text, or
+    # traceback — only the block name + exception class.
+    for block_name, fn in (
+        ("events_14d", health_events_14d),
+        ("scrapers", _health_scrapers),
+        ("submissions", health_submissions),
+        ("ticketmaster", health_ticketmaster),
+    ):
+        try:
+            blocks[block_name] = fn()
+        except Exception as e:
+            app.logger.exception("health-check: %s block failed", block_name)
+            errors.append(f"{block_name}: {type(e).__name__}")
+
+    if errors:
+        return jsonify({
+            "error": "; ".join(errors),
+            "partial": blocks,
+            "generated_at": _now_z(),
+        }), 500
+
+    return jsonify({"generated_at": _now_z(), **blocks})
 
 
 # ---------------------------------------------------------------------------

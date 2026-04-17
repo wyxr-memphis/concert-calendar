@@ -1403,3 +1403,174 @@ def get_v1_events(start_date=None, end_date=None, featured_only=False,
     with get_cursor(commit=False) as cur:
         cur.execute(query, params)
         return cur.fetchall()
+
+
+# ---------------------------------------------------------------------------
+# Health-check aggregations
+# ---------------------------------------------------------------------------
+
+def health_events_14d():
+    """Aggregate events for the 14-day window starting at today (America/Chicago).
+
+    Shape matches the /api/admin/health-check events_14d block.
+    """
+    from datetime import datetime as _dt, timedelta as _td
+    from zoneinfo import ZoneInfo as _ZI
+
+    today = _dt.now(_ZI("America/Chicago")).date()
+    end = today + _td(days=14)  # exclusive
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT date, source, ticket_url, start_time, venue
+               FROM events
+               WHERE is_active = true
+                 AND date >= %s
+                 AND date < %s""",
+            (today, end),
+        )
+        rows = cur.fetchall()
+
+    # by_day — always 14 entries, zero-filled
+    day_counts = {}
+    for row in rows:
+        d = row["date"]
+        day_counts[d] = day_counts.get(d, 0) + 1
+    by_day = [
+        {"date": (today + _td(days=i)).isoformat(), "count": day_counts.get(today + _td(days=i), 0)}
+        for i in range(14)
+    ]
+
+    def _is_empty(v):
+        return v is None or (isinstance(v, str) and v.strip() == "")
+
+    missing_ticket_url = 0
+    missing_start_time = 0
+    missing_venue = 0
+    incomplete_total = 0
+    by_source = {}  # source -> {"incomplete_count", "total_count"}
+
+    for row in rows:
+        src = row["source"] if row["source"] else "unknown"
+        bucket = by_source.setdefault(src, {"incomplete_count": 0, "total_count": 0})
+        bucket["total_count"] += 1
+
+        row_incomplete = False
+        if _is_empty(row["ticket_url"]):
+            missing_ticket_url += 1
+            row_incomplete = True
+        if _is_empty(row["start_time"]):
+            missing_start_time += 1
+            row_incomplete = True
+        if _is_empty(row["venue"]):
+            missing_venue += 1
+            row_incomplete = True
+
+        if row_incomplete:
+            incomplete_total += 1
+            bucket["incomplete_count"] += 1
+
+    by_source_list = sorted(
+        ({"source": s, **counts} for s, counts in by_source.items()),
+        key=lambda x: (-x["incomplete_count"], -x["total_count"], x["source"]),
+    )
+
+    return {
+        "total": len(rows),
+        "by_day": by_day,
+        "incomplete": {
+            "total": incomplete_total,
+            "missing_ticket_url": missing_ticket_url,
+            "missing_start_time": missing_start_time,
+            "missing_venue": missing_venue,
+            "by_source": by_source_list,
+        },
+    }
+
+
+def health_recent_build_logs(limit=30):
+    """Recent 'calendar-build' scrape_logs rows, newest first.
+
+    Caller parses the details JSONB to extract per-source run history —
+    scrape_logs stores one row per entire build, not one per source.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT started_at, finished_at, status, details
+               FROM scrape_logs
+               WHERE scraper_name = 'calendar-build'
+               ORDER BY started_at DESC
+               LIMIT %s""",
+            (limit,),
+        )
+        return cur.fetchall()
+
+
+def health_submissions():
+    """Pending community submission stats.
+
+    Returns: pending_count, oldest_pending_at, oldest_pending_age_hours.
+    submitted_at is TIMESTAMP (no tz), so we let Postgres do the math.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT COUNT(*) AS pending_count,
+                      MIN(submitted_at) AS oldest_pending_at,
+                      ROUND((EXTRACT(EPOCH FROM (NOW() - MIN(submitted_at))) / 3600.0)::numeric, 1)
+                        AS oldest_pending_age_hours
+               FROM submissions
+               WHERE status = 'pending'"""
+        )
+        row = cur.fetchone() or {}
+
+    oldest = row.get("oldest_pending_at")
+    age = row.get("oldest_pending_age_hours")
+    return {
+        "pending_count": row.get("pending_count") or 0,
+        "oldest_pending_at": oldest.isoformat() + "Z" if oldest else None,
+        "oldest_pending_age_hours": float(age) if age is not None else None,
+    }
+
+
+def health_ticketmaster():
+    """Ticketmaster error + last-success summary from scrape_logs.details.
+
+    Walks details.sources[] entries with name='scraper:ticketmaster'
+    (the value emitted by src/sources/ticketmaster.py on success) since
+    per-source status lives in JSONB, not in the top-level row.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT COUNT(*) AS errors_24h
+               FROM scrape_logs sl,
+                    LATERAL jsonb_array_elements(
+                        COALESCE(sl.details -> 'sources', '[]'::jsonb)
+                    ) AS src
+               WHERE sl.scraper_name = 'calendar-build'
+                 AND sl.started_at >= NOW() - INTERVAL '24 hours'
+                 AND src ->> 'name' = 'scraper:ticketmaster'
+                 AND COALESCE((src ->> 'success')::boolean, false) = false"""
+        )
+        errors_row = cur.fetchone() or {}
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT MAX(sl.started_at) AS last_success
+               FROM scrape_logs sl,
+                    LATERAL jsonb_array_elements(
+                        COALESCE(sl.details -> 'sources', '[]'::jsonb)
+                    ) AS src
+               WHERE sl.scraper_name = 'calendar-build'
+                 AND src ->> 'name' = 'scraper:ticketmaster'
+                 AND (src ->> 'success')::boolean = true"""
+        )
+        success_row = cur.fetchone() or {}
+
+    last_success = success_row.get("last_success")
+    return {
+        "errors_24h": errors_row.get("errors_24h") or 0,
+        "last_successful_run_at": (
+            last_success.isoformat(timespec="seconds").replace("+00:00", "Z")
+            if last_success else None
+        ),
+    }
