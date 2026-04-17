@@ -2,8 +2,8 @@ name: Nightly Health Check
 
 on:
   schedule:
-    # 15:00 UTC = 10am Central (CDT) / 9am (CST) — daily mid-morning check
-    - cron: '0 15 * * *'
+    # 14:00 UTC = 9am Central (CDT) / 8am (CST) — daily morning check
+    - cron: '0 14 * * *'
   workflow_dispatch:  # Manual trigger for testing
 
 jobs:
