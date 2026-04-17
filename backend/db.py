@@ -1504,3 +1504,73 @@ def health_recent_build_logs(limit=30):
             (limit,),
         )
         return cur.fetchall()
+
+
+def health_submissions():
+    """Pending community submission stats.
+
+    Returns: pending_count, oldest_pending_at, oldest_pending_age_hours.
+    submitted_at is TIMESTAMP (no tz), so we let Postgres do the math.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT COUNT(*) AS pending_count,
+                      MIN(submitted_at) AS oldest_pending_at,
+                      ROUND((EXTRACT(EPOCH FROM (NOW() - MIN(submitted_at))) / 3600.0)::numeric, 1)
+                        AS oldest_pending_age_hours
+               FROM submissions
+               WHERE status = 'pending'"""
+        )
+        row = cur.fetchone() or {}
+
+    oldest = row.get("oldest_pending_at")
+    age = row.get("oldest_pending_age_hours")
+    return {
+        "pending_count": row.get("pending_count") or 0,
+        "oldest_pending_at": oldest.isoformat() + "Z" if oldest else None,
+        "oldest_pending_age_hours": float(age) if age is not None else None,
+    }
+
+
+def health_ticketmaster():
+    """Ticketmaster error + last-success summary from scrape_logs.details.
+
+    Walks details.sources[] entries with name='scraper:ticketmaster'
+    (the value emitted by src/sources/ticketmaster.py on success) since
+    per-source status lives in JSONB, not in the top-level row.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT COUNT(*) AS errors_24h
+               FROM scrape_logs sl,
+                    LATERAL jsonb_array_elements(
+                        COALESCE(sl.details -> 'sources', '[]'::jsonb)
+                    ) AS src
+               WHERE sl.scraper_name = 'calendar-build'
+                 AND sl.started_at >= NOW() - INTERVAL '24 hours'
+                 AND src ->> 'name' = 'scraper:ticketmaster'
+                 AND COALESCE((src ->> 'success')::boolean, false) = false"""
+        )
+        errors_row = cur.fetchone() or {}
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT MAX(sl.started_at) AS last_success
+               FROM scrape_logs sl,
+                    LATERAL jsonb_array_elements(
+                        COALESCE(sl.details -> 'sources', '[]'::jsonb)
+                    ) AS src
+               WHERE sl.scraper_name = 'calendar-build'
+                 AND src ->> 'name' = 'scraper:ticketmaster'
+                 AND (src ->> 'success')::boolean = true"""
+        )
+        success_row = cur.fetchone() or {}
+
+    last_success = success_row.get("last_success")
+    return {
+        "errors_24h": errors_row.get("errors_24h") or 0,
+        "last_successful_run_at": (
+            last_success.isoformat(timespec="seconds").replace("+00:00", "Z")
+            if last_success else None
+        ),
+    }

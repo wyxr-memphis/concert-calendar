@@ -87,6 +87,8 @@ from backend.db import (
     update_api_key_request,
     health_events_14d,
     health_recent_build_logs,
+    health_submissions,
+    health_ticketmaster,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1994,6 +1996,8 @@ def admin_health_check():
         "generated_at": _now_z(),
         "events_14d": health_events_14d(),
         "scrapers": _health_scrapers(),
+        "submissions": health_submissions(),
+        "ticketmaster": health_ticketmaster(),
     })
 
 
