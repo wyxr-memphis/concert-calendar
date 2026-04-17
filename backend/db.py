@@ -1403,3 +1403,86 @@ def get_v1_events(start_date=None, end_date=None, featured_only=False,
     with get_cursor(commit=False) as cur:
         cur.execute(query, params)
         return cur.fetchall()
+
+
+# ---------------------------------------------------------------------------
+# Health-check aggregations
+# ---------------------------------------------------------------------------
+
+def health_events_14d():
+    """Aggregate events for the 14-day window starting at today (America/Chicago).
+
+    Shape matches the /api/admin/health-check events_14d block.
+    """
+    from datetime import datetime as _dt, timedelta as _td
+    from zoneinfo import ZoneInfo as _ZI
+
+    today = _dt.now(_ZI("America/Chicago")).date()
+    end = today + _td(days=14)  # exclusive
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT date, source, ticket_url, start_time, venue
+               FROM events
+               WHERE is_active = true
+                 AND date >= %s
+                 AND date < %s""",
+            (today, end),
+        )
+        rows = cur.fetchall()
+
+    # by_day — always 14 entries, zero-filled
+    day_counts = {}
+    for row in rows:
+        d = row["date"]
+        day_counts[d] = day_counts.get(d, 0) + 1
+    by_day = [
+        {"date": (today + _td(days=i)).isoformat(), "count": day_counts.get(today + _td(days=i), 0)}
+        for i in range(14)
+    ]
+
+    def _is_empty(v):
+        return v is None or (isinstance(v, str) and v.strip() == "")
+
+    missing_ticket_url = 0
+    missing_start_time = 0
+    missing_venue = 0
+    incomplete_total = 0
+    by_source = {}  # source -> {"incomplete_count", "total_count"}
+
+    for row in rows:
+        src = row["source"] if row["source"] else "unknown"
+        bucket = by_source.setdefault(src, {"incomplete_count": 0, "total_count": 0})
+        bucket["total_count"] += 1
+
+        row_incomplete = False
+        if _is_empty(row["ticket_url"]):
+            missing_ticket_url += 1
+            row_incomplete = True
+        if _is_empty(row["start_time"]):
+            missing_start_time += 1
+            row_incomplete = True
+        if _is_empty(row["venue"]):
+            missing_venue += 1
+            row_incomplete = True
+
+        if row_incomplete:
+            incomplete_total += 1
+            bucket["incomplete_count"] += 1
+
+    by_source_list = sorted(
+        ({"source": s, **counts} for s, counts in by_source.items()),
+        key=lambda x: (-x["incomplete_count"], -x["total_count"], x["source"]),
+    )
+
+    return {
+        "total": len(rows),
+        "by_day": by_day,
+        "incomplete": {
+            "total": incomplete_total,
+            "missing_ticket_url": missing_ticket_url,
+            "missing_start_time": missing_start_time,
+            "missing_venue": missing_venue,
+            "by_source": by_source_list,
+        },
+    }

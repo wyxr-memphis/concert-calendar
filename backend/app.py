@@ -85,6 +85,7 @@ from backend.db import (
     create_api_key_request,
     list_api_key_requests,
     update_api_key_request,
+    health_events_14d,
 )
 from backend.auth import (
     ADMIN_PASSWORD,
@@ -1912,7 +1913,7 @@ def _now_z():
 def admin_health_check():
     return jsonify({
         "generated_at": _now_z(),
-        "stub": True,
+        "events_14d": health_events_14d(),
     })
 
 
