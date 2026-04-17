@@ -1,0 +1,26 @@
+name: Nightly Health Check
+
+on:
+  schedule:
+    # 15:00 UTC = 10am Central (CDT) / 9am (CST) — daily mid-morning check
+    - cron: '0 15 * * *'
+  workflow_dispatch:  # Manual trigger for testing
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Run health check
+        env:
+          HEALTH_CHECK_TOKEN: ${{ secrets.HEALTH_CHECK_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python scripts/nightly_health_check.py
