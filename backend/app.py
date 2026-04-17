@@ -17,9 +17,12 @@ import hmac
 import json
 import os
 import re
+import secrets
 import threading
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+from functools import wraps
+from zoneinfo import ZoneInfo
 
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS, cross_origin
@@ -1871,6 +1874,46 @@ def admin_api_key_requests_reject(request_id):
     """Reject an API key request."""
     update_api_key_request(request_id, "rejected")
     return jsonify({"ok": True})
+
+
+# ---------------------------------------------------------------------------
+# Admin health-check — signed read-only aggregation for the nightly audit runner
+# ---------------------------------------------------------------------------
+
+def require_health_token(fn):
+    """Bearer-token auth for the nightly audit runner.
+
+    Separate from the JWT @require_auth decorator: that one is for interactive
+    admin sessions; this one is for a sandboxed server-to-server caller that
+    cannot hold a JWT and cannot reach Postgres directly.
+    """
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        expected = os.environ.get("HEALTH_CHECK_TOKEN")
+        if not expected:
+            return jsonify({"error": "health endpoint not configured"}), 503
+        auth_header = request.headers.get("Authorization", "")
+        if not auth_header.startswith("Bearer "):
+            return jsonify({"error": "unauthorized"}), 401
+        provided = auth_header[7:]
+        if not secrets.compare_digest(provided, expected):
+            return jsonify({"error": "unauthorized"}), 401
+        return fn(*args, **kwargs)
+    return wrapper
+
+
+def _now_z():
+    """UTC ISO 8601 with a Z suffix."""
+    return datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+
+
+@app.route("/api/admin/health-check", methods=["GET"])
+@require_health_token
+def admin_health_check():
+    return jsonify({
+        "generated_at": _now_z(),
+        "stub": True,
+    })
 
 
 # ---------------------------------------------------------------------------
