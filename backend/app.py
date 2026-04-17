@@ -1992,13 +1992,32 @@ def _health_scrapers():
 @app.route("/api/admin/health-check", methods=["GET"])
 @require_health_token
 def admin_health_check():
-    return jsonify({
-        "generated_at": _now_z(),
-        "events_14d": health_events_14d(),
-        "scrapers": _health_scrapers(),
-        "submissions": health_submissions(),
-        "ticketmaster": health_ticketmaster(),
-    })
+    blocks = {}
+    errors = []
+
+    # Each block runs in isolation so one failing query doesn't kill the rest.
+    # The response body never carries the exception message, query text, or
+    # traceback — only the block name + exception class.
+    for block_name, fn in (
+        ("events_14d", health_events_14d),
+        ("scrapers", _health_scrapers),
+        ("submissions", health_submissions),
+        ("ticketmaster", health_ticketmaster),
+    ):
+        try:
+            blocks[block_name] = fn()
+        except Exception as e:
+            app.logger.exception("health-check: %s block failed", block_name)
+            errors.append(f"{block_name}: {type(e).__name__}")
+
+    if errors:
+        return jsonify({
+            "error": "; ".join(errors),
+            "partial": blocks,
+            "generated_at": _now_z(),
+        }), 500
+
+    return jsonify({"generated_at": _now_z(), **blocks})
 
 
 # ---------------------------------------------------------------------------
