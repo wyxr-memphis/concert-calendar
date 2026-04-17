@@ -1486,3 +1486,21 @@ def health_events_14d():
             "by_source": by_source_list,
         },
     }
+
+
+def health_recent_build_logs(limit=30):
+    """Recent 'calendar-build' scrape_logs rows, newest first.
+
+    Caller parses the details JSONB to extract per-source run history —
+    scrape_logs stores one row per entire build, not one per source.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            """SELECT started_at, finished_at, status, details
+               FROM scrape_logs
+               WHERE scraper_name = 'calendar-build'
+               ORDER BY started_at DESC
+               LIMIT %s""",
+            (limit,),
+        )
+        return cur.fetchall()
