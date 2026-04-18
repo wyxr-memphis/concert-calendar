@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-18T06:14:11.470483+00:00",
+  "run_timestamp": "2026-04-18T17:31:15.830170+00:00",
   "date_range": {
     "start": "2026-04-18",
     "end": "2026-04-25"
   },
-  "total_events_db": 1064,
-  "total_active_display": 144,
+  "total_events_db": 1070,
+  "total_active_display": 145,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 33,
-      "events_filtered": 2,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 77,
+      "events_after_filter": 66,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,11 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 16,
+      "events_filtered": 90,
       "error": null
     },
     {
@@ -65,27 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 16,
-      "events_filtered": 90,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,26 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 7,
-      "events_filtered": 22,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -145,34 +145,34 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 35,
+      "events_after_filter": 13,
+      "events_filtered": 22,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 77,
-      "events_after_filter": 66,
-      "events_filtered": 11,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 144,
-      "events_after_filter": 144,
+      "events_found": 145,
+      "events_after_filter": 145,
       "events_filtered": 0,
       "error": null
     }
@@ -261,6 +261,13 @@
       "date": "2026-04-18",
       "time": "6-9pm",
       "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Flyway presents Magician Joe Turner",
+      "venue": "Flyway Brewing",
+      "date": "2026-04-18",
+      "time": "6 PM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Sophie Seng Duo",
