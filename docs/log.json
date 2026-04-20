@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-04-20T15:35:21.363512+00:00",
+  "run_timestamp": "2026-04-20T17:52:10.693887+00:00",
   "date_range": {
     "start": "2026-04-20",
     "end": "2026-04-27"
   },
-  "total_events_db": 1102,
+  "total_events_db": 1103,
   "total_active_display": 152,
   "data_store": "postgresql",
   "sources": [
@@ -26,18 +26,26 @@
     },
     {
       "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://minglewoodhallmemphis.com/events/"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 32,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 75,
-      "events_after_filter": 64,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -73,19 +73,19 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 75,
+      "events_after_filter": 64,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -97,11 +97,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 19,
-      "events_filtered": 139,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,10 +121,26 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 158,
+      "events_after_filter": 19,
+      "events_filtered": 139,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -142,30 +166,6 @@
       "events_found": 13,
       "events_after_filter": 3,
       "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 106,
-      "events_after_filter": 11,
-      "events_filtered": 95,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -315,7 +315,7 @@
       "artist": "Writers in the Round",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-21",
-      "time": "7:00 PM",
+      "time": "7 PM",
       "source": "artifact"
     },
     {
@@ -792,7 +792,7 @@
       "venue": "Bar DKDC",
       "date": "2026-04-25",
       "time": "9 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Susan Marshall / Reba Russell",
