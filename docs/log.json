@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-20T07:18:22.512107+00:00",
+  "run_timestamp": "2026-04-20T15:35:21.363512+00:00",
   "date_range": {
     "start": "2026-04-20",
     "end": "2026-04-27"
   },
-  "total_events_db": 1079,
-  "total_active_display": 132,
+  "total_events_db": 1102,
+  "total_active_display": 152,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,19 +33,35 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 16,
+      "events_found": 15,
       "events_after_filter": 15,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 75,
+      "events_after_filter": 64,
+      "events_filtered": 11,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -59,25 +75,17 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 34,
+      "events_found": 33,
       "events_after_filter": 32,
-      "events_filtered": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 106,
-      "events_after_filter": 11,
-      "events_filtered": 95,
       "error": null
     },
     {
@@ -89,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 70,
-      "events_after_filter": 32,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 158,
@@ -105,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_found": 70,
+      "events_after_filter": 32,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -121,18 +121,18 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 10,
+      "events_filtered": 25,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 16,
       "events_after_filter": 16,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -145,34 +145,34 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 75,
-      "events_after_filter": 64,
-      "events_filtered": 11,
+      "events_found": 106,
+      "events_after_filter": 11,
+      "events_filtered": 95,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 10,
-      "events_filtered": 25,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 132,
-      "events_after_filter": 132,
+      "events_found": 152,
+      "events_after_filter": 152,
       "events_filtered": 0,
       "error": null
     }
@@ -212,6 +212,13 @@
       "date": "2026-04-20",
       "time": "6 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Drag by Juicy Massacre + Hunny Blunt",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-20",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Juicy Massacre + Hunny Blunt (DRAG)",
@@ -291,6 +298,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Books on Tap - Sweet Darlin' + Zinegirls (travelling bookstore event)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-21",
+      "time": "6-9 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Sweet Darlin' + ZINEGIRLS (Books on Tap)",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-21",
@@ -305,10 +319,24 @@
       "source": "artifact"
     },
     {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-21",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Alabama Shakes w/Mon Rov\u00eea",
       "venue": "Grind City Amp",
       "date": "2026-04-22",
       "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "FAKE!",
+      "venue": "Murphy\u2019s",
+      "date": "2026-04-22",
+      "time": "7 PM",
       "source": "manual"
     },
     {
@@ -410,6 +438,13 @@
       "source": "scraper:huey_s"
     },
     {
+      "artist": "Bingo + Memphis Concrete",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-22",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Memphis Concrete",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-22",
@@ -450,6 +485,13 @@
       "date": "2026-04-23",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Ashton Ryker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-23",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Memphis Soul Factory",
@@ -543,6 +585,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Karaoke with Kacee",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-23",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Memphis Improv Alliance",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-23",
@@ -590,6 +639,20 @@
       "date": "2026-04-24",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-24",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-24",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Jadewick + Dead Soldiers",
@@ -662,7 +725,35 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Dogma",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-24",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Good Morning Midnight",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-24",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Good Morning Midnight, Mothcat, Internet Dating, Dogma",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-24",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Internet Dating",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-24",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mothcat",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-24",
       "time": "9:00 PM",
@@ -697,17 +788,17 @@
       "source": "artifact"
     },
     {
+      "artist": "Aquarian Blood//Warren Burns (KCMO)",
+      "venue": "Bar DKDC",
+      "date": "2026-04-25",
+      "time": "9 PM",
+      "source": "submission"
+    },
+    {
       "artist": "Susan Marshall / Reba Russell",
       "venue": "B-Side Memphis",
       "date": "2026-04-25",
       "time": "4 PM - 7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Aquarian Blood + Warren Burns Band (Kansas City)",
-      "venue": "Bar DKDC",
-      "date": "2026-04-25",
-      "time": null,
       "source": "artifact"
     },
     {
@@ -793,6 +884,27 @@
       "date": "2026-04-25",
       "time": "9 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Godmilk",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Radar Blips",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "The Icks",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "The Icks, Godmilk, Radar Blips",
@@ -1038,6 +1150,34 @@
       "date": "2026-04-26",
       "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Clearcoat",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-26",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Crumb",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-26",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Lyd Vicious + the Problem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-26",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Riot Dogs",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-26",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Riot Dogs, Clear Coat, Crum B., Lyd Vicious & the Problem",
