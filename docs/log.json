@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-21T17:55:03.527030+00:00",
+  "run_timestamp": "2026-04-21T21:31:48.871408+00:00",
   "date_range": {
     "start": "2026-04-21",
     "end": "2026-04-28"
   },
-  "total_events_db": 1113,
-  "total_active_display": 156,
+  "total_events_db": 1245,
+  "total_active_display": 152,
   "data_store": "postgresql",
   "sources": [
     {
@@ -26,25 +26,17 @@
     },
     {
       "name": "Venue: Minglewood Hall",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://minglewoodhallmemphis.com/events/"
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -57,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -73,11 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -105,42 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 10,
-      "events_filtered": 25,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 31,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +121,35 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
       "events_after_filter": 3,
       "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 10,
+      "events_filtered": 25,
       "error": null
     },
     {
@@ -169,20 +161,28 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 156,
-      "events_after_filter": 156,
+      "events_found": 152,
+      "events_after_filter": 152,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
     {
-      "artist": "Jontavious  Willis",
-      "venue": "Hernando's Hideaway",
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
       "date": "2026-04-21",
-      "time": "8:00 PM",
+      "time": "7 PM",
       "source": "artifact"
     },
     {
@@ -228,20 +228,6 @@
       "source": "scraper:flyway_brewing"
     },
     {
-      "artist": "CANCELED- GA-20 + Jontavious Willis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-21",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "GA-20",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-21",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-21",
@@ -260,13 +246,6 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-04-21",
       "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Writers in the Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-21",
-      "time": "7 PM",
       "source": "artifact"
     },
     {
@@ -571,6 +550,20 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Jadewick + Dead Soldiers",
+      "venue": "Bar DKDC",
+      "date": "2026-04-24",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "San Salida, Coco & the Hitmen",
+      "venue": "Bar DKDC",
+      "date": "2026-04-24",
+      "time": "9 PM",
+      "source": "manual"
+    },
+    {
       "artist": "Dexter and The Moonrocks",
       "venue": "1884 Lounge",
       "date": "2026-04-24",
@@ -611,20 +604,6 @@
       "date": "2026-04-24",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jadewick + Dead Soldiers",
-      "venue": "Bar DKDC",
-      "date": "2026-04-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "San Salida, Coco & the Hitmen",
-      "venue": "Bar DKDC",
-      "date": "2026-04-24",
-      "time": "9 PM",
-      "source": "submission"
     },
     {
       "artist": "Wyly Bigger",
@@ -1199,13 +1178,6 @@
       "date": "2026-04-26",
       "time": "3 PM",
       "source": "manual"
-    },
-    {
-      "artist": "Sunday Tea Dance | Sextapes with Sexlex, Jasades + Dosie",
-      "venue": "Bar DKDC",
-      "date": "2026-04-27",
-      "time": null,
-      "source": "artifact"
     },
     {
       "artist": "Drag hosted by Hunny & Juicy",
