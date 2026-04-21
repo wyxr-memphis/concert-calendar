@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-20T17:52:10.693887+00:00",
+  "run_timestamp": "2026-04-21T06:59:14.613200+00:00",
   "date_range": {
-    "start": "2026-04-20",
-    "end": "2026-04-27"
+    "start": "2026-04-21",
+    "end": "2026-04-28"
   },
-  "total_events_db": 1103,
-  "total_active_display": 152,
+  "total_events_db": 1108,
+  "total_active_display": 153,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -25,35 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://minglewoodhallmemphis.com/events/"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
+      "events_after_filter": 31,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -61,6 +37,46 @@
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 10,
+      "events_filtered": 96,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -73,22 +89,6 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 75,
-      "events_after_filter": 64,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 3,
@@ -97,27 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 70,
+      "events_found": 69,
       "events_after_filter": 32,
-      "events_filtered": 38,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -129,18 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -153,14 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
@@ -169,64 +137,47 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 16,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 74,
+      "events_after_filter": 63,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 152,
-      "events_after_filter": 152,
+      "events_found": 153,
+      "events_after_filter": 153,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-20",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-20",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-20",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Pestilence Presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-20",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Cancer can KISS my ASS",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-04-20",
-      "time": "6 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Drag by Juicy Massacre + Hunny Blunt",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-20",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Juicy Massacre + Hunny Blunt (DRAG)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-20",
-      "time": null,
-      "source": "artifact"
-    },
     {
       "artist": "Jontavious  Willis",
       "venue": "Hernando's Hideaway",
@@ -1241,6 +1192,62 @@
       "date": "2026-04-27",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Suffocation",
+      "venue": "1884 Lounge",
+      "date": "2026-04-28",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "J. Killen / LJ Cates",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-28",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-28",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "University of Memphis Southern Comfort Jazz Orchestra and Jazz Singers + opener The Central High School Jazz Band",
+      "venue": "Crosstown Arts",
+      "date": "2026-04-28",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-04-28",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-28",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-28",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Suffocation",
+      "venue": "Minglewood Hall",
+      "date": "2026-04-28",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
