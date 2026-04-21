@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-21T06:59:14.613200+00:00",
+  "run_timestamp": "2026-04-21T17:55:03.527030+00:00",
   "date_range": {
     "start": "2026-04-21",
     "end": "2026-04-28"
   },
-  "total_events_db": 1108,
-  "total_active_display": 153,
+  "total_events_db": 1113,
+  "total_active_display": 156,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,20 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "name": "Venue: Minglewood Hall",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://minglewoodhallmemphis.com/events/"
     },
     {
       "name": "Venue: Growlers",
@@ -46,30 +38,6 @@
       "events_found": 17,
       "events_after_filter": 17,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 106,
-      "events_after_filter": 10,
-      "events_filtered": 96,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -81,10 +49,34 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 10,
+      "events_filtered": 96,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -107,16 +99,16 @@
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 19,
+      "events_found": 159,
+      "events_after_filter": 20,
       "events_filtered": 139,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -129,18 +121,26 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 3,
-      "events_filtered": 10,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 3,
+      "events_found": 13,
       "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 153,
-      "events_after_filter": 153,
+      "events_found": 156,
+      "events_after_filter": 156,
       "events_filtered": 0,
       "error": null
     }
@@ -592,6 +592,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-24",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-24",
@@ -611,6 +618,13 @@
       "date": "2026-04-24",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "San Salida, Coco & the Hitmen",
+      "venue": "Bar DKDC",
+      "date": "2026-04-24",
+      "time": "9 PM",
+      "source": "submission"
     },
     {
       "artist": "Wyly Bigger",
@@ -751,6 +765,13 @@
       "date": "2026-04-25",
       "time": "4 PM - 7 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-25",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Ghost Town Blues Band",
