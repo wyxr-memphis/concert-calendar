@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-22T17:55:07.050705+00:00",
+  "run_timestamp": "2026-04-22T19:06:54.378096+00:00",
   "date_range": {
     "start": "2026-04-22",
     "end": "2026-04-29"
   },
-  "total_events_db": 1251,
-  "total_active_display": 158,
+  "total_events_db": 1257,
+  "total_active_display": 164,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,18 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 30,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 19,
+      "events_after_filter": 19,
       "events_filtered": 0,
       "error": null
     },
@@ -57,10 +49,42 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 10,
+      "events_filtered": 96,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -73,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 10,
-      "events_filtered": 96,
+      "events_found": 69,
+      "events_after_filter": 32,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -85,14 +109,6 @@
       "success": true,
       "events_found": 14,
       "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 32,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -145,18 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 158,
-      "events_after_filter": 158,
+      "events_found": 164,
+      "events_after_filter": 164,
       "events_filtered": 0,
       "error": null
     }
@@ -716,6 +716,48 @@
       "date": "2026-04-25",
       "time": "8:00\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Cedric Burnside",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Eric Gales",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Frank McLallen & Extra Eyes",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Joybomb",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "MonoNeon",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Raneem Imam",
+      "venue": "Grind City Amp",
+      "date": "2026-04-25",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Mudshow",
