@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-21T21:31:48.871408+00:00",
+  "run_timestamp": "2026-04-22T06:58:48.561851+00:00",
   "date_range": {
-    "start": "2026-04-21",
-    "end": "2026-04-28"
+    "start": "2026-04-22",
+    "end": "2026-04-29"
   },
-  "total_events_db": 1245,
-  "total_active_display": 152,
+  "total_events_db": 1246,
+  "total_active_display": 156,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 30,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 32,
@@ -33,10 +41,26 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 18,
       "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -49,22 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
@@ -73,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 31,
-      "events_filtered": 1,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,10 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 35,
+      "events_after_filter": 8,
+      "events_filtered": 27,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -129,34 +145,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 73,
+      "events_after_filter": 62,
+      "events_filtered": 11,
       "error": null
     },
     {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
-      "events_after_filter": 3,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 10,
-      "events_filtered": 25,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 74,
-      "events_after_filter": 63,
+      "events_after_filter": 2,
       "events_filtered": 11,
       "error": null
     },
@@ -171,90 +171,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 152,
-      "events_after_filter": 152,
+      "events_found": 156,
+      "events_after_filter": 156,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Writers in the Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-21",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-21",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-21",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Blues City Cafe",
-      "date": "2026-04-21",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Jazz Jam Session: Hosted by University of Memphis Combo 1",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-21",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-21",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Bobbie Stacks & Kevin Kilgore",
-      "venue": "Flyway Brewing",
-      "date": "2026-04-21",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Books on Tap - Sweet Darlin' + Zinegirls (travelling bookstore event)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-21",
-      "time": "6-9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Sweet Darlin' + ZINEGIRLS (Books on Tap)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-21",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Writers in the Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-21",
-      "time": "7 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Alabama Shakes w/Mon Rov\u00eea",
       "venue": "Grind City Amp",
@@ -1241,6 +1164,111 @@
       "date": "2026-04-28",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Slack Dawson",
+      "venue": "Swamp Bar",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Alex Green & The Rolling Head Orchestra",
+      "venue": "B-Side Memphis",
+      "date": "2026-04-29",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Juno Avent",
+      "venue": "Blind Alley Bayou",
+      "date": "2026-04-29",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Flyway Brewing",
+      "date": "2026-04-29",
+      "time": "5 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Karaoke Night at Growlers - Memphis, TN",
+      "venue": "Growlers",
+      "date": "2026-04-29",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "901 Tall Boys on the Patio",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-04-29",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird on the Patio",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-04-29",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Ethan Smith Trio",
+      "venue": "Huey's (Millington)",
+      "date": "2026-04-29",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Ethan Smith Band",
+      "venue": "Huey's Millington",
+      "date": "2026-04-29",
+      "time": "6 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Gerry Finney on the Patio",
+      "venue": "Huey's Poplar",
+      "date": "2026-04-29",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Memphis Improv Alliance",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Elmo's Got the Moves",
+      "venue": "Landers Center",
+      "date": "2026-04-29",
+      "time": "6:00 PM",
+      "source": "scraper:landers_center"
     }
   ]
 }
