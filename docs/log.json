@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-23T07:01:48.480544+00:00",
+  "run_timestamp": "2026-04-23T18:05:11.932075+00:00",
   "date_range": {
     "start": "2026-04-23",
     "end": "2026-04-30"
   },
-  "total_events_db": 1263,
-  "total_active_display": 161,
+  "total_events_db": 1265,
+  "total_active_display": 163,
   "data_store": "postgresql",
   "sources": [
     {
@@ -22,15 +22,31 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "No artifacts/ folder found"
+      "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 10,
+      "events_filtered": 96,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 75,
+      "events_after_filter": 65,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
     },
     {
       "name": "Venue: Growlers",
@@ -38,14 +54,6 @@
       "events_found": 19,
       "events_after_filter": 19,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 29,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -57,18 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -81,10 +81,50 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 31,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -97,34 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 69,
-      "events_after_filter": 31,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -145,14 +161,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 75,
-      "events_after_filter": 65,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 35,
@@ -161,18 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 161,
+      "events_found": 163,
+      "events_after_filter": 163,
       "events_filtered": 0,
       "error": null
     }
@@ -744,6 +744,20 @@
       "date": "2026-04-26",
       "time": "7:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-26",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-26",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Spring Fling Pop Up with Stacy Kiehl + Friends",
