@@ -251,6 +251,11 @@
         }
         li a { color: inherit; text-decoration: none; }
         li a:hover { color: var(--wyxr-yellow); }
+        [data-event-id] { cursor: pointer; }
+        [data-event-id]:hover { color: var(--wyxr-yellow); }
+        [data-event-id]:focus-visible { outline: 2px solid var(--wyxr-yellow); outline-offset: 2px; border-radius: 2px; }
+        [data-event-id]:focus { outline: none; }
+        .presents-event[data-event-id]:hover .artist { text-decoration: underline; }
         .artist { font-weight: 600; text-transform: uppercase; }
         .venue { color: #aaa; }
         .time { color: var(--wyxr-gray); font-size: 0.9em; }
@@ -414,6 +419,187 @@
             font-size: 0.95em;
             color: var(--wyxr-white);
             line-height: 1.5;
+        }
+
+        /* Event Detail Modal */
+        .event-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 300;
+            align-items: center;
+            justify-content: center;
+        }
+        .event-modal.open { display: flex; }
+        .event-modal-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.75);
+        }
+        .event-modal-card {
+            position: relative;
+            background: var(--wyxr-charcoal);
+            border: 1px solid var(--wyxr-border);
+            border-radius: 12px;
+            max-width: 560px;
+            width: 92%;
+            max-height: 90vh;
+            overflow-y: auto;
+            z-index: 1;
+            animation: eventModalIn 0.16s ease;
+        }
+        @keyframes eventModalIn {
+            from { opacity: 0; transform: scale(0.96) translateY(4px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .event-modal-close {
+            position: absolute;
+            top: 12px; right: 14px;
+            background: none;
+            border: none;
+            color: var(--wyxr-gray);
+            font-size: 1.4em;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 2;
+        }
+        .event-modal-close:hover { color: var(--wyxr-white); }
+        .event-modal-img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 11px 11px 0 0;
+            display: block;
+        }
+        .event-modal-body { padding: 20px 24px 28px; }
+        .event-modal-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+        .event-modal-badge-presents {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.65em;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+        .event-modal-badge-pick {
+            border: 1px solid var(--wyxr-yellow);
+            color: var(--wyxr-yellow);
+            font-family: 'Anybody', sans-serif;
+            font-size: 0.65em;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+        }
+        .event-modal-title {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.35em;
+            font-weight: 800;
+            color: var(--wyxr-white);
+            border-left: none;
+            padding-left: 0;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+        .event-modal-venue {
+            font-size: 0.9em;
+            color: var(--wyxr-gray);
+            margin-bottom: 5px;
+        }
+        .event-modal-datetime {
+            font-size: 0.88em;
+            color: var(--wyxr-white);
+            margin-bottom: 8px;
+        }
+        .event-modal-meta {
+            font-size: 0.82em;
+            color: var(--wyxr-dim);
+            margin-bottom: 12px;
+        }
+        .event-modal-desc {
+            font-size: 0.88em;
+            color: #bdbdbd;
+            line-height: 1.55;
+            margin-bottom: 20px;
+        }
+        .event-modal-desc:empty { display: none; }
+        .event-modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .event-modal-btn-primary {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            border: none;
+            padding: 12px 20px;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 0.88em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 6px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: opacity 0.2s;
+            letter-spacing: 0.03em;
+        }
+        .event-modal-btn-primary:hover { opacity: 0.88; }
+        .event-modal-btn-secondary-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .event-modal-btn-secondary {
+            background: none;
+            border: 1px solid var(--wyxr-border);
+            color: var(--wyxr-gray);
+            padding: 8px 14px;
+            font-size: 0.82em;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: border-color 0.15s, color 0.15s;
+            white-space: nowrap;
+            font-family: 'Inter', -apple-system, sans-serif;
+        }
+        .event-modal-btn-secondary:hover {
+            border-color: var(--wyxr-gray);
+            color: var(--wyxr-white);
+        }
+        .event-modal-btn-tickets {
+            background: none;
+            border: 1px solid var(--wyxr-yellow);
+            color: var(--wyxr-yellow);
+            padding: 11px 18px;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 0.88em;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 6px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            transition: background 0.15s, color 0.15s;
+            letter-spacing: 0.03em;
+        }
+        .event-modal-btn-tickets:hover {
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
         }
 
         /* Calendar Sponsor Banner */
@@ -734,6 +920,24 @@
         </div>
     </div>
 
+    <!-- Event Detail Modal -->
+    <div class="event-modal" id="eventModal" aria-hidden="true">
+        <div class="event-modal-overlay" id="eventModalOverlay" aria-hidden="true"></div>
+        <div class="event-modal-card" id="eventModalCard" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
+            <button class="event-modal-close" id="eventModalClose" aria-label="Close event detail">✕</button>
+            <div id="eventModalImageWrap"></div>
+            <div class="event-modal-body">
+                <div class="event-modal-badges" id="eventModalBadges" style="display:none;"></div>
+                <h2 class="event-modal-title" id="eventModalTitle"></h2>
+                <p class="event-modal-venue" id="eventModalVenue"></p>
+                <p class="event-modal-datetime" id="eventModalDatetime"></p>
+                <p class="event-modal-meta" id="eventModalMeta" style="display:none;"></p>
+                <div class="event-modal-desc" id="eventModalDesc" style="display:none;"></div>
+                <div class="event-modal-actions" id="eventModalActions"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="filter-bar">
         <div class="month-nav">
             <button id="prevMonth">&larr; Prev</button>
@@ -789,6 +993,9 @@
         let allEvents = [];
         let allSponsors = [];
         let calendarSponsor = null;
+        let eventsById = {};
+        let _emLastFocused = null;
+        let _emCurrentId = null;
         // Effective "today" respects 4am Central rollover (defined below in Date helpers)
         // Bootstrap a temporary version here for initialization before the function exists.
         // We re-use the same logic inline since getTodayStr() isn't defined yet at this point.
@@ -1034,6 +1241,309 @@
             setTimeout(() => clearInterval(check), 600000);
         })();
 
+        // ---- Event Detail Modal ----
+
+        function trackEvent(name, params) {
+            if (typeof gtag === 'function') gtag('event', name, params);
+        }
+
+        function _parseEventStartTime(timeStr) {
+            if (!timeStr) return null;
+            const m = timeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
+            if (m) {
+                let h = parseInt(m[1], 10);
+                const min = m[2] ? parseInt(m[2], 10) : 0;
+                if (m[3].toLowerCase() === 'am') { if (h === 12) h = 0; }
+                else { if (h !== 12) h += 12; }
+                return h < 24 ? { hour: h, minute: min } : null;
+            }
+            const m2 = timeStr.match(/(\d{1,2})(?::(\d{2}))?/);
+            if (m2) {
+                let h = parseInt(m2[1], 10);
+                if (h < 12) h += 12;
+                const min = m2[2] ? parseInt(m2[2], 10) : 0;
+                return h < 24 ? { hour: h, minute: min } : null;
+            }
+            return null;
+        }
+
+        function _padZ(n) { return String(n).padStart(2, '0'); }
+
+        function _chicagoISO(y, mo, d, h, min) {
+            try {
+                const probe = new Date(Date.UTC(y, mo - 1, d, 12, 0, 0));
+                const fmt = new Intl.DateTimeFormat('en', { timeZone: 'America/Chicago', timeZoneName: 'shortOffset' });
+                const parts = fmt.formatToParts(probe);
+                const tzName = (parts.find(p => p.type === 'timeZoneName') || {}).value || 'GMT-6';
+                const mm = tzName.match(/GMT([+-])(\d+)(?::(\d+))?/);
+                let offsetMin = -360;
+                if (mm) {
+                    const sign = mm[1] === '+' ? 1 : -1;
+                    offsetMin = sign * (parseInt(mm[2], 10) * 60 + parseInt(mm[3] || '0', 10));
+                }
+                const sign = offsetMin >= 0 ? '+' : '-';
+                const abs = Math.abs(offsetMin);
+                return `${y}-${_padZ(mo)}-${_padZ(d)}T${_padZ(h)}:${_padZ(min)}:00${sign}${_padZ(Math.floor(abs / 60))}:${_padZ(abs % 60)}`;
+            } catch (err) {
+                return `${y}-${_padZ(mo)}-${_padZ(d)}T${_padZ(h)}:${_padZ(min)}:00-06:00`;
+            }
+        }
+
+        function _buildCalendarData(ev) {
+            const [y, mo, d] = (ev.date || '').split('-').map(Number);
+            const parsed = _parseEventStartTime(ev.start_time);
+            const startH = parsed ? parsed.hour : 20;
+            const startMin = parsed ? parsed.minute : 0;
+            let endH = startH + 3;
+            let endD = d;
+            if (endH >= 24) { endH -= 24; endD += 1; }
+
+            const title = ev.title || '';
+            const location = ev.venue ? `${ev.venue}, Memphis, TN` : 'Memphis, TN';
+            const tmp = document.createElement('div');
+            tmp.innerHTML = ev.description || '';
+            const plainDesc = (tmp.textContent || '').trim().slice(0, 500);
+
+            function fmtCal(yr, month, day, hour, minute) {
+                return `${yr}${_padZ(month)}${_padZ(day)}T${_padZ(hour)}${_padZ(minute)}00`;
+            }
+
+            const gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+                '&text=' + encodeURIComponent(title) +
+                '&dates=' + fmtCal(y, mo, d, startH, startMin) + '/' + fmtCal(y, mo, endD, endH, startMin) +
+                '&ctz=America%2FChicago' +
+                '&details=' + encodeURIComponent(plainDesc) +
+                '&location=' + encodeURIComponent(location);
+
+            const outlookUrl = 'https://outlook.live.com/calendar/0/deeplink/compose?' +
+                'path=/calendar/action/compose' +
+                '&rru=addevent' +
+                '&subject=' + encodeURIComponent(title) +
+                '&startdt=' + encodeURIComponent(_chicagoISO(y, mo, d, startH, startMin)) +
+                '&enddt=' + encodeURIComponent(_chicagoISO(y, mo, endD, endH, startMin)) +
+                '&body=' + encodeURIComponent(plainDesc) +
+                '&location=' + encodeURIComponent(location);
+
+            function icsEsc(s) {
+                return (s || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+            }
+            const uid = `wyxr-event-${ev.id}@concert-calendar.wyxr.org`;
+            const icsLines = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//WYXR Concert Calendar//EN',
+                'BEGIN:VEVENT',
+                'UID:' + uid,
+                'DTSTART;TZID=America/Chicago:' + fmtCal(y, mo, d, startH, startMin),
+                'DTEND;TZID=America/Chicago:' + fmtCal(y, mo, endD, endH, startMin),
+                'SUMMARY:' + icsEsc(title),
+                'DESCRIPTION:' + icsEsc(plainDesc),
+                'LOCATION:' + icsEsc(location),
+            ];
+            if (ev.ticket_url) icsLines.push('URL:' + ev.ticket_url);
+            icsLines.push('END:VEVENT', 'END:VCALENDAR');
+            const icsBlob = new Blob([icsLines.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+
+            return { gcalUrl, outlookUrl, icsBlob, icsFilename: `wyxr-${ev.id}.ics` };
+        }
+
+        function openEventModal(eventId, triggerEl) {
+            const ev = eventsById[eventId];
+            if (!ev) return;
+            _emLastFocused = triggerEl || null;
+            _emCurrentId = ev.id;
+
+            const imgWrap = document.getElementById('eventModalImageWrap');
+            if (ev.image_url) {
+                imgWrap.innerHTML = `<img src="${ev.image_url.replace(/"/g, '&quot;')}" alt="${(ev.title || '').replace(/"/g, '&quot;')}" class="event-modal-img">`;
+                imgWrap.style.display = '';
+            } else {
+                imgWrap.innerHTML = '';
+                imgWrap.style.display = 'none';
+            }
+
+            const badgesEl = document.getElementById('eventModalBadges');
+            badgesEl.innerHTML = '';
+            if (ev.is_wyxr_presents) {
+                const b = document.createElement('span');
+                b.className = 'event-modal-badge-presents';
+                b.textContent = 'WYXR Presents';
+                badgesEl.appendChild(b);
+            }
+            if (ev.is_featured) {
+                const b = document.createElement('span');
+                b.className = 'event-modal-badge-pick';
+                b.textContent = 'WYXR Pick';
+                badgesEl.appendChild(b);
+            }
+            badgesEl.style.display = badgesEl.children.length > 0 ? 'flex' : 'none';
+
+            document.getElementById('eventModalTitle').textContent = ev.title || '';
+
+            const venueEl = document.getElementById('eventModalVenue');
+            const venueText = [ev.venue, ev.neighborhood].filter(Boolean).join(' · ');
+            venueEl.textContent = venueText;
+            venueEl.style.display = venueText ? '' : 'none';
+
+            const dtEl = document.getElementById('eventModalDatetime');
+            if (ev.date) {
+                const dateObj = new Date(ev.date + 'T12:00:00');
+                const dateFmt = dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+                let timeStr = '';
+                if (ev.doors_time && ev.start_time) timeStr = ` · Doors ${ev.doors_time} / Show ${ev.start_time}`;
+                else if (ev.doors_time) timeStr = ` · Doors ${ev.doors_time}`;
+                else if (ev.start_time) timeStr = ` · ${ev.start_time}`;
+                dtEl.textContent = dateFmt + timeStr;
+                dtEl.style.display = '';
+            } else {
+                dtEl.style.display = 'none';
+            }
+
+            const metaEl = document.getElementById('eventModalMeta');
+            const metaParts = [ev.genre, ev.ticket_price].filter(Boolean);
+            if (metaParts.length) {
+                metaEl.textContent = metaParts.join(' · ');
+                metaEl.style.display = '';
+            } else {
+                metaEl.style.display = 'none';
+            }
+
+            const descEl = document.getElementById('eventModalDesc');
+            if (ev.description && ev.description.trim()) {
+                descEl.innerHTML = ev.description;
+                descEl.style.display = '';
+            } else {
+                descEl.innerHTML = '';
+                descEl.style.display = 'none';
+            }
+
+            const actionsEl = document.getElementById('eventModalActions');
+            actionsEl.innerHTML = '';
+            const cal = _buildCalendarData(ev);
+
+            const gcalBtn = document.createElement('a');
+            gcalBtn.href = cal.gcalUrl;
+            gcalBtn.target = '_blank';
+            gcalBtn.rel = 'noopener noreferrer';
+            gcalBtn.className = 'event-modal-btn-primary';
+            gcalBtn.textContent = 'Add to Google Calendar';
+            gcalBtn.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'google' }));
+            actionsEl.appendChild(gcalBtn);
+
+            const secRow = document.createElement('div');
+            secRow.className = 'event-modal-btn-secondary-row';
+
+            const appleBtn = document.createElement('button');
+            appleBtn.type = 'button';
+            appleBtn.className = 'event-modal-btn-secondary';
+            appleBtn.textContent = 'Apple Calendar (.ics)';
+            appleBtn.addEventListener('click', () => {
+                trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'apple' });
+                const url = URL.createObjectURL(cal.icsBlob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = cal.icsFilename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(url), 10000);
+            });
+            secRow.appendChild(appleBtn);
+
+            const outlookLink = document.createElement('a');
+            outlookLink.href = cal.outlookUrl;
+            outlookLink.target = '_blank';
+            outlookLink.rel = 'noopener noreferrer';
+            outlookLink.className = 'event-modal-btn-secondary';
+            outlookLink.textContent = 'Outlook.com';
+            outlookLink.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'outlook' }));
+            secRow.appendChild(outlookLink);
+            actionsEl.appendChild(secRow);
+
+            if (ev.ticket_url) {
+                const ticketLink = document.createElement('a');
+                ticketLink.href = ev.ticket_url;
+                ticketLink.target = '_blank';
+                ticketLink.rel = 'noopener noreferrer';
+                ticketLink.className = 'event-modal-btn-tickets';
+                ticketLink.textContent = 'Buy Tickets →';
+                ticketLink.setAttribute('aria-label', `Buy tickets for ${ev.title}`);
+                ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: ev.ticket_url }));
+                actionsEl.appendChild(ticketLink);
+            }
+
+            const modal = document.getElementById('eventModal');
+            modal.classList.add('open');
+            modal.removeAttribute('aria-hidden');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.getElementById('eventModalClose').focus(), 50);
+
+            trackEvent('modal_open', {
+                event_id: ev.id,
+                event_title: ev.title,
+                venue: ev.venue,
+                event_date: ev.date,
+                has_ticket_url: !!ev.ticket_url
+            });
+        }
+
+        function closeEventModal(method) {
+            const modal = document.getElementById('eventModal');
+            if (!modal.classList.contains('open')) return;
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            trackEvent('modal_close', { event_id: _emCurrentId, close_method: method });
+            if (_emLastFocused) { _emLastFocused.focus(); _emLastFocused = null; }
+            _emCurrentId = null;
+        }
+
+        (function initEventModal() {
+            const modal = document.getElementById('eventModal');
+            const overlay = document.getElementById('eventModalOverlay');
+            const closeBtn = document.getElementById('eventModalClose');
+            if (!modal) return;
+
+            closeBtn.addEventListener('click', () => closeEventModal('x'));
+            overlay.addEventListener('click', () => closeEventModal('overlay'));
+
+            document.addEventListener('keydown', (e) => {
+                if (!modal.classList.contains('open')) return;
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    closeEventModal('esc');
+                    return;
+                }
+                if (e.key === 'Tab') {
+                    const card = document.getElementById('eventModalCard');
+                    const focusable = Array.from(card.querySelectorAll(
+                        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                    )).filter(el => !el.disabled && el.offsetParent !== null);
+                    if (!focusable.length) { e.preventDefault(); return; }
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (e.shiftKey) {
+                        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+                    } else {
+                        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+                    }
+                }
+            });
+
+            eventList.addEventListener('click', (e) => {
+                const row = e.target.closest('[data-event-id]');
+                if (!row) return;
+                openEventModal(row.dataset.eventId, row);
+            });
+            eventList.addEventListener('keydown', (e) => {
+                if (e.key !== 'Enter' && e.key !== ' ') return;
+                const row = e.target.closest('[data-event-id]');
+                if (!row) return;
+                e.preventDefault();
+                openEventModal(row.dataset.eventId, row);
+            });
+        })();
+
         // ---- Data Loading (stale-while-revalidate with localStorage) ----
         const CACHE_KEY = 'wyxr_events_cache';
 
@@ -1080,6 +1590,8 @@
 
         function showEvents(events) {
             allEvents = events;
+            eventsById = {};
+            events.forEach(ev => { eventsById[ev.id] = ev; });
             loadingState.style.display = 'none';
             eventList.style.display = 'block';
             buildChips();
@@ -1339,12 +1851,7 @@
                 let line = `<span class="artist">${esc(e.title)}</span>`;
                 line += ` <span class="venue">@ ${esc(e.venue || '')}</span>`;
                 const dateLine = `<div class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</div>`;
-
-                if (e.ticket_url) {
-                    presentsHtml += `<div class="presents-event"><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener"><span class="presents-badge">WYXR Presents</span>${line}</a>${dateLine}</div>`;
-                } else {
-                    presentsHtml += `<div class="presents-event"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div>`;
-                }
+                presentsHtml += `<div class="presents-event" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div>`;
             });
 
             const presentsSection = document.createElement('div');
@@ -1423,11 +1930,7 @@
                             let line = `<span class="artist">${esc(e.title)}</span> — `;
                             line += `<span class="venue">${esc(e.venue || '')}</span>`;
                             if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                            if (e.ticket_url) {
-                                pickItems += `<li class="featured event--featured"><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${line}</a></li>`;
-                            } else {
-                                pickItems += `<li class="featured event--featured">${line}</li>`;
-                            }
+                            pickItems += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${line}</li>`;
                         });
                         eventLines += `<li class="venue-group featured-group"><div class="featured-group-header"><span class="featured-badge">${label}</span></div><ul class="venue-artists">${pickItems}</ul></li>`;
                     }
@@ -1438,11 +1941,7 @@
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
                         const badge = '<span class="presents-badge">WYXR Presents</span> ';
-                        if (e.ticket_url) {
-                            eventLines += `<li class="featured event--featured"><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${badge}${line}</a></li>`;
-                        } else {
-                            eventLines += `<li class="featured event--featured">${badge}${line}</li>`;
-                        }
+                        eventLines += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${badge}${line}</li>`;
                     });
                 }
 
@@ -1466,12 +1965,7 @@
                         let line = `<span class="artist">${esc(e.title)}</span> — `;
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-
-                        if (e.ticket_url) {
-                            eventLines += `<li><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${line}</a></li>`;
-                        } else {
-                            eventLines += `<li>${line}</li>`;
-                        }
+                        eventLines += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${line}</li>`;
                     } else {
                         const venueName = events[0].venue || '';
                         const times = events.map(e => e.start_time);
@@ -1484,11 +1978,7 @@
                             if (!allSameTime && e.start_time) {
                                 artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
                             }
-                            if (e.ticket_url) {
-                                artistItems += `<li><a href="${esc(e.ticket_url)}" target="_blank" rel="noopener">${artistText}</a></li>`;
-                            } else {
-                                artistItems += `<li>${artistText}</li>`;
-                            }
+                            artistItems += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${artistText}</li>`;
                         });
 
                         let footer = `<span class="venue">${esc(venueName)}</span>`;
