@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-24T07:05:00.789036+00:00",
+  "run_timestamp": "2026-04-24T17:44:04.871919+00:00",
   "date_range": {
     "start": "2026-04-24",
     "end": "2026-05-01"
   },
-  "total_events_db": 1269,
-  "total_active_display": 161,
+  "total_events_db": 1274,
+  "total_active_display": 163,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -25,42 +25,42 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 32,
-      "events_filtered": 2,
+      "events_found": 74,
+      "events_after_filter": 64,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 32,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -73,39 +73,15 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 8,
-      "events_filtered": 98,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 68,
+      "events_found": 30,
       "events_after_filter": 30,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 159,
-      "events_after_filter": 19,
-      "events_filtered": 140,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 30,
       "events_after_filter": 29,
@@ -121,19 +97,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 8,
-      "events_filtered": 27,
+      "events_found": 67,
+      "events_after_filter": 30,
+      "events_filtered": 37,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 159,
+      "events_after_filter": 19,
+      "events_filtered": 140,
       "error": null
     },
     {
@@ -141,6 +125,14 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 74,
-      "events_after_filter": 64,
-      "events_filtered": 10,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 8,
+      "events_filtered": 27,
       "error": null
     },
     {
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 161,
+      "events_found": 163,
+      "events_after_filter": 163,
       "events_filtered": 0,
       "error": null
     }
@@ -620,6 +620,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-26",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Spring Fling Pop Up with Stacy Kiehl + Friends",
       "venue": "Bar DKDC",
       "date": "2026-04-26",
@@ -898,6 +905,13 @@
       "date": "2026-04-26",
       "time": "3 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-27",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
