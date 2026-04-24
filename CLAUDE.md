@@ -192,6 +192,48 @@ A single featured sponsor banner shown above the event list (below the filter ba
 ### Subscribe Modal
 Email signup (Mailchimp) was previously a full yellow banner. Now a compact "📧 Subscribe" button in the header opens a dark modal. Same Mailchimp iframe form + sessionStorage success state (`wyxr_signup_banner_success`). If already subscribed, button shows "✓ Subscribed" (disabled).
 
+## GA4 Analytics
+
+Measurement ID: **`G-9866JXK4ND`** (loaded via gtag.js in `<head>` of `docs/index.html`).
+
+All tracking calls go through a single helper in the page script:
+```javascript
+function trackEvent(name, params) {
+    if (typeof gtag === 'function') gtag('event', name, params);
+}
+```
+The `typeof gtag` guard prevents errors in local dev where the gtag script isn't loaded.
+
+### Custom Events & Parameters
+
+| Event name | Parameters | Fired when |
+|---|---|---|
+| `modal_open` | `event_id`, `event_title`, `venue`, `event_date` (YYYY-MM-DD), `has_ticket_url` (bool) | User opens an event detail modal |
+| `modal_close` | `event_id`, `close_method` ("x" / "esc" / "overlay") | User closes the modal |
+| `add_to_calendar` | `event_id`, `event_title`, `service` ("google" / "apple" / "outlook") | User clicks a calendar button |
+| `external_link_click` | `event_id`, `event_title`, `destination_url` | User clicks "Buy Tickets" |
+
+### GA4 Custom Dimensions (must be registered in GA4 Admin)
+
+These parameters are sent correctly by the code but are only visible in GA4 reports after being registered as **Event-scoped Custom Dimensions** in GA4 Admin → Data display → Custom definitions.
+
+| Dimension name | Event parameter | Used in |
+|---|---|---|
+| Event Title | `event_title` | `modal_open`, `add_to_calendar`, `external_link_click` |
+| Venue | `venue` | `modal_open` |
+| Event Date | `event_date` | `modal_open` |
+| Has Ticket URL | `has_ticket_url` | `modal_open` |
+| Close Method | `close_method` | `modal_close` |
+| Calendar Service | `service` | `add_to_calendar` |
+| Destination URL | `destination_url` | `external_link_click` |
+
+**Note:** The dropdown in GA4 Admin only shows parameters it has already indexed (24–48 hr delay). Type the parameter name directly into the field — it accepts free text even if not in the autocomplete list.
+
+### Verified behaviour (tested 2026-04-24)
+- All 38 distinct `start_time` formats in production parse correctly (0 failures), including narrow no-break space variants (`10:00 PM`) and range formats (`6:30 PM - 8:30 PM` → uses start time)
+- `event_title`, `venue`, and `event_date` are always populated (every event in the DB has these fields)
+- `has_ticket_url` is `true` for ~51% of events (74/144 in current dataset)
+
 ## Common Tasks
 
 ### Add a new venue
