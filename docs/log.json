@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-24T17:44:04.871919+00:00",
+  "run_timestamp": "2026-04-25T06:21:08.045990+00:00",
   "date_range": {
-    "start": "2026-04-24",
-    "end": "2026-05-01"
+    "start": "2026-04-25",
+    "end": "2026-05-02"
   },
-  "total_events_db": 1274,
-  "total_active_display": 163,
+  "total_events_db": 1281,
+  "total_active_display": 160,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -22,61 +22,29 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 74,
-      "events_after_filter": 64,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
-      "error": null
+      "error": "No artifacts/ folder found"
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
+      "events_found": 34,
+      "events_after_filter": 31,
+      "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +57,42 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 23,
+      "events_after_filter": 22,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 7,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 106,
+      "events_after_filter": 6,
+      "events_filtered": 100,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -105,27 +105,35 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 159,
-      "events_after_filter": 19,
-      "events_filtered": 140,
+      "events_after_filter": 18,
+      "events_filtered": 141,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 37,
+      "events_after_filter": 9,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -133,6 +141,14 @@
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -145,214 +161,23 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 8,
-      "events_filtered": 27,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 72,
+      "events_after_filter": 62,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 163,
-      "events_after_filter": 163,
+      "events_found": 160,
+      "events_after_filter": 160,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Jadewick + Dead Soldiers",
-      "venue": "Bar DKDC",
-      "date": "2026-04-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "San Salida, Coco & the Hitmen",
-      "venue": "Bar DKDC",
-      "date": "2026-04-24",
-      "time": "9 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Dexter and The Moonrocks",
-      "venue": "1884 Lounge",
-      "date": "2026-04-24",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brandon & TJ",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-24",
-      "time": "6:30 PM - 8:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rattlesnake Whip / R.E.C",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-24",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-24",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-24",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-24",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Belle Meade Social",
-      "date": "2026-04-24",
-      "time": "6:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-04-24",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lumen",
-      "venue": "Growlers",
-      "date": "2026-04-24",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Morrigan",
-      "venue": "Growlers",
-      "date": "2026-04-24",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mighty Flea Circus",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-04-24",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "School of Rock Adult Band [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Teachers Night Out [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Musicboxx",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-04-24",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "The Pinch",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-04-24",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Dogma",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-24",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Good Morning Midnight",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-24",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Good Morning Midnight, Mothcat, Internet Dating, Dogma",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-24",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Internet Dating",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-24",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mothcat",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-24",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Dexter and The Moonrocks",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Hope Clayburn's Soul Scrimmage",
-      "venue": "Nashoba",
-      "date": "2026-04-24",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "[POSTPONED] Michael Martin Murphey",
-      "venue": "Orpheum Theatre",
-      "date": "2026-04-24",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
     {
       "artist": "Goner Presents Tatsuya Nakatani w/ Art Edmaiston",
       "venue": "B-Side Memphis",
@@ -914,6 +739,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Voices and Verses",
+      "venue": "Flyway Brewing",
+      "date": "2026-04-27",
+      "time": "5 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-04-27",
@@ -1246,8 +1078,8 @@
       "artist": "David Lee Roth",
       "venue": "Graceland Soundstage",
       "date": "2026-05-01",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Mosh Madness at Growlers - Memphis, TN",
@@ -1276,6 +1108,20 @@
       "date": "2026-05-01",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Marcus King Band: Waltz Across Texas",
+      "venue": "Horseshoe Casino's Bluesville",
+      "date": "2026-05-01",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "The Marcus King Band Ticket + Hotel Deals",
+      "venue": "Horseshoe Casino's Bluesville",
+      "date": "2026-05-01",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Strawberry Basement Presents: Patty PerShayla + Tom Foolery",
@@ -1318,6 +1164,139 @@
       "date": "2026-05-01",
       "time": "8 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "David Lee Roth",
+      "venue": "Soundstage at Graceland",
+      "date": "2026-05-01",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Riverbeat Music Festival",
+      "venue": "Tom Lee Park",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Izzy Arthurs and Foxbody",
+      "venue": "Bar DKDC",
+      "date": "2026-05-02",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Paper Wings",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-02",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Marshall Tucker Band",
+      "venue": "EACC Fine Arts Center",
+      "date": "2026-05-02",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Harris & Fitz",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-02",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "brenn!",
+      "venue": "Growlers",
+      "date": "2026-05-02",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Hudson Ingram",
+      "venue": "Growlers",
+      "date": "2026-05-02",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-05-02",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "CJ Starnes",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-02",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Louis Berry at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-02",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Louis Berry w/ CJ Starnes at Hernando\u2019s Hide-A-Way \u2013 Memphis",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-02",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Moe Mitch / John Miller / Nathan Jaxon [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Moe Mitch / John Miller / Nathan Naxon [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Moe Mitch [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Monsterboy Lives",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-05-02",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "MusicBoXx",
+      "venue": "Nashoba",
+      "date": "2026-05-02",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Marshmello",
+      "venue": "Riverbeat Festival 2026",
+      "date": "2026-05-02",
+      "time": "7:00 PM",
+      "source": "artifact"
     }
   ]
 }
