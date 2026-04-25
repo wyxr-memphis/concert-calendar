@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-25T06:21:08.045990+00:00",
+  "run_timestamp": "2026-04-25T17:32:33.912446+00:00",
   "date_range": {
     "start": "2026-04-25",
     "end": "2026-05-02"
   },
-  "total_events_db": 1281,
-  "total_active_display": 160,
+  "total_events_db": 1284,
+  "total_active_display": 163,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -27,49 +27,25 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 34,
+      "events_found": 32,
       "events_after_filter": 31,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
+      "events_found": 22,
       "events_after_filter": 22,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -89,19 +65,27 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 67,
-      "events_after_filter": 30,
-      "events_filtered": 37,
       "error": null
     },
     {
@@ -113,11 +97,35 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 8,
+      "events_filtered": 27,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 67,
+      "events_after_filter": 30,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -129,26 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 9,
-      "events_filtered": 28,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 12,
       "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -169,10 +161,18 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 160,
-      "events_after_filter": 160,
+      "events_found": 163,
+      "events_after_filter": 163,
       "events_filtered": 0,
       "error": null
     }
@@ -732,6 +732,13 @@
       "source": "manual"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-27",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Jones",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-27",
@@ -779,6 +786,20 @@
       "date": "2026-04-28",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-28",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-28",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "University of Memphis Southern Comfort Jazz Orchestra and Jazz Singers",
