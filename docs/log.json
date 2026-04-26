@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-26T06:59:42.854125+00:00",
+  "run_timestamp": "2026-04-26T17:33:11.613157+00:00",
   "date_range": {
     "start": "2026-04-26",
     "end": "2026-05-03"
   },
-  "total_events_db": 1285,
-  "total_active_display": 135,
+  "total_events_db": 1289,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 21,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 29,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,27 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 106,
-      "events_after_filter": 4,
-      "events_filtered": 102,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -89,11 +65,67 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 61,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 0,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 28,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -105,19 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 28,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 37,
+      "events_after_filter": 9,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -145,34 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 61,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 9,
-      "events_filtered": 28,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 135,
-      "events_after_filter": 135,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
@@ -613,6 +613,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-29",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-29",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Juno Avent",
       "venue": "Blind Alley Bayou",
       "date": "2026-04-29",
@@ -716,6 +730,13 @@
       "date": "2026-04-30",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-30",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Ghost Town Blues Band",
