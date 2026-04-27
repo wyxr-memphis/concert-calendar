@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-27T18:01:52.801793+00:00",
+  "run_timestamp": "2026-04-27T20:34:19.858750+00:00",
   "date_range": {
     "start": "2026-04-27",
     "end": "2026-05-04"
   },
-  "total_events_db": 1296,
-  "total_active_display": 97,
+  "total_events_db": 1300,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -49,26 +41,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 68,
-      "events_after_filter": 58,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +57,43 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 28,
       "events_after_filter": 27,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,27 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 37,
       "events_after_filter": 9,
       "events_filtered": 28,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -153,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 14,
@@ -169,10 +145,34 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 68,
+      "events_after_filter": 58,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 97,
-      "events_after_filter": 97,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
@@ -205,6 +205,13 @@
       "date": "2026-04-27",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Drag hosted by Hunny & Juicy",
+      "venue": "Lamplighter",
+      "date": "2026-04-27",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Drag hosted by Hunny & Juicy",
@@ -275,6 +282,13 @@
       "date": "2026-04-28",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Writers in the Round",
+      "venue": "Lamplighter",
+      "date": "2026-04-28",
+      "time": "7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Writers in the Round",
@@ -397,6 +411,13 @@
     },
     {
       "artist": "Memphis Improv Alliance",
+      "venue": "Lamplighter",
+      "date": "2026-04-29",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Memphis Improv Alliance",
       "venue": "Lamplighter Lounge",
       "date": "2026-04-29",
       "time": null,
@@ -499,6 +520,13 @@
       "date": "2026-04-30",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Burlesque Karaoke",
+      "venue": "Lamplighter",
+      "date": "2026-04-30",
+      "time": "9:30 PM",
+      "source": "artifact"
     },
     {
       "artist": "Burlesque Karaoke",
@@ -632,6 +660,13 @@
       "date": "2026-05-01",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Strawberry Basement Presents: Patty PerShayla & Tom Foolery",
+      "venue": "Lamplighter",
+      "date": "2026-05-01",
+      "time": "9:30 PM",
+      "source": "artifact"
     },
     {
       "artist": "Strawberry Basement Presents: Patty PerShayla + Tom Foolery",
@@ -788,6 +823,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Benny Elbows Comedy: 'Click to Add Title'",
+      "venue": "Lamplighter",
+      "date": "2026-05-02",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-02",
@@ -842,6 +884,13 @@
       "date": "2026-05-03",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Kashjimer",
+      "venue": "Lamplighter",
+      "date": "2026-05-03",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Kashjimer Rock & Soul",
