@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-27T07:35:41.852519+00:00",
+  "run_timestamp": "2026-04-27T18:01:52.801793+00:00",
   "date_range": {
     "start": "2026-04-27",
     "end": "2026-05-04"
   },
-  "total_events_db": 1291,
-  "total_active_display": 94,
+  "total_events_db": 1296,
+  "total_active_display": 97,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -35,9 +35,41 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
+      "events_found": 21,
       "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 28,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 68,
+      "events_after_filter": 58,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,27 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
-      "events_filtered": 2,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -89,27 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
+    },
+    {
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 159,
-      "events_after_filter": 17,
-      "events_filtered": 142,
+      "events_found": 37,
+      "events_after_filter": 9,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -117,22 +125,6 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 1,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -145,23 +137,7 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 68,
-      "events_after_filter": 58,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 9,
-      "events_filtered": 28,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -169,10 +145,34 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 1,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 97,
+      "events_after_filter": 97,
       "events_filtered": 0,
       "error": null
     }
@@ -424,6 +424,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Ashton Ryker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-04-30",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-04-30",
@@ -527,6 +534,20 @@
       "date": "2026-05-01",
       "time": null,
       "source": "manual"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-01",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-01",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Marcus King",
