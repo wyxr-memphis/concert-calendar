@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-27T20:34:19.858750+00:00",
+  "run_timestamp": "2026-04-28T07:32:45.577525+00:00",
   "date_range": {
-    "start": "2026-04-27",
-    "end": "2026-05-04"
+    "start": "2026-04-28",
+    "end": "2026-05-05"
   },
-  "total_events_db": 1300,
-  "total_active_display": 104,
+  "total_events_db": 1311,
+  "total_active_display": 109,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
-      "events_filtered": 1,
+      "events_found": 67,
+      "events_after_filter": 57,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -46,22 +38,6 @@
       "events_found": 21,
       "events_after_filter": 21,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 27,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,18 +57,34 @@
       "error": "Parse error: 'str' object has no attribute 'get'"
     },
     {
-      "name": "Venue: Nashoba",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
+      "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -105,42 +97,34 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 9,
-      "events_filtered": 28,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
       "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
     },
     {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 1,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -153,73 +137,47 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 68,
-      "events_after_filter": 58,
-      "events_filtered": 10,
+      "events_found": 37,
+      "events_after_filter": 8,
+      "events_filtered": 29,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 1,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 104,
+      "events_found": 109,
+      "events_after_filter": 109,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-27",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-27",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Voices and Verses",
-      "venue": "Flyway Brewing",
-      "date": "2026-04-27",
-      "time": "5 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-27",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Drag hosted by Hunny & Juicy",
-      "venue": "Lamplighter",
-      "date": "2026-04-27",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Drag hosted by Hunny & Juicy",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-27",
-      "time": null,
-      "source": "artifact"
-    },
     {
       "artist": "Suffocation",
       "venue": "1884 Lounge",
@@ -285,7 +243,7 @@
     },
     {
       "artist": "Writers in the Round",
-      "venue": "Lamplighter",
+      "venue": "Lamplighter Lounge",
       "date": "2026-04-28",
       "time": "7 PM",
       "source": "artifact"
@@ -411,7 +369,7 @@
     },
     {
       "artist": "Memphis Improv Alliance",
-      "venue": "Lamplighter",
+      "venue": "Lamplighter Lounge",
       "date": "2026-04-29",
       "time": null,
       "source": "artifact"
@@ -523,7 +481,7 @@
     },
     {
       "artist": "Burlesque Karaoke",
-      "venue": "Lamplighter",
+      "venue": "Lamplighter Lounge",
       "date": "2026-04-30",
       "time": "9:30 PM",
       "source": "artifact"
@@ -562,6 +520,13 @@
       "date": "2026-05-01",
       "time": null,
       "source": "manual"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-01",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Jason Foree Band",
@@ -663,7 +628,7 @@
     },
     {
       "artist": "Strawberry Basement Presents: Patty PerShayla & Tom Foolery",
-      "venue": "Lamplighter",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-01",
       "time": "9:30 PM",
       "source": "artifact"
@@ -723,6 +688,13 @@
       "date": "2026-05-02",
       "time": null,
       "source": "manual"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-02",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Izzy Arthurs and Foxbody",
@@ -823,14 +795,14 @@
       "source": "artifact"
     },
     {
-      "artist": "Benny Elbows Comedy: 'Click to Add Title'",
-      "venue": "Lamplighter",
+      "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-02",
       "time": null,
       "source": "artifact"
     },
     {
-      "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
+      "artist": "Benny Elbows Comedy: 'Click to Add Title'",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-02",
       "time": null,
@@ -887,7 +859,7 @@
     },
     {
       "artist": "Kashjimer",
-      "venue": "Lamplighter",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-03",
       "time": null,
       "source": "artifact"
@@ -904,6 +876,69 @@
       "venue": "Loflin Yard",
       "date": "2026-05-03",
       "time": "12:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DJ Brilli(ianaire)",
+      "venue": "Swamp Bar",
+      "date": "2026-05-05",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Cinco de Science",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-05",
+      "time": "5 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Blues Traveler",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-05",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Kissing Candice",
+      "venue": "Growlers",
+      "date": "2026-05-05",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Primer 55",
+      "venue": "Growlers",
+      "date": "2026-05-05",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Spineshank",
+      "venue": "Growlers",
+      "date": "2026-05-05",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-05",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Trivia Night",
+      "venue": "Nashoba",
+      "date": "2026-05-05",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "DJ BRILL(IANAIRE)",
+      "venue": "Swamp Bar",
+      "date": "2026-05-05",
+      "time": null,
       "source": "artifact"
     }
   ]
