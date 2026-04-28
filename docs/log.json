@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-28T07:32:45.577525+00:00",
+  "run_timestamp": "2026-04-28T18:13:36.832398+00:00",
   "date_range": {
     "start": "2026-04-28",
     "end": "2026-05-05"
   },
-  "total_events_db": 1311,
-  "total_active_display": 109,
+  "total_events_db": 1316,
+  "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,43 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 57,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
-      "events_filtered": 1,
+      "events_after_filter": 8,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -69,14 +45,6 @@
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -89,26 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 0,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -118,21 +86,37 @@
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://nashoba.live/event-calendar/"
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -145,19 +129,27 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
       "events_after_filter": 1,
       "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -169,10 +161,18 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 67,
+      "events_after_filter": 57,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 109,
-      "events_after_filter": 109,
+      "events_found": 110,
+      "events_after_filter": 110,
       "events_filtered": 0,
       "error": null
     }
@@ -515,6 +515,13 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Caitlin Cannon and Stacy Antonel Live",
+      "venue": "South Main Sounds",
+      "date": "2026-04-30",
+      "time": "7:00PM",
+      "source": "scraper:south_main_sounds"
+    },
+    {
       "artist": "Riverbeat Music Festival",
       "venue": "Tom Lee Park",
       "date": "2026-05-01",
@@ -634,7 +641,7 @@
       "source": "artifact"
     },
     {
-      "artist": "Strawberry Basement Presents: Patty PerShayla + Tom Foolery",
+      "artist": "Strawberry Basement Presents: Patty PerShayla & Tom Foolery",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-01",
       "time": "9:30 PM",
