@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-29T18:08:15.132857+00:00",
+  "run_timestamp": "2026-04-29T21:20:07.600460+00:00",
   "date_range": {
     "start": "2026-04-29",
     "end": "2026-05-06"
   },
-  "total_events_db": 1349,
-  "total_active_display": 111,
+  "total_events_db": 1367,
+  "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 55,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -41,14 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 133,
-      "events_after_filter": 30,
-      "events_filtered": 103,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -57,10 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 40,
+      "events_after_filter": 40,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -81,10 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -97,19 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
       "error": null
     },
     {
@@ -117,6 +125,22 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 8,
+      "events_filtered": 29,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -129,14 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 9,
-      "events_filtered": 29,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
@@ -145,34 +161,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 65,
-      "events_after_filter": 55,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 133,
+      "events_after_filter": 30,
+      "events_filtered": 103,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 111,
-      "events_after_filter": 111,
+      "events_found": 116,
+      "events_after_filter": 116,
       "events_filtered": 0,
       "error": null
     }
@@ -331,6 +331,20 @@
       "date": "2026-04-30",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Mike Hurtt from The Haunted Hearts",
+      "venue": "Bar DKDC",
+      "date": "2026-04-30",
+      "time": "Doors @ 7",
+      "source": "artifact"
+    },
+    {
+      "artist": "Tennessee Screamers",
+      "venue": "Bar DKDC",
+      "date": "2026-04-30",
+      "time": "Doors @ 7",
+      "source": "artifact"
     },
     {
       "artist": "Ghost Town Blues Band",
@@ -858,6 +872,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-04",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "DJ Brilli(ianaire)",
       "venue": "Swamp Bar",
       "date": "2026-05-05",
@@ -914,6 +935,13 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-05",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "Blues Traveler",
       "venue": "Soundstage at Graceland",
       "date": "2026-05-05",
@@ -954,6 +982,13 @@
       "date": "2026-05-06",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Pilates in the Park",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-06",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
