@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-04-28T18:13:36.832398+00:00",
+  "run_timestamp": "2026-04-29T07:25:43.907729+00:00",
   "date_range": {
-    "start": "2026-04-28",
-    "end": "2026-05-05"
+    "start": "2026-04-29",
+    "end": "2026-05-06"
   },
-  "total_events_db": 1316,
-  "total_active_display": 110,
+  "total_events_db": 1320,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 55,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 32,
-      "events_after_filter": 31,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -57,50 +73,26 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://nashoba.live/event-calendar/"
     },
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 13,
       "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,27 +105,43 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: 'str' object has no attribute 'get'"
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 64,
+      "events_after_filter": 27,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 8,
+      "events_found": 38,
+      "events_after_filter": 9,
       "events_filtered": 29,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 1,
-      "events_filtered": 12,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,123 +153,31 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 27,
-      "events_filtered": 37,
+      "events_found": 13,
+      "events_after_filter": 0,
+      "events_filtered": 13,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 67,
-      "events_after_filter": 57,
-      "events_filtered": 10,
-      "error": null
+      "error": "Parse error: 'str' object has no attribute 'get'"
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Suffocation",
-      "venue": "1884 Lounge",
-      "date": "2026-04-28",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "J. Killen / LJ Cates",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-28",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Parallax",
-      "venue": "B-Side Memphis",
-      "date": "2026-04-28",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-28",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-04-28",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "University of Memphis Southern Comfort Jazz Orchestra and Jazz Singers",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-28",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "University of Memphis Southern Comfort Jazz Orchestra and Jazz Singers + opener The Central High School Jazz Band",
-      "venue": "Crosstown Arts",
-      "date": "2026-04-28",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-04-28",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-04-28",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Writers in the Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-28",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Writers in the Round",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-04-28",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Suffocation",
-      "venue": "Minglewood Hall",
-      "date": "2026-04-28",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
     {
       "artist": "Slack Dawson",
       "venue": "Swamp Bar",
@@ -903,8 +819,8 @@
       "artist": "Blues Traveler",
       "venue": "Graceland Soundstage",
       "date": "2026-05-05",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Kissing Candice",
@@ -942,11 +858,46 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Blues Traveler",
+      "venue": "Soundstage at Graceland",
+      "date": "2026-05-05",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "DJ BRILL(IANAIRE)",
       "venue": "Swamp Bar",
       "date": "2026-05-05",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Open Mic: Hosted by Kenny Morningstar",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-06",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Lorna Shore",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-06",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-06",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-06",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
     }
   ]
 }
