@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-04-29T07:25:43.907729+00:00",
+  "run_timestamp": "2026-04-29T18:08:15.132857+00:00",
   "date_range": {
     "start": "2026-04-29",
     "end": "2026-05-06"
   },
-  "total_events_db": 1320,
-  "total_active_display": 103,
+  "total_events_db": 1349,
+  "total_active_display": 111,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,42 +25,34 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 55,
-      "events_filtered": 10,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 32,
+      "events_found": 31,
       "events_after_filter": 30,
-      "events_filtered": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 133,
+      "events_after_filter": 30,
+      "events_filtered": 103,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -81,22 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
@@ -105,12 +81,28 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 159,
+      "events_after_filter": 17,
+      "events_filtered": 142,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
@@ -121,10 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -137,22 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 13,
@@ -161,18 +145,34 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
       "events_filtered": 0,
-      "error": "Parse error: 'str' object has no attribute 'get'"
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 55,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 111,
+      "events_after_filter": 111,
       "events_filtered": 0,
       "error": null
     }
@@ -550,6 +550,20 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Almost Elton John",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-01",
+      "time": "7 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Bruce Kee Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-01",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
       "artist": "Strawberry Basement Presents: Patty PerShayla & Tom Foolery",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-01",
@@ -613,10 +627,24 @@
       "source": "manual"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-02",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-02",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-02",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -718,6 +746,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Aquanet",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-02",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Sarah Spain and the Nightshades",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-02",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
       "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-02",
@@ -779,6 +821,20 @@
       "date": "2026-05-03",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Back in Time: Huey Lewis & The News Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-03",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "DJ Ron",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-03",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Kashjimer",
