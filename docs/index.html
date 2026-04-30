@@ -623,11 +623,28 @@
             border-radius: 4px;
             margin: 0 auto;
         }
+        @media (min-width: 768px) {
+            .cal-sponsor-img {
+                max-width: 460px;
+            }
+        }
         .cal-sponsor-copy {
             margin-top: 6px;
             font-size: 0.8em;
             color: var(--wyxr-dim);
             font-style: italic;
+        }
+        .cal-sponsor-inquiry {
+            margin-top: 8px;
+            font-size: 0.7rem;
+            color: var(--wyxr-gray);
+        }
+        .cal-sponsor-inquiry a {
+            color: var(--wyxr-gray);
+            text-decoration: underline;
+        }
+        .cal-sponsor-inquiry a:hover {
+            color: var(--wyxr-yellow);
         }
 
         /* Submit Event Button */
@@ -951,11 +968,12 @@
 
     <!-- Calendar Sponsor Banner -->
     <div id="calendarSponsorBanner" style="display:none;">
-        <span class="cal-sponsor-label">Presented by</span>
+        <span class="cal-sponsor-label">This month's concert calendar presented by</span>
         <a id="calSponsorLink" href="#" target="_blank" rel="noopener sponsored">
             <img id="calSponsorImg" src="" alt="" class="cal-sponsor-img" loading="eager">
         </a>
         <p id="calSponsorCopy" class="cal-sponsor-copy"></p>
+        <p class="cal-sponsor-inquiry">Interested in sponsoring the concert calendar? <a href="mailto:sponsorships@wyxr.org">sponsorships@wyxr.org</a></p>
     </div>
 
     <div class="loading-state" id="loadingState">Loading events...</div>
