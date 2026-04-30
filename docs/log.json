@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-04-30T07:29:35.792694+00:00",
+  "run_timestamp": "2026-04-30T14:28:11.564529+00:00",
   "date_range": {
     "start": "2026-04-30",
     "end": "2026-05-07"
   },
-  "total_events_db": 1373,
+  "total_events_db": 1374,
   "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
@@ -33,11 +33,27 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 133,
+      "events_after_filter": 30,
+      "events_filtered": 103,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,31 +65,31 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -89,50 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 159,
-      "events_after_filter": 17,
-      "events_filtered": 142,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 133,
-      "events_after_filter": 30,
-      "events_filtered": 103,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 8,
-      "events_filtered": 30,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 13,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -153,19 +129,43 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 8,
+      "events_filtered": 30,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 159,
+      "events_after_filter": 17,
+      "events_filtered": 142,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 65,
       "events_after_filter": 56,
       "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
