@@ -968,7 +968,7 @@
 
     <!-- Calendar Sponsor Banner -->
     <div id="calendarSponsorBanner" style="display:none;">
-        <span class="cal-sponsor-label">This month's concert calendar presented by</span>
+        <span class="cal-sponsor-label" id="calSponsorLabel">Concert calendar presented by</span>
         <a id="calSponsorLink" href="#" target="_blank" rel="noopener sponsored">
             <img id="calSponsorImg" src="" alt="" class="cal-sponsor-img" loading="eager">
         </a>
@@ -1585,6 +1585,11 @@
             if (!calendarSponsor) {
                 banner.style.display = 'none';
                 return;
+            }
+            const label = document.getElementById('calSponsorLabel');
+            if (label) {
+                const monthName = new Date().toLocaleString('en-US', { month: 'long', timeZone: 'America/Chicago' });
+                label.textContent = `The ${monthName} concert calendar is presented by:`;
             }
             const link = document.getElementById('calSponsorLink');
             const img = document.getElementById('calSponsorImg');
