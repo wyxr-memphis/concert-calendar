@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-04-30T00:18:46.657311+00:00",
+  "run_timestamp": "2026-04-30T07:29:35.792694+00:00",
   "date_range": {
     "start": "2026-04-30",
     "end": "2026-05-07"
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 56,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,11 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_found": 39,
+      "events_after_filter": 39,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,22 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
@@ -89,23 +65,15 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 133,
-      "events_after_filter": 30,
-      "events_filtered": 103,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -129,19 +97,35 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 133,
+      "events_after_filter": 30,
+      "events_filtered": 103,
       "error": null
     },
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 4,
+      "events_found": 0,
       "events_after_filter": 0,
-      "events_filtered": 4,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 8,
+      "events_filtered": 30,
       "error": null
     },
     {
@@ -149,6 +133,14 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 8,
-      "events_filtered": 30,
+      "events_found": 65,
+      "events_after_filter": 56,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
