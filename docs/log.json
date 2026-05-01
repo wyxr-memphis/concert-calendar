@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-01T07:27:05.203560+00:00",
+  "run_timestamp": "2026-05-01T17:52:59.482151+00:00",
   "date_range": {
     "start": "2026-05-01",
     "end": "2026-05-08"
   },
-  "total_events_db": 1396,
+  "total_events_db": 1411,
   "total_active_display": 125,
   "data_store": "postgresql",
   "sources": [
@@ -35,9 +35,9 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
+      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,27 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 38,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
+      "events_found": 66,
+      "events_after_filter": 57,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -89,6 +73,14 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 173,
+      "events_after_filter": 30,
+      "events_filtered": 143,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
@@ -97,11 +89,51 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 159,
-      "events_after_filter": 16,
-      "events_filtered": 143,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 7,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -113,14 +145,6 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
@@ -129,35 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 57,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 133,
       "events_after_filter": 29,
       "events_filtered": 104,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 8,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
