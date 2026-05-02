@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-02T07:02:14.266599+00:00",
+  "run_timestamp": "2026-05-02T17:38:49.856374+00:00",
   "date_range": {
     "start": "2026-05-02",
     "end": "2026-05-09"
@@ -35,16 +35,8 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
+      "events_found": 21,
       "events_after_filter": 21,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -54,6 +46,14 @@
       "events_found": 10,
       "events_after_filter": 7,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -67,9 +67,17 @@
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 13,
+      "events_found": 12,
       "events_after_filter": 12,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 133,
+      "events_after_filter": 27,
+      "events_filtered": 106,
       "error": null
     },
     {
@@ -83,17 +91,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 64,
+      "events_found": 63,
       "events_after_filter": 26,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 133,
-      "events_after_filter": 27,
-      "events_filtered": 106,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -110,6 +110,22 @@
       "events_found": 30,
       "events_after_filter": 30,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 7,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -137,27 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 67,
       "events_after_filter": 58,
       "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 7,
-      "events_filtered": 14,
       "error": null
     },
     {
@@ -326,7 +326,7 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
-      "artist": "Benny Elbows Comedy: \"Click to Add Title\"",
+      "artist": "Benny Elbows Comedy: 'Click to Add Title'",
       "venue": "Lamplighter Lounge",
       "date": "2026-05-02",
       "time": null,
