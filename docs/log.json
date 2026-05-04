@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-04T07:48:59.492523+00:00",
+  "run_timestamp": "2026-05-04T18:10:20.529253+00:00",
   "date_range": {
     "start": "2026-05-04",
     "end": "2026-05-11"
   },
-  "total_events_db": 1447,
-  "total_active_display": 116,
+  "total_events_db": 1454,
+  "total_active_display": 119,
   "data_store": "postgresql",
   "sources": [
     {
@@ -36,8 +36,24 @@
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 133,
+      "events_after_filter": 23,
+      "events_filtered": 110,
       "error": null
     },
     {
@@ -51,25 +67,9 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 19,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 133,
-      "events_after_filter": 23,
-      "events_filtered": 110,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,27 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 26,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 173,
-      "events_after_filter": 28,
-      "events_filtered": 145,
       "error": null
     },
     {
@@ -113,27 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 6,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 26,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -141,6 +109,22 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 173,
+      "events_after_filter": 28,
+      "events_filtered": 145,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +137,27 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 65,
       "events_after_filter": 56,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 116,
-      "events_after_filter": 116,
+      "events_found": 119,
+      "events_after_filter": 119,
       "events_filtered": 0,
       "error": null
     }
@@ -396,6 +396,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-07",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-07",
@@ -527,6 +534,20 @@
       "date": "2026-05-08",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-08",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-08",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "6-9pm Miz Stefani",
