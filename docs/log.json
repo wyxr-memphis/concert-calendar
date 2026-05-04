@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-04T18:10:20.529253+00:00",
+  "run_timestamp": "2026-05-04T18:42:32.284003+00:00",
   "date_range": {
     "start": "2026-05-04",
     "end": "2026-05-11"
   },
-  "total_events_db": 1454,
+  "total_events_db": 1456,
   "total_active_display": 119,
   "data_store": "postgresql",
   "sources": [
@@ -41,22 +41,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 133,
-      "events_after_filter": 23,
-      "events_filtered": 110,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 38,
@@ -73,11 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
+      "events_found": 133,
+      "events_after_filter": 23,
+      "events_filtered": 110,
       "error": null
     },
     {
@@ -89,26 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 0,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 26,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 12,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -129,11 +97,35 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 0,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 26,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 6,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -145,18 +137,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 65,
-      "events_after_filter": 56,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 11,
       "events_filtered": 0,
       "error": null
     },
@@ -167,6 +159,14 @@
       "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='hitonecafe.com', port=443): Read timed out."
     },
     {
       "name": "Database",
