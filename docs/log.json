@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-05T14:10:24.245536+00:00",
+  "run_timestamp": "2026-05-05T18:06:10.541711+00:00",
   "date_range": {
     "start": "2026-05-05",
     "end": "2026-05-12"
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,35 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 57,
-      "events_filtered": 9,
+      "events_found": 32,
+      "events_after_filter": 30,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -77,14 +53,6 @@
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +65,51 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 134,
+      "events_after_filter": 24,
+      "events_filtered": 110,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 63,
       "events_after_filter": 26,
       "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 0,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -113,27 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 6,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 13,
       "events_after_filter": 13,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 0,
-      "events_filtered": 15,
       "error": null
     },
     {
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 134,
-      "events_after_filter": 24,
-      "events_filtered": 110,
+      "events_found": 21,
+      "events_after_filter": 6,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 66,
+      "events_after_filter": 57,
+      "events_filtered": 9,
       "error": null
     },
     {
