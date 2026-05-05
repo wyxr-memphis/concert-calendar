@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-04T18:42:32.284003+00:00",
+  "run_timestamp": "2026-05-05T07:19:46.673059+00:00",
   "date_range": {
-    "start": "2026-05-04",
-    "end": "2026-05-11"
+    "start": "2026-05-05",
+    "end": "2026-05-12"
   },
-  "total_events_db": 1456,
-  "total_active_display": 119,
+  "total_events_db": 1461,
+  "total_active_display": 135,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,35 +33,43 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 8,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 133,
-      "events_after_filter": 23,
-      "events_filtered": 110,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,27 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 173,
-      "events_after_filter": 28,
-      "events_filtered": 145,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 26,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -113,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 26,
-      "events_filtered": 37,
+      "events_found": 173,
+      "events_after_filter": 28,
+      "events_filtered": 145,
       "error": null
     },
     {
@@ -126,6 +118,14 @@
       "events_found": 21,
       "events_after_filter": 6,
       "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,59 +153,31 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 66,
+      "events_after_filter": 57,
+      "events_filtered": 9,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='hitonecafe.com', port=443): Read timed out."
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 134,
+      "events_after_filter": 24,
+      "events_filtered": 110,
+      "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 119,
-      "events_after_filter": 119,
+      "events_found": 135,
+      "events_after_filter": 135,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-04",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-04",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Terrain & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-05-04",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "DJ Brilli(ianaire)",
       "venue": "Swamp Bar",
@@ -452,6 +424,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-07",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Scott Sudbury Acoustic",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-07",
@@ -522,11 +501,11 @@
       "source": "scraper:overton_park_shell"
     },
     {
-      "artist": "Black Marble / Recent Future [Big Room-Upstairs]",
+      "artist": "Black Marble / General Labor / Recent Future [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-05-08",
       "time": null,
-      "source": "scraper:hi_tone"
+      "source": "manual"
     },
     {
       "artist": "A Foreigners Journey To Boston",
@@ -690,18 +669,25 @@
       "source": "artifact"
     },
     {
-      "artist": "Deerfrance, Lorette Velvette, and Bryan Hartley Industries",
-      "venue": "Studio 688",
-      "date": "2026-05-09",
-      "time": "4:30 PM",
-      "source": "manual"
-    },
-    {
       "artist": "Night Mover (Alix Brown & James Matthew Seven) with DJ Livin & DJ Rhinestonee",
       "venue": "Bar DKDC",
       "date": "2026-05-09",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Zo\u00eb Dominguez",
+      "venue": "Growlers",
+      "date": "2026-05-09",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Deerfrance, Lorette Velvette, and Bryan Hartley Industries",
+      "venue": "Studio 688",
+      "date": "2026-05-09",
+      "time": "4:30 PM",
+      "source": "manual"
     },
     {
       "artist": "Matt Heartbreak Hill",
@@ -750,13 +736,6 @@
       "venue": "Growlers",
       "date": "2026-05-09",
       "time": "2:30PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Zo\u00eb Dominguez",
-      "venue": "Growlers",
-      "date": "2026-05-09",
-      "time": "8:00PM",
       "source": "scraper:growlers"
     },
     {
@@ -886,6 +865,13 @@
       "source": "scraper:crosstown_brewing_co"
     },
     {
+      "artist": "Midgets With Attitude Extreme Tour at Growlers - Memphis",
+      "venue": "Growlers",
+      "date": "2026-05-10",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "Magnum Dopus",
       "venue": "Havenhaus",
       "date": "2026-05-10",
@@ -970,6 +956,13 @@
       "source": "scraper:huey_s"
     },
     {
+      "artist": "Keelyn Ellis",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-10",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
       "artist": "Landslide: A Tribute to the Music of Fleetwood Mac",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-10",
@@ -1010,6 +1003,125 @@
       "date": "2026-05-11",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "The Drowns",
+      "venue": "1884 Lounge",
+      "date": "2026-05-12",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Henry Conerway III",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-12",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-05-12",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Matthew Wilson",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-12",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Memphis Streamer Meetup",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-12",
+      "time": "5:30 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Doomsday",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Roman Candle",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "SpiritWorld",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "SpiritWorld & Terminal Nation at Hernando\u2019s Hide-A-Way",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "SpiritWorld @ Hernandos Hide-A-Way",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "SpiritWorld w/ Roman Candle, Doomsday @ Hernandos Hide-A-Way",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-12",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-12",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "entheos",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-12",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mauled",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Casualties",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Casualties: Detonate Tour",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-12",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Whitechapel",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-12",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
