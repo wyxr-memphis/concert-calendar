@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-05T07:19:46.673059+00:00",
+  "run_timestamp": "2026-05-05T14:10:24.245536+00:00",
   "date_range": {
     "start": "2026-05-05",
     "end": "2026-05-12"
   },
-  "total_events_db": 1461,
-  "total_active_display": 135,
+  "total_events_db": 1464,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
@@ -44,8 +44,8 @@
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,14 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
@@ -73,10 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 66,
+      "events_after_filter": 57,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -89,19 +89,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 63,
       "events_after_filter": 26,
       "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 0,
-      "events_filtered": 15,
       "error": null
     },
     {
@@ -121,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 13,
       "events_after_filter": 13,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 0,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -145,19 +145,19 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 11,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 57,
-      "events_filtered": 9,
       "error": null
     },
     {
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 135,
-      "events_after_filter": 135,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
@@ -515,6 +515,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-08",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-08",
@@ -527,6 +534,13 @@
       "date": "2026-05-08",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "DJ Odyssey, Frank Marcel, DJ Strooly, DJ Brilli, DJ Larry",
+      "venue": "Bar DKDC",
+      "date": "2026-05-08",
+      "time": "9 PM",
+      "source": "artifact"
     },
     {
       "artist": "6-9pm Miz Stefani",
@@ -688,6 +702,13 @@
       "date": "2026-05-09",
       "time": "4:30 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-09",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Matt Heartbreak Hill",
