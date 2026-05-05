@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-05T18:06:10.541711+00:00",
+  "run_timestamp": "2026-05-05T22:11:56.477726+00:00",
   "date_range": {
     "start": "2026-05-05",
     "end": "2026-05-12"
   },
-  "total_events_db": 1464,
-  "total_active_display": 138,
+  "total_events_db": 1512,
+  "total_active_display": 141,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,6 +33,14 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 3,
@@ -49,18 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -70,14 +78,6 @@
       "events_found": 134,
       "events_after_filter": 24,
       "events_filtered": 110,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,10 +121,26 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 6,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 45,
+      "events_after_filter": 45,
       "events_filtered": 0,
       "error": null
     },
@@ -137,27 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 11,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 6,
-      "events_filtered": 15,
       "error": null
     },
     {
@@ -171,8 +171,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 138,
-      "events_after_filter": 138,
+      "events_found": 141,
+      "events_after_filter": 141,
       "events_filtered": 0,
       "error": null
     }
@@ -382,6 +382,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Jack Oblivian Band with DJ Alix Brown + James Matthew Seven",
+      "venue": "Bar DKDC",
+      "date": "2026-05-07",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Concerts in The Grove: Mark Edgar Stuart",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-05-07",
@@ -540,6 +547,13 @@
       "venue": "Bar DKDC",
       "date": "2026-05-08",
       "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DJ's Brilli, Frank Marcel, Larry, Oddyssey + Strooly",
+      "venue": "Bar DKDC",
+      "date": "2026-05-08",
+      "time": null,
       "source": "artifact"
     },
     {
@@ -1002,6 +1016,13 @@
       "venue": "1884 Lounge",
       "date": "2026-05-11",
       "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Like Really Creative Muse: The Fool",
+      "venue": "Bar DKDC",
+      "date": "2026-05-11",
+      "time": null,
       "source": "artifact"
     },
     {
