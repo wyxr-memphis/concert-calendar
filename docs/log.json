@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-05-05T22:11:56.477726+00:00",
+  "run_timestamp": "2026-05-06T07:36:45.441158+00:00",
   "date_range": {
-    "start": "2026-05-05",
-    "end": "2026-05-12"
+    "start": "2026-05-06",
+    "end": "2026-05-13"
   },
-  "total_events_db": 1512,
-  "total_active_display": 141,
+  "total_events_db": 1519,
+  "total_active_display": 152,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -57,27 +49,27 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 56,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 134,
-      "events_after_filter": 24,
-      "events_filtered": 110,
       "error": null
     },
     {
@@ -91,8 +83,40 @@
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 11,
+      "events_after_filter": 11,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 174,
+      "events_after_filter": 28,
+      "events_filtered": 146,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 0,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -105,35 +129,27 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 0,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 173,
-      "events_after_filter": 28,
-      "events_filtered": 145,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 21,
-      "events_after_filter": 6,
-      "events_filtered": 15,
+      "events_after_filter": 5,
+      "events_filtered": 16,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 11,
+      "events_after_filter": 10,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,137 +161,23 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 57,
-      "events_filtered": 9,
+      "events_found": 134,
+      "events_after_filter": 24,
+      "events_filtered": 110,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 141,
-      "events_after_filter": 141,
+      "events_found": 152,
+      "events_after_filter": 152,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DJ Brilli(ianaire)",
-      "venue": "Swamp Bar",
-      "date": "2026-05-05",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-05",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-05",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-05-05",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Cinco de Science",
-      "venue": "Flyway Brewing",
-      "date": "2026-05-05",
-      "time": "5 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Blues Traveler",
-      "venue": "Graceland Soundstage",
-      "date": "2026-05-05",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Kissing Candice",
-      "venue": "Growlers",
-      "date": "2026-05-05",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Primer 55",
-      "venue": "Growlers",
-      "date": "2026-05-05",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Spineshank",
-      "venue": "Growlers",
-      "date": "2026-05-05",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-05",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Trivia Night",
-      "venue": "Nashoba",
-      "date": "2026-05-05",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-05-05",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Blues Traveler",
-      "venue": "Soundstage at Graceland",
-      "date": "2026-05-05",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "DJ BRILL(IANAIRE)",
-      "venue": "Swamp Bar",
-      "date": "2026-05-05",
-      "time": null,
-      "source": "artifact"
-    },
     {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
@@ -296,6 +198,20 @@
       "date": "2026-05-06",
       "time": "7:30 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Lorna Shore",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-06",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Lorna Shore",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-06",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Lorna Shore",
@@ -359,13 +275,6 @@
       "date": "2026-05-06",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Lorna Shore",
-      "venue": "Soundstage at Graceland",
-      "date": "2026-05-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Ashton Riker & The Memphis Royals",
@@ -718,10 +627,24 @@
       "source": "manual"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-09",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-09",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-09",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -730,6 +653,13 @@
       "date": "2026-05-09",
       "time": "9:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Flyway Record Swap and Shop",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-09",
+      "time": "11 AM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Hollerhead",
@@ -758,6 +688,20 @@
       "date": "2026-05-09",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Jason Bonham's Led Zeppelin Evening",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Jason Bonham's Led Zeppelin Evening",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Jason Bonham's Led Zeppelin Evening",
@@ -851,6 +795,13 @@
       "source": "scraper:minglewood_hall"
     },
     {
+      "artist": "Memphis Jazz School - End of Year Show",
+      "venue": "Nashoba",
+      "date": "2026-05-09",
+      "time": "1 PM",
+      "source": "scraper:nashoba"
+    },
+    {
       "artist": "Radio City",
       "venue": "Nashoba",
       "date": "2026-05-09",
@@ -870,13 +821,6 @@
       "date": "2026-05-09",
       "time": "7:30 PM",
       "source": "artifact"
-    },
-    {
-      "artist": "Jason Bonham's Led Zeppelin Evening",
-      "venue": "Soundstage at Graceland",
-      "date": "2026-05-09",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Brit Floyd - The Pink Floyd Tribute Show",
@@ -1001,7 +945,7 @@
       "artist": "Landslide: A Tribute to the Music of Fleetwood Mac",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-10",
-      "time": "6 PM",
+      "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
     },
     {
@@ -1162,8 +1106,141 @@
       "artist": "Whitechapel",
       "venue": "Minglewood Hall",
       "date": "2026-05-12",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Tom Skeemask 2 Wild For The World",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-05-13",
+      "time": "6 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "DJ Larry",
+      "venue": "Swamp Bar",
+      "date": "2026-05-13",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Make Them Suffer",
+      "venue": "1884 Lounge",
+      "date": "2026-05-13",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Not Enough Space",
+      "venue": "1884 Lounge",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Delta Ondine's Blues & Brews Bash",
+      "venue": "Flyway Brewing",
+      "date": "2026-05-13",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Marilyn Manson",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "VOWWS",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Dead Poet Society",
+      "venue": "Growlers",
+      "date": "2026-05-13",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-05-13",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-13",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-13",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "!Fuakata! / The Catastrophes / Seize & Desist [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Hoop \u2018N Shaw (Patio Band)",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-05-13",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird (Patio Band)",
+      "venue": "Huey's (Millington)",
+      "date": "2026-05-13",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Doug MacLeod",
+      "venue": "Huey's Poplar",
+      "date": "2026-05-13",
+      "time": "5:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "MacLeod & Lonardo (Patio Band)",
+      "venue": "Huey's Poplar",
+      "date": "2026-05-13",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Make Them Suffer w/ Not Enough Space",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-13",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Pilates in the Park (Copy)",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-13",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Arrested Development for American Revival Memphis",
+      "venue": "Scheidt Family Performing Arts Center",
+      "date": "2026-05-13",
+      "time": "7:00 PM",
+      "source": "artifact"
     }
   ]
 }
