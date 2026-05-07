@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-06T18:11:26.614957+00:00",
+  "run_timestamp": "2026-05-07T07:44:15.781774+00:00",
   "date_range": {
-    "start": "2026-05-06",
-    "end": "2026-05-13"
+    "start": "2026-05-07",
+    "end": "2026-05-14"
   },
-  "total_events_db": 1525,
-  "total_active_display": 155,
+  "total_events_db": 1533,
+  "total_active_display": 160,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,27 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 33,
+      "events_after_filter": 31,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 134,
-      "events_after_filter": 24,
-      "events_filtered": 110,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -105,10 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -118,14 +118,6 @@
       "events_found": 174,
       "events_after_filter": 28,
       "events_filtered": 146,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -139,16 +131,16 @@
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 42,
+      "events_after_filter": 42,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -164,125 +156,28 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 57,
-      "events_filtered": 9,
+      "events_after_filter": 58,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 155,
-      "events_after_filter": 155,
+      "events_found": 160,
+      "events_after_filter": 160,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-06",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-06",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Open Mic: Hosted by Kenny Morningstar",
-      "venue": "Crosstown Arts",
-      "date": "2026-05-06",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Lorna Shore",
-      "venue": "Graceland Soundstage",
-      "date": "2026-05-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Lorna Shore",
-      "venue": "Graceland Soundstage",
-      "date": "2026-05-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Lorna Shore",
-      "venue": "Graceland Soundstage",
-      "date": "2026-05-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Lorna Shore",
-      "venue": "Graceland Soundstage",
-      "date": "2026-05-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-06",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Night \u2013 NO COVER FOR MUSICIANS",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-06",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Evil Karaoke [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-05-06",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Gerry Finney (Patio Band)",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-05-06",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ken Houston Duo (Patio Band)",
-      "venue": "Huey's (Millington)",
-      "date": "2026-05-06",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jack & Noah (Patio Band)",
-      "venue": "Huey's Poplar",
-      "date": "2026-05-06",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Pilates in the Park",
-      "venue": "Overton Park Shell",
-      "date": "2026-05-06",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Ashton Riker & The Memphis Royals",
       "venue": "B.B. King's Blues Club",
@@ -732,6 +627,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Jason Bonham's Led Zeppelin Evening",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "901 Wrestling LIVE at Growlers",
       "venue": "Growlers",
       "date": "2026-05-09",
@@ -842,6 +744,20 @@
       "date": "2026-05-09",
       "time": "7:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-10",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-10",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Brit Floyd - The Pink Floyd Tribute Show",
@@ -1173,6 +1089,20 @@
       "source": "scraper:graceland_soundstage"
     },
     {
+      "artist": "Marilyn Manson: One Assassination Under God Tour",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Marilyn Manson: One Assassination Under God Tour",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "VOWWS",
       "venue": "Graceland Soundstage",
       "date": "2026-05-13",
@@ -1262,6 +1192,111 @@
       "date": "2026-05-13",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Aybil",
+      "venue": "Halloran Centre at The Orpheum",
+      "date": "2026-05-14",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "portrayal of guilt",
+      "venue": "1884 Lounge",
+      "date": "2026-05-14",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Parker Ryan",
+      "venue": "BankPlus Amphitheater at Snowden Grove",
+      "date": "2026-05-14",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Treaty Oak Revival",
+      "venue": "BankPlus Amphitheater at Snowden Grove",
+      "date": "2026-05-14",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "William Clark Green",
+      "venue": "BankPlus Amphitheater at Snowden Grove",
+      "date": "2026-05-14",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Memphis Dyke Night",
+      "venue": "Bar DKDC",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Rice Drewry",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Concerts in The Grove: Hope Clayburn's Soul Scrimmage",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-05-14",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Dale Watson",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-14",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Hotrod Hillbillies / Coco and The Hitmen / Los Psychosis [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Hotrod Hillbillies [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Hotrod Hillbillies",
+      "venue": "Hotrod Hillbillies in Memphis Tennessee",
+      "date": "2026-05-14",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Hank Nightshade Duo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-14",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Portrayal of Guilt",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
+      "venue": "Orpheum Theatre",
+      "date": "2026-05-14",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
     }
   ]
 }
