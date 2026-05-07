@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-07T07:44:15.781774+00:00",
+  "run_timestamp": "2026-05-07T18:18:35.255188+00:00",
   "date_range": {
     "start": "2026-05-07",
     "end": "2026-05-14"
   },
-  "total_events_db": 1533,
+  "total_events_db": 1535,
   "total_active_display": 160,
   "data_store": "postgresql",
   "sources": [
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 31,
+      "events_filtered": 2,
+      "error": null
     },
     {
       "name": "Venue: Growlers",
@@ -38,22 +38,6 @@
       "events_found": 21,
       "events_after_filter": 20,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,42 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 26,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -113,26 +65,26 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 174,
-      "events_after_filter": 28,
-      "events_filtered": 146,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 5,
-      "events_filtered": 16,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +97,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 10,
-      "events_filtered": 1,
+      "events_found": 63,
+      "events_after_filter": 26,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 174,
+      "events_after_filter": 28,
+      "events_filtered": 146,
       "error": null
     },
     {
@@ -161,11 +121,51 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 42,
+      "events_after_filter": 42,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 10,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 134,
+      "events_after_filter": 24,
+      "events_filtered": 110,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 5,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -634,6 +634,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Jason Bonham's Led Zeppelin Evening",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "901 Wrestling LIVE at Growlers",
       "venue": "Growlers",
       "date": "2026-05-09",
@@ -677,13 +684,6 @@
     },
     {
       "artist": "Tyler Hubbard of Florida Georgia Line",
-      "venue": "Horseshoe Casino's Bluesville",
-      "date": "2026-05-09",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Tyler Hubbard Ticket + Hotel Deals",
       "venue": "Horseshoe Casino's Bluesville",
       "date": "2026-05-09",
       "time": "8 PM",
@@ -744,6 +744,13 @@
       "date": "2026-05-09",
       "time": "7:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's Midtown",
+      "date": "2026-05-10",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
     },
     {
       "artist": "Beale St Blues Band",
@@ -841,13 +848,6 @@
       "venue": "Huey's Cordova",
       "date": "2026-05-10",
       "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Chaulkies",
-      "venue": "Huey's Midtown",
-      "date": "2026-05-10",
-      "time": "3 PM",
       "source": "scraper:huey_s"
     },
     {
@@ -1103,6 +1103,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Marilyn Manson: One Assassination Under God Tour",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "VOWWS",
       "venue": "Graceland Soundstage",
       "date": "2026-05-13",
@@ -1159,13 +1166,6 @@
       "source": "scraper:huey_s"
     },
     {
-      "artist": "Doug MacLeod",
-      "venue": "Huey's Poplar",
-      "date": "2026-05-13",
-      "time": "5:30 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "MacLeod & Lonardo (Patio Band)",
       "venue": "Huey's Poplar",
       "date": "2026-05-13",
@@ -1192,6 +1192,13 @@
       "date": "2026-05-13",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Concerts in The Grove: Hope Clayburn's Soul Scrimmage",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-05-14",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "Aybil",
@@ -1241,13 +1248,6 @@
       "date": "2026-05-14",
       "time": null,
       "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Concerts in The Grove: Hope Clayburn's Soul Scrimmage",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-05-14",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "Dale Watson",
