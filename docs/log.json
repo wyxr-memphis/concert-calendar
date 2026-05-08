@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-08T06:53:52.532346+00:00",
+  "run_timestamp": "2026-05-08T18:05:21.669757+00:00",
   "date_range": {
     "start": "2026-05-08",
     "end": "2026-05-15"
   },
-  "total_events_db": 1546,
-  "total_active_display": 163,
+  "total_events_db": 1557,
+  "total_active_display": 165,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,39 +25,15 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 19,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
+      "events_found": 34,
+      "events_after_filter": 32,
       "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -73,15 +49,7 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -89,42 +57,42 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
+      "events_found": 20,
+      "events_after_filter": 19,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 25,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 174,
-      "events_after_filter": 27,
-      "events_filtered": 147,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
+      "events_found": 134,
+      "events_after_filter": 23,
+      "events_filtered": 111,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -137,6 +105,30 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 180,
+      "events_after_filter": 33,
+      "events_filtered": 147,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 26,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
@@ -145,11 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 71,
-      "events_after_filter": 63,
-      "events_filtered": 8,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,18 +161,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 71,
+      "events_after_filter": 63,
+      "events_filtered": 8,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 163,
-      "events_after_filter": 163,
+      "events_found": 165,
+      "events_after_filter": 165,
       "events_filtered": 0,
       "error": null
     }
@@ -457,6 +457,13 @@
       "date": "2026-05-09",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Jason Bonham's Led Zeppelin Evening",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Jason Bonham's Led Zeppelin Evening",
@@ -982,6 +989,13 @@
       "date": "2026-05-13",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Marilyn Manson: One Assassination Under God Tour",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Marilyn Manson: One Assassination Under God Tour",
