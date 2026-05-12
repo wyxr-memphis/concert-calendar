@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-11T18:52:28.404661+00:00",
+  "run_timestamp": "2026-05-12T07:45:15.099646+00:00",
   "date_range": {
-    "start": "2026-05-11",
-    "end": "2026-05-18"
+    "start": "2026-05-12",
+    "end": "2026-05-19"
   },
-  "total_events_db": 1590,
-  "total_active_display": 143,
+  "total_events_db": 1598,
+  "total_active_display": 142,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 28,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -33,27 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 59,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 31,
+      "events_found": 30,
       "events_after_filter": 29,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,30 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 134,
@@ -97,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 184,
-      "events_after_filter": 34,
-      "events_filtered": 150,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,19 +81,27 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
-      "events_after_filter": 2,
+      "events_after_filter": 1,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 184,
+      "events_after_filter": 34,
+      "events_filtered": 150,
       "error": null
     },
     {
@@ -145,10 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 21,
+      "events_after_filter": 3,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -161,79 +137,47 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 3,
-      "events_filtered": 18,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 66,
+      "events_after_filter": 58,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 143,
-      "events_after_filter": 143,
+      "events_found": 142,
+      "events_after_filter": 142,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Dance With The Dead / Magic Sword \u2013 The Face Off Tour 2026",
-      "venue": "1884 Lounge",
-      "date": "2026-05-11",
-      "time": "7:00 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Magic Sword",
-      "venue": "1884 Lounge",
-      "date": "2026-05-11",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-11",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-11",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Like Really Creative Muse: The Fool",
-      "venue": "Bar DKDC",
-      "date": "2026-05-11",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Mac Saturn",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-11",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-11",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-05-11",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Jazz Jam Session: Hosted by Henry Conerway III",
       "venue": "Crosstown Arts",
@@ -422,6 +366,13 @@
       "date": "2026-05-13",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Marilyn Manson: One Assassination Under God Tour",
+      "venue": "Graceland Soundstage",
+      "date": "2026-05-13",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Marilyn Manson: One Assassination Under God Tour",
@@ -739,6 +690,13 @@
       "source": "manual"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-15",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-15",
@@ -856,6 +814,13 @@
       "date": "2026-05-16",
       "time": "7:30\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-16",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Miz Stefanie",
@@ -1176,6 +1141,34 @@
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-05-18",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-05-19",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-19",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "HARBOUR",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-19",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-19",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
