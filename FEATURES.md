@@ -6,9 +6,6 @@ Planning doc for upcoming features.
 
 ## Pending Fixes & New Sources
 
-### Scrapers to Fix
-- **Overton Park Shell** — scraper on hold; waiting for new season announcement
-
 ### New Venues to Add
 - **Beale Street venues** — Blues City Cafe, Rum Boogie Cafe, Silky O'Sullivan's, Alfred's on Beale (nightly live music, not currently tracked)
 - **Loflin Yard** — live music events, not currently tracked
@@ -39,28 +36,16 @@ Planning doc for upcoming features.
 - ~~Graceland Soundstage~~ — Custom Wix scraper at gracelandlive.com/shows
 - ~~Per-Source Scraper Status~~ — Expandable cards with run history, DB event counts, build timeline (moved from public page to admin)
 - ~~B.B. King's~~ — Changed to manual_only (scraper was returning 0 events)
+- ~~Overton Park Shell~~ — Custom Squarespace scraper (`_parse_overton_shell()` in venue_scrapers.py)
+- ~~Email Signup / Mailchimp (#17)~~ — "📧 Subscribe" button in header opens dark modal with Mailchimp iframe form (wyxr.us19.list-manage.com). sessionStorage tracks signed-up state.
+- ~~Event Submission Form (#18)~~ — `/submit.html` public form + `POST /api/submissions` endpoint + admin review queue
+- ~~Sponsor Callout (#19)~~ — Inline promo cards between day sections + Calendar Sponsor banner above event list. Full admin UI in Sponsors tab. DB tables: `sponsors`, `calendar_sponsor`.
 
 ---
 
 ## 3. Custom Domain
 
-**Problem:** The calendar lives at `concert-calendar.wyxr.org` (branded domain). ✅ Implemented!
-
-**Steps:**
-1. Choose a subdomain (e.g., `shows.wyxr.org`)
-2. In DNS, add CNAME: `shows` -> `cname.vercel-dns.com`
-3. In Vercel dashboard -> Domains -> add `shows.wyxr.org`
-4. Vercel provisions SSL automatically
-
-**Effort:** Config only, no code changes.
-
----
-
-## ~~4. Event Feed (JSON / RSS) for Website Embedding~~ ✅
-
-**Implemented:** RSS 2.0 feed at `concert-calendar.wyxr.org/feed.xml`. Generated automatically every build (2x daily) with the next 60 days of events. Each item includes artist, venue, date, time, price, genre, rich HTML content, image enclosures, and WYXR Presents/Pick badges. Used for WYXR app integration.
-
-**Files:** `src/generate_rss.py`, integrated in `src/main.py` Step 7.
+**Status: ✅ Implemented** — calendar lives at `concert-calendar.wyxr.org`.
 
 ---
 
@@ -79,7 +64,7 @@ Planning doc for upcoming features.
 
 ## 11. JSON-LD Parser Consolidation
 
-**Problem:** Three near-identical JSON-LD event parsers exist in `venue_scrapers.py`, `artifacts.py`, and `dice.py`. Bugs fixed in one copy aren't fixed in the others.
+**Problem:** Two near-identical JSON-LD event parsers exist in `venue_scrapers.py` (`_try_jsonld` / `_jsonld_to_event`) and `artifacts.py` (`_parse_jsonld_event`). Bugs fixed in one copy aren't fixed in the other.
 
 **Fix:** Create shared `src/jsonld_utils.py` with `parse_jsonld_events(soup) -> List[Event]`.
 
@@ -92,7 +77,8 @@ Planning doc for upcoming features.
 **Problem:** All events look the same — a jazz show and a punk show are indistinguishable.
 
 **Implementation:**
-- Add optional `genre` field to `Event` model
+- `genre` field already exists in the `events` DB table (schema.sql) but is not in the Python `Event` model or UI
+- Add `genre` to the `Event` dataclass and `db.py` queries
 - Extract from Ticketmaster API classification data
 - Infer from MUSIC_KEYWORDS matches
 - Display as colored tag/pill
@@ -106,7 +92,8 @@ Planning doc for upcoming features.
 **Problem:** Users can't tell free shows from $50+ shows without clicking through.
 
 **Implementation:**
-- Add optional `price` field to `Event` model
+- `ticket_price` field already exists in the `events` DB table (schema.sql) but is not in the Python `Event` model or UI
+- Add `ticket_price` to the `Event` dataclass and `db.py` queries
 - Extract from Ticketmaster `priceRanges` field
 - Display as "Free", "$10", "$15-25" etc.
 
@@ -127,66 +114,12 @@ Planning doc for upcoming features.
 
 ---
 
-## 17. Email Signup (Mailchimp)
-
-**Problem:** Visitors to the concert calendar have no way to subscribe for updates or newsletters. The WYXR Mailchimp list is already embedded on Concert.wyxr.org and should be surfaced here too.
-
-**Implementation:**
-- Add a compact Mailchimp signup form to the footer of `docs/index.html`
-- Use the same Mailchimp list as Concert.wyxr.org (form action URL needs to be pulled from that page — format: `https://wyxr.us##.list-manage.com/subscribe/post?u=...&id=...`)
-- Style to match the existing dark WYXR theme (yellow on black)
-- Keep it minimal: email field + submit button, no extra fields
-
-**Steps:**
-1. Retrieve the Mailchimp form action URL from Concert.wyxr.org
-2. Add the signup form HTML to `docs/index.html` footer area
-3. Style inline with existing CSS variables
-
-**Effort:** Low
-
----
-
-## 18. Event Submission Form (Community Events)
-
-**Problem:** Community members, promoters, and venues have no self-service way to submit events for consideration. Currently all events come from scrapers, the Ticketmaster API, or admin manual entry.
-
-**What this looks like:**
-- A public form (on the calendar page or a separate `/submit` page) where anyone can submit an event
-- Fields: Artist/Event name, Venue, Date, Time, Ticket URL, Contact email (for follow-up)
-- Submissions go to a moderation queue — admin reviews and approves before publishing
-- Optional: email confirmation to submitter
-
-**Implementation:**
-- Add a `POST /api/events/submit` endpoint to the Flask API that writes to a `pending_events` table
-- Add an admin review view at `/admin/pending/` to approve or reject submissions
-- Add the submission form to the public calendar page (or a linked `/submit.html`)
-- Send a simple confirmation email via SendGrid or similar (optional)
-
-**Effort:** Medium
-
----
-
-## 19. Sponsor Callout (Admin + Display)
-
-**Problem:** No way to surface sponsors on the calendar or manage them through the admin.
-
-**Specs TBD** — will define display placement, admin UI, rotation logic, and content fields when ready.
-
-**Effort:** TBD
-
----
-
 ## Priority
 
 | # | Feature | Effort | Value | Status |
 |---|---------|--------|-------|--------|
-| 17 | Email signup (Mailchimp) | Low | High | Pending — needs Mailchimp action URL from Concert.wyxr.org |
-| 18 | Event submission form | Medium | High | ✅ Completed — /submit page + admin review |
-| 3 | Custom domain | Low | High | Pending — config only |
-| 4 | Event feed (RSS) | Medium | High | ✅ Completed — feed.xml for WYXR app |
 | 9 | Venue link enhancement | Low-Med | Medium | Pending |
 | 11 | JSON-LD parser consolidation | Medium | Medium | Pending — code quality |
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
 | 16 | Deduplication improvements | Medium | High | Pending |
-| 19 | Sponsor callout (admin + display) | TBD | High | Pending — specs TBD |
