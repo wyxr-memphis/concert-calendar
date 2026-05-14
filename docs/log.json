@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-14T13:33:54.720791+00:00",
+  "run_timestamp": "2026-05-14T18:29:57.917656+00:00",
   "date_range": {
     "start": "2026-05-14",
     "end": "2026-05-21"
   },
-  "total_events_db": 1651,
+  "total_events_db": 1654,
   "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 57,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 1,
@@ -37,22 +45,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -73,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 57,
-      "events_filtered": 7,
       "error": null
     },
     {
@@ -97,11 +81,27 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,10 +113,42 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 185,
+      "events_after_filter": 35,
+      "events_filtered": 150,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 7,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -129,43 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 7,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 184,
-      "events_after_filter": 34,
-      "events_filtered": 150,
       "error": null
     },
     {
@@ -211,7 +211,7 @@
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-14",
       "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
+      "source": "manual"
     },
     {
       "artist": "Memphis Soul Factory",
