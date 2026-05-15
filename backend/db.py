@@ -603,6 +603,7 @@ def _seed_venues_if_empty():
         ("Flyway Brewing", None, ["flyway brewing", "flyway brewing memphis", "flyway"]),
         ("Huey's", None, ["hueys", "huey's", "huey's burgers"]),
         ("Crosstown Brewing Co.", "Crosstown/Broad Avenue", ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."]),
+        ("Blues City Cafe", "Downtown/Beale Street", ["blues city cafe", "blues city café", "blues city cafe band box"]),
     ]
 
     with get_cursor(commit=False) as cur:

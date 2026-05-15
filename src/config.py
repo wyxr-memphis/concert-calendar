@@ -190,6 +190,13 @@ VENUES = {
         "calendar_url": "https://crosstownbeer.com/events/",
         "scraper": "crosstown_beer",
     },
+    "blues-city-cafe": {
+        "name": "Blues City Cafe",
+        "aliases": ["blues city cafe", "blues city café", "blues city cafe band box"],
+        "neighborhood": "Downtown/Beale Street",
+        "calendar_url": "https://bluescitycafe.com/music/",
+        "scraper": "blues_city_cafe",
+    },
     "hueys": {
         "name": "Huey's",
         "aliases": ["hueys", "huey's", "huey's burgers"],
