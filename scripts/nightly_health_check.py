@@ -5,7 +5,7 @@ Designed to run from GitHub Actions — stdlib only, no external deps.
 
 Env vars:
   HEALTH_CHECK_TOKEN   Bearer token for /api/admin/health-check
-  SLACK_WEBHOOK_URL    Incoming webhook for #wyxr-tech
+  SLACK_WEBHOOK_URL    Incoming webhook for #wyxr-ops
 
 Exit codes:
   0  — ran to completion (including reports that contain 🚨 items)
