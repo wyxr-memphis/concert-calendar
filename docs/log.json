@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-05-14T18:29:57.917656+00:00",
+  "run_timestamp": "2026-05-15T18:17:50.773656+00:00",
   "date_range": {
-    "start": "2026-05-14",
-    "end": "2026-05-21"
+    "start": "2026-05-15",
+    "end": "2026-05-22"
   },
-  "total_events_db": 1654,
-  "total_active_display": 126,
+  "total_events_db": 1663,
+  "total_active_display": 128,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -25,23 +25,15 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 57,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -49,18 +41,26 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 28,
+      "events_found": 29,
+      "events_after_filter": 27,
       "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -73,27 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 134,
-      "events_after_filter": 17,
-      "events_filtered": 117,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 62,
+      "events_after_filter": 25,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -105,18 +89,26 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 26,
-      "events_filtered": 36,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -132,23 +124,15 @@
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 7,
-      "events_filtered": 20,
+      "events_after_filter": 6,
+      "events_filtered": 21,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -156,161 +140,44 @@
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
-      "events_after_filter": 7,
-      "events_filtered": 4,
+      "events_after_filter": 6,
+      "events_filtered": 5,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 67,
+      "events_after_filter": 60,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "SiteWrench API error: HTTPSConnectionPool(host='api.sitewrench.com', port=443): Max retries exceeded w"
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 126,
-      "events_after_filter": 126,
+      "events_found": 128,
+      "events_after_filter": 128,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Concerts in The Grove: Hope Clayburn's Soul Scrimmage",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-05-14",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Aybil",
-      "venue": "Halloran Centre at The Orpheum",
-      "date": "2026-05-14",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "portrayal of guilt",
-      "venue": "1884 Lounge",
-      "date": "2026-05-14",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-14",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-14",
-      "time": "8:00 pm",
-      "source": "manual"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-14",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Parker Ryan",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-05-14",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Treaty Oak Revival",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-05-14",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Treaty Oak Revival - West Texas Degenerate Tour",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-05-14",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "William Clark Green",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-05-14",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Memphis Dyke Night",
-      "venue": "Bar DKDC",
-      "date": "2026-05-14",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Rice Drewry",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-05-14",
-      "time": null,
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Monty Russell",
-      "venue": "Flyway Brewing",
-      "date": "2026-05-14",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Livid Noise",
-      "venue": "Growlers",
-      "date": "2026-05-14",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Dale Watson",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-14",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Hotrod Hillbillies / Coco and The Hitmen / Los Psychosis [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-14",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Hank Nightshade Duo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-05-14",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Portrayal of Guilt",
-      "venue": "Minglewood Hall",
-      "date": "2026-05-14",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
-      "venue": "Orpheum Theatre",
-      "date": "2026-05-14",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
     {
       "artist": "Sex Mex",
       "venue": "Havenhaus",
@@ -641,6 +508,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Next Top Comic [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-16",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Rice Drewry Collective",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-16",
@@ -736,6 +610,13 @@
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-17",
       "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-17",
+      "time": "8:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -863,6 +744,13 @@
       "date": "2026-05-18",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-18",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Stud Ford",
@@ -1059,6 +947,132 @@
       "date": "2026-05-21",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Mary Hatley",
+      "venue": "Growlers",
+      "date": "2026-05-22",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Zo\u00eb Dominguez",
+      "venue": "Growlers",
+      "date": "2026-05-22",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Karaoke with Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-22",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Memphis Snake Doctors Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-22",
+      "time": "6:30 PM - 8:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Joe Turner + Zack Smith",
+      "venue": "Bar DKDC",
+      "date": "2026-05-22",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Who Wrote That?! Comedy Show",
+      "venue": "Bar DKDC",
+      "date": "2026-05-22",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Earnestine & Hazel's",
+      "date": "2026-05-22",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Planet Ozz",
+      "venue": "Flying Saucer Downtown",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-05-22",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Mauldin Brothers Band at Hernando\u2019s Hide-A-Way Memphis",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-22",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Carlos Ecos Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-22",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Marcus Scott and The New Project",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-22",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "The HU",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-22",
+      "time": "9:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The HU and Apocalyptica with Special Guest The Rasmus",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-22",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "The Rasmus",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-22",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rock the Boat",
+      "venue": "Nashoba",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Old Dominick Distillery",
+      "date": "2026-05-22",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "MAJOR. Why I Love You 10 Year Celebration Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-05-22",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
     }
   ]
 }
