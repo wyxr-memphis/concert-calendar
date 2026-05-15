@@ -109,6 +109,10 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "sitewrench":
         return _fetch_sitewrench_venue(venue_info)
 
+    # Blues City Cafe — month-per-page HTML calendar, fetches multiple pages
+    if scraper_type == "blues_city_cafe":
+        return _fetch_blues_city_cafe(venue_info)
+
     try:
         response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
         response.raise_for_status()
@@ -1307,5 +1311,91 @@ def _parse_crosstown_beer(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 source=_venue_source_tag(venue_name),
                 url="https://crosstownbeer.com/events/",
             ))
+
+
+def _fetch_blues_city_cafe(venue_info: dict) -> SourceResult:
+    """Fetch events from Blues City Cafe's month-per-page WordPress calendar.
+
+    URL pattern: /music/?calendar_month=jan&calendar_yr=2026
+    Cells with events use td.day-with-date or td.current-day; cells with no
+    events carry an additional no-events class and are skipped.
+    """
+    name = venue_info["name"]
+    base_url = venue_info["calendar_url"]
+    result = SourceResult(source_name=f"Venue: {name}")
+
+    today = date.today()
+
+    # Build list of (year, month) pairs covering today → SCRAPER_END_DATE
+    months = []
+    cursor = today.replace(day=1)
+    while cursor <= SCRAPER_END_DATE:
+        months.append((cursor.year, cursor.month))
+        cursor = date(cursor.year + (cursor.month // 12), cursor.month % 12 + 1, 1)
+
+    try:
+        for year, month in months:
+            mon_abbr = datetime(year, month, 1).strftime("%b").lower()
+            url = f"{base_url}?calendar_month={mon_abbr}&calendar_yr={year}"
+
+            resp = get_with_retry(url, headers=HEADERS, timeout=15)
+            resp.raise_for_status()
+
+            soup = BeautifulSoup(resp.text, "html.parser")
+
+            for cell in soup.select("td.day-with-date, td.current-day"):
+                if "no-events" in (cell.get("class") or []):
+                    continue
+
+                day_span = cell.find("span", recursive=False)
+                if not day_span:
+                    continue
+                day_text = day_span.get_text(strip=True)
+                if not day_text.isdigit():
+                    continue
+
+                # event-title span holds the band name (same text as the direct <a> node)
+                event_title_el = cell.find("span", class_="event-title")
+                title = event_title_el.get_text(strip=True) if event_title_el else ""
+                if not title:
+                    continue
+
+                # Time is the text node immediately after <strong>Time:</strong>
+                strong = cell.find("strong")
+                time_str = None
+                if strong and strong.next_sibling:
+                    raw = str(strong.next_sibling).strip()
+                    if raw:
+                        time_str = raw
+
+                try:
+                    event_date = date(year, month, int(day_text))
+                except ValueError:
+                    continue
+
+                result.events_found += 1
+                if not (START_DATE <= event_date <= SCRAPER_END_DATE):
+                    result.events_filtered += 1
+                else:
+                    result.events.append(Event(
+                        artist=title,
+                        venue=name,
+                        date=event_date,
+                        time=time_str,
+                        source=_venue_source_tag(name),
+                        url=base_url,
+                    ))
+
+        if result.events_found == 0:
+            result.error_message = "0 events parsed — page structure may have changed"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Request failed: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
 
     return events
