@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status — Memphis Concert Calendar</title>
+    <meta name="description" content="Live operational status for the WYXR Memphis Concert Calendar.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="preconnect" href="https://concert-calendar-api.onrender.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wyxr-yellow: #FFCF2D;
+            --wyxr-black: #000000;
+            --wyxr-white: #FFFFFF;
+            --wyxr-charcoal: #1A1A1A;
+            --wyxr-gray: #888888;
+            --wyxr-dim: #666666;
+            --wyxr-border: #2A2A2A;
+            --status-ok: var(--wyxr-yellow);
+            --status-degraded: #FFA500;
+            --status-error: #E04545;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 16px;
+            background: var(--wyxr-black);
+            color: var(--wyxr-white);
+            line-height: 1.5;
+        }
+        header { margin-bottom: 20px; }
+        .header-banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+        h1 {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.6em;
+            font-weight: 800;
+            letter-spacing: 0.02em;
+            color: var(--wyxr-yellow);
+            margin-bottom: 4px;
+        }
+        .subtitle {
+            color: var(--wyxr-gray);
+            font-size: 0.9em;
+        }
+
+        .hero-card {
+            background: var(--wyxr-charcoal);
+            border: 1px solid var(--wyxr-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 1.05em;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--wyxr-border);
+        }
+        .status-pill .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--wyxr-gray);
+            display: inline-block;
+        }
+        .status-pill[data-status="ok"] { color: var(--status-ok); border-color: var(--status-ok); }
+        .status-pill[data-status="ok"] .dot { background: var(--status-ok); }
+        .status-pill[data-status="degraded"] { color: var(--status-degraded); border-color: var(--status-degraded); }
+        .status-pill[data-status="degraded"] .dot { background: var(--status-degraded); }
+        .status-pill[data-status="error"] { color: var(--status-error); border-color: var(--status-error); }
+        .status-pill[data-status="error"] .dot { background: var(--status-error); }
+        .status-pill[data-status="loading"] { color: var(--wyxr-gray); }
+        .hero-meta {
+            color: var(--wyxr-gray);
+            font-size: 0.9em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .card {
+            background: var(--wyxr-charcoal);
+            border: 1px solid var(--wyxr-border);
+            border-radius: 8px;
+            padding: 16px;
+        }
+        .card h2 {
+            font-size: 0.78em;
+            font-weight: 600;
+            color: var(--wyxr-gray);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .card .big {
+            font-family: 'Anybody', sans-serif;
+            font-size: 1.6em;
+            font-weight: 700;
+            color: var(--wyxr-white);
+        }
+        .card .sub {
+            color: var(--wyxr-gray);
+            font-size: 0.85em;
+            margin-top: 4px;
+        }
+
+        .scraper-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .scraper-list li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            font-size: 0.9em;
+        }
+        .scraper-list .name {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .scraper-list .meta {
+            color: var(--wyxr-gray);
+            font-size: 0.85em;
+            white-space: nowrap;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+        .dot[data-status="ok"] { background: var(--status-ok); }
+        .dot[data-status="stale"] { background: var(--status-degraded); }
+        .dot[data-status="unknown"] { background: var(--wyxr-gray); }
+        .dot[data-status="failed"] { background: var(--status-error); }
+
+        .spark {
+            display: block;
+            width: 100%;
+            height: 48px;
+            margin-top: 8px;
+        }
+        .spark rect { fill: var(--wyxr-yellow); }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--wyxr-gray);
+        }
+        .badge[data-tone="warn"] { background: rgba(255, 165, 0, 0.15); color: var(--status-degraded); }
+        .badge[data-tone="error"] { background: rgba(224, 69, 69, 0.15); color: var(--status-error); }
+
+        footer {
+            color: var(--wyxr-dim);
+            font-size: 0.85em;
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid var(--wyxr-border);
+            margin-top: 12px;
+        }
+        footer a { color: var(--wyxr-yellow); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        .skeleton {
+            color: var(--wyxr-dim);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img class="header-banner" src="/wyxr-wtmm-header.webp" alt="WYXR — We're The Memphis Music" loading="eager">
+        <h1>System Status</h1>
+        <div class="subtitle">Live operational status for the Memphis Concert Calendar.</div>
+    </header>
+
+    <section class="hero-card">
+        <div id="overallPill" class="status-pill" data-status="loading">
+            <span class="dot"></span>
+            <span id="overallLabel">Loading…</span>
+        </div>
+        <div class="hero-meta">
+            <div>Last checked: <span id="lastChecked">—</span></div>
+        </div>
+    </section>
+
+    <section class="grid">
+        <article class="card" id="cardApi">
+            <h2>API</h2>
+            <div class="big skeleton" id="apiStatus">…</div>
+            <div class="sub" id="apiLatency"></div>
+        </article>
+
+        <article class="card" id="cardBuild">
+            <h2>Last Build</h2>
+            <div class="big skeleton" id="buildRelative">…</div>
+            <div class="sub" id="buildAbsolute"></div>
+        </article>
+
+        <article class="card" id="cardEvents">
+            <h2>Upcoming · 14 days</h2>
+            <div class="big skeleton" id="eventsTotal">…</div>
+            <svg class="spark" id="eventsSpark" viewBox="0 0 140 48" preserveAspectRatio="none" aria-hidden="true"></svg>
+        </article>
+
+        <article class="card" id="cardScrapers">
+            <h2>Scrapers</h2>
+            <ul class="scraper-list" id="scraperList">
+                <li class="skeleton">Loading…</li>
+            </ul>
+        </article>
+
+        <article class="card" id="cardTicketmaster">
+            <h2>Ticketmaster API</h2>
+            <div class="big skeleton" id="tmStatus">…</div>
+            <div class="sub" id="tmDetail"></div>
+        </article>
+    </section>
+
+    <footer>
+        Auto-refreshes every 60 seconds. Concerns? <a href="https://wyxr.org">Contact WYXR</a>.
+    </footer>
+
+    <script>
+    (function () {
+        'use strict';
+
+        const API_BASE = (function () {
+            const host = window.location.hostname;
+            if (host === 'localhost' || host === '127.0.0.1') {
+                return 'http://localhost:5001';
+            }
+            return 'https://concert-calendar-api.onrender.com';
+        })();
+        const REFRESH_MS = 60_000;
+
+        function esc(str) {
+            if (str === null || str === undefined) return '';
+            const el = document.createElement('span');
+            el.textContent = String(str);
+            return el.innerHTML;
+        }
+
+        function relativeTime(iso) {
+            if (!iso) return 'never';
+            const t = Date.parse(iso);
+            if (isNaN(t)) return 'unknown';
+            const diffMs = Date.now() - t;
+            if (diffMs < 0) return 'just now';
+            const sec = Math.round(diffMs / 1000);
+            if (sec < 60) return sec + 's ago';
+            const min = Math.round(sec / 60);
+            if (min < 60) return min + 'm ago';
+            const hr = Math.round(min / 60);
+            if (hr < 24) return hr + 'h ago';
+            const days = Math.round(hr / 24);
+            return days + 'd ago';
+        }
+
+        function formatAbsolute(iso) {
+            if (!iso) return '';
+            const t = new Date(iso);
+            if (isNaN(t)) return '';
+            return t.toLocaleString(undefined, {
+                month: 'short', day: 'numeric',
+                hour: 'numeric', minute: '2-digit',
+            });
+        }
+
+        async function fetchSummary() {
+            const t0 = performance.now();
+            const r = await fetch(API_BASE + '/api/health/summary', { cache: 'no-store' });
+            const latency = Math.round(performance.now() - t0);
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return { data: await r.json(), latency };
+        }
+
+        async function fetchBuildTime() {
+            try {
+                const r = await fetch('/build_time.txt', { cache: 'no-store' });
+                return r.ok ? (await r.text()).trim() : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function renderHero(status) {
+            const labels = { ok: 'All Systems Operational', degraded: 'Partial Degradation', error: 'Service Disruption' };
+            const pill = document.getElementById('overallPill');
+            pill.setAttribute('data-status', status);
+            document.getElementById('overallLabel').textContent = labels[status] || 'Unknown';
+            document.getElementById('lastChecked').textContent = relativeTime(new Date().toISOString());
+        }
+
+        function renderApi(latency) {
+            const el = document.getElementById('apiStatus');
+            el.classList.remove('skeleton');
+            el.textContent = 'Online';
+            document.getElementById('apiLatency').textContent = latency + ' ms response';
+        }
+
+        function renderBuild(lastBuildAt, buildTimeText) {
+            const rel = document.getElementById('buildRelative');
+            const abs = document.getElementById('buildAbsolute');
+            rel.classList.remove('skeleton');
+            if (lastBuildAt) {
+                rel.textContent = relativeTime(lastBuildAt);
+                abs.textContent = buildTimeText || formatAbsolute(lastBuildAt);
+            } else if (buildTimeText) {
+                rel.textContent = buildTimeText;
+                abs.textContent = '';
+            } else {
+                rel.textContent = 'unknown';
+                abs.textContent = '';
+            }
+        }
+
+        function renderEvents(upcoming) {
+            const el = document.getElementById('eventsTotal');
+            el.classList.remove('skeleton');
+            el.textContent = upcoming.total + ' event' + (upcoming.total === 1 ? '' : 's');
+
+            const svg = document.getElementById('eventsSpark');
+            const days = upcoming.by_day || [];
+            const max = Math.max(1, ...days.map(d => d.count));
+            const w = 140, h = 48, gap = 1;
+            const barW = (w - gap * (days.length - 1)) / Math.max(1, days.length);
+            let html = '';
+            days.forEach((d, i) => {
+                const bh = Math.max(1, Math.round((d.count / max) * (h - 4)));
+                const x = i * (barW + gap);
+                const y = h - bh;
+                html += '<rect x="' + x.toFixed(2) + '" y="' + y + '" width="' + barW.toFixed(2) + '" height="' + bh + '">';
+                html += '<title>' + esc(d.date) + ': ' + d.count + '</title>';
+                html += '</rect>';
+            });
+            svg.innerHTML = html;
+        }
+
+        function renderScrapers(scrapers) {
+            const ul = document.getElementById('scraperList');
+            if (!scrapers || scrapers.length === 0) {
+                ul.innerHTML = '<li class="skeleton">No scraper data available.</li>';
+                return;
+            }
+            const labels = { ok: 'ran', stale: 'stale, last', unknown: 'never run', failed: 'failed' };
+            const html = scrapers.map(s => {
+                const status = s.status || 'unknown';
+                const meta = s.last_run_at
+                    ? (labels[status] || 'ran') + ' ' + relativeTime(s.last_run_at)
+                    : (labels[status] || 'unknown');
+                return '<li>'
+                    + '<span class="dot" data-status="' + esc(status) + '"></span>'
+                    + '<span class="name">' + esc(s.name) + '</span>'
+                    + '<span class="meta">' + esc(meta) + '</span>'
+                    + '</li>';
+            }).join('');
+            ul.innerHTML = html;
+        }
+
+        function renderTicketmaster(tm) {
+            const status = document.getElementById('tmStatus');
+            const detail = document.getElementById('tmDetail');
+            status.classList.remove('skeleton');
+            const errs = tm.errors_24h || 0;
+            if (errs === 0) {
+                status.textContent = 'Healthy';
+                status.style.color = 'var(--status-ok)';
+            } else if (errs < 5) {
+                status.textContent = errs + ' error' + (errs === 1 ? '' : 's') + ' / 24h';
+                status.style.color = 'var(--status-degraded)';
+            } else {
+                status.textContent = errs + ' errors / 24h';
+                status.style.color = 'var(--status-error)';
+            }
+            detail.textContent = tm.last_success
+                ? 'Last success: ' + relativeTime(tm.last_success)
+                : 'No recent success recorded.';
+        }
+
+        function render(summary, buildTimeText) {
+            const data = summary.data;
+            renderHero(data.api_status || 'ok');
+            renderApi(summary.latency);
+            renderBuild(data.last_build_at, buildTimeText);
+            renderEvents(data.upcoming_events_14d || { total: 0, by_day: [] });
+            renderScrapers(data.scrapers || []);
+            renderTicketmaster(data.ticketmaster || { errors_24h: 0, last_success: null });
+        }
+
+        function renderError(buildTimeText) {
+            renderHero('error');
+            const apiEl = document.getElementById('apiStatus');
+            apiEl.classList.remove('skeleton');
+            apiEl.textContent = 'Unreachable';
+            apiEl.style.color = 'var(--status-error)';
+            document.getElementById('apiLatency').textContent = 'Status checks unavailable';
+            renderBuild(null, buildTimeText);
+            document.getElementById('eventsTotal').textContent = '—';
+            document.getElementById('eventsTotal').classList.remove('skeleton');
+            document.getElementById('eventsSpark').innerHTML = '';
+            document.getElementById('scraperList').innerHTML = '<li class="skeleton">Unavailable while API is down.</li>';
+            const tm = document.getElementById('tmStatus');
+            tm.textContent = '—';
+            tm.classList.remove('skeleton');
+            document.getElementById('tmDetail').textContent = '';
+        }
+
+        async function tick() {
+            const buildTimeText = await fetchBuildTime();
+            try {
+                const summary = await fetchSummary();
+                render(summary, buildTimeText);
+            } catch (e) {
+                renderError(buildTimeText);
+            }
+        }
+
+        tick();
+        setInterval(tick, REFRESH_MS);
+    })();
+    </script>
+</body>
+</html>

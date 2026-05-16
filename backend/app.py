@@ -1989,6 +1989,86 @@ def _health_scrapers():
     return sorted(per_source.values(), key=lambda x: x["name"])
 
 
+_PUBLIC_SUMMARY_CACHE = {"data": None, "expires_at": 0.0}
+_PUBLIC_SUMMARY_TTL_SEC = 60
+
+# Thresholds — keep in sync with scripts/nightly_health_check.py if it changes.
+_SCRAPER_STALE_HOURS = 36
+_TM_DEGRADED_ERRORS = 1
+_TM_ERROR_ERRORS = 5
+
+
+def _sanitize_scraper_status(s):
+    if s["last_run_status"] == "failed":
+        return "failed"
+    if s["last_run_status"] is None:
+        return "unknown"
+    hrs = s.get("hours_since_last_run")
+    if hrs is not None and hrs > _SCRAPER_STALE_HOURS:
+        return "stale"
+    return "ok"
+
+
+def _derive_overall_status(scrapers, tm, events):
+    if any(s["status"] == "failed" for s in scrapers):
+        return "error"
+    if (tm["errors_24h"] or 0) >= _TM_ERROR_ERRORS:
+        return "error"
+    if events["total"] == 0:
+        return "error"
+    if any(s["status"] in ("stale", "unknown") for s in scrapers):
+        return "degraded"
+    if (tm["errors_24h"] or 0) >= _TM_DEGRADED_ERRORS:
+        return "degraded"
+    return "ok"
+
+
+def _public_summary_payload():
+    events = health_events_14d()
+    raw_scrapers = _health_scrapers()
+    tm = health_ticketmaster()
+    scrapers = [
+        {
+            "name": s["name"],
+            "last_run_at": s["last_run_at"],
+            "status": _sanitize_scraper_status(s),
+        }
+        for s in raw_scrapers
+    ]
+    last_build_row = (health_recent_build_logs(1) or [{}])[0]
+    return {
+        "api_status": _derive_overall_status(scrapers, tm, events),
+        "generated_at": _now_z(),
+        "last_build_at": _iso_z(last_build_row.get("started_at")),
+        "upcoming_events_14d": {
+            "total": events["total"],
+            "by_day": events["by_day"],
+        },
+        "scrapers": scrapers,
+        "ticketmaster": {
+            "errors_24h": tm["errors_24h"],
+            "last_success": tm["last_successful_run_at"],
+        },
+    }
+
+
+@app.route("/api/health/summary", methods=["GET"])
+@cross_origin(origins="*")
+def public_health_summary():
+    import time
+    now = time.time()
+    if _PUBLIC_SUMMARY_CACHE["data"] and _PUBLIC_SUMMARY_CACHE["expires_at"] > now:
+        return jsonify(_PUBLIC_SUMMARY_CACHE["data"])
+    try:
+        payload = _public_summary_payload()
+    except Exception:
+        app.logger.exception("public health summary failed")
+        return jsonify({"api_status": "error", "generated_at": _now_z()}), 503
+    _PUBLIC_SUMMARY_CACHE["data"] = payload
+    _PUBLIC_SUMMARY_CACHE["expires_at"] = now + _PUBLIC_SUMMARY_TTL_SEC
+    return jsonify(payload)
+
+
 @app.route("/api/admin/health-check", methods=["GET"])
 @require_health_token
 def admin_health_check():
