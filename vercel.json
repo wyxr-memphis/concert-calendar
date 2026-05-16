@@ -18,6 +18,12 @@
       ]
     },
     {
+      "source": "/health.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=60, s-maxage=60" }
+      ]
+    },
+    {
       "source": "/(.*\\.(?:png|webp|jpg|jpeg|svg|ico))",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }
