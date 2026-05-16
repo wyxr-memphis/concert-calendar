@@ -234,7 +234,7 @@ def format_report(health_status, health_data, health_error,
         incomplete_line = "0"
     elif flagged_sources:
         src_parts = [
-            f"{s['source']}: {s['incomplete_count']}"
+            f"{s['source']} — {s['incomplete_count']}"
             for s in flagged_sources
         ]
         incomplete_line = f"{inc_total} ({', '.join(src_parts)})"
