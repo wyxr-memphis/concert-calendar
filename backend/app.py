@@ -1992,8 +1992,12 @@ def _health_scrapers():
 _PUBLIC_SUMMARY_CACHE = {"data": None, "expires_at": 0.0}
 _PUBLIC_SUMMARY_TTL_SEC = 60
 
-# Thresholds — keep in sync with scripts/nightly_health_check.py if it changes.
+# Thresholds — calibrated against scripts/nightly_health_check.py so the
+# public page doesn't go red over the same noise the Slack alert tolerates.
+# "error" is reserved for user-visible breakage; a single flaky venue
+# scraper is "degraded," not "error."
 _SCRAPER_STALE_HOURS = 36
+_LAST_BUILD_STALE_HOURS = 36
 _TM_DEGRADED_ERRORS = 1
 _TM_ERROR_ERRORS = 5
 
@@ -2009,14 +2013,16 @@ def _sanitize_scraper_status(s):
     return "ok"
 
 
-def _derive_overall_status(scrapers, tm, events):
-    if any(s["status"] == "failed" for s in scrapers):
+def _derive_overall_status(scrapers, tm, events, last_build_age_hours):
+    if events["total"] == 0:
+        return "error"
+    if last_build_age_hours is not None and last_build_age_hours > _LAST_BUILD_STALE_HOURS:
         return "error"
     if (tm["errors_24h"] or 0) >= _TM_ERROR_ERRORS:
         return "error"
-    if events["total"] == 0:
+    if scrapers and all(s["status"] == "failed" for s in scrapers):
         return "error"
-    if any(s["status"] in ("stale", "unknown") for s in scrapers):
+    if any(s["status"] in ("failed", "stale", "unknown") for s in scrapers):
         return "degraded"
     if (tm["errors_24h"] or 0) >= _TM_DEGRADED_ERRORS:
         return "degraded"
@@ -2036,10 +2042,16 @@ def _public_summary_payload():
         for s in raw_scrapers
     ]
     last_build_row = (health_recent_build_logs(1) or [{}])[0]
+    last_build_started = last_build_row.get("started_at")
+    last_build_age_hours = None
+    if last_build_started is not None:
+        last_build_age_hours = (
+            datetime.now(timezone.utc) - last_build_started
+        ).total_seconds() / 3600.0
     return {
-        "api_status": _derive_overall_status(scrapers, tm, events),
+        "api_status": _derive_overall_status(scrapers, tm, events, last_build_age_hours),
         "generated_at": _now_z(),
-        "last_build_at": _iso_z(last_build_row.get("started_at")),
+        "last_build_at": _iso_z(last_build_started),
         "upcoming_events_14d": {
             "total": events["total"],
             "by_day": events["by_day"],
