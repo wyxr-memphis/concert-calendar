@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-17T07:34:08.055198+00:00",
+  "run_timestamp": "2026-05-17T17:52:33.730707+00:00",
   "date_range": {
     "start": "2026-05-17",
     "end": "2026-05-24"
   },
-  "total_events_db": 1729,
+  "total_events_db": 1731,
   "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
@@ -25,39 +25,47 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 28,
+      "events_found": 27,
       "events_after_filter": 25,
-      "events_filtered": 3,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 17,
+      "events_found": 16,
       "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 135,
+      "events_after_filter": 13,
+      "events_filtered": 122,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -73,19 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 29,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,19 +97,19 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 1,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 185,
       "events_after_filter": 33,
       "events_filtered": 152,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,22 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Parse error: object of type 'NoneType' has no len()"
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 27,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 33,
@@ -153,10 +137,26 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Parse error: object of type 'NoneType' has no len()"
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 58,
+      "events_found": 67,
+      "events_after_filter": 60,
       "events_filtered": 7,
       "error": null
     },
