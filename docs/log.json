@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-18T12:13:59.171548+00:00",
+  "run_timestamp": "2026-05-18T18:27:12.458143+00:00",
   "date_range": {
     "start": "2026-05-18",
     "end": "2026-05-25"
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 25,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 16,
@@ -41,7 +33,15 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 25,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -49,23 +49,7 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 135,
-      "events_after_filter": 11,
-      "events_filtered": 124,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 28,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
@@ -81,27 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 61,
-      "events_after_filter": 25,
-      "events_filtered": 36,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 5,
-      "events_filtered": 22,
+      "events_found": 135,
+      "events_after_filter": 11,
+      "events_filtered": 124,
       "error": null
     },
     {
@@ -110,6 +78,38 @@
       "events_found": 26,
       "events_after_filter": 26,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 1,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 25,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -129,19 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 28,
       "events_after_filter": 28,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 5,
+      "events_filtered": 22,
       "error": null
     },
     {
@@ -153,20 +153,20 @@
       "error": "Parse error: object of type 'NoneType' has no len()"
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 66,
       "events_after_filter": 59,
       "events_filtered": 7,
       "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Blues City Cafe",
