@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-18T18:27:12.458143+00:00",
+  "run_timestamp": "2026-05-19T08:29:58.903596+00:00",
   "date_range": {
-    "start": "2026-05-18",
-    "end": "2026-05-25"
+    "start": "2026-05-19",
+    "end": "2026-05-26"
   },
-  "total_events_db": 1744,
-  "total_active_display": 108,
+  "total_events_db": 1756,
+  "total_active_display": 113,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -49,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -73,20 +73,12 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
+      "events_found": 28,
+      "events_after_filter": 27,
+      "events_filtered": 1,
       "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: South Main Sounds",
@@ -94,14 +86,6 @@
       "events_found": 2,
       "events_after_filter": 1,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -115,8 +99,8 @@
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 185,
-      "events_after_filter": 32,
+      "events_found": 186,
+      "events_after_filter": 33,
       "events_filtered": 153,
       "error": null
     },
@@ -129,11 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -153,6 +137,14 @@
       "error": "Parse error: object of type 'NoneType' has no len()"
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 28,
@@ -163,71 +155,37 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 59,
+      "events_found": 65,
+      "events_after_filter": 58,
       "events_filtered": 7,
       "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 52,
-      "events_filtered": 17,
+      "events_after_filter": 51,
+      "events_filtered": 18,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 108,
-      "events_after_filter": 108,
+      "events_found": 113,
+      "events_after_filter": 113,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Yella P",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-18",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-18",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-18",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-18",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-18",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-18",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Stud Ford",
       "venue": "B-Side Memphis",
@@ -339,6 +297,13 @@
       "date": "2026-05-20",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-20",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Open Jam Night \u2013 NO COVER FOR MUSICIANS",
@@ -516,6 +481,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-22",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-22",
@@ -675,6 +647,13 @@
       "date": "2026-05-23",
       "time": "8 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-23",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "DJ Lola presents: Jayxavaire, Von G\u00f6gh + Rhinestonee",
@@ -941,6 +920,62 @@
       "date": "2026-05-25",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-26",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-05-26",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Blues City Cafe",
+      "date": "2026-05-26",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-05-26",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Fight From Within",
+      "venue": "Growlers",
+      "date": "2026-05-26",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Fight From Within, Yung Mosh",
+      "venue": "Growlers",
+      "date": "2026-05-26",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Heels [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-26",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-26",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
