@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-19T20:10:27.441221+00:00",
+  "run_timestamp": "2026-05-19T20:30:38.448974+00:00",
   "date_range": {
     "start": "2026-05-19",
     "end": "2026-05-26"
   },
-  "total_events_db": 1770,
-  "total_active_display": 119,
+  "total_events_db": 1772,
+  "total_active_display": 120,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 65,
       "events_after_filter": 58,
       "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 25,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,18 +41,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 20,
+      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 27,
+      "events_after_filter": 25,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -78,6 +70,14 @@
       "events_found": 135,
       "events_after_filter": 11,
       "events_filtered": 124,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,6 +97,14 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 60,
@@ -105,10 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 186,
+      "events_after_filter": 33,
+      "events_filtered": 153,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -121,19 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 186,
-      "events_after_filter": 33,
-      "events_filtered": 153,
       "error": null
     },
     {
@@ -145,14 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
@@ -161,10 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 119,
-      "events_after_filter": 119,
+      "events_found": 120,
+      "events_after_filter": 120,
       "events_filtered": 0,
       "error": null
     }
@@ -349,7 +349,7 @@
     },
     {
       "artist": "Jay Pride (Patio Band)",
-      "venue": "Huey's Poplar",
+      "venue": "Huey's (Poplar)",
       "date": "2026-05-20",
       "time": "5:30 PM",
       "source": "scraper:huey_s"
@@ -537,6 +537,20 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "The Iris Artist Fellows Present: Momentum",
       "venue": "Crosstown Arts",
       "date": "2026-05-22",
@@ -572,13 +586,6 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Horseshoe Casino's Bluesville",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
       "artist": "Carlos Ecos Band",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-22",
@@ -594,21 +601,21 @@
     },
     {
       "artist": "Samuel Aaron (Chicago)",
-      "venue": "Lamplighter Lounge (lamplighterloungememphis)",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-22",
       "time": "8 PM",
       "source": "artifact"
     },
     {
       "artist": "The Stupid Reasons",
-      "venue": "Lamplighter Lounge (lamplighterloungememphis)",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-22",
       "time": "8 PM",
       "source": "artifact"
     },
     {
       "artist": "Wilshire",
-      "venue": "Lamplighter Lounge (lamplighterloungememphis)",
+      "venue": "Lamplighter Lounge",
       "date": "2026-05-22",
       "time": "8 PM",
       "source": "artifact"
