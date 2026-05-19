@@ -894,7 +894,11 @@ def admin_import_confirm():
 @app.route("/api/admin/import/image", methods=["POST"])
 @require_auth
 def admin_import_image():
-    """Single image upload — commits to GitHub artifacts/ folder."""
+    """Single event image upload — commits to docs/event-images/ so Vercel serves it.
+
+    Returns image_url pointing at the CDN. The frontend (edit.html) reads
+    data.image_url and populates the form field.
+    """
     f = request.files.get("image")
     if not f:
         return jsonify({"error": "No image file provided"}), 400
@@ -911,12 +915,16 @@ def admin_import_image():
     if not github_pat:
         return jsonify({"error": "GITHUB_PAT not configured"}), 500
 
+    import re as _re
     file_data = f.read()
-    safe_name = "".join(c for c in filename if c.isalnum() or c in ".-_ ").strip()
-    if not safe_name:
-        safe_name = f"img_{uuid.uuid4().hex[:8]}{ext}"
+    # Sanitize: timestamp prefix + alphanumeric/hyphen only — no spaces or special chars
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    base = os.path.splitext(filename)[0]
+    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
+    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "event"
+    safe_name = f"{ts}_{clean_base}{ext}"
 
-    github_path = f"artifacts/{safe_name}"
+    github_path = f"docs/event-images/{safe_name}"
     api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
     gh_headers = {
         "Authorization": f"Bearer {github_pat}",
@@ -929,7 +937,7 @@ def admin_import_image():
         sha = existing.json().get("sha")
 
     put_data = {
-        "message": f"Upload artifact: {safe_name}",
+        "message": f"Upload event image: {safe_name}",
         "content": base64.b64encode(file_data).decode("ascii"),
     }
     if sha:
@@ -938,7 +946,8 @@ def admin_import_image():
     resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
 
     if resp.status_code in (200, 201):
-        return jsonify({"ok": True, "filename": safe_name})
+        image_url = f"https://concert-calendar.wyxr.org/event-images/{safe_name}"
+        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
     else:
         return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
 
