@@ -327,18 +327,24 @@ def _fetch_sitewrench_venue(venue_info: dict) -> SourceResult:
 def _parse_crosstown_arts(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     """Parse Crosstown Arts events — WordPress with The Events Calendar v6+.
 
-    The Events Calendar v6 uses new class names vs legacy v5. We also apply
-    is_music_event() because Crosstown's calendar mixes music and gallery events.
+    Crosstown's calendar mixes music (The Green Room), film screenings, and
+    gallery exhibitions. We filter by the WordPress category embedded in the
+    article's class list rather than is_music_event() — artist-only titles like
+    "An Intimate Night with Keia" carry no music keywords and would be rejected.
     """
     events = []
 
     for article in soup.select("article.tribe-events-calendar-list__event"):
         try:
+            classes = article.get("class", [])
+            if any(c in ("cat_gallery", "tribe_events_cat-gallery") for c in classes):
+                continue
+
             title_el = article.select_one(".tribe-events-calendar-list__event-title-link")
             if not title_el:
                 continue
             title = title_el.get_text(strip=True)
-            if not title or not is_music_event(title, ""):
+            if not title:
                 continue
             # Crosstown's calendar includes film screenings — exclude them
             if re.search(r'\bfilm\b', title, re.I):
@@ -1311,6 +1317,8 @@ def _parse_crosstown_beer(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 source=_venue_source_tag(venue_name),
                 url="https://crosstownbeer.com/events/",
             ))
+
+    return events
 
 
 def _fetch_blues_city_cafe(venue_info: dict) -> SourceResult:
