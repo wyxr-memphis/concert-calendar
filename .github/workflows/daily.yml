@@ -8,6 +8,13 @@ on:
     - cron: '0 17 * * *'  # 5 PM UTC = 12 PM Central (noon)
   workflow_dispatch:  # Allow manual trigger
 
+# Serialize builds so concurrent dispatches (e.g. multiple Slack image uploads
+# in quick succession) don't race each other on the final `git push` step.
+# Queued runs collapse to one pending run — later dispatches replace it.
+concurrency:
+  group: daily-calendar-build
+  cancel-in-progress: false
+
 jobs:
   update-calendar:
     runs-on: ubuntu-latest
