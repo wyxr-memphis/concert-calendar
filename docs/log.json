@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-22T08:23:14.059692+00:00",
+  "run_timestamp": "2026-05-22T18:49:28.518205+00:00",
   "date_range": {
     "start": "2026-05-22",
     "end": "2026-05-29"
   },
-  "total_events_db": 1850,
-  "total_active_display": 149,
+  "total_events_db": 1875,
+  "total_active_display": 151,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
+      "events_found": 26,
+      "events_after_filter": 25,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
       "error": null
     },
@@ -49,34 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 135,
-      "events_after_filter": 10,
-      "events_filtered": 125,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -89,27 +73,59 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 186,
-      "events_after_filter": 32,
-      "events_filtered": 154,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 2,
+      "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 24,
-      "events_filtered": 36,
+      "events_found": 71,
+      "events_after_filter": 36,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 193,
+      "events_after_filter": 40,
+      "events_filtered": 153,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -145,27 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 59,
+      "events_found": 66,
+      "events_after_filter": 60,
       "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 149,
-      "events_after_filter": 149,
+      "events_found": 151,
+      "events_after_filter": 151,
       "events_filtered": 0,
       "error": null
     }
@@ -334,6 +334,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "The Iris Artist Fellows Present: Momentum",
       "venue": "Crosstown Arts",
       "date": "2026-05-22",
@@ -367,6 +374,13 @@
       "date": "2026-05-22",
       "time": "8:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "School of rock houseband [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-22",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Carlos Ecos Band",
