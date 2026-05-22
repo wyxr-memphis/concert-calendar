@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-21T22:12:51.246146+00:00",
+  "run_timestamp": "2026-05-22T08:23:14.059692+00:00",
   "date_range": {
-    "start": "2026-05-21",
-    "end": "2026-05-28"
+    "start": "2026-05-22",
+    "end": "2026-05-29"
   },
-  "total_events_db": 1827,
-  "total_active_display": 135,
+  "total_events_db": 1850,
+  "total_active_display": 149,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 26,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 21,
       "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -41,11 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 135,
+      "events_after_filter": 10,
+      "events_filtered": 125,
       "error": null
     },
     {
@@ -57,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 135,
-      "events_after_filter": 11,
-      "events_filtered": 124,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
@@ -73,27 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 186,
+      "events_after_filter": 32,
+      "events_filtered": 154,
       "error": null
     },
     {
@@ -105,50 +105,26 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 60,
-      "events_after_filter": 25,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 186,
-      "events_after_filter": 33,
-      "events_filtered": 153,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_after_filter": 24,
+      "events_filtered": 36,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 6,
-      "events_filtered": 23,
+      "events_after_filter": 5,
+      "events_filtered": 24,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -161,143 +137,55 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 60,
+      "events_found": 65,
+      "events_after_filter": 59,
       "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 49,
-      "events_filtered": 20,
+      "events_after_filter": 48,
+      "events_filtered": 21,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 135,
-      "events_after_filter": 135,
+      "events_found": 149,
+      "events_after_filter": 149,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Concerts in The Grove: Memphis Wind Symphony",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-05-21",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-21",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-21",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-21",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-21",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Kendra Remedios with special guest Bryan Hayes",
-      "venue": "Crosstown Arts",
-      "date": "2026-05-21",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Katherine Paterson & Kathy Zhou",
-      "venue": "Flyway Brewing",
-      "date": "2026-05-21",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Lil Wild Bill & The Juke Joint All Stars",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-21",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Lil\u2019 Wild Bill & The Juke Joint Allstars",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-21",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Cole Barnhill / Jake Slay [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Cole Barnhill [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Grocery Bag / Moon Owl\u2019s Mages / Spoonful [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Shara's Songwriter Showcase",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-05-21",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Reba Russell at the Side Set",
-      "venue": "Nashoba",
-      "date": "2026-05-21",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "SIDE SET: Reba Russell",
-      "venue": "Nashoba",
-      "date": "2026-05-21",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Cole Barnhill",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-05-21",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Mary Hatley",
       "venue": "Growlers",
@@ -367,6 +255,34 @@
       "date": "2026-05-22",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Whiskey Myers Ticket + Hotel Deals",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-05-22",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Whiskey Myers Ticket + Hotel Deals",
@@ -775,6 +691,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-24",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Sledro + Friends",
       "venue": "Bar DKDC",
       "date": "2026-05-24",
@@ -864,6 +787,13 @@
       "date": "2026-05-25",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-25",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Rockin 88's",
@@ -1128,6 +1058,174 @@
       "artist": "Orion Financial Free Concert Series: Eddie 9V",
       "venue": "Overton Park Shell",
       "date": "2026-05-28",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Runi Salem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Steve Selvidge",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-29",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Wilshire + Avon Park",
+      "venue": "Bar DKDC",
+      "date": "2026-05-29",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Kirk Smithhart",
+      "venue": "Blues City Cafe",
+      "date": "2026-05-29",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Wes Bayliss",
+      "venue": "Buckman Performing Arts Center",
+      "date": "2026-05-29",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Committee Explores the Music of Horace Silver",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-29",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Highway HiFi",
+      "venue": "Flying Saucer Downtown",
+      "date": "2026-05-29",
+      "time": "8 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Jazz in the Box: Denise Thimes Trio",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-05-29",
+      "time": "7:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "crawdad sniper",
+      "venue": "Growlers",
+      "date": "2026-05-29",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Jason D Williams",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-29",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Zynifest",
+      "venue": "Hi Tone",
+      "date": "2026-05-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "JAM-JAM1",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-29",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "TILT",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-29",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "The Stupid Reasons",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Thin Lear",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Thin Lear",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Tom Foolery",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Dale Watson",
+      "venue": "Memphis Italian Festival",
+      "date": "2026-05-29",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Kendra Remedios",
+      "venue": "Memphis Italian Festival",
+      "date": "2026-05-29",
+      "time": "7:45 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Starlito",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-29",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Starlito with special\u00a0guest Bandplay",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-29",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Doll and the Real McCoys",
+      "venue": "Nashoba",
+      "date": "2026-05-29",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Billy Allen and The Pollies",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-29",
+      "time": "7:00 AM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Billy Allen & The Pollies",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-29",
       "time": "7:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
