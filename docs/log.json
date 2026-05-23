@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-05-22T18:49:28.518205+00:00",
+  "run_timestamp": "2026-05-23T07:33:23.547326+00:00",
   "date_range": {
-    "start": "2026-05-22",
-    "end": "2026-05-29"
+    "start": "2026-05-23",
+    "end": "2026-05-30"
   },
-  "total_events_db": 1875,
-  "total_active_display": 151,
+  "total_events_db": 1885,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
+      "events_found": 27,
       "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -65,35 +49,19 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 23,
+      "events_after_filter": 22,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -101,6 +69,14 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -113,11 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 193,
-      "events_after_filter": 40,
-      "events_filtered": 153,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -126,6 +102,14 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 193,
+      "events_after_filter": 39,
+      "events_filtered": 154,
       "error": null
     },
     {
@@ -139,17 +123,9 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
+      "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -163,309 +139,53 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 60,
+      "events_found": 67,
+      "events_after_filter": 61,
       "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 3,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 135,
+      "events_after_filter": 8,
+      "events_filtered": 127,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 48,
-      "events_filtered": 21,
+      "events_after_filter": 47,
+      "events_filtered": 22,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 151,
-      "events_after_filter": 151,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Mary Hatley",
-      "venue": "Growlers",
-      "date": "2026-05-22",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Zo\u00eb Dominguez",
-      "venue": "Growlers",
-      "date": "2026-05-22",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Karaoke with Conner",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-22",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Memphis Snake Doctors Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-22",
-      "time": "6:30 PM - 8:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-22",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-22",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-22",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Joe Turner + Zack Smith",
-      "venue": "Bar DKDC",
-      "date": "2026-05-22",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Who Wrote That?! Comedy Show",
-      "venue": "Bar DKDC",
-      "date": "2026-05-22",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-22",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Whiskey Myers Ticket + Hotel Deals",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Iris Artist Fellows Present: Momentum",
-      "venue": "Crosstown Arts",
-      "date": "2026-05-22",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Earnestine & Hazel's",
-      "date": "2026-05-22",
-      "time": "9:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Planet Ozz",
-      "venue": "Flying Saucer Downtown",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-05-22",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Mauldin Brothers Band at Hernando\u2019s Hide-A-Way Memphis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-22",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "School of rock houseband [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-22",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Carlos Ecos Band",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-05-22",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Marcus Scott and The New Project",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-05-22",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Samuel Aaron (Chicago)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Stupid Reasons",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Wilshire",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The HU",
-      "venue": "Minglewood Hall",
-      "date": "2026-05-22",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The HU and Apocalyptica with Special Guest The Rasmus",
-      "venue": "Minglewood Hall",
-      "date": "2026-05-22",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Rasmus",
-      "venue": "Minglewood Hall",
-      "date": "2026-05-22",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rock the Boat",
-      "venue": "Nashoba",
-      "date": "2026-05-22",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Old Dominick Distillery",
-      "date": "2026-05-22",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "MAJOR. Why I Love You 10 Year Celebration Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-05-22",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "MAJOR. WHY I LOVE YOU 10 YR CELEBRATION TOUR",
-      "venue": "Orpheum Theatre",
-      "date": "2026-05-22",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Relentless Breeze",
       "venue": "Crosstown Brewing Co.",
@@ -768,6 +488,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Clownvis Presley, Victor Trevino, Jr.",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-24",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
       "artist": "The Undugu ft. MURS [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-05-24",
@@ -803,6 +530,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-25",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-25",
@@ -817,11 +551,32 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-25",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "The Parallax",
       "venue": "B-Side Memphis",
       "date": "2026-05-26",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-26",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-26",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Brimstone Jones",
@@ -1219,8 +974,8 @@
       "artist": "Starlito with special\u00a0guest Bandplay",
       "venue": "Minglewood Hall",
       "date": "2026-05-29",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Doll and the Real McCoys",
@@ -1242,6 +997,160 @@
       "date": "2026-05-29",
       "time": "7:30\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Arc of Quasar / Supreme Imperial / Turnstyles",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-30",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DrFelix and The Afrosoul Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-05-30",
+      "time": "7 PM - 9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Radar Blips + Special Guests",
+      "venue": "Bar DKDC",
+      "date": "2026-05-30",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blues Players Club",
+      "venue": "Blues City Cafe",
+      "date": "2026-05-30",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Memphis Concr\u00e8te",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-30",
+      "time": "4:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Alexis Jade",
+      "venue": "Flying Saucer Downtown",
+      "date": "2026-05-30",
+      "time": "8 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
+      "date": "2026-05-30",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Spaceman\u2019s Dead Friends",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-05-30",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Marcella Simien Music",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-05-30",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Deep Roots",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-30",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Terry Greene & the Honey Golds",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-30",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Big Clown",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-30",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Bluff City Vice",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-30",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Sweet Cream Ladies",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-30",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "True Green",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-30",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Eric Benet",
+      "venue": "Landers Center",
+      "date": "2026-05-30",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Lalah Hathaway",
+      "venue": "Landers Center",
+      "date": "2026-05-30",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "October London",
+      "venue": "Landers Center",
+      "date": "2026-05-30",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Bryan Hayes Music",
+      "venue": "Memphis Italian Festival!",
+      "date": "2026-05-30",
+      "time": "12:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Bingo Loco",
+      "venue": "Minglewood Hall",
+      "date": "2026-05-30",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Blakgraz",
+      "venue": "Mississippi Ale House",
+      "date": "2026-05-30",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "The Heartshakers | Tom Petty Tribute Band",
+      "venue": "Nashoba",
+      "date": "2026-05-30",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
