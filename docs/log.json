@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-05-24T07:50:43.263999+00:00",
+  "run_timestamp": "2026-05-24T17:54:05.517218+00:00",
   "date_range": {
     "start": "2026-05-24",
     "end": "2026-05-31"
@@ -11,8 +11,8 @@
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
+      "events_found": 3,
+      "events_after_filter": 2,
       "events_filtered": 1,
       "error": null
     },
@@ -27,16 +27,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
+      "events_found": 25,
       "events_after_filter": 24,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
       "events_filtered": 1,
       "error": null
     },
@@ -51,9 +43,9 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
+      "events_found": 21,
       "events_after_filter": 21,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,19 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
+      "events_found": 26,
+      "events_after_filter": 25,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -85,6 +69,22 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,42 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 193,
-      "events_after_filter": 38,
-      "events_filtered": 155,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 5,
-      "events_filtered": 24,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +113,43 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 5,
+      "events_filtered": 24,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 193,
+      "events_after_filter": 38,
+      "events_filtered": 155,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 2,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
       "error": null
     },
     {
