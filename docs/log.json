@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-24T19:20:17.918403+00:00",
+  "run_timestamp": "2026-05-25T18:21:52.091286+00:00",
   "date_range": {
-    "start": "2026-05-24",
-    "end": "2026-05-31"
+    "start": "2026-05-25",
+    "end": "2026-06-01"
   },
-  "total_events_db": 1891,
-  "total_active_display": 139,
+  "total_events_db": 1897,
+  "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,43 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 25,
       "events_after_filter": 24,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 135,
+      "events_after_filter": 6,
+      "events_filtered": 129,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,30 +89,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 36,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 10,
@@ -113,7 +105,15 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -121,23 +121,15 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 5,
-      "events_filtered": 24,
+      "events_found": 71,
+      "events_after_filter": 36,
+      "events_filtered": 35,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -153,172 +145,47 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 60,
-      "events_filtered": 6,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 29,
+      "events_after_filter": 5,
+      "events_filtered": 24,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 57,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 46,
-      "events_filtered": 23,
+      "events_after_filter": 45,
+      "events_filtered": 24,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 139,
-      "events_after_filter": 139,
+      "events_found": 126,
+      "events_after_filter": 126,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Orion Financial Free Concert Series: Sunset Symphony",
-      "venue": "Overton Park Shell",
-      "date": "2026-05-24",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Phases + 3 TBA",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-24",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-24",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-24",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Sledro + Friends",
-      "venue": "Bar DKDC",
-      "date": "2026-05-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-24",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GeminiiDragon",
-      "venue": "Exit 56 Blues Fest",
-      "date": "2026-05-24",
-      "time": "11:00 AM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hope MacGregor",
-      "venue": "Exit 56 Blues Fest",
-      "date": "2026-05-24",
-      "time": "2:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Shamothy",
-      "venue": "Growlers",
-      "date": "2026-05-24",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Guest House Graceland Lobby Lounge",
-      "date": "2026-05-24",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-24",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Clownvis Presley",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-24",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Clownvis Presley, Victor Trevino, Jr.",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-05-24",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Rev Down Trio  *free Matinee show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Undugu ft. MURS [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Memphis Unplugged",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-05-24",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Moxie Macabre & Fayetality Morningstar",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-05-24",
-      "time": "9 PM - Late (Doors 8:30)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "The 10th Inning",
-      "date": "2026-05-24",
-      "time": "4:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Loftys Comets (STL)",
       "venue": "B-Side Memphis",
@@ -558,6 +425,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-28",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-28",
@@ -661,6 +535,20 @@
       "date": "2026-05-29",
       "time": "8 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-29",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-29",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Wilshire + Avon Park",
@@ -1158,6 +1046,27 @@
       "date": "2026-05-31",
       "time": "10:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-01",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "GPAC Summer Arts Camp: Fairy Tale Ballet Session 1",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-01",
+      "time": "9:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "GPAC Summer Arts Camp: FairyTale Ballet Session 1",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-01",
+      "time": "9:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
     }
   ]
 }
