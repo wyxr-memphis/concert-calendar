@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-25T18:21:52.091286+00:00",
+  "run_timestamp": "2026-05-26T08:34:15.311769+00:00",
   "date_range": {
-    "start": "2026-05-25",
-    "end": "2026-06-01"
+    "start": "2026-05-26",
+    "end": "2026-06-02"
   },
-  "total_events_db": 1897,
-  "total_active_display": 126,
+  "total_events_db": 1900,
+  "total_active_display": 125,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,35 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 135,
-      "events_after_filter": 6,
-      "events_filtered": 129,
-      "error": null
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 62,
+      "events_after_filter": 56,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -65,18 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -89,6 +81,14 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 10,
@@ -97,26 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 193,
-      "events_after_filter": 38,
-      "events_filtered": 155,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,7 +113,23 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 194,
+      "events_after_filter": 39,
+      "events_filtered": 155,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -137,18 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 11,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -161,66 +153,39 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 57,
-      "events_filtered": 6,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 2,
+      "events_filtered": 9,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 45,
-      "events_filtered": 24,
+      "events_after_filter": 44,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 126,
-      "events_after_filter": 126,
+      "events_found": 125,
+      "events_after_filter": 125,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Loftys Comets (STL)",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-25",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-25",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-25",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-25",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "The Parallax",
       "venue": "B-Side Memphis",
@@ -537,6 +502,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-29",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-29",
@@ -717,6 +689,13 @@
       "date": "2026-05-30",
       "time": "7 PM - 9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-30",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Radar Blips + Special Guests",
@@ -1067,6 +1046,20 @@
       "date": "2026-06-01",
       "time": "9:00\u202fAM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Mystic",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-02",
+      "time": "6:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-02",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
