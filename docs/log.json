@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-26T08:34:15.311769+00:00",
+  "run_timestamp": "2026-05-26T19:12:55.012765+00:00",
   "date_range": {
     "start": "2026-05-26",
     "end": "2026-06-02"
   },
-  "total_events_db": 1900,
+  "total_events_db": 1901,
   "total_active_display": 125,
   "data_store": "postgresql",
   "sources": [
@@ -33,30 +33,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 62,
-      "events_after_filter": 56,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 25,
@@ -83,16 +59,24 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 25,
+      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -101,6 +85,14 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +113,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 29,
+      "events_after_filter": 5,
+      "events_filtered": 24,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 2,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -137,22 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 5,
-      "events_filtered": 24,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 27,
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 2,
-      "events_filtered": 9,
+      "events_found": 62,
+      "events_after_filter": 56,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
