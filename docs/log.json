@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-27T13:45:54.917320+00:00",
+  "run_timestamp": "2026-05-27T19:14:15.110504+00:00",
   "date_range": {
     "start": "2026-05-27",
     "end": "2026-06-03"
   },
-  "total_events_db": 1919,
-  "total_active_display": 128,
+  "total_events_db": 1925,
+  "total_active_display": 131,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 56,
-      "events_filtered": 6,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,14 +41,6 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -57,26 +49,18 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -89,6 +73,14 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 135,
@@ -97,34 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 194,
-      "events_after_filter": 39,
+      "events_found": 195,
+      "events_after_filter": 40,
       "events_filtered": 155,
       "error": null
     },
@@ -137,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,7 +129,7 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -169,6 +145,30 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 58,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 128,
-      "events_after_filter": 128,
+      "events_found": 131,
+      "events_after_filter": 131,
       "events_filtered": 0,
       "error": null
     }
@@ -691,6 +691,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Rosamii / Superstarsipa [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-30",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Marcella Simien Music",
       "venue": "Hotel Pontotoc",
       "date": "2026-05-30",
@@ -845,6 +852,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Rev Down Trio *Matinee free show* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-31",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Tequila Mockingbird",
       "venue": "Huey's (Collierville)",
       "date": "2026-05-31",
@@ -871,6 +885,13 @@
       "date": "2026-05-31",
       "time": "3:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "John Paul Keith Band",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-05-31",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
     },
     {
       "artist": "Wyly & The Coyotes",
