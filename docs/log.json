@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-26T19:12:55.012765+00:00",
+  "run_timestamp": "2026-05-27T08:40:01.785411+00:00",
   "date_range": {
-    "start": "2026-05-26",
-    "end": "2026-06-02"
+    "start": "2026-05-27",
+    "end": "2026-06-03"
   },
-  "total_events_db": 1901,
-  "total_active_display": 125,
+  "total_events_db": 1906,
+  "total_active_display": 128,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 25,
       "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 20,
       "events_filtered": 1,
       "error": null
     },
@@ -60,15 +60,55 @@
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 135,
+      "events_after_filter": 6,
+      "events_filtered": 129,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 194,
+      "events_after_filter": 39,
+      "events_filtered": 155,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 36,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -81,63 +121,15 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 36,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 194,
-      "events_after_filter": 39,
-      "events_filtered": 155,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 5,
-      "events_filtered": 24,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 2,
-      "events_filtered": 9,
+      "events_after_filter": 4,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -161,6 +153,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 1,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 7,
@@ -172,97 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 69,
-      "events_after_filter": 44,
-      "events_filtered": 25,
+      "events_after_filter": 43,
+      "events_filtered": 26,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 125,
-      "events_after_filter": 125,
+      "events_found": 128,
+      "events_after_filter": 128,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "The Parallax",
-      "venue": "B-Side Memphis",
-      "date": "2026-05-26",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King's All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-26",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-05-26",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-26",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Rodd Bland",
-      "venue": "Blues City Cafe",
-      "date": "2026-05-26",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-05-26",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Charlotte Taylor",
-      "venue": "Flyway Brewing",
-      "date": "2026-05-26",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Fight From Within",
-      "venue": "Growlers",
-      "date": "2026-05-26",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Fight From Within, Yung Mosh",
-      "venue": "Growlers",
-      "date": "2026-05-26",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Heels [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-26",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-05-26",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Alex Greene & The Rolling Head Orchestra",
       "venue": "B-Side Memphis",
@@ -579,6 +502,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Evil Karaoke [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-05-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Zynifest",
       "venue": "Hi Tone",
       "date": "2026-05-29",
@@ -691,10 +621,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King's All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-30",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-05-30",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-05-30",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -1060,6 +1004,83 @@
       "date": "2026-06-02",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-03",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Daikaiju",
+      "venue": "Growlers",
+      "date": "2026-06-03",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dwight Sanders Presents \u2013 The Mash Up",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-03",
+      "time": "7:30PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-03",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Charvey Mac (Patio Band)",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-06-03",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird (Patio Band)",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-06-03",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Wyly & The Coyotes (Patio Band)",
+      "venue": "Huey's (Millington)",
+      "date": "2026-06-03",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Pretty Boys (Patio Band)",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-06-03",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "An Evening with Shadowgrass",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-03",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "NBA Finals - GAME 1",
+      "venue": "Nashoba",
+      "date": "2026-06-03",
+      "time": "7:30 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Frank Marcel",
+      "venue": "Swamp Bar",
+      "date": "2026-06-03",
+      "time": null,
+      "source": "artifact"
     }
   ]
 }
