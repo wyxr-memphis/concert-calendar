@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-05-27T08:40:01.785411+00:00",
+  "run_timestamp": "2026-05-27T13:38:49.218275+00:00",
   "date_range": {
     "start": "2026-05-27",
     "end": "2026-06-03"
   },
-  "total_events_db": 1906,
+  "total_events_db": 1918,
   "total_active_display": 128,
   "data_store": "postgresql",
   "sources": [
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -49,19 +41,19 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,7 +73,7 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -89,11 +81,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 194,
-      "events_after_filter": 39,
-      "events_filtered": 155,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,18 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 194,
+      "events_after_filter": 39,
+      "events_filtered": 155,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,7 +129,7 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 56,
-      "events_filtered": 6,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 62,
+      "events_after_filter": 56,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -411,17 +411,17 @@
       "source": "scraper:overton_park_shell"
     },
     {
-      "artist": "Runi Salem",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-05-29",
-      "time": "8 PM (Doors 7:30 PM)",
-      "source": "artifact"
-    },
-    {
       "artist": "Steve Selvidge",
       "venue": "B-Side Memphis",
       "date": "2026-05-29",
       "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Runi Salem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-05-29",
+      "time": "8 PM (Doors 7:30 PM)",
       "source": "artifact"
     },
     {
@@ -607,6 +607,20 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Memphis Concr\u00e8te",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-30",
+      "time": "4:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Lalah Hathaway",
+      "venue": "Landers Center",
+      "date": "2026-05-30",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Arc of Quasar / Supreme Imperial / Turnstyles",
       "venue": "B-Side Memphis",
       "date": "2026-05-30",
@@ -654,13 +668,6 @@
       "date": "2026-05-30",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Memphis Concr\u00e8te",
-      "venue": "Crosstown Arts",
-      "date": "2026-05-30",
-      "time": "4:00 pm",
-      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Alexis Jade",
@@ -734,13 +741,6 @@
     },
     {
       "artist": "Eric Benet",
-      "venue": "Landers Center",
-      "date": "2026-05-30",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lalah Hathaway",
       "venue": "Landers Center",
       "date": "2026-05-30",
       "time": "8:00 PM",
@@ -1062,18 +1062,18 @@
       "source": "scraper:huey_s"
     },
     {
+      "artist": "Girls, Gays, & Theys - Open Mic Comedy",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-03",
+      "time": "Sign Up 7:30PM, Mic 8:00PM",
+      "source": "artifact"
+    },
+    {
       "artist": "An Evening with Shadowgrass",
       "venue": "Minglewood Hall",
       "date": "2026-06-03",
       "time": null,
       "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "NBA Finals - GAME 1",
-      "venue": "Nashoba",
-      "date": "2026-06-03",
-      "time": "7:30 PM",
-      "source": "scraper:nashoba"
     },
     {
       "artist": "Frank Marcel",
