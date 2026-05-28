@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-28T08:44:37.697315+00:00",
+  "run_timestamp": "2026-05-28T19:33:05.454586+00:00",
   "date_range": {
     "start": "2026-05-28",
     "end": "2026-06-04"
   },
-  "total_events_db": 1940,
-  "total_active_display": 127,
+  "total_events_db": 1946,
+  "total_active_display": 131,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 23,
@@ -41,19 +33,27 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
+      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,31 +65,23 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 58,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 71,
-      "events_after_filter": 36,
-      "events_filtered": 35,
+      "events_found": 135,
+      "events_after_filter": 6,
+      "events_filtered": 129,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -105,7 +97,7 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -113,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 71,
+      "events_after_filter": 36,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -137,19 +129,19 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 1,
       "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 58,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 127,
-      "events_after_filter": 127,
+      "events_found": 131,
+      "events_after_filter": 131,
       "events_filtered": 0,
       "error": null
     }
@@ -271,6 +271,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Bailey Bigger\u2014Canceled due to weather",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-05-28",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
       "artist": "Concerts in The Grove: Bailey Bigger",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-05-28",
@@ -293,6 +300,13 @@
     },
     {
       "artist": "Orion Financial Free Concert Series: Eddie 9V",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-28",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "\ud83d\udea8LOCATION CHANGED\ud83d\udea8Orion Financial Free Concert Series: Eddie 9V",
       "venue": "Overton Park Shell",
       "date": "2026-05-28",
       "time": "7:30\u202fPM",
@@ -594,6 +608,13 @@
     },
     {
       "artist": "Deep Roots",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-05-30",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Duane Cleveland Band",
       "venue": "Lafayette's Music Room",
       "date": "2026-05-30",
       "time": "5 PM",
@@ -1025,6 +1046,13 @@
       "date": "2026-06-04",
       "time": null,
       "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Holiday Beach",
+      "venue": "Growlers",
+      "date": "2026-06-04",
+      "time": "6:00PM",
+      "source": "scraper:growlers"
     },
     {
       "artist": "Brendan Lane w/ Gia Welch at Hernando\u2019s Hide-A-Way Memphis",
