@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-05-29T08:43:38.789606+00:00",
+  "run_timestamp": "2026-05-29T19:28:51.571221+00:00",
   "date_range": {
     "start": "2026-05-29",
     "end": "2026-06-05"
   },
-  "total_events_db": 1954,
-  "total_active_display": 132,
+  "total_events_db": 1957,
+  "total_active_display": 130,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 26,
@@ -33,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -49,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -65,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -83,41 +99,25 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 71,
+      "events_found": 70,
       "events_after_filter": 35,
-      "events_filtered": 36,
+      "events_filtered": 35,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 3,
-      "events_filtered": 26,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 204,
-      "events_after_filter": 49,
-      "events_filtered": 155,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 4,
+      "events_filtered": 26,
       "error": null
     },
     {
@@ -126,6 +126,14 @@
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 49,
+      "events_filtered": 155,
       "error": null
     },
     {
@@ -145,27 +153,19 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 66,
       "events_after_filter": 61,
       "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 134,
-      "events_after_filter": 5,
-      "events_filtered": 129,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 132,
-      "events_after_filter": 132,
+      "events_found": 130,
+      "events_after_filter": 130,
       "events_filtered": 0,
       "error": null
     }
@@ -390,6 +390,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "\ud83d\udea8LOCATION CHANGED\ud83d\udea8Orion Financial Free Concert Series: Billy Allen & The Pollies",
+      "venue": "Overton Park Shell",
+      "date": "2026-05-29",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "Memphis Concr\u00e8te",
       "venue": "Crosstown Arts",
       "date": "2026-05-30",
@@ -586,6 +593,20 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Memphis Concr\u00e8te",
+      "venue": "Crosstown Arts",
+      "date": "2026-05-31",
+      "time": "4:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "John Paul Keith Band",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-05-31",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "Memphis Reggae Nights featuring Kween Jasira",
       "venue": "B-Side Memphis",
       "date": "2026-05-31",
@@ -626,13 +647,6 @@
       "date": "2026-05-31",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Memphis Concr\u00e8te",
-      "venue": "Crosstown Arts",
-      "date": "2026-05-31",
-      "time": "4:00 pm",
-      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Spaceman\u2019s Dead Friends",
@@ -688,20 +702,6 @@
       "venue": "Huey's (Germantown)",
       "date": "2026-05-31",
       "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-05-31",
-      "time": "3:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "John Paul Keith Band",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-05-31",
-      "time": "3 PM",
       "source": "scraper:huey_s"
     },
     {
@@ -815,20 +815,6 @@
       "date": "2026-06-01",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Fairy Tale Ballet Session 1",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-01",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: FairyTale Ballet Session 1",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-01",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "The Mystic",
@@ -950,6 +936,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "The Wallflowers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-04",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "Holiday Beach",
       "venue": "Growlers",
       "date": "2026-06-04",
@@ -1025,13 +1018,6 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Happy Friday\u2014Free Admission!",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-05",
-      "time": "5:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "Edwin Mccain &Five For Fighting",
