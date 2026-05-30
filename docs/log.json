@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-05-30T07:42:29.422090+00:00",
+  "run_timestamp": "2026-05-30T17:58:59.644386+00:00",
   "date_range": {
     "start": "2026-05-30",
     "end": "2026-06-06"
   },
-  "total_events_db": 2009,
-  "total_active_display": 125,
+  "total_events_db": 2012,
+  "total_active_display": 128,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 7,
+      "events_found": 7,
+      "events_after_filter": 6,
       "events_filtered": 1,
       "error": null
     },
@@ -25,26 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
+      "events_found": 25,
       "events_after_filter": 24,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
       "events_filtered": 1,
       "error": null
     },
@@ -57,22 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 134,
-      "events_after_filter": 3,
-      "events_filtered": 131,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 2,
@@ -81,10 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -97,27 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 48,
-      "events_filtered": 156,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 4,
-      "events_filtered": 26,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,6 +105,14 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 48,
+      "events_filtered": 156,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
@@ -137,11 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 60,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 4,
+      "events_filtered": 26,
       "error": null
     },
     {
@@ -150,6 +142,14 @@
       "events_found": 11,
       "events_after_filter": 1,
       "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 60,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 125,
-      "events_after_filter": 125,
+      "events_found": 128,
+      "events_after_filter": 128,
       "events_filtered": 0,
       "error": null
     }
@@ -649,6 +649,13 @@
       "source": "scraper:crosstown_arts"
     },
     {
+      "artist": "Roadway7",
+      "venue": "Growlers",
+      "date": "2026-06-02",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-06-02",
@@ -775,6 +782,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "The Wallflowers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-04",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "Holiday Beach",
       "venue": "Growlers",
       "date": "2026-06-04",
@@ -864,6 +878,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
