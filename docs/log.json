@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-03T09:55:27.488013+00:00",
+  "run_timestamp": "2026-06-03T15:02:43.601530+00:00",
   "date_range": {
     "start": "2026-06-03",
     "end": "2026-06-10"
   },
-  "total_events_db": 2076,
-  "total_active_display": 131,
+  "total_events_db": 2108,
+  "total_active_display": 141,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,6 +41,14 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 147,
@@ -49,26 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 24,
+      "events_found": 23,
       "events_after_filter": 23,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -81,23 +81,7 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -113,34 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 8,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -153,10 +113,42 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 10,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 50,
       "events_after_filter": 50,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -166,6 +158,14 @@
       "events_found": 66,
       "events_after_filter": 61,
       "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 131,
-      "events_after_filter": 131,
+      "events_found": 141,
+      "events_after_filter": 141,
       "events_filtered": 0,
       "error": null
     }
@@ -206,6 +206,13 @@
       "date": "2026-06-03",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Josh and Friends",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-03",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Daikaiju",
@@ -397,6 +404,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "The Wallflowers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-04",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "Holiday Beach",
       "venue": "Growlers",
       "date": "2026-06-04",
@@ -436,6 +450,13 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-06-04",
       "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jubilee Hummingbirds",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-06-04",
+      "time": null,
       "source": "artifact"
     },
     {
@@ -502,6 +523,13 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "Memphis Ukulele Band",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-05",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Memphis Ukulele Band with Wyly Bigger & Savoiya Trainum + Opener Michael Cusack",
       "venue": "Crosstown Arts",
       "date": "2026-06-05",
@@ -514,6 +542,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -689,6 +724,20 @@
       "date": "2026-06-06",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Crafts & Drafts",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-06",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "John Storie (Modern Masters) with The Ted Luwvis Trio",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-06",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Memphis Crafts & Drafts Festival: Summer Market",
@@ -1006,6 +1055,13 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "Mark Allen Trivia",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-09",
+      "time": "4 PM / 7 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Nights of Malice, My Own Will",
       "venue": "Growlers",
       "date": "2026-06-09",
@@ -1055,6 +1111,13 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "Bluegrass Jam",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-10",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Wyly Bigger",
       "venue": "Flyway Brewing",
       "date": "2026-06-10",
@@ -1099,6 +1162,13 @@
     {
       "artist": "DJ Strooly",
       "venue": "Swamp Bar",
+      "date": "2026-06-10",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "The Scruffs (WYXR Stereo Sessions)",
+      "venue": "WYXR + Memphis Listening Lab",
       "date": "2026-06-10",
       "time": null,
       "source": "artifact"
