@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-06-04T18:41:35.971464+00:00",
+  "run_timestamp": "2026-06-04T19:15:38.533545+00:00",
   "date_range": {
     "start": "2026-06-04",
     "end": "2026-06-11"
   },
-  "total_events_db": 2152,
+  "total_events_db": 2168,
   "total_active_display": 153,
   "data_store": "postgresql",
   "sources": [
@@ -25,19 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 25,
       "events_after_filter": 24,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,26 +65,18 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 9,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -89,18 +89,26 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 9,
-      "events_filtered": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 18,
+      "events_after_filter": 10,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -113,27 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
       "events_after_filter": 46,
       "events_filtered": 158,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 10,
-      "events_filtered": 8,
       "error": null
     },
     {
@@ -161,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 67,
-      "events_filtered": 3,
+      "events_found": 147,
+      "events_after_filter": 13,
+      "events_filtered": 134,
       "error": null
     },
     {
@@ -174,6 +166,14 @@
       "events_found": 8,
       "events_after_filter": 8,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 70,
+      "events_after_filter": 67,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -240,14 +240,7 @@
       "venue": "Graceland Soundstage",
       "date": "2026-06-04",
       "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
+      "source": "manual"
     },
     {
       "artist": "The Wallflowers",
@@ -493,6 +486,20 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -1055,6 +1062,13 @@
       "source": "scraper:germantown_performing_arts_center"
     },
     {
+      "artist": "Buckethead",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-09",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "The Eastwoods",
       "venue": "B-Side Memphis",
       "date": "2026-06-09",
@@ -1088,13 +1102,6 @@
       "date": "2026-06-09",
       "time": null,
       "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Buckethead",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-09",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
     },
     {
       "artist": "SIDE SET: Josh Threlkeld",
@@ -1181,6 +1188,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Concerts in The Grove: Germantown Symphony Orchestra Pops Concerts",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-11",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
       "artist": "Tristen Gressett and Mary Hatley",
       "venue": "Bar DKDC",
       "date": "2026-06-11",
@@ -1193,20 +1207,6 @@
       "date": "2026-06-11",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Thai Something New: Spice, Sip & Savor",
-      "venue": "Church Health",
-      "date": "2026-06-11",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Concerts in The Grove: Germantown Symphony Orchestra Pops Concerts",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-11",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "65 North Pickers at Hernando\u2019s Hide-A-Way Memphis,TN",
