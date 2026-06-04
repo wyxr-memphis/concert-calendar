@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-04T08:52:16.720165+00:00",
+  "run_timestamp": "2026-06-04T18:41:35.971464+00:00",
   "date_range": {
     "start": "2026-06-04",
     "end": "2026-06-11"
   },
-  "total_events_db": 2118,
-  "total_active_display": 142,
+  "total_events_db": 2152,
+  "total_active_display": 153,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
+      "events_found": 25,
       "events_after_filter": 24,
-      "events_filtered": 2,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,30 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -73,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 9,
-      "events_filtered": 1,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,6 +89,38 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 9,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
@@ -118,22 +134,6 @@
       "events_found": 18,
       "events_after_filter": 10,
       "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,26 +161,26 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 147,
-      "events_after_filter": 13,
-      "events_filtered": 134,
+      "events_found": 70,
+      "events_after_filter": 67,
+      "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 43,
-      "events_after_filter": 40,
-      "events_filtered": 3,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 142,
-      "events_after_filter": 142,
+      "events_found": 153,
+      "events_after_filter": 153,
       "events_filtered": 0,
       "error": null
     }
@@ -208,6 +208,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-04",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
       "artist": "Concerts in The Grove\u2014 Elevation Memphis: A Tina Turner Tribute Experience",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-06-04",
@@ -220,6 +227,13 @@
       "date": "2026-06-04",
       "time": "6:30\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Wallflowers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-04",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "The Wallflowers",
@@ -362,10 +376,24 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Benny Elbows, Kyle Kordsmeir, Colton Ales, Prince, Zoe Etkin, + Janz - [Click to Add Title] PowerPoint Comedy Show",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-04",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Click to Add Title (feat. Kyle Kordsmeier, Colton Ales, Zoe Etkin, Prince & Janz, hosted by Benny Elbows)",
       "venue": "Lamplighter Lounge",
       "date": "2026-06-04",
       "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Karaoke with Kacee",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-04",
+      "time": "9 PM",
       "source": "artifact"
     },
     {
@@ -432,6 +460,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Me & Leah \u2013 Record Release Show ft The Hand Me Downs",
+      "venue": "Bar DKDC",
+      "date": "2026-06-05",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Brimstone Jones",
       "venue": "Blues City Cafe",
       "date": "2026-06-05",
@@ -458,6 +493,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -600,6 +642,13 @@
       "source": "artifact"
     },
     {
+      "artist": "3 The Hard Way, Pig Detective, Lyd Vicious and the Problem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Lyd Vicious and the Problem",
       "venue": "Lamplighter Lounge",
       "date": "2026-06-05",
@@ -654,6 +703,13 @@
       "date": "2026-06-06",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Pants Tour ft Frenchie! / Deaf Revival / Izzy Alive / Wicker",
+      "venue": "Bar DKDC",
+      "date": "2026-06-06",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Brimstone Jones",
@@ -747,6 +803,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Drip Edges, Lyd Vicious and the Problem, Loose Helmet",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-06",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Loose Helmet",
       "venue": "Lamplighter Lounge",
       "date": "2026-06-06",
@@ -796,6 +859,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-07",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-07",
@@ -815,13 +885,6 @@
       "date": "2026-06-07",
       "time": "7:30 PM",
       "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-07",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "GOLDEN MIC: Young Artists in Concert",
@@ -950,6 +1013,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Princess Baker, Kashmir, Taylor Nicole - Live Southern Soul, R&B, Blues",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-07",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Princess Baker & Kashjimer with Special Guest Artists including Taylor Nicole",
       "venue": "Lamplighter Lounge, 1702 Madison Ave, Memphis, TN 38104",
       "date": "2026-06-07",
@@ -957,10 +1027,17 @@
       "source": "artifact"
     },
     {
+      "artist": "Like Really Creative Muse: Sound led by Victor Sawyer + Kathy Zhou",
+      "venue": "Bar DKDC",
+      "date": "2026-06-08",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Rockin 88's",
       "venue": "Blues City Cafe",
       "date": "2026-06-08",
-      "time": "2:01 pm",
+      "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
     },
     {
@@ -978,13 +1055,6 @@
       "source": "scraper:germantown_performing_arts_center"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-08",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "The Eastwoods",
       "venue": "B-Side Memphis",
       "date": "2026-06-09",
@@ -999,11 +1069,11 @@
       "source": "scraper:blues_city_cafe"
     },
     {
-      "artist": "Mark Allen Trivia",
+      "artist": "Mark Allen",
       "venue": "Crosstown Brewing Co.",
       "date": "2026-06-09",
-      "time": "4 PM / 7 PM",
-      "source": "artifact"
+      "time": "4 PM",
+      "source": "manual"
     },
     {
       "artist": "Nights of Malice, My Own Will",
@@ -1032,13 +1102,6 @@
       "date": "2026-06-09",
       "time": "7 PM",
       "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-09",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "The Scruffs Wanna Meet The Scruffs?",
@@ -1116,6 +1179,20 @@
       "date": "2026-06-10",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Tristen Gressett and Mary Hatley",
+      "venue": "Bar DKDC",
+      "date": "2026-06-11",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-11",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "Thai Something New: Spice, Sip & Savor",
