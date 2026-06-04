@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-03T20:12:44.268907+00:00",
+  "run_timestamp": "2026-06-04T08:52:16.720165+00:00",
   "date_range": {
-    "start": "2026-06-03",
-    "end": "2026-06-10"
+    "start": "2026-06-04",
+    "end": "2026-06-11"
   },
-  "total_events_db": 2111,
-  "total_active_display": 143,
+  "total_events_db": 2118,
+  "total_active_display": 142,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 0,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,26 +41,26 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 147,
-      "events_after_filter": 13,
-      "events_filtered": 134,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 9,
+      "events_found": 24,
+      "events_after_filter": 23,
       "events_filtered": 1,
       "error": null
     },
@@ -89,11 +73,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 47,
-      "events_filtered": 157,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 9,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,11 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 204,
+      "events_after_filter": 46,
+      "events_filtered": 158,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 10,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -131,16 +139,8 @@
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     },
@@ -156,141 +156,36 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 61,
-      "events_filtered": 5,
+      "events_after_filter": 62,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 147,
+      "events_after_filter": 13,
+      "events_filtered": 134,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 43,
-      "events_after_filter": 41,
-      "events_filtered": 2,
+      "events_after_filter": 40,
+      "events_filtered": 3,
       "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 143,
-      "events_after_filter": 143,
+      "events_found": 142,
+      "events_after_filter": 142,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-03",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-03",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-03",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Josh and Friends",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-03",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Daikaiju",
-      "venue": "Growlers",
-      "date": "2026-06-03",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Dwight Sanders Presents \u2013 The Mash Up",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-03",
-      "time": "7:30PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-03",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Charvey Mac (Patio Band)",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-06-03",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird (Patio Band)",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-06-03",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Wyly & The Coyotes (Patio Band)",
-      "venue": "Huey's (Millington)",
-      "date": "2026-06-03",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Pretty Boys (Patio Band)",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-06-03",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Girls, Gays, & Theys - Open Mic Comedy",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-03",
-      "time": "Sign Up 7:30PM, Mic 8:00PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "An Evening with Shadowgrass",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-03",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Pilates in the ParK",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-03",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Frank Marcel",
-      "venue": "Swamp Bar",
-      "date": "2026-06-03",
-      "time": null,
-      "source": "artifact"
-    },
     {
       "artist": "WYXR's 2026 DOWD Awards",
       "venue": "National Civil Rights Museum",
@@ -318,6 +213,20 @@
       "date": "2026-06-04",
       "time": "6:30\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "SOLD OUT\u2014 Elevation Memphis: A Tina Turner Tribute Experience",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-04",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Wallflowers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-04",
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "The Wallflowers",
@@ -549,6 +458,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -880,6 +796,20 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-07",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-07",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Everclear",
       "venue": "BankPlus Amphitheater at Snowden Grove",
       "date": "2026-06-07",
@@ -1186,6 +1116,69 @@
       "date": "2026-06-10",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Thai Something New: Spice, Sip & Savor",
+      "venue": "Church Health",
+      "date": "2026-06-11",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Concerts in The Grove: Germantown Symphony Orchestra Pops Concerts",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-11",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "65 North Pickers at Hernando\u2019s Hide-A-Way Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-11",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "TIOB / Shamefinger / Stay Fashionable [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Bob And Angela",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-11",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Alice Hasen and the Blaze",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-11",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Billie Feather",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-11",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Colin Cutler",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-11",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: The Iguanas",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-11",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
