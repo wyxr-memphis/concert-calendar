@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-05T08:44:13.012690+00:00",
+  "run_timestamp": "2026-06-05T12:20:22.150862+00:00",
   "date_range": {
     "start": "2026-06-05",
     "end": "2026-06-12"
   },
-  "total_events_db": 2174,
-  "total_active_display": 137,
+  "total_events_db": 2182,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,16 +27,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 25,
+      "events_found": 24,
       "events_after_filter": 23,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
       "events_filtered": 1,
       "error": null
     },
@@ -49,18 +41,18 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 22,
+      "events_found": 29,
+      "events_after_filter": 28,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -73,18 +65,18 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 147,
+      "events_after_filter": 12,
+      "events_filtered": 135,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -97,7 +89,23 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -113,27 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 11,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -153,19 +145,27 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 147,
-      "events_after_filter": 12,
-      "events_filtered": 135,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 64,
       "events_after_filter": 60,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 11,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 137,
-      "events_after_filter": 137,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
@@ -255,6 +255,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
