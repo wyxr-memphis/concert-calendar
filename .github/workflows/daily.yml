@@ -69,8 +69,26 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add docs/ data/events.json
-          git stash
-          git pull --rebase origin main
-          git stash pop
-          git add docs/ data/events.json
-          git diff --staged --quiet || (git commit -m "Update calendar - $(date)" && git push)
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Update calendar - $(date)"
+
+          # The concurrency group above can still let two builds slip through its
+          # few-second race window and run at once. Both generate the same snapshot
+          # files from PostgreSQL (the source of truth), so on a push collision we
+          # just rebase (keeping our fresh build via -X theirs) and retry. If we're
+          # ultimately outraced, the winning build already published fresh data, so
+          # exit 0 with a warning rather than failing the run with a false alarm.
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase -X theirs origin main && git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+            echo "Push attempt $attempt failed (likely a concurrent build); retrying..."
+            git rebase --abort 2>/dev/null || true
+            sleep $((attempt * 3))
+          done
+          echo "::warning::Could not push after 5 attempts; a concurrent build likely published fresher data already. PostgreSQL remains the source of truth."
+          exit 0
