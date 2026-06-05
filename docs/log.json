@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-05T22:10:31.063990+00:00",
+  "run_timestamp": "2026-06-05T22:51:35.186742+00:00",
   "date_range": {
     "start": "2026-06-05",
     "end": "2026-06-12"
   },
-  "total_events_db": 2191,
-  "total_active_display": 143,
+  "total_events_db": 2075,
+  "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,51 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 24,
       "events_after_filter": 23,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 8,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,11 +41,59 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 147,
+      "events_after_filter": 12,
+      "events_filtered": 135,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 8,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -105,19 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 147,
-      "events_after_filter": 12,
-      "events_filtered": 135,
       "error": null
     },
     {
@@ -129,18 +129,26 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 46,
-      "events_after_filter": 46,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 23,
+      "events_after_filter": 15,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     },
@@ -161,14 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 15,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 70,
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 143,
-      "events_after_filter": 143,
+      "events_found": 116,
+      "events_after_filter": 116,
       "events_filtered": 0,
       "error": null
     }
@@ -255,153 +255,6 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Edwin McCain + Five for Fighting",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-05",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -656,27 +509,6 @@
       "source": "scraper:overton_park_shell"
     },
     {
-      "artist": "Shell on Wheels: Memphis Pride Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-06",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Shell on Wheels: Memphis Pride Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-06",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Shell on Wheels: Memphis Pride Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-06",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-06-07",
@@ -738,27 +570,6 @@
       "date": "2026-06-07",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Dover & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-07",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Dover & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-07",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Dover & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-07",
-      "time": null,
-      "source": "scraper:hi_tone"
     },
     {
       "artist": "Dover & more [Small Room-Downstairs]",
