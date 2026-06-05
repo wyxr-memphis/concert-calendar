@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-04T19:15:38.533545+00:00",
+  "run_timestamp": "2026-06-05T08:44:13.012690+00:00",
   "date_range": {
-    "start": "2026-06-04",
-    "end": "2026-06-11"
+    "start": "2026-06-05",
+    "end": "2026-06-12"
   },
-  "total_events_db": 2168,
-  "total_active_display": 153,
+  "total_events_db": 2174,
+  "total_active_display": 137,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -28,32 +28,16 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_after_filter": 23,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
+      "events_after_filter": 28,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,10 +49,26 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 22,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 9,
+      "events_found": 9,
+      "events_after_filter": 8,
       "events_filtered": 1,
       "error": null
     },
@@ -81,35 +81,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 73,
-      "events_after_filter": 33,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 10,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 73,
+      "events_after_filter": 32,
+      "events_filtered": 41,
       "error": null
     },
     {
@@ -124,8 +108,32 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
-      "events_after_filter": 46,
-      "events_filtered": 158,
+      "events_after_filter": 45,
+      "events_filtered": 159,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 11,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,278 +153,39 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 62,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 147,
-      "events_after_filter": 13,
-      "events_filtered": 134,
+      "events_after_filter": 12,
+      "events_filtered": 135,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 64,
+      "events_after_filter": 60,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 70,
-      "events_after_filter": 67,
-      "events_filtered": 3,
+      "events_after_filter": 66,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 153,
-      "events_after_filter": 153,
+      "events_found": 137,
+      "events_after_filter": 137,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "WYXR's 2026 DOWD Awards",
-      "venue": "National Civil Rights Museum",
-      "date": "2026-06-04",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-04",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-04",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-04",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Concerts in The Grove\u2014 Elevation Memphis: A Tina Turner Tribute Experience",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-04",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "SOLD OUT\u2014 Elevation Memphis: A Tina Turner Tribute Experience",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-04",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Wallflowers",
-      "venue": "Graceland Soundstage",
-      "date": "2026-06-04",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Holiday Beach",
-      "venue": "Growlers",
-      "date": "2026-06-04",
-      "time": "6:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Brendan Lane w/ Gia Welch at Hernando\u2019s Hide-A-Way Memphis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-04",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Pants Tour [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Jeff Miller Band / Aqua Fresca / Vince *free show*  [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Sarah Spain Acoustic",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-04",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Benny Elbows, Kyle Kordsmeir, Colton Ales, Prince, Zoe Etkin, + Janz - [Click to Add Title] PowerPoint Comedy Show",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-04",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Click to Add Title (feat. Kyle Kordsmeier, Colton Ales, Zoe Etkin, Prince & Janz, hosted by Benny Elbows)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-04",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Karaoke with Kacee",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-04",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Jubilee Hummingbirds",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-06-04",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Bodysnatcher",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-04",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Music Bingo",
-      "venue": "Nashoba",
-      "date": "2026-06-04",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: East Nash Grass",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-04",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Me & Leah",
       "venue": "Bar DKDC",
@@ -486,6 +255,13 @@
       "date": "2026-06-05",
       "time": "5 PM",
       "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Edwin McCain + Five for Fighting",
+      "venue": "Graceland Soundstage",
+      "date": "2026-06-05",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edwin McCain + Five for Fighting",
@@ -887,6 +663,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-07",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Everclear",
       "venue": "BankPlus Amphitheater at Snowden Grove",
       "date": "2026-06-07",
@@ -1039,6 +822,13 @@
       "date": "2026-06-08",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-08",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Rockin 88's",
@@ -1254,6 +1044,104 @@
       "artist": "Orion Financial Free Concert Series: The Iguanas",
       "venue": "Overton Park Shell",
       "date": "2026-06-11",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Thundergun / The Narrows / Wilshire [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-12",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "DKDC Celebrates Pride! Jungle Room with DJ AD",
+      "venue": "Bar DKDC",
+      "date": "2026-06-12",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Alexis Jade and The Gemstones",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-12",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "An Evening with Alexis Jade and the Gemstones",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-12",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Hope Watson",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-12",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "lob with Steel Waves",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-12",
+      "time": "6 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Happy Friday\u2014Free Admission!",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-12",
+      "time": "5:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Lansdowne",
+      "venue": "Growlers",
+      "date": "2026-06-12",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Sarah Spain And the Nightshades",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-12",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Southbound",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-12",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "NCAA College World Series",
+      "venue": "Nashoba",
+      "date": "2026-06-12",
+      "time": "10:34 AM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "USA vs Paraguay (World Cup)",
+      "venue": "Nashoba",
+      "date": "2026-06-12",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "World Cup: Group Stage",
+      "venue": "Nashoba",
+      "date": "2026-06-12",
+      "time": "9 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Steph Strings",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-12",
       "time": "7:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
