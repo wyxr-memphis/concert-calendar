@@ -96,3 +96,21 @@ def normalize_text(text: str) -> str:
 
 # Keep private alias for backward compat with normalized_key()
 _normalize = normalize_text
+
+
+def compute_dedup_key(title: str, venue: str, date_str: str) -> str:
+    """Canonical deduplication key: normalized artist|venue|date.
+
+    The single source of truth for how an event's identity is computed, shared
+    by the build (src/main.py), the backend API (backend/db.py), and the
+    persisted ``events.dedup_key`` column.
+
+    Venue names are canonicalized via config.py's alias map first, so e.g.
+    "Hi-Tone Cafe", "Hi Tone", "Hi-Tone" all produce the same key. Callers
+    that have already canonicalized the venue against the DB ``venues`` table
+    pass the canonical name; this re-canonicalization is idempotent for it.
+    """
+    # Imported lazily to avoid any import-order coupling with config.
+    from .config import normalize_venue_name
+    canonical_venue = normalize_venue_name(venue or "")
+    return f"{normalize_text(title or '')}|{normalize_text(canonical_venue)}|{date_str}"

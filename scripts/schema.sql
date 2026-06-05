@@ -21,12 +21,19 @@ CREATE TABLE IF NOT EXISTS events (
   is_featured BOOLEAN DEFAULT false,
   is_wyxr_presents BOOLEAN DEFAULT false,
   is_active BOOLEAN DEFAULT true,
+  dedup_key TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
 CREATE INDEX IF NOT EXISTS idx_events_date ON events(date);
 CREATE INDEX IF NOT EXISTS idx_events_featured ON events(is_featured) WHERE is_featured = true;
+
+-- Structural guard against duplicate active events. dedup_key is computed by
+-- the app (src/models.compute_dedup_key) from the normalized title + canonical
+-- venue + date. Partial on is_active so soft-deleted rows can coexist and a
+-- deactivated event can later reappear.
+CREATE UNIQUE INDEX IF NOT EXISTS idx_events_dedup_key ON events (dedup_key) WHERE is_active;
 
 -- Scraper log table
 CREATE TABLE IF NOT EXISTS scrape_logs (

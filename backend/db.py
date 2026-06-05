@@ -117,6 +117,22 @@ def init_db():
     with get_cursor() as cur:
         cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS neighborhood TEXT")
 
+    # Step 2b: dedup_key column + partial unique index (structural guard against
+    # duplicate active events). Index creation is wrapped so an existing
+    # duplicate collision can't crash boot — the one-time
+    # scripts/backfill_dedup_key.py cleans + backfills + creates the index on
+    # prod; this is just insurance for fresh installs.
+    with get_cursor() as cur:
+        cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS dedup_key TEXT")
+    try:
+        with get_cursor() as cur:
+            cur.execute(
+                "CREATE UNIQUE INDEX IF NOT EXISTS idx_events_dedup_key "
+                "ON events (dedup_key) WHERE is_active"
+            )
+    except Exception as e:
+        print(f"[init_db] Skipped dedup_key unique index (resolve duplicates first): {e}")
+
     # Step 3: Create venues table
     with get_cursor() as cur:
         cur.execute("""
@@ -348,24 +364,54 @@ def get_all_events(start_date=None, end_date=None, include_inactive=True):
         return cur.fetchall()
 
 
+def _event_dedup_key(title, venue, date_str):
+    """Canonical dedup key for an event, canonicalizing the venue via the DB
+    venues table first.
+
+    Mirrors the build's key (src/main.py) so the persisted events.dedup_key
+    column stays consistent across the API and the daily build.
+    """
+    from src.models import compute_dedup_key
+    canon = normalize_venue_from_db(venue)
+    canonical_venue = canon[0] if canon else venue
+    return compute_dedup_key(title or "", canonical_venue or "", str(date_str or ""))
+
+
 def create_event(data):
-    """Insert a new event. Returns the created event."""
+    """Insert a new event. Returns the created event.
+
+    Sets dedup_key and relies on the partial unique index as a backstop. If an
+    active event with the same key already exists, returns that existing row
+    instead of creating a duplicate.
+    """
     fields = [
         "title", "venue", "date", "start_time", "doors_time",
         "ticket_url", "ticket_price", "image_url", "description",
         "genre", "source", "neighborhood", "is_featured", "is_wyxr_presents", "is_active",
     ]
     present = {k: data[k] for k in fields if k in data}
+    present["dedup_key"] = _event_dedup_key(
+        data.get("title"), data.get("venue"), data.get("date")
+    )
     columns = ", ".join(present.keys())
     placeholders = ", ".join(["%s"] * len(present))
 
     query = f"""
         INSERT INTO events ({columns})
         VALUES ({placeholders})
+        ON CONFLICT (dedup_key) WHERE is_active DO NOTHING
         RETURNING *
     """
     with get_cursor() as cur:
         cur.execute(query, list(present.values()))
+        row = cur.fetchone()
+        if row:
+            return row
+        # Conflict backstop fired — return the existing active row.
+        cur.execute(
+            "SELECT * FROM events WHERE dedup_key = %s AND is_active = TRUE LIMIT 1",
+            (present["dedup_key"],),
+        )
         return cur.fetchone()
 
 
@@ -379,6 +425,17 @@ def update_event(event_id, data):
     updates = {k: data[k] for k in allowed if k in data}
     if not updates:
         return get_event_by_id(event_id)
+
+    # If any identity field changed, recompute dedup_key so it stays consistent
+    # with the unique index.
+    if any(k in updates for k in ("title", "venue", "date")):
+        current = get_event_by_id(event_id)
+        if current:
+            updates["dedup_key"] = _event_dedup_key(
+                updates.get("title", current["title"]),
+                updates.get("venue", current["venue"]),
+                updates.get("date", current["date"]),
+            )
 
     updates["updated_at"] = "NOW()"
     set_clauses = []
@@ -511,11 +568,19 @@ def bulk_insert_events(events_list):
                 "genre", "source", "neighborhood", "is_featured", "is_wyxr_presents", "is_active",
             ]
             present = {k: data[k] for k in fields if k in data}
+            present["dedup_key"] = _event_dedup_key(
+                data.get("title"), data.get("venue"), data.get("date")
+            )
             columns = ", ".join(present.keys())
             placeholders = ", ".join(["%s"] * len(present))
-            query = f"INSERT INTO events ({columns}) VALUES ({placeholders}) RETURNING *"
+            query = (
+                f"INSERT INTO events ({columns}) VALUES ({placeholders}) "
+                "ON CONFLICT (dedup_key) WHERE is_active DO NOTHING RETURNING *"
+            )
             cur.execute(query, list(present.values()))
-            results.append(cur.fetchone())
+            row = cur.fetchone()
+            if row:
+                results.append(row)
 
     return results
 

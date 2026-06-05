@@ -26,7 +26,7 @@ from zoneinfo import ZoneInfo
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.models import Event, SourceResult, normalize_text
+from src.models import Event, SourceResult, normalize_text, compute_dedup_key
 from src.normalize import deduplicate
 from src.generate_html import generate_html
 from src.generate_rss import generate_rss
@@ -162,6 +162,34 @@ def _load_events_from_db() -> List[dict]:
     return events
 
 
+def _load_venue_canonical_map() -> dict:
+    """Return {lowercased name-or-alias: (canonical_name, neighborhood)} from the
+    venues table.
+
+    The DB venues table is the single source of truth for venue
+    canonicalization. Applying it before the dedup key is computed keeps the
+    key consistent with what actually gets stored — otherwise alias variants
+    (e.g. "Soundstage at Graceland" -> "Graceland Soundstage") produce a key
+    that never matches the stored row and duplicates accumulate every run.
+    """
+    import psycopg2
+    import psycopg2.extras
+    conn = psycopg2.connect(DATABASE_URL, connect_timeout=10)
+    try:
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("SELECT name, neighborhood, aliases FROM venues")
+        lookup = {}
+        for vrow in cur.fetchall():
+            canonical = vrow["name"]
+            hood = vrow.get("neighborhood")
+            lookup[canonical.lower()] = (canonical, hood)
+            for alias in (vrow.get("aliases") or []):
+                lookup[alias.lower()] = (canonical, hood)
+        return lookup
+    finally:
+        conn.close()
+
+
 def _source_priority(source: str) -> int:
     """Return priority level for a source. Higher = more authoritative.
 
@@ -200,14 +228,9 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
     try:
         cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-        # Build lookup of existing DB events by normalized key
-        cur.execute("SELECT id, title, venue, date, source FROM events")
-        db_key_to_row = {}
-        for row in cur.fetchall():
-            key = _normalized_key(row["title"] or "", row["venue"] or "", str(row["date"]))
-            db_key_to_row[key] = row
-
-        # Pre-load all venues into memory for O(1) lookups instead of per-event queries
+        # Pre-load all venues into memory for O(1) lookups instead of per-event
+        # queries. Built BEFORE db_key_to_row so the dedup key is always
+        # computed from the canonical venue name (the one that gets stored).
         cur.execute("SELECT name, neighborhood, aliases FROM venues")
         venue_lookup = {}  # lowercase name/alias -> (canonical_name, neighborhood)
         for vrow in cur.fetchall():
@@ -216,6 +239,19 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             venue_lookup[canonical.lower()] = (canonical, hood)
             for alias in (vrow.get("aliases") or []):
                 venue_lookup[alias.lower()] = (canonical, hood)
+
+        def canon_venue(v: str) -> str:
+            match = venue_lookup.get((v or "").lower())
+            return match[0] if match else v
+
+        # Build lookup of existing DB events by normalized key. Keyed on the
+        # CANONICAL venue so legacy rows stored under a non-canonical name still
+        # match incoming events.
+        cur.execute("SELECT id, title, venue, date, source FROM events")
+        db_key_to_row = {}
+        for row in cur.fetchall():
+            key = _normalized_key(row["title"] or "", canon_venue(row["venue"] or ""), str(row["date"]))
+            db_key_to_row[key] = row
 
         added = 0
         updated = 0
@@ -229,7 +265,6 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             if not title or not date_str:
                 continue
 
-            key = _normalized_key(title, venue, date_str)
             incoming_source = entry.get("source", "scraper:unknown")
 
             # Normalize venue name and get neighborhood from in-memory lookup
@@ -239,6 +274,10 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                 venue = venue_match[0]
                 if not neighborhood:
                     neighborhood = venue_match[1]
+
+            # Compute the dedup key AFTER canonicalizing the venue so it matches
+            # the key the row will be stored under.
+            key = _normalized_key(title, venue, date_str)
 
             if key in db_key_to_row:
                 db_row = db_key_to_row[key]
@@ -250,7 +289,9 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                 if existing_priority > incoming_priority:
                     skipped += 1
                     continue
-                # Same priority (both scrapers) or incoming is higher — update
+                # Same priority (both scrapers) or incoming is higher — update.
+                # Refresh dedup_key in case title/venue changed (e.g. canonical
+                # venue rename) so it stays consistent with the unique index.
                 cur.execute(
                     """UPDATE events SET
                         title = COALESCE(%s, title),
@@ -259,6 +300,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         ticket_url = COALESCE(%s, ticket_url),
                         source = COALESCE(%s, source),
                         neighborhood = COALESCE(neighborhood, %s),
+                        dedup_key = %s,
                         updated_at = NOW()
                     WHERE id = %s""",
                     (
@@ -268,17 +310,21 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         entry.get("ticket_url"),
                         incoming_source,
                         neighborhood,
+                        key,
                         db_row["id"],
                     ),
                 )
                 if cur.rowcount > 0:
                     updated += 1
             else:
-                # New event — insert
+                # New event — insert. ON CONFLICT on the partial unique index is
+                # a structural backstop: even if db_key_to_row missed a row,
+                # the DB refuses to create a duplicate active event.
                 cur.execute(
                     """INSERT INTO events (title, venue, date, start_time, ticket_url,
-                       source, neighborhood, is_featured, is_active)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+                       source, neighborhood, is_featured, is_active, dedup_key)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                    ON CONFLICT (dedup_key) WHERE is_active DO NOTHING
                     RETURNING id""",
                     (
                         title, venue, date_str,
@@ -288,6 +334,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         neighborhood,
                         entry.get("is_featured", False),
                         entry.get("is_active", True),
+                        key,
                     ),
                 )
                 new_row = cur.fetchone()
@@ -300,7 +347,10 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         "date": date_str,
                         "source": incoming_source,
                     }
-                added += 1
+                    added += 1
+                else:
+                    # Conflict backstop fired — an active row already exists.
+                    skipped += 1
 
         conn.commit()
     except Exception:
@@ -480,6 +530,21 @@ def run(dry_run: bool = False) -> None:
     for event in automated_events:
         event.artist = html.unescape(event.artist)
         event.venue = html.unescape(event.venue)
+
+    # Canonicalize venues against the DB venues table BEFORE dedup so the
+    # canonical name flows consistently through deduplicate(), _merge_events(),
+    # and _save_events_to_db(). Without this, alias/room variants (e.g.
+    # "Soundstage at Graceland", Hi Tone "[Big Room-Upstairs]") get stored
+    # canonicalized but keyed on the raw name, so they never dedupe.
+    if use_db:
+        try:
+            canon_map = _load_venue_canonical_map()
+            for event in automated_events:
+                match = canon_map.get((event.venue or "").lower())
+                if match:
+                    event.venue = match[0]
+        except Exception as e:
+            print(f"  WARNING: Could not canonicalize venues from DB: {e}")
 
     # Deduplicate automated events among themselves
     print(f"\n  Raw automated events: {len(automated_events)}")
@@ -755,12 +820,11 @@ def _merge_events(
 def _normalized_key(title: str, venue: str, date_str: str) -> str:
     """Compute a normalized key for matching: artist|venue|date.
 
-    Venue names are canonicalized via config.py's alias map before
-    normalization, so "Hi-Tone Cafe", "Hi Tone", "Hi-Tone" all produce
-    the same key.
+    Thin wrapper over the shared compute_dedup_key (src/models.py) so the
+    build, the backend API, and the persisted events.dedup_key column all
+    use identical logic.
     """
-    canonical_venue = normalize_venue_name(venue)
-    return f"{normalize_text(title)}|{normalize_text(canonical_venue)}|{date_str}"
+    return compute_dedup_key(title, venue, date_str)
 
 
 def _entry_to_event(entry: dict) -> Event | None:
