@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-06T07:47:50.119812+00:00",
+  "run_timestamp": "2026-06-06T14:11:15.430365+00:00",
   "date_range": {
     "start": "2026-06-06",
     "end": "2026-06-13"
   },
-  "total_events_db": 2081,
-  "total_active_display": 111,
+  "total_events_db": 2087,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,26 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 27,
-      "events_filtered": 2,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
+      "events_found": 19,
       "events_after_filter": 19,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 23,
       "events_filtered": 1,
       "error": null
     },
@@ -57,15 +57,15 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
@@ -73,11 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 29,
+      "events_after_filter": 27,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -97,18 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -121,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,11 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 59,
-      "events_filtered": 4,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,19 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 147,
-      "events_after_filter": 11,
-      "events_filtered": 136,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 59,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 111,
-      "events_after_filter": 111,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
@@ -941,6 +941,27 @@
       "date": "2026-06-13",
       "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Jack Shit (Nashville)",
+      "venue": "Lamplighter, Memphis, TN",
+      "date": "2026-06-13",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ryan Kidd and the Kobras",
+      "venue": "Lamplighter, Memphis, TN",
+      "date": "2026-06-13",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Zach Wilson",
+      "venue": "Lamplighter, Memphis, TN",
+      "date": "2026-06-13",
+      "time": "9 PM",
+      "source": "artifact"
     },
     {
       "artist": "Producers Challenge (Unapologetic Presents)",
