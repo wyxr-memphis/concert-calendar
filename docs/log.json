@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-06T14:14:15.716934+00:00",
+  "run_timestamp": "2026-06-06T18:01:49.951055+00:00",
   "date_range": {
     "start": "2026-06-06",
     "end": "2026-06-13"
@@ -25,20 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Growlers",
@@ -49,11 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 27,
-      "events_filtered": 2,
+      "events_found": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 147,
-      "events_after_filter": 11,
-      "events_filtered": 136,
+      "events_found": 29,
+      "events_after_filter": 27,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -93,6 +77,14 @@
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -113,27 +105,27 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
       "events_after_filter": 43,
       "events_filtered": 161,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 14,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
       "error": null
     },
     {
@@ -145,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 46,
@@ -153,27 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 23,
+      "events_after_filter": 14,
+      "events_filtered": 9,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 59,
+      "events_filtered": 4,
       "error": null
     },
     {
