@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-06-07T08:25:48.454072+00:00",
+  "run_timestamp": "2026-06-07T17:59:26.523864+00:00",
   "date_range": {
     "start": "2026-06-07",
     "end": "2026-06-14"
   },
-  "total_events_db": 2094,
+  "total_events_db": 2108,
   "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 29,
@@ -57,11 +33,27 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 25,
+      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -78,6 +70,14 @@
       "events_found": 7,
       "events_after_filter": 7,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 23,
+      "events_filtered": 138,
       "error": null
     },
     {
@@ -113,6 +113,14 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
@@ -121,10 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     },
@@ -134,14 +142,6 @@
       "events_found": 11,
       "events_after_filter": 0,
       "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 46,
-      "events_after_filter": 46,
-      "events_filtered": 0,
       "error": null
     },
     {
