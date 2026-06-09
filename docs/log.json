@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-09T08:32:13.850499+00:00",
+  "run_timestamp": "2026-06-09T19:09:19.296990+00:00",
   "date_range": {
     "start": "2026-06-09",
     "end": "2026-06-16"
   },
-  "total_events_db": 2120,
-  "total_active_display": 106,
+  "total_events_db": 2123,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
@@ -23,14 +23,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -57,10 +49,26 @@
       "error": null
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -81,6 +89,14 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
@@ -89,7 +105,15 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 41,
+      "events_filtered": 163,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -102,30 +126,6 @@
       "events_found": 24,
       "events_after_filter": 14,
       "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 204,
-      "events_after_filter": 41,
-      "events_filtered": 163,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -155,17 +155,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 55,
+      "events_found": 60,
+      "events_after_filter": 56,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -177,10 +169,18 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 106,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
@@ -528,27 +528,6 @@
       "date": "2026-06-12",
       "time": "9:30 PM",
       "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "NCAA College World Series",
-      "venue": "Nashoba",
-      "date": "2026-06-12",
-      "time": "10:34 AM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "USA vs Paraguay (World Cup)",
-      "venue": "Nashoba",
-      "date": "2026-06-12",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "World Cup: Group Stage",
-      "venue": "Nashoba",
-      "date": "2026-06-12",
-      "time": "9 PM",
-      "source": "scraper:nashoba"
     },
     {
       "artist": "Orion Financial Free Concert Series: Steph Strings",
