@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-08T19:16:05.343022+00:00",
+  "run_timestamp": "2026-06-09T08:32:13.850499+00:00",
   "date_range": {
-    "start": "2026-06-08",
-    "end": "2026-06-15"
+    "start": "2026-06-09",
+    "end": "2026-06-16"
   },
-  "total_events_db": 2116,
-  "total_active_display": 101,
+  "total_events_db": 2120,
+  "total_active_display": 106,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 24,
@@ -57,7 +33,7 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 24,
       "events_after_filter": 24,
@@ -73,35 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 161,
+      "events_found": 21,
       "events_after_filter": 21,
-      "events_filtered": 140,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 73,
-      "events_after_filter": 33,
-      "events_filtered": 40,
       "error": null
     },
     {
@@ -113,11 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 42,
-      "events_filtered": 162,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 32,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -137,10 +97,34 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
+      "events_found": 24,
+      "events_after_filter": 14,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 41,
+      "events_filtered": 163,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,88 +137,55 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 21,
+      "events_filtered": 140,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 56,
+      "events_found": 59,
+      "events_after_filter": 55,
       "events_filtered": 4,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 13,
-      "events_filtered": 10,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 70,
-      "events_after_filter": 63,
-      "events_filtered": 7,
+      "events_after_filter": 62,
+      "events_filtered": 8,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 101,
-      "events_after_filter": 101,
+      "events_found": 106,
+      "events_after_filter": 106,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Like Really Creative Muse: Sound led by Victor Sawyer + Kathy Zhou",
-      "venue": "Bar DKDC",
-      "date": "2026-06-08",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-08",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-08",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-08",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Fairy Tale Ballet Session 2",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-08",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: FairyTale Ballet Session 2",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-08",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-08",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Buckethead",
       "venue": "Minglewood Hall",
@@ -488,6 +439,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-12",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-12",
@@ -607,6 +565,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-13",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Amy LaVere + Will Sexton (Early) / Cloudland Canyon + Vinyl Williams (LA) + Hott MT (LA) + DJ Zac Ives (Late)",
       "venue": "Bar DKDC",
       "date": "2026-06-13",
@@ -654,6 +619,13 @@
       "date": "2026-06-13",
       "time": "6:00\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Cauldron Stirrup",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-13",
+      "time": "9:00PM",
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Quadscool & friends [Small Room-Downstairs]",
@@ -892,6 +864,69 @@
       "date": "2026-06-15",
       "time": "9:00\u202fAM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-16",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Halimah Muhammad",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-16",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-16",
+      "time": "4 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Matthew Wilson",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-16",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-16",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Black Widows",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-16",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Confessed Lover",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-06-16",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Silverada",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-16",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "SIDE SET: Josh Threlkeld",
+      "venue": "Nashoba",
+      "date": "2026-06-16",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
