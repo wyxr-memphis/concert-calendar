@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-10T08:52:03.891233+00:00",
+  "run_timestamp": "2026-06-10T19:29:03.961746+00:00",
   "date_range": {
     "start": "2026-06-10",
     "end": "2026-06-17"
   },
-  "total_events_db": 2127,
-  "total_active_display": 107,
+  "total_events_db": 2152,
+  "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -25,35 +25,35 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
+      "events_found": 26,
+      "events_after_filter": 25,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 24,
-      "events_filtered": 2,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 21,
-      "events_filtered": 140,
+      "events_found": 59,
+      "events_after_filter": 55,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -65,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 161,
+      "events_after_filter": 21,
+      "events_filtered": 140,
       "error": null
     },
     {
@@ -97,18 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 71,
-      "events_after_filter": 32,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 41,
+      "events_after_filter": 41,
       "events_filtered": 0,
       "error": null
     },
@@ -121,6 +105,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
@@ -129,11 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 8,
-      "events_filtered": 3,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 32,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 55,
-      "events_filtered": 4,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 8,
+      "events_found": 11,
       "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 107,
-      "events_after_filter": 107,
+      "events_found": 110,
+      "events_after_filter": 110,
       "events_filtered": 0,
       "error": null
     }
@@ -558,6 +558,20 @@
       "source": "scraper:germantown_performing_arts_center"
     },
     {
+      "artist": "The Big Squeeze Food Truck Festival\u2014SOld Out",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-13",
+      "time": "6:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Disco Fever at Growlers - Memphis, TN",
+      "venue": "Growlers",
+      "date": "2026-06-13",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "The Cauldron Stirrup",
       "venue": "Hernando's Hideaway",
       "date": "2026-06-13",
@@ -625,6 +639,13 @@
       "venue": "Overton Park Shell",
       "date": "2026-06-13",
       "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "South City Heritage Festival",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-13",
+      "time": "11:00\u202fAM",
       "source": "scraper:overton_park_shell"
     },
     {
