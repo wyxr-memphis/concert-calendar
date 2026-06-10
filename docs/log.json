@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-09T19:09:19.296990+00:00",
+  "run_timestamp": "2026-06-10T08:52:03.891233+00:00",
   "date_range": {
-    "start": "2026-06-09",
-    "end": "2026-06-16"
+    "start": "2026-06-10",
+    "end": "2026-06-17"
   },
-  "total_events_db": 2123,
-  "total_active_display": 103,
+  "total_events_db": 2127,
+  "total_active_display": 107,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,35 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 24,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 21,
+      "events_filtered": 140,
       "error": null
     },
     {
@@ -41,19 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,18 +81,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -97,7 +113,7 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -113,27 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 14,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
+      "events_after_filter": 8,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -145,27 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 161,
-      "events_after_filter": 21,
-      "events_filtered": 140,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 56,
+      "events_found": 59,
+      "events_after_filter": 55,
       "events_filtered": 4,
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 62,
-      "events_filtered": 8,
+      "events_found": 24,
+      "events_after_filter": 14,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -177,78 +169,23 @@
       "error": null
     },
     {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 70,
+      "events_after_filter": 61,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 107,
+      "events_after_filter": 107,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Buckethead",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-09",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Eastwoods",
-      "venue": "B-Side Memphis",
-      "date": "2026-06-09",
-      "time": "10 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-09",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-09",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-09",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-09",
-      "time": "4 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Nights of Malice, My Own Will",
-      "venue": "Growlers",
-      "date": "2026-06-09",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-09",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "SIDE SET: Josh Threlkeld",
-      "venue": "Nashoba",
-      "date": "2026-06-09",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "The Scruffs Wanna Meet The Scruffs?",
       "venue": "Memphis Listening Lab",
@@ -544,10 +481,24 @@
       "source": "artifact"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-13",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-13",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-13",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -584,6 +535,13 @@
       "date": "2026-06-13",
       "time": "7:30 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Delta Canyon",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-13",
+      "time": null,
+      "source": "scraper:crosstown_brewing_co"
     },
     {
       "artist": "Pilates and Pints",
@@ -698,11 +656,11 @@
       "source": "scraper:crosstown_arts"
     },
     {
-      "artist": "Pickin' and Pints with The Late Greats",
+      "artist": "Pickin and Pints with the Late Greats",
       "venue": "Crosstown Brewing Co.",
       "date": "2026-06-14",
-      "time": null,
-      "source": "artifact"
+      "time": "2-5pm",
+      "source": "scraper:crosstown_brewing_co"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
@@ -906,6 +864,76 @@
       "date": "2026-06-16",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-17",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Opera Memphis",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Hoop \u2018N Shaw (Patio Band)",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-06-17",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Charvey Mac (Patio Band)",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-06-17",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Ken Houston Duo (Patio Band)",
+      "venue": "Huey's (Millington)",
+      "date": "2026-06-17",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Ethan Smith Trio (Patio Band)",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-06-17",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Delvon Lamar Organ Trio + Vincen Garcia",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Jay B Bday Bash",
+      "venue": "Swamp Bar",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "artifact"
     }
   ]
 }
