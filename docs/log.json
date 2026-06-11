@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-11T09:14:16.065883+00:00",
+  "run_timestamp": "2026-06-11T19:28:37.013796+00:00",
   "date_range": {
     "start": "2026-06-11",
     "end": "2026-06-18"
   },
-  "total_events_db": 2156,
-  "total_active_display": 111,
+  "total_events_db": 2159,
+  "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,12 +25,20 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 59,
+      "events_after_filter": 56,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
     },
     {
       "name": "Venue: Growlers",
@@ -43,17 +51,9 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
+      "events_found": 28,
+      "events_after_filter": 27,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,6 +65,14 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 21,
+      "events_filtered": 140,
+      "error": null
+    },
+    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 41,
@@ -73,26 +81,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -129,7 +121,23 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 13,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -137,19 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 8,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 59,
-      "events_after_filter": 56,
-      "events_filtered": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 13,
-      "events_filtered": 11,
+      "events_found": 11,
+      "events_after_filter": 8,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 111,
-      "events_after_filter": 111,
+      "events_found": 112,
+      "events_after_filter": 112,
       "events_filtered": 0,
       "error": null
     }
@@ -220,6 +220,13 @@
       "date": "2026-06-11",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "SOLD OUT - Concerts in The Grove: Germantown Symphony Orchestra Pops Concerts",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-11",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "The Skalors",
