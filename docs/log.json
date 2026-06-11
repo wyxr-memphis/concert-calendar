@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-10T19:29:03.961746+00:00",
+  "run_timestamp": "2026-06-11T09:14:16.065883+00:00",
   "date_range": {
-    "start": "2026-06-10",
-    "end": "2026-06-17"
+    "start": "2026-06-11",
+    "end": "2026-06-18"
   },
-  "total_events_db": 2152,
-  "total_active_display": 110,
+  "total_events_db": 2156,
+  "total_active_display": 111,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Growlers",
@@ -41,35 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 59,
-      "events_after_filter": 55,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 161,
-      "events_after_filter": 21,
-      "events_filtered": 140,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -97,10 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -108,23 +84,15 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 41,
-      "events_filtered": 163,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -137,14 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 2,
@@ -153,11 +113,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 14,
-      "events_filtered": 10,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 39,
+      "events_filtered": 165,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,114 +145,47 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 59,
+      "events_after_filter": 56,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 13,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 70,
-      "events_after_filter": 61,
-      "events_filtered": 9,
+      "events_after_filter": 60,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 111,
+      "events_after_filter": 111,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "The Scruffs Wanna Meet The Scruffs?",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-06-10",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "DJ Strooly",
-      "venue": "Swamp Bar",
-      "date": "2026-06-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-10",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-10",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-10",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Bluegrass Jam",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-10",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-10",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Gerry Finney (Patio Band)",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-06-10",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac  (Patio Band)",
-      "venue": "Huey's (Millington)",
-      "date": "2026-06-10",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Twin Soul (Patio Band)",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-06-10",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "SIDE SET: Angelina David",
-      "venue": "Nashoba",
-      "date": "2026-06-10",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "The Scruffs (WYXR Stereo Sessions)",
-      "venue": "WYXR + Memphis Listening Lab",
-      "date": "2026-06-10",
-      "time": null,
-      "source": "artifact"
-    },
     {
       "artist": "Concerts in The Grove: Germantown Symphony Orchestra Pops Concerts",
       "venue": "Germantown Performing Arts Center",
@@ -663,6 +572,20 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-14",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-14",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-06-14",
@@ -955,6 +878,90 @@
       "date": "2026-06-17",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Concerts in The Grove: The MD\u2019s",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-18",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Big Gay Quiz \u2013 Pride Trivia Night with Hunny Blunt + Friends",
+      "venue": "Bar DKDC",
+      "date": "2026-06-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-18",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Marisa Anderson with Cloudland Canyon",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-18",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Marissa Anderson with Cloudland Canyon",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Kei Rune Art Live Painting",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Daniel Larsen",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-18",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Aidan Osias, Lina Beach",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-18",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "DIY Memphis Presents: [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-18",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Closed for Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-18",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Gunter Gaupp Listening Session",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-06-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: The Lone Bellow",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-18",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
