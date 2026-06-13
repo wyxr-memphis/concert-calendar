@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-13T12:47:46.313087+00:00",
+  "run_timestamp": "2026-06-13T12:51:31.731756+00:00",
   "date_range": {
     "start": "2026-06-13",
     "end": "2026-06-20"
@@ -33,6 +33,14 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 29,
@@ -41,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
+      "events_found": 40,
+      "events_after_filter": 39,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,10 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -81,31 +97,7 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 30,
-      "events_filtered": 41,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -121,11 +113,35 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 70,
+      "events_after_filter": 30,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
       "events_after_filter": 36,
       "events_filtered": 168,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 11,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -153,19 +169,19 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 63,
       "events_after_filter": 60,
       "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
       "error": null
     },
     {
