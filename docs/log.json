@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-12T18:59:11.369494+00:00",
+  "run_timestamp": "2026-06-13T08:24:09.102496+00:00",
   "date_range": {
-    "start": "2026-06-12",
-    "end": "2026-06-19"
+    "start": "2026-06-13",
+    "end": "2026-06-20"
   },
-  "total_events_db": 2182,
-  "total_active_display": 123,
+  "total_events_db": 2187,
+  "total_active_display": 129,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -25,27 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 18,
+      "events_filtered": 143,
+      "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 41,
-      "events_after_filter": 40,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
+      "events_after_filter": 39,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,19 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 23,
+      "events_after_filter": 22,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,18 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -108,24 +100,16 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 31,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 204,
-      "events_after_filter": 39,
-      "events_filtered": 165,
+      "events_after_filter": 30,
+      "events_filtered": 41,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 13,
-      "events_filtered": 11,
+      "events_after_filter": 11,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -137,19 +121,27 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 8,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 36,
+      "events_filtered": 168,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 8,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -163,141 +155,37 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 61,
+      "events_found": 63,
+      "events_after_filter": 60,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 63,
-      "events_filtered": 11,
+      "events_after_filter": 62,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 123,
-      "events_after_filter": 123,
+      "events_found": 129,
+      "events_after_filter": 129,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Thundergun / The Narrows / Wilshire [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-12",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-12",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-12",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "DKDC Celebrates Pride! Jungle Room with DJ AD",
-      "venue": "Bar DKDC",
-      "date": "2026-06-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Blues Players Club",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-12",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Alexis Jade and The Gemstones",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "An Evening with Alexis Jade and the Gemstones",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-12",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Hope Watson",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-12",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "lob with Steel Waves",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-12",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Happy Friday\u2014Free Admission!",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-12",
-      "time": "5:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Lansdowne",
-      "venue": "Growlers",
-      "date": "2026-06-12",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Z-Dougie",
-      "venue": "Growlers",
-      "date": "2026-06-12",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Sarah Spain And the Nightshades",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-12",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Southbound",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-12",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Steph Strings",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-12",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Cloudland Canyon",
       "venue": "Bar DKDC",
@@ -656,6 +544,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-15",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Jones",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-15",
@@ -682,6 +577,20 @@
       "date": "2026-06-15",
       "time": "9:00\u202fAM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-16",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-16",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -946,8 +855,8 @@
       "artist": "Gladys Knight",
       "venue": "Graceland Soundstage",
       "date": "2026-06-19",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
+      "time": "7:30 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Silverada at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -1016,8 +925,8 @@
       "artist": "G Herbo Live In Concert Juneteenth Summer Classic",
       "venue": "Minglewood Hall",
       "date": "2026-06-19",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "TappedIn 901 Juneteenth Celebration feat. G Herbo",
@@ -1046,6 +955,139 @@
       "date": "2026-06-19",
       "time": "10:00\u202fAM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Pants Tour Finale! ft Agloe TN, The Ellie Badge, Shamothy + Wicker",
+      "venue": "Bar DKDC",
+      "date": "2026-06-20",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-20",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Mississippi Blues Night with Willie Farmer and Ryan Lee Crosby",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-20",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Hodge Podge Collage",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-20",
+      "time": "6 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Flyway Summer Market",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-20",
+      "time": "1 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Harris & Fitz",
+      "venue": "Flyway Brewing",
+      "date": "2026-06-20",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Justin Hand",
+      "venue": "Growlers",
+      "date": "2026-06-20",
+      "time": "10:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "The Contradictions, Steel Waves, Holiday Beach and Bashford",
+      "venue": "Growlers",
+      "date": "2026-06-20",
+      "time": "6:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Alex McMurray",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-20",
+      "time": "3:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "The Fighting Side",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-20",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Will Sexton, Alex McMurray",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-20",
+      "time": "3:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Midsummer Market [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Superstition: dark wave dance night [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Rock the Boat",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-20",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Thumpdaddy",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-20",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Tokyo Takeover: Anime x Rave",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-20",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Almost Famous",
+      "venue": "Nashoba",
+      "date": "2026-06-20",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Brezay",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-20",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Shannon McNally Live",
+      "venue": "South Main Sounds",
+      "date": "2026-06-20",
+      "time": "7:00PM",
+      "source": "scraper:south_main_sounds"
     }
   ]
 }
