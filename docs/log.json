@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-13T12:51:31.731756+00:00",
+  "run_timestamp": "2026-06-13T18:03:03.087437+00:00",
   "date_range": {
     "start": "2026-06-13",
     "end": "2026-06-20"
@@ -25,20 +25,20 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 39,
-      "events_filtered": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -83,33 +83,9 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 41,
+      "events_found": 40,
       "events_after_filter": 39,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 11,
-      "events_filtered": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -129,11 +105,35 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
       "events_after_filter": 36,
       "events_filtered": 168,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,26 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 35,
       "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
