@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-13T18:03:03.087437+00:00",
+  "run_timestamp": "2026-06-14T08:42:41.759747+00:00",
   "date_range": {
-    "start": "2026-06-13",
-    "end": "2026-06-20"
+    "start": "2026-06-14",
+    "end": "2026-06-21"
   },
-  "total_events_db": 2192,
-  "total_active_display": 129,
+  "total_events_db": 2197,
+  "total_active_display": 121,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -25,35 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
+      "events_found": 37,
+      "events_after_filter": 36,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -62,6 +46,14 @@
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -76,32 +68,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 39,
+      "events_after_filter": 29,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 70,
-      "events_after_filter": 30,
-      "events_filtered": 40,
       "error": null
     },
     {
@@ -113,7 +81,7 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
@@ -121,11 +89,43 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 36,
-      "events_filtered": 168,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 16,
+      "events_filtered": 145,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 29,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 10,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 11,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
-      "events_after_filter": 8,
-      "events_filtered": 3,
+      "events_after_filter": 7,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 34,
+      "events_filtered": 170,
       "error": null
     },
     {
@@ -163,8 +163,8 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 60,
+      "events_found": 62,
+      "events_after_filter": 59,
       "events_filtered": 3,
       "error": null
     },
@@ -172,216 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 62,
-      "events_filtered": 12,
+      "events_after_filter": 61,
+      "events_filtered": 13,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 129,
-      "events_after_filter": 129,
+      "events_found": 121,
+      "events_after_filter": 121,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Cloudland Canyon",
-      "venue": "Bar DKDC",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-13",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-13",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-13",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Amy LaVere + Will Sexton (Early) / Cloudland Canyon + Vinyl Williams (LA) + Hott MT (LA) + DJ Zac Ives (Late)",
-      "venue": "Bar DKDC",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "DJ Zac Ives",
-      "venue": "Bar DKDC",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Hott MT",
-      "venue": "Bar DKDC",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Vinyl Williams",
-      "venue": "Bar DKDC",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-13",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Folk All Y\u2019all: SING IT LOUD ft. Elsie, Rachel Maxann, and Aybil",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-13",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Delta Canyon",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Pilates and Pints",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-13",
-      "time": "9 AM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "The Big Squeeze Food Truck Festival",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-13",
-      "time": "6:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "The Big Squeeze Food Truck Festival\u2014SOld Out",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-13",
-      "time": "6:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Disco Fever at Growlers - Memphis, TN",
-      "venue": "Growlers",
-      "date": "2026-06-13",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "The Cauldron Stirrup",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-13",
-      "time": "9:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Quadscool & friends [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Basketcase",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-13",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "The Pinch",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-13",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Jack Shit (Nashville)",
-      "venue": "Lamplighter, Memphis, TN",
-      "date": "2026-06-13",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ryan Kidd and the Kobras",
-      "venue": "Lamplighter, Memphis, TN",
-      "date": "2026-06-13",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Zach Wilson",
-      "venue": "Lamplighter, Memphis, TN",
-      "date": "2026-06-13",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Producers Challenge (Unapologetic Presents)",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Souled Out",
-      "venue": "Nashoba",
-      "date": "2026-06-13",
-      "time": "9 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Mustang McGee",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-13",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "South City Heritage Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-13",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Alabama Live at the Garden",
-      "venue": "Radians Amphitheater",
-      "date": "2026-06-13",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Live at the Garden 2026 Season Subscriptions",
-      "venue": "Radians Amphitheater",
-      "date": "2026-06-13",
-      "time": null,
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
@@ -544,6 +348,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Madaline Collins and John Wilkerson Return to South Main Sounds!",
+      "venue": "South Main Sounds",
+      "date": "2026-06-14",
+      "time": "4:00PM",
+      "source": "scraper:south_main_sounds"
+    },
+    {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-15",
@@ -656,6 +467,20 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-17",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-17",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
       "date": "2026-06-17",
@@ -731,6 +556,13 @@
       "date": "2026-06-18",
       "time": "6:30\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-18",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "The Big Gay Quiz \u2013 Pride Trivia Night with Hunny Blunt + Friends",
@@ -1088,6 +920,118 @@
       "date": "2026-06-20",
       "time": "7:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-21",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Strictly Jazz: The Music of Louis Hayes feat. Henry Conerway III",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-21",
+      "time": "6:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "The Music of Louis Hayes feat. Henry Conerway III",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-21",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Jordan Occasionally",
+      "venue": "Growlers",
+      "date": "2026-06-21",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-21",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Kaleidoscope Crux / Cel Shade / Dinosauria [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-21",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Bob Nelson & The Bobcats",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-06-21",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "El Ced & Groove Nation",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-06-21",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Bugaloos",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-06-21",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Jad Tariq Band",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-06-21",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Ken Houston duo",
+      "venue": "Huey's (Millington)",
+      "date": "2026-06-21",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-06-21",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-06-21",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-06-21",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Eureka Live Brunch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-21",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Landslide: A Fleetwood Mac Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-21",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
     }
   ]
 }
