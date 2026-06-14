@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-14T08:42:41.759747+00:00",
+  "run_timestamp": "2026-06-14T18:08:04.457382+00:00",
   "date_range": {
     "start": "2026-06-14",
     "end": "2026-06-21"
@@ -25,19 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
+      "events_found": 29,
+      "events_after_filter": 28,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
+      "events_found": 21,
       "events_after_filter": 21,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,31 +49,15 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
+      "events_found": 37,
+      "events_after_filter": 36,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
@@ -89,6 +73,22 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
@@ -97,27 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 161,
-      "events_after_filter": 16,
-      "events_filtered": 145,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 69,
+      "events_found": 68,
       "events_after_filter": 29,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 10,
-      "events_filtered": 14,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -126,6 +110,22 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 204,
+      "events_after_filter": 34,
+      "events_filtered": 170,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 9,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -145,19 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 204,
-      "events_after_filter": 34,
-      "events_filtered": 170,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 35,
       "events_after_filter": 35,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 16,
+      "events_filtered": 145,
       "error": null
     },
     {
