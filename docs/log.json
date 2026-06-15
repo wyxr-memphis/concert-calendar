@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-15T10:56:36.919893+00:00",
+  "run_timestamp": "2026-06-15T20:21:10.212507+00:00",
   "date_range": {
     "start": "2026-06-15",
     "end": "2026-06-22"
   },
-  "total_events_db": 2201,
-  "total_active_display": 103,
+  "total_events_db": 2208,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -49,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 35,
-      "events_filtered": 2,
+      "events_found": 61,
+      "events_after_filter": 58,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -62,6 +62,14 @@
       "events_found": 29,
       "events_after_filter": 28,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -75,25 +83,25 @@
     {
       "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 4,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 69,
+      "events_found": 67,
       "events_after_filter": 29,
-      "events_filtered": 40,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -105,11 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 23,
+      "events_after_filter": 9,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -121,18 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 9,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 57,
-      "events_filtered": 3,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
@@ -367,6 +367,13 @@
       "date": "2026-06-17",
       "time": "5:30 PM",
       "source": "scraper:huey_s"
+    },
+    {
+      "artist": "An Evening With Delvon Lamarr Organ Trio",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-17",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     },
     {
       "artist": "The Delvon Lamar Organ Trio + Vincen Garcia",
