@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-16T10:12:13.024798+00:00",
+  "run_timestamp": "2026-06-16T20:10:07.624562+00:00",
   "date_range": {
     "start": "2026-06-16",
     "end": "2026-06-23"
   },
-  "total_events_db": 2215,
-  "total_active_display": 106,
+  "total_events_db": 2219,
+  "total_active_display": 107,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
-      "events_filtered": 1,
+      "events_found": 62,
+      "events_after_filter": 59,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
+      "events_found": 29,
+      "events_after_filter": 28,
       "events_filtered": 1,
       "error": null
     },
@@ -69,6 +61,38 @@
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
@@ -89,19 +113,27 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 204,
-      "events_after_filter": 34,
+      "events_found": 205,
+      "events_after_filter": 35,
       "events_filtered": 170,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 8,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -109,14 +141,6 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -137,38 +161,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 161,
-      "events_after_filter": 14,
-      "events_filtered": 147,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 61,
-      "events_after_filter": 58,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 8,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
@@ -177,10 +169,18 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='lafayettes.com', port=443): Max retries exceeded with "
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 106,
+      "events_found": 107,
+      "events_after_filter": 107,
       "events_filtered": 0,
       "error": null
     }
@@ -927,6 +927,13 @@
       "date": "2026-06-23",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "NBA Draft Watch Party + Trivia Night",
+      "venue": "Nashoba",
+      "date": "2026-06-23",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
