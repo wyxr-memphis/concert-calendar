@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-15T20:21:10.212507+00:00",
+  "run_timestamp": "2026-06-16T10:12:13.024798+00:00",
   "date_range": {
-    "start": "2026-06-15",
-    "end": "2026-06-22"
+    "start": "2026-06-16",
+    "end": "2026-06-23"
   },
-  "total_events_db": 2208,
-  "total_active_display": 104,
+  "total_events_db": 2215,
+  "total_active_display": 106,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +49,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 61,
-      "events_after_filter": 58,
-      "events_filtered": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
+      "events_found": 35,
+      "events_after_filter": 34,
       "events_filtered": 1,
       "error": null
     },
@@ -81,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 67,
+      "events_after_filter": 28,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -97,27 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 67,
-      "events_after_filter": 29,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 204,
       "events_after_filter": 34,
       "events_filtered": 170,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 9,
-      "events_filtered": 14,
       "error": null
     },
     {
@@ -129,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +137,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 161,
+      "events_after_filter": 14,
+      "events_filtered": 147,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 61,
+      "events_after_filter": 58,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 8,
+      "events_filtered": 15,
       "error": null
     },
     {
@@ -172,55 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 60,
-      "events_filtered": 14,
+      "events_after_filter": 59,
+      "events_filtered": 15,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 104,
+      "events_found": 106,
+      "events_after_filter": 106,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-15",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-15",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-15",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Sugar Lime Blue",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-15",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Sew Fun Art",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-15",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
     {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
@@ -502,6 +467,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-19",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-06-19",
@@ -549,6 +521,13 @@
       "date": "2026-06-19",
       "time": "7:30 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Phases",
+      "venue": "Growlers",
+      "date": "2026-06-19",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
     },
     {
       "artist": "Silverada at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
@@ -654,6 +633,13 @@
       "date": "2026-06-20",
       "time": "3:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-06-20",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Pants Tour Finale! ft Agloe TN, The Ellie Badge, Shamothy + Wicker",
@@ -913,6 +899,34 @@
       "date": "2026-06-22",
       "time": "8:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-23",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-23",
+      "time": "4 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-23",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Vieux Farka Tour\u00e9",
+      "venue": "Minglewood Hall",
+      "date": "2026-06-23",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
