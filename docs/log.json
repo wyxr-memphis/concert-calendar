@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-17T15:44:24.924589+00:00",
+  "run_timestamp": "2026-06-17T19:19:26.615688+00:00",
   "date_range": {
     "start": "2026-06-17",
     "end": "2026-06-24"
@@ -41,11 +41,27 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 14,
+      "events_filtered": 147,
       "error": null
     },
     {
@@ -65,18 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -97,18 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 34,
       "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -118,14 +126,6 @@
       "events_found": 205,
       "events_after_filter": 34,
       "events_filtered": 171,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 5,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 61,
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 14,
-      "events_filtered": 147,
+      "events_found": 11,
+      "events_after_filter": 5,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
