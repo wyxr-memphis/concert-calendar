@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-17T21:09:16.891012+00:00",
+  "run_timestamp": "2026-06-18T09:18:05.996377+00:00",
   "date_range": {
-    "start": "2026-06-17",
-    "end": "2026-06-24"
+    "start": "2026-06-18",
+    "end": "2026-06-25"
   },
-  "total_events_db": 2233,
-  "total_active_display": 106,
+  "total_events_db": 2237,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,26 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
+      "events_found": 28,
+      "events_after_filter": 27,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -57,6 +49,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
@@ -65,27 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 14,
-      "events_filtered": 147,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 34,
+      "events_found": 35,
       "events_after_filter": 34,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -97,27 +89,27 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 205,
       "events_after_filter": 34,
       "events_filtered": 171,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 7,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 5,
-      "events_filtered": 6,
       "error": null
     },
     {
@@ -129,19 +121,27 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 7,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 11,
+      "events_after_filter": 4,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -155,127 +155,43 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 61,
+      "events_found": 60,
       "events_after_filter": 58,
-      "events_filtered": 3,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 161,
+      "events_after_filter": 14,
+      "events_filtered": 147,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 58,
-      "events_filtered": 16,
+      "events_after_filter": 57,
+      "events_filtered": 17,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 106,
-      "events_after_filter": 106,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
     {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-17",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-06-17",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-17",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Opera Memphis",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Hoop \u2018N Shaw (Patio Band)",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-06-17",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac (Patio Band)",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-06-17",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ken Houston Duo (Patio Band)",
-      "venue": "Huey's (Millington)",
-      "date": "2026-06-17",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ethan Smith Trio (Patio Band)",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-06-17",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "An Evening With Delvon Lamarr Organ Trio",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "The Delvon Lamar Organ Trio + Vincen Garcia",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Jay B Bday Bash",
-      "venue": "Swamp Bar",
-      "date": "2026-06-17",
-      "time": null,
-      "source": "artifact"
+      "artist": "Marisa Anderson with Cloudland Canyon",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-18",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Concerts in The Grove: The MD\u2019s",
@@ -311,20 +227,6 @@
       "date": "2026-06-18",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Marisa Anderson with Cloudland Canyon",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-18",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Marissa Anderson with Cloudland Canyon",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-18",
-      "time": null,
-      "source": "artifact"
     },
     {
       "artist": "Kei Rune Art Live Painting",
@@ -927,6 +829,90 @@
       "date": "2026-06-24",
       "time": "5:30 PM",
       "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Concerts in The Grove: Alexis Jade and the Gemstones",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-06-25",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-25",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Jeff \u201cTain\u201d Watts",
+      "venue": "Crosstown Arts",
+      "date": "2026-06-25",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Cel Shade",
+      "venue": "Growlers",
+      "date": "2026-06-25",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "River Shook at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-25",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "River Shook w/ Bailey Bigger at Hernando\u2019s Hide-A-Way",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-25",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Max Norton / Wagoneer / Not For You [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-25",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Max Norton / Wagoneer [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-25",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Max Norton [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-25",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Southern Grind Sessions",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-06-25",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Echoes in the Room",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-06-25",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Brother Wallace",
+      "venue": "Overton Park Shell",
+      "date": "2026-06-25",
+      "time": "7:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
