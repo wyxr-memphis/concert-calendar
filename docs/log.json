@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-06-18T09:18:05.996377+00:00",
+  "run_timestamp": "2026-06-18T19:22:01.113010+00:00",
   "date_range": {
     "start": "2026-06-18",
     "end": "2026-06-25"
   },
-  "total_events_db": 2237,
+  "total_events_db": 2247,
   "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
@@ -49,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 161,
+      "events_after_filter": 14,
+      "events_filtered": 147,
       "error": null
     },
     {
@@ -65,7 +65,23 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
@@ -73,19 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 67,
-      "events_after_filter": 28,
-      "events_filtered": 39,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 67,
+      "events_after_filter": 28,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -113,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -129,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
@@ -145,10 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 14,
-      "events_filtered": 147,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
