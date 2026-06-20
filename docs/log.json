@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-20T08:23:08.256631+00:00",
+  "run_timestamp": "2026-06-20T18:06:03.466855+00:00",
   "date_range": {
     "start": "2026-06-20",
     "end": "2026-06-27"
   },
-  "total_events_db": 2268,
+  "total_events_db": 2270,
   "total_active_display": 97,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -27,17 +27,17 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 28,
+      "events_found": 27,
       "events_after_filter": 27,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,18 +49,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 31,
-      "events_filtered": 2,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -73,31 +73,31 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 161,
+      "events_after_filter": 11,
+      "events_filtered": 150,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 31,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 7,
+      "events_found": 6,
       "events_after_filter": 6,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -110,6 +110,22 @@
       "events_found": 66,
       "events_after_filter": 26,
       "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 205,
+      "events_after_filter": 32,
+      "events_filtered": 173,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -126,14 +142,6 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 205,
-      "events_after_filter": 32,
-      "events_filtered": 173,
       "error": null
     },
     {
@@ -155,17 +163,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 57,
+      "events_found": 61,
+      "events_after_filter": 59,
       "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 161,
-      "events_after_filter": 11,
-      "events_filtered": 150,
       "error": null
     },
     {
