@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-06-22T10:42:53.461101+00:00",
+  "run_timestamp": "2026-06-22T19:59:21.056957+00:00",
   "date_range": {
     "start": "2026-06-22",
     "end": "2026-06-29"
   },
-  "total_events_db": 2274,
+  "total_events_db": 2279,
   "total_active_display": 83,
   "data_store": "postgresql",
   "sources": [
@@ -36,8 +36,8 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 22,
-      "events_after_filter": 21,
-      "events_filtered": 1,
+      "events_after_filter": 22,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,10 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 161,
+      "events_after_filter": 7,
+      "events_filtered": 154,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -65,35 +81,27 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 29,
-      "events_filtered": 4,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 161,
+      "events_found": 7,
       "events_after_filter": 7,
-      "events_filtered": 154,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 66,
+      "events_found": 64,
       "events_after_filter": 26,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
+      "events_filtered": 38,
       "error": null
     },
     {
@@ -105,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 3,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -121,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 23,
+      "events_found": 11,
       "events_after_filter": 3,
-      "events_filtered": 20,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -147,25 +163,9 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 57,
+      "events_found": 60,
+      "events_after_filter": 58,
       "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 3,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
       "error": null
     },
     {
