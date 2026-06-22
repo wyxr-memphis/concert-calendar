@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-21T18:15:00.151765+00:00",
+  "run_timestamp": "2026-06-22T10:42:53.461101+00:00",
   "date_range": {
-    "start": "2026-06-21",
-    "end": "2026-06-28"
+    "start": "2026-06-22",
+    "end": "2026-06-29"
   },
-  "total_events_db": 2273,
-  "total_active_display": 98,
+  "total_events_db": 2274,
+  "total_active_display": 83,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 60,
-      "events_after_filter": 58,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 26,
@@ -57,18 +33,18 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 9,
-      "events_filtered": 152,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 1,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,27 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 205,
-      "events_after_filter": 30,
-      "events_filtered": 175,
+      "events_found": 161,
+      "events_after_filter": 7,
+      "events_filtered": 154,
       "error": null
     },
     {
@@ -137,19 +89,35 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
-      "events_filtered": 0,
+      "events_found": 2,
+      "events_after_filter": 1,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 11,
+      "events_found": 205,
+      "events_after_filter": 30,
+      "events_filtered": 175,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -158,6 +126,38 @@
       "events_found": 23,
       "events_after_filter": 3,
       "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 59,
+      "events_after_filter": 57,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 3,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -172,132 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 54,
-      "events_filtered": 20,
+      "events_after_filter": 53,
+      "events_filtered": 21,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 98,
-      "events_after_filter": 98,
+      "events_found": 83,
+      "events_after_filter": 83,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-21",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Strictly Jazz: The Music of Louis Hayes feat. Henry Conerway III",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-21",
-      "time": "6:00 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "The Music of Louis Hayes feat. Henry Conerway III",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-21",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Jordan Occasionally",
-      "venue": "Growlers",
-      "date": "2026-06-21",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-21",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Kaleidoscope Crux / Cel Shade / Dinosauria [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Bob Nelson & The Bobcats",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-06-21",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "El Ced & Groove Nation",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-06-21",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Bugaloos",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-06-21",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jad Tariq Band",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-06-21",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ken Houston duo",
-      "venue": "Huey's (Millington)",
-      "date": "2026-06-21",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Duane Cleveland Band",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-06-21",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Chaulkies",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-06-21",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Pretty Boys",
-      "venue": "Huey's (Southaven)",
-      "date": "2026-06-21",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Eureka Live Brunch",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-21",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Landslide: A Fleetwood Mac Tribute",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-21",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
     {
       "artist": "Rockin 88's",
       "venue": "Blues City Cafe",
@@ -871,6 +759,13 @@
       "date": "2026-06-28",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-29",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     }
   ]
 }
