@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-22T19:59:21.056957+00:00",
+  "run_timestamp": "2026-06-23T08:31:05.548259+00:00",
   "date_range": {
-    "start": "2026-06-22",
-    "end": "2026-06-29"
+    "start": "2026-06-23",
+    "end": "2026-06-30"
   },
-  "total_events_db": 2279,
-  "total_active_display": 83,
+  "total_events_db": 2281,
+  "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -49,18 +33,26 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 7,
-      "events_filtered": 154,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -68,8 +60,8 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,27 +73,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 26,
-      "events_filtered": 38,
+      "events_found": 65,
+      "events_after_filter": 25,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,10 +97,26 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,27 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 3,
       "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,59 +145,47 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 161,
+      "events_after_filter": 7,
+      "events_filtered": 154,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 58,
+      "events_found": 59,
+      "events_after_filter": 57,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 53,
-      "events_filtered": 21,
+      "events_after_filter": 52,
+      "events_filtered": 22,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 83,
-      "events_after_filter": 83,
+      "events_found": 84,
+      "events_after_filter": 84,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-22",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Brew School",
-      "venue": "Flyway Brewing",
-      "date": "2026-06-22",
-      "time": "3:45 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: From Page to Stage",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-22",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Yella P",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-22",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
     {
       "artist": "Brimstone Jones",
       "venue": "Blues City Cafe",
@@ -766,6 +738,41 @@
       "date": "2026-06-29",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-06-30",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-06-30",
+      "time": "4 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Last Song Standing \u2013 Monthly Showcase",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-30",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-30",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-06-30",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
