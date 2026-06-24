@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-24T08:24:32.731107+00:00",
+  "run_timestamp": "2026-06-24T18:28:17.998511+00:00",
   "date_range": {
     "start": "2026-06-24",
     "end": "2026-07-01"
   },
-  "total_events_db": 2291,
-  "total_active_display": 83,
+  "total_events_db": 2294,
+  "total_active_display": 82,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -25,42 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -73,14 +41,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 161,
@@ -89,10 +49,42 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -105,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 3,
-      "events_filtered": 20,
+      "events_found": 213,
+      "events_after_filter": 37,
+      "events_filtered": 176,
       "error": null
     },
     {
@@ -118,14 +110,6 @@
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 213,
-      "events_after_filter": 37,
-      "events_filtered": 176,
       "error": null
     },
     {
@@ -145,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
+      "events_found": 23,
+      "events_after_filter": 3,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -158,6 +142,22 @@
       "events_found": 11,
       "events_after_filter": 2,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 83,
-      "events_after_filter": 83,
+      "events_found": 82,
+      "events_after_filter": 82,
       "events_filtered": 0,
       "error": null
     }
@@ -257,6 +257,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "River Shook w/ Bailey Bigger at Hernando\u2019s Hide-A-Way",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-06-25",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
       "artist": "Blind Mississippi Morris",
       "venue": "Blues City Cafe",
       "date": "2026-06-25",
@@ -269,20 +276,6 @@
       "date": "2026-06-25",
       "time": "7:30 pm",
       "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "River Shook at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-25",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "River Shook w/ Bailey Bigger at Hernando\u2019s Hide-A-Way",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-25",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "Max Norton / Wagoneer / Not For You [Small Room-Downstairs]",
