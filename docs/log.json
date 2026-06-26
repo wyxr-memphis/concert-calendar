@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-25T19:02:56.822429+00:00",
+  "run_timestamp": "2026-06-26T08:31:45.708464+00:00",
   "date_range": {
-    "start": "2026-06-25",
-    "end": "2026-07-02"
+    "start": "2026-06-26",
+    "end": "2026-07-03"
   },
-  "total_events_db": 2306,
-  "total_active_display": 76,
+  "total_events_db": 2343,
+  "total_active_display": 69,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,38 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 28,
@@ -65,18 +33,18 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 161,
-      "events_after_filter": 8,
-      "events_filtered": 153,
+      "events_found": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -89,19 +57,35 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 26,
-      "events_filtered": 40,
+      "events_found": 187,
+      "events_after_filter": 33,
+      "events_filtered": 154,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 214,
-      "events_after_filter": 38,
-      "events_filtered": 176,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,35 +97,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 3,
-      "events_filtered": 20,
+      "events_found": 66,
+      "events_after_filter": 25,
+      "events_filtered": 41,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 214,
+      "events_after_filter": 37,
+      "events_filtered": 177,
       "error": null
     },
     {
@@ -161,108 +129,63 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 3,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 61,
+      "events_found": 61,
+      "events_after_filter": 60,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 50,
-      "events_filtered": 24,
+      "events_after_filter": 49,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 76,
-      "events_after_filter": 76,
+      "events_found": 69,
+      "events_after_filter": 69,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Concerts in The Grove: Alexis Jade and the Gemstones",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-25",
-      "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Cel Shade",
-      "venue": "Growlers",
-      "date": "2026-06-25",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "River Shook w/ Bailey Bigger at Hernando\u2019s Hide-A-Way",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-25",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-25",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jeff \u201cTain\u201d Watts",
-      "venue": "Crosstown Arts",
-      "date": "2026-06-25",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Max Norton / Wagoneer / Not For You [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Max Norton / Wagoneer [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Max Norton [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Southern Grind Sessions",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-25",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Echoes in the Room",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-06-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Brother Wallace",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-25",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Orion Financial Free Concert Series: FreeWorld",
       "venue": "Overton Park Shell",
@@ -717,6 +640,34 @@
       "date": "2026-07-02",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-03",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Dreamboats",
+      "venue": "Graceland Soundstage",
+      "date": "2026-07-03",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "The Rewind: \"RnBey\" w/ Billie, DJ Lunaci, and DJ Shai",
+      "venue": "Growlers",
+      "date": "2026-07-03",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Lil Wild Bill & The Juke Joint All Stars",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-03",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
     }
   ]
 }
