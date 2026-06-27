@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-06-27T07:51:33.672670+00:00",
+  "run_timestamp": "2026-06-27T17:55:57.169896+00:00",
   "date_range": {
     "start": "2026-06-27",
     "end": "2026-07-04"
@@ -27,17 +27,9 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 26,
+      "events_found": 25,
       "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 27,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -46,6 +38,22 @@
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,19 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 25,
+      "events_found": 65,
       "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_filtered": 41,
       "error": null
     },
     {
@@ -86,22 +86,6 @@
       "events_found": 9,
       "events_after_filter": 9,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 0,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 65,
-      "events_after_filter": 24,
-      "events_filtered": 41,
       "error": null
     },
     {
@@ -129,26 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -161,10 +137,34 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 60,
       "events_after_filter": 59,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 0,
       "events_filtered": 1,
       "error": null
     },
