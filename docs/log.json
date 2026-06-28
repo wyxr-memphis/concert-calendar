@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-27T17:55:57.169896+00:00",
+  "run_timestamp": "2026-06-28T08:23:59.215570+00:00",
   "date_range": {
-    "start": "2026-06-27",
-    "end": "2026-07-04"
+    "start": "2026-06-28",
+    "end": "2026-07-05"
   },
   "total_events_db": 2348,
-  "total_active_display": 58,
+  "total_active_display": 46,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 26,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 24,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -41,27 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 187,
-      "events_after_filter": 31,
-      "events_filtered": 156,
       "error": null
     },
     {
@@ -73,51 +65,43 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 24,
-      "events_filtered": 41,
+      "events_found": 25,
+      "events_after_filter": 23,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
+      "events_found": 186,
+      "events_after_filter": 29,
+      "events_filtered": 157,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 23,
+      "events_filtered": 42,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 214,
-      "events_after_filter": 36,
-      "events_filtered": 178,
+      "events_after_filter": 35,
+      "events_filtered": 179,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 2,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -129,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 2,
-      "events_filtered": 9,
+      "events_found": 29,
+      "events_after_filter": 27,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,152 +137,55 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 59,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 0,
+      "events_found": 61,
+      "events_after_filter": 60,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 2,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 2,
+      "events_filtered": 21,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 48,
-      "events_filtered": 26,
+      "events_after_filter": 47,
+      "events_filtered": 27,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 58,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "General Labor",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-27",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hail Maria",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-27",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Missed Dunks at Summer League",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-06-27",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Spillit Slam: Legendary \u2013 A Storytelling Event",
-      "venue": "Bar DKDC",
-      "date": "2026-06-27",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Kirk Smithhart",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-27",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Memphis Jazz Workshop Summer Jam",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-06-27",
-      "time": "7:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "G Wiz and the Soular System",
-      "venue": "Growlers",
-      "date": "2026-06-27",
-      "time": "5:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "A Johnny Cash & Friends Tribute",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-27",
-      "time": "3:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Caleb Lee Hutchinson at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-27",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Baunie & Soul",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-27",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Marcus Scott & The New Project",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-06-27",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Hot In Herre: 2000s Dance Party",
-      "venue": "Minglewood Hall",
-      "date": "2026-06-27",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Tina Turner Experience",
-      "venue": "Nashoba",
-      "date": "2026-06-27",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Stax Music Academy Summer Music Experience",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-27",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Stax Music Academy Summer Showcase",
-      "venue": "Overton Park Shell",
-      "date": "2026-06-27",
-      "time": "7:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "The Chaulkies",
       "venue": "Huey's (Olive Branch)",
@@ -591,6 +486,27 @@
       "date": "2026-07-04",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-05",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-05",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "DIY Memphis presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-05",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
