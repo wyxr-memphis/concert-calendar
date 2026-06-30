@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-06-29T21:10:14.417061+00:00",
+  "run_timestamp": "2026-06-30T08:31:59.604565+00:00",
   "date_range": {
-    "start": "2026-06-29",
-    "end": "2026-07-06"
+    "start": "2026-06-30",
+    "end": "2026-07-07"
   },
   "total_events_db": 2354,
-  "total_active_display": 28,
+  "total_active_display": 31,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -41,34 +41,10 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +57,35 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 186,
-      "events_after_filter": 27,
-      "events_filtered": 159,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 25,
+      "events_found": 23,
+      "events_after_filter": 22,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
       "events_after_filter": 23,
-      "events_filtered": 2,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -113,11 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 215,
+      "events_after_filter": 34,
+      "events_filtered": 181,
       "error": null
     },
     {
@@ -129,19 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 214,
-      "events_after_filter": 33,
-      "events_filtered": 181,
+      "events_found": 23,
+      "events_after_filter": 2,
+      "events_filtered": 21,
       "error": null
     },
     {
@@ -161,62 +153,39 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 2,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 59,
+      "events_found": 59,
+      "events_after_filter": 58,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 2,
-      "events_filtered": 21,
+      "events_found": 186,
+      "events_after_filter": 27,
+      "events_filtered": 159,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 74,
-      "events_after_filter": 46,
-      "events_filtered": 28,
+      "events_after_filter": 45,
+      "events_filtered": 29,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-29",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
     {
       "artist": "Blind Mississippi Morris",
       "venue": "Blues City Cafe",
@@ -403,6 +372,34 @@
       "artist": "Yotuma & more  [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-06",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "An Evening with Wilco",
+      "venue": "Grind City Amp",
+      "date": "2026-07-07",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-07",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Mystic",
+      "venue": "Crosstown Arts",
+      "date": "2026-07-07",
+      "time": "6:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-07",
       "time": null,
       "source": "scraper:hi_tone"
     }
