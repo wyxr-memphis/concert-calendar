@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-06-30T18:51:06.448324+00:00",
+  "run_timestamp": "2026-07-01T08:50:48.966667+00:00",
   "date_range": {
-    "start": "2026-06-30",
-    "end": "2026-07-07"
+    "start": "2026-07-01",
+    "end": "2026-07-08"
   },
-  "total_events_db": 2372,
+  "total_events_db": 2394,
   "total_active_display": 31,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
@@ -41,26 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 37,
+      "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
     },
@@ -73,27 +49,43 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 58,
+      "events_after_filter": 57,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 186,
-      "events_after_filter": 27,
-      "events_filtered": 159,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
       "error": null
     },
     {
@@ -105,6 +97,22 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 23,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 186,
+      "events_after_filter": 27,
+      "events_filtered": 159,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 216,
@@ -113,18 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 23,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -148,16 +148,16 @@
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
-      "events_after_filter": 1,
-      "events_filtered": 10,
+      "events_after_filter": 0,
+      "events_filtered": 11,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 58,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 10,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -171,9 +171,9 @@
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 74,
-      "events_after_filter": 45,
-      "events_filtered": 29,
+      "events_found": 44,
+      "events_after_filter": 44,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -186,41 +186,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-06-30",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-06-30",
-      "time": "4 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Last Song Standing \u2013 Monthly Showcase",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-06-30",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-30",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-06-30",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
@@ -402,6 +367,41 @@
       "date": "2026-07-07",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Stereo Sessions: Wanda Lott",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-07-08",
+      "time": "6:00 PM - 8:00 PM CDT",
+      "source": "manual"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-08",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "High Lowz",
+      "venue": "Flyway Brewing",
+      "date": "2026-07-08",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Amber Wallin",
+      "venue": "Growlers",
+      "date": "2026-07-08",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-08",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
     }
   ]
 }
