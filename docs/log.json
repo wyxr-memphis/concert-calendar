@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-01T14:47:48.438126+00:00",
+  "run_timestamp": "2026-07-01T18:55:49.776737+00:00",
   "date_range": {
     "start": "2026-07-01",
     "end": "2026-07-08"
   },
-  "total_events_db": 2424,
+  "total_events_db": 2433,
   "total_active_display": 44,
   "data_store": "postgresql",
   "sources": [
@@ -33,42 +33,18 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 58,
-      "events_after_filter": 57,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -83,8 +59,32 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 216,
-      "events_after_filter": 35,
-      "events_filtered": 181,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -113,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -131,25 +131,17 @@
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 2,
-      "events_filtered": 21,
+      "events_found": 20,
+      "events_after_filter": 10,
+      "events_filtered": 10,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 216,
+      "events_after_filter": 35,
+      "events_filtered": 181,
       "error": null
     },
     {
@@ -166,6 +158,14 @@
       "events_found": 11,
       "events_after_filter": 0,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 58,
+      "events_after_filter": 57,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -205,7 +205,7 @@
       "venue": "Growlers",
       "date": "2026-07-01",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Open Jam Night \u2013 NO COVER",
@@ -233,28 +233,28 @@
       "venue": "Cooper House Project",
       "date": "2026-07-02",
       "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Chris Gales",
       "venue": "Ember and Oak Prime",
       "date": "2026-07-02",
       "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Amiir Hasan",
       "venue": "Forward & Forever Tour",
       "date": "2026-07-02",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "After the Rain",
       "venue": "Growlers",
       "date": "2026-07-02",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "The Pause",
@@ -268,7 +268,7 @@
       "venue": "Kaiyukan Theatre",
       "date": "2026-07-02",
       "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Kid Mestizo & Mala Leche (DJ Set)",
@@ -289,7 +289,7 @@
       "venue": "Gold Strike Theatre",
       "date": "2026-07-03",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "The Dreamboats",
@@ -317,7 +317,7 @@
       "venue": "Silky O'Sullivan's",
       "date": "2026-07-03",
       "time": "6:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Brimstone Jones",
@@ -359,7 +359,7 @@
       "venue": "Metropolitan Music Palace",
       "date": "2026-07-04",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "FreeWorld",
@@ -401,14 +401,14 @@
       "venue": "Growlers",
       "date": "2026-07-06",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Torn Apart",
       "venue": "Growlers",
       "date": "2026-07-06",
       "time": "8:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Yotuma & more  [Small Room-Downstairs]",
@@ -422,7 +422,7 @@
       "venue": "The Hi-Tone Cafe",
       "date": "2026-07-06",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "An Evening with Wilco",
@@ -485,7 +485,7 @@
       "venue": "Hadley's Pub",
       "date": "2026-07-08",
       "time": "7:00 PM",
-      "source": "import (Live Music, Concert Tickets & Tour Dates Near You _ Bandsintown.mhtml)"
+      "source": "artifact"
     },
     {
       "artist": "Open Jam Night \u2013 NO COVER",
