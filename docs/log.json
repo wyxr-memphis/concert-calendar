@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-01T18:55:49.776737+00:00",
+  "run_timestamp": "2026-07-02T08:13:26.357938+00:00",
   "date_range": {
-    "start": "2026-07-01",
-    "end": "2026-07-08"
+    "start": "2026-07-02",
+    "end": "2026-07-09"
   },
-  "total_events_db": 2433,
-  "total_active_display": 44,
+  "total_events_db": 2404,
+  "total_active_display": 45,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,15 +25,31 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 25,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
@@ -49,30 +65,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 186,
-      "events_after_filter": 27,
-      "events_filtered": 159,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
@@ -81,11 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -94,14 +86,6 @@
       "events_found": 20,
       "events_after_filter": 0,
       "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,6 +105,30 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 216,
+      "events_after_filter": 34,
+      "events_filtered": 182,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 4,
@@ -132,16 +140,8 @@
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 10,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 216,
-      "events_after_filter": 35,
-      "events_filtered": 181,
+      "events_after_filter": 9,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -161,66 +161,31 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 57,
-      "events_filtered": 1,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
-      "events_after_filter": 44,
-      "events_filtered": 0,
+      "events_after_filter": 43,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
+      "events_found": 45,
+      "events_after_filter": 45,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-01",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Flyway Brewing",
-      "date": "2026-07-01",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Luke Wood",
-      "venue": "Growlers",
-      "date": "2026-07-01",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-01",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Hodge Podge Collage / Simon Michael with Garlic Butter / Latissimus Corpsi [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-01",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Ghost Town Blues Band",
       "venue": "Blues City Cafe",
@@ -493,6 +458,48 @@
       "date": "2026-07-08",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-09",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Ember and Oak Prime",
+      "date": "2026-07-09",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rosy Nolan",
+      "venue": "Hernando's Hide-A-Way",
+      "date": "2026-07-09",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "India Ramey",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-09",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "EYES ON THE WORLD TOUR CHAPTER IV: MIDNIGHT COMES ALIVE [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-09",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Congress the Band",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-09",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
