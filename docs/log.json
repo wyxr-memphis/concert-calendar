@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-02T08:13:26.357938+00:00",
+  "run_timestamp": "2026-07-02T13:08:19.787236+00:00",
   "date_range": {
     "start": "2026-07-02",
     "end": "2026-07-09"
   },
-  "total_events_db": 2404,
-  "total_active_display": 45,
+  "total_events_db": 2444,
+  "total_active_display": 50,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 57,
       "events_after_filter": 57,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 25,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -65,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -81,11 +65,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,27 +89,27 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
+      "events_found": 187,
+      "events_after_filter": 28,
+      "events_filtered": 159,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -134,6 +126,14 @@
       "events_found": 4,
       "events_after_filter": 3,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 50,
+      "events_after_filter": 50,
       "events_filtered": 0,
       "error": null
     }
@@ -282,6 +282,34 @@
       "venue": "Silky O'Sullivan's",
       "date": "2026-07-03",
       "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "BEA666",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "time": "8 PM (Doors)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Lamplighter",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "time": "8 PM (Doors)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Stay Fashionable",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "time": "8 PM (Doors)",
+      "source": "artifact"
+    },
+    {
+      "artist": "Thought",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "time": "8 PM (Doors)",
       "source": "artifact"
     },
     {
@@ -458,6 +486,13 @@
       "date": "2026-07-08",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "livbcohen and shelbywordsmith",
+      "venue": "Bar DKDC",
+      "date": "2026-07-09",
+      "time": "8-11 PM",
+      "source": "artifact"
     },
     {
       "artist": "Ghost Town Blues Band",

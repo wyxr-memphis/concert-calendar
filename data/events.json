@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-07-02T08:13:26.357938+00:00",
+  "updated_at": "2026-07-02T13:08:19.787236+00:00",
   "events": [
     {
       "id": "ffd46538-f69e-4125-ad26-6ce820de7823",
@@ -37205,13 +37205,13 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "f55da922-8e39-47d7-8908-0f7004bef557",
-      "title": "Chris Gales",
-      "venue": "Ember and Oak Prime",
+      "id": "fcbe7fb1-7b80-428a-a6dd-cf3fa0e2b5aa",
+      "title": "Deborah Swiney",
+      "venue": "Kaiyukan Theatre",
       "date": "2026-07-02",
       "start_time": "6:00 PM",
       "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/108561860-chris-gales-at-ember-and-oak-prime?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_url": "https://www.bandsintown.com/e/108587809-deborah-swiney-at-the-cove?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -37224,13 +37224,13 @@
       "updated_at": "2026-07-01T14:43:30.417868+00:00"
     },
     {
-      "id": "fcbe7fb1-7b80-428a-a6dd-cf3fa0e2b5aa",
-      "title": "Deborah Swiney",
-      "venue": "Kaiyukan Theatre",
+      "id": "f55da922-8e39-47d7-8908-0f7004bef557",
+      "title": "Chris Gales",
+      "venue": "Ember and Oak Prime",
       "date": "2026-07-02",
       "start_time": "6:00 PM",
       "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/108587809-deborah-swiney-at-the-cove?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
+      "ticket_url": "https://www.bandsintown.com/e/108561860-chris-gales-at-ember-and-oak-prime?came_from=274&utm_medium=web&utm_source=search_result&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -37278,7 +37278,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1ae23438-1b19-432b-bf25-1373ab3ceaa6",
@@ -37335,7 +37335,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T19:14:35.564179+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "aabca642-9eb5-48c0-8345-1ed96fc12453",
@@ -37392,7 +37392,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-19T08:30:18.311346+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "dd3d114c-867b-48e4-ad62-adcae951effa",
@@ -37411,7 +37411,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "26a88445-9cf1-445b-931e-8635c95f9297",
@@ -37433,6 +37433,82 @@
       "updated_at": "2026-07-01T14:43:30.417868+00:00"
     },
     {
+      "id": "1433905a-760c-4cf9-9b68-97a17f9b4ba1",
+      "title": "Lamplighter",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "start_time": "8 PM (Doors)",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:07:59.177698+00:00",
+      "updated_at": "2026-07-02T13:07:59.177698+00:00"
+    },
+    {
+      "id": "054987db-7e31-4b35-be3d-981904754dc1",
+      "title": "BEA666",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "start_time": "8 PM (Doors)",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:07:59.177698+00:00",
+      "updated_at": "2026-07-02T13:07:59.177698+00:00"
+    },
+    {
+      "id": "1b9515ae-9b98-4b63-8c73-d17f1f7e36db",
+      "title": "Thought",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "start_time": "8 PM (Doors)",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:07:59.177698+00:00",
+      "updated_at": "2026-07-02T13:07:59.177698+00:00"
+    },
+    {
+      "id": "e3897bfa-3be9-4d3f-969d-b069d13760fb",
+      "title": "Stay Fashionable",
+      "venue": "Social Capital (Little Rock)",
+      "date": "2026-07-03",
+      "start_time": "8 PM (Doors)",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:07:59.177698+00:00",
+      "updated_at": "2026-07-02T13:07:59.177698+00:00"
+    },
+    {
       "id": "936729bd-75d6-41fd-94f7-da33b9241989",
       "title": "The Rewind: \"RnBey\" w/ Billie, DJ Lunaci, and DJ Shai",
       "venue": "Growlers",
@@ -37449,7 +37525,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T20:11:02.814618+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0fed5fc7-0c6e-4990-96b8-683b27a8969e",
@@ -37487,7 +37563,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-13T07:52:26.153721+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "59ff3084-5010-46be-9021-d11ab373cd1d",
@@ -37525,7 +37601,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c7aecb62-69ea-47f4-b86d-12f9a3782a8d",
@@ -37544,7 +37620,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T20:11:02.814618+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1a04b919-db0e-4dda-9f41-c7563739cf6c",
@@ -37601,7 +37677,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T06:54:00.068210+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "cd29306e-2652-418e-a12e-befc5a162129",
@@ -37620,7 +37696,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1f30ee12-d6d8-42ea-a724-fe89bdb6ea95",
@@ -37639,7 +37715,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "41a898ca-ce58-43ce-82e8-3955ca649408",
@@ -37658,7 +37734,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T10:12:33.731313+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fd378a40-7427-47a9-bb17-5b39ebe41597",
@@ -37677,7 +37753,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c57e2dcf-3de9-49f1-a362-d751e72f5557",
@@ -37734,7 +37810,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-01T14:43:30.417868+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "82a31412-89f0-4251-933e-283528b1282c",
@@ -37753,7 +37829,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-10T05:50:47.353807+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e4bddd87-c11e-4487-8aef-569ba0608190",
@@ -37772,7 +37848,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-02T07:02:21.915554+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "4685d7d9-e5d4-401e-b426-34c0529cafa2",
@@ -37791,7 +37867,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T09:52:46.372304+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "df1fb2d6-8fa2-42bb-beb0-610604ad1318",
@@ -37810,7 +37886,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e1f34898-dca3-41d5-b4f1-511b93653d00",
@@ -37829,7 +37905,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6e229b09-346a-45f6-b496-43dd27973ea7",
@@ -37867,7 +37943,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-05T18:55:43.170489+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "338362f8-c143-4f5b-9470-b0b0c6de9923",
@@ -37924,7 +38000,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a8c9888f-9f65-40ff-befb-afc37fb00576",
@@ -37962,7 +38038,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-24T17:44:15.954794+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "47337bec-cf4f-4522-bea0-d48e5c4f8234",
@@ -38019,7 +38095,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-19T14:52:38.225860+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "90678a44-3df5-4356-9f1f-e83123a3b981",
@@ -38095,7 +38171,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "86113fd3-7d86-4f50-87c8-5b60d400324f",
@@ -38133,7 +38209,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-01T14:43:30.417868+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1ce893b5-c666-4b98-bc87-52a05cefe762",
@@ -38152,7 +38228,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-07T17:52:56.439290+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ec586b2a-1995-4d1f-956c-2538c06d0a5a",
@@ -38171,7 +38247,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-07T05:40:44.735546+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a30becff-ca24-4d7c-98e1-56e4b3162b8d",
@@ -38247,7 +38323,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2371e7b6-a4ce-4d2c-b2f0-b3b951b94919",
@@ -38285,7 +38361,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6994bb10-a2a3-477b-9afa-f326270441a6",
@@ -38323,7 +38399,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "235823b3-658b-4988-b92c-420628bf8b8c",
@@ -38380,7 +38456,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "852e677e-5884-4155-b8d5-51d9882c79c7",
@@ -38399,7 +38475,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-24T06:02:42.219740+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2accc9a5-687e-438e-aab3-006b2e96794f",
@@ -38494,7 +38570,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "11eb5dca-7e42-4689-aec8-4dfea8e10163",
@@ -38513,7 +38589,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T08:52:24.941186+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e8dfcbdf-f5de-4167-9155-7d4342d62235",
@@ -38589,7 +38665,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "f44dd937-e3a1-4824-bbea-db7474ea5390",
@@ -38627,7 +38703,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-23T07:33:44.022921+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1a4961d1-d2bb-4f08-aa59-9387fef4018d",
@@ -38646,7 +38722,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8baee953-fae7-4dd8-ab82-36fbd2c30557",
@@ -38703,7 +38779,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-01T14:43:30.417868+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "4decd0ad-e494-431a-b73f-274df3addf46",
@@ -38760,7 +38836,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-24T17:44:15.954794+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e83e0d8f-f783-4270-931a-618a770d8f21",
@@ -38779,7 +38855,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "da4a3e0b-c999-4c49-9227-41e8ec51db2b",
@@ -38798,7 +38874,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T08:40:22.204449+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "22d99fd5-7ec6-4c3b-97e5-9b9912f447d8",
@@ -38817,7 +38893,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T20:11:02.814618+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "06166294-ea9f-4155-9ad5-97c43dfb66d4",
@@ -38855,7 +38931,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "7918aff1-e014-4cb0-b7c1-feb1ce4492d2",
@@ -38874,7 +38950,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-10T05:50:47.353807+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8c5ac6c5-9376-49d7-8b1b-4316201a5359",
@@ -38912,7 +38988,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-13T08:24:30.158072+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "9e6b65af-f870-4c3c-b231-388e3b4c9f4b",
@@ -38950,7 +39026,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "cffe0e31-87d4-4620-852b-113d20f51df3",
@@ -39026,7 +39102,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ffd9497b-933e-44cf-80e9-b951dba46bb8",
@@ -39064,7 +39140,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "310325d4-219a-4148-92c6-a02b29183e02",
@@ -39121,12 +39197,12 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-13T18:52:43.029901+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "7f71167e-2c56-4699-b647-f1d76f77b7e0",
+      "id": "60ce210b-e264-4bce-a5e2-ef065030b703",
       "title": "Quitters",
-      "venue": "Lamplighter Lounge",
+      "venue": "Lamplighter Lounge, 1702 Madison Ave, Memphis TN",
       "date": "2026-07-15",
       "start_time": "9 PM",
       "doors_time": null,
@@ -39139,27 +39215,8 @@
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-06-05T12:20:01.989562+00:00",
-      "updated_at": "2026-06-17T17:57:29.595265+00:00"
-    },
-    {
-      "id": "fec3e481-bae6-4dbb-9310-a65ea1853c03",
-      "title": "Gabraxas Compendium",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-15",
-      "start_time": "9 PM",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "artifact",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-06-05T12:20:01.989562+00:00",
-      "updated_at": "2026-06-17T17:57:29.595265+00:00"
+      "created_at": "2026-07-02T13:08:00.518305+00:00",
+      "updated_at": "2026-07-02T13:08:00.518305+00:00"
     },
     {
       "id": "3342582a-11ee-408c-9c15-f4a371ef5a54",
@@ -39181,9 +39238,9 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "7e037d57-1c21-47e0-8fa2-2ae7b60290bb",
-      "title": "Gabraxas",
-      "venue": "Lamplighter Lounge",
+      "id": "8e7417fd-29c3-42fa-ad43-d3ddd746ed29",
+      "title": "Gabraxas Compendium",
+      "venue": "Lamplighter Lounge, 1702 Madison Ave, Memphis TN",
       "date": "2026-07-15",
       "start_time": "9 PM",
       "doors_time": null,
@@ -39196,8 +39253,8 @@
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-05-21T22:12:36.491095+00:00",
-      "updated_at": "2026-06-17T15:44:44.027780+00:00"
+      "created_at": "2026-07-02T13:08:00.518305+00:00",
+      "updated_at": "2026-07-02T13:08:00.518305+00:00"
     },
     {
       "id": "fd7c69f6-e6b0-48e2-b58c-dbaa95959333",
@@ -39276,6 +39333,63 @@
       "updated_at": "2026-06-17T17:57:29.595265+00:00"
     },
     {
+      "id": "7e037d57-1c21-47e0-8fa2-2ae7b60290bb",
+      "title": "Gabraxas",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "start_time": "9 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-21T22:12:36.491095+00:00",
+      "updated_at": "2026-06-17T15:44:44.027780+00:00"
+    },
+    {
+      "id": "7f71167e-2c56-4699-b647-f1d76f77b7e0",
+      "title": "Quitters",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "start_time": "9 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-06-05T12:20:01.989562+00:00",
+      "updated_at": "2026-06-17T17:57:29.595265+00:00"
+    },
+    {
+      "id": "fec3e481-bae6-4dbb-9310-a65ea1853c03",
+      "title": "Gabraxas Compendium",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "start_time": "9 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-06-05T12:20:01.989562+00:00",
+      "updated_at": "2026-06-17T17:57:29.595265+00:00"
+    },
+    {
       "id": "59de01f0-9a7c-499f-b5ac-081efa2da925",
       "title": "Chris Gales",
       "venue": "Ember and Oak Prime",
@@ -39311,7 +39425,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "72986daf-35be-4b16-bccc-333589e11985",
@@ -39368,7 +39482,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-01T14:43:30.417868+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "45ba494a-665d-4cdc-9fbc-719e27edffa1",
@@ -39387,7 +39501,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fd318ad9-63de-4536-a0e3-ab013cbee1c0",
@@ -39406,7 +39520,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "26b28370-f83f-49d4-bb80-516778ec4cd7",
@@ -39482,26 +39596,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "1455b3a7-1d10-448e-af55-3e5a969f67b5",
-      "title": "North Mississippi Allstars",
-      "venue": "Gold Strike Theatre",
-      "date": "2026-07-17",
-      "start_time": "8:00 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.bandsintown.com/e/107604480-north-mississippi-allstars-at-gold-strike-theatre?came_from=257&utm_medium=web&utm_source=home&utm_campaign=event",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "artifact",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-07-01T14:43:30.417868+00:00",
-      "updated_at": "2026-07-01T14:43:30.417868+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "4cb69744-cafd-4e6b-9ac2-0f306fc0a4a2",
@@ -39523,23 +39618,23 @@
       "updated_at": "2026-07-01T14:43:30.417868+00:00"
     },
     {
-      "id": "0cdc8484-521a-44ba-bbca-778461f43544",
-      "title": "Fresco Trey",
-      "venue": "Growlers",
+      "id": "1455b3a7-1d10-448e-af55-3e5a969f67b5",
+      "title": "North Mississippi Allstars",
+      "venue": "Gold Strike Theatre",
       "date": "2026-07-17",
-      "start_time": "8:00PM",
+      "start_time": "8:00 PM",
       "doors_time": null,
-      "ticket_url": "https://wl.seetickets.us/event/fresco-trey-numb-tour-at-growlers-memphis-tn/693336?afflky=GrowlersMemphisTN",
+      "ticket_url": "https://www.bandsintown.com/e/107604480-north-mississippi-allstars-at-gold-strike-theatre?came_from=257&utm_medium=web&utm_source=home&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "scraper:growlers",
+      "source": "artifact",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
-      "created_at": "2026-05-28T19:33:26.149578+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-01T14:43:30.417868+00:00",
+      "updated_at": "2026-07-01T14:43:30.417868+00:00"
     },
     {
       "id": "70fdfcb9-f4c0-4b2c-ab5c-9208a072910f",
@@ -39558,7 +39653,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-20T19:16:08.076702+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "0cdc8484-521a-44ba-bbca-778461f43544",
+      "title": "Fresco Trey",
+      "venue": "Growlers",
+      "date": "2026-07-17",
+      "start_time": "8:00PM",
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/fresco-trey-numb-tour-at-growlers-memphis-tn/693336?afflky=GrowlersMemphisTN",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:growlers",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-28T19:33:26.149578+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fabfcca5-c5cb-420d-abfc-e31b2b8de1d3",
@@ -39577,26 +39691,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "8fc7299d-14a3-42b3-ab92-96ec84514b2d",
-      "title": "Sex Mex [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-17",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/sex-mex-small-room-downstairs-2/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:hi_tone",
-      "is_featured": true,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-05-30T07:42:49.313783+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "bad9e052-9476-46cd-859e-a1d6524a246b",
@@ -39615,7 +39710,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-03T17:28:18.440471+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "8fc7299d-14a3-42b3-ab92-96ec84514b2d",
+      "title": "Sex Mex [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-17",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/sex-mex-small-room-downstairs-2/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:hi_tone",
+      "is_featured": true,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-30T07:42:49.313783+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "976fdc31-bcc4-44bf-aeef-4cc3a47747c0",
+      "title": "Revenge Body",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "start_time": "10:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:01.318621+00:00",
+      "updated_at": "2026-07-02T13:08:01.318621+00:00"
     },
     {
       "id": "0aa7b1b4-4af3-4d1c-a4b1-028ebd95bfab",
@@ -39637,6 +39770,25 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
+      "id": "972c326c-c125-4ac9-ba87-a4e925ca6187",
+      "title": "Color Sound Oblivion",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "start_time": "7:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:01.318621+00:00",
+      "updated_at": "2026-07-02T13:08:01.318621+00:00"
+    },
+    {
       "id": "55abf1e4-1c44-4f7a-a049-449307959d2f",
       "title": "Blind Mississippi Morris",
       "venue": "Blues City Cafe",
@@ -39653,7 +39805,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "70949bd7-7f2d-4639-bd44-7693566a2adb",
@@ -39672,7 +39824,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-15T18:01:37.996648+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "090e67a8-ae66-43fb-95f8-e562b5756e60",
+      "title": "Robert Traxler",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "start_time": "8:15 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:01.318621+00:00",
+      "updated_at": "2026-07-02T13:08:01.318621+00:00"
     },
     {
       "id": "3a8f33ee-4ef5-4a31-a73f-1de97db09fb3",
@@ -39691,7 +39862,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "e87ad977-1ac7-4228-901b-6cb44220c4ef",
+      "title": "Vincent Manard",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "start_time": "9:00 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:01.318621+00:00",
+      "updated_at": "2026-07-02T13:08:01.318621+00:00"
     },
     {
       "id": "e063e817-6f35-4d00-97ae-a90523a69fdd",
@@ -39710,7 +39900,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-15T18:01:37.996648+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "32286512-e728-437f-b976-c520b3f16c7f",
+      "title": "Neon Glittery",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "start_time": "9:45 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:01.318621+00:00",
+      "updated_at": "2026-07-02T13:08:01.318621+00:00"
     },
     {
       "id": "0231fd9d-beb3-445c-9dc3-111e66cdea8f",
@@ -39805,7 +40014,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "12ffb439-ba89-40e0-8ea6-95a3d0dc6a5c",
@@ -39824,7 +40033,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T10:12:33.731313+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0fef9018-541a-4c42-9eb4-2e60d2944c85",
@@ -39843,7 +40052,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c6a21c21-07b4-4ee0-8a51-b7284eab27ee",
@@ -39862,7 +40071,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "127881ae-275a-43ea-80c9-3988dc38f779",
@@ -39881,7 +40090,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-10T05:50:47.353807+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d03f6f82-434d-4719-88bb-307c5f2cd023",
@@ -39900,7 +40109,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6b657424-b994-496a-aaf4-71722e2e4c54",
@@ -39919,7 +40128,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "7c29c3c5-5883-4508-9b7c-76e5542cecb9",
@@ -39938,7 +40147,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "5e57febc-4388-49ec-b045-7ab808e184a3",
@@ -39976,7 +40185,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a797919d-b379-4031-a256-6c33276841c0",
@@ -39995,7 +40204,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fd7b49fa-4c23-43a3-b21c-f8000e62587d",
@@ -40014,7 +40223,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "4970e946-c866-414d-924d-6e08d7122bb1",
@@ -40052,7 +40261,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "de446f95-021b-43e6-88ba-ea8782cb0255",
@@ -40071,7 +40280,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-20T08:28:21.737101+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0a264c88-2c0b-4a01-b7e9-da7cde538aa7",
@@ -40090,7 +40299,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-27T20:34:25.003526+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "610ec55a-2401-4c72-8869-211a25fc1db4",
@@ -40128,7 +40337,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8cf8c35f-6dc1-4620-934b-8759d1b83a6f",
@@ -40147,7 +40356,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-08T19:16:24.615239+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6b811538-88bb-42e1-a07f-922a381746c2",
@@ -40166,7 +40375,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "afdb129d-2142-4c03-ba63-67e4f87734bd",
@@ -40204,7 +40413,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0ed30b3a-b72c-4c0e-8ca8-24fb6e9546c1",
@@ -40223,7 +40432,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T09:52:46.372304+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "44503702-8f67-43bd-a435-910a95651b4b",
@@ -40242,7 +40451,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b5822b58-0628-4d6a-8143-28311f7b75d6",
@@ -40261,7 +40470,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T09:52:46.372304+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d58a850b-5fe3-419c-ac9f-01ae83b2720c",
@@ -40280,26 +40489,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "d2540ab9-4d74-488d-bed2-9e5538adb31e",
-      "title": "Emo Nite",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-25",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/emo-nite/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:minglewood_hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-05-12T18:51:37.165366+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "318db278-447c-4f19-8e79-500b8aabdea7",
@@ -40318,7 +40508,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "d2540ab9-4d74-488d-bed2-9e5538adb31e",
+      "title": "Emo Nite",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-25",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/emo-nite/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:minglewood_hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-12T18:51:37.165366+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "f56dcb25-ab74-492e-bab7-1f727a425786",
@@ -40337,7 +40546,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fc8e43cc-1453-4965-80ed-8c2c1a0df01b",
@@ -40356,7 +40565,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-16T10:12:33.731313+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1f93b337-3fbf-4364-94f2-c483e1e962aa",
@@ -40375,7 +40584,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "16443b38-4219-43ec-804d-70fe64206eb0",
@@ -40394,7 +40603,45 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "f3e294be-707e-4ed9-957a-3a2d9ee3cbef",
+      "title": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-28",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-44/hi-tone-cafe/memphis-tennessee/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:hi_tone",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-02-26T21:56:26.345240+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "5024f85b-7d91-4900-9e3d-c55b1bb93252",
+      "title": "10 Years w/ Line So Thin",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-28",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/10-years/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:minglewood_hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-06-17T15:44:44.027780+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "7629df6f-03ea-472f-94f5-e065bab0bb13",
@@ -40416,44 +40663,6 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "f3e294be-707e-4ed9-957a-3a2d9ee3cbef",
-      "title": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-28",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-44/hi-tone-cafe/memphis-tennessee/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:hi_tone",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "5024f85b-7d91-4900-9e3d-c55b1bb93252",
-      "title": "10 Years w/ Line So Thin",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-28",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/10-years/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:minglewood_hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-06-17T15:44:44.027780+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
       "id": "c27b0559-ac01-475c-bad1-0ece59d27cd4",
       "title": "Brad Birkedahl",
       "venue": "Blues City Cafe",
@@ -40470,7 +40679,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1857c16e-e090-457f-a3a6-8c603e75bb06",
@@ -40489,7 +40698,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8d9ea5a6-562d-47b8-8be2-c2b3298436c9",
@@ -40508,7 +40717,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-23T07:01:55.690360+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e45c6a60-13df-445c-ad6a-4fc02bdc50c1",
@@ -40527,7 +40736,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c57c6da0-ac36-49f3-99d9-ecf196058e1c",
@@ -40546,7 +40755,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "28c9ecab-f833-4dc9-bf47-f37c131a2810",
@@ -40565,7 +40774,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T18:55:44.904120+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "07345c4d-2950-4371-bbfa-607358ac7505",
@@ -40584,7 +40793,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "633cf294-3bac-4923-a9b3-745490ad70b1",
@@ -40603,7 +40812,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "632ea1d2-766d-4350-b233-09a16e7b590a",
@@ -40622,7 +40831,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0bcc5a70-fd5d-45a4-92a8-b38ebba4add0",
@@ -40641,7 +40850,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "87b3e9a3-326e-40c5-aacb-911253d54f79",
@@ -40660,7 +40869,7 @@
       "is_wyxr_presents": false,
       "is_active": false,
       "created_at": "2026-03-08T17:17:38.512285+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "fc3b881b-c181-438e-b7d3-b424ab56b794",
@@ -40698,7 +40907,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "acf81810-0756-4027-bc20-e4bb086a3bad",
@@ -40717,7 +40926,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "e000992e-9de4-4e79-8c12-394218e45703",
+      "title": "SOLD OUT \u2013 UNDEROATH: THE VAN TOUR TO VANS WARPED TOUR",
+      "venue": "Minglewood Hall",
+      "date": "2026-08-02",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/underoath-the-van-tour-to-vans-warped-tour/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:minglewood_hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-10T07:27:14.991900+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "5f5a38ac-92df-4f9d-8307-0dcf4f51a7ba",
@@ -40739,25 +40967,6 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "e000992e-9de4-4e79-8c12-394218e45703",
-      "title": "SOLD OUT \u2013 UNDEROATH: THE VAN TOUR TO VANS WARPED TOUR",
-      "venue": "Minglewood Hall",
-      "date": "2026-08-02",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/underoath-the-van-tour-to-vans-warped-tour/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:minglewood_hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-05-10T07:27:14.991900+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
       "id": "28800796-bb57-458f-a8c4-adf3d8885475",
       "title": "Rockin 88's",
       "venue": "Blues City Cafe",
@@ -40774,7 +40983,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "24c8d844-e8ff-44cb-910e-863ee2fb332a",
@@ -40793,7 +41002,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "4f04bf97-f2d7-4562-9c79-5355fb4a471d",
@@ -40812,7 +41021,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-05T08:44:32.623834+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "01836440-c92e-4046-b819-788051a4538f",
@@ -40831,7 +41040,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6b1b978e-69d2-4e40-8e3a-46856b256f5a",
@@ -40850,7 +41059,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "3dfc0709-79ac-46a0-b987-0c997fd54c34",
@@ -40869,7 +41078,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-22T17:55:12.536943+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "28daf226-2ee7-47d0-b59f-1e1af704c2f2",
@@ -40888,7 +41097,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6d32f2cd-2435-4663-8eee-0e114e0f3fc5",
@@ -40907,7 +41116,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-17T20:50:23.173470+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c25a88bc-714d-4a45-9273-f9be433caec2",
@@ -40926,7 +41135,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T18:55:44.904120+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "092dda95-d0ca-4e9b-ba2f-c266aa866b19",
@@ -40945,7 +41154,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ef183912-3a6c-4c94-b3a7-ff564beedeae",
@@ -40964,7 +41173,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e8f37737-3af0-446e-ace6-88baf7100711",
@@ -41040,7 +41249,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b5403b3c-563b-4d62-be8a-44228a466145",
@@ -41078,7 +41287,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "65f55106-9336-4158-910c-337e1291b58b",
@@ -41154,7 +41363,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ba623fc7-8035-425d-b711-39b275f82de6",
@@ -41173,7 +41382,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c7b15b98-5a83-419e-acbd-a7c07503e280",
@@ -41192,7 +41401,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "01cecdbe-522c-40e0-bd18-5f68db206c01",
@@ -41211,7 +41420,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-11T19:28:58.215594+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "139bfe06-d85c-4e24-b6b0-3dbcafe011f1",
@@ -41230,7 +41439,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6bcaa6cd-0085-40a4-bd3b-51f9e424cfa0",
@@ -41249,7 +41458,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6aa0cde9-0368-4450-8d27-3291261732cd",
@@ -41287,7 +41496,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "638968b1-1912-4788-86db-e912c910955a",
@@ -41306,7 +41515,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "f91345ce-41fe-4cd2-b936-a496d4686494",
@@ -41325,7 +41534,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "42348492-9696-4537-addf-41db9746401b",
@@ -41344,7 +41553,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "0ba544bf-3d34-46ea-a57b-379b06af6457",
@@ -41363,7 +41572,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "9a8939b0-2805-470b-adde-31c6bfba2187",
@@ -41382,7 +41591,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "bf927ee7-f033-44ea-8f65-a15ee7473987",
@@ -41401,7 +41610,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T15:44:44.027780+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "3b138815-bb60-46cf-9847-0e8acc4bedb9",
@@ -41420,7 +41629,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d76e5587-754e-4f83-994b-4023ec600a6a",
@@ -41439,7 +41648,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "09c8227f-f161-4f6d-ae79-c1ed7b65e8ff",
@@ -41458,7 +41667,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-21T21:31:56.345588+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "63877645-8ea6-4c5d-b505-c92b1fcf504e",
@@ -41477,7 +41686,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e037b511-c65d-4798-bded-658afdfe132b",
@@ -41496,7 +41705,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "00ad15b2-3033-47fa-b56c-6fbd8a8f2dd7",
@@ -41515,11 +41724,11 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "e83341b5-042d-4d52-9034-ee3df3718cff",
-      "title": "Social Capital",
+      "id": "0d482e38-2e47-4ff1-bbd5-6b32b4b382b6",
+      "title": "Divingstation 95",
       "venue": "Lamplighter Lounge",
       "date": "2026-08-28",
       "start_time": "8 PM",
@@ -41553,7 +41762,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ef2973c1-bd4d-4e79-a366-e603cffdcf35",
@@ -41575,8 +41784,8 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "0d482e38-2e47-4ff1-bbd5-6b32b4b382b6",
-      "title": "Divingstation 95",
+      "id": "e83341b5-042d-4d52-9034-ee3df3718cff",
+      "title": "Social Capital",
       "venue": "Lamplighter Lounge",
       "date": "2026-08-28",
       "start_time": "8 PM",
@@ -41610,7 +41819,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-22T17:55:12.536943+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "f6795fb7-ff58-402c-9c9d-e99fcaf510a2",
@@ -41629,7 +41838,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "bb2035b3-ad4d-4104-afe4-e85e1301976d",
@@ -41648,7 +41857,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1e1facfa-1a82-47e6-9bb0-2a733aee5919",
@@ -41667,7 +41876,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ca91b765-d270-4a35-bd0b-875266219111",
@@ -41686,7 +41895,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "827438be-8017-4e6f-8a60-0ef067aa839d",
@@ -41705,7 +41914,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-05T05:52:50.729839+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "82238208-1f64-49d2-af9e-3288ccdcc4e9",
@@ -41724,7 +41933,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T15:44:44.027780+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "54ea091e-68f4-4921-8568-095bcc0dfb70",
@@ -41743,7 +41952,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T18:05:26.404185+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2b892e78-a3c8-4cb8-a8df-b2eeef5523fe",
@@ -41762,7 +41971,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8ba039df-b747-4707-814f-1348cc68df33",
@@ -41781,7 +41990,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "3eea1a4b-d226-43d2-8989-4616e8e4545c",
@@ -41800,7 +42009,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T06:54:00.068210+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "9a03a5a1-91d8-4e93-bd7b-9f2b79cf4705",
@@ -41819,7 +42028,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b0aade68-963a-4d04-8600-cb855f4bfcd3",
@@ -41838,7 +42047,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-12T05:55:21.664985+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d9f25ad6-1936-46f4-8be3-29af15dda06b",
@@ -41898,6 +42107,25 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
+      "id": "6e41ccf7-7c56-48e0-b385-6abfd1d2dc93",
+      "title": "Lunar Vacation w/ Closebye",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-09",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://minglewoodhallmemphis.com/event/lunar-vacation/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:minglewood_hall",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-28T19:33:26.149578+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
       "id": "78358473-7f48-4c5f-bab7-599bbe6080f9",
       "title": "Yacht Rock Revue",
       "venue": "Graceland Soundstage",
@@ -41914,7 +42142,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-13T01:45:48.961820+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8f6bc6c6-aa97-416a-af52-b15c7b814af5",
@@ -41933,26 +42161,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T18:05:26.404185+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "6e41ccf7-7c56-48e0-b385-6abfd1d2dc93",
-      "title": "Lunar Vacation w/ Closebye",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-09",
-      "start_time": null,
-      "doors_time": null,
-      "ticket_url": "https://minglewoodhallmemphis.com/event/lunar-vacation/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:minglewood_hall",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-05-28T19:33:26.149578+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "46e91f28-87e9-46f7-aa78-241c879b9557",
@@ -41971,7 +42180,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-14T05:52:16.804906+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "95b14642-f16e-4910-83f2-59720b53622f",
@@ -41990,7 +42199,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-14T05:52:16.804906+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b42b24f4-5684-4233-a1d8-faa127e795f9",
@@ -42009,7 +42218,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b9a75ef6-709b-418e-839a-a77019400fdf",
@@ -42028,7 +42237,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "541cb294-97b0-4c87-b6a9-b604ad308ce4",
@@ -42047,7 +42256,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-16T06:21:17.226774+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "06ed51e5-4064-4262-91bd-ca3f411e167a",
@@ -42066,7 +42275,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "00a7999b-07dd-471e-ba4e-71ee9ecaddbf",
@@ -42085,7 +42294,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-23T07:33:44.022921+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "00b9b1b5-784e-426a-963e-e5fc519ebcee",
@@ -42104,7 +42313,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-12T18:51:37.165366+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ba94bbae-bd01-4b7a-aec1-dfd625bc88ac",
@@ -42142,7 +42351,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "65df3917-da70-4b2e-98e0-3e5a182d0f8f",
@@ -42161,7 +42370,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a976e38f-6342-4ab2-97db-5ec2f89d883c",
@@ -42180,7 +42389,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-07T07:44:24.945783+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c19e727d-30c0-40f4-ad26-7b443fbb706a",
@@ -42199,7 +42408,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-07T17:52:56.439290+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2a54e789-8dae-4829-ad93-3f3a6a4f7c58",
@@ -42218,7 +42427,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-19T06:01:02.390345+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "72ebc2c5-74cf-4a01-9848-90b26e20669b",
@@ -42237,7 +42446,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "80202e85-05b8-4c9b-a747-a0d3c9ebcef4",
@@ -42256,7 +42465,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2de5a028-acd5-4666-8be6-f94176c4e6eb",
@@ -42275,7 +42484,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2730bdec-ec89-484a-abbd-cfbf082a5be2",
@@ -42294,7 +42503,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-23T06:12:16.311911+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1ca6e905-4e22-4a84-88b1-1a1194193aed",
@@ -42313,7 +42522,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T22:13:19.580970+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "e46ecc46-62e5-4192-85c4-182aa5aa4003",
@@ -42332,7 +42541,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-26T06:13:51.317617+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "47a7501a-4113-4ec5-8b29-8679e03635d3",
@@ -42351,7 +42560,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "b507906c-1241-42e7-bbf5-1c4f487bcb5a",
@@ -42370,7 +42579,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "6727b8a9-5dec-4df6-9e85-f5aacb1d82f6",
@@ -42389,7 +42598,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-10T07:27:14.991900+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "3f3d2d47-df65-4f84-8a66-261834202cf1",
@@ -42408,7 +42617,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-30T06:54:14.209434+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "55456d97-de32-4c79-97ee-797dc04697d2",
@@ -42427,7 +42636,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "79603f29-8916-4267-8d91-253300b29d85",
@@ -42446,7 +42655,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "90cccc61-55ea-4dac-af75-34a768108c19",
@@ -42465,7 +42674,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8a1cc4ad-6227-48c5-a55b-0477ddd7b3a8",
@@ -42503,7 +42712,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-20T19:16:08.076702+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "eff81758-3c71-4ce8-9bea-e843c11591b5",
@@ -42522,7 +42731,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-02T19:59:15.545223+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ebbf5b99-52c6-482c-a64e-2bdbcd35a441",
@@ -42541,7 +42750,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-02T06:13:35.479030+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "37be2dfb-0c4f-491f-a8de-a92865a9bce5",
@@ -42560,7 +42769,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-02T06:13:35.479030+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "2874e9ab-500f-4d61-8a91-82085d5f9887",
@@ -42598,7 +42807,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "29f77a07-d79c-46e3-b35d-64d68a2bc83a",
@@ -42617,7 +42826,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a8bc8c33-bcfd-4cdf-ae79-e47a90ac4ae7",
@@ -42636,7 +42845,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-06T06:56:18.102096+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "cb65dbb6-3aa4-49e3-8390-47b2d5602154",
@@ -42655,7 +42864,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-01T20:51:48.366450+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "453af209-9941-41bf-925b-72bb65ef71f3",
@@ -42674,7 +42883,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-09T06:22:44.548953+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "376bb979-b32b-4ef5-af94-a15fd667458e",
@@ -42693,7 +42902,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-15T18:01:37.996648+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "23859c52-2e25-4b4e-a3fe-c95991cd20b5",
@@ -42712,7 +42921,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-30T07:42:49.313783+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "040a31b8-8d53-4fe4-9dfd-df637150c15d",
@@ -42731,7 +42940,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "7351c5fc-aa9d-4e86-bfaa-29224ce07680",
@@ -42750,26 +42959,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
-    },
-    {
-      "id": "79b283eb-94c6-473a-97a1-9e48df19cf7b",
-      "title": "Elevation Worship & Steven Furtick - Fall Tour 2026",
-      "venue": "FedExForum",
-      "date": "2026-10-10",
-      "start_time": "7 PM",
-      "doors_time": null,
-      "ticket_url": "https://www.ticketmaster.com/elevation-worship-steven-furtick-fall-tour-memphis-tennessee-10-10-2026/event/1B006496AC6CD018",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:fedexforum",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-04-25T06:21:12.419833+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ee93ba63-4e26-4c5d-a5ad-dbda5bebab38",
@@ -42788,7 +42978,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-05T07:19:51.543023+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "79b283eb-94c6-473a-97a1-9e48df19cf7b",
+      "title": "Elevation Worship & Steven Furtick - Fall Tour 2026",
+      "venue": "FedExForum",
+      "date": "2026-10-10",
+      "start_time": "7 PM",
+      "doors_time": null,
+      "ticket_url": "https://www.ticketmaster.com/elevation-worship-steven-furtick-fall-tour-memphis-tennessee-10-10-2026/event/1B006496AC6CD018",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:fedexforum",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-04-25T06:21:12.419833+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "794cd6a5-4417-477a-a413-83f2eaf34408",
@@ -42807,7 +43016,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "a88b4a83-2839-4e40-a7a9-71dfd341578a",
@@ -42826,7 +43035,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-16T06:57:44.561837+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "65cbed87-a7e1-4ad8-a605-fbefa0fe6cc3",
@@ -42845,7 +43054,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T18:18:00.744792+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "3e641940-0b90-4256-a251-a541c4055eed",
@@ -42864,7 +43073,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-20T07:18:28.964498+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "540ab4a0-af6c-4ef2-ba66-a2565c6c4c40",
@@ -42902,7 +43111,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-23T07:01:55.690360+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "5caeec70-0a27-41ac-8802-b318e21280d4",
@@ -42940,7 +43149,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "777f374b-364b-43b6-b4f5-d66be68fde34",
@@ -42959,7 +43168,7 @@
       "is_wyxr_presents": false,
       "is_active": false,
       "created_at": "2026-04-28T07:32:52.247232+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "45e4d894-08ba-4ec3-8b8c-f6041e9bc36a",
@@ -42978,7 +43187,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-30T00:18:51.706566+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "c6a1b057-e078-41b7-b6d4-668059c6319b",
@@ -42997,7 +43206,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-12T18:51:37.165366+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "104293d0-742f-410e-9ae3-3c03991b33b5",
@@ -43016,7 +43225,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-07T07:44:24.945783+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "5aa38505-95fb-478b-86b0-4a6150a2df73",
@@ -43035,7 +43244,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "8dbecf44-a972-4410-bd5e-fd5494cbe67b",
@@ -43054,7 +43263,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-11T08:26:24.157817+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d5d24ff9-9c9e-4fa8-9079-786b5739c485",
@@ -43073,7 +43282,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T18:55:44.904120+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "ee58fbbf-7eec-4b32-a91c-31b78a04d488",
@@ -43092,7 +43301,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-14T07:45:53.860298+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "480a463d-c8c2-4304-9a05-780ecc0cb3a6",
@@ -43111,7 +43320,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-14T07:45:53.860298+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "7989cb73-f11f-4583-a5b5-16c177775d51",
@@ -43130,7 +43339,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-18T08:47:41.247057+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "01bb812b-069b-4c9e-bbb3-c8893ed9c262",
@@ -43168,7 +43377,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T08:35:47.681699+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1e111837-051b-45ae-8c6b-9387ca84a481",
@@ -43187,7 +43396,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "42c383fe-c84b-49ad-b2c2-bc7ea8eb6682",
@@ -43206,7 +43415,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-28T08:44:57.290522+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "d8bf8285-d371-4371-81b3-2e65d87a73be",
@@ -43225,7 +43434,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T08:52:37.319836+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "1e9ad0fc-38f6-442e-8b9b-3a8d3ad4a623",
@@ -43244,7 +43453,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-06T07:48:11.371005+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "570dcc4e-79e3-4c0d-9c4b-08ea1ef97e0c",
@@ -43263,7 +43472,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-07T08:26:09.604084+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "f2af1d24-96e9-406d-ae02-0e49ad30050b",
@@ -43282,7 +43491,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-11T09:14:34.928524+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
       "id": "9cbfbb01-e69e-4a0d-bb01-210a0dc7d1eb",
@@ -43304,7 +43513,7 @@
       "updated_at": "2026-06-17T15:44:44.027780+00:00"
     },
     {
-      "id": "evt_1782980067105_2279",
+      "id": "evt_1782997718131_2290",
       "title": "Ashton Riker & The MEMPHIS Royals",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-02",
@@ -43318,11 +43527,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067106_2280",
+      "id": "evt_1782997718133_2291",
       "title": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-02",
@@ -43336,11 +43545,29 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067107_2281",
+      "id": "evt_1782997718134_2292",
+      "title": "Angela Burton Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-02",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718135_2293",
       "title": "Terry Greene on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-02",
@@ -43354,11 +43581,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067109_2282",
+      "id": "evt_1782997718136_2294",
       "title": "Shell on Wheels: Liberty for All",
       "venue": "Overton Park Shell",
       "date": "2026-07-02",
@@ -43372,11 +43599,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067110_2283",
+      "id": "evt_1782997718137_2295",
       "title": "BB KING ALL-STARS",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-03",
@@ -43390,11 +43617,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067111_2284",
+      "id": "evt_1782997718138_2296",
       "title": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-03",
@@ -43408,11 +43635,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067112_2285",
+      "id": "evt_1782997718139_2297",
       "title": "MEMPHIS JONES",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-03",
@@ -43426,11 +43653,47 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067113_2286",
+      "id": "evt_1782997718140_2298",
+      "title": "Almost Elton John",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-03",
+      "start_time": "7 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718142_2299",
+      "title": "Lori Willis Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-03",
+      "start_time": "9:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718143_2300",
       "title": "Lee Gilliland on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-03",
@@ -43444,11 +43707,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067114_2287",
+      "id": "evt_1782997718144_2301",
       "title": "Baptist Health & Wellness Series: 901 Goats Presents Sunset Glow Goat Yoga",
       "venue": "Overton Park Shell",
       "date": "2026-07-03",
@@ -43462,11 +43725,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067115_2288",
+      "id": "evt_1782997718145_2302",
       "title": "King George",
       "venue": "Southland Casino Showroom",
       "date": "2026-07-03",
@@ -43480,11 +43743,11 @@
       "source": "scraper:ticketmaster",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067116_2289",
+      "id": "evt_1782997718146_2303",
       "title": "BB KING ALL-STARS",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-04",
@@ -43498,11 +43761,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067117_2290",
+      "id": "evt_1782997718147_2304",
       "title": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-04",
@@ -43516,11 +43779,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067119_2291",
+      "id": "evt_1782997718148_2305",
       "title": "Flic's Pic's Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-04",
@@ -43534,11 +43797,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067120_2292",
+      "id": "evt_1782997718149_2306",
       "title": "Low Budget Fireworks Display + Free Hotdog Buffet [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-04",
@@ -43552,11 +43815,29 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067121_2293",
+      "id": "evt_1782997718150_2307",
+      "title": "Closed",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-04",
+      "start_time": "12 AM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718152_2308",
       "title": "BEALE STREET BLUES BAND",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-05",
@@ -43570,11 +43851,11 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067122_2294",
+      "id": "evt_1782997718153_2309",
       "title": "FLIC'S PIC'S BAND",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-05",
@@ -43588,11 +43869,47 @@
       "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067123_2295",
+      "id": "evt_1782997718154_2310",
+      "title": "Keelyn Ellis",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-05",
+      "start_time": "12 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718155_2311",
+      "title": "Memphis Unplugged",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-05",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718156_2312",
       "title": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-06",
@@ -43606,11 +43923,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067124_2296",
+      "id": "evt_1782997718157_2313",
       "title": "Charles Streeter & The Tribe Presents: Memphis Hang Suite",
       "venue": "Flyway Brewing",
       "date": "2026-07-07",
@@ -43624,11 +43941,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067126_2297",
+      "id": "evt_1782997718158_2314",
       "title": "Wilco",
       "venue": "Grind City Amp",
       "date": "2026-07-07",
@@ -43642,11 +43959,11 @@
       "source": "scraper:ticketmaster",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067127_2298",
+      "id": "evt_1782997718160_2315",
       "title": "Baptist Health & Wellness Series: WellGroove Dance Flow",
       "venue": "Overton Park Shell",
       "date": "2026-07-07",
@@ -43660,11 +43977,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067128_2299",
+      "id": "evt_1782997718161_2316",
       "title": "Baptist Health & Wellness Series: Pilates in the Park",
       "venue": "Overton Park Shell",
       "date": "2026-07-08",
@@ -43678,11 +43995,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067129_2300",
+      "id": "evt_1782997718162_2317",
       "title": "Residency\u00a0Artist Talks",
       "venue": "Crosstown Arts",
       "date": "2026-07-09",
@@ -43696,11 +44013,29 @@
       "source": "scraper:crosstown_arts",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067130_2301",
+      "id": "evt_1782997718163_2318",
+      "title": "Shara & Sky",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-09",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718164_2319",
       "title": "Baptist Health & Wellness Series: WellGroove Uptempo Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-09",
@@ -43714,11 +44049,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067131_2302",
+      "id": "evt_1782997718165_2320",
       "title": "Kody Harrell, Bryan Shaw",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-10",
@@ -43732,11 +44067,47 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067132_2303",
+      "id": "evt_1782997718166_2321",
+      "title": "Cody Clark",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-10",
+      "start_time": "9:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718168_2322",
+      "title": "The Pinch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-10",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718169_2323",
       "title": "Keith Blanchard on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-10",
@@ -43750,11 +44121,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067134_2304",
+      "id": "evt_1782997718170_2324",
       "title": "Folk All Y\u2019all: Jessye DeSilva",
       "venue": "Crosstown Arts",
       "date": "2026-07-11",
@@ -43768,11 +44139,11 @@
       "source": "scraper:crosstown_arts",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067135_2305",
+      "id": "evt_1782997718171_2325",
       "title": "Memphis Armored Fight Club - Midtown Smackdown",
       "venue": "Growlers",
       "date": "2026-07-11",
@@ -43786,11 +44157,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067136_2306",
+      "id": "evt_1782997718172_2326",
       "title": "Mondenel / phases / Serg  [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-11",
@@ -43804,11 +44175,47 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067137_2307",
+      "id": "evt_1782997718173_2327",
+      "title": "Almost Famous",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-11",
+      "start_time": "8 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718174_2328",
+      "title": "Basketcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-11",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718175_2329",
       "title": "Baptist Health & Wellness Series: Breath work and Meditation",
       "venue": "Overton Park Shell",
       "date": "2026-07-11",
@@ -43822,11 +44229,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067138_2308",
+      "id": "evt_1782997718177_2330",
       "title": "Strictly Jazz: Jazz According to Prince",
       "venue": "Crosstown Arts",
       "date": "2026-07-12",
@@ -43840,11 +44247,11 @@
       "source": "scraper:crosstown_arts",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067139_2309",
+      "id": "evt_1782997718178_2331",
       "title": "Duane Cleveland Band",
       "venue": "Huey's (Collierville)",
       "date": "2026-07-12",
@@ -43858,11 +44265,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067140_2310",
+      "id": "evt_1782997718179_2332",
       "title": "Terry & The Wallbangers",
       "venue": "Huey's (Cordova)",
       "date": "2026-07-12",
@@ -43876,11 +44283,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067142_2311",
+      "id": "evt_1782997718180_2333",
       "title": "The Chaulkies",
       "venue": "Huey's (Midtown)",
       "date": "2026-07-12",
@@ -43894,11 +44301,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067143_2312",
+      "id": "evt_1782997718181_2334",
       "title": "Jack & Noah",
       "venue": "Huey's (Millington)",
       "date": "2026-07-12",
@@ -43912,11 +44319,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067144_2313",
+      "id": "evt_1782997718182_2335",
       "title": "Even Odds",
       "venue": "Huey's (Olive Branch)",
       "date": "2026-07-12",
@@ -43930,11 +44337,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067145_2314",
+      "id": "evt_1782997718183_2336",
       "title": "The Pretty Boys",
       "venue": "Huey's (Poplar)",
       "date": "2026-07-12",
@@ -43948,11 +44355,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067146_2315",
+      "id": "evt_1782997718184_2337",
       "title": "Five O\u2019Clock Shadow",
       "venue": "Huey's (Southaven)",
       "date": "2026-07-12",
@@ -43966,11 +44373,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067147_2316",
+      "id": "evt_1782997718185_2338",
       "title": "Charvey Mac",
       "venue": "Huey's (Southwind)",
       "date": "2026-07-12",
@@ -43984,11 +44391,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067148_2317",
+      "id": "evt_1782997718187_2339",
       "title": "2 Quarts Low",
       "venue": "Hueys (Downtown)",
       "date": "2026-07-12",
@@ -44002,11 +44409,47 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067149_2318",
+      "id": "evt_1782997718188_2340",
+      "title": "Keelyn Ellis",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-12",
+      "start_time": "12 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718189_2341",
+      "title": "Sarah Spain And the Nightshades",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-12",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718190_2342",
       "title": "SIDE SET: Shara's Songwriter Spotlight",
       "venue": "Nashoba",
       "date": "2026-07-12",
@@ -44020,11 +44463,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067150_2319",
+      "id": "evt_1782997718191_2343",
       "title": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-13",
@@ -44038,11 +44481,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067152_2320",
+      "id": "evt_1782997718192_2344",
       "title": "Jazz Jam Session: Hosted by the Alex Upton Quartet",
       "venue": "Crosstown Arts",
       "date": "2026-07-14",
@@ -44056,11 +44499,11 @@
       "source": "scraper:crosstown_arts",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067153_2321",
+      "id": "evt_1782997718193_2345",
       "title": "Charles Streeter & The Tribe Presents: Memphis Hang Suite",
       "venue": "Flyway Brewing",
       "date": "2026-07-14",
@@ -44074,11 +44517,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067154_2322",
+      "id": "evt_1782997718194_2346",
       "title": "Baptist Health & Wellness Series: SWEAT",
       "venue": "Overton Park Shell",
       "date": "2026-07-14",
@@ -44092,11 +44535,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067155_2323",
+      "id": "evt_1782997718195_2347",
       "title": "Matthew Wilson",
       "venue": "Flyway Brewing",
       "date": "2026-07-15",
@@ -44110,11 +44553,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067156_2324",
+      "id": "evt_1782997718197_2348",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-15",
@@ -44128,11 +44571,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067157_2325",
+      "id": "evt_1782997718198_2349",
       "title": "Baptist Health & Wellness Series: Pilates in the Park",
       "venue": "Overton Park Shell",
       "date": "2026-07-15",
@@ -44146,11 +44589,29 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067158_2326",
+      "id": "evt_1782997718199_2350",
+      "title": "Shara's Songwriter Showcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-16",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718200_2351",
       "title": "Wagoneer / Livid Noise / Fugative Droid",
       "venue": "Flyway Brewing",
       "date": "2026-07-17",
@@ -44164,11 +44625,47 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067160_2327",
+      "id": "evt_1782997718201_2352",
+      "title": "Music Boxx",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-17",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718202_2353",
+      "title": "Thumpdaddy",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-17",
+      "start_time": "9:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718203_2354",
       "title": "Cody & Heather Smith on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-17",
@@ -44182,11 +44679,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067161_2328",
+      "id": "evt_1782997718205_2355",
       "title": "The Revival",
       "venue": "Crosstown Arts",
       "date": "2026-07-18",
@@ -44200,11 +44697,11 @@
       "source": "scraper:crosstown_arts",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067162_2329",
+      "id": "evt_1782997718206_2356",
       "title": "Harris & Fitz",
       "venue": "Flyway Brewing",
       "date": "2026-07-18",
@@ -44218,11 +44715,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067163_2330",
+      "id": "evt_1782997718207_2357",
       "title": "Punk 4 Pups [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-18",
@@ -44236,11 +44733,47 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067164_2331",
+      "id": "evt_1782997718208_2358",
+      "title": "Amber McCain Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-18",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718209_2359",
+      "title": "Seeing Red",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-18",
+      "start_time": "9 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718210_2360",
       "title": "The Double Ds",
       "venue": "Huey's (Collierville)",
       "date": "2026-07-19",
@@ -44254,11 +44787,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067165_2332",
+      "id": "evt_1782997718211_2361",
       "title": "El Ced & Groove Nation",
       "venue": "Huey's (Cordova)",
       "date": "2026-07-19",
@@ -44272,11 +44805,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067167_2333",
+      "id": "evt_1782997718212_2362",
       "title": "Bob Nelson & The Bobcats",
       "venue": "Huey's (Germantown)",
       "date": "2026-07-19",
@@ -44290,11 +44823,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067168_2334",
+      "id": "evt_1782997718214_2363",
       "title": "The Rolling Bones",
       "venue": "Huey's (Midtown)",
       "date": "2026-07-19",
@@ -44308,11 +44841,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067169_2335",
+      "id": "evt_1782997718215_2364",
       "title": "Tequila Mockingbird",
       "venue": "Huey's (Millington)",
       "date": "2026-07-19",
@@ -44326,11 +44859,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067170_2336",
+      "id": "evt_1782997718216_2365",
       "title": "Duane Cleveland Band",
       "venue": "Huey's (Olive Branch)",
       "date": "2026-07-19",
@@ -44344,11 +44877,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067171_2337",
+      "id": "evt_1782997718217_2366",
       "title": "The Chaulkies",
       "venue": "Huey's (Poplar)",
       "date": "2026-07-19",
@@ -44362,11 +44895,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067172_2338",
+      "id": "evt_1782997718218_2367",
       "title": "The Bugaloos",
       "venue": "Huey's (Southaven)",
       "date": "2026-07-19",
@@ -44380,11 +44913,29 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067173_2339",
+      "id": "evt_1782997718219_2368",
+      "title": "Pulse",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-19",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718220_2369",
       "title": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-20",
@@ -44398,11 +44949,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067174_2340",
+      "id": "evt_1782997718221_2370",
       "title": "Charles Streeter & The Tribe Presents: Memphis Hang Suite",
       "venue": "Flyway Brewing",
       "date": "2026-07-21",
@@ -44416,11 +44967,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067176_2341",
+      "id": "evt_1782997718223_2371",
       "title": "SIDE SET: Kaleidoscope",
       "venue": "Nashoba",
       "date": "2026-07-21",
@@ -44434,11 +44985,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067177_2342",
+      "id": "evt_1782997718224_2372",
       "title": "Baptist Health & Wellness Series: WellGroove Dance Flow",
       "venue": "Overton Park Shell",
       "date": "2026-07-21",
@@ -44452,11 +45003,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067178_2343",
+      "id": "evt_1782997718225_2373",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-22",
@@ -44470,11 +45021,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067179_2344",
+      "id": "evt_1782997718226_2374",
       "title": "Baptist Health & Wellness Series: Pilates in the Park",
       "venue": "Overton Park Shell",
       "date": "2026-07-22",
@@ -44488,11 +45039,29 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067180_2345",
+      "id": "evt_1782997718227_2375",
+      "title": "Daphnie And Chris",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-23",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718228_2376",
       "title": "High On Fire",
       "venue": "Minglewood Hall",
       "date": "2026-07-23",
@@ -44506,11 +45075,11 @@
       "source": "scraper:minglewood_hall",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067181_2346",
+      "id": "evt_1782997718229_2377",
       "title": "Baptist Health & Wellness Series: WellGroove Uptempo Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-23",
@@ -44524,11 +45093,29 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067182_2347",
+      "id": "evt_1782997718231_2378",
+      "title": "MINIKISS",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-24",
+      "start_time": "8:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718232_2379",
       "title": "Pam & Terry on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-24",
@@ -44542,11 +45129,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067184_2348",
+      "id": "evt_1782997718233_2380",
       "title": "Stay Fashionable / Shakira Chinchilla / Ash Leon [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-25",
@@ -44560,11 +45147,47 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067185_2349",
+      "id": "evt_1782997718234_2381",
+      "title": "Just 'Liya",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-25",
+      "start_time": "8 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718235_2382",
+      "title": "Rice Drewry Collective",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-25",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718236_2383",
       "title": "Obituary",
       "venue": "Growlers",
       "date": "2026-07-26",
@@ -44578,11 +45201,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067186_2350",
+      "id": "evt_1782997718237_2384",
       "title": "Stream off stage [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-07-26",
@@ -44596,11 +45219,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067187_2351",
+      "id": "evt_1782997718239_2385",
       "title": "The Pretty Boys",
       "venue": "Huey's (Collierville)",
       "date": "2026-07-26",
@@ -44614,11 +45237,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067188_2352",
+      "id": "evt_1782997718240_2386",
       "title": "Charvey Mac",
       "venue": "Huey's (Cordova)",
       "date": "2026-07-26",
@@ -44632,11 +45255,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067189_2353",
+      "id": "evt_1782997718241_2387",
       "title": "The Bugaloos",
       "venue": "Huey's (Germantown)",
       "date": "2026-07-26",
@@ -44650,11 +45273,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067190_2354",
+      "id": "evt_1782997718242_2388",
       "title": "Bob Nelson & The Bobcats",
       "venue": "Huey's (Midtown)",
       "date": "2026-07-26",
@@ -44668,11 +45291,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067191_2355",
+      "id": "evt_1782997718243_2389",
       "title": "Duane Cleveland Band",
       "venue": "Huey's (Millington)",
       "date": "2026-07-26",
@@ -44686,11 +45309,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067193_2356",
+      "id": "evt_1782997718244_2390",
       "title": "Tequila Mockingbird",
       "venue": "Huey's (Olive Branch)",
       "date": "2026-07-26",
@@ -44704,11 +45327,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067194_2357",
+      "id": "evt_1782997718245_2391",
       "title": "The Settlers",
       "venue": "Huey's (Poplar)",
       "date": "2026-07-26",
@@ -44722,11 +45345,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067195_2358",
+      "id": "evt_1782997718246_2392",
       "title": "The Double Ds",
       "venue": "Huey's (Southaven)",
       "date": "2026-07-26",
@@ -44740,11 +45363,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067196_2359",
+      "id": "evt_1782997718247_2393",
       "title": "El Ced & Groove Nation",
       "venue": "Huey's (Southwind)",
       "date": "2026-07-26",
@@ -44758,11 +45381,11 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067197_2360",
+      "id": "evt_1782997718248_2394",
       "title": "Elmo & Lester",
       "venue": "Hueys (Downtown)",
       "date": "2026-07-26",
@@ -44776,11 +45399,47 @@
       "source": "scraper:huey_s",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067198_2361",
+      "id": "evt_1782997718250_2395",
+      "title": "Eureka Live Brunch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-26",
+      "start_time": "12 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718251_2396",
+      "title": "Landslide",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-26",
+      "start_time": "5 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718252_2397",
       "title": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-07-27",
@@ -44794,11 +45453,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067199_2362",
+      "id": "evt_1782997718253_2398",
       "title": "Charles Streeter & The Tribe Presents: Memphis Hang Suite",
       "venue": "Flyway Brewing",
       "date": "2026-07-28",
@@ -44812,11 +45471,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067200_2363",
+      "id": "evt_1782997718254_2399",
       "title": "Baptist Health & Wellness Series: SWEAT",
       "venue": "Overton Park Shell",
       "date": "2026-07-28",
@@ -44830,11 +45489,11 @@
       "source": "scraper:overton_park_shell",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067201_2364",
+      "id": "evt_1782997718255_2400",
       "title": "Larry Dean Dixon w/ Mia Dixon",
       "venue": "Flyway Brewing",
       "date": "2026-07-29",
@@ -44848,11 +45507,11 @@
       "source": "scraper:flyway_brewing",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067203_2365",
+      "id": "evt_1782997718256_2401",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-29",
@@ -44866,11 +45525,65 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067204_2366",
+      "id": "evt_1782997718257_2402",
+      "title": "JBD Studios",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-30",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718259_2403",
+      "title": "Facelift",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-31",
+      "start_time": "6 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718260_2404",
+      "title": "Twin Soul",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-07-31",
+      "start_time": "9:30 PM",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:lafayette_s_music_room",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718261_2405",
       "title": "Scott Sudbury on the Patio",
       "venue": "Nashoba",
       "date": "2026-07-31",
@@ -44884,11 +45597,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067205_2367",
+      "id": "evt_1782997718262_2406",
       "title": "Webb Wilder Band at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-01",
@@ -44902,11 +45615,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067206_2368",
+      "id": "evt_1782997718263_2407",
       "title": "Lord Buffalo / $un Ra$sco P! Coltrane [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-08-01",
@@ -44920,11 +45633,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067207_2369",
+      "id": "evt_1782997718264_2408",
       "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-02",
@@ -44938,11 +45651,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067208_2370",
+      "id": "evt_1782997718265_2409",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-05",
@@ -44956,11 +45669,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067210_2371",
+      "id": "evt_1782997718267_2410",
       "title": "Struggle Jennings",
       "venue": "Growlers",
       "date": "2026-08-06",
@@ -44974,11 +45687,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067211_2372",
+      "id": "evt_1782997718268_2411",
       "title": "DIY Memphis presents: [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-08-07",
@@ -44992,11 +45705,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067212_2373",
+      "id": "evt_1782997718269_2412",
       "title": "Lion\u2019s Gate Portal Metaphysical Market *free* [Both Rooms]",
       "venue": "Hi Tone",
       "date": "2026-08-08",
@@ -45010,11 +45723,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067213_2374",
+      "id": "evt_1782997718270_2413",
       "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-09",
@@ -45028,11 +45741,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067214_2375",
+      "id": "evt_1782997718271_2414",
       "title": "SIDE SET: Wyly Bigger",
       "venue": "Nashoba",
       "date": "2026-08-11",
@@ -45046,11 +45759,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067215_2376",
+      "id": "evt_1782997718272_2415",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-12",
@@ -45064,11 +45777,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067216_2377",
+      "id": "evt_1782997718273_2416",
       "title": "Victor Trevino Jr \u2013 Music Release Party",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-12",
@@ -45082,11 +45795,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067218_2378",
+      "id": "evt_1782997718275_2417",
       "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-16",
@@ -45100,11 +45813,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067219_2379",
+      "id": "evt_1782997718276_2418",
       "title": "Deerfields / Mr. Scientist / Wagoneer [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-08-16",
@@ -45118,11 +45831,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067220_2380",
+      "id": "evt_1782997718277_2419",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-19",
@@ -45136,11 +45849,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067221_2381",
+      "id": "evt_1782997718278_2420",
       "title": "SIDE SET: Grace Askew",
       "venue": "Nashoba",
       "date": "2026-08-20",
@@ -45154,11 +45867,11 @@
       "source": "scraper:nashoba",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067222_2382",
+      "id": "evt_1782997718279_2421",
       "title": "Kawaii Rave at Growlers - Memphis, TN",
       "venue": "Growlers",
       "date": "2026-08-21",
@@ -45172,11 +45885,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067223_2383",
+      "id": "evt_1782997718280_2422",
       "title": "TopOppGen",
       "venue": "Growlers",
       "date": "2026-08-22",
@@ -45190,11 +45903,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067224_2384",
+      "id": "evt_1782997718281_2423",
       "title": "Spaceman\u2019s Dead Friends",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-22",
@@ -45208,11 +45921,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067226_2385",
+      "id": "evt_1782997718283_2424",
       "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-23",
@@ -45226,11 +45939,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067227_2386",
+      "id": "evt_1782997718284_2425",
       "title": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-26",
@@ -45244,11 +45957,11 @@
       "source": "scraper:hernando_s_hideaway",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067228_2387",
+      "id": "evt_1782997718285_2426",
       "title": "Jacquees & K Camp",
       "venue": "Graceland Soundstage",
       "date": "2026-08-28",
@@ -45262,11 +45975,29 @@
       "source": "scraper:graceland_soundstage",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067229_2388",
+      "id": "evt_1782997718286_2427",
+      "title": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-30",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": "https://wl.seetickets.us/event/chicken-sht-bingo-with-hillbilly-mojo-memphis-no-cover/686723?afflky=HernandosHideAWay",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:hernando_s_hideaway",
+      "is_featured": false,
+      "is_active": true,
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
+    },
+    {
+      "id": "evt_1782997718287_2428",
       "title": "Major Moment",
       "venue": "Growlers",
       "date": "2026-09-03",
@@ -45280,11 +46011,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067231_2389",
+      "id": "evt_1782997718289_2429",
       "title": "Memphis miniFEST [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-09-18",
@@ -45298,11 +46029,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067232_2390",
+      "id": "evt_1782997718291_2430",
       "title": "Convictions",
       "venue": "Growlers",
       "date": "2026-10-02",
@@ -45316,11 +46047,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067233_2391",
+      "id": "evt_1782997718292_2431",
       "title": "Dungeons & Drag Queens [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-10-02",
@@ -45334,11 +46065,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067235_2392",
+      "id": "evt_1782997718293_2432",
       "title": "Fox N\u2019 Vead",
       "venue": "Minglewood Hall",
       "date": "2026-10-02",
@@ -45352,11 +46083,11 @@
       "source": "scraper:minglewood_hall",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067236_2393",
+      "id": "evt_1782997718294_2433",
       "title": "Memphis Jazz Workshop School Matinee",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-10-08",
@@ -45370,11 +46101,11 @@
       "source": "scraper:germantown_performing_arts_center",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067237_2394",
+      "id": "evt_1782997718296_2434",
       "title": "Rachel is Kozi / Wagoneer / FDAT [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-11-12",
@@ -45388,11 +46119,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067239_2395",
+      "id": "evt_1782997718297_2435",
       "title": "Lyle Lovett",
       "venue": "Graceland Soundstage",
       "date": "2026-11-14",
@@ -45406,11 +46137,11 @@
       "source": "scraper:graceland_soundstage",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067240_2396",
+      "id": "evt_1782997718298_2436",
       "title": "Black Violin \u2013 The Be Free Tour",
       "venue": "Minglewood Hall",
       "date": "2026-11-22",
@@ -45424,11 +46155,11 @@
       "source": "scraper:minglewood_hall",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067241_2397",
+      "id": "evt_1782997718299_2437",
       "title": "Rival Sons \u2013 Domestic Bliss Tour",
       "venue": "Minglewood Hall",
       "date": "2026-11-27",
@@ -45442,11 +46173,11 @@
       "source": "scraper:minglewood_hall",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067242_2398",
+      "id": "evt_1782997718300_2438",
       "title": "Jay Leno",
       "venue": "Graceland Soundstage",
       "date": "2026-12-05",
@@ -45460,11 +46191,11 @@
       "source": "scraper:graceland_soundstage",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067243_2399",
+      "id": "evt_1782997718301_2439",
       "title": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-12-15",
@@ -45478,11 +46209,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067244_2400",
+      "id": "evt_1782997718302_2440",
       "title": "Scott Bradlee\u2019s Postmodern Jukebox \u2013 The Future Is Vintage World Tour",
       "venue": "Minglewood Hall",
       "date": "2026-12-17",
@@ -45496,11 +46227,11 @@
       "source": "scraper:minglewood_hall",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067245_2401",
+      "id": "evt_1782997718304_2441",
       "title": "Yheti, Toadface",
       "venue": "Growlers",
       "date": "2026-12-18",
@@ -45514,11 +46245,11 @@
       "source": "scraper:growlers",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067246_2402",
+      "id": "evt_1782997718305_2442",
       "title": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-12-22",
@@ -45532,11 +46263,11 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     },
     {
-      "id": "evt_1782980067248_2403",
+      "id": "evt_1782997718306_2443",
       "title": "Open Mic Comedy Night [small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-12-29",
@@ -45550,8 +46281,8 @@
       "source": "scraper:hi_tone",
       "is_featured": false,
       "is_active": true,
-      "created_at": "2026-07-02T08:13:26.357938+00:00",
-      "updated_at": "2026-07-02T08:13:26.357938+00:00"
+      "created_at": "2026-07-02T13:08:19.787236+00:00",
+      "updated_at": "2026-07-02T13:08:19.787236+00:00"
     }
   ]
 }
