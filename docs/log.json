@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-02T13:11:22.896452+00:00",
+  "run_timestamp": "2026-07-02T18:23:07.623822+00:00",
   "date_range": {
     "start": "2026-07-02",
     "end": "2026-07-09"
   },
-  "total_events_db": 2445,
+  "total_events_db": 2446,
   "total_active_display": 50,
   "data_store": "postgresql",
   "sources": [
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -65,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -89,19 +81,27 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 217,
+      "events_after_filter": 35,
+      "events_filtered": 182,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 63,
       "events_after_filter": 23,
       "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 187,
-      "events_after_filter": 28,
-      "events_filtered": 159,
       "error": null
     },
     {
@@ -113,11 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 216,
-      "events_after_filter": 34,
-      "events_filtered": 182,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -142,14 +142,6 @@
       "events_found": 28,
       "events_after_filter": 28,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -165,6 +157,14 @@
       "success": true,
       "events_found": 57,
       "events_after_filter": 57,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
