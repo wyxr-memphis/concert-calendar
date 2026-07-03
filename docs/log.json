@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-03T08:12:18.868746+00:00",
+  "run_timestamp": "2026-07-03T18:08:01.561892+00:00",
   "date_range": {
     "start": "2026-07-03",
     "end": "2026-07-10"
   },
-  "total_events_db": 2445,
+  "total_events_db": 2447,
   "total_active_display": 53,
   "data_store": "postgresql",
   "sources": [
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 36,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
@@ -41,11 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 187,
+      "events_after_filter": 27,
+      "events_filtered": 160,
       "error": null
     },
     {
@@ -57,19 +81,19 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 36,
-      "events_filtered": 2,
+      "events_found": 63,
+      "events_after_filter": 23,
+      "events_filtered": 40,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 187,
-      "events_after_filter": 27,
-      "events_filtered": 160,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -89,35 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_after_filter": 9,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -129,18 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 9,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -165,6 +157,14 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
