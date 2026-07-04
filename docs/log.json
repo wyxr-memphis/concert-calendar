@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-03T18:08:01.561892+00:00",
+  "run_timestamp": "2026-07-04T07:49:35.477636+00:00",
   "date_range": {
-    "start": "2026-07-03",
-    "end": "2026-07-10"
+    "start": "2026-07-04",
+    "end": "2026-07-11"
   },
-  "total_events_db": 2447,
+  "total_events_db": 2444,
   "total_active_display": 53,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -25,7 +25,7 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
@@ -36,16 +36,24 @@
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 38,
-      "events_after_filter": 36,
-      "events_filtered": 2,
+      "events_after_filter": 35,
+      "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -60,16 +68,16 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_after_filter": 35,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 187,
-      "events_after_filter": 27,
-      "events_filtered": 160,
+      "events_after_filter": 25,
+      "events_filtered": 162,
       "error": null
     },
     {
@@ -81,11 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,19 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 217,
-      "events_after_filter": 34,
-      "events_filtered": 183,
+      "events_after_filter": 33,
+      "events_filtered": 184,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 23,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -129,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
@@ -145,18 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,11 +161,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 59,
+      "events_after_filter": 59,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
-      "events_after_filter": 42,
-      "events_filtered": 2,
+      "events_after_filter": 41,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -186,83 +186,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Kid Mestizo & Mala Leche (DJ Set)",
-      "venue": "Bar DKDC",
-      "date": "2026-07-03",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-03",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Hoobastank",
-      "venue": "Gold Strike Theatre",
-      "date": "2026-07-03",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Dreamboats",
-      "venue": "Graceland Soundstage",
-      "date": "2026-07-03",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
-    },
-    {
-      "artist": "The Rewind: \"RnBey\" w/ Billie, DJ Lunaci, and DJ Shai",
-      "venue": "Growlers",
-      "date": "2026-07-03",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Lil Wild Bill & The Juke Joint All Stars",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-03",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Silky O'Sullivan's",
-      "date": "2026-07-03",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BEA666",
-      "venue": "Social Capital (Little Rock)",
-      "date": "2026-07-03",
-      "time": "8 PM (Doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lamplighter",
-      "venue": "Social Capital (Little Rock)",
-      "date": "2026-07-03",
-      "time": "8 PM (Doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Stay Fashionable",
-      "venue": "Social Capital (Little Rock)",
-      "date": "2026-07-03",
-      "time": "8 PM (Doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Thought",
-      "venue": "Social Capital (Little Rock)",
-      "date": "2026-07-03",
-      "time": "8 PM (Doors)",
-      "source": "artifact"
-    },
     {
       "artist": "Brimstone Jones",
       "venue": "Blues City Cafe",
@@ -555,6 +478,83 @@
       "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-07-10",
       "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-11",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chris Gales",
+      "venue": "Chris Gales at the Charred Oak Burbon Bar located in Southland Casino Hotel in West Memphis AR.",
+      "date": "2026-07-11",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Tom Petty And The Heartbreakers Tribute",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-11",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "The Blue Suede Sisters present [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Ms. Horrorbusiness (live painting)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-11",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Parallax",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-11",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Polyglamorous",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-11",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "RussT",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-11",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Primal Cage Wars",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-11",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Chinese Connection Dub Embassy",
+      "venue": "Nashoba",
+      "date": "2026-07-11",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Jessye DeSilva",
+      "venue": "The Green Room",
+      "date": "2026-07-11",
+      "time": "7:30 PM",
       "source": "artifact"
     }
   ]
