@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-04T17:57:43.728005+00:00",
+  "run_timestamp": "2026-07-05T08:04:24.289389+00:00",
   "date_range": {
-    "start": "2026-07-04",
-    "end": "2026-07-11"
+    "start": "2026-07-05",
+    "end": "2026-07-12"
   },
-  "total_events_db": 2445,
-  "total_active_display": 53,
+  "total_events_db": 2443,
+  "total_active_display": 57,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,34 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -49,43 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 35,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 187,
-      "events_after_filter": 25,
-      "events_filtered": 162,
       "error": null
     },
     {
@@ -97,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 33,
-      "events_filtered": 184,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
@@ -113,18 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 23,
+      "events_filtered": 40,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -137,19 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
+      "events_found": 217,
+      "events_after_filter": 33,
+      "events_filtered": 184,
       "error": null
     },
     {
@@ -161,10 +129,42 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 187,
+      "events_after_filter": 24,
+      "events_filtered": 163,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 59,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -172,62 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
-      "events_after_filter": 41,
-      "events_filtered": 3,
+      "events_after_filter": 40,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-04",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Asper",
-      "venue": "Growlers",
-      "date": "2026-07-04",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Moriah & more [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Stay Fashionable",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-04",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Midnight Papers",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-04",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Deborah Swiney",
-      "venue": "Metropolitan Music Palace",
-      "date": "2026-07-04",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
@@ -555,6 +513,76 @@
       "venue": "The Green Room",
       "date": "2026-07-11",
       "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Aaron English",
+      "venue": "ARRIVE Memphis",
+      "date": "2026-07-12",
+      "time": "5:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-12",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "CAM GIRL",
+      "venue": "Growlers",
+      "date": "2026-07-12",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Pan de Muerto",
+      "venue": "Growlers",
+      "date": "2026-07-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-12",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "2nd Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-12",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Holdfast",
+      "venue": "Hi Tone",
+      "date": "2026-07-12",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mineral King / Holdfast / Aidan Osias / Jombi [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-12",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-07-12",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mineral King",
+      "venue": "The Hi-Tone Cafe",
+      "date": "2026-07-12",
+      "time": "5:30 PM",
       "source": "artifact"
     }
   ]
