@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-06T18:26:19.600472+00:00",
+  "run_timestamp": "2026-07-06T18:51:50.172185+00:00",
   "date_range": {
     "start": "2026-07-06",
     "end": "2026-07-13"
   },
-  "total_events_db": 2461,
+  "total_events_db": 2463,
   "total_active_display": 64,
   "data_store": "postgresql",
   "sources": [
@@ -49,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -65,34 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 62,
-      "events_after_filter": 23,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -105,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 217,
-      "events_after_filter": 33,
-      "events_filtered": 184,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,6 +97,14 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 4,
@@ -129,18 +113,34 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 20,
+      "events_after_filter": 9,
+      "events_filtered": 11,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 62,
+      "events_after_filter": 23,
+      "events_filtered": 39,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 217,
+      "events_after_filter": 33,
+      "events_filtered": 184,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -153,19 +153,19 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 56,
       "events_after_filter": 56,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 9,
-      "events_filtered": 11,
       "error": null
     },
     {
