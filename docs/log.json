@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-06T09:01:56.641970+00:00",
+  "run_timestamp": "2026-07-06T18:26:19.600472+00:00",
   "date_range": {
     "start": "2026-07-06",
     "end": "2026-07-13"
   },
-  "total_events_db": 2441,
-  "total_active_display": 58,
+  "total_events_db": 2461,
+  "total_active_display": 64,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -73,11 +65,27 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 63,
+      "events_found": 62,
       "events_after_filter": 23,
-      "events_filtered": 40,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -85,54 +93,6 @@
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 33,
-      "events_filtered": 184,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 9,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +105,42 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 217,
+      "events_after_filter": 33,
+      "events_filtered": 184,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 28,
       "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,6 +161,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 9,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 58,
+      "events_found": 64,
+      "events_after_filter": 64,
       "events_filtered": 0,
       "error": null
     }
@@ -306,6 +306,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Memphis Dyke Night: White Lies Party",
+      "venue": "Bar DKDC",
+      "date": "2026-07-09",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Ghost Town Blues Band",
       "venue": "Blues City Cafe",
       "date": "2026-07-09",
@@ -353,6 +360,13 @@
       "date": "2026-07-10",
       "time": "6:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Hope Clayburn + The Memphis Manes",
+      "venue": "Bar DKDC",
+      "date": "2026-07-10",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Brad Birkedahl",
@@ -415,6 +429,20 @@
       "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-07-10",
       "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Comedy Night with Ben Pierce",
+      "venue": "Bar DKDC",
+      "date": "2026-07-11",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Shorty + The Grooves",
+      "venue": "Bar DKDC",
+      "date": "2026-07-11",
+      "time": "Early",
       "source": "artifact"
     },
     {
@@ -502,6 +530,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Banana Cream Duo (NOLA)",
+      "venue": "Bar DKDC",
+      "date": "2026-07-12",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-07-12",
@@ -562,6 +597,13 @@
       "venue": "The Hi-Tone Cafe",
       "date": "2026-07-12",
       "time": "5:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Like Really Creative Muse: Transformation with Vixxen + Daiya Nysus",
+      "venue": "Bar DKDC",
+      "date": "2026-07-13",
+      "time": null,
       "source": "artifact"
     },
     {
