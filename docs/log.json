@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-07T16:51:02.939515+00:00",
+  "run_timestamp": "2026-07-07T18:55:31.366111+00:00",
   "date_range": {
     "start": "2026-07-07",
     "end": "2026-07-14"
   },
-  "total_events_db": 2461,
+  "total_events_db": 2489,
   "total_active_display": 70,
   "data_store": "postgresql",
   "sources": [
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
@@ -65,18 +41,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -89,11 +73,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 24,
-      "events_filtered": 40,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 9,
-      "events_filtered": 11,
+      "events_found": 64,
+      "events_after_filter": 24,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -129,11 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 188,
+      "events_after_filter": 23,
+      "events_filtered": 165,
       "error": null
     },
     {
@@ -145,18 +145,26 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 9,
       "events_filtered": 11,
       "error": null
     },
@@ -167,14 +175,6 @@
       "events_after_filter": 38,
       "events_filtered": 6,
       "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
     },
     {
       "name": "Database",
