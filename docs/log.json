@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-06T18:51:50.172185+00:00",
+  "run_timestamp": "2026-07-07T08:26:00.311481+00:00",
   "date_range": {
-    "start": "2026-07-06",
-    "end": "2026-07-13"
+    "start": "2026-07-07",
+    "end": "2026-07-14"
   },
-  "total_events_db": 2463,
-  "total_active_display": 64,
+  "total_events_db": 2441,
+  "total_active_display": 63,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,34 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 27,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 34,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -49,35 +65,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 187,
-      "events_after_filter": 22,
-      "events_filtered": 165,
       "error": null
     },
     {
@@ -97,19 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
+      "events_found": 64,
+      "events_after_filter": 24,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -121,35 +113,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 62,
-      "events_after_filter": 23,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 217,
-      "events_after_filter": 33,
-      "events_filtered": 184,
+      "events_after_filter": 32,
+      "events_filtered": 185,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
       "error": null
     },
     {
@@ -163,8 +147,24 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
+      "events_found": 55,
+      "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -172,62 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
-      "events_after_filter": 39,
-      "events_filtered": 5,
+      "events_after_filter": 38,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 64,
+      "events_found": 63,
+      "events_after_filter": 63,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-06",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Creative Arts Ensemble",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-06",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Civil Serpents",
-      "venue": "Growlers",
-      "date": "2026-07-06",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Torn Apart",
-      "venue": "Growlers",
-      "date": "2026-07-06",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Yotuma & more  [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Yotuma",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-07-06",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "An Evening with Wilco",
       "venue": "Grind City Amp",
@@ -633,6 +591,41 @@
       "date": "2026-07-13",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Data Drums",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-14",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-14",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Dead Ringers",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-14",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Hondo",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-14",
+      "time": "9 PM",
+      "source": "artifact"
     }
   ]
 }
