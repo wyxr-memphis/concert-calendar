@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-07T08:26:00.311481+00:00",
+  "run_timestamp": "2026-07-07T16:51:02.939515+00:00",
   "date_range": {
     "start": "2026-07-07",
     "end": "2026-07-14"
   },
-  "total_events_db": 2441,
-  "total_active_display": 63,
+  "total_events_db": 2461,
+  "total_active_display": 70,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,19 +33,19 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 27,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 35,
       "events_after_filter": 34,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,18 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
@@ -89,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,11 +97,27 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 20,
       "events_after_filter": 9,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -121,18 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -161,14 +161,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
@@ -177,10 +169,18 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 63,
+      "events_found": 70,
+      "events_after_filter": 70,
       "events_filtered": 0,
       "error": null
     }
@@ -192,6 +192,13 @@
       "date": "2026-07-07",
       "time": null,
       "source": "manual"
+    },
+    {
+      "artist": "Phil Nye / Mary Hatley",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-07",
+      "time": "9 PM",
+      "source": "artifact"
     },
     {
       "artist": "Brimstone Jones",
@@ -220,6 +227,13 @@
       "date": "2026-07-08",
       "time": "6:00 PM - 8:00 PM CDT",
       "source": "manual"
+    },
+    {
+      "artist": "Karaoke w/ Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-08",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Brad Birkedahl",
@@ -255,6 +269,13 @@
       "date": "2026-07-08",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-09",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "livbcohen and shelbywordsmith",
@@ -318,6 +339,13 @@
       "date": "2026-07-10",
       "time": "6:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Jim 60th Party",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-10",
+      "time": "6 PM to 10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Hope Clayburn + The Memphis Manes",
@@ -387,6 +415,13 @@
       "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-07-10",
       "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Party Gator / Hartle Road / Aquarian Blood",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-11",
+      "time": "8 PM",
       "source": "artifact"
     },
     {
@@ -488,6 +523,13 @@
       "source": "artifact"
     },
     {
+      "artist": "MysTrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-12",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Banana Cream Duo (NOLA)",
       "venue": "Bar DKDC",
       "date": "2026-07-12",
@@ -555,6 +597,13 @@
       "venue": "The Hi-Tone Cafe",
       "date": "2026-07-12",
       "time": "5:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-13",
+      "time": "10 PM",
       "source": "artifact"
     },
     {
