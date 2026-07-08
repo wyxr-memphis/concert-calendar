@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-07T18:55:31.366111+00:00",
+  "run_timestamp": "2026-07-08T07:30:46.442676+00:00",
   "date_range": {
-    "start": "2026-07-07",
-    "end": "2026-07-14"
+    "start": "2026-07-08",
+    "end": "2026-07-15"
   },
   "total_events_db": 2489,
-  "total_active_display": 70,
+  "total_active_display": 80,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -81,14 +73,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
@@ -105,19 +89,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 217,
       "events_after_filter": 32,
       "events_filtered": 185,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,6 +113,14 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 188,
@@ -137,19 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 11,
       "events_after_filter": 0,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -164,63 +156,36 @@
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 9,
-      "events_filtered": 11,
+      "events_after_filter": 8,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 44,
-      "events_after_filter": 38,
-      "events_filtered": 6,
+      "events_after_filter": 37,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 70,
+      "events_found": 80,
+      "events_after_filter": 80,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "An Evening with Wilco",
-      "venue": "Grind City Amp",
-      "date": "2026-07-07",
-      "time": null,
-      "source": "manual"
-    },
-    {
-      "artist": "Phil Nye / Mary Hatley",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-07",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-07",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "The Mystic",
-      "venue": "Crosstown Arts",
-      "date": "2026-07-07",
-      "time": "6:00 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-07",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Stereo Sessions: Wanda Lott",
       "venue": "Memphis Listening Lab",
@@ -674,6 +639,111 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-07-14",
       "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Logan Hanna",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-15",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Trey Delton",
+      "venue": "Growlers",
+      "date": "2026-07-15",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ty March",
+      "venue": "Growlers",
+      "date": "2026-07-15",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Compendium (TX)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Fangtrick",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Fangtrick",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Gabraxas",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Gabraxas Compendium",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Quitters",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Safe Word",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Safe Word (TX)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Gabraxas Compendium",
+      "venue": "Lamplighter Lounge, 1702 Madison Ave, Memphis TN",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Quitters",
+      "venue": "Lamplighter Lounge, 1702 Madison Ave, Memphis TN",
+      "date": "2026-07-15",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rodd Bland",
+      "venue": "Rum Boogie Cafe",
+      "date": "2026-07-15",
+      "time": "7:00 PM",
       "source": "artifact"
     }
   ]
