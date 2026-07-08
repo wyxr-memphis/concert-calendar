@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-08T07:30:46.442676+00:00",
+  "run_timestamp": "2026-07-08T12:58:14.699946+00:00",
   "date_range": {
     "start": "2026-07-08",
     "end": "2026-07-15"
   },
-  "total_events_db": 2489,
-  "total_active_display": 80,
+  "total_events_db": 2492,
+  "total_active_display": 83,
   "data_store": "postgresql",
   "sources": [
     {
@@ -23,6 +23,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,6 +57,14 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 188,
+      "events_after_filter": 23,
+      "events_filtered": 165,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
@@ -61,14 +77,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_found": 20,
+      "events_after_filter": 8,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -121,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 188,
-      "events_after_filter": 23,
-      "events_filtered": 165,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,14 +161,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 8,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 6,
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 80,
+      "events_found": 83,
+      "events_after_filter": 83,
       "events_filtered": 0,
       "error": null
     }
@@ -555,6 +555,27 @@
       "venue": "Huey's (Germantown)",
       "date": "2026-07-12",
       "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Godmilk",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-12",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Pig Detective",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-12",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Spoonful",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-12",
+      "time": "7 PM",
       "source": "artifact"
     },
     {
