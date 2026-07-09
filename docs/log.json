@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-07-09T08:30:49.135972+00:00",
+  "run_timestamp": "2026-07-09T18:46:04.709051+00:00",
   "date_range": {
     "start": "2026-07-09",
     "end": "2026-07-16"
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,35 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
+      "events_found": 33,
+      "events_after_filter": 32,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -81,11 +57,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 24,
-      "events_filtered": 40,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,42 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 32,
-      "events_filtered": 185,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 69,
-      "events_filtered": 0,
+      "events_found": 217,
+      "events_after_filter": 32,
+      "events_filtered": 185,
       "error": null
     },
     {
@@ -158,6 +118,46 @@
       "events_found": 20,
       "events_after_filter": 7,
       "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 0,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 24,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 69,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -334,6 +334,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Jessye DeSilva",
+      "venue": "The Green Room",
+      "date": "2026-07-11",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Party Gator / Hartle Road / Aquarian Blood",
       "venue": "B-Side Memphis",
       "date": "2026-07-11",
@@ -425,9 +432,9 @@
       "source": "scraper:nashoba"
     },
     {
-      "artist": "Jessye DeSilva",
-      "venue": "The Green Room",
-      "date": "2026-07-11",
+      "artist": "MysTrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-12",
       "time": "7:30 PM",
       "source": "artifact"
     },
@@ -436,13 +443,6 @@
       "venue": "ARRIVE Memphis",
       "date": "2026-07-12",
       "time": "5:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "MysTrio",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-12",
-      "time": "7:30 PM",
       "source": "artifact"
     },
     {
@@ -537,17 +537,17 @@
       "source": "artifact"
     },
     {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-13",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Like Really Creative Muse: Transformation with Vixxen + Daiya Nysus",
       "venue": "Bar DKDC",
       "date": "2026-07-13",
       "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-13",
+      "time": "10 PM",
       "source": "artifact"
     },
     {
