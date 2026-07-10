@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-09T18:46:04.709051+00:00",
+  "run_timestamp": "2026-07-10T08:26:20.788496+00:00",
   "date_range": {
-    "start": "2026-07-09",
-    "end": "2026-07-16"
+    "start": "2026-07-10",
+    "end": "2026-07-17"
   },
-  "total_events_db": 2571,
-  "total_active_display": 84,
+  "total_events_db": 2582,
+  "total_active_display": 90,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -37,38 +45,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -81,67 +57,35 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 188,
+      "events_after_filter": 22,
+      "events_filtered": 166,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
       "events_after_filter": 0,
       "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 188,
-      "events_after_filter": 23,
-      "events_filtered": 165,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 32,
-      "events_filtered": 185,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 7,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 0,
-      "events_filtered": 11,
       "error": null
     },
     {
@@ -153,18 +97,74 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 69,
+      "events_found": 217,
+      "events_after_filter": 31,
+      "events_filtered": 186,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 9,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 68,
+      "events_after_filter": 68,
       "events_filtered": 0,
       "error": null
     },
@@ -172,83 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 102,
-      "events_filtered": 8,
+      "events_after_filter": 101,
+      "events_filtered": 9,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 84,
-      "events_after_filter": 84,
+      "events_found": 90,
+      "events_after_filter": 90,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-09",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "livbcohen and shelbywordsmith",
-      "venue": "Bar DKDC",
-      "date": "2026-07-09",
-      "time": "8-11 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Memphis Dyke Night: White Lies Party",
-      "venue": "Bar DKDC",
-      "date": "2026-07-09",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-09",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Chris Gales",
-      "venue": "Ember and Oak Prime",
-      "date": "2026-07-09",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rosy Nolan",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-07-09",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "India Ramey",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-09",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "EYES ON THE WORLD TOUR CHAPTER IV: MIDNIGHT COMES ALIVE [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-09",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Congress the Band",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-09",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
     {
       "artist": "Gia Welch \u2013 NO COVER!",
       "venue": "Hernando's Hideaway",
@@ -334,17 +271,17 @@
       "source": "artifact"
     },
     {
-      "artist": "Jessye DeSilva",
-      "venue": "The Green Room",
-      "date": "2026-07-11",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Party Gator / Hartle Road / Aquarian Blood",
       "venue": "B-Side Memphis",
       "date": "2026-07-11",
       "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jessye DeSilva",
+      "venue": "The Green Room",
+      "date": "2026-07-11",
+      "time": "7:30 PM",
       "source": "artifact"
     },
     {
@@ -773,6 +710,111 @@
       "date": "2026-07-16",
       "time": "7:00 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Fresco Trey",
+      "venue": "Growlers",
+      "date": "2026-07-17",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Sex Mex [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-17",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Boron / Mostly Satire / Dinosauria / Steel Waves",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-17",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Owen Gooch Band",
+      "venue": "Bar DKDC",
+      "date": "2026-07-17",
+      "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Slumdog + Melinda",
+      "venue": "Bar DKDC",
+      "date": "2026-07-17",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Kody Shade Harrell",
+      "venue": "Bass w/ North Mississippi Allstars",
+      "date": "2026-07-17",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Belle Meade Social",
+      "date": "2026-07-17",
+      "time": "6:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-17",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Dude Perfect",
+      "venue": "FedExForum",
+      "date": "2026-07-17",
+      "time": "7:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Happy Friday\u2014Free Admission!",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-07-17",
+      "time": "5:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "North Mississippi Allstars",
+      "venue": "Gold Strike Theatre",
+      "date": "2026-07-17",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Elmiene",
+      "venue": "Graceland Soundstage",
+      "date": "2026-07-17",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Cordovas",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-17",
+      "time": "8:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Cordovas at Hernando\u2019s Hide-A-Way Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-17",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Radio City",
+      "venue": "Nashoba",
+      "date": "2026-07-17",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
