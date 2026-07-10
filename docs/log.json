@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-10T08:26:20.788496+00:00",
+  "run_timestamp": "2026-07-10T18:17:40.154293+00:00",
   "date_range": {
     "start": "2026-07-10",
     "end": "2026-07-17"
   },
-  "total_events_db": 2582,
+  "total_events_db": 2565,
   "total_active_display": 90,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -25,19 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 27,
+      "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -46,22 +54,6 @@
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 188,
-      "events_after_filter": 22,
-      "events_filtered": 166,
       "error": null
     },
     {
@@ -77,6 +69,22 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -97,14 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 31,
-      "events_filtered": 186,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
@@ -121,11 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 217,
+      "events_after_filter": 31,
+      "events_filtered": 186,
       "error": null
     },
     {
@@ -141,14 +149,6 @@
       "success": true,
       "events_found": 28,
       "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
