@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-11T07:13:18.577239+00:00",
+  "run_timestamp": "2026-07-11T17:47:48.190432+00:00",
   "date_range": {
     "start": "2026-07-11",
     "end": "2026-07-18"
   },
-  "total_events_db": 2586,
+  "total_events_db": 2588,
   "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
@@ -25,42 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 28,
+      "events_found": 27,
       "events_after_filter": 27,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -73,11 +41,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 23,
-      "events_filtered": 41,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 188,
+      "events_after_filter": 20,
+      "events_filtered": 168,
       "error": null
     },
     {
@@ -85,6 +69,14 @@
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 34,
-      "events_filtered": 2,
+      "events_found": 64,
+      "events_after_filter": 23,
+      "events_filtered": 41,
       "error": null
     },
     {
@@ -129,6 +121,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
@@ -137,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 188,
-      "events_after_filter": 20,
-      "events_filtered": 168,
+      "events_found": 10,
+      "events_after_filter": 8,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -153,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 8,
-      "events_filtered": 2,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -296,7 +296,7 @@
       "venue": "Bar DKDC",
       "date": "2026-07-12",
       "time": "8 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Aaron English",
