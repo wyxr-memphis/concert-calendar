@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-10T18:17:40.154293+00:00",
+  "run_timestamp": "2026-07-11T07:13:18.577239+00:00",
   "date_range": {
-    "start": "2026-07-10",
-    "end": "2026-07-17"
+    "start": "2026-07-11",
+    "end": "2026-07-18"
   },
-  "total_events_db": 2565,
-  "total_active_display": 90,
+  "total_events_db": 2586,
+  "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 26,
@@ -49,18 +33,18 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 27,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -73,6 +57,14 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 31,
@@ -81,10 +73,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 64,
+      "events_after_filter": 23,
+      "events_filtered": 41,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -97,19 +97,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 24,
-      "events_filtered": 40,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 217,
+      "events_after_filter": 28,
+      "events_filtered": 189,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 9,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -121,27 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 217,
-      "events_after_filter": 31,
-      "events_filtered": 186,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 9,
-      "events_filtered": 13,
+      "events_found": 188,
+      "events_after_filter": 20,
+      "events_filtered": 168,
       "error": null
     },
     {
@@ -172,104 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 101,
-      "events_filtered": 9,
+      "events_after_filter": 100,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 90,
-      "events_after_filter": 90,
+      "events_found": 93,
+      "events_after_filter": 93,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Gia Welch \u2013 NO COVER!",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-10",
-      "time": "6:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Jim 60th Party",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-10",
-      "time": "6 PM to 10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hope Clayburn + The Memphis Manes",
-      "venue": "Bar DKDC",
-      "date": "2026-07-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-10",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Andrew Best",
-      "venue": "Collierville Burch Library",
-      "date": "2026-07-10",
-      "time": "11:00 AM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Happy Friday\u2014Free Admission!",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-10",
-      "time": "5:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "2000s Rave at Growlers - Memphis, TN",
-      "venue": "Growlers",
-      "date": "2026-07-10",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Bryan Shaw",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-07-10",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Gia Welch",
-      "venue": "Hernando's Hide-A-Way",
-      "date": "2026-07-10",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Isbell/Karner Acoustic Flying Saucer",
-      "date": "2026-07-10",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Neon Mooners",
-      "venue": "Nashoba",
-      "date": "2026-07-10",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "LUCA (US)",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-07-10",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Party Gator / Hartle Road / Aquarian Blood",
       "venue": "B-Side Memphis",
@@ -374,6 +290,13 @@
       "date": "2026-07-12",
       "time": "7:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "FAKE",
+      "venue": "Bar DKDC",
+      "date": "2026-07-12",
+      "time": "8 PM",
+      "source": "submission"
     },
     {
       "artist": "Aaron English",
@@ -815,6 +738,104 @@
       "date": "2026-07-17",
       "time": "8 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "North Mississippi Allstars",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-07-18",
+      "time": "8:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Electric 30",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-18",
+      "time": "6:30 PM to 8:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Magnum Dopus / Land Divided / Julia Goff",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-18",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Night of the Cancer ft DJ Larry, DJ Brilli, DJ Nico, Jayxavaire + Rhinestonee",
+      "venue": "Bar DKDC",
+      "date": "2026-07-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-18",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Coey Redd",
+      "venue": "Growlers",
+      "date": "2026-07-18",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "The Eastwoods",
+      "venue": "Havenhaus",
+      "date": "2026-07-18",
+      "time": "9 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Motel California",
+      "venue": "Nashoba",
+      "date": "2026-07-18",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Secret Lineup",
+      "venue": "Secret Memphis Location",
+      "date": "2026-07-18",
+      "time": "6:30 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Color Sound Oblivion",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Neon Glittery",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "time": "9:45 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Revenge Body",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "time": "10:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Robert Traxler",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "time": "8:15 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Vincent Manard",
+      "venue": "The Lamplighter Lounge",
+      "date": "2026-07-18",
+      "time": "9:00 PM",
+      "source": "artifact"
     }
   ]
 }
