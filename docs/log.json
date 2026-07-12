@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-12T07:29:25.214931+00:00",
+  "run_timestamp": "2026-07-12T17:53:21.997685+00:00",
   "date_range": {
     "start": "2026-07-12",
     "end": "2026-07-19"
   },
-  "total_events_db": 2567,
+  "total_events_db": 2568,
   "total_active_display": 86,
   "data_store": "postgresql",
   "sources": [
@@ -33,27 +33,27 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 27,
+      "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 67,
-      "events_after_filter": 67,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -65,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +81,19 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
       "error": null
     },
     {
@@ -113,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 22,
+      "events_after_filter": 9,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -125,6 +133,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -137,22 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 9,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 10,
@@ -161,10 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 67,
+      "events_after_filter": 67,
       "events_filtered": 0,
       "error": null
     },
