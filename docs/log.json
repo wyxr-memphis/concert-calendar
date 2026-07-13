@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-12T17:53:21.997685+00:00",
+  "run_timestamp": "2026-07-13T08:18:27.277695+00:00",
   "date_range": {
-    "start": "2026-07-12",
-    "end": "2026-07-19"
+    "start": "2026-07-13",
+    "end": "2026-07-20"
   },
-  "total_events_db": 2568,
-  "total_active_display": 86,
+  "total_events_db": 2570,
+  "total_active_display": 73,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,34 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -65,27 +49,27 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 31,
+      "events_found": 30,
       "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -97,30 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 64,
-      "events_after_filter": 23,
-      "events_filtered": 41,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 217,
-      "events_after_filter": 26,
-      "events_filtered": 191,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 9,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
@@ -129,19 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 64,
+      "events_after_filter": 24,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -153,18 +105,66 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 217,
+      "events_after_filter": 25,
+      "events_filtered": 192,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 8,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 188,
+      "events_after_filter": 16,
+      "events_filtered": 172,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 7,
-      "events_filtered": 3,
+      "events_after_filter": 6,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 67,
+      "events_found": 65,
+      "events_after_filter": 65,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -172,132 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 99,
-      "events_filtered": 11,
+      "events_after_filter": 98,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 86,
-      "events_after_filter": 86,
+      "events_found": 73,
+      "events_after_filter": 73,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "MysTrio",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-12",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "FAKE",
-      "venue": "Bar DKDC",
-      "date": "2026-07-12",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Aaron English",
-      "venue": "ARRIVE Memphis",
-      "date": "2026-07-12",
-      "time": "5:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Banana Cream Duo (NOLA)",
-      "venue": "Bar DKDC",
-      "date": "2026-07-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-12",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "CAM GIRL",
-      "venue": "Growlers",
-      "date": "2026-07-12",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Pan de Muerto",
-      "venue": "Growlers",
-      "date": "2026-07-12",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-12",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "2nd Sunday Drag Bingo [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Holdfast",
-      "venue": "Hi Tone",
-      "date": "2026-07-12",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mineral King / Holdfast / Aidan Osias / Jombi [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-07-12",
-      "time": "6:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Godmilk",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-12",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Pig Detective",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-12",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Spoonful",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-12",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Mineral King",
-      "venue": "The Hi-Tone Cafe",
-      "date": "2026-07-12",
-      "time": "5:30 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Like Really Creative Muse: Transformation with Vixxen + Daiya Nysus",
       "venue": "Bar DKDC",
@@ -787,6 +675,27 @@
       "date": "2026-07-19",
       "time": "5 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Yella P",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-20",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-20",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "GPAC Summer Arts Camp: Cardboard Creations",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-07-20",
+      "time": "9:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
     }
   ]
 }
