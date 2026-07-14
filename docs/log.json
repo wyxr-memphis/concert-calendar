@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-07-14T07:11:39.464748+00:00",
+  "run_timestamp": "2026-07-14T17:56:49.785702+00:00",
   "date_range": {
     "start": "2026-07-14",
     "end": "2026-07-21"
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 33,
-      "events_filtered": 1,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -45,22 +45,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 188,
-      "events_after_filter": 16,
-      "events_filtered": 172,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -81,19 +65,19 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 62,
       "events_after_filter": 23,
       "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 219,
-      "events_after_filter": 27,
-      "events_filtered": 192,
       "error": null
     },
     {
@@ -113,6 +97,46 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 219,
+      "events_after_filter": 27,
+      "events_filtered": 192,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 6,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 22,
@@ -129,27 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 6,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 188,
+      "events_after_filter": 16,
+      "events_filtered": 172,
       "error": null
     },
     {
@@ -157,14 +165,6 @@
       "success": true,
       "events_found": 64,
       "events_after_filter": 64,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
