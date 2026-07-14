@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-13T18:27:00.279299+00:00",
+  "run_timestamp": "2026-07-14T07:11:39.464748+00:00",
   "date_range": {
-    "start": "2026-07-13",
-    "end": "2026-07-20"
+    "start": "2026-07-14",
+    "end": "2026-07-21"
   },
-  "total_events_db": 2578,
-  "total_active_display": 73,
+  "total_events_db": 2579,
+  "total_active_display": 69,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,34 +33,18 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 65,
-      "events_after_filter": 65,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -89,43 +81,27 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 62,
+      "events_after_filter": 23,
+      "events_filtered": 39,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 217,
-      "events_after_filter": 25,
+      "events_found": 219,
+      "events_after_filter": 27,
       "events_filtered": 192,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 24,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 8,
-      "events_filtered": 14,
       "error": null
     },
     {
@@ -137,18 +113,18 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 8,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 18,
       "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -169,65 +145,47 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 64,
+      "events_after_filter": 64,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 98,
-      "events_filtered": 12,
+      "events_after_filter": 97,
+      "events_filtered": 13,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 73,
-      "events_after_filter": 73,
+      "events_found": 69,
+      "events_after_filter": 69,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Like Really Creative Muse: Transformation with Vixxen + Daiya Nysus",
-      "venue": "Bar DKDC",
-      "date": "2026-07-13",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-13",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-13",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Play that Guitar",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-13",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Suburban Downgrade / The Wasted / Pornstar [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-13",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Suburban Downgrade / The Wasted [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-13",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Data Drums",
       "venue": "Lamplighter Lounge",
@@ -696,6 +654,20 @@
       "date": "2026-07-20",
       "time": "9:00\u202fAM",
       "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-21",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-21",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
