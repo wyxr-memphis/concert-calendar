@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-14T17:56:49.785702+00:00",
+  "run_timestamp": "2026-07-15T07:16:47.900804+00:00",
   "date_range": {
-    "start": "2026-07-14",
-    "end": "2026-07-21"
+    "start": "2026-07-15",
+    "end": "2026-07-22"
   },
-  "total_events_db": 2579,
-  "total_active_display": 69,
+  "total_events_db": 2575,
+  "total_active_display": 67,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,30 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 32,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 27,
@@ -33,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -65,27 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 62,
       "events_after_filter": 23,
       "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,22 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 219,
-      "events_after_filter": 27,
-      "events_filtered": 192,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
@@ -121,27 +105,35 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 6,
-      "events_filtered": 4,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 22,
-      "events_after_filter": 8,
-      "events_filtered": 14,
+      "events_after_filter": 7,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 219,
+      "events_after_filter": 26,
+      "events_filtered": 193,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -163,8 +155,16 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 64,
+      "events_found": 63,
+      "events_after_filter": 63,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -172,55 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 97,
-      "events_filtered": 13,
+      "events_after_filter": 96,
+      "events_filtered": 14,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 69,
+      "events_found": 67,
+      "events_after_filter": 67,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Data Drums",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-14",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-14",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-14",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Dead Ringers",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-14",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hondo",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-14",
-      "time": "9 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Logan Hanna",
       "venue": "B-Side Memphis",
@@ -668,6 +633,27 @@
       "date": "2026-07-21",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Soundhaus",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-22",
+      "time": "7 PM to 10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-22",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Justin Alan Payne",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-22",
+      "time": "9 PM",
+      "source": "artifact"
     }
   ]
 }
