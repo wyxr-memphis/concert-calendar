@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-16T17:59:06.842843+00:00",
+  "run_timestamp": "2026-07-16T22:29:44.102134+00:00",
   "date_range": {
     "start": "2026-07-16",
     "end": "2026-07-23"
   },
-  "total_events_db": 2575,
-  "total_active_display": 59,
+  "total_events_db": 2567,
+  "total_active_display": 60,
   "data_store": "postgresql",
   "sources": [
     {
@@ -23,6 +23,22 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 32,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,18 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
       "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -73,43 +89,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 62,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 188,
-      "events_after_filter": 15,
-      "events_filtered": 173,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
+      "events_found": 63,
+      "events_after_filter": 24,
+      "events_filtered": 39,
       "error": null
     },
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
+      "events_found": 219,
+      "events_after_filter": 25,
+      "events_filtered": 194,
       "error": null
     },
     {
@@ -129,30 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 24,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 219,
-      "events_after_filter": 25,
-      "events_filtered": 194,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 18,
@@ -161,11 +137,35 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 10,
       "events_after_filter": 5,
       "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 62,
+      "events_after_filter": 62,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -179,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 59,
-      "events_after_filter": 59,
+      "events_found": 60,
+      "events_after_filter": 60,
       "events_filtered": 0,
       "error": null
     }
@@ -493,6 +493,13 @@
       "date": "2026-07-19",
       "time": "5 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Brinka's Sunday-Funday (Drag Bingo)",
+      "venue": "Ramplighter - 1702 Madison Ave",
+      "date": "2026-07-19",
+      "time": "3-5 PM",
+      "source": "artifact"
     },
     {
       "artist": "Yella P",
