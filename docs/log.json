@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-17T07:19:57.390483+00:00",
+  "run_timestamp": "2026-07-17T17:57:53.779587+00:00",
   "date_range": {
     "start": "2026-07-17",
     "end": "2026-07-24"
   },
-  "total_events_db": 2616,
+  "total_events_db": 2621,
   "total_active_display": 66,
   "data_store": "postgresql",
   "sources": [
@@ -25,18 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 22,
-      "events_filtered": 1,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -57,18 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -77,6 +77,14 @@
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -99,8 +107,8 @@
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 219,
-      "events_after_filter": 25,
+      "events_found": 220,
+      "events_after_filter": 26,
       "events_filtered": 194,
       "error": null
     },
@@ -113,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -142,14 +150,6 @@
       "events_found": 18,
       "events_after_filter": 18,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 5,
       "error": null
     },
     {
