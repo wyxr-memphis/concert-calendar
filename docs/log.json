@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-17T18:35:48.560563+00:00",
+  "run_timestamp": "2026-07-18T07:00:56.428574+00:00",
   "date_range": {
-    "start": "2026-07-17",
-    "end": "2026-07-24"
+    "start": "2026-07-18",
+    "end": "2026-07-25"
   },
-  "total_events_db": 2625,
-  "total_active_display": 70,
+  "total_events_db": 2618,
+  "total_active_display": 62,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,11 +33,27 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
       "events_after_filter": 24,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 46,
+      "events_filtered": 176,
       "error": null
     },
     {
@@ -49,10 +65,18 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -65,38 +89,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 48,
-      "events_filtered": 174,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 63,
-      "events_after_filter": 24,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 26,
-      "events_filtered": 194,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
@@ -105,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
+      "events_found": 63,
+      "events_after_filter": 23,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -121,19 +113,35 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 6,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 5,
+      "events_filtered": 17,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 220,
+      "events_after_filter": 24,
+      "events_filtered": 196,
       "error": null
     },
     {
@@ -145,18 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 61,
-      "events_after_filter": 61,
+      "events_found": 59,
+      "events_after_filter": 59,
       "events_filtered": 0,
       "error": null
     },
@@ -172,153 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 94,
-      "events_filtered": 16,
+      "events_after_filter": 93,
+      "events_filtered": 17,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 70,
+      "events_found": 62,
+      "events_after_filter": 62,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Fresco Trey",
-      "venue": "Growlers",
-      "date": "2026-07-17",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Sex Mex [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-17",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Boron / Mostly Satire / Dinosauria / Steel Waves",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-17",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Owen Gooch Band",
-      "venue": "Bar DKDC",
-      "date": "2026-07-17",
-      "time": "Early",
-      "source": "artifact"
-    },
-    {
-      "artist": "Slumdog + Melinda",
-      "venue": "Bar DKDC",
-      "date": "2026-07-17",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "Kody Shade Harrell",
-      "venue": "Bass w/ North Mississippi Allstars",
-      "date": "2026-07-17",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Belle Meade Social",
-      "date": "2026-07-17",
-      "time": "6:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-17",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Dude Perfect",
-      "venue": "FedExForum",
-      "date": "2026-07-17",
-      "time": "7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Happy Friday\u2014Free Admission!",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-17",
-      "time": "5:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "North Mississippi Allstars",
-      "venue": "Gold Strike Theatre",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Elmiene",
-      "venue": "Graceland Soundstage",
-      "date": "2026-07-17",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
-    },
-    {
-      "artist": "Baby Grendel",
-      "venue": "Haven House",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Fox Body",
-      "venue": "Haven House",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Good Jelta",
-      "venue": "Haven House",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Star Eyes",
-      "venue": "Haven House",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Cordovas",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-17",
-      "time": "8:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Cordovas at Hernando\u2019s Hide-A-Way Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-17",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Radio City",
-      "venue": "Nashoba",
-      "date": "2026-07-17",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "North Mississippi Allstars",
       "venue": "Germantown Performing Arts Center",
@@ -673,6 +540,83 @@
       "artist": "Terry Greene & The HoneyGolds",
       "venue": "Nashoba",
       "date": "2026-07-24",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Neighborhood Texture Jam",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-25",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mark Edgar Stuart & Friends",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-25",
+      "time": "3:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Jordan Occasionally, Electric Graveyard + Secret Surprise Special Guest",
+      "venue": "Bar DKDC",
+      "date": "2026-07-25",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Spillit Slam: A Storytelling Event",
+      "venue": "Bar DKDC",
+      "date": "2026-07-25",
+      "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Will Tucker Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-25",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Sarah Spain",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-25",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "The Kickback [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-25",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Badzy",
+      "venue": "Lamplighter Lounge, Memphis, TN",
+      "date": "2026-07-25",
+      "time": "Doors 8 PM, Bands 9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Lyd Vicious and the Problem",
+      "venue": "Lamplighter Lounge, Memphis, TN",
+      "date": "2026-07-25",
+      "time": "Doors 8 PM, Bands 9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Emo Nite",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-25",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Seeing Red",
+      "venue": "Nashoba",
+      "date": "2026-07-25",
       "time": "8 PM",
       "source": "scraper:nashoba"
     }
