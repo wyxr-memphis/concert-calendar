@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-18T17:50:16.147656+00:00",
+  "run_timestamp": "2026-07-19T07:28:29.261069+00:00",
   "date_range": {
-    "start": "2026-07-18",
-    "end": "2026-07-25"
+    "start": "2026-07-19",
+    "end": "2026-07-26"
   },
-  "total_events_db": 2619,
-  "total_active_display": 62,
+  "total_events_db": 2569,
+  "total_active_display": 51,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -23,6 +23,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -36,8 +44,8 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
+      "events_after_filter": 22,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -45,38 +53,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 59,
-      "events_after_filter": 59,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 46,
-      "events_filtered": 176,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -89,18 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -113,19 +81,35 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 23,
-      "events_filtered": 40,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
+      "events_found": 63,
+      "events_after_filter": 22,
+      "events_filtered": 41,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 220,
+      "events_after_filter": 22,
+      "events_filtered": 198,
       "error": null
     },
     {
@@ -137,18 +121,42 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 220,
-      "events_after_filter": 24,
-      "events_filtered": 196,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 57,
+      "events_after_filter": 57,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 4,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -161,129 +169,23 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 5,
-      "events_filtered": 17,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 93,
-      "events_filtered": 17,
+      "events_after_filter": 92,
+      "events_filtered": 18,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 62,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "North Mississippi Allstars",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-18",
-      "time": "8:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Electric 30",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-18",
-      "time": "6:30 PM to 8:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Magnum Dopus / Land Divided / Julia Goff",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-18",
-      "time": "9:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Night of the Cancer ft DJ Larry, DJ Brilli, DJ Nico, Jayxavaire + Rhinestonee",
-      "venue": "Bar DKDC",
-      "date": "2026-07-18",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-18",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Coey Redd",
-      "venue": "Growlers",
-      "date": "2026-07-18",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "The Eastwoods",
-      "venue": "Havenhaus",
-      "date": "2026-07-18",
-      "time": "9 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Motel California",
-      "venue": "Nashoba",
-      "date": "2026-07-18",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Secret Lineup",
-      "venue": "Secret Memphis Location",
-      "date": "2026-07-18",
-      "time": "6:30 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Color Sound Oblivion",
-      "venue": "The Lamplighter Lounge",
-      "date": "2026-07-18",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Neon Glittery",
-      "venue": "The Lamplighter Lounge",
-      "date": "2026-07-18",
-      "time": "9:45 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Revenge Body",
-      "venue": "The Lamplighter Lounge",
-      "date": "2026-07-18",
-      "time": "10:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Robert Traxler",
-      "venue": "The Lamplighter Lounge",
-      "date": "2026-07-18",
-      "time": "8:15 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Vincent Manard",
-      "venue": "The Lamplighter Lounge",
-      "date": "2026-07-18",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
@@ -619,6 +521,27 @@
       "date": "2026-07-25",
       "time": "8 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Memphis Reggae Nights",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-26",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-26",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-26",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
     }
   ]
 }
