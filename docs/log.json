@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-19T07:28:29.261069+00:00",
+  "run_timestamp": "2026-07-19T17:51:57.612554+00:00",
   "date_range": {
     "start": "2026-07-19",
     "end": "2026-07-26"
   },
-  "total_events_db": 2569,
+  "total_events_db": 2613,
   "total_active_display": 51,
   "data_store": "postgresql",
   "sources": [
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 29,
@@ -41,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 22,
-      "events_filtered": 2,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,10 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 44,
+      "events_filtered": 178,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -73,18 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -97,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 220,
@@ -113,18 +105,42 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 4,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 5,
       "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
       "events_filtered": 1,
       "error": null
     },
@@ -145,26 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 4,
-      "events_filtered": 18,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
