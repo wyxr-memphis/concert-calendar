@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-20T08:08:46.756800+00:00",
+  "run_timestamp": "2026-07-20T18:48:46.821017+00:00",
   "date_range": {
     "start": "2026-07-20",
     "end": "2026-07-27"
   },
-  "total_events_db": 2602,
+  "total_events_db": 2566,
   "total_active_display": 45,
   "data_store": "postgresql",
   "sources": [
@@ -27,17 +27,17 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 21,
-      "events_filtered": 1,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -65,11 +65,19 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 63,
+      "events_found": 61,
       "events_after_filter": 22,
-      "events_filtered": 41,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -81,22 +89,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 20,
-      "events_filtered": 200,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 32,
@@ -105,19 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 221,
+      "events_after_filter": 21,
+      "events_filtered": 200,
       "error": null
     },
     {
@@ -129,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,19 +137,19 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 57,
       "events_after_filter": 57,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 43,
-      "events_filtered": 179,
       "error": null
     },
     {
@@ -175,6 +167,14 @@
       "events_after_filter": 91,
       "events_filtered": 19,
       "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='lafayettes.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Database",
