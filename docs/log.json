@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-19T17:51:57.612554+00:00",
+  "run_timestamp": "2026-07-20T08:08:46.756800+00:00",
   "date_range": {
-    "start": "2026-07-19",
-    "end": "2026-07-26"
+    "start": "2026-07-20",
+    "end": "2026-07-27"
   },
-  "total_events_db": 2613,
-  "total_active_display": 51,
+  "total_events_db": 2602,
+  "total_active_display": 45,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,34 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 44,
-      "events_filtered": 178,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -97,42 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 22,
-      "events_filtered": 198,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 4,
-      "events_filtered": 18,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,6 +89,46 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 220,
+      "events_after_filter": 20,
+      "events_filtered": 200,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 4,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 10,
@@ -153,11 +137,27 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 57,
       "events_after_filter": 57,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 43,
+      "events_filtered": 179,
       "error": null
     },
     {
@@ -172,76 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 92,
-      "events_filtered": 18,
+      "events_after_filter": 91,
+      "events_filtered": 19,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
+      "events_found": 45,
+      "events_after_filter": 45,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-19",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Aberrant",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-19",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "^Morrigan^ B2B DJ Shai",
-      "venue": "Bar DKDC",
-      "date": "2026-07-19",
-      "time": "3-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Sons of Mudboy",
-      "venue": "Bar DKDC",
-      "date": "2026-07-19",
-      "time": "Early",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Rewind with DJ Shai + Morrigan",
-      "venue": "Bar DKDC",
-      "date": "2026-07-19",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-19",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Hodge Podge Collage",
-      "venue": "Java Cabana",
-      "date": "2026-07-19",
-      "time": "5 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Brinka's Sunday-Funday (Drag Bingo)",
-      "venue": "Ramplighter - 1702 Madison Ave",
-      "date": "2026-07-19",
-      "time": "3-5 PM",
-      "source": "artifact"
-    },
     {
       "artist": "Yella P",
       "venue": "Hernando's Hideaway",
@@ -542,6 +486,20 @@
       "date": "2026-07-26",
       "time": null,
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-27",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-27",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     }
   ]
 }
