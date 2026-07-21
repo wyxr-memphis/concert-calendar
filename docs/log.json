@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-21T07:33:59.534350+00:00",
+  "run_timestamp": "2026-07-21T18:12:07.919774+00:00",
   "date_range": {
     "start": "2026-07-21",
     "end": "2026-07-28"
   },
-  "total_events_db": 2606,
+  "total_events_db": 2608,
   "total_active_display": 46,
   "data_store": "postgresql",
   "sources": [
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 23,
@@ -49,11 +41,27 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 222,
-      "events_after_filter": 43,
-      "events_filtered": 179,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,18 +81,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 61,
+      "events_after_filter": 21,
+      "events_filtered": 40,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -94,14 +102,6 @@
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 61,
-      "events_after_filter": 21,
-      "events_filtered": 40,
       "error": null
     },
     {
@@ -121,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 222,
+      "events_after_filter": 43,
+      "events_filtered": 179,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
