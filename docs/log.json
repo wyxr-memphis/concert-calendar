@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-20T18:48:46.821017+00:00",
+  "run_timestamp": "2026-07-21T07:33:59.534350+00:00",
   "date_range": {
-    "start": "2026-07-20",
-    "end": "2026-07-27"
+    "start": "2026-07-21",
+    "end": "2026-07-28"
   },
-  "total_events_db": 2566,
-  "total_active_display": 45,
+  "total_events_db": 2606,
+  "total_active_display": 46,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -49,10 +41,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 43,
+      "events_filtered": 179,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -65,19 +73,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 61,
-      "events_after_filter": 22,
-      "events_filtered": 39,
       "error": null
     },
     {
@@ -89,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
+      "events_found": 61,
+      "events_after_filter": 21,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -113,14 +121,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
@@ -129,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -145,10 +145,18 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
@@ -164,49 +172,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 91,
-      "events_filtered": 19,
+      "events_after_filter": 90,
+      "events_filtered": 20,
       "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='lafayettes.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Yella P",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-20",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-20",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "GPAC Summer Arts Camp: Cardboard Creations",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-20",
-      "time": "9:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
     {
       "artist": "Brimstone Jones",
       "venue": "Blues City Cafe",
@@ -292,17 +271,17 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
-      "artist": "Val Martino",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-24",
-      "time": "7 PM to 9 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Graham Winchester Album Release",
       "venue": "Bar DKDC",
       "date": "2026-07-24",
       "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Val Martino",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-24",
+      "time": "7 PM to 9 PM",
       "source": "artifact"
     },
     {
@@ -325,13 +304,6 @@
       "date": "2026-07-24",
       "time": "5:00\u202fPM",
       "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Autumn Lies Buried, SELIAS",
-      "venue": "Growlers",
-      "date": "2026-07-24",
-      "time": "7:30PM",
-      "source": "scraper:growlers"
     },
     {
       "artist": "Autumn Lies Buried, The Behest Of Serpents",
@@ -500,6 +472,41 @@
       "date": "2026-07-27",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-28",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-28",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-28",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "10 Years",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-28",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "10 Years w/ Line So Thin",
+      "venue": "Minglewood Hall",
+      "date": "2026-07-28",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
