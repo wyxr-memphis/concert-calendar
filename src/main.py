@@ -298,6 +298,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         venue = COALESCE(%s, venue),
                         start_time = COALESCE(%s, start_time),
                         ticket_url = COALESCE(%s, ticket_url),
+                        image_url = COALESCE(image_url, %s),
                         source = COALESCE(%s, source),
                         neighborhood = COALESCE(neighborhood, %s),
                         dedup_key = %s,
@@ -308,6 +309,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                         venue,
                         entry.get("start_time"),
                         entry.get("ticket_url"),
+                        entry.get("image_url"),
                         incoming_source,
                         neighborhood,
                         key,
@@ -322,14 +324,15 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
                 # the DB refuses to create a duplicate active event.
                 cur.execute(
                     """INSERT INTO events (title, venue, date, start_time, ticket_url,
-                       source, neighborhood, is_featured, is_active, dedup_key)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                       image_url, source, neighborhood, is_featured, is_active, dedup_key)
+                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                     ON CONFLICT (dedup_key) WHERE is_active DO NOTHING
                     RETURNING id""",
                     (
                         title, venue, date_str,
                         entry.get("start_time"),
                         entry.get("ticket_url"),
+                        entry.get("image_url"),
                         incoming_source,
                         neighborhood,
                         entry.get("is_featured", False),
@@ -786,6 +789,10 @@ def _merge_events(
             entry["title"] = event.artist  # Update title in case website updated it
             entry["start_time"] = event.time or entry.get("start_time")
             entry["ticket_url"] = event.url or entry.get("ticket_url")
+            # Fill image only if we don't already have one — never clobber a
+            # manual/prior image.
+            if not entry.get("image_url") and event.image_url:
+                entry["image_url"] = event.image_url
             if event.source:
                 entry["source"] = event.source
             entry["updated_at"] = timestamp
@@ -801,7 +808,7 @@ def _merge_events(
                 "doors_time": None,
                 "ticket_url": event.url,
                 "ticket_price": None,
-                "image_url": None,
+                "image_url": event.image_url,
                 "description": None,
                 "genre": None,
                 "source": event.source,

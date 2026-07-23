@@ -1455,6 +1455,57 @@ def _slack_post_message(channel_id: str, text: str):
         pass
 
 
+def _commit_image_bytes_to_github(file_data: bytes, orig_filename: str, subdir: str, commit_prefix: str):
+    """Commit image bytes to docs/<subdir>/ via the GitHub Contents API.
+
+    Uses the same sanitize + timestamp naming and PUT flow as the sponsor image
+    upload, so uploaded images are served publicly by Vercel. Returns the public
+    https://concert-calendar.wyxr.org/<subdir>/<name> URL on success, or None on
+    any misconfiguration/failure (callers treat None as "no image").
+    """
+    github_pat = os.environ.get("GITHUB_PAT", "")
+    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
+    if not github_pat:
+        return None
+
+    ext = os.path.splitext(orig_filename or "")[1].lower()
+    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
+        ext = ".jpg"
+
+    ts = datetime.now().strftime("%Y%m%d%H%M%S")
+    base = os.path.splitext(orig_filename or "")[0]
+    clean_base = re.sub(r'[^a-zA-Z0-9-]', '_', base)
+    clean_base = re.sub(r'_+', '_', clean_base).strip('_') or "image"
+    safe_name = f"{ts}_{clean_base}{ext}"
+
+    github_path = f"docs/{subdir}/{safe_name}"
+    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
+    gh_headers = {
+        "Authorization": f"Bearer {github_pat}",
+        "Accept": "application/vnd.github.v3+json",
+    }
+    try:
+        sha = None
+        existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
+        if existing.status_code == 200:
+            sha = existing.json().get("sha")
+
+        put_data = {
+            "message": f"{commit_prefix}: {safe_name}",
+            "content": base64.b64encode(file_data).decode("ascii"),
+        }
+        if sha:
+            put_data["sha"] = sha
+
+        resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
+        if resp.status_code in (200, 201):
+            return f"https://concert-calendar.wyxr.org/{subdir}/{safe_name}"
+        print(f"[slack] image commit failed: GitHub returned {resp.status_code}", flush=True)
+    except Exception as exc:
+        print(f"[slack] image commit error: {exc}", flush=True)
+    return None
+
+
 def _process_slack_image(file_id: str, channel_id: str):
     """Background thread: download Slack image, extract events via Claude Vision, save, rebuild."""
     try:
@@ -1537,7 +1588,17 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 5. Insert into DB
+        # 5. Host the uploaded image so it can be shown alongside the events.
+        # Slack's url_private needs bot-token auth, so we re-host it publicly
+        # (same path as sponsor images). Failure is non-fatal — events still
+        # insert without an image.
+        hosted_url = _commit_image_bytes_to_github(
+            image_bytes, filename, "event-images", "Slack event image"
+        )
+        if hosted_url:
+            print(f"[slack] hosted image at {hosted_url}", flush=True)
+
+        # Insert into DB
         event_dicts = []
         for e in events_to_insert:
             d = {
@@ -1550,6 +1611,8 @@ def _process_slack_image(file_id: str, channel_id: str):
             }
             if e.time:
                 d["start_time"] = e.time
+            if hosted_url:
+                d["image_url"] = hosted_url
             event_dicts.append(d)
 
         bulk_insert_events(event_dicts)

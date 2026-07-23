@@ -8,7 +8,7 @@ Get API key: https://developer-acct.ticketmaster.com/user/register
 from typing import Optional
 import requests
 from datetime import datetime
-from ..models import Event, SourceResult
+from ..models import Event, SourceResult, best_ticketmaster_image
 from ..http_utils import get_with_retry
 from ..config import (
     TICKETMASTER_API_KEY, START_DATE, END_DATE,
@@ -113,4 +113,5 @@ def _parse_event(data: dict) -> Optional[Event]:
         time=time_str,
         source=SOURCE_NAME,
         url=url,
+        image_url=best_ticketmaster_image(data.get("images")),
     )

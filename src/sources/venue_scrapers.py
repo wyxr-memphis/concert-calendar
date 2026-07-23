@@ -11,7 +11,7 @@ import re
 from datetime import datetime, date
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
-from ..models import Event, SourceResult
+from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
 from ..http_utils import get_with_retry
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
@@ -32,6 +32,23 @@ def _venue_source_tag(venue_name: str) -> str:
     """Convert a venue name to a scraper source tag, e.g. 'Hi Tone' -> 'scraper:hi_tone'."""
     slug = re.sub(r'[^a-z0-9]+', '_', venue_name.lower()).strip('_')
     return f"scraper:{slug}"
+
+
+def _img_src(el) -> Optional[str]:
+    """Return the first http(s) <img> source within a BeautifulSoup element.
+
+    Tolerates lazy-loading attributes (data-src etc.) common on Wix/SeeTickets.
+    """
+    if el is None:
+        return None
+    img = el if getattr(el, "name", None) == "img" else el.select_one("img")
+    if img is None:
+        return None
+    for attr in ("src", "data-src", "data-lazy-src", "data-original", "data-image"):
+        val = img.get(attr)
+        if val and val.startswith(("http://", "https://")):
+            return val
+    return None
 
 
 def fetch() -> SourceResult:
@@ -239,6 +256,7 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
                     time=time_str,
                     source=_venue_source_tag(name),
                     url=event_data.get("url"),
+                    image_url=best_ticketmaster_image(event_data.get("images")),
                 ))
             except Exception:
                 continue
@@ -451,6 +469,7 @@ def _jsonld_to_event(data: dict, default_venue: str) -> Optional[Event]:
         time=time_str,
         source=_venue_source_tag(default_venue),
         url=url,
+        image_url=first_image_url(data.get("image")),
     )
 
 
@@ -702,6 +721,7 @@ def _parse_growlers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 time=time_str,
                 source=_venue_source_tag(venue_name),
                 url=url,
+                image_url=_img_src(card),
             ))
         except Exception:
             continue
@@ -758,6 +778,7 @@ def _parse_graceland(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 date=event_date,
                 source=_venue_source_tag(venue_name),
                 url=url,
+                image_url=_img_src(section),
             ))
         except Exception:
             continue
@@ -817,6 +838,13 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
                 if link_val and link_val.startswith("http"):
                     url = link_val
 
+            # Cover art — Elfsight uses varied keys across widget versions.
+            image_url = None
+            for key in ("image", "cover", "poster", "photo", "picture"):
+                image_url = first_image_url(item.get(key))
+                if image_url:
+                    break
+
             events.append(Event(
                 artist=name,
                 venue=venue_name,
@@ -824,6 +852,7 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
                 time=time_str,
                 source=_venue_source_tag(venue_name),
                 url=url,
+                image_url=image_url,
             ))
         except Exception:
             continue
@@ -1231,6 +1260,7 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 time=time_str,
                 source=_venue_source_tag(venue_name),
                 url=url,
+                image_url=first_image_url(event.get("mainImage")),
             ))
         except Exception:
             continue
