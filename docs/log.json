@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-23T07:34:40.539304+00:00",
+  "run_timestamp": "2026-07-23T18:07:59.864090+00:00",
   "date_range": {
     "start": "2026-07-23",
     "end": "2026-07-30"
   },
-  "total_events_db": 2567,
+  "total_events_db": 2626,
   "total_active_display": 48,
   "data_store": "postgresql",
   "sources": [
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -49,14 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 31,
@@ -65,10 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 43,
+      "events_filtered": 179,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -76,8 +84,24 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 21,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -97,14 +121,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 60,
-      "events_after_filter": 21,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 221,
@@ -121,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 7,
@@ -129,10 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -141,30 +165,6 @@
       "success": true,
       "events_found": 57,
       "events_after_filter": 57,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
