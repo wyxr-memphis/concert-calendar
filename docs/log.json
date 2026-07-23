@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-23T22:08:48.214977+00:00",
+  "run_timestamp": "2026-07-23T22:15:36.695088+00:00",
   "date_range": {
     "start": "2026-07-23",
     "end": "2026-07-30"
   },
-  "total_events_db": 2626,
+  "total_events_db": 2639,
   "total_active_display": 48,
   "data_store": "postgresql",
   "sources": [
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 29,
@@ -61,6 +37,30 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -121,11 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 23,
+      "events_after_filter": 4,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -134,6 +134,14 @@
       "events_found": 7,
       "events_after_filter": 6,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -158,14 +166,6 @@
       "events_found": 57,
       "events_after_filter": 57,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 4,
-      "events_filtered": 19,
       "error": null
     },
     {
