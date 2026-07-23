@@ -1394,7 +1394,12 @@
 
             const imgWrap = document.getElementById('eventModalImageWrap');
             if (ev.image_url) {
-                imgWrap.innerHTML = `<img src="${cldImg(ev.image_url, 600).replace(/"/g, '&quot;')}" alt="${(ev.title || '').replace(/"/g, '&quot;')}" class="event-modal-img">`;
+                // Route through Cloudinary; if that fails, fall back to the raw
+                // source URL once, then hide if the raw URL fails too.
+                const cldSrc = cldImg(ev.image_url, 600).replace(/"/g, '&quot;');
+                const rawSrc = ev.image_url.replace(/"/g, '&quot;');
+                const imgAlt = (ev.title || '').replace(/"/g, '&quot;');
+                imgWrap.innerHTML = `<img src="${cldSrc}" data-raw="${rawSrc}" alt="${imgAlt}" class="event-modal-img" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`;
                 imgWrap.style.display = '';
             } else {
                 imgWrap.innerHTML = '';
