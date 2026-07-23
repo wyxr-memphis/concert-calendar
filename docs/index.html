@@ -1909,7 +1909,7 @@
                 line += ` <span class="venue">@ ${esc(e.venue || '')}</span>`;
                 const dateLine = `<div class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</div>`;
                 const thumb = e.image_url
-                    ? `<img class="presents-thumb" src="${esc(cldImg(e.image_url, 112))}" alt="" loading="lazy" onerror="this.style.display='none'">`
+                    ? `<img class="presents-thumb" src="${esc(cldImg(e.image_url, 112))}" data-raw="${esc(e.image_url)}" alt="" loading="lazy" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`
                     : '';
                 presentsHtml += `<div class="presents-event" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${thumb}<div class="presents-text"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div></div>`;
             });
@@ -1987,7 +1987,11 @@
                     if (!e.image_url || shownVenues.has(vk) || shownImages.has(e.image_url)) return '';
                     shownVenues.add(vk);
                     shownImages.add(e.image_url);
-                    return `<img class="event-thumb" src="${esc(cldImg(e.image_url, 96))}" alt="" loading="lazy" onerror="this.style.display='none'">`;
+                    // Try Cloudinary; if it can't deliver this image, fall back to
+                    // the raw source once, then hide if the raw fails too.
+                    const cldSrc = esc(cldImg(e.image_url, 96));
+                    const rawSrc = esc(e.image_url);
+                    return `<img class="event-thumb" src="${cldSrc}" data-raw="${rawSrc}" alt="" loading="lazy" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`;
                 }
 
                 // 1. Render featured events first — grouped under a single header
