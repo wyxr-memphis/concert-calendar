@@ -251,6 +251,16 @@
         }
         li a { color: inherit; text-decoration: none; }
         li a:hover { color: var(--wyxr-yellow); }
+        .event-thumb {
+            width: 44px; height: 44px;
+            object-fit: cover;
+            border-radius: 4px;
+            flex: 0 0 auto;
+            margin-right: 10px;
+            background: var(--wyxr-border);
+        }
+        li[data-event-id] { display: flex; align-items: center; }
+        .event-row-text { min-width: 0; }  /* allow text to shrink inside the flex row */
         [data-event-id] { cursor: pointer; }
         [data-event-id]:hover { color: var(--wyxr-yellow); }
         [data-event-id]:focus-visible { outline: 2px solid var(--wyxr-yellow); outline-offset: 2px; border-radius: 2px; }
@@ -1006,6 +1016,17 @@
 
         const API_BASE = 'https://concert-calendar-api.onrender.com';
 
+        // Cloudinary "fetch" delivery — resizes/optimizes source images on the
+        // fly. Cloud name is public (appears in delivery URLs), not a secret.
+        const CLOUDINARY_CLOUD = 'wyxr';
+        function cldImg(src, width) {
+            if (!src) return '';
+            // Relative/local paths (e.g. admin uploads) can't be fetched by Cloudinary — pass through.
+            if (!/^https?:\/\//i.test(src)) return src;
+            const t = `w_${width},c_fill,g_auto,q_auto,f_auto`;
+            return `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/fetch/${t}/${encodeURIComponent(src)}`;
+        }
+
         // State
         let openSubscribeModal = null;
         let allEvents = [];
@@ -1373,7 +1394,12 @@
 
             const imgWrap = document.getElementById('eventModalImageWrap');
             if (ev.image_url) {
-                imgWrap.innerHTML = `<img src="${ev.image_url.replace(/"/g, '&quot;')}" alt="${(ev.title || '').replace(/"/g, '&quot;')}" class="event-modal-img">`;
+                // Route through Cloudinary; if that fails, fall back to the raw
+                // source URL once, then hide if the raw URL fails too.
+                const cldSrc = cldImg(ev.image_url, 600).replace(/"/g, '&quot;');
+                const rawSrc = ev.image_url.replace(/"/g, '&quot;');
+                const imgAlt = (ev.title || '').replace(/"/g, '&quot;');
+                imgWrap.innerHTML = `<img src="${cldSrc}" data-raw="${rawSrc}" alt="${imgAlt}" class="event-modal-img" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`;
                 imgWrap.style.display = '';
             } else {
                 imgWrap.innerHTML = '';
@@ -1940,6 +1966,19 @@
 
                 let eventLines = '';
 
+                // Thumbnail dedup: at most one thumb per venue per day, and never
+                // the same image twice in a day. Built in render order (featured
+                // first, then venue groups) so the guards resolve deterministically.
+                const shownVenues = new Set();
+                const shownImages = new Set();
+                function rowThumb(e) {
+                    const vk = (e.venue || '').toLowerCase();
+                    if (!e.image_url || shownVenues.has(vk) || shownImages.has(e.image_url)) return '';
+                    shownVenues.add(vk);
+                    shownImages.add(e.image_url);
+                    return `<img class="event-thumb" src="${esc(cldImg(e.image_url, 96))}" alt="" loading="lazy" onerror="this.style.display='none'">`;
+                }
+
                 // 1. Render featured events first — grouped under a single header
                 if (featuredEvents.length > 0) {
                     const picks = featuredEvents.filter(e => e.is_featured && !e.is_wyxr_presents);
@@ -1953,7 +1992,7 @@
                             let line = `<span class="artist">${esc(e.title)}</span> — `;
                             line += `<span class="venue">${esc(e.venue || '')}</span>`;
                             if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                            pickItems += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${line}</li>`;
+                            pickItems += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span></li>`;
                         });
                         eventLines += `<li class="venue-group featured-group"><div class="featured-group-header"><span class="featured-badge">${label}</span></div><ul class="venue-artists">${pickItems}</ul></li>`;
                     }
@@ -1964,7 +2003,7 @@
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
                         const badge = '<span class="presents-badge">WYXR Presents</span> ';
-                        eventLines += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${badge}${line}</li>`;
+                        eventLines += `<li class="featured event--featured" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${rowThumb(e)}<span class="event-row-text">${badge}${line}</span></li>`;
                     });
                 }
 
@@ -1988,7 +2027,7 @@
                         let line = `<span class="artist">${esc(e.title)}</span> — `;
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                        eventLines += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${line}</li>`;
+                        eventLines += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span></li>`;
                     } else {
                         const venueName = events[0].venue || '';
                         const times = events.map(e => e.start_time);
@@ -2001,7 +2040,7 @@
                             if (!allSameTime && e.start_time) {
                                 artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
                             }
-                            artistItems += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${artistText}</li>`;
+                            artistItems += `<li data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${rowThumb(e)}<span class="event-row-text">${artistText}</span></li>`;
                         });
 
                         let footer = `<span class="venue">${esc(venueName)}</span>`;

@@ -17,6 +17,7 @@ class Event:
     url: Optional[str] = None  # Link to event page/tickets
     is_featured: bool = False  # Highlighted on calendar
     event_id: Optional[str] = None  # Stable ID from PostgreSQL
+    image_url: Optional[str] = None  # Promo artwork URL from the source, if any
 
     @property
     def sort_key(self):
@@ -63,6 +64,44 @@ class SourceResult:
         if self.events_filtered > 0:
             msg += f" ({self.events_filtered} filtered as non-music)"
         return msg
+
+
+def first_image_url(val) -> Optional[str]:
+    """Return the first usable http(s) image URL from a varied source shape.
+
+    Accepts a plain string, a list (of strings/dicts), or a Schema.org-style
+    ``ImageObject`` dict ({'url': ...}). Anything that isn't ultimately an
+    http(s) URL (e.g. relative paths or Wix ``wix:image://`` media refs) yields
+    ``None`` so we never store an unusable value.
+    """
+    if isinstance(val, dict):
+        val = val.get("url")
+    if isinstance(val, list):
+        for item in val:
+            found = first_image_url(item)
+            if found:
+                return found
+        return None
+    if isinstance(val, str) and val.startswith(("http://", "https://")):
+        return val
+    return None
+
+
+def best_ticketmaster_image(images) -> Optional[str]:
+    """Pick the widest non-fallback image URL from a Ticketmaster images array.
+
+    Each entry looks like ``{"url", "width", "height", "ratio", "fallback"}``.
+    Prefers real (non-``fallback``) art; falls back to any image if all are
+    flagged fallback.
+    """
+    if not isinstance(images, list):
+        return None
+    candidates = [i for i in images if isinstance(i, dict) and i.get("url")]
+    if not candidates:
+        return None
+    real = [i for i in candidates if not i.get("fallback")] or candidates
+    best = max(real, key=lambda i: i.get("width") or 0)
+    return first_image_url(best.get("url"))
 
 
 def normalize_text(text: str) -> str:
