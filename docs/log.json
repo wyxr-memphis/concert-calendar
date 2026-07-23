@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-23T22:19:03.181083+00:00",
+  "run_timestamp": "2026-07-23T22:23:10.553624+00:00",
   "date_range": {
     "start": "2026-07-23",
     "end": "2026-07-30"
   },
-  "total_events_db": 2639,
-  "total_active_display": 48,
+  "total_events_db": 2645,
+  "total_active_display": 54,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +41,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -73,26 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -113,18 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -161,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 7,
@@ -177,10 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -189,14 +165,6 @@
       "success": true,
       "events_found": 16,
       "events_after_filter": 16,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -211,8 +179,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 48,
-      "events_after_filter": 48,
+      "events_found": 54,
+      "events_after_filter": 54,
       "events_filtered": 0,
       "error": null
     }
@@ -366,6 +334,41 @@
       "source": "artifact"
     },
     {
+      "artist": "Black Cream ft. Deonna Sirod & Keia Johnson",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DJ Rhinestonee",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Hi Rhythm with Lina Beach & Jerome Chism",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Nick Black ft. Raneem Imam",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Optic Sink",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Mark Edgar Stuart & Friends",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-25",
@@ -392,6 +395,13 @@
       "date": "2026-07-25",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "South Memphis Jeff (DJ)",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Sarah Spain",
