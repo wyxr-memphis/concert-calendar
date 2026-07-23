@@ -729,8 +729,16 @@
             border-left: 4px solid var(--wyxr-presents-blue);
             padding: 8px 0 8px 12px;
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         .presents-event:last-child { margin-bottom: 0; }
+        .presents-thumb {
+            width: 56px; height: 56px; object-fit: cover; border-radius: 4px;
+            flex: 0 0 auto; background: var(--wyxr-border);
+        }
+        .presents-text { min-width: 0; }
         .presents-event .artist {
             font-size: 1.05em;
             font-weight: 700;
@@ -1900,7 +1908,10 @@
                 let line = `<span class="artist">${esc(e.title)}</span>`;
                 line += ` <span class="venue">@ ${esc(e.venue || '')}</span>`;
                 const dateLine = `<div class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</div>`;
-                presentsHtml += `<div class="presents-event" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div>`;
+                const thumb = e.image_url
+                    ? `<img class="presents-thumb" src="${esc(cldImg(e.image_url, 112))}" alt="" loading="lazy" onerror="this.style.display='none'">`
+                    : '';
+                presentsHtml += `<div class="presents-event" data-event-id="${esc(e.id)}" tabindex="0" role="button" aria-label="${esc(e.title)}">${thumb}<div class="presents-text"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div></div>`;
             });
 
             const presentsSection = document.createElement('div');
