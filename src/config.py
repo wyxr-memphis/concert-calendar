@@ -162,8 +162,10 @@ VENUES = {
         "ticketmaster_venue_id": "Z7r9jZaAY-",
     },
     "bluesville": {
-        "name": "Horseshoe Casino's Bluesville",
-        "aliases": ["horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"],
+        # Canonical display name matches the pre-existing DB venue "Bluesville at
+        # Horseshoe" so scraped events dedupe against it directly.
+        "name": "Bluesville at Horseshoe",
+        "aliases": ["bluesville at horseshoe", "horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"],
         "neighborhood": "North Mississippi",  # Tunica/Robinsonville, MS
         "calendar_url": None,
         "scraper": "ticketmaster_venue",

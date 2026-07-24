@@ -662,7 +662,7 @@ def _seed_venues_if_empty():
         ("Radians Amphitheater", "East Memphis", ["radians amphitheater", "radians amphitheatre", "live at the garden", "memphis botanic garden"]),
         ("Cannon Center for the Performing Arts", "Downtown/Beale Street", ["cannon center", "cannon center for the performing arts", "cannon center for performing arts"]),
         ("Grind City Amphitheater", None, ["grind city amphitheater", "grind city amphitheatre", "grind city"]),
-        ("Horseshoe Casino's Bluesville", "North Mississippi", ["horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"]),
+        ("Bluesville at Horseshoe", "North Mississippi", ["bluesville at horseshoe", "horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"]),
         ("BankPlus Amphitheater at Snowden Grove", "North Mississippi", ["bankplus amphitheater at snowden grove", "bankplus amphitheater", "bankplus amphitheatre", "snowden grove amphitheater", "snowden grove"]),
         ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac"]),
         ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre", "halloran center"]),

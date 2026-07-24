@@ -63,6 +63,11 @@ def fetch() -> SourceResult:
             except Exception:
                 continue
 
+        # Drop casino "ticket + hotel" package upsells that duplicate a show
+        # (same venue + date, different title).
+        from .venue_scrapers import _drop_package_duplicates
+        result.events = _drop_package_duplicates(result.events)
+
     except requests.exceptions.RequestException as e:
         result.success = False
         result.error_message = f"API request failed: {str(e)[:100]}"

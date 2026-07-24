@@ -203,6 +203,42 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     return result
 
 
+# Ticketmaster lists casino "ticket + hotel" upsells as separate events that
+# duplicate the real show (same venue + date, different title) — e.g. Horseshoe
+# Casino's Bluesville shows each appear twice: "CLUTCH: US Fall Tour" and
+# "Clutch | Official Caesars Ticket + Hotel Packages".
+_PACKAGE_MARKERS = (
+    "official caesars ticket",
+    "ticket + hotel",
+    "hotel package",
+    "vip package",
+)
+
+
+def _is_package_listing(title: str) -> bool:
+    """True if a title is a ticket/hotel/VIP package upsell, not a distinct show."""
+    t = (title or "").lower()
+    return any(m in t for m in _PACKAGE_MARKERS)
+
+
+def _drop_package_duplicates(events):
+    """Drop package-upsell listings when the real show is also listed.
+
+    Grouped by (venue, date): if any non-package listing exists that day, the
+    package variants are removed; a package-only date is left untouched so a
+    show is never lost.
+    """
+    from collections import defaultdict
+    groups = defaultdict(list)
+    for e in events:
+        groups[(e.venue, e.date)].append(e)
+    out = []
+    for group in groups.values():
+        non_pkg = [e for e in group if not _is_package_listing(e.artist)]
+        out.extend(non_pkg if non_pkg else group)
+    return out
+
+
 def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
     """Fetch events from Ticketmaster API by venue ID."""
     name = venue_info["name"]
@@ -266,6 +302,9 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
                 ))
             except Exception:
                 continue
+
+        # Collapse casino ticket+hotel package upsells that duplicate a show.
+        result.events = _drop_package_duplicates(result.events)
 
         if result.events_found == 0:
             result.error_message = "0 events from Ticketmaster for this venue"
