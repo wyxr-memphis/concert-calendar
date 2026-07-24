@@ -32,14 +32,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --wyxr-yellow: #FFCF2D;
-            --wyxr-black: #000000;
-            --wyxr-white: #FFFFFF;
-            --wyxr-charcoal: #1A1A1A;
-            --wyxr-gray: #888888;
-            --wyxr-dim: #666666;
-            --wyxr-border: #2A2A2A;
-            --wyxr-presents-blue: #5BBCE4;
+            /* Slate palette (2026-07-24): lifted blue-gray ground, warmer yellow.
+               Previous "pure black" values kept here for easy rollback:
+               yellow #FFCF2D · black #000000 · white #FFFFFF · charcoal #1A1A1A
+               gray #888888 · dim #666666 · border #2A2A2A · presents-blue #5BBCE4 */
+            --wyxr-yellow: #FFD64A;
+            --wyxr-black: #2A2E35;
+            --wyxr-white: #F6F8FB;
+            --wyxr-charcoal: #353A44;
+            --wyxr-gray: #AFB5C1;
+            --wyxr-dim: #8B93A1;
+            --wyxr-border: #464C58;
+            --wyxr-presents-blue: #6BC9EC;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -347,7 +351,7 @@
         }
         .subscribe-modal.open { display: flex; }
         .subscribe-modal-card {
-            background: #1A1A1A;
+            background: var(--wyxr-charcoal);
             border: 1px solid var(--wyxr-border);
             border-radius: 8px;
             padding: 28px 24px 24px;
@@ -829,7 +833,7 @@
 
         /* Top Navigation Bar */
         .top-nav-bar {
-            background-color: #1a1a1a;
+            background-color: var(--wyxr-charcoal);
             color: #C6C5C3;
             font-family: 'Inter', system-ui, sans-serif;
             font-size: 12px;
