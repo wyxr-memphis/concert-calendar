@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-23T22:33:19.009233+00:00",
+  "run_timestamp": "2026-07-24T07:34:27.457260+00:00",
   "date_range": {
-    "start": "2026-07-23",
-    "end": "2026-07-30"
+    "start": "2026-07-24",
+    "end": "2026-07-31"
   },
-  "total_events_db": 2647,
-  "total_active_display": 54,
+  "total_events_db": 2627,
+  "total_active_display": 60,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 24,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -41,42 +41,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -84,23 +52,15 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 222,
-      "events_after_filter": 43,
-      "events_filtered": 179,
+      "events_after_filter": 42,
+      "events_filtered": 180,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 21,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -113,19 +73,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 4,
-      "events_filtered": 19,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
+      "events_found": 60,
+      "events_after_filter": 21,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -137,11 +97,27 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 4,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -153,10 +129,26 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 16,
-      "events_after_filter": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 56,
+      "events_after_filter": 56,
       "events_filtered": 0,
       "error": null
     },
@@ -169,72 +161,31 @@
       "error": null
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: HTTPSConnectionPool(host='minglewoodhallmemphis.com', port=443): Max retries exc"
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 88,
-      "events_filtered": 22,
+      "events_after_filter": 87,
+      "events_filtered": 23,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
+      "events_found": 60,
+      "events_after_filter": 60,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-23",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Steve Pittman and the Low Keys",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-23",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Big Gay Quiz w/ Hunny Blunt + Friends",
-      "venue": "Bar DKDC",
-      "date": "2026-07-23",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-23",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Sweet Magnolia",
-      "venue": "Growlers",
-      "date": "2026-07-23",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Sweet Magnolia and G Wiz & the Soular System",
-      "venue": "Growlers",
-      "date": "2026-07-23",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Jed Harrelson at Hernando\u2019s Hide-A-Way Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-23",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
     {
       "artist": "Graham Winchester Album Release",
       "venue": "Bar DKDC",
@@ -369,11 +320,18 @@
       "source": "artifact"
     },
     {
+      "artist": "South Memphis Jeff (DJ)",
+      "venue": "Handy Park",
+      "date": "2026-07-25",
+      "time": "2-7 PM",
+      "source": "manual"
+    },
+    {
       "artist": "Mark Edgar Stuart & Friends",
       "venue": "Hernando's Hideaway",
       "date": "2026-07-25",
       "time": "3:00PM",
-      "source": "scraper:hernando_s_hideaway"
+      "source": "manual"
     },
     {
       "artist": "Jordan Occasionally, Electric Graveyard + Secret Surprise Special Guest",
@@ -395,13 +353,6 @@
       "date": "2026-07-25",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "South Memphis Jeff (DJ)",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
     },
     {
       "artist": "Sarah Spain",
@@ -563,6 +514,97 @@
       "date": "2026-07-30",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Joybomb",
+      "venue": "Bar DKDC",
+      "date": "2026-07-31",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-07-31",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Hot & Loud w/ Cody Crazee / White Sosa / Memphis Red",
+      "venue": "B-Side Memphis",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Degenerate Breakfast",
+      "venue": "Bar DKDC",
+      "date": "2026-07-31",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Happy Friday\u2014Free Admission!",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-07-31",
+      "time": "5:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Sad Daddy",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-07-31",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Slumberland & more [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-07-31",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Dustin Dollin's Fine Mess / M.A.T.B. (f.k.a. Miranda and The Beat) / Malu / Musclegoose",
+      "venue": "LAMP - 702 Madison, Memphis, TN",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Caholu",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Dustin Dollin's Fine Mess",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "M.A.T.B. (f.k.a. Miranda and The Beat)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Muscleloose",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-07-31",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rowdy & The Strays",
+      "venue": "Nashoba",
+      "date": "2026-07-31",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
