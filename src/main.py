@@ -256,6 +256,7 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
         added = 0
         updated = 0
         skipped = 0
+        errors = 0
         timestamp = run_timestamp.isoformat()
 
         for entry in merged:
@@ -279,81 +280,98 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
             # the key the row will be stored under.
             key = _normalized_key(title, venue, date_str)
 
-            if key in db_key_to_row:
-                db_row = db_key_to_row[key]
-                existing_source = db_row.get("source", "")
-                existing_priority = _source_priority(existing_source)
-                incoming_priority = _source_priority(incoming_source)
+            # Each row is written inside its own SAVEPOINT. Without this, a single
+            # failing row — e.g. a dedup_key unique-violation surfaced when a
+            # concurrent build races the ON CONFLICT arbiter — poisons the whole
+            # transaction, and the finally-block rollback then discards EVERY
+            # row in the batch (observed: builds silently persisting nothing).
+            # The savepoint scopes any failure to just that row so the rest of
+            # the batch still commits.
+            cur.execute("SAVEPOINT row_sp")
+            try:
+                if key in db_key_to_row:
+                    db_row = db_key_to_row[key]
+                    existing_priority = _source_priority(db_row.get("source", ""))
+                    incoming_priority = _source_priority(incoming_source)
 
-                # Skip if existing source has higher priority
-                if existing_priority > incoming_priority:
-                    skipped += 1
-                    continue
-                # Same priority (both scrapers) or incoming is higher — update.
-                # Refresh dedup_key in case title/venue changed (e.g. canonical
-                # venue rename) so it stays consistent with the unique index.
-                cur.execute(
-                    """UPDATE events SET
-                        title = COALESCE(%s, title),
-                        venue = COALESCE(%s, venue),
-                        start_time = COALESCE(%s, start_time),
-                        ticket_url = COALESCE(%s, ticket_url),
-                        image_url = COALESCE(image_url, %s),
-                        source = COALESCE(%s, source),
-                        neighborhood = COALESCE(neighborhood, %s),
-                        dedup_key = %s,
-                        updated_at = NOW()
-                    WHERE id = %s""",
-                    (
-                        title,
-                        venue,
-                        entry.get("start_time"),
-                        entry.get("ticket_url"),
-                        entry.get("image_url"),
-                        incoming_source,
-                        neighborhood,
-                        key,
-                        db_row["id"],
-                    ),
-                )
-                if cur.rowcount > 0:
-                    updated += 1
-            else:
-                # New event — insert. ON CONFLICT on the partial unique index is
-                # a structural backstop: even if db_key_to_row missed a row,
-                # the DB refuses to create a duplicate active event.
-                cur.execute(
-                    """INSERT INTO events (title, venue, date, start_time, ticket_url,
-                       image_url, source, neighborhood, is_featured, is_active, dedup_key)
-                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (dedup_key) WHERE is_active DO NOTHING
-                    RETURNING id""",
-                    (
-                        title, venue, date_str,
-                        entry.get("start_time"),
-                        entry.get("ticket_url"),
-                        entry.get("image_url"),
-                        incoming_source,
-                        neighborhood,
-                        entry.get("is_featured", False),
-                        entry.get("is_active", True),
-                        key,
-                    ),
-                )
-                new_row = cur.fetchone()
-                if new_row:
-                    # Add to lookup to prevent duplicates within this batch
-                    db_key_to_row[key] = {
-                        "id": new_row["id"],
-                        "title": title,
-                        "venue": venue,
-                        "date": date_str,
-                        "source": incoming_source,
-                    }
-                    added += 1
+                    # Skip if existing source has higher priority
+                    if existing_priority > incoming_priority:
+                        cur.execute("RELEASE SAVEPOINT row_sp")
+                        skipped += 1
+                        continue
+                    # Same priority (both scrapers) or incoming is higher — update.
+                    # Refresh dedup_key in case title/venue changed (e.g. canonical
+                    # venue rename) so it stays consistent with the unique index.
+                    cur.execute(
+                        """UPDATE events SET
+                            title = COALESCE(%s, title),
+                            venue = COALESCE(%s, venue),
+                            start_time = COALESCE(%s, start_time),
+                            ticket_url = COALESCE(%s, ticket_url),
+                            image_url = COALESCE(image_url, %s),
+                            source = COALESCE(%s, source),
+                            neighborhood = COALESCE(neighborhood, %s),
+                            dedup_key = %s,
+                            updated_at = NOW()
+                        WHERE id = %s""",
+                        (
+                            title,
+                            venue,
+                            entry.get("start_time"),
+                            entry.get("ticket_url"),
+                            entry.get("image_url"),
+                            incoming_source,
+                            neighborhood,
+                            key,
+                            db_row["id"],
+                        ),
+                    )
+                    if cur.rowcount > 0:
+                        updated += 1
                 else:
-                    # Conflict backstop fired — an active row already exists.
-                    skipped += 1
+                    # New event — insert. ON CONFLICT on the partial unique index is
+                    # a structural backstop: even if db_key_to_row missed a row,
+                    # the DB refuses to create a duplicate active event.
+                    cur.execute(
+                        """INSERT INTO events (title, venue, date, start_time, ticket_url,
+                           image_url, source, neighborhood, is_featured, is_active, dedup_key)
+                        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                        ON CONFLICT (dedup_key) WHERE is_active DO NOTHING
+                        RETURNING id""",
+                        (
+                            title, venue, date_str,
+                            entry.get("start_time"),
+                            entry.get("ticket_url"),
+                            entry.get("image_url"),
+                            incoming_source,
+                            neighborhood,
+                            entry.get("is_featured", False),
+                            entry.get("is_active", True),
+                            key,
+                        ),
+                    )
+                    new_row = cur.fetchone()
+                    if new_row:
+                        # Add to lookup to prevent duplicates within this batch
+                        db_key_to_row[key] = {
+                            "id": new_row["id"],
+                            "title": title,
+                            "venue": venue,
+                            "date": date_str,
+                            "source": incoming_source,
+                        }
+                        added += 1
+                    else:
+                        # Conflict backstop fired — an active row already exists.
+                        skipped += 1
+                cur.execute("RELEASE SAVEPOINT row_sp")
+            except Exception as e:
+                # Roll this one row back and keep processing the rest of the batch.
+                cur.execute("ROLLBACK TO SAVEPOINT row_sp")
+                cur.execute("RELEASE SAVEPOINT row_sp")
+                errors += 1
+                if errors <= 10:
+                    print(f"  [save] skipped 1 row ({incoming_source} | {title[:40]} | {date_str}): {str(e)[:120]}")
 
         conn.commit()
     except Exception:
@@ -361,7 +379,9 @@ def _save_events_to_db(merged: List[dict], run_timestamp: datetime) -> dict:
         raise
     finally:
         conn.close()
-    return {"added": added, "updated": updated, "skipped": skipped, "pruned": 0}
+    if errors:
+        print(f"  [save] {errors} row(s) failed and were skipped (rest of batch preserved)")
+    return {"added": added, "updated": updated, "skipped": skipped, "errors": errors, "pruned": 0}
 
 
 def _load_active_events_from_db(start_date, end_date) -> List[dict]:
@@ -582,7 +602,7 @@ def run(dry_run: bool = False) -> None:
         if use_db:
             try:
                 db_stats = _save_events_to_db(merged, run_timestamp)
-                print(f"  Saved to PostgreSQL: {db_stats['added']} added, {db_stats['updated']} updated, {db_stats['pruned']} pruned")
+                print(f"  Saved to PostgreSQL: {db_stats['added']} added, {db_stats['updated']} updated, {db_stats.get('errors', 0)} failed, {db_stats['pruned']} pruned")
             except Exception as e:
                 print(f"  WARNING: Could not save to DB: {e}")
 
