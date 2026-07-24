@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-24T07:34:27.457260+00:00",
+  "run_timestamp": "2026-07-24T11:38:45.808718+00:00",
   "date_range": {
     "start": "2026-07-24",
     "end": "2026-07-31"
   },
-  "total_events_db": 2627,
+  "total_events_db": 2665,
   "total_active_display": 60,
   "data_store": "postgresql",
   "sources": [
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 26,
+      "events_found": 24,
       "events_after_filter": 24,
-      "events_filtered": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -37,14 +45,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -57,14 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
@@ -73,10 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -89,35 +89,27 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 221,
       "events_after_filter": 20,
       "events_filtered": 201,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 4,
-      "events_filtered": 19,
       "error": null
     },
     {
@@ -129,11 +121,35 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 4,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -159,14 +175,6 @@
       "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='minglewoodhallmemphis.com', port=443): Max retries exc"
     },
     {
       "name": "Venue: Blues City Cafe",
