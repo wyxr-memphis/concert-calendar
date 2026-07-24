@@ -1588,15 +1588,27 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 5. Host the uploaded image so it can be shown alongside the events.
+        # 5. Host the uploaded image so it can be shown alongside the event —
+        # but ONLY when the image depicts a single event. A multi-event flyer or
+        # schedule (many shows across days) should not have the whole flyer
+        # thumbnailed onto each individual event, so we skip hosting entirely.
+        # Keyed on the count extracted from the image (not events_to_insert) so
+        # a multi-event flyer is excluded even if only one of its events is new.
         # Slack's url_private needs bot-token auth, so we re-host it publicly
         # (same path as sponsor images). Failure is non-fatal — events still
         # insert without an image.
-        hosted_url = _commit_image_bytes_to_github(
-            image_bytes, filename, "event-images", "Slack event image"
-        )
-        if hosted_url:
-            print(f"[slack] hosted image at {hosted_url}", flush=True)
+        hosted_url = None
+        if len(events) == 1:
+            hosted_url = _commit_image_bytes_to_github(
+                image_bytes, filename, "event-images", "Slack event image"
+            )
+            if hosted_url:
+                print(f"[slack] hosted image at {hosted_url}", flush=True)
+        else:
+            print(
+                f"[slack] image has {len(events)} events — not attaching image to individual events",
+                flush=True,
+            )
 
         # Insert into DB
         event_dicts = []
