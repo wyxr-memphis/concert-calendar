@@ -93,10 +93,16 @@ def fetch_individual() -> List[SourceResult]:
     """
     from concurrent.futures import ThreadPoolExecutor, as_completed
 
+    # API-based scrapers are keyed by an id, not a calendar_url — don't require
+    # a URL for them (ticketmaster_venue uses ticketmaster_venue_id). Requiring
+    # calendar_url here silently dropped url-less TM venues (Grind City,
+    # Bluesville, Snowden Grove) from every build.
+    API_SCRAPERS = {"ticketmaster_venue"}
     venues_to_scrape = [
         (venue_key, venue_info)
         for venue_key, venue_info in VENUES.items()
-        if venue_info.get("calendar_url") and venue_info.get("scraper", "generic") != "manual_only"
+        if venue_info.get("scraper", "generic") != "manual_only"
+        and (venue_info.get("calendar_url") or venue_info.get("scraper") in API_SCRAPERS)
     ]
 
     results = []
