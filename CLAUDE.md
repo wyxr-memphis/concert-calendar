@@ -12,13 +12,6 @@ A daily-updating live music calendar for Memphis, Tennessee, built for WYXR 91.7
 - **Database:** PostgreSQL on Render (single source of truth)
 - **Build:** GitHub Actions 2x daily (midnight + noon Central)
 
-## Key Technologies
-
-- **Backend:** Python 3.12, Flask, PostgreSQL (psycopg2)
-- **Frontend:** Vanilla JavaScript (no framework)
-- **Deployment:** Render (backend), Vercel (frontend), GitHub Actions (CI/CD)
-- **Data Sources:** Ticketmaster API, venue scrapers, Claude Vision API (for image artifacts)
-
 ## Frontend Architecture (Critical — Read Before Touching the Index Page)
 
 `docs/index.html` is **fully self-contained** — all CSS is in a single `<style>` block and all JS is in a single `<script>` block at the bottom. There is **no build step, no bundler, no separate CSS/JS files** for the public calendar. Admin pages have their own separate JS files under `docs/admin/`.
