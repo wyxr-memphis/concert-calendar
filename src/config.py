@@ -126,6 +126,14 @@ VENUES = {
         "scraper": "ticketmaster_venue",
         "ticketmaster_venue_id": "KovZpZAE6vlA",
     },
+    "satellite-music-hall": {
+        "name": "Satellite Music Hall",
+        "aliases": ["satellite music hall", "satellite music hall memphis"],
+        "neighborhood": "Midtown",
+        "calendar_url": "https://www.livenation.com/venue/KovZ917ASsA/satellite-music-hall-events",
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZ917ASsA",
+    },
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",
         "aliases": ["germantown performing arts", "germantown performing arts center", "gpac"],

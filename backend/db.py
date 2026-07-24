@@ -658,6 +658,7 @@ def _seed_venues_if_empty():
         ("B.B. King's Blues Club", "Downtown/Beale Street", ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"]),
         ("Graceland Soundstage", "South Memphis (Graceland/Stax)", ["graceland soundstage", "graceland live", "guest house theater"]),
         ("FedExForum", "Downtown/Beale Street", ["fedexforum", "fedex forum"]),
+        ("Satellite Music Hall", "Midtown", ["satellite music hall", "satellite music hall memphis"]),
         ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac"]),
         ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre", "halloran center"]),
         ("Bar DKDC", "Crosstown/Broad Avenue", ["bar dkdc", "dkdc"]),
