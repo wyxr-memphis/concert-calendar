@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-24T17:01:06.763605+00:00",
+  "run_timestamp": "2026-07-24T18:12:41.461683+00:00",
   "date_range": {
     "start": "2026-07-24",
     "end": "2026-07-31"
   },
-  "total_events_db": 2691,
-  "total_active_display": 119,
+  "total_events_db": 2692,
+  "total_active_display": 118,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,38 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 31,
@@ -73,11 +41,27 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 222,
-      "events_after_filter": 42,
-      "events_filtered": 180,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 56,
+      "events_after_filter": 56,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -85,14 +69,6 @@
       "success": true,
       "events_found": 36,
       "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +97,26 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -153,19 +137,19 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 60,
       "events_after_filter": 21,
       "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 20,
-      "events_filtered": 201,
       "error": null
     },
     {
@@ -177,18 +161,26 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 20,
+      "events_filtered": 201,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -201,19 +193,27 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 8,
       "events_after_filter": 7,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 42,
+      "events_filtered": 180,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 119,
-      "events_after_filter": 119,
+      "events_found": 118,
+      "events_after_filter": 118,
       "events_filtered": 0,
       "error": null
     }
@@ -291,13 +291,6 @@
       "source": "scraper:crosstown_arts"
     },
     {
-      "artist": "Happy Friday\u2014Free Admission!",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-07-24",
-      "time": "5:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
       "artist": "Autumn Lies Buried, The Behest Of Serpents",
       "venue": "Growlers",
       "date": "2026-07-24",
@@ -352,13 +345,6 @@
       "date": "2026-07-24",
       "time": "Doors Open 7:30 PM, Performance @ 8:30 PM, DJ Set @ 9:30-10:30 PM",
       "source": "artifact"
-    },
-    {
-      "artist": "42 Dugg + Babyface Ray",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-24",
-      "time": null,
-      "source": "scraper:minglewood_hall"
     },
     {
       "artist": "42 Dugg + Babyface Ray \u2013 4 The Trenches Tour",
@@ -576,6 +562,13 @@
       "date": "2026-07-25",
       "time": "8 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "FASHOW THA 2ND, Crucified Click, GL00M, MIR\u00c6N, J4Y DEADSHOT, YVNG $ICK, FRANK N' GWEN",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-07-25",
+      "time": "6 PM",
+      "source": "submission"
     },
     {
       "artist": "Back Alley String Band Debuts",
