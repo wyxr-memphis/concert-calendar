@@ -45,7 +45,10 @@ NEIGHBORHOODS = [
     "Downtown/Beale Street",
     "South Main Arts District",
     "South Memphis (Graceland/Stax)",
+    "East Memphis",
     "Germantown",
+    "Hickory Hill",
+    "North Mississippi",
 ]
 
 VENUES = {
@@ -133,6 +136,46 @@ VENUES = {
         "calendar_url": "https://www.livenation.com/venue/KovZ917ASsA/satellite-music-hall-events",
         "scraper": "ticketmaster_venue",
         "ticketmaster_venue_id": "KovZ917ASsA",
+    },
+    "radians-amphitheater": {
+        "name": "Radians Amphitheater",
+        "aliases": ["radians amphitheater", "radians amphitheatre", "live at the garden", "memphis botanic garden"],
+        "neighborhood": "East Memphis",  # Memphis Botanic Garden
+        "calendar_url": "https://www.liveatthegarden.com/",
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZpZAa1JvA",
+    },
+    "cannon-center": {
+        "name": "Cannon Center for the Performing Arts",
+        "aliases": ["cannon center", "cannon center for the performing arts", "cannon center for performing arts"],
+        "neighborhood": "Downtown/Beale Street",
+        "calendar_url": "https://www.thecannoncenter.com/events",
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZpa3EHe",
+    },
+    "grind-city-amphitheater": {
+        "name": "Grind City Amphitheater",
+        "aliases": ["grind city amphitheater", "grind city amphitheatre", "grind city"],
+        "neighborhood": None,  # North Memphis riverfront — no matching chip
+        "calendar_url": None,
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "Z7r9jZaAY-",
+    },
+    "bluesville": {
+        "name": "Horseshoe Casino's Bluesville",
+        "aliases": ["horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"],
+        "neighborhood": "North Mississippi",  # Tunica/Robinsonville, MS
+        "calendar_url": None,
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZpZAa11IA",
+    },
+    "snowden-grove": {
+        "name": "BankPlus Amphitheater at Snowden Grove",
+        "aliases": ["bankplus amphitheater at snowden grove", "bankplus amphitheater", "bankplus amphitheatre", "snowden grove amphitheater", "snowden grove"],
+        "neighborhood": "North Mississippi",  # Southaven, MS
+        "calendar_url": None,
+        "scraper": "ticketmaster_venue",
+        "ticketmaster_venue_id": "KovZpZAEvFkA",
     },
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",
