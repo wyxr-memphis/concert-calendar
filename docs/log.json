@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-24T15:41:30.123509+00:00",
+  "run_timestamp": "2026-07-24T16:29:21.856757+00:00",
   "date_range": {
     "start": "2026-07-24",
     "end": "2026-07-31"
   },
-  "total_events_db": 2678,
+  "total_events_db": 2691,
   "total_active_display": 119,
   "data_store": "postgresql",
   "sources": [
@@ -33,14 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
@@ -57,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 222,
-      "events_after_filter": 42,
-      "events_filtered": 180,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,26 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +89,58 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Horseshoe Casino's Bluesville",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 21,
+      "events_filtered": 39,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -137,19 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 21,
-      "events_filtered": 39,
+      "events_found": 222,
+      "events_after_filter": 42,
+      "events_filtered": 180,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 4,
-      "events_filtered": 19,
+      "events_found": 221,
+      "events_after_filter": 20,
+      "events_filtered": 201,
       "error": null
     },
     {
@@ -169,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 221,
-      "events_after_filter": 20,
-      "events_filtered": 201,
+      "events_found": 23,
+      "events_after_filter": 4,
+      "events_filtered": 19,
       "error": null
     },
     {
