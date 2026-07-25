@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-07-24T18:12:41.461683+00:00",
+  "run_timestamp": "2026-07-25T07:21:12.555078+00:00",
   "date_range": {
-    "start": "2026-07-24",
-    "end": "2026-07-31"
+    "start": "2026-07-25",
+    "end": "2026-08-01"
   },
-  "total_events_db": 2692,
-  "total_active_display": 118,
+  "total_events_db": 2701,
+  "total_active_display": 120,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -33,26 +33,18 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
@@ -65,10 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -81,27 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 222,
+      "events_after_filter": 41,
+      "events_filtered": 181,
       "error": null
     },
     {
@@ -113,10 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -129,11 +113,43 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 18,
+      "events_filtered": 203,
       "error": null
     },
     {
@@ -147,9 +163,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 21,
-      "events_filtered": 39,
+      "events_found": 62,
+      "events_after_filter": 22,
+      "events_filtered": 40,
       "error": null
     },
     {
@@ -161,26 +177,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 20,
-      "events_filtered": 201,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -201,14 +209,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 42,
-      "events_filtered": 180,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 7,
@@ -220,167 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 87,
-      "events_filtered": 23,
+      "events_after_filter": 86,
+      "events_filtered": 24,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 118,
-      "events_after_filter": 118,
+      "events_found": 120,
+      "events_after_filter": 120,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Graham Winchester Album Release",
-      "venue": "Bar DKDC",
-      "date": "2026-07-24",
-      "time": "Early",
-      "source": "manual"
-    },
-    {
-      "artist": "Val Martino",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-24",
-      "time": "7 PM to 9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB KING ALL-STARS",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-24",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-24",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "JASON FOREE BAND",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-24",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Illstu Crew",
-      "venue": "Bar DKDC",
-      "date": "2026-07-24",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "Will Tucker Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-24",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "A$H.  Presents: low key LIVE at the Green Room + sounds by DIGITAL TECH",
-      "venue": "Crosstown Arts",
-      "date": "2026-07-24",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Autumn Lies Buried, The Behest Of Serpents",
-      "venue": "Growlers",
-      "date": "2026-07-24",
-      "time": "7:30PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Jeff BearCat Bunch at Hernando\u2019s Hide-A-Way Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-24",
-      "time": "6:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Linda Gail Lewis",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-24",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Go Dancing [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Imani / Zoe Dominguez / The Narrows / Prarie Princess [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Mini Kiss",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-07-24",
-      "time": "8:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Jupitor Jones, Mary Hailey, Larrissa",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-24",
-      "time": "Doors 8 PM | Show 9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Madame Leaves, Tyld May, Nikken, DJ Brillianaire",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-24",
-      "time": "Doors Open 7:30 PM, Performance @ 8:30 PM, DJ Set @ 9:30-10:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "42 Dugg + Babyface Ray \u2013 4 The Trenches Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-24",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Pam & Terry on the Patio",
-      "venue": "Nashoba",
-      "date": "2026-07-24",
-      "time": "5 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Terry Greene & The Honey Golds",
-      "venue": "Nashoba",
-      "date": "2026-07-24",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Terry Greene & The HoneyGolds",
-      "venue": "Nashoba",
-      "date": "2026-07-24",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Shell on Wheels: Soulin' on the River ft. Angie P. Holmes",
-      "venue": "Overton Park Shell",
-      "date": "2026-07-24",
-      "time": "6:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Neighborhood Texture Jam",
       "venue": "B-Side Memphis",
@@ -568,7 +421,7 @@
       "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-07-25",
       "time": "6 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Back Alley String Band Debuts",
@@ -746,10 +599,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB KING ALL-STARS",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-27",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-07-27",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "MEMPHIS JONES",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-27",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -849,6 +716,13 @@
       "date": "2026-07-29",
       "time": "8 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-29",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Brad Birkedahl",
@@ -1058,6 +932,146 @@
       "venue": "Nashoba",
       "date": "2026-07-31",
       "time": "5 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "LAMPY FUM FEST",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "7 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-01",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Four on the Floor ft. Cyrena Wages, Granville Automatic, Erin Webb, and Caleb Elliott",
+      "venue": "Crosstown Arts",
+      "date": "2026-08-01",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "\ud83d\udc80 Spaceman\u2019s Dead Friends | 12\u20132 PM\u2028\ud83c\udfa4 OmCat | 2:30\u20134 PM\u2028\ud83c\udfb5 Tin Roof Cat | 4\u20135:30 PM\u2028\ud83c\udfb8 Mr. Benson | 6\u20139 PM \ud83e\uddc0 Food & Drink Specials\u2028Keep on truckin\u2019 with grilled cheese specials and themed cocktails:\u2028\ud83c\udf3a Scarlet Begonia Cocktail\u2028\ud83c\udfd4\ufe0f Fire on the Mountain\u2028\ud83d\udca8 Liquid Marijuana",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Minion Rave at Growlers - Memphis, TN",
+      "venue": "Growlers",
+      "date": "2026-08-01",
+      "time": "9:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Webb Wilder Band at Hernando\u2019s Hide-A-Way \u2013 Memphis,TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-01",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Lord Buffalo / $un Ra$sco P! Coltrane / Superceptual [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Lord Buffalo / $un Ra$sco P! Coltrane [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Lord Buffalo [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "MariBeth Fest 7 [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Closed for Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-01",
+      "time": "12 AM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "DJ C\u00e9sar B Diaz",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Dr Brown",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Frank & The Extra Eyes",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Kid Mestizo",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Late Night Drag & Burlesque",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Laundry Bats",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Runi Salem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Samantha Henson",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-01",
+      "time": "11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "GenX",
+      "venue": "Nashoba",
+      "date": "2026-08-01",
+      "time": "8 PM",
       "source": "scraper:nashoba"
     }
   ]
