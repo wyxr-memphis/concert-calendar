@@ -99,8 +99,20 @@ else
 fi
 echo ""
 
-# Check 6: Git status
-echo "6️⃣  Checking git status..."
+# Check 6: Health check regression tests (offline — no DB, no network)
+echo "6️⃣  Running health check regression tests..."
+if python3 scripts/test_health_check.py > /tmp/health_check_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Health check regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Health check regression tests failed${NC}"
+    tail -20 /tmp/health_check_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 7: Git status
+echo "7️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

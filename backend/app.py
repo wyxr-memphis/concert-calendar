@@ -2026,6 +2026,27 @@ def _expected_scraper_source_names():
     return names
 
 
+def _canonical_source_name(name):
+    """Map a logged source name onto the name we'd emit for it today.
+
+    Venue scrapers are logged as "Venue: <display name>", and renaming a venue
+    changes that string — so old build logs carry a name no longer in VENUES.
+    Resolving through the venue's aliases folds those onto the current name
+    instead of leaving a frozen entry that ages into a false staleness alert.
+
+    Returns (canonical_name, is_retired). is_retired is True when the name looks
+    like a venue we no longer configure at all, which is a real signal and must
+    stay visible rather than being quietly dropped.
+    """
+    if not name.startswith("Venue: "):
+        return name, False
+    from src.config import resolve_venue_name
+    canonical = resolve_venue_name(name[len("Venue: "):])
+    if canonical is None:
+        return name, True
+    return f"Venue: {canonical}", False
+
+
 def _health_scrapers():
     """Most recent per-source run extracted from calendar-build logs.
 
@@ -2047,17 +2068,31 @@ def _health_scrapers():
             except Exception:
                 continue
         for src in details.get("sources", []):
-            name = src.get("name") or ""
-            if not name or name in _SYNTHETIC_SOURCE_NAMES or name in per_source:
+            logged_name = src.get("name") or ""
+            if not logged_name or logged_name in _SYNTHETIC_SOURCE_NAMES:
+                continue
+            name, retired = _canonical_source_name(logged_name)
+            # Logs are walked newest-first, so the first hit for a name is its
+            # most recent run — a renamed venue keeps the newer entry.
+            if name in per_source:
                 continue
             started = log.get("started_at")
             hours = round((now_utc - started).total_seconds() / 3600.0, 1) if started else None
+            # events_found is the pre-date-filter parse count; "events" is what
+            # survived the 6-month window. A scraper that parsed fine but had
+            # everything filtered out is working, so staleness/zero checks read
+            # events_found. Older log rows only carry "events".
+            found = src.get("events_found")
+            if found is None:
+                found = src.get("events")
             per_source[name] = {
                 "name": name,
                 "last_run_at": _iso_z(started),
                 "last_run_status": "success" if src.get("success") else "failed",
-                "last_result_count": src.get("events"),
+                "last_result_count": found,
+                "last_result_count_after_filter": src.get("events"),
                 "hours_since_last_run": hours,
+                "retired": retired,
             }
 
     for name in _expected_scraper_source_names():
@@ -2067,7 +2102,9 @@ def _health_scrapers():
                 "last_run_at": None,
                 "last_run_status": None,
                 "last_result_count": None,
+                "last_result_count_after_filter": None,
                 "hours_since_last_run": None,
+                "retired": False,
             }
 
     return sorted(per_source.values(), key=lambda x: x["name"])
@@ -2117,6 +2154,9 @@ def _public_summary_payload():
     events = health_events_14d()
     raw_scrapers = _health_scrapers()
     tm = health_ticketmaster()
+    # Retired sources are names left behind in old build logs by a rename or a
+    # removed venue — nothing runs them, so they'd sit permanently "stale" and
+    # hold the whole page at "degraded". The Slack report lists them instead.
     scrapers = [
         {
             "name": s["name"],
@@ -2124,6 +2164,7 @@ def _public_summary_payload():
             "status": _sanitize_scraper_status(s),
         }
         for s in raw_scrapers
+        if not s.get("retired")
     ]
     last_build_row = (health_recent_build_logs(1) or [{}])[0]
     last_build_started = last_build_row.get("started_at")
