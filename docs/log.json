@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-07-25T17:52:40.316678+00:00",
+  "run_timestamp": "2026-07-26T07:37:11.541700+00:00",
   "date_range": {
-    "start": "2026-07-25",
-    "end": "2026-08-01"
+    "start": "2026-07-26",
+    "end": "2026-08-02"
   },
-  "total_events_db": 2703,
-  "total_active_display": 120,
+  "total_events_db": 2707,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -28,24 +28,16 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_after_filter": 30,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
+      "events_after_filter": 22,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,19 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 222,
-      "events_after_filter": 41,
-      "events_filtered": 181,
+      "events_after_filter": 39,
+      "events_filtered": 183,
       "error": null
     },
     {
@@ -89,6 +73,14 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 25,
@@ -97,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -137,27 +129,43 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 18,
-      "events_filtered": 203,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_after_filter": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 61,
+      "events_found": 62,
       "events_after_filter": 22,
-      "events_filtered": 39,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 17,
+      "events_filtered": 204,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -169,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 8,
+      "events_after_filter": 7,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -193,26 +201,18 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 7,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
+      "events_found": 53,
+      "events_after_filter": 53,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -220,216 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 110,
-      "events_after_filter": 86,
-      "events_filtered": 24,
+      "events_after_filter": 85,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 120,
-      "events_after_filter": 120,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Neighborhood Texture Jam",
-      "venue": "B-Side Memphis",
-      "date": "2026-07-25",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Black Cream ft. Deonna Sirod & Keia Johnson",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "DJ Rhinestonee",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hi Rhythm with Lina Beach & Jerome Chism",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Nick Black ft. Raneem Imam",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Optic Sink",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "South Memphis Jeff (DJ)",
-      "venue": "Handy Park",
-      "date": "2026-07-25",
-      "time": "2-7 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Mark Edgar Stuart & Friends",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-25",
-      "time": "3:00PM",
-      "source": "manual"
-    },
-    {
-      "artist": "BB KING ALL-STARS",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-25",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-25",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "FLIC'S PIC'S BAND",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-07-25",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jordan Occasionally, Electric Graveyard + Secret Surprise Special Guest",
-      "venue": "Bar DKDC",
-      "date": "2026-07-25",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "Spillit Slam: A Storytelling Event",
-      "venue": "Bar DKDC",
-      "date": "2026-07-25",
-      "time": "Early",
-      "source": "artifact"
-    },
-    {
-      "artist": "Will Tucker Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-07-25",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Kid Maestro ft. Bartholomew Jones: Ideas Are Seeds",
-      "venue": "Crosstown Arts",
-      "date": "2026-07-25",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Shamothy",
-      "venue": "Growlers",
-      "date": "2026-07-25",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Sarah Spain",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-07-25",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Stay Fashionable / Shakira Chinchilla / Ash Leon [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Kickback [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-07-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Just 'Liya",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-07-25",
-      "time": "8 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Rice Drewry Collective",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-07-25",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Badzy",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-25",
-      "time": "Doors 8 PM, Bands 9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lyd Vicious and the Problem",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-07-25",
-      "time": "Doors 8 PM, Bands 9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Emo Nite",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-25",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "R&B ONLY LIVE - Memphis, TN",
-      "venue": "Minglewood Hall",
-      "date": "2026-07-25",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Seeing Red",
-      "venue": "Nashoba",
-      "date": "2026-07-25",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "FASHOW THA 2ND, Crucified Click, GL00M, MIR\u00c6N, J4Y DEADSHOT, YVNG $ICK, FRANK N' GWEN",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-07-25",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Back Alley String Band Debuts",
-      "venue": "South Main Sounds",
-      "date": "2026-07-25",
-      "time": "7:00PM",
-      "source": "scraper:south_main_sounds"
-    },
     {
       "artist": "Memphis Reggae Nights",
       "venue": "B-Side Memphis",
@@ -725,6 +529,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-29",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
       "date": "2026-07-29",
@@ -772,6 +583,20 @@
       "date": "2026-07-30",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "ASHTON RIKER & THE MEMPHIS ROYALS",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-30",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "MEMPHIS SOUL FACTORY",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-07-30",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -1072,6 +897,69 @@
       "venue": "Nashoba",
       "date": "2026-08-01",
       "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-02",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Sean Murphy \u201cSound Meditation Journey\u201d",
+      "venue": "Crosstown Arts",
+      "date": "2026-08-02",
+      "time": "6:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Anxious Arms",
+      "venue": "Growlers",
+      "date": "2026-08-02",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-02",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Back in Time: Huey Lewis & The News Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-02",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Keelyn Ellis",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-02",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "SOLD OUT \u2013 UNDEROATH: THE VAN TOUR TO VANS WARPED TOUR",
+      "venue": "Minglewood Hall",
+      "date": "2026-08-02",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "UNDEROATH: THE VAN TOUR TO VANS WARPED TOUR",
+      "venue": "Minglewood Hall",
+      "date": "2026-08-02",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Swingtime Explosion",
+      "venue": "Nashoba",
+      "date": "2026-08-02",
+      "time": "6 PM",
       "source": "scraper:nashoba"
     }
   ]
