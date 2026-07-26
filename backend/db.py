@@ -1516,6 +1516,12 @@ def health_events_14d():
     def _is_empty(v):
         return v is None or (isinstance(v, str) and v.strip() == "")
 
+    # Some sources genuinely never publish a start time or a ticket link, so
+    # flagging those fields produces a warning that can never be cleared. The
+    # raw missing_* tallies below stay unfiltered — only incomplete_total and
+    # by_source respect the expectation, so the admin UI still sees ground truth.
+    from src.config import COMPLETENESS_FIELDS, SOURCE_PROVIDES
+
     missing_ticket_url = 0
     missing_start_time = 0
     missing_venue = 0
@@ -1527,13 +1533,17 @@ def health_events_14d():
         bucket = by_source.setdefault(src, {"incomplete_count": 0, "total_count": 0})
         bucket["total_count"] += 1
 
+        expected = SOURCE_PROVIDES.get(src, COMPLETENESS_FIELDS)
+
         row_incomplete = False
         if _is_empty(row["ticket_url"]):
             missing_ticket_url += 1
-            row_incomplete = True
+            if "ticket_url" in expected:
+                row_incomplete = True
         if _is_empty(row["start_time"]):
             missing_start_time += 1
-            row_incomplete = True
+            if "start_time" in expected:
+                row_incomplete = True
         if _is_empty(row["venue"]):
             missing_venue += 1
             row_incomplete = True

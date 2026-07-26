@@ -1,6 +1,7 @@
 """Configuration for Memphis concert calendar."""
 
 import os
+import re
 from datetime import date, timedelta
 
 # ---------------------------------------------------------------------------
@@ -58,6 +59,8 @@ VENUES = {
         "neighborhood": "Midtown",
         "calendar_url": "https://hitonecafe.com/events/",
         "scraper": "hi_tone",
+        # _parse_hi_tone reads no show time from the .eventWrapper cards
+        "provides": ["ticket_url"],
     },
     "minglewood-hall": {
         "name": "Minglewood Hall",
@@ -65,6 +68,8 @@ VENUES = {
         "neighborhood": "Midtown",
         "calendar_url": "https://minglewoodhallmemphis.com/events/",
         "scraper": "minglewood",
+        # _parse_minglewood reads no show time
+        "provides": ["ticket_url"],
     },
     "growlers": {
         "name": "Growlers",
@@ -113,6 +118,8 @@ VENUES = {
         "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://bbkings.com/memphis/music",
         "scraper": "bbkings",
+        # Webflow CMS cards carry no per-event link
+        "provides": ["start_time"],
     },
     "graceland-soundstage": {
         "name": "Graceland Soundstage",
@@ -256,6 +263,8 @@ VENUES = {
         "neighborhood": None,  # Multiple locations — neighborhood comes from event data
         "calendar_url": "https://hueyburger.com/music-menu",
         "scraper": "sitewrench",
+        # The SiteWrench feed carries no per-event link
+        "provides": ["start_time"],
         "sitewrench_api_token": os.environ.get("SITEWRENCH_API_TOKEN", ""),
         "sitewrench_site_id": "3018",
         "sitewrench_page_part_id": "458501",
@@ -317,6 +326,72 @@ def normalize_venue_name(name: str) -> str:
             return canonical
     # No match found — return original with title case cleanup
     return name.strip()
+
+
+# ---------------------------------------------------------------------------
+# Venue identity
+#
+# A venue's display name is the root of two derived identities: the
+# `events.source` tag (via venue_source_tag) and the health check's scraper name
+# ("Venue: <name>"). Renaming a venue therefore forks both — the old tag keeps
+# its existing event rows and lingers in build logs. resolve_venue_name() maps a
+# historical name back onto the current one so a rename doesn't read as an
+# outage; scripts/merge_venue_duplicates.py handles the venue rows themselves.
+# ---------------------------------------------------------------------------
+
+# Every current and historical name we can attribute to a venue.
+VENUE_IDENTITY_MAP = {}
+for _venue_info in VENUES.values():
+    _canonical = _venue_info["name"]
+    VENUE_IDENTITY_MAP[_canonical.lower()] = _canonical
+    for _alias in _venue_info.get("aliases", []):
+        VENUE_IDENTITY_MAP.setdefault(_alias.lower(), _canonical)
+
+
+def venue_source_tag(venue_name: str) -> str:
+    """Convert a venue name to a scraper source tag, e.g. 'Hi Tone' -> 'scraper:hi_tone'."""
+    slug = re.sub(r'[^a-z0-9]+', '_', venue_name.lower()).strip('_')
+    return f"scraper:{slug}"
+
+
+def resolve_venue_name(name: str):
+    """Exact-match a current or historical venue name to its canonical name.
+
+    Returns None when the name belongs to no venue we still configure. Unlike
+    normalize_venue_name() this does no substring matching — it's used to tell a
+    renamed venue apart from a genuinely removed one, and a loose match there
+    would mask a scraper that really did disappear.
+    """
+    return VENUE_IDENTITY_MAP.get((name or "").lower().strip())
+
+
+# ---------------------------------------------------------------------------
+# Scraper completeness expectations
+#
+# The health check calls an event "incomplete" when a field it expects is empty.
+# Some venues simply never publish one of these, so flagging them produces a
+# permanent warning that can never be cleared. A venue may narrow the set with
+# a "provides" key; absent that key it's expected to supply all of them.
+#
+# This declares current *parser* capability, not a claim about the website — if
+# a parser learns to extract the field, drop the entry.
+# ---------------------------------------------------------------------------
+COMPLETENESS_FIELDS = ("start_time", "ticket_url")
+
+
+def venue_provides(venue_info: dict) -> tuple:
+    """Completeness fields this venue's scraper is expected to populate."""
+    declared = venue_info.get("provides")
+    if declared is None:
+        return COMPLETENESS_FIELDS
+    return tuple(f for f in COMPLETENESS_FIELDS if f in declared)
+
+
+# source tag -> fields expected from that source, e.g. 'scraper:hi_tone' -> ('ticket_url',)
+SOURCE_PROVIDES = {
+    venue_source_tag(_v["name"]): venue_provides(_v)
+    for _v in VENUES.values()
+}
 
 
 def is_music_event(title: str, category: str = "", description: str = "") -> bool:

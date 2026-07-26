@@ -752,7 +752,11 @@ def run(dry_run: bool = False) -> None:
                         "events": len(sr.events),
                         "events_found": sr.events_found,
                         "events_filtered": sr.events_filtered,
-                        "error": sr.error_message if not sr.success else None,
+                        # Unconditional, matching docs/log.json: a successful
+                        # scraper that parsed nothing still carries the "page
+                        # structure may have changed" hint, and dropping it left
+                        # the health check with only a bare zero to go on.
+                        "error": sr.error_message,
                     }
                     for sr in all_source_results
                 ],

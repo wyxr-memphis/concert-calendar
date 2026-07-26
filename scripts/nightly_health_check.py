@@ -151,6 +151,18 @@ def _hours_since(dt):
     return round((datetime.now(timezone.utc) - dt).total_seconds() / 3600.0, 1)
 
 
+def _retired_line(retired):
+    """One line naming source names that no longer map to a configured venue.
+
+    These come from old build logs — a renamed or removed venue. They age out of
+    the backend's 30-build lookback on their own; the point of naming them is
+    that a rename also leaves event rows under the old source tag.
+    """
+    names = ", ".join(sorted(s.get("name") or "?" for s in retired))
+    noun = "source" if len(retired) == 1 else "sources"
+    return f"Retired {noun} still in build logs: {names}"
+
+
 def format_report(health_status, health_data, health_error,
                   frontend_status, frontend_url, frontend_error):
     """Build the Slack mrkdwn report.
@@ -230,27 +242,46 @@ def format_report(health_status, health_data, health_error,
             or (s.get("source") or "").startswith("Venue:")
         )
     ]
+    # Only scraper sources get itemized, so name the remainder explicitly —
+    # otherwise the headline total doesn't add up to the list beside it.
+    scraper_inc = sum(s["incomplete_count"] for s in flagged_sources)
+    other_inc = inc_total - scraper_inc
     if inc_total == 0:
         incomplete_line = "0"
     elif flagged_sources:
         src_parts = [
             f"{s['source']} — {s['incomplete_count']}"
-            for s in flagged_sources
+            for s in sorted(
+                flagged_sources,
+                key=lambda s: -(s.get("incomplete_count") or 0),
+            )
         ]
-        incomplete_line = f"{inc_total} ({', '.join(src_parts)})"
+        incomplete_line = (
+            f"{inc_total} — {scraper_inc} from scrapers "
+            f"({', '.join(src_parts)})"
+        )
+        if other_inc > 0:
+            incomplete_line += f", {other_inc} manual/artifact (expected)"
     else:
         # Only manual/artifact sources are incomplete — those are expected
         incomplete_line = f"{inc_total} (manual/artifact only — expected)"
 
     # Scrapers
-    scrapers = blocks.get("scrapers") or []
+    all_scrapers = blocks.get("scrapers") or []
+    # Names left in old build logs by a renamed or removed venue. Nothing runs
+    # them, so they'd age into a permanent staleness warning — report them once,
+    # separately, and keep them out of the clean/total tally.
+    retired = [s for s in all_scrapers if s.get("retired")]
+    scrapers = [s for s in all_scrapers if not s.get("retired")]
     total_scrapers = len(scrapers)
     problem_lines = []
+    note_lines = []  # informational, never counts against clean_count
     for s in scrapers:
         name = s.get("name") or "?"
         hours = s.get("hours_since_last_run")
         last_status = s.get("last_run_status")
         count = s.get("last_result_count")
+        kept = s.get("last_result_count_after_filter")
 
         reasons = []
         if hours is None:
@@ -262,10 +293,16 @@ def format_report(health_status, health_data, health_error,
         # Artifact scraper only produces events when images are uploaded —
         # zero is the common case, not a failure signal.
         if count == 0 and name != "artifact":
-            reasons.append("0 events returned")
+            reasons.append("0 events parsed")
 
         if reasons:
             problem_lines.append(f"⚠️ {name} — {', '.join(reasons)}")
+        elif count and kept == 0:
+            # Parsed fine, but every show fell outside the build's date window —
+            # normal for a venue whose only listing has just passed.
+            note_lines.append(
+                f"· {name} — {count} parsed, none in date range"
+            )
 
     clean_count = total_scrapers - len(problem_lines)
 
@@ -333,10 +370,15 @@ def format_report(health_status, health_data, health_error,
     )
     if all_green:
         total_txt = total_events if total_events is not None else "?"
-        return (
+        text = (
             f"{header}\n"
             f"All checks passed 🟢 · {total_txt} events in next 14 days"
-        ), False
+        )
+        # Nothing is broken, but a leftover name still deserves a mention — it
+        # means a rename left event rows under the old source tag.
+        if retired:
+            text += f"\n· {_retired_line(retired)}"
+        return text, False
 
     # --- Full template ----------------------------------------------------
     total_txt = total_events if total_events is not None else "?"
@@ -357,6 +399,9 @@ def format_report(health_status, health_data, health_error,
         lines += problem_lines
     else:
         lines.append(f"· All {total_scrapers} ran in last 14h")
+    lines += note_lines
+    if retired:
+        lines.append(f"· {_retired_line(retired)}")
     lines += [
         "",
         f"*Community Submissions:* {pending} pending",

@@ -17,6 +17,7 @@ from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
     normalize_venue_name, is_music_event, EXCLUDE_KEYWORDS, MUSIC_KEYWORDS,
+    venue_source_tag as _venue_source_tag,
 )
 from ..date_utils import parse_date_text
 
@@ -26,12 +27,6 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
-
-
-def _venue_source_tag(venue_name: str) -> str:
-    """Convert a venue name to a scraper source tag, e.g. 'Hi Tone' -> 'scraper:hi_tone'."""
-    slug = re.sub(r'[^a-z0-9]+', '_', venue_name.lower()).strip('_')
-    return f"scraper:{slug}"
 
 
 def _img_src(el) -> Optional[str]:
