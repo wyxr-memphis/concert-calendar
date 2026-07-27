@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-27T08:33:54.951008+00:00",
+  "run_timestamp": "2026-07-27T18:19:14.987155+00:00",
   "date_range": {
     "start": "2026-07-27",
     "end": "2026-08-03"
   },
-  "total_events_db": 2710,
+  "total_events_db": 2712,
   "total_active_display": 85,
   "data_store": "postgresql",
   "sources": [
@@ -27,8 +27,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -41,42 +41,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 222,
-      "events_after_filter": 37,
-      "events_filtered": 185,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 22,
+      "events_found": 21,
       "events_after_filter": 21,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +65,34 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -105,19 +105,19 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 10,
       "events_after_filter": 5,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -129,11 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 16,
+      "events_filtered": 205,
       "error": null
     },
     {
@@ -147,25 +155,9 @@
     {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 1,
+      "events_found": 20,
       "events_after_filter": 0,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 16,
-      "events_filtered": 205,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 4,
-      "events_filtered": 19,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -177,11 +169,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
+      "events_found": 222,
+      "events_after_filter": 37,
+      "events_filtered": 185,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 4,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -209,10 +209,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 52,
+      "events_after_filter": 52,
       "events_filtered": 0,
       "error": null
     },
