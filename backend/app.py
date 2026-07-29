@@ -29,6 +29,7 @@ from flask_cors import CORS, cross_origin
 from flask_compress import Compress
 import requests as http_requests
 
+from backend.images import ImageUploadError, upload_image
 from backend.db import (
     init_db,
     get_cursor,
@@ -891,65 +892,45 @@ def admin_import_confirm():
     })
 
 
-@app.route("/api/admin/import/image", methods=["POST"])
-@require_auth
-def admin_import_image():
-    """Single event image upload — commits to docs/event-images/ so Vercel serves it.
+def _handle_image_upload(folder):
+    """Shared body for the admin image-upload routes.
 
-    Returns image_url pointing at the CDN. The frontend (edit.html) reads
-    data.image_url and populates the form field.
+    Reads the "image" file part, hands it to Cloudinary, and returns the
+    {ok, filename, image_url} shape all three routes have always returned — so
+    the admin frontend needs no changes.
     """
     f = request.files.get("image")
     if not f:
         return jsonify({"error": "No image file provided"}), 400
 
     filename = f.filename or ""
-    ext = os.path.splitext(filename)[1].lower()
-
-    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
-        return jsonify({"error": f"File type {ext} not allowed"}), 400
-
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-
-    if not github_pat:
-        return jsonify({"error": "GITHUB_PAT not configured"}), 500
-
-    import re as _re
     file_data = f.read()
-    # Sanitize: timestamp prefix + alphanumeric/hyphen only — no spaces or special chars
-    ts = datetime.now().strftime("%Y%m%d%H%M%S")
-    base = os.path.splitext(filename)[0]
-    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
-    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "event"
-    safe_name = f"{ts}_{clean_base}{ext}"
 
-    github_path = f"docs/event-images/{safe_name}"
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
+    try:
+        image_url = upload_image(file_data, filename, folder)
+    except ImageUploadError as exc:
+        return jsonify({"error": str(exc)}), 400
 
-    sha = None
-    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
-    if existing.status_code == 200:
-        sha = existing.json().get("sha")
+    if not image_url:
+        return jsonify({"error": "Image upload failed"}), 502
 
-    put_data = {
-        "message": f"Upload event image: {safe_name}",
-        "content": base64.b64encode(file_data).decode("ascii"),
-    }
-    if sha:
-        put_data["sha"] = sha
+    return jsonify({
+        "ok": True,
+        "filename": image_url.rsplit("/", 1)[-1],
+        "image_url": image_url,
+    })
 
-    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
 
-    if resp.status_code in (200, 201):
-        image_url = f"https://concert-calendar.wyxr.org/event-images/{safe_name}"
-        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
-    else:
-        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+@app.route("/api/admin/import/image", methods=["POST"])
+@require_auth
+def admin_import_image():
+    """Single event image upload — hosted on Cloudinary.
+
+    Returns image_url pointing at the CDN. The frontend (edit.html) reads
+    data.image_url and populates the form field. Unlike the old GitHub-commit
+    path, the URL resolves immediately.
+    """
+    return _handle_image_upload("event-images")
 
 
 # ---------------------------------------------------------------------------
@@ -1036,58 +1017,8 @@ def admin_sponsors_delete(sponsor_id):
 @app.route("/api/admin/sponsors/upload-image", methods=["POST"])
 @require_auth
 def admin_sponsors_upload_image():
-    """Upload a sponsor image to docs/sponsors/ in GitHub repo."""
-    f = request.files.get("image")
-    if not f:
-        return jsonify({"error": "No image file provided"}), 400
-
-    filename = f.filename or ""
-    ext = os.path.splitext(filename)[1].lower()
-
-    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
-        return jsonify({"error": f"File type {ext} not allowed"}), 400
-
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-
-    if not github_pat:
-        return jsonify({"error": "GITHUB_PAT not configured"}), 500
-
-    import re as _re
-    file_data = f.read()
-    # Sanitize: timestamp prefix + alphanumeric/hyphen only — no spaces or special chars
-    ts = datetime.now().strftime("%Y%m%d%H%M%S")
-    base = os.path.splitext(filename)[0]
-    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
-    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "sponsor"
-    safe_name = f"{ts}_{clean_base}{ext}"
-
-    github_path = f"docs/sponsors/{safe_name}"
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
-
-    sha = None
-    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
-    if existing.status_code == 200:
-        sha = existing.json().get("sha")
-
-    put_data = {
-        "message": f"Upload sponsor image: {safe_name}",
-        "content": base64.b64encode(file_data).decode("ascii"),
-    }
-    if sha:
-        put_data["sha"] = sha
-
-    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
-
-    if resp.status_code in (200, 201):
-        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
-        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
-    else:
-        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+    """Upload a sponsor image to Cloudinary."""
+    return _handle_image_upload("sponsors")
 
 
 # ---------------------------------------------------------------------------
@@ -1165,58 +1096,8 @@ def admin_calendar_sponsor_delete(sponsor_id):
 @app.route("/api/admin/calendar-sponsor/upload-image", methods=["POST"])
 @require_auth
 def admin_calendar_sponsor_upload_image():
-    """Upload a calendar sponsor image to docs/sponsors/ in GitHub repo."""
-    f = request.files.get("image")
-    if not f:
-        return jsonify({"error": "No image file provided"}), 400
-
-    import base64
-    import re as _re
-    from datetime import datetime
-
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-
-    if not github_pat:
-        return jsonify({"error": "GITHUB_PAT not configured"}), 500
-
-    file_data = f.read()
-    filename = f.filename or "sponsor.jpg"
-    ext = os.path.splitext(filename)[1].lower() or ".jpg"
-    allowed_exts = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
-    if ext not in allowed_exts:
-        return jsonify({"error": "Invalid file type"}), 400
-
-    ts = datetime.now().strftime("%Y%m%d%H%M%S")
-    base = os.path.splitext(filename)[0]
-    clean_base = _re.sub(r'[^a-zA-Z0-9-]', '_', base)
-    clean_base = _re.sub(r'_+', '_', clean_base).strip('_') or "cal_sponsor"
-    safe_name = f"{ts}_{clean_base}{ext}"
-
-    github_path = f"docs/sponsors/{safe_name}"
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
-    sha = None
-    existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
-    if existing.status_code == 200:
-        sha = existing.json().get("sha")
-
-    put_data = {
-        "message": f"Upload calendar sponsor image: {safe_name}",
-        "content": base64.b64encode(file_data).decode("ascii"),
-    }
-    if sha:
-        put_data["sha"] = sha
-
-    resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
-    if resp.status_code in (200, 201):
-        image_url = f"https://concert-calendar.wyxr.org/sponsors/{safe_name}"
-        return jsonify({"ok": True, "filename": safe_name, "image_url": image_url})
-    else:
-        return jsonify({"error": f"GitHub API returned {resp.status_code}"}), 502
+    """Upload a calendar sponsor image to Cloudinary."""
+    return _handle_image_upload("sponsors")
 
 
 # ---------------------------------------------------------------------------
@@ -1455,57 +1336,6 @@ def _slack_post_message(channel_id: str, text: str):
         pass
 
 
-def _commit_image_bytes_to_github(file_data: bytes, orig_filename: str, subdir: str, commit_prefix: str):
-    """Commit image bytes to docs/<subdir>/ via the GitHub Contents API.
-
-    Uses the same sanitize + timestamp naming and PUT flow as the sponsor image
-    upload, so uploaded images are served publicly by Vercel. Returns the public
-    https://concert-calendar.wyxr.org/<subdir>/<name> URL on success, or None on
-    any misconfiguration/failure (callers treat None as "no image").
-    """
-    github_pat = os.environ.get("GITHUB_PAT", "")
-    github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
-    if not github_pat:
-        return None
-
-    ext = os.path.splitext(orig_filename or "")[1].lower()
-    if ext not in (".jpg", ".jpeg", ".png", ".webp", ".gif"):
-        ext = ".jpg"
-
-    ts = datetime.now().strftime("%Y%m%d%H%M%S")
-    base = os.path.splitext(orig_filename or "")[0]
-    clean_base = re.sub(r'[^a-zA-Z0-9-]', '_', base)
-    clean_base = re.sub(r'_+', '_', clean_base).strip('_') or "image"
-    safe_name = f"{ts}_{clean_base}{ext}"
-
-    github_path = f"docs/{subdir}/{safe_name}"
-    api_url = f"https://api.github.com/repos/{github_repo}/contents/{github_path}"
-    gh_headers = {
-        "Authorization": f"Bearer {github_pat}",
-        "Accept": "application/vnd.github.v3+json",
-    }
-    try:
-        sha = None
-        existing = http_requests.get(api_url, headers=gh_headers, timeout=10)
-        if existing.status_code == 200:
-            sha = existing.json().get("sha")
-
-        put_data = {
-            "message": f"{commit_prefix}: {safe_name}",
-            "content": base64.b64encode(file_data).decode("ascii"),
-        }
-        if sha:
-            put_data["sha"] = sha
-
-        resp = http_requests.put(api_url, headers=gh_headers, json=put_data, timeout=30)
-        if resp.status_code in (200, 201):
-            return f"https://concert-calendar.wyxr.org/{subdir}/{safe_name}"
-        print(f"[slack] image commit failed: GitHub returned {resp.status_code}", flush=True)
-    except Exception as exc:
-        print(f"[slack] image commit error: {exc}", flush=True)
-    return None
-
-
 def _process_slack_image(file_id: str, channel_id: str):
     """Background thread: download Slack image, extract events via Claude Vision, save, rebuild."""
     try:
@@ -1599,9 +1429,10 @@ def _process_slack_image(file_id: str, channel_id: str):
         # insert without an image.
         hosted_url = None
         if len(events) == 1:
-            hosted_url = _commit_image_bytes_to_github(
-                image_bytes, filename, "event-images", "Slack event image"
-            )
+            try:
+                hosted_url = upload_image(image_bytes, filename, "event-images")
+            except ImageUploadError as exc:
+                print(f"[slack] image rejected: {exc}", flush=True)
             if hosted_url:
                 print(f"[slack] hosted image at {hosted_url}", flush=True)
         else:

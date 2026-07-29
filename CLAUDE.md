@@ -165,6 +165,44 @@ DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in S
 - If "No events extracted": check Vision response in logs — year assumption issues are common for handwritten schedules with no year shown (prompt instructs Claude to assume current/next year)
 - Reinstall app after any scope changes: api.slack.com → OAuth & Permissions → Reinstall to WYXR
 
+## Image Hosting (Cloudinary)
+
+All **uploaded** images — admin event images, sponsor images, calendar sponsor images, and
+Slack-pipeline images — are hosted on Cloudinary. `backend/images.py` is the only place that
+writes them.
+
+```python
+upload_image(file_data, orig_filename, folder) -> str | None   # folder: "event-images" | "sponsors"
+delete_image(image_url) -> bool
+is_cloudinary_url(url) -> bool
+```
+
+- **Config:** `CLOUDINARY_URL` (`cloudinary://<key>:<secret>@wyxr`) — the SDK reads it
+  automatically. Optional `CLOUDINARY_FOLDER_PREFIX` (default `concert-calendar`; set to
+  `concert-calendar-dev` locally so test uploads stay out of the production folder).
+- **Limits:** 10 MB max, extensions `.jpg .jpeg .png .webp .gif`. Enforced in `validate()`.
+- **Error contract:** `ImageUploadError` → HTTP 400 (bad/oversized/corrupt file); `None`
+  return → HTTP 502 (network or provider failure). The Slack path catches `ImageUploadError`
+  and continues without an image — a bad image must never block event insertion.
+- **Deletes actually delete.** The CDN edge may serve a cached copy for a few minutes after
+  `delete_image()`; the Admin API is authoritative, not a browser request to the URL.
+
+**Legacy images stay on the repo.** Files already under `docs/event-images/` and
+`docs/sponsors/` are still served by Vercel and were deliberately not migrated. Both URL
+shapes coexist, so **never assume `image_url` is a Cloudinary URL** — use
+`is_cloudinary_url()` to branch.
+
+`cldImg()` in `docs/index.html` must handle three URL shapes. Getting this wrong is the main
+regression risk in this area:
+| Source | Handling |
+|---|---|
+| `res.cloudinary.com/…/image/upload/…` (new uploads) | splice the transformation into the delivery path — **never** fetch-wrap, that nests Cloudinary in Cloudinary |
+| `concert-calendar.wyxr.org/…` (legacy) and remote scraper images | `/image/fetch/` wrapped, as before |
+| relative paths | passed through untouched |
+
+`artifacts/` is **not** on Cloudinary — it's a build input read off disk during GitHub
+Actions, so `admin_import_upload()` still commits it to the repo via the Contents API.
+
 ## Sponsor System
 
 ### Sponsor Callouts
@@ -180,7 +218,7 @@ A single featured sponsor banner shown above the event list (below the filter ba
 - Public API: `GET /api/calendar-sponsor` — returns single object or `{}`
 - Admin API: `GET/POST /api/admin/calendar-sponsor`, `PUT/DELETE /api/admin/calendar-sponsor/<id>`, `POST /api/admin/calendar-sponsor/upload-image`
 - Managed in Admin → Sponsors tab → "Calendar Sponsor" section (top of tab)
-- **Image upload timing:** Image commits to `docs/sponsors/` via GitHub Contents API → Vercel redeploys (~1 min). Preview in modal uses local blob URL immediately; CDN URL goes live after deploy.
+- **Image upload timing:** Uploads go to Cloudinary and the returned URL resolves immediately — no commit, no Vercel redeploy, no wait. (Before July 2026 these were committed to `docs/sponsors/` and took ~1 min to go live.)
 
 ### Subscribe Modal
 Email signup (Mailchimp) was previously a full yellow banner. Now a compact "📧 Subscribe" button in the header opens a dark modal. Same Mailchimp iframe form + sessionStorage success state (`wyxr_signup_banner_success`). If already subscribed, button shows "✓ Subscribed" (disabled).

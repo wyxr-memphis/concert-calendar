@@ -1036,6 +1036,12 @@
             // Relative/local paths (e.g. admin uploads) can't be fetched by Cloudinary — pass through.
             if (!/^https?:\/\//i.test(src)) return src;
             const t = `w_${width},c_fill,g_auto,q_auto,f_auto`;
+            // Already hosted by us: splice the transformation into the delivery
+            // path. Fetch-wrapping our own URL would nest Cloudinary inside
+            // Cloudinary — double-counting transformations, and may not resolve.
+            const m = src.match(/^https:\/\/res\.cloudinary\.com\/([^/]+)\/image\/upload\/(.+)$/i);
+            if (m) return `https://res.cloudinary.com/${m[1]}/image/upload/${t}/${m[2]}`;
+            // Remote source (scrapers, legacy repo images) — fetch delivery.
             return `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/fetch/${t}/${encodeURIComponent(src)}`;
         }
 
