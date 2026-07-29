@@ -443,6 +443,15 @@ For EACH visible event, extract:
 - date (in any format visible)
 - time (if visible)
 
+MULTI-ACT BILLS: When one show has several acts on the bill (a headliner plus support,
+or a lineup listed together for the same night), return a SEPARATE entry for EACH act,
+all sharing the same venue, date, and time. Do not combine them into one entry with a
+joined title. A four-act bill on one night = four entries.
+
+VENUE NAME: Return only the venue's name — no city, state, or street address.
+Write "Lamplighter Lounge", not "Lamplighter Lounge, Memphis, TN" and not
+"Lamplighter Lounge, 1702 Madison Ave".
+
 IMPORTANT YEAR RULE: If no year is shown on the image, default to the CURRENT year ({START_DATE.year}).
 - Use the current year ({START_DATE.year}) for any date in the current month or future months.
 - A few dates in the current month may have already passed (e.g. today is the 4th but the schedule starts on the 3rd) — that's normal, still use {START_DATE.year}.

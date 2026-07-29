@@ -138,7 +138,12 @@ DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in S
 2. Slack fires a `file_shared` event to `POST /api/slack/events`
 3. Backend downloads the image, checks the caption via `conversations.history`
 4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image
-5. New events are deduplicated and inserted into PostgreSQL
+5. New events are deduplicated and inserted into PostgreSQL. The uploaded image is attached
+   **only when every extracted event is the same show** — same canonical venue, same date.
+   A 4-act bill on one night gets the flyer; a venue's month schedule does not (it would
+   thumbnail the whole flyer onto every row). Venue is canonicalized via
+   `normalize_venue_from_db` first, so "Lamplighter Lounge, Memphis, TN" groups with
+   "Lamplighter Lounge".
 6. GitHub Actions rebuild is triggered
 7. Bot replies in the channel listing each added event, with the title linked to
    `{SITE_BASE}/admin/edit?id=<uuid>` for one-click correction

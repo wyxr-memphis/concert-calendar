@@ -1296,6 +1296,27 @@ _SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
 _SITE_BASE = os.environ.get("SITE_BASE_URL", "https://concert-calendar.wyxr.org").rstrip("/")
 
 
+def _canonical_venue(venue: str) -> str:
+    """Canonical, display-cased venue name.
+
+    Uses the DB venues table first — the same authority _event_dedup_key uses,
+    and the only one that collapses "Lamplighter Lounge, Memphis, TN" onto
+    "Lamplighter Lounge". Falls back to the config alias map, then to the raw
+    string, so an unknown venue is passed through rather than dropped.
+    """
+    try:
+        canon = normalize_venue_from_db(venue)
+        if canon and canon[0]:
+            return str(canon[0]).strip()
+    except Exception:
+        pass
+    try:
+        from src.config import normalize_venue_name
+        return normalize_venue_name(venue or "").strip()
+    except Exception:
+        return (venue or "").strip()
+
+
 def _slack_escape(text: str) -> str:
     """Escape the three characters Slack treats as markup control chars.
 
@@ -1436,25 +1457,34 @@ def _process_slack_image(file_id: str, channel_id: str):
             return
 
         # 5. Host the uploaded image so it can be shown alongside the event —
-        # but ONLY when the image depicts a single event. A multi-event flyer or
-        # schedule (many shows across days) should not have the whole flyer
-        # thumbnailed onto each individual event, so we skip hosting entirely.
-        # Keyed on the count extracted from the image (not events_to_insert) so
-        # a multi-event flyer is excluded even if only one of its events is new.
-        # Slack's url_private needs bot-token auth, so we re-host it publicly
-        # (same path as sponsor images). Failure is non-fatal — events still
-        # insert without an image.
+        # but ONLY when the image depicts a single show. What must be avoided is
+        # a venue's month-long schedule thumbnailing the whole flyer onto every
+        # row; a gig poster for one night is fine even when the bill has four
+        # acts on it and Vision returns one event per act.
+        #
+        # So the test is "same venue, same date", not "exactly one event".
+        # Keyed on everything extracted (not events_to_insert) so a schedule is
+        # still excluded when only one of its shows happens to be new.
+        #
+        # Slack's url_private needs bot-token auth, so we re-host it publicly.
+        # Failure is non-fatal — events still insert without an image.
         hosted_url = None
-        if len(events) == 1:
+        distinct_shows = {(_canonical_venue(e.venue).lower(), e.date) for e in events}
+        if len(distinct_shows) == 1:
             try:
                 hosted_url = upload_image(image_bytes, filename, "event-images")
             except ImageUploadError as exc:
                 print(f"[slack] image rejected: {exc}", flush=True)
             if hosted_url:
-                print(f"[slack] hosted image at {hosted_url}", flush=True)
+                print(
+                    f"[slack] hosted image at {hosted_url} "
+                    f"({len(events)} act(s), one show)",
+                    flush=True,
+                )
         else:
             print(
-                f"[slack] image has {len(events)} events — not attaching image to individual events",
+                f"[slack] image spans {len(distinct_shows)} venue/date combinations "
+                f"— not attaching image to individual events",
                 flush=True,
             )
 
@@ -1463,7 +1493,11 @@ def _process_slack_image(file_id: str, channel_id: str):
         for e in events_to_insert:
             d = {
                 "title": e.artist,
-                "venue": e.venue,
+                # Store the canonical name. Vision sometimes returns
+                # "Lamplighter Lounge, Memphis, TN", which would otherwise
+                # persist as a second venue string on the calendar and in the
+                # venue filter even though it dedups to the same key.
+                "venue": _canonical_venue(e.venue),
                 "date": e.date.isoformat(),
                 "source": "artifact",
                 "is_active": True,
@@ -1511,7 +1545,9 @@ def _process_slack_image(file_id: str, channel_id: str):
         n = len(inserted)
         lines = [f"✅ *{n} event{'s' if n != 1 else ''} added from image:*"]
         for e in events_to_insert:
-            event_id = inserted_ids.get((e.artist, e.venue, e.date.isoformat()))
+            # Must match what was stored, which is the canonical venue.
+            venue = _canonical_venue(e.venue)
+            event_id = inserted_ids.get((e.artist, venue, e.date.isoformat()))
             if not event_id:
                 continue  # collided on insert — nothing to link to
             date_str = e.date.strftime("%a %b %-d")
@@ -1520,7 +1556,7 @@ def _process_slack_image(file_id: str, channel_id: str):
             edit_url = f"{_SITE_BASE}/admin/edit?id={event_id}"
             # Slack mrkdwn link: <url|label>
             lines.append(
-                f"• <{edit_url}|{_slack_escape(e.artist)}> — {e.venue} — {date_str}"
+                f"• <{edit_url}|{_slack_escape(e.artist)}> — {venue} — {date_str}"
             )
         lines.append("\n_Titles link to the admin editor._")
         if build_triggered:
