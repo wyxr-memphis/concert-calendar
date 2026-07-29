@@ -140,7 +140,12 @@ DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in S
 4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image
 5. New events are deduplicated and inserted into PostgreSQL
 6. GitHub Actions rebuild is triggered
-7. Bot replies in the channel with a list of added events
+7. Bot replies in the channel listing each added event, with the title linked to
+   `{SITE_BASE}/admin/edit?id=<uuid>` for one-click correction
+
+The reply counts and lists only events that **actually inserted** — `bulk_insert_events`
+uses `ON CONFLICT DO NOTHING`, so a row that collides returns nothing and is skipped.
+`SITE_BASE_URL` overrides the site origin (defaults to `https://concert-calendar.wyxr.org`).
 
 ### Environment variables (Render)
 | Variable | Source |

@@ -1292,6 +1292,23 @@ _SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 _SLACK_SIGNING_SECRET = os.environ.get("SLACK_SIGNING_SECRET", "")
 _SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
 
+# Public site origin, used to build admin deep-links in Slack replies.
+_SITE_BASE = os.environ.get("SITE_BASE_URL", "https://concert-calendar.wyxr.org").rstrip("/")
+
+
+def _slack_escape(text: str) -> str:
+    """Escape the three characters Slack treats as markup control chars.
+
+    Without this an artist name containing & or <> breaks the surrounding
+    <url|label> link.
+    """
+    return (
+        (text or "")
+        .replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+    )
+
 
 def _verify_slack_signature(raw_body: str, headers) -> bool:
     """Verify Slack request signature using HMAC-SHA256."""
@@ -1458,7 +1475,21 @@ def _process_slack_image(file_id: str, channel_id: str):
                 d["image_url"] = hosted_url
             event_dicts.append(d)
 
-        bulk_insert_events(event_dicts)
+        # Keep the created rows so the Slack reply can deep-link each event to
+        # its admin edit page. ON CONFLICT DO NOTHING means a row that collided
+        # returns nothing, so this can be shorter than event_dicts.
+        inserted = bulk_insert_events(event_dicts)
+        inserted_ids = {
+            (row.get("title"), row.get("venue"), str(row.get("date"))): row.get("id")
+            for row in inserted
+        }
+
+        if not inserted:
+            _slack_post_message(
+                channel_id,
+                "⚠️ No new events found — all extracted events are already in the calendar.",
+            )
+            return
 
         # 6. Trigger GitHub Actions rebuild
         github_pat = os.environ.get("GITHUB_PAT", "")
@@ -1477,13 +1508,23 @@ def _process_slack_image(file_id: str, channel_id: str):
             build_triggered = build_resp.status_code == 204
 
         # 7. Post results back to Slack
-        n = len(events_to_insert)
+        n = len(inserted)
         lines = [f"✅ *{n} event{'s' if n != 1 else ''} added from image:*"]
         for e in events_to_insert:
+            event_id = inserted_ids.get((e.artist, e.venue, e.date.isoformat()))
+            if not event_id:
+                continue  # collided on insert — nothing to link to
             date_str = e.date.strftime("%a %b %-d")
-            lines.append(f"• {e.artist} — {e.venue} — {date_str}")
+            # /admin/edit (no .html) — vercel.json sets cleanUrls, so the
+            # .html form would 308-redirect here.
+            edit_url = f"{_SITE_BASE}/admin/edit?id={event_id}"
+            # Slack mrkdwn link: <url|label>
+            lines.append(
+                f"• <{edit_url}|{_slack_escape(e.artist)}> — {e.venue} — {date_str}"
+            )
+        lines.append("\n_Titles link to the admin editor._")
         if build_triggered:
-            lines.append("\n📅 Calendar rebuild triggered — live in ~2 minutes")
+            lines.append("📅 Calendar rebuild triggered — live in ~2 minutes")
 
         _slack_post_message(channel_id, "\n".join(lines))
 
