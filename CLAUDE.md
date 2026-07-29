@@ -56,6 +56,20 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 - `gunicorn preload_app=True` is critical - prevents silent worker import failures
 - **psycopg2 transaction poisoning:** Use separate `with get_cursor()` blocks per operation
 - Root `/` route needed for Render health checks
+- **Schema DDL must never run unguarded on boot.** `init_db()` checks the catalog first
+  (`_schema_is_current()`) and skips migrations entirely when every table and column
+  already exists — the case on every deploy after the first. Migrations that do run use
+  `_ddl_cursor()`, which sets `lock_timeout = 5s`.
+  **Why:** `CREATE TABLE` / `ALTER TABLE` need an ACCESS EXCLUSIVE lock, and in Postgres a
+  *queued* exclusive request blocks every later query on that table — so a blocked boot
+  takes plain reads down with it. On 2026-07-29 a stalled build held a lock on `events`
+  while a deploy booted workers; their `CREATE TABLE IF NOT EXISTS events` queued, and the
+  whole API went down (`/api/events`, `/api/sponsors`, even `/health`) until the stuck
+  session was terminated. Any new DDL added to `_run_migrations()` must use `_ddl_cursor()`
+  and its table must be added to `_SCHEMA_TABLES`, or the fast path will skip it forever.
+- **Diagnosing a hung API:** query `pg_stat_activity` for `state = 'idle in transaction'`
+  and `wait_event_type = 'Lock'`. Fix is `pg_terminate_backend(<pid>)` plus cancelling the
+  build; the build's inserts are `ON CONFLICT DO NOTHING` and re-run next cycle.
 
 ### Deduplication
 - Events are deduplicated during scraper runs using normalized keys (title|venue|date)

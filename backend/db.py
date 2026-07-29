@@ -62,7 +62,104 @@ def get_cursor(commit=True):
         _put_connection(conn)
 
 
+# Every table the migrations below create. Used by _schema_is_current() to
+# decide whether any DDL needs to run at all.
+_SCHEMA_TABLES = (
+    "events",
+    "scrape_logs",
+    "venues",
+    "submissions",
+    "dismissed_venue_names",
+    "sponsors",
+    "calendar_sponsor",
+    "api_keys",
+    "api_request_logs",
+    "api_key_requests",
+)
+
+# Columns added to events by later migration steps. Present == migrations ran.
+_SCHEMA_EVENT_COLUMNS = ("neighborhood", "dedup_key", "is_wyxr_presents")
+
+
+@contextmanager
+def _ddl_cursor():
+    """Cursor for schema changes, with a bounded lock wait.
+
+    CREATE TABLE / ALTER TABLE need an ACCESS EXCLUSIVE lock. If something else
+    holds a lock on the table, that request *queues* — and in Postgres every
+    later query on the table queues behind it, so one stalled writer takes all
+    reads down with it. That is exactly how a stalled build plus a concurrent
+    deploy took the API offline on 2026-07-29.
+
+    Failing fast instead leaves the app serving on the existing schema, and the
+    migration retries on the next boot.
+    """
+    with get_cursor() as cur:
+        cur.execute("SET LOCAL lock_timeout = '5s'")
+        yield cur
+
+
+def _schema_is_current():
+    """True when every table and migrated column already exists.
+
+    Read-only catalog lookup — takes no lock on the application tables, so the
+    common case (a deploy against an already-migrated database) never asks for
+    a schema lock at all.
+    """
+    try:
+        with get_cursor(commit=False) as cur:
+            cur.execute(
+                "SELECT count(*) AS n FROM information_schema.tables "
+                "WHERE table_schema = 'public' AND table_name = ANY(%s)",
+                (list(_SCHEMA_TABLES),),
+            )
+            if cur.fetchone()["n"] < len(_SCHEMA_TABLES):
+                return False
+
+            cur.execute(
+                "SELECT count(*) AS n FROM information_schema.columns "
+                "WHERE table_schema = 'public' AND table_name = 'events' "
+                "AND column_name = ANY(%s)",
+                (list(_SCHEMA_EVENT_COLUMNS),),
+            )
+            return cur.fetchone()["n"] == len(_SCHEMA_EVENT_COLUMNS)
+    except Exception as e:
+        # Can't tell — fall through to the migrations rather than skipping them.
+        print(f"[init_db] schema check failed ({e}); running migrations", flush=True)
+        return False
+
+
 def init_db():
+    """Ensure the schema is current, then seed venues.
+
+    Migrations are skipped entirely when the schema already has every table and
+    column, which is the case on every deploy after the first. That matters for
+    more than speed: DDL takes exclusive locks, and a blocked exclusive request
+    blocks all reads behind it.
+
+    Venue seeding always runs — it adds newly-configured venues to an existing
+    table, not only to an empty one.
+    """
+    if _schema_is_current():
+        print("[init_db] schema current — skipping migrations", flush=True)
+    else:
+        try:
+            _run_migrations()
+        except psycopg2.errors.LockNotAvailable:
+            print(
+                "[init_db] WARNING: timed out waiting for schema locks — another "
+                "process is holding them. Serving on the existing schema; "
+                "migrations will retry on the next boot.",
+                flush=True,
+            )
+
+    try:
+        _seed_venues_if_empty()
+    except Exception as e:
+        print(f"[init_db] Warning: venue seeding failed: {e}", flush=True)
+
+
+def _run_migrations():
     """Run schema creation (idempotent).
 
     Migrations run in order:
@@ -70,7 +167,6 @@ def init_db():
     2. Add neighborhood column to events (migration)
     3. Create venues table (new)
     4. Create indexes that depend on new columns
-    5. Seed venue data
     """
     # Step 1: Core tables (these already exist on production)
     core_sql = """
@@ -110,11 +206,11 @@ def init_db():
     );
     CREATE INDEX IF NOT EXISTS idx_scrape_logs_started ON scrape_logs(started_at DESC);
     """
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute(core_sql)
 
     # Step 2: Add neighborhood column to events (safe migration)
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS neighborhood TEXT")
 
     # Step 2b: dedup_key column + partial unique index (structural guard against
@@ -122,10 +218,10 @@ def init_db():
     # duplicate collision can't crash boot — the one-time
     # scripts/backfill_dedup_key.py cleans + backfills + creates the index on
     # prod; this is just insurance for fresh installs.
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS dedup_key TEXT")
     try:
-        with get_cursor() as cur:
+        with _ddl_cursor() as cur:
             cur.execute(
                 "CREATE UNIQUE INDEX IF NOT EXISTS idx_events_dedup_key "
                 "ON events (dedup_key) WHERE is_active"
@@ -134,7 +230,7 @@ def init_db():
         print(f"[init_db] Skipped dedup_key unique index (resolve duplicates first): {e}")
 
     # Step 3: Create venues table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS venues (
               id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -148,7 +244,7 @@ def init_db():
         """)
 
     # Step 4: Create submissions table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS submissions (
               id SERIAL PRIMARY KEY,
@@ -171,11 +267,11 @@ def init_db():
         """)
 
     # Step 5: Add is_wyxr_presents column
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("ALTER TABLE events ADD COLUMN IF NOT EXISTS is_wyxr_presents BOOLEAN DEFAULT false")
 
     # Step 6: Create dismissed_venue_names table (added with Dismiss button feature)
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS dismissed_venue_names (
                 name TEXT PRIMARY KEY,
@@ -184,7 +280,7 @@ def init_db():
         """)
 
     # Step 7: Create sponsors table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS sponsors (
               id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -203,7 +299,7 @@ def init_db():
         """)
 
     # Step 8: Create calendar_sponsor table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS calendar_sponsor (
               id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -222,7 +318,7 @@ def init_db():
         """)
 
     # Step 9: Create api_keys table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS api_keys (
               id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -237,7 +333,7 @@ def init_db():
         """)
 
     # Step 10: Create api_request_logs table
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS api_request_logs (
               id          BIGSERIAL PRIMARY KEY,
@@ -255,7 +351,7 @@ def init_db():
         """)
 
     # Step 12: Create api_key_requests table (public access requests, pending admin approval)
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         cur.execute("""
             CREATE TABLE IF NOT EXISTS api_key_requests (
               id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -273,7 +369,7 @@ def init_db():
 
     # Step 13: Backfill source column to standardized values
     # manual, scraper:{name}, artifact — idempotent migration
-    with get_cursor() as cur:
+    with _ddl_cursor() as cur:
         # Admin/manual sources stay as "manual"
         cur.execute("""UPDATE events SET source = 'manual'
                        WHERE source = 'admin'""")
@@ -300,11 +396,9 @@ def init_db():
                        WHERE source NOT IN ('manual', 'artifact')
                          AND source NOT LIKE 'scraper:%'""")
 
-    # Step 11: Seed venues if table is empty
-    try:
-        _seed_venues_if_empty()
-    except Exception as e:
-        print(f"[init_db] Warning: venue seeding failed: {e}", flush=True)
+    # Venue seeding is deliberately not here — init_db() runs it on every boot,
+    # including when migrations are skipped, so newly-configured venues still
+    # get inserted into the existing table.
 
 
 # ---------------------------------------------------------------------------
