@@ -196,7 +196,7 @@ shapes coexist, so **never assume `image_url` is a Cloudinary URL** — use
 regression risk in this area:
 | Source | Handling |
 |---|---|
-| `res.cloudinary.com/…/image/upload/…` (new uploads) | splice the transformation into the delivery path — **never** fetch-wrap, that nests Cloudinary in Cloudinary |
+| `res.cloudinary.com/…/image/upload/…` (new uploads) | splice the transformation into the delivery path — **never** fetch-wrap. A nested URL still returns 200, so this fails silently; the cost is that each one bills as a separate derived asset |
 | `concert-calendar.wyxr.org/…` (legacy) and remote scraper images | `/image/fetch/` wrapped, as before |
 | relative paths | passed through untouched |
 
