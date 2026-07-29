@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-07-29T18:01:46.597235+00:00",
+  "run_timestamp": "2026-07-29T18:13:03.389400+00:00",
   "date_range": {
     "start": "2026-07-29",
     "end": "2026-08-05"
   },
-  "total_events_db": 2741,
+  "total_events_db": 2745,
   "total_active_display": 80,
   "data_store": "postgresql",
   "sources": [
@@ -25,10 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -69,6 +77,22 @@
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -89,34 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 222,
-      "events_after_filter": 37,
-      "events_filtered": 185,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -129,18 +129,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 11,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,12 +169,20 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 16,
+      "events_after_filter": 13,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
+      "error": null
     },
     {
       "name": "Venue: Nashoba",
@@ -193,27 +201,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 8,
-      "events_filtered": 1,
+      "events_found": 23,
+      "events_after_filter": 3,
+      "events_filtered": 20,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 13,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 15,
+      "events_filtered": 206,
       "error": null
     },
     {
