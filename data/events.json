@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-07-29T18:13:03.389400+00:00",
+  "updated_at": "2026-07-29T18:36:48.860777+00:00",
   "events": [
     {
       "id": "ffd46538-f69e-4125-ad26-6ce820de7823",
@@ -27477,18 +27477,18 @@
       "updated_at": "2026-07-29T18:02:06.083813+00:00"
     },
     {
-      "id": "306dcc61-d57e-4d69-acaa-a2ebd11cb5e9",
-      "title": "Duane Cleveland Band",
-      "venue": "Lafayette's Music Room",
+      "id": "a60df040-a217-4918-9a6b-0b16fa46f4d1",
+      "title": "John Paul Keith",
+      "venue": "Guest House Graceland Lobby Lounge",
       "date": "2026-05-30",
-      "start_time": "5 PM",
+      "start_time": "7:00 PM",
       "doors_time": null,
-      "ticket_url": null,
+      "ticket_url": "https://www.bandsintown.com/e/108189334-john-paul-keith-at-guest-house-graceland-lobby-lounge?came_from=257&utm_medium=web&utm_source=home&utm_campaign=event",
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "scraper:lafayette_s_music_room",
+      "source": "artifact",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
@@ -28370,18 +28370,18 @@
       "updated_at": "2026-07-29T18:02:06.083813+00:00"
     },
     {
-      "id": "b105aa66-1947-4b8a-a8b3-8c9a4a419f1d",
-      "title": "Blissful Idiot",
-      "venue": "Lamplighter Lounge",
+      "id": "f576d830-af6b-46a9-98c9-3123186535c6",
+      "title": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
       "date": "2026-05-31",
-      "start_time": "7 PM",
+      "start_time": "8:00 pm",
       "doors_time": null,
       "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "artifact",
+      "source": "scraper:b_b_king_s_blues_club",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
@@ -32968,9 +32968,9 @@
       "updated_at": "2026-07-29T18:02:06.083813+00:00"
     },
     {
-      "id": "279a6770-9643-4b87-8275-8f36ab5aea97",
-      "title": "Davis Coen & His Most Excellent Group",
-      "venue": "Huey's (Olive Branch)",
+      "id": "51289896-c4eb-4166-bd25-cbbaed32cd53",
+      "title": "Angelina David",
+      "venue": "Huey's (Southaven)",
       "date": "2026-06-14",
       "start_time": "6 PM",
       "doors_time": null,
@@ -38725,8 +38725,8 @@
       "updated_at": "2026-07-29T18:02:06.083813+00:00"
     },
     {
-      "id": "b1f27946-e294-40da-abc3-eea5ace4d99e",
-      "title": "Ms. Horrorbusiness (live painting)",
+      "id": "17716ff0-ea07-44c3-8d4c-08021f4e8a1d",
+      "title": "RussT",
       "venue": "Lamplighter Lounge",
       "date": "2026-07-11",
       "start_time": "8 PM",
@@ -41847,7 +41847,7 @@
       "date": "2026-07-25",
       "start_time": "8 PM",
       "doors_time": null,
-      "ticket_url": "https://nashoba.live/vip-experience-2/",
+      "ticket_url": null,
       "ticket_price": null,
       "image_url": null,
       "description": null,
@@ -42750,7 +42750,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "87c8ff58-e88b-4cb0-96b5-94872cb9dc7c",
@@ -42769,7 +42769,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1a617d81-c315-4c48-9a59-7549c761ec66",
@@ -42788,7 +42788,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c27b0559-ac01-475c-bad1-0ece59d27cd4",
@@ -42807,7 +42807,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7bfca82f-f9a5-4bcb-a80c-7d9fc0929e2c",
@@ -42826,7 +42826,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-26T07:37:35.962580+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f7e47430-35c4-4cbe-a255-e19335b71415",
@@ -42864,7 +42864,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1d6cfc4a-6781-45d4-a386-3f3316594c8f",
@@ -42902,7 +42902,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:02:06.083813+00:00"
     },
     {
       "id": "479cfaef-0ddd-4807-a725-33d58f7e61fc",
@@ -42940,7 +42940,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-26T07:37:35.962580+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2fc1c0d5-45f1-433b-a8c1-f50d1cbcb1b4",
@@ -42959,7 +42959,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1857c16e-e090-457f-a3a6-8c603e75bb06",
@@ -42978,7 +42978,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "566de5f0-0e08-43c0-9749-61d20f9ff508",
@@ -42997,7 +42997,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9d33830e-f49d-4894-80b7-49b918d72fba",
@@ -43016,7 +43016,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-26T07:37:35.962580+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9dcfe302-b9c4-4431-bad6-c95e5ee27d83",
@@ -43035,7 +43035,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4bd3aa70-5191-4da2-b405-e830da998917",
@@ -43073,7 +43073,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-23T07:01:55.690360+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "54eaa48a-a57b-49ab-a28b-75cc826d9293",
@@ -43092,7 +43092,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-27T08:34:15.665187+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6c73a6f4-43b8-45cd-b561-958596dafef3",
@@ -43111,7 +43111,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-27T08:34:15.665187+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e45c6a60-13df-445c-ad6a-4fc02bdc50c1",
@@ -43130,7 +43130,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2e4a218a-401f-4445-bccb-8872a804a8f2",
@@ -43149,7 +43149,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "674a07e5-58e9-49c9-a2d1-1f1251d5c1c9",
@@ -43168,7 +43168,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c57c6da0-ac36-49f3-99d9-ecf196058e1c",
@@ -43187,7 +43187,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ec71c5a2-2245-49d9-b811-fbd5500fc562",
@@ -43206,7 +43206,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-27T08:34:15.665187+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "28c9ecab-f833-4dc9-bf47-f37c131a2810",
@@ -43225,7 +43225,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T18:55:44.904120+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f2ad63c2-a01f-45ab-abd4-65e92c4854c9",
@@ -43244,7 +43244,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "07345c4d-2950-4371-bbfa-607358ac7505",
@@ -43263,7 +43263,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f2fcfb30-db15-40fb-b872-4a928e21f491",
@@ -43282,7 +43282,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "35fdaaf4-ba86-4bd1-8089-0eeabf652cfd",
@@ -43415,7 +43415,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "250cef74-2e25-486d-b56b-73a5516005ed",
@@ -43453,7 +43453,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e8024d8d-1165-4834-92ff-38dee14f589c",
@@ -43624,7 +43624,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "938273d5-8829-4b0a-aec9-defa7cc5616e",
@@ -43643,7 +43643,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1f91b08c-d1cb-44f6-949e-b66bb2bd0b1b",
@@ -43662,7 +43662,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "57281c69-0f17-49cb-b9f1-be6eb861fb87",
@@ -43700,7 +43700,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T18:42:15.544348+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0bcc5a70-fd5d-45a4-92a8-b38ebba4add0",
@@ -43719,7 +43719,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bcef8f17-0992-4562-a62a-d2aa9a3d2c9d",
@@ -43738,7 +43738,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "87b3e9a3-326e-40c5-aacb-911253d54f79",
@@ -43776,7 +43776,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8bb24b60-6324-4345-9533-7a52c3f1a3ef",
@@ -43814,7 +43814,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "44d4340c-918d-456c-8f29-9ad0a2b16674",
@@ -43871,7 +43871,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e8b6a2d8-ff75-4cfc-bc10-fdb3412662a3",
@@ -43909,7 +43909,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-28T18:07:34.402144+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "09bbaf98-9568-4012-bf3f-65b32e07c1d3",
@@ -43947,7 +43947,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "dc8e742a-29ad-4ce7-9ba6-0a620a3b33b3",
@@ -43966,7 +43966,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d536282b-46b3-4e04-a921-2d8756c0e97e",
@@ -43985,7 +43985,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2c9fb98d-6b46-4142-a857-5294807b32fc",
@@ -44004,7 +44004,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "acf81810-0756-4027-bc20-e4bb086a3bad",
@@ -44023,7 +44023,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0ece5fb6-5c6a-4f93-bf4b-f44cf5b79242",
@@ -44042,7 +44042,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e000992e-9de4-4e79-8c12-394218e45703",
@@ -44061,7 +44061,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-10T07:27:14.991900+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5f5a38ac-92df-4f9d-8307-0dcf4f51a7ba",
@@ -44099,7 +44099,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c2848650-2ed6-4688-a36e-ea35554871d3",
@@ -44118,7 +44118,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "28800796-bb57-458f-a8c4-adf3d8885475",
@@ -44137,7 +44137,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "dad1d17f-716d-4570-9526-1e6cd12c580b",
@@ -44156,7 +44156,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c0eb1bd4-1f0f-4d3e-a288-9aa011766efa",
@@ -44175,7 +44175,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "539e158a-93ce-4fc2-9f00-ebb42770b530",
@@ -44194,7 +44194,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:02:06.083813+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8b6aa07c-4882-4cda-8825-9cc018f16845",
@@ -44213,7 +44213,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "24c8d844-e8ff-44cb-910e-863ee2fb332a",
@@ -44232,7 +44232,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "44181f43-3d54-4fdc-8428-d4af05b08898",
@@ -44251,7 +44251,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5d2908f5-227f-4083-8fc6-34ef2f2fb036",
@@ -44270,7 +44270,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3e536476-eb46-4596-8d55-80921e0277f1",
@@ -44289,7 +44289,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "244c2701-34ad-423e-a8c0-86c77e31ed42",
@@ -44306,9 +44306,9 @@
       "source": "manual",
       "is_featured": false,
       "is_wyxr_presents": false,
-      "is_active": true,
+      "is_active": false,
       "created_at": "2026-07-28T21:10:42.730041+00:00",
-      "updated_at": "2026-07-29T18:02:06.083813+00:00"
+      "updated_at": "2026-07-29T18:24:46.750450+00:00"
     },
     {
       "id": "3077f27e-fb0f-4ce4-b1f7-3b8b014f41ef",
@@ -44327,7 +44327,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f01af706-0194-4327-88ed-ba3e41ef9a94",
@@ -44346,7 +44346,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "64f8b573-7dd9-4fcd-ab02-7c2878702f0a",
@@ -44365,7 +44365,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d24b52e1-1cbe-4255-812b-b1de429d38b4",
@@ -44384,7 +44384,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0e786f2b-bc87-4110-a9e1-5126a49cd651",
@@ -44403,7 +44403,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fd8695a8-f85b-46ec-8865-5a3e7f49c91c",
@@ -44422,69 +44422,12 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
-    },
-    {
-      "id": "d05e3498-c8cd-4ac8-b0e7-25c229c54a23",
-      "title": "SUNFO",
-      "venue": "Lamplighter Lounge, Memphis, TN",
-      "date": "2026-08-06",
-      "start_time": "Doors 6:30, Music 7:00",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "artifact",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-07-29T18:05:40.265303+00:00",
-      "updated_at": "2026-07-29T18:05:40.265303+00:00"
-    },
-    {
-      "id": "0c100dc4-19c4-47fd-956e-f69a3006e6d2",
-      "title": "Stay Fashionable",
-      "venue": "Lamplighter Lounge, Memphis, TN",
-      "date": "2026-08-06",
-      "start_time": "Doors 6:30, Music 7:00",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "artifact",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-07-29T18:05:40.265303+00:00",
-      "updated_at": "2026-07-29T18:05:40.265303+00:00"
-    },
-    {
-      "id": "0d4231b7-7888-4482-9d2d-4700fc931346",
-      "title": "Updog",
-      "venue": "Lamplighter Lounge, Memphis, TN",
-      "date": "2026-08-06",
-      "start_time": "Doors 6:30, Music 7:00",
-      "doors_time": null,
-      "ticket_url": null,
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "artifact",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-07-29T18:05:40.265303+00:00",
-      "updated_at": "2026-07-29T18:05:40.265303+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7e60ff42-09a9-4e2c-8dc1-bdd46378f1ed",
       "title": "FinalBossFight!",
-      "venue": "Lamplighter Lounge, Memphis, TN",
+      "venue": "Lamplighter Lounge",
       "date": "2026-08-06",
       "start_time": "Doors 6:30, Music 7:00",
       "doors_time": null,
@@ -44493,12 +44436,69 @@
       "image_url": null,
       "description": null,
       "genre": null,
-      "source": "artifact",
+      "source": "manual",
       "is_featured": false,
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T18:05:40.265303+00:00",
-      "updated_at": "2026-07-29T18:05:40.265303+00:00"
+      "updated_at": "2026-07-29T18:25:03.683712+00:00"
+    },
+    {
+      "id": "0d4231b7-7888-4482-9d2d-4700fc931346",
+      "title": "Updog",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-06",
+      "start_time": "Doors 6:30, Music 7:00",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "manual",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-29T18:05:40.265303+00:00",
+      "updated_at": "2026-07-29T18:25:03.860828+00:00"
+    },
+    {
+      "id": "d05e3498-c8cd-4ac8-b0e7-25c229c54a23",
+      "title": "SUNFO",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-06",
+      "start_time": "Doors 6:30, Music 7:00",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "manual",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-29T18:05:40.265303+00:00",
+      "updated_at": "2026-07-29T18:25:03.443197+00:00"
+    },
+    {
+      "id": "0c100dc4-19c4-47fd-956e-f69a3006e6d2",
+      "title": "Stay Fashionable",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-06",
+      "start_time": "Doors 6:30, Music 7:00",
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "manual",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-29T18:05:40.265303+00:00",
+      "updated_at": "2026-07-29T18:25:04.049809+00:00"
     },
     {
       "id": "4f04bf97-f2d7-4562-9c79-5355fb4a471d",
@@ -44517,7 +44517,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-05T08:44:32.623834+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "01836440-c92e-4046-b819-788051a4538f",
@@ -44536,7 +44536,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3c2bed5f-39a8-4934-b60b-473f5e37b6e5",
@@ -44555,7 +44555,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b2c4ec70-5b8c-4e12-a368-0aa29fbf2f55",
@@ -44574,7 +44574,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1b120c83-b59c-4ea6-832e-e153af7da788",
@@ -44593,7 +44593,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b832ebfa-b1ea-4be8-92d3-f2627ebad41e",
@@ -44612,7 +44612,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4453a062-2a58-4b63-893d-98cbf91f5b8a",
@@ -44631,26 +44631,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:25.424065+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
-    },
-    {
-      "id": "6b1b978e-69d2-4e40-8e3a-46856b256f5a",
-      "title": "Saddle Up",
-      "venue": "Nashoba",
-      "date": "2026-08-07",
-      "start_time": "8 PM",
-      "doors_time": null,
-      "ticket_url": "https://nashoba.live/vip-experience-2/",
-      "ticket_price": null,
-      "image_url": null,
-      "description": null,
-      "genre": null,
-      "source": "scraper:nashoba",
-      "is_featured": false,
-      "is_wyxr_presents": false,
-      "is_active": true,
-      "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1e278ec1-72b8-464c-a1fb-a6d4b11cd45b",
@@ -44670,6 +44651,25 @@
       "is_active": false,
       "created_at": "2026-07-24T16:24:25.749484+00:00",
       "updated_at": "2026-07-29T18:02:06.083813+00:00"
+    },
+    {
+      "id": "6b1b978e-69d2-4e40-8e3a-46856b256f5a",
+      "title": "Saddle Up",
+      "venue": "Nashoba",
+      "date": "2026-08-07",
+      "start_time": "8 PM",
+      "doors_time": null,
+      "ticket_url": "https://nashoba.live/vip-experience-2/",
+      "ticket_price": null,
+      "image_url": null,
+      "description": null,
+      "genre": null,
+      "source": "scraper:nashoba",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-05-27T21:09:49.578953+00:00",
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c0349b72-0028-4a8c-81f0-5ee157b360e0",
@@ -44707,7 +44707,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3dfc0709-79ac-46a0-b987-0c997fd54c34",
@@ -44726,7 +44726,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-22T17:55:12.536943+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "28daf226-2ee7-47d0-b59f-1e1af704c2f2",
@@ -44745,7 +44745,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0af5adf4-34e9-48ef-939e-ed9a9b16a3dd",
@@ -44764,7 +44764,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6d32f2cd-2435-4663-8eee-0e114e0f3fc5",
@@ -44783,7 +44783,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-17T20:50:23.173470+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c25a88bc-714d-4a45-9273-f9be433caec2",
@@ -44821,7 +44821,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "092dda95-d0ca-4e9b-ba2f-c266aa866b19",
@@ -44840,7 +44840,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "daacb3ad-912d-4071-9e33-6bc7fbd17034",
@@ -44859,7 +44859,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "082e2482-5a09-4799-9017-bb349618dd01",
@@ -44878,7 +44878,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9220ecd0-574c-467c-a4cd-04a8e75776b7",
@@ -44897,7 +44897,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c3dcf0c6-ea47-4750-853a-ab652decfb38",
@@ -44916,7 +44916,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "62f9036f-cfbc-4dc5-86c2-edc747f87519",
@@ -44935,7 +44935,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "330be29e-0da7-407f-b848-620ff839ca07",
@@ -44954,7 +44954,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "47eb374c-3a08-4d4f-83c4-6f9adda2f61e",
@@ -44973,7 +44973,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2811c65e-34d2-477b-84d2-7a9f01c50c92",
@@ -44992,7 +44992,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ef183912-3a6c-4c94-b3a7-ff564beedeae",
@@ -45011,7 +45011,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "29ce5695-31b0-4f0f-a372-c9ff667e60d2",
@@ -45030,7 +45030,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a68e5434-031f-4a24-a9b7-857e99dcf1ee",
@@ -45049,7 +45049,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e8f37737-3af0-446e-ace6-88baf7100711",
@@ -45125,7 +45125,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ccd0a8eb-a31d-4e3c-90dd-76825c9498e0",
@@ -45144,7 +45144,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "88a1fbff-d2b3-41f8-bcf8-bc0285e992a5",
@@ -45163,7 +45163,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b5403b3c-563b-4d62-be8a-44228a466145",
@@ -45201,7 +45201,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "787ee178-d94e-4f92-aaba-2dbe813c5b7f",
@@ -45220,7 +45220,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d824832b-d2e8-43b6-826c-2ac185165daa",
@@ -45239,7 +45239,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "33e12a5f-26cc-4aae-b530-1c05b79fed3d",
@@ -45258,7 +45258,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "28c5d2b8-332a-4f18-a807-d82510cac15b",
@@ -45277,7 +45277,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5b44100a-9fb0-4810-82aa-1f54a1050c3d",
@@ -45296,7 +45296,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1227dd08-5c56-4608-80bd-79fa5e507b27",
@@ -45315,7 +45315,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8f6eb5a7-05f7-4221-87ee-e23154c0c5a0",
@@ -45334,7 +45334,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "65f55106-9336-4158-910c-337e1291b58b",
@@ -45372,7 +45372,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9e5d51e8-5442-4568-bb93-c10620fb40cb",
@@ -45391,7 +45391,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ca3c183f-4685-4a92-b171-30853c5f7fa6",
@@ -45410,7 +45410,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3ee33a47-3f4f-412b-befa-f37b8b94e967",
@@ -45467,7 +45467,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "43a191ec-c2ef-45d6-a27c-5033b4632315",
@@ -45486,7 +45486,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "46967f14-3dcd-4836-928c-4ea773c8ab64",
@@ -45505,7 +45505,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "87002ebc-9591-4803-b631-e3cffd40e425",
@@ -45524,7 +45524,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ff30b2e3-9c90-456d-be68-bf1684b4bdc0",
@@ -45543,7 +45543,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "218d9982-0dec-4fad-a0b7-f37703b6ef0e",
@@ -45562,7 +45562,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "be450c03-d85c-475f-a795-ded3e7a4413a",
@@ -45581,7 +45581,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "51003228-0803-45cc-8a74-4b417e5d4b33",
@@ -45600,7 +45600,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ad476efb-3aa7-4037-9c60-1cc510f5a11a",
@@ -45619,7 +45619,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d6c85e92-215f-4baf-80d9-b097fb86c2df",
@@ -45638,7 +45638,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "68068b3a-bc66-43e7-b5a5-e7a8618914a8",
@@ -45657,7 +45657,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5d70d562-936b-4f2a-8047-664330b4a14a",
@@ -45676,7 +45676,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "27b4eecd-5948-49c8-a592-0b5dcc588007",
@@ -45695,7 +45695,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b2059944-68c6-4fa6-a629-20237c3e0e9a",
@@ -45714,7 +45714,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6581c66b-c706-4376-b048-ae86640f39a8",
@@ -45733,7 +45733,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ba623fc7-8035-425d-b711-39b275f82de6",
@@ -45752,7 +45752,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1aa90b31-e374-4de9-8086-052ad3dd6efb",
@@ -45771,7 +45771,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f388c68a-71d6-4920-8fc0-b5ce1a0d1c9d",
@@ -45790,7 +45790,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "028aa3b0-29ff-485d-8c7e-f7bbc73c837f",
@@ -45828,7 +45828,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fe332e3f-0da5-416c-8fc2-2fff5653f417",
@@ -45847,7 +45847,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9f11a8af-1023-4827-8a6a-d087bda7043c",
@@ -45866,7 +45866,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3663ab04-74fc-4659-909d-cc5842bf64fd",
@@ -45885,7 +45885,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c7b15b98-5a83-419e-acbd-a7c07503e280",
@@ -45904,7 +45904,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "430da82e-f04d-458f-8838-27642fb3b11f",
@@ -45923,7 +45923,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "42d2bc08-fc09-4eca-b972-b59aa73b5085",
@@ -45942,7 +45942,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4eba301d-05f6-4072-8309-7fb8a17ec3bc",
@@ -45980,7 +45980,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "633b4532-5aa8-494e-8e94-09540cd25c18",
@@ -45999,7 +45999,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "139bfe06-d85c-4e24-b6b0-3dbcafe011f1",
@@ -46018,7 +46018,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c3ad15bd-889c-4250-bb01-f9b4eb171d32",
@@ -46037,7 +46037,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a4f56ef8-afb6-402e-aa8b-4926bf9b9d08",
@@ -46056,7 +46056,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-27T18:19:36.783237+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4007eb76-5149-4f85-ad6a-44dde3e0ce1c",
@@ -46075,7 +46075,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "01cecdbe-522c-40e0-bd18-5f68db206c01",
@@ -46094,7 +46094,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-11T19:28:58.215594+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "46b80378-0e05-4332-941d-2d232298c1ae",
@@ -46113,7 +46113,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6bcaa6cd-0085-40a4-bd3b-51f9e424cfa0",
@@ -46132,7 +46132,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e9a5ff2f-7e90-4512-a58b-87d721854631",
@@ -46151,7 +46151,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "cf4c57a3-7f75-402a-83ca-b919a839ede7",
@@ -46170,7 +46170,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-26T07:37:35.962580+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6aa0cde9-0368-4450-8d27-3291261732cd",
@@ -46208,7 +46208,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "64b7ac6c-df75-434a-a365-12511f55a3a6",
@@ -46227,7 +46227,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e87da34c-32bc-4204-b3b5-6ec28cc8e855",
@@ -46246,7 +46246,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e6764ec7-6755-4b90-b8f4-2083ed3904aa",
@@ -46265,7 +46265,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fb9d258b-db1e-416e-9585-3a8419dd3fb7",
@@ -46284,7 +46284,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "10a28296-7ce7-4b6f-bf2d-883dec5ec116",
@@ -46303,7 +46303,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b8213533-f6e9-4706-98cc-80d91370dec4",
@@ -46322,7 +46322,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "638968b1-1912-4788-86db-e912c910955a",
@@ -46341,7 +46341,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-26T21:56:26.345240+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a8ac5cf9-8886-42c7-aacc-0ea326614996",
@@ -46360,7 +46360,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4ccb97b3-d9c2-462f-84c9-d7811fa0ab67",
@@ -46379,7 +46379,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ba69c923-5766-46c7-bb32-ec6c6417bdee",
@@ -46398,7 +46398,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4ce9ea20-ca99-4d8d-9e48-6e2f3d335a9e",
@@ -46417,7 +46417,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "46d5acb6-47d7-45fb-a86c-9a1dd988b54d",
@@ -46436,7 +46436,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7c22a5a1-da75-4ffa-8880-2829077a69dd",
@@ -46455,7 +46455,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "aad510dc-8dfa-4429-8475-2da01c546f10",
@@ -46474,7 +46474,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f91345ce-41fe-4cd2-b936-a496d4686494",
@@ -46493,7 +46493,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "42348492-9696-4537-addf-41db9746401b",
@@ -46512,7 +46512,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3ba14830-41f9-4b76-bf41-c34162676edf",
@@ -46550,7 +46550,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "945033a1-02eb-4f3f-9ac8-de3dd98858cf",
@@ -46569,7 +46569,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0ba544bf-3d34-46ea-a57b-379b06af6457",
@@ -46588,7 +46588,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ec6dd609-4c15-41b1-a94b-e3acc202e4ea",
@@ -46607,7 +46607,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2756014d-41fb-4347-a2a7-9f42d9979f8b",
@@ -46626,7 +46626,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9a8939b0-2805-470b-adde-31c6bfba2187",
@@ -46645,7 +46645,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bf927ee7-f033-44ea-8f65-a15ee7473987",
@@ -46664,7 +46664,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T15:44:44.027780+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9c58753a-8674-4fdd-9df8-10c4afa431ed",
@@ -46683,7 +46683,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f765438d-8ffb-4c97-8906-c9fd0d7d66f8",
@@ -46702,7 +46702,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "347ec04e-fc03-4d04-9b80-910b3184e6cf",
@@ -46721,7 +46721,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "31ba5550-8ab1-486b-b85d-b7360acb941e",
@@ -46740,7 +46740,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3b138815-bb60-46cf-9847-0e8acc4bedb9",
@@ -46759,7 +46759,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "dba2fa6d-c6db-490e-a523-1b9967e46bf1",
@@ -46778,7 +46778,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b1b44a06-b65b-4b0a-aa4e-a80ea09c4922",
@@ -46797,7 +46797,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "85d48dc5-d563-4d9b-987a-3791de8cbadd",
@@ -46816,7 +46816,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "84bab093-c18e-4e22-9cb6-1356f71e37a8",
@@ -46835,7 +46835,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "aa87e2ef-857f-4ea7-8322-9f93be15d0dc",
@@ -46854,7 +46854,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "973a18a6-bd7a-42e9-a4ef-1ea96d4e3a5c",
@@ -46873,7 +46873,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d76e5587-754e-4f83-994b-4023ec600a6a",
@@ -46892,7 +46892,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "09c8227f-f161-4f6d-ae79-c1ed7b65e8ff",
@@ -46911,7 +46911,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-21T21:31:56.345588+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "723048fa-c389-40cc-b686-67f67f4e1c03",
@@ -46930,7 +46930,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ef99750a-a7d4-4a54-8f8e-b1a2dacd438c",
@@ -46949,7 +46949,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "63877645-8ea6-4c5d-b505-c92b1fcf504e",
@@ -46968,7 +46968,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "42133870-f813-4041-af85-008da90c6dc8",
@@ -46987,7 +46987,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9c2b8562-feaf-44a6-b08e-fec94989ff8f",
@@ -47006,7 +47006,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "31525db0-c1a4-45d1-8f7a-0a59a9933be9",
@@ -47025,7 +47025,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e037b511-c65d-4798-bded-658afdfe132b",
@@ -47044,7 +47044,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-02-27T17:29:44.266637+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ab8cd144-7d25-4e68-affe-42120de6338f",
@@ -47063,7 +47063,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "35ccfbca-c3e3-4196-afe8-5061f0f3d58f",
@@ -47082,7 +47082,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "af42c5f4-6dec-46dd-a623-21157f183978",
@@ -47101,7 +47101,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b5d525b1-8f21-4a1a-ba1b-3e2fa9bf75ab",
@@ -47120,7 +47120,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d3fbd06f-156a-43b6-a8c9-691b72445895",
@@ -47139,7 +47139,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "032c9c59-2608-4680-91b4-7a1951b87ada",
@@ -47158,7 +47158,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d4acd848-525e-45f1-afa8-1efdd60d457a",
@@ -47177,7 +47177,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "63f1bffa-052f-4556-b7f9-fd2b8b3b45a3",
@@ -47196,7 +47196,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "00ad15b2-3033-47fa-b56c-6fbd8a8f2dd7",
@@ -47215,7 +47215,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-22T18:49:48.166075+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "75da8cb7-272e-45dc-b4d0-4bbf45cbfcab",
@@ -47234,7 +47234,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "979ba3ec-12a1-43d1-88ba-bfed8d91d5ef",
@@ -47253,7 +47253,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b2ac51ba-000c-4802-a00b-e56f60a7a373",
@@ -47272,7 +47272,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d4fac429-ecfc-4cba-b131-ff9569318c4f",
@@ -47291,7 +47291,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ef2973c1-bd4d-4e79-a366-e603cffdcf35",
@@ -47329,7 +47329,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e83341b5-042d-4d52-9034-ee3df3718cff",
@@ -47386,7 +47386,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f39d2726-2dc2-45d6-b8fe-890711b7c4ab",
@@ -47405,7 +47405,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0f685616-7d70-462e-9fdc-b85a7360b741",
@@ -47424,7 +47424,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7b692175-b14c-4a33-958c-7498a53b7341",
@@ -47443,7 +47443,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-22T17:55:12.536943+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5cc95160-2b34-4e5d-8df9-f4def268cc4f",
@@ -47462,7 +47462,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4edff28c-0729-4902-bdc5-69ecd3bdd122",
@@ -47481,7 +47481,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "42c0f07d-a096-4516-a012-3773523efcf3",
@@ -47500,7 +47500,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "86c6e98c-31b3-4de6-9c0c-b83ae2fc8f2a",
@@ -47519,7 +47519,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f6795fb7-ff58-402c-9c9d-e99fcaf510a2",
@@ -47538,7 +47538,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-27T21:09:49.578953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "35db0ffa-ea7f-4466-b4da-8f29dfc414b3",
@@ -47557,7 +47557,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f6d3ebbe-89c0-411c-9754-5899a54e4e98",
@@ -47576,7 +47576,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bb2035b3-ad4d-4104-afe4-e85e1301976d",
@@ -47595,7 +47595,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-02T05:56:12.387860+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "aef1f11d-35d5-43a4-ae4e-bd45f12f0c67",
@@ -47614,7 +47614,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bc1779b4-3b3d-4295-85d2-39e682970bf8",
@@ -47633,7 +47633,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "91a8dc45-6efe-48aa-960a-d7e118b17258",
@@ -47652,7 +47652,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9f5c5c9c-d000-4e2b-af8a-f46347f4d1bc",
@@ -47671,7 +47671,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1e1facfa-1a82-47e6-9bb0-2a733aee5919",
@@ -47690,7 +47690,26 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
+    },
+    {
+      "id": "6742f780-dda0-476a-9a21-741a71293f81",
+      "title": "Mark Winters",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-30",
+      "start_time": null,
+      "doors_time": null,
+      "ticket_url": null,
+      "ticket_price": null,
+      "image_url": "https://res.cloudinary.com/wyxr/image/upload/v1785350187/concert-calendar/event-images/20260729183626_CleanShot_2026-07-29_at_13_10_47.png",
+      "description": null,
+      "genre": null,
+      "source": "artifact",
+      "is_featured": false,
+      "is_wyxr_presents": false,
+      "is_active": true,
+      "created_at": "2026-07-29T18:36:27.789331+00:00",
+      "updated_at": "2026-07-29T18:36:27.789331+00:00"
     },
     {
       "id": "aad2368c-dcc0-4402-8403-972b0e35d5d0",
@@ -47709,7 +47728,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "086a298b-655d-4703-b8b6-fc9cbdd7a90d",
@@ -47728,7 +47747,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ca91b765-d270-4a35-bd0b-875266219111",
@@ -47747,7 +47766,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T19:44:41.407211+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "827438be-8017-4e6f-8a60-0ef067aa839d",
@@ -47766,7 +47785,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-05T05:52:50.729839+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "567daf91-e663-4f7b-b1b2-e9b205dfc1b9",
@@ -47785,7 +47804,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "82238208-1f64-49d2-af9e-3288ccdcc4e9",
@@ -47804,7 +47823,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-17T15:44:44.027780+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1d9955aa-e76f-47fb-a029-9c245828504b",
@@ -47823,7 +47842,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f662a219-eab2-453d-865b-e65f5207490d",
@@ -47842,7 +47861,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d09a9258-f8eb-454a-a486-1ca4c458da70",
@@ -47861,7 +47880,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "64028add-1355-455f-a954-e5fe6ed35fc4",
@@ -47880,7 +47899,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2b892e78-a3c8-4cb8-a8df-b2eeef5523fe",
@@ -47899,7 +47918,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "54ea091e-68f4-4921-8568-095bcc0dfb70",
@@ -47918,7 +47937,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T18:05:26.404185+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6dccfc54-4879-4c16-92e7-0fe519eb08cb",
@@ -47937,7 +47956,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:00.995109+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8ba039df-b747-4707-814f-1348cc68df33",
@@ -47956,7 +47975,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8f3aa732-24cb-4392-875a-b01ac89d22ed",
@@ -47975,7 +47994,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3eea1a4b-d226-43d2-8989-4616e8e4545c",
@@ -47994,7 +48013,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T06:54:00.068210+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9a03a5a1-91d8-4e93-bd7b-9f2b79cf4705",
@@ -48013,7 +48032,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4f2838b6-d190-420a-bf54-f601e0175be7",
@@ -48032,7 +48051,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e27935e2-bff6-45a8-8ae0-cfe40d6242b1",
@@ -48051,7 +48070,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:01.364947+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "991e4a22-5e30-439e-b778-f08cffccda75",
@@ -48070,7 +48089,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e2c6ec65-ec8d-40b8-8871-693d5f2ec08b",
@@ -48089,7 +48108,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:01.734814+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a8ef1627-6ddb-4d0d-8c54-cc714cc4a9bb",
@@ -48108,7 +48127,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d691043d-d850-459f-a207-86e0312ce10b",
@@ -48127,7 +48146,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "cdee550f-ff48-4e64-b0eb-bb2fdfe86b38",
@@ -48146,7 +48165,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:02.100770+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b0aade68-963a-4d04-8600-cb855f4bfcd3",
@@ -48165,7 +48184,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-12T05:55:21.664985+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d9f25ad6-1936-46f4-8be3-29af15dda06b",
@@ -48203,7 +48222,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "35ea83de-f33d-45c9-9d4e-d97ac847145b",
@@ -48260,7 +48279,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-28T19:33:26.149578+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "78358473-7f48-4c5f-bab7-599bbe6080f9",
@@ -48279,7 +48298,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-13T01:45:48.961820+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8f6bc6c6-aa97-416a-af52-b15c7b814af5",
@@ -48298,7 +48317,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-08T18:05:26.404185+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "46e91f28-87e9-46f7-aa78-241c879b9557",
@@ -48317,7 +48336,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-14T05:52:16.804906+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "95b14642-f16e-4910-83f2-59720b53622f",
@@ -48336,7 +48355,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-14T05:52:16.804906+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b42b24f4-5684-4233-a1d8-faa127e795f9",
@@ -48355,7 +48374,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ab61524b-cad6-46d7-88e7-a214a9d9db5c",
@@ -48374,7 +48393,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:02.468303+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "dc7c3091-1a6c-4e1f-a21f-0ff7555d7c9b",
@@ -48393,7 +48412,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b9a75ef6-709b-418e-839a-a77019400fdf",
@@ -48412,7 +48431,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fff09548-0636-4e38-bdfc-3fb834265c94",
@@ -48431,7 +48450,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:02.837469+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "541cb294-97b0-4c87-b6a9-b604ad308ce4",
@@ -48450,7 +48469,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-16T06:21:17.226774+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9065d31d-69cb-4bc3-98e6-8e3a8fad9cd6",
@@ -48469,7 +48488,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-28T07:41:20.566596+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4d744872-c1b3-4b8e-85ec-aa187f9b7b79",
@@ -48488,7 +48507,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:26.074102+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0d003b4f-c4ec-4480-88fb-f58c52d0ec80",
@@ -48526,7 +48545,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "00b9b1b5-784e-426a-963e-e5fc519ebcee",
@@ -48545,7 +48564,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-12T18:51:37.165366+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "00a7999b-07dd-471e-ba4e-71ee9ecaddbf",
@@ -48564,7 +48583,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-23T07:33:44.022921+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "06ed51e5-4064-4262-91bd-ca3f411e167a",
@@ -48583,7 +48602,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e3ac68a6-2bb3-4886-91a7-26751b6fe4d0",
@@ -48602,7 +48621,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ba94bbae-bd01-4b7a-aec1-dfd625bc88ac",
@@ -48640,7 +48659,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3073f05d-c289-43bc-98ef-dddc9f6de5c3",
@@ -48659,7 +48678,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a976e38f-6342-4ab2-97db-5ec2f89d883c",
@@ -48678,7 +48697,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-07T07:44:24.945783+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2d30f04e-1503-40a5-a40f-8f8bb9eebace",
@@ -48697,7 +48716,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c19e727d-30c0-40f4-ad26-7b443fbb706a",
@@ -48735,7 +48754,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-19T06:01:02.390345+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f802123d-e55c-4caf-a954-4e0913fe9067",
@@ -48754,7 +48773,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T17:49:47.185952+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "513be306-8437-46c0-ad3d-5443e1f91b2b",
@@ -48773,7 +48792,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4de0ca9d-b214-4a4a-bed1-e4a016fa8fee",
@@ -48811,7 +48830,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T17:49:47.185952+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "72ebc2c5-74cf-4a01-9848-90b26e20669b",
@@ -48830,7 +48849,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bfe41d3d-7a5f-4f62-877f-4f7a4660810f",
@@ -48849,7 +48868,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:03.204483+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b4059a24-562d-4ac8-9fdf-a8337382fabb",
@@ -48868,7 +48887,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a8dea3fc-3554-4863-a341-7a60b74c749c",
@@ -48906,7 +48925,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2e1fc594-9ac5-4ce1-83bf-d68374b94a4c",
@@ -48925,7 +48944,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:03.580569+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "dcbc0958-2b91-4600-b7a6-14230146a3f4",
@@ -48963,7 +48982,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:26.724461+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1ba645a1-790b-4ede-bbc1-1b46702929f8",
@@ -48982,7 +49001,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "60a01c49-6428-4e09-b88c-6b73140d01bc",
@@ -49001,7 +49020,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "46e1becd-1226-4698-ad2c-399a3654cf37",
@@ -49020,7 +49039,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2de5a028-acd5-4666-8be6-f94176c4e6eb",
@@ -49039,7 +49058,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3e6293ca-29eb-47f5-85de-68e3b74607a9",
@@ -49058,7 +49077,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:03.950723+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2730bdec-ec89-484a-abbd-cfbf082a5be2",
@@ -49077,7 +49096,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-23T06:12:16.311911+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1ca6e905-4e22-4a84-88b1-1a1194193aed",
@@ -49096,7 +49115,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T22:13:19.580970+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "274ff8dd-bf98-4d43-86cf-6e316954a1df",
@@ -49115,7 +49134,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f807eec9-0993-4a0d-b9f8-ddfe0ec7a0d0",
@@ -49134,7 +49153,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9ce1ab53-32b1-45e0-ac6e-e6953944b262",
@@ -49153,7 +49172,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "810bf6c7-60d1-46d5-b8a6-505dee14480f",
@@ -49172,7 +49191,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1a518173-9753-4b38-bc38-e1b7060e0f95",
@@ -49191,7 +49210,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:04.318185+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e46ecc46-62e5-4192-85c4-182aa5aa4003",
@@ -49210,7 +49229,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-26T06:13:51.317617+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fb327214-aba4-45de-b172-a6bd6a3e2cd7",
@@ -49229,7 +49248,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4eacfed2-97a4-4b3d-be7e-165ac739e31b",
@@ -49248,7 +49267,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T17:53:01.208111+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "47a7501a-4113-4ec5-8b29-8679e03635d3",
@@ -49267,7 +49286,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "60d628bd-be6a-4085-a6fc-d11d9f777531",
@@ -49286,7 +49305,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:04.683936+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a20e7bdd-7624-4d46-8294-69a1339da94a",
@@ -49305,7 +49324,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1c3b11ea-675f-47b9-aeb5-77495dfdbdc9",
@@ -49324,7 +49343,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "b507906c-1241-42e7-bbf5-1c4f487bcb5a",
@@ -49343,7 +49362,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5e68deed-4254-4271-9969-64381b25e6ae",
@@ -49362,7 +49381,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:05.051167+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6727b8a9-5dec-4df6-9e85-f5aacb1d82f6",
@@ -49381,7 +49400,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-10T07:27:14.991900+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3f3d2d47-df65-4f84-8a66-261834202cf1",
@@ -49400,7 +49419,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-03-30T06:54:14.209434+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "55456d97-de32-4c79-97ee-797dc04697d2",
@@ -49419,7 +49438,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0e0b27c6-18cb-431e-9790-1171ed2034ff",
@@ -49438,7 +49457,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "79603f29-8916-4267-8d91-253300b29d85",
@@ -49457,7 +49476,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d4c0869b-c80f-4cd1-8a53-368df11affc2",
@@ -49476,7 +49495,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d8fd3344-f642-4287-8d95-fb3d08c25c1f",
@@ -49495,7 +49514,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "90cccc61-55ea-4dac-af75-34a768108c19",
@@ -49514,7 +49533,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8a1cc4ad-6227-48c5-a55b-0477ddd7b3a8",
@@ -49552,7 +49571,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-20T19:16:08.076702+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ebbf5b99-52c6-482c-a64e-2bdbcd35a441",
@@ -49571,7 +49590,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-02T06:13:35.479030+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "eff81758-3c71-4ce8-9bea-e843c11591b5",
@@ -49590,7 +49609,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-02T19:59:15.545223+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "37be2dfb-0c4f-491f-a8de-a92865a9bce5",
@@ -49609,7 +49628,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-02T06:13:35.479030+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d1ef7938-8462-4d67-9be7-72f1a2452a84",
@@ -49628,7 +49647,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8196712b-b8cf-4f80-8af6-8d86a99f3df3",
@@ -49647,7 +49666,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:05.418700+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "92cf7975-33b7-475f-87cb-612192e3779e",
@@ -49666,7 +49685,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:05.786137+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2874e9ab-500f-4d61-8a91-82085d5f9887",
@@ -49704,7 +49723,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1f036d08-b589-4fcb-a213-b2a502e90cee",
@@ -49723,7 +49742,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6e5b0579-7070-4dfe-9017-ad747c9023a8",
@@ -49742,7 +49761,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "863b65d3-065c-4f8f-a38d-4600c486ffe4",
@@ -49761,7 +49780,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c25e0193-9bdd-4c58-8962-3b97943e63e1",
@@ -49780,7 +49799,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-27T18:19:36.783237+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "29f77a07-d79c-46e3-b35d-64d68a2bc83a",
@@ -49799,7 +49818,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a8bc8c33-bcfd-4cdf-ae79-e47a90ac4ae7",
@@ -49818,7 +49837,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-06T06:56:18.102096+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d5bd8efd-c2ec-4559-83e6-4a83e3820a4d",
@@ -49837,7 +49856,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d31d7cf1-4ffb-42eb-9ccb-81e8fa909f07",
@@ -49856,7 +49875,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "21fd6bb8-ae0c-4c4a-bd47-59db208a5b32",
@@ -49875,7 +49894,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "cb65dbb6-3aa4-49e3-8390-47b2d5602154",
@@ -49894,7 +49913,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-01T20:51:48.366450+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "453af209-9941-41bf-925b-72bb65ef71f3",
@@ -49913,7 +49932,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-09T06:22:44.548953+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e8161931-15e7-4c28-9a32-22dc43d71c1d",
@@ -49932,7 +49951,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "55778ab0-d89b-4a84-a2a5-eca5fe5aef5a",
@@ -49951,7 +49970,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "376bb979-b32b-4ef5-af94-a15fd667458e",
@@ -49970,7 +49989,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-15T18:01:37.996648+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1933448f-da6f-42e9-b956-cf12a3835494",
@@ -49989,7 +50008,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "23859c52-2e25-4b4e-a3fe-c95991cd20b5",
@@ -50008,7 +50027,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-30T07:42:49.313783+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "040a31b8-8d53-4fe4-9dfd-df637150c15d",
@@ -50027,7 +50046,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T09:01:31.135867+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "aae11921-8670-4966-bfa5-16161aa5940f",
@@ -50046,7 +50065,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T07:21:33.347948+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f628b7ed-1a2f-430a-825c-3480b7b694ff",
@@ -50065,7 +50084,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7351c5fc-aa9d-4e86-bfaa-29224ce07680",
@@ -50084,7 +50103,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ee93ba63-4e26-4c5d-a5ad-dbda5bebab38",
@@ -50122,7 +50141,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-25T06:21:12.419833+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "21e8a460-ed73-4938-bb22-9b5971e5ad5a",
@@ -50141,7 +50160,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "794cd6a5-4417-477a-a413-83f2eaf34408",
@@ -50160,7 +50179,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5f2ef56e-14e5-4ac8-8fa3-f961497ac374",
@@ -50179,7 +50198,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:06.153658+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "aa6daf6d-3ac0-4329-83db-66bb78b4c66d",
@@ -50198,7 +50217,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7e9a7e35-e9c7-4105-bd09-81fcade632ca",
@@ -50217,7 +50236,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2bf95bcd-3c19-4feb-8153-9306aa4590c5",
@@ -50236,7 +50255,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:06.520984+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a0ad2805-81ef-4e9a-937f-5a1aeb433233",
@@ -50255,7 +50274,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:28.799572+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a653bec0-bb59-4f47-9c1c-e829f6df1092",
@@ -50274,7 +50293,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:06.888274+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a88b4a83-2839-4e40-a7a9-71dfd341578a",
@@ -50293,7 +50312,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-16T06:57:44.561837+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e017bfec-801d-4790-8d85-fb42df2af482",
@@ -50312,7 +50331,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2e2c5fad-583a-48da-80e3-2d6bacd62a5a",
@@ -50331,7 +50350,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-25T17:53:01.208111+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0a6d6497-0427-43fe-ac8c-da28a11c9873",
@@ -50350,7 +50369,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "65cbed87-a7e1-4ad8-a605-fbefa0fe6cc3",
@@ -50369,7 +50388,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-15T18:18:00.744792+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "3e641940-0b90-4256-a251-a541c4055eed",
@@ -50388,7 +50407,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-20T07:18:28.964498+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "540ab4a0-af6c-4ef2-ba66-a2565c6c4c40",
@@ -50407,7 +50426,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-10T19:29:23.392771+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0078e7c5-809c-42e9-8195-f649cbd08a4b",
@@ -50426,7 +50445,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:07.255536+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "516c1a73-cf22-485c-9c1f-e3f5ac174487",
@@ -50445,7 +50464,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "13a1f1f0-cb4c-449e-8314-00682395fcfe",
@@ -50464,7 +50483,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2e705396-7dd5-42af-b5c1-e375ac7ec087",
@@ -50483,7 +50502,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-23T07:01:55.690360+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a84c100d-e9cf-471c-a424-c7752f6e1605",
@@ -50502,7 +50521,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c183bae7-dd0b-4688-8006-70ef5ad19ead",
@@ -50521,7 +50540,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:07.622963+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bfd09476-6be6-458b-b630-18f058db42f4",
@@ -50540,7 +50559,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "0888ff62-a0e3-4c97-94d8-ac1bad08c6f2",
@@ -50578,7 +50597,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:27.706928+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f1910852-67da-46a4-9e97-c612639c3679",
@@ -50597,7 +50616,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a8873eb0-e4cf-4621-a9d8-76e92b610d9b",
@@ -50616,7 +50635,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:29.273896+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "711a84d4-e680-4963-8287-bd14166ebe2a",
@@ -50635,7 +50654,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:24.994562+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ba81a2c5-5ee0-4f2e-8136-b57bb5aae55f",
@@ -50692,7 +50711,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-15T20:21:28.400034+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "777f374b-364b-43b6-b4f5-d66be68fde34",
@@ -50711,7 +50730,7 @@
       "is_wyxr_presents": false,
       "is_active": false,
       "created_at": "2026-04-28T07:32:52.247232+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5da3cf77-17f0-42b9-9085-2b6e19352ff2",
@@ -50730,7 +50749,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "33d846c3-b60f-447b-8d92-f32638cf2e61",
@@ -50749,7 +50768,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "991b88ea-1edb-448e-a3c3-62d174a875ed",
@@ -50768,7 +50787,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:07.991983+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "45e4d894-08ba-4ec3-8b8c-f6041e9bc36a",
@@ -50787,7 +50806,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-04-30T00:18:51.706566+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2827c717-6d82-4f0e-a913-1b2b7c3c48d7",
@@ -50806,7 +50825,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c6a1b057-e078-41b7-b6d4-668059c6319b",
@@ -50825,7 +50844,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-12T18:51:37.165366+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c3e37c7d-a851-4da3-80a7-aa17d6085480",
@@ -50844,7 +50863,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4f98b510-dd95-4846-aeab-20568a2e92fd",
@@ -50863,7 +50882,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2ef6b24b-37d6-4f4e-a74a-87cec7d14147",
@@ -50882,7 +50901,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "104293d0-742f-410e-9ae3-3c03991b33b5",
@@ -50901,7 +50920,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-07T07:44:24.945783+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "21fa12ea-4d99-4220-885b-9cd3bca16611",
@@ -50920,7 +50939,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2d2e13fb-f74c-4de1-afd3-961107e44f37",
@@ -50939,7 +50958,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:08.362018+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e82e896a-7d58-4ac7-94fb-9c3216898378",
@@ -50958,7 +50977,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2607d609-a472-491e-977c-61e7fbf33deb",
@@ -50977,7 +50996,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-28T18:07:34.402144+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "5aa38505-95fb-478b-86b0-4a6150a2df73",
@@ -50996,7 +51015,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-09T19:09:53.477071+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9a1ec0df-e606-4f4e-a6cb-9432607d7651",
@@ -51034,7 +51053,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T16:24:28.363183+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "18a93ab7-39f8-4d87-be1f-4b060a916d15",
@@ -51053,7 +51072,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bdacbf90-72fc-4ea7-a5b2-44e734e5216c",
@@ -51072,7 +51091,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:08.728528+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "8dbecf44-a972-4410-bd5e-fd5494cbe67b",
@@ -51091,7 +51110,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-11T08:26:24.157817+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "86ea62fd-b58a-4d4a-8693-2d083c694dee",
@@ -51110,7 +51129,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T17:49:47.185952+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "41906706-662f-44c9-a85e-c817bac12c1e",
@@ -51129,7 +51148,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d5d24ff9-9c9e-4fa8-9079-786b5739c485",
@@ -51148,7 +51167,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T18:55:44.904120+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9cd4ff63-6c58-4eb1-b945-75d9a135eedf",
@@ -51167,7 +51186,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:09.094507+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a87cded1-c771-4ea4-b10f-272cbd92c7b7",
@@ -51186,7 +51205,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ee58fbbf-7eec-4b32-a91c-31b78a04d488",
@@ -51205,7 +51224,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-14T07:45:53.860298+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "480a463d-c8c2-4304-9a05-780ecc0cb3a6",
@@ -51224,7 +51243,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-14T07:45:53.860298+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2a7f372e-4e31-42f9-ad33-e3f862615f72",
@@ -51243,7 +51262,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d96d9a41-d3c9-4ae5-a6ce-557460769a66",
@@ -51262,7 +51281,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "af7ade96-6d85-45ef-aa08-8f63d3fc1f46",
@@ -51281,7 +51300,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:09.462567+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "2a0cce5a-4f27-4ab1-ae3e-4769149f3ad2",
@@ -51300,7 +51319,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "45c87883-c88c-45e4-83f1-f47816fbf6a1",
@@ -51319,7 +51338,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "41371415-092e-484d-8be2-f71f16de2e0e",
@@ -51338,7 +51357,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-28T18:07:34.402144+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7989cb73-f11f-4583-a5b5-16c177775d51",
@@ -51357,7 +51376,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-18T08:47:41.247057+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c49b3e75-da73-4a0a-bc73-0259474ab178",
@@ -51376,7 +51395,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "bdfc581c-d58d-497b-84b9-36d112bb6cd6",
@@ -51395,7 +51414,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "442314d4-0eae-4084-aa7f-c25ef76ceaa5",
@@ -51414,7 +51433,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "752c8a8b-566b-4122-b090-7a6004292ccb",
@@ -51433,7 +51452,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c438bf41-fabf-4b51-af55-5d81df566fd9",
@@ -51452,7 +51471,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "01bb812b-069b-4c9e-bbb3-c8893ed9c262",
@@ -51490,7 +51509,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-21T08:35:47.681699+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6211480f-b1da-4efa-bc11-18ab470be32a",
@@ -51509,7 +51528,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c6bf4b83-2d7e-4ca4-9817-dc64a65e820f",
@@ -51528,7 +51547,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T15:41:50.637004+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1e111837-051b-45ae-8c6b-9387ca84a481",
@@ -51547,7 +51566,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-12T18:59:31.297613+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "342c0832-6874-426b-9fa9-c0309ff54420",
@@ -51566,7 +51585,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e31ffc13-9a76-481c-ab0d-fddefacb04d3",
@@ -51585,7 +51604,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d9505437-4374-44fa-b433-6394673fed12",
@@ -51604,7 +51623,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "42c383fe-c84b-49ad-b2c2-bc7ea8eb6682",
@@ -51623,7 +51642,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-05-28T08:44:57.290522+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "cb9c8404-04f0-424a-b346-1dc3c942171d",
@@ -51642,7 +51661,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-29T07:45:40.856524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "79795f48-a804-422e-8613-7131719c779c",
@@ -51661,7 +51680,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "7394b70f-3816-4a20-890f-4fd753ea2af9",
@@ -51680,7 +51699,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "6358f636-5675-45df-b295-df07002bcef2",
@@ -51699,7 +51718,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9c85b3ea-f486-48f1-976a-4f74bfc84f6d",
@@ -51718,7 +51737,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4735296f-907a-4fb4-ae89-92a0a7b9d2da",
@@ -51737,7 +51756,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T11:55:09.828251+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "d8bf8285-d371-4371-81b3-2e65d87a73be",
@@ -51756,7 +51775,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-04T08:52:37.319836+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "1e9ad0fc-38f6-442e-8b9b-3a8d3ad4a623",
@@ -51775,7 +51794,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-06T07:48:11.371005+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "570dcc4e-79e3-4c0d-9c4b-08ea1ef97e0c",
@@ -51794,7 +51813,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-07T08:26:09.604084+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "fc3d479c-70a7-44d6-af23-e92cc7705811",
@@ -51813,7 +51832,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "a9d378ff-9bea-4c05-bab8-d30f139fa395",
@@ -51832,7 +51851,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "17a6dd44-0a59-4b16-ac48-ed07288bf4d1",
@@ -51851,7 +51870,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "f2af1d24-96e9-406d-ae02-0e49ad30050b",
@@ -51870,7 +51889,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-06-11T09:14:34.928524+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "59f5ec41-3b69-4694-b955-c613ea5d9981",
@@ -51889,7 +51908,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "33fe1d21-4e32-4e10-b577-7e3a54e69507",
@@ -51908,7 +51927,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "41be8820-3c01-464a-bb40-c727e8fbb402",
@@ -51927,7 +51946,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "ed8cf1c1-4751-4a29-b959-70bf1b5e3403",
@@ -51946,7 +51965,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "62b8a8cf-9558-4efe-b917-5312441f71a6",
@@ -51965,7 +51984,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "cd10b580-09b9-4836-8c82-45e3550c65bb",
@@ -51984,7 +52003,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "18cb77c0-04b2-4887-ac58-15d8b545eafa",
@@ -52003,7 +52022,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c9abbd22-2992-4fe5-a0f2-dd66da019e32",
@@ -52022,7 +52041,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "110d7b6c-a601-40c2-b670-50dbb28e726b",
@@ -52041,7 +52060,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "e1bbc08d-27c9-4b01-b95c-705015fe7b89",
@@ -52060,7 +52079,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "02d11379-e4e8-4f87-8e7f-a423f632c67c",
@@ -52079,7 +52098,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "c386f461-8956-4129-b277-704c2c0700a9",
@@ -52098,7 +52117,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "4aa68c9f-d914-4464-a282-ca152dbeed65",
@@ -52117,7 +52136,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     },
     {
       "id": "9cbfbb01-e69e-4a0d-bb01-210a0dc7d1eb",
@@ -52155,7 +52174,7 @@
       "is_wyxr_presents": false,
       "is_active": true,
       "created_at": "2026-07-24T12:02:08.811625+00:00",
-      "updated_at": "2026-07-29T18:13:03.389400+00:00"
+      "updated_at": "2026-07-29T18:36:48.860777+00:00"
     }
   ]
 }
