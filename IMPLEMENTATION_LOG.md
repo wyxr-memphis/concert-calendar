@@ -41,6 +41,12 @@ The concert calendar started as a Python script that wrote events to a flat `eve
 | `ADMIN_SECRET_KEY` | JWT signing key |
 | `ALLOWED_ORIGINS` | CORS allowed origins (Vercel URL) |
 | `GITHUB_PAT` | GitHub PAT with `actions:write` scope |
+| `CLOUDINARY_URL` | Image hosting for all uploads — `cloudinary://<key>:<secret>@wyxr` |
+| `CLOUDINARY_FOLDER_PREFIX` | Optional; defaults to `concert-calendar` |
+| `ANTHROPIC_API_KEY` | Claude Vision for the Slack image pipeline |
+| `SLACK_BOT_TOKEN` | Slack bot token (`files:read`, `chat:write`, `channels:history`) |
+| `SLACK_SIGNING_SECRET` | Verifies inbound Slack webhooks |
+| `SLACK_CHANNEL_ID` | Channel ID for #wyxr-concert-calendar |
 
 ### GitHub Actions
 | Variable | Purpose |
@@ -207,7 +213,7 @@ Venue scrapers use a 6-month date range (`SCRAPER_END_DATE`) for the interactive
 
 ## Known Limitations
 
-- Image uploads via Import commit to GitHub `artifacts/` folder (not Render). Render storage is ephemeral.
+- **Artifact** uploads (files to be processed by Claude Vision) commit to the GitHub `artifacts/` folder, not Render — Render storage is ephemeral, and the build reads them off disk during Actions. This is separate from **event/sponsor image** uploads, which go to Cloudinary and resolve immediately.
 - Without `DATABASE_URL`, the build falls back to events.json as a local data store (useful for development).
 - Event deduplication across sources (scrapers + vision imports) is basic — see FEATURES.md #16.
 - Generic scrapers (JSON-LD) depend on venue sites implementing structured data — some venues don't.

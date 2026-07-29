@@ -256,11 +256,16 @@ then hides.
    confirm a genuinely mislabeled file also fails gracefully rather than 500ing.
 5. **Sponsor + calendar sponsor** uploads via the Sponsors tab — both land in the
    `sponsors/` folder and the banner renders.
-6. **Slack path** — post a single-event image to #wyxr-concert-calendar with "add to
+6. **Slack path** — post a flyer for one show to #wyxr-concert-calendar with "add to
    calendar". Confirm `[slack] hosted image at https://res.cloudinary.com/...` in the logs
-   and that the event carries it. Then post a multi-event flyer and confirm **no** image is
-   attached (the `len(events) == 1` rule at `backend/app.py:1589` must survive the refactor
-   — easy to lose while editing that block).
+   and that the event carries it. Then post a venue's month schedule and confirm **no**
+   image is attached.
+
+   > **Superseded 2026-07-29.** This step originally described a `len(events) == 1` rule.
+   > That was wrong: it skipped the image for a four-act bill on a single night. The rule
+   > is now "all extracted events share the same canonical venue and date" — see
+   > `_process_slack_image` in `backend/app.py`. Whatever guards this, it is easy to lose
+   > while editing that block, so re-test it after any change there.
 7. **`cldImg()` — the regression risk.** On the calendar, verify all three URL shapes
    render correctly and check the generated URLs in DevTools:
    - a **new Cloudinary upload** → `/image/upload/w_96,.../` , **not** a nested
