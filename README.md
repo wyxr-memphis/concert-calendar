@@ -49,7 +49,8 @@ Vercel (Frontend)
   -> Serves docs/index.html (interactive calendar with 6-month lookahead)
   -> Serves docs/thisweek.html (static "This Week" page)
   -> Serves docs/feed.xml (RSS 2.0 feed for app integration)
-  -> Serves docs/admin/ (admin UI — Events, Import, Scrapers, Venues)
+  -> Serves docs/submit.html (public event submission form, optional flyer upload)
+  -> Serves docs/admin/ (admin UI — Events, Import, Scrapers, Venues, Sponsors, Submissions)
 ```
 
 ### Data Flow
@@ -108,6 +109,7 @@ Visit `/admin/` on your Vercel deployment to manage events:
 - **Import** — Upload images (Claude Vision) or saved web pages (HTML parsing)
 - **Tools tab** — Per-source scraper status cards with run history, trigger builds, prune old events
 - **Venues tab** — Manage venue-to-neighborhood mapping, merge duplicate venues
+- **Submissions tab** — Review community submissions from `/submit`. A submitted flyer is held in Postgres and only uploaded to Cloudinary when you approve, so unreviewed images never touch the image quota.
 
 ## RSS Feed
 

@@ -1,14 +1,20 @@
 # Migrate image hosting from git to Cloudinary
 
-> **Status: phase 1 shipped 2026-07-29.** Everything below through "Rollback" is implemented
-> — `backend/images.py`, the four call sites, the `cldImg()` fix, size/type validation.
-> **Phase 2 (public submit-form image field) is still open** and is the reason this document
-> is kept: its scope, the folder convention (`{prefix}/submissions/`), and the reject-flow
-> dependency on `delete_image()` are all specified here.
+> **Status: complete.** Phase 1 shipped 2026-07-29 (`5843b74`) — `backend/images.py`, the
+> four call sites, the `cldImg()` fix, size/type validation. Phase 2, the public submit-form
+> image field, shipped 2026-07-30 (`0e47fbd`). Kept as the record of *why* image hosting is
+> shaped this way; current mechanics live in `CLAUDE.md`.
 >
-> Deviation from the plan as written: a file with a valid extension but unreadable contents
-> returns **400** (`ImageUploadError`), not the 502 the plan implied — it's the caller's
-> problem, not an infrastructure failure.
+> Two deviations from the plan as written:
+>
+> 1. A file with a valid extension but unreadable contents returns **400**
+>    (`ImageUploadError`), not the 502 the plan implied — it's the caller's problem, not an
+>    infrastructure failure.
+> 2. Phase 2 does **not** upload submitted images to `{prefix}/submissions/` on submit and
+>    delete them on reject, as sketched here. Anonymous writes to a 25-credit quota were too
+>    exposed. Instead the bytes are held in `submissions.image_data` (BYTEA) and uploaded
+>    only on admin approval, so rejection costs nothing and `delete_image()` is not on that
+>    path at all.
 
 ## Context
 

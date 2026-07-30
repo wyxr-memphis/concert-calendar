@@ -38,7 +38,7 @@ Planning doc for upcoming features.
 - ~~B.B. King's~~ — Changed to manual_only (scraper was returning 0 events)
 - ~~Overton Park Shell~~ — Custom Squarespace scraper (`_parse_overton_shell()` in venue_scrapers.py)
 - ~~Email Signup / Mailchimp (#17)~~ — "📧 Subscribe" button in header opens dark modal with Mailchimp iframe form (wyxr.us19.list-manage.com). sessionStorage tracks signed-up state.
-- ~~Event Submission Form (#18)~~ — `/submit.html` public form + `POST /api/submissions` endpoint + admin review queue
+- ~~Event Submission Form (#18)~~ — `/submit.html` public form + `POST /api/submissions` endpoint + admin review queue. Optional flyer upload (2026-07-30): the browser downscales to 1600px, the server re-encodes and holds the bytes in Postgres, and the image reaches Cloudinary **only on approval** — so anonymous submissions can't consume the free-tier quota. Rate limited to 5/hour per hashed IP.
 - ~~Sponsor Callout (#19)~~ — Inline promo cards between day sections + Calendar Sponsor banner above event list. Full admin UI in Sponsors tab. DB tables: `sponsors`, `calendar_sponsor`.
 
 ---
