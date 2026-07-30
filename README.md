@@ -80,7 +80,7 @@ Set these environment variables in the Vercel dashboard:
 
 1. Create a PostgreSQL database on Render
 2. Create a Web Service pointing to this repo
-3. Set environment variables: `DATABASE_URL` (internal), `ADMIN_PASSWORD`, `ADMIN_SECRET_KEY`, `ALLOWED_ORIGINS` (Vercel URL), `GITHUB_PAT`, `CLOUDINARY_URL` (image hosting — uploads return 502 without it), plus `ANTHROPIC_API_KEY` / `SLACK_*` for the Slack image pipeline. Full list in `IMPLEMENTATION_LOG.md`.
+3. Set environment variables: `DATABASE_URL` (internal), `ADMIN_PASSWORD`, `ADMIN_SECRET_KEY`, `ALLOWED_ORIGINS` (Vercel URL), `GITHUB_PAT`, `CLOUDINARY_URL` (image hosting — uploads return 502 without it), `SUBMISSION_IP_SALT`, plus `ANTHROPIC_API_KEY` / `SLACK_*` for the Slack image pipeline. Full list in `IMPLEMENTATION_LOG.md`.
 4. Run `psql $DATABASE_URL < scripts/schema.sql` and `python scripts/migrate_json_to_db.py`
 
 See `IMPLEMENTATION_LOG.md` for detailed setup steps.

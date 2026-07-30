@@ -507,6 +507,18 @@ def run(dry_run: bool = False) -> None:
     if scrape_log_id:
         print(f"  [scrape_log] Created log entry: {scrape_log_id}")
 
+    # Free image bytes held by submissions nobody ever reviewed. Submitted
+    # flyers sit in Postgres until approved (so they never touch Cloudinary);
+    # approve/reject clear their own, this catches the abandoned ones.
+    if use_db and not dry_run:
+        try:
+            from backend.db import purge_stale_submission_images
+            cleared = purge_stale_submission_images(older_than_days=90)
+            if cleared:
+                print(f"  [submissions] Cleared {cleared} stale submission image(s)")
+        except Exception as exc:
+            print(f"  [submissions] Image purge skipped: {exc}")
+
     # ---- STEP 1: Fetch from automated sources ----
     all_source_results: List[SourceResult] = []
     automated_events: List[Event] = []

@@ -77,8 +77,22 @@ _SCHEMA_TABLES = (
     "api_key_requests",
 )
 
-# Columns added to events by later migration steps. Present == migrations ran.
-_SCHEMA_EVENT_COLUMNS = ("neighborhood", "dedup_key", "is_wyxr_presents")
+# Columns added by later migration steps, per table. Present == migrations ran.
+#
+# Adding a column to an EXISTING table without listing it here is a silent
+# failure: the table already exists, so _schema_is_current() returns True, the
+# migrations are skipped, and the column is never created on any database that
+# has run the app before — including production.
+_SCHEMA_COLUMNS = {
+    "events": ("neighborhood", "dedup_key", "is_wyxr_presents"),
+    "submissions": (
+        "image_data",
+        "image_mime",
+        "image_filename",
+        "image_rights_confirmed",
+        "submitter_ip_hash",
+    ),
+}
 
 
 @contextmanager
@@ -116,13 +130,16 @@ def _schema_is_current():
             if cur.fetchone()["n"] < len(_SCHEMA_TABLES):
                 return False
 
-            cur.execute(
-                "SELECT count(*) AS n FROM information_schema.columns "
-                "WHERE table_schema = 'public' AND table_name = 'events' "
-                "AND column_name = ANY(%s)",
-                (list(_SCHEMA_EVENT_COLUMNS),),
-            )
-            return cur.fetchone()["n"] == len(_SCHEMA_EVENT_COLUMNS)
+            for table, columns in _SCHEMA_COLUMNS.items():
+                cur.execute(
+                    "SELECT count(*) AS n FROM information_schema.columns "
+                    "WHERE table_schema = 'public' AND table_name = %s "
+                    "AND column_name = ANY(%s)",
+                    (table, list(columns)),
+                )
+                if cur.fetchone()["n"] < len(columns):
+                    return False
+            return True
     except Exception as e:
         # Can't tell — fall through to the migrations rather than skipping them.
         print(f"[init_db] schema check failed ({e}); running migrations", flush=True)
@@ -264,6 +281,22 @@ def _run_migrations():
             );
             CREATE INDEX IF NOT EXISTS idx_submissions_status ON submissions(status);
             CREATE INDEX IF NOT EXISTS idx_submissions_date ON submissions(submitted_at DESC);
+        """)
+
+    # Step 4b: Optional flyer image on a submission, plus the hashed submitter IP
+    # used for rate limiting. Image bytes are held here — never on Cloudinary —
+    # until an admin approves, so anonymous uploads can't consume the quota.
+    # NOTE: these columns are listed in _SCHEMA_COLUMNS["submissions"]; adding
+    # more here without updating that mapping means they're never created.
+    with _ddl_cursor() as cur:
+        cur.execute("""
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS image_data BYTEA;
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS image_mime VARCHAR(40);
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS image_filename VARCHAR(255);
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS image_rights_confirmed BOOLEAN DEFAULT false;
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS submitter_ip_hash VARCHAR(64);
+            CREATE INDEX IF NOT EXISTS idx_submissions_ip_hash
+              ON submissions(submitter_ip_hash, submitted_at DESC);
         """)
 
     # Step 5: Add is_wyxr_presents column
@@ -1188,15 +1221,32 @@ def get_scraper_status_summary():
 # Submission queries
 # ---------------------------------------------------------------------------
 
+# Every submission column EXCEPT image_data, plus a derived has_image flag.
+#
+# image_data must never come back from a list/detail query: psycopg2 returns it
+# as a memoryview, serialize_event() doesn't convert it, and jsonify then raises
+# — which would take out the whole admin Submissions tab. Fetch the bytes only
+# through get_submission_image().
+_SUBMISSION_COLUMNS = """
+    id, artist_name, venue, event_date, event_time, description,
+    submitter_name, submitter_email, status, submitted_at, reviewed_at,
+    reviewed_by, created_event_id, honeypot, image_mime, image_filename,
+    image_rights_confirmed,
+    (image_data IS NOT NULL) AS has_image
+"""
+
+
 def create_submission(data):
     """Insert a new community event submission."""
     with get_cursor() as cur:
         cur.execute(
-            """INSERT INTO submissions
+            f"""INSERT INTO submissions
                (artist_name, venue, event_date, event_time, description,
-                submitter_name, submitter_email, honeypot)
-               VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-               RETURNING *""",
+                submitter_name, submitter_email, honeypot,
+                image_data, image_mime, image_filename,
+                image_rights_confirmed, submitter_ip_hash)
+               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+               RETURNING {_SUBMISSION_COLUMNS}""",
             (
                 data["artist_name"],
                 data["venue"],
@@ -1206,14 +1256,19 @@ def create_submission(data):
                 data["submitter_name"],
                 data["submitter_email"],
                 data.get("honeypot"),
+                psycopg2.Binary(data["image_data"]) if data.get("image_data") else None,
+                data.get("image_mime"),
+                data.get("image_filename"),
+                bool(data.get("image_rights_confirmed")),
+                data.get("submitter_ip_hash"),
             ),
         )
         return cur.fetchone()
 
 
 def get_submissions(status=None):
-    """Get submissions, optionally filtered by status."""
-    query = "SELECT * FROM submissions"
+    """Get submissions, optionally filtered by status. Excludes image bytes."""
+    query = f"SELECT {_SUBMISSION_COLUMNS} FROM submissions"
     params = []
     if status:
         query += " WHERE status = %s"
@@ -1225,10 +1280,73 @@ def get_submissions(status=None):
 
 
 def get_submission_by_id(submission_id):
-    """Get a single submission by ID."""
+    """Get a single submission by ID. Excludes image bytes."""
     with get_cursor(commit=False) as cur:
-        cur.execute("SELECT * FROM submissions WHERE id = %s", (submission_id,))
+        cur.execute(
+            f"SELECT {_SUBMISSION_COLUMNS} FROM submissions WHERE id = %s",
+            (submission_id,),
+        )
         return cur.fetchone()
+
+
+def get_submission_image(submission_id):
+    """Fetch a submission's image bytes. Returns (bytes, mime, filename) or None.
+
+    The only place image_data is read. Callers must not pass the result into
+    jsonify.
+    """
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            "SELECT image_data, image_mime, image_filename FROM submissions "
+            "WHERE id = %s AND image_data IS NOT NULL",
+            (submission_id,),
+        )
+        row = cur.fetchone()
+    if not row:
+        return None
+    return (bytes(row["image_data"]), row["image_mime"], row["image_filename"])
+
+
+def clear_submission_image(submission_id):
+    """Drop a submission's image bytes once they're no longer needed.
+
+    Called after the image is uploaded to Cloudinary (approve) and when a
+    submission is rejected, so held bytes don't accumulate in Postgres.
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            "UPDATE submissions SET image_data = NULL WHERE id = %s",
+            (submission_id,),
+        )
+
+
+def count_recent_submissions(ip_hash, within_hours=1):
+    """How many submissions this hashed IP made in the last N hours."""
+    if not ip_hash:
+        return 0
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            "SELECT count(*) AS n FROM submissions "
+            "WHERE submitter_ip_hash = %s "
+            "AND submitted_at > NOW() - (%s * INTERVAL '1 hour')",
+            (ip_hash, within_hours),
+        )
+        return cur.fetchone()["n"]
+
+
+def purge_stale_submission_images(older_than_days=90):
+    """Free image bytes held by submissions nobody ever reviewed.
+
+    The submission record survives — only the blob goes. Returns rows cleared.
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            "UPDATE submissions SET image_data = NULL "
+            "WHERE image_data IS NOT NULL "
+            "AND submitted_at < NOW() - (%s * INTERVAL '1 day')",
+            (older_than_days,),
+        )
+        return cur.rowcount
 
 
 def update_submission_status(submission_id, status, reviewed_by="admin", created_event_id=None):
@@ -1239,7 +1357,7 @@ def update_submission_status(submission_id, status, reviewed_by="admin", created
                SET status = %s, reviewed_at = NOW(), reviewed_by = %s,
                    created_event_id = %s
                WHERE id = %s
-               RETURNING *""",
+               RETURNING {cols}""".format(cols=_SUBMISSION_COLUMNS),
             (status, reviewed_by, created_event_id, submission_id),
         )
         return cur.fetchone()
@@ -1248,7 +1366,10 @@ def update_submission_status(submission_id, status, reviewed_by="admin", created
 def delete_submission(submission_id):
     """Hard-delete a submission."""
     with get_cursor() as cur:
-        cur.execute("DELETE FROM submissions WHERE id = %s RETURNING *", (submission_id,))
+        cur.execute(
+            f"DELETE FROM submissions WHERE id = %s RETURNING {_SUBMISSION_COLUMNS}",
+            (submission_id,),
+        )
         return cur.fetchone()
 
 

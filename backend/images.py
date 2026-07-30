@@ -18,6 +18,7 @@ Legacy images already committed under ``docs/`` are untouched and keep serving
 from Vercel — this only changes where *new* uploads go.
 """
 
+import io
 import os
 import re
 from datetime import datetime
@@ -36,6 +37,14 @@ except Exception as exc:  # pragma: no cover - only when the dep is missing
 MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
+
+# Tighter cap for the public submit form — that path is unauthenticated, and the
+# browser already downscales to ~1600px before sending, so anything approaching
+# this is either a canvas fallback or someone poking at the endpoint directly.
+MAX_SUBMISSION_IMAGE_BYTES = 3 * 1024 * 1024
+
+# Longest edge for a stored submission image. Matches the client-side downscale.
+SUBMISSION_MAX_EDGE = 1600
 
 _DEFAULT_PREFIX = "concert-calendar"
 
@@ -98,6 +107,60 @@ def validate(file_data: bytes, orig_filename: str) -> None:
         raise ImageUploadError(
             f"File type {ext or '(none)'} not allowed — use one of: {allowed}"
         )
+
+
+def sanitize_submitted_image(
+    file_data: bytes,
+    max_bytes: int = MAX_SUBMISSION_IMAGE_BYTES,
+    max_edge: int = SUBMISSION_MAX_EDGE,
+) -> tuple[bytes, str]:
+    """Validate and re-encode an untrusted image. Returns (jpeg_bytes, mime).
+
+    Never store what was submitted. A file can carry a valid image header and
+    still be something else entirely; decoding it ourselves and writing out
+    fresh bytes means what we persist is an image *we* produced. It also drops
+    all metadata, including the GPS coordinates a phone attaches when someone
+    photographs a flyer.
+
+    Raises ImageUploadError for anything the submitter can fix.
+    """
+    from PIL import Image  # local import — keeps module import cheap
+
+    if not file_data:
+        raise ImageUploadError("No image data received")
+
+    if len(file_data) > max_bytes:
+        mb, limit_mb = len(file_data) / (1024 * 1024), max_bytes / (1024 * 1024)
+        raise ImageUploadError(
+            f"Image is {mb:.1f} MB — the limit is {limit_mb:.0f} MB. "
+            "Try a smaller photo."
+        )
+
+    try:
+        # verify() invalidates the object, so decode again afterwards to use it.
+        Image.open(io.BytesIO(file_data)).verify()
+        img = Image.open(io.BytesIO(file_data))
+        img.load()
+    except Exception as exc:
+        raise ImageUploadError(
+            "That file isn't a readable image — it may be corrupt or saved in "
+            "an unsupported format"
+        ) from exc
+
+    # Flatten transparency onto white; JPEG has no alpha channel.
+    if img.mode in ("RGBA", "LA", "P"):
+        img = img.convert("RGBA")
+        flat = Image.new("RGB", img.size, (255, 255, 255))
+        flat.paste(img, mask=img.split()[-1])
+        img = flat
+    elif img.mode != "RGB":
+        img = img.convert("RGB")
+
+    img.thumbnail((max_edge, max_edge), Image.LANCZOS)
+
+    out = io.BytesIO()
+    img.save(out, format="JPEG", quality=85, optimize=True)
+    return out.getvalue(), "image/jpeg"
 
 
 def _is_bad_file_error(exc: Exception) -> bool:

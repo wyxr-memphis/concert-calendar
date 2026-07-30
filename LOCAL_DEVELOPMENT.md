@@ -39,6 +39,7 @@ Required variables:
 - `ANTHROPIC_API_KEY` - From your Anthropic account (for artifact processing)
 - `GITHUB_PAT` - Fine-grained token with `contents:write` for this repo
 - `CLOUDINARY_URL` - `cloudinary://<key>:<secret>@wyxr`, from Cloudinary console → Settings → API Keys. Needed for any image upload (admin event images, sponsors, Slack pipeline); without it those endpoints return 502.
+- `SUBMISSION_IP_SALT` - Any random string; salts the hashed submitter IPs used to rate-limit the public submit form. Falls back to `ADMIN_SECRET_KEY` if unset.
 - `CLOUDINARY_FOLDER_PREFIX` - Set to `concert-calendar-dev` locally. **Do this** — it keeps test uploads out of the production folder, which shares the same Cloudinary account and free-tier quota.
 
 > **Note:** You can use the production Render database for local testing, or set up a local PostgreSQL instance if you prefer complete isolation.

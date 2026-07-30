@@ -29,7 +29,12 @@ from flask_cors import CORS, cross_origin
 from flask_compress import Compress
 import requests as http_requests
 
-from backend.images import ImageUploadError, upload_image
+from backend.images import (
+    MAX_SUBMISSION_IMAGE_BYTES,
+    ImageUploadError,
+    sanitize_submitted_image,
+    upload_image,
+)
 from backend.db import (
     init_db,
     get_cursor,
@@ -61,6 +66,9 @@ from backend.db import (
     create_submission,
     get_submissions,
     get_submission_by_id,
+    get_submission_image,
+    clear_submission_image,
+    count_recent_submissions,
     update_submission_status,
     delete_submission,
     get_pending_submission_count,
@@ -105,6 +113,16 @@ CORS(app, origins=ALLOWED_ORIGINS, supports_credentials=True)
 
 # Gzip/brotli compression for JSON responses (~70% reduction)
 Compress(app)
+
+# Bound request bodies so no endpoint reads an unbounded upload into memory.
+# Generous enough for admin artifact uploads; the public submit form enforces a
+# much tighter per-image cap of its own.
+app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
+
+
+@app.errorhandler(413)
+def _payload_too_large(_e):
+    return jsonify({"success": False, "errors": ["That upload is too large."]}), 413
 
 
 # ---------------------------------------------------------------------------
@@ -200,10 +218,49 @@ def public_neighborhoods():
 
 
 # ---------------------------------------------------------------------------
+# Public submission rate limiting
+# ---------------------------------------------------------------------------
+
+# Per hashed IP, per hour. Deliberately a single limit covering submissions with
+# and without an image: at the same threshold a separate image counter would
+# never bind, since every allowed submission may carry one.
+SUBMISSIONS_PER_HOUR = 5
+
+
+def _client_ip():
+    """Best-effort client IP.
+
+    request.remote_addr is Render's proxy, not the submitter — there is no
+    ProxyFix configured, so using it directly would put every submitter in one
+    bucket and let the first few lock out everyone. Prefer the leftmost
+    X-Forwarded-For entry, which is the original client.
+    """
+    forwarded = request.headers.get("X-Forwarded-For", "")
+    if forwarded:
+        first = forwarded.split(",")[0].strip()
+        if first:
+            return first
+    return request.remote_addr or ""
+
+
+def _hash_ip(ip):
+    """Salted SHA-256 of an IP — enough to count repeats, not to identify.
+
+    Falls back to ADMIN_SECRET_KEY so a missing SUBMISSION_IP_SALT can't
+    silently turn rate limiting into a no-op (an unsalted constant would still
+    work, but a shared salt across deploys is the safer default).
+    """
+    if not ip:
+        return None
+    salt = os.environ.get("SUBMISSION_IP_SALT") or os.environ.get("ADMIN_SECRET_KEY", "")
+    return hashlib.sha256(f"{salt}:{ip}".encode("utf-8")).hexdigest()
+
+
+# ---------------------------------------------------------------------------
 # Slack Notifications
 # ---------------------------------------------------------------------------
 
-def _notify_slack_new_submission(artist_name, venue, event_date, event_time, submitter_name, description=None):
+def _notify_slack_new_submission(artist_name, venue, event_date, event_time, submitter_name, description=None, has_image=False):
     """Post a new submission notification to Slack. Fails silently."""
     webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
     if not webhook_url:
@@ -213,13 +270,15 @@ def _notify_slack_new_submission(artist_name, venue, event_date, event_time, sub
     desc_str = f"\n> {description}" if description else ""
     admin_url = "https://concert-calendar.wyxr.org/admin/#submissions"
 
+    image_str = "\n:paperclip: *Includes an image* — review before approving" if has_image else ""
+
     text = (
         f":musical_note: *New event submission needs review*\n"
         f"*Artist:* {artist_name}\n"
         f"*Venue:* {venue}\n"
         f"*Date:* {event_date}{time_str}\n"
         f"*Submitted by:* {submitter_name}"
-        f"{desc_str}\n"
+        f"{desc_str}{image_str}\n"
         f"<{admin_url}|Review in Admin UI>"
     )
 
@@ -244,6 +303,17 @@ def public_submit_event():
             "success": True,
             "message": "Event submitted successfully. It will appear on the calendar after review.",
         })
+
+    # Rate limit before decoding anything, so a flood is cheap to reject.
+    ip_hash = _hash_ip(_client_ip())
+    if ip_hash and count_recent_submissions(ip_hash, within_hours=1) >= SUBMISSIONS_PER_HOUR:
+        return jsonify({
+            "success": False,
+            "errors": [
+                f"You've submitted {SUBMISSIONS_PER_HOUR} events in the past hour. "
+                "Please try again later."
+            ],
+        }), 429
 
     # Validation
     errors = []
@@ -289,6 +359,37 @@ def public_submit_event():
     if description and len(description) > 500:
         errors.append("Description must be 500 characters or less")
 
+    # Optional flyer image, sent as a base64 data URL. Held in Postgres — it is
+    # NOT uploaded to Cloudinary here. Anonymous submissions must never consume
+    # the image quota; that only happens when an admin approves.
+    image_bytes = None
+    image_mime = None
+    raw_image = (body.get("image_data") or "").strip()
+    if raw_image:
+        if not body.get("image_rights_confirmed"):
+            errors.append(
+                "Please confirm you have permission to share the image, or remove it"
+            )
+        else:
+            try:
+                if "," in raw_image and raw_image.startswith("data:"):
+                    raw_image = raw_image.split(",", 1)[1]
+                decoded = base64.b64decode(raw_image, validate=True)
+            except Exception:
+                errors.append("The image could not be read — try attaching it again")
+                decoded = None
+
+            if decoded is not None:
+                if len(decoded) > MAX_SUBMISSION_IMAGE_BYTES:
+                    errors.append(
+                        f"Image must be under {MAX_SUBMISSION_IMAGE_BYTES // (1024 * 1024)} MB"
+                    )
+                else:
+                    try:
+                        image_bytes, image_mime = sanitize_submitted_image(decoded)
+                    except ImageUploadError as exc:
+                        errors.append(str(exc))
+
     if errors:
         return jsonify({"success": False, "errors": errors}), 400
 
@@ -302,10 +403,16 @@ def public_submit_event():
         "submitter_name": submitter_name,
         "submitter_email": submitter_email,
         "honeypot": body.get("website", ""),
+        "image_data": image_bytes,
+        "image_mime": image_mime,
+        "image_filename": (body.get("image_filename") or "")[:255] or None,
+        "image_rights_confirmed": bool(image_bytes and body.get("image_rights_confirmed")),
+        "submitter_ip_hash": ip_hash,
     })
 
     _notify_slack_new_submission(
-        artist_name, venue, event_date, event_time, submitter_name, description
+        artist_name, venue, event_date, event_time, submitter_name, description,
+        has_image=bool(image_bytes),
     )
 
     return jsonify({
@@ -637,6 +744,71 @@ def admin_submissions_pending_count():
     return jsonify({"count": count})
 
 
+@app.route("/api/admin/submissions/<int:submission_id>/image", methods=["GET"])
+@require_auth
+def admin_submission_image(submission_id):
+    """Serve a held submission image for admin review.
+
+    Auth'd, so the admin UI fetches this with its Bearer token and renders the
+    result via a blob URL — an <img src> can't carry the header itself.
+    """
+    found = get_submission_image(submission_id)
+    if not found:
+        return jsonify({"error": "No image for this submission"}), 404
+
+    data, mime, _filename = found
+    resp = make_response(data)
+    resp.headers["Content-Type"] = mime or "image/jpeg"
+    resp.headers["Cache-Control"] = "private, no-store"
+    return resp
+
+
+def _promote_submission_image(submission_id, sub):
+    """Upload a held submission image to Cloudinary and free the held bytes.
+
+    This is the only point where a public submission reaches Cloudinary — after
+    a human approved it. Returns the delivery URL, or None if there was no
+    image or the upload failed (never raises: a Cloudinary problem must not
+    block approving the event).
+    """
+    found = get_submission_image(submission_id)
+    if not found:
+        return None
+
+    data, _mime, filename = found
+    name = filename or f"submission-{submission_id}.jpg"
+    try:
+        url = upload_image(data, name, "submissions")
+    except ImageUploadError as exc:
+        print(f"[submissions] image rejected on approve: {exc}", flush=True)
+        return None
+
+    if url:
+        # Held bytes have served their purpose — don't leave them in Postgres.
+        clear_submission_image(submission_id)
+    else:
+        print(f"[submissions] image upload failed for #{submission_id}", flush=True)
+    return url
+
+
+@app.route("/api/admin/submissions/<int:submission_id>/promote-image", methods=["POST"])
+@require_auth
+def admin_submission_promote_image(submission_id):
+    """Upload a submission's image and return the URL, without approving.
+
+    Used by the "Edit & Approve" flow, which needs the image_url to prefill the
+    event edit form before the event exists.
+    """
+    sub = get_submission_by_id(submission_id)
+    if not sub:
+        return jsonify({"error": "Submission not found"}), 404
+
+    url = _promote_submission_image(submission_id, sub)
+    if not url:
+        return jsonify({"error": "No image, or the upload failed"}), 502
+    return jsonify({"ok": True, "image_url": url})
+
+
 @app.route("/api/admin/submissions/<int:submission_id>/approve", methods=["POST"])
 @require_auth
 def admin_submission_approve(submission_id):
@@ -672,6 +844,12 @@ def admin_submission_approve(submission_id):
         if venue_match[1]:
             event_data["neighborhood"] = venue_match[1]
 
+    # Now — and only now — the submitted image goes to Cloudinary.
+    if sub.get("has_image"):
+        image_url = _promote_submission_image(submission_id, sub)
+        if image_url:
+            event_data["image_url"] = image_url
+
     event = create_event(event_data)
     event_id = str(event["id"]) if event else None
 
@@ -705,6 +883,10 @@ def admin_submission_reject(submission_id):
     sub = get_submission_by_id(submission_id)
     if not sub:
         return jsonify({"error": "Submission not found"}), 404
+
+    # Nothing was uploaded to Cloudinary, so rejecting just drops the held bytes.
+    if sub.get("has_image"):
+        clear_submission_image(submission_id)
 
     update_submission_status(submission_id, "rejected")
     return jsonify({"success": True, "message": "Submission rejected"})

@@ -346,6 +346,9 @@
                 'date': 'date',
                 'start_time': 'start_time',
                 'description': 'description',
+                // Set when the submission carried a flyer — Edit & Approve
+                // uploads it first and passes the Cloudinary URL through.
+                'image_url': 'image_url',
             };
             for (const [urlKey, fieldId] of Object.entries(fieldMap)) {
                 const val = params.get(urlKey);

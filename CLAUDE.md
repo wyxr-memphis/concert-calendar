@@ -66,7 +66,10 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
   while a deploy booted workers; their `CREATE TABLE IF NOT EXISTS events` queued, and the
   whole API went down (`/api/events`, `/api/sponsors`, even `/health`) until the stuck
   session was terminated. Any new DDL added to `_run_migrations()` must use `_ddl_cursor()`
-  and its table must be added to `_SCHEMA_TABLES`, or the fast path will skip it forever.
+  **and be registered for the fast path, or it will be skipped forever**: new tables go in
+  `_SCHEMA_TABLES`, new columns on an existing table go in `_SCHEMA_COLUMNS[<table>]`. The
+  column case is the sneaky one — the table already exists, so the check passes and the
+  column is silently never created on any database that has run the app before.
 - **Diagnosing a hung API:** query `pg_stat_activity` for `state = 'idle in transaction'`
   and `wait_event_type = 'Lock'`. Fix is `pg_terminate_backend(<pid>)` plus cancelling the
   build; the build's inserts are `ON CONFLICT DO NOTHING` and re-run next cycle.
@@ -226,6 +229,33 @@ regression risk in this area:
 
 `artifacts/` is **not** on Cloudinary — it's a build input read off disk during GitHub
 Actions, so `admin_import_upload()` still commits it to the repo via the Contents API.
+
+### Public submit-form images
+
+`/submit` accepts an optional flyer. **Anonymous uploads never reach Cloudinary** — that is
+the design constraint, not an implementation detail. Bytes are held in
+`submissions.image_data` (BYTEA) and only uploaded when an admin approves, so the free-tier
+quota is spent solely on images someone chose to publish.
+
+- **Browser downscales first** — canvas to 1600px max edge, JPEG q0.82. A 12 MB phone photo
+  becomes a few hundred KB, so submitters never hit a size wall, and EXIF/GPS is dropped.
+- **Server re-encodes anyway** — `sanitize_submitted_image()` in `backend/images.py` decodes
+  with Pillow and writes fresh JPEG bytes. Never store what was submitted: a file can carry
+  a valid image header and be something else. Cap is 3 MB (`MAX_SUBMISSION_IMAGE_BYTES`),
+  tighter than the 10 MB admin cap because this path is unauthenticated.
+- **Rate limit:** 5 submissions/hour per hashed IP (`SUBMISSIONS_PER_HOUR`). Keyed on the
+  leftmost `X-Forwarded-For` entry — `request.remote_addr` is Render's proxy, so using it
+  would put every submitter in one bucket. IP is stored as a salted SHA-256
+  (`SUBMISSION_IP_SALT`), never in the clear.
+- **Rights checkbox** is required when a file is attached, recorded in
+  `image_rights_confirmed`.
+- **Bytes are freed** on approve (after upload), on reject, and by a 90-day sweep
+  (`purge_stale_submission_images()`) at the start of the daily build.
+
+⚠️ `image_data` must never reach `jsonify` — psycopg2 returns it as a `memoryview` and
+`serialize_event()` doesn't convert it, which would break the whole admin Submissions tab.
+All submission queries select `_SUBMISSION_COLUMNS` (which exposes a derived `has_image`
+boolean instead); the bytes come back only from `get_submission_image()`.
 
 ## Sponsor System
 

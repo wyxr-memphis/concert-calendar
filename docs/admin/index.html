@@ -241,6 +241,15 @@
             color: #444;
             margin: 8px 0;
         }
+        .submission-card .sub-image {
+            display: block;
+            max-width: 180px;
+            max-height: 180px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            margin: 8px 0;
+            cursor: zoom-in;
+        }
         .submission-card .sub-submitter {
             font-size: 0.8em;
             color: #999;
@@ -1675,6 +1684,7 @@
                         <span class="sub-artist">${esc(s.artist_name)}</span>
                         <span class="sub-status-badge ${s.status}">${s.status}</span>
                     </div>
+                    ${s.has_image ? `<img class="sub-image" data-sub-image="${s.id}" alt="Submitted flyer" title="Click to view full size">` : ''}
                     <div class="sub-meta">
                         <span><strong>Venue:</strong> ${esc(s.venue)}</span>
                         <span><strong>Date:</strong> ${esc(dateStr)}</span>
@@ -1685,6 +1695,21 @@
                     ${actions}
                 </div>`;
             }).join('');
+
+            // Held submission images sit behind @require_auth, and an <img src>
+            // can't send a Bearer header — so fetch with auth and hand the img
+            // a blob URL instead.
+            container.querySelectorAll('[data-sub-image]').forEach(img => {
+                const id = img.dataset.subImage;
+                AdminAPI.apiFetch(`/api/admin/submissions/${id}/image`)
+                    .then(resp => resp.ok ? resp.blob() : Promise.reject(resp.status))
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        img.src = url;
+                        img.addEventListener('click', () => window.open(url, '_blank'));
+                    })
+                    .catch(() => { img.remove(); });
+            });
 
             // Attach action handlers
             container.querySelectorAll('.btn-approve').forEach(btn => {
@@ -1734,7 +1759,7 @@
             }
         }
 
-        function editAndApprove(id) {
+        async function editAndApprove(id) {
             const sub = allSubmissions.find(s => String(s.id) === String(id));
             if (!sub) return;
 
@@ -1747,6 +1772,23 @@
             if (sub.event_time) params.set('start_time', sub.event_time);
             if (sub.description) params.set('description', sub.description);
             params.set('source', 'submission');
+
+            // The edit form takes an image_url, not bytes — so promote the held
+            // image to Cloudinary first and pass the URL. Failing here shouldn't
+            // block the edit; the admin can still save the event without art.
+            if (sub.has_image) {
+                try {
+                    const { resp, data } = await AdminAPI.apiJSON(
+                        `/api/admin/submissions/${id}/promote-image`, { method: 'POST' });
+                    if (resp.ok && data.image_url) {
+                        params.set('image_url', data.image_url);
+                    } else {
+                        showStatus('Could not upload the submitted image — continuing without it', 'error');
+                    }
+                } catch (err) {
+                    showStatus('Could not upload the submitted image — continuing without it', 'error');
+                }
+            }
 
             window.location.href = `/admin/edit.html?${params.toString()}`;
         }

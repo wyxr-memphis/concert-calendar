@@ -43,6 +43,7 @@ The concert calendar started as a Python script that wrote events to a flat `eve
 | `GITHUB_PAT` | GitHub PAT with `actions:write` scope |
 | `CLOUDINARY_URL` | Image hosting for all uploads — `cloudinary://<key>:<secret>@wyxr` |
 | `CLOUDINARY_FOLDER_PREFIX` | Optional; defaults to `concert-calendar` |
+| `SUBMISSION_IP_SALT` | Salts hashed submitter IPs for submit-form rate limiting |
 | `ANTHROPIC_API_KEY` | Claude Vision for the Slack image pipeline |
 | `SLACK_BOT_TOKEN` | Slack bot token (`files:read`, `chat:write`, `channels:history`) |
 | `SLACK_SIGNING_SECRET` | Verifies inbound Slack webhooks |
