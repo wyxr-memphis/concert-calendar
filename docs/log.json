@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-02T07:33:00.992809+00:00",
+  "run_timestamp": "2026-08-02T13:15:09.217410+00:00",
   "date_range": {
     "start": "2026-08-02",
     "end": "2026-08-09"
   },
-  "total_events_db": 2823,
-  "total_active_display": 78,
+  "total_events_db": 2851,
+  "total_active_display": 85,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 31,
@@ -41,27 +49,19 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 222,
+      "events_after_filter": 33,
+      "events_filtered": 189,
       "error": null
     },
     {
@@ -81,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,10 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -113,18 +121,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
+      "events_found": 70,
+      "events_after_filter": 25,
+      "events_filtered": 45,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
@@ -137,50 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 25,
-      "events_filtered": 45,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 3,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -193,11 +169,27 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 222,
-      "events_after_filter": 33,
-      "events_filtered": 189,
+      "events_found": 24,
+      "events_after_filter": 3,
+      "events_filtered": 21,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 45,
+      "events_after_filter": 45,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -206,6 +198,14 @@
       "events_found": 16,
       "events_after_filter": 12,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 78,
-      "events_after_filter": 78,
+      "events_found": 85,
+      "events_after_filter": 85,
       "events_filtered": 0,
       "error": null
     }
@@ -501,6 +501,27 @@
       "source": "manual"
     },
     {
+      "artist": "Colton Ales",
+      "venue": "Bar DKDC",
+      "date": "2026-08-07",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Joe Turner",
+      "venue": "Bar DKDC",
+      "date": "2026-08-07",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Who Wrote That Comedy Show",
+      "venue": "Bar DKDC",
+      "date": "2026-08-07",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Blind Mississippi Morris",
       "venue": "Blues City Cafe",
       "date": "2026-08-07",
@@ -569,6 +590,34 @@
       "date": "2026-08-07",
       "time": "8 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "DJ Brilli",
+      "venue": "Bar DKDC",
+      "date": "2026-08-08",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Jayxavaire",
+      "venue": "Bar DKDC",
+      "date": "2026-08-08",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Livin",
+      "venue": "Bar DKDC",
+      "date": "2026-08-08",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Rhinestonee",
+      "venue": "Bar DKDC",
+      "date": "2026-08-08",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Robert Washington (Elvis Show)",
