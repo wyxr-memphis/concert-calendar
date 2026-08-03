@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-03T08:31:47.441555+00:00",
+  "run_timestamp": "2026-08-03T18:44:09.042054+00:00",
   "date_range": {
     "start": "2026-08-03",
     "end": "2026-08-10"
   },
-  "total_events_db": 2851,
-  "total_active_display": 69,
+  "total_events_db": 2870,
+  "total_active_display": 79,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,43 +25,43 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_after_filter": 31,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,11 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 220,
+      "events_after_filter": 29,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -85,30 +85,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +97,26 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,19 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 21,
-      "events_filtered": 210,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 8,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -177,11 +169,35 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 47,
+      "events_after_filter": 47,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 11,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 24,
       "events_after_filter": 3,
       "events_filtered": 21,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 231,
+      "events_after_filter": 21,
+      "events_filtered": 210,
       "error": null
     },
     {
@@ -193,26 +209,10 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 29,
-      "events_filtered": 191,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 34,
       "events_after_filter": 34,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -227,13 +227,34 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 69,
+      "events_found": 79,
+      "events_after_filter": 79,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-03",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-03",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-03",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
     {
       "artist": "Rockin 88's",
       "venue": "Blues City Cafe",
@@ -247,6 +268,20 @@
       "date": "2026-08-04",
       "time": "6:00 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-04",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-04",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Brimstone Jones",
@@ -277,6 +312,20 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-05",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-05",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
       "date": "2026-08-05",
@@ -296,6 +345,20 @@
       "date": "2026-08-06",
       "time": "7:30 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-06",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-06",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -366,6 +429,13 @@
       "date": "2026-08-07",
       "time": "9 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-07",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Colton Ales",
