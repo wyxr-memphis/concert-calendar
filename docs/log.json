@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-04T07:41:59.087965+00:00",
+  "run_timestamp": "2026-08-04T18:23:11.123718+00:00",
   "date_range": {
     "start": "2026-08-04",
     "end": "2026-08-11"
   },
-  "total_events_db": 2878,
-  "total_active_display": 86,
+  "total_events_db": 2885,
+  "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,34 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 50,
+      "events_after_filter": 50,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -65,26 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -94,6 +70,30 @@
       "events_found": 36,
       "events_after_filter": 36,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 220,
+      "events_after_filter": 29,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -113,10 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +137,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,22 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 231,
-      "events_after_filter": 21,
-      "events_filtered": 210,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 3,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -177,19 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 12,
-      "events_filtered": 4,
+      "events_found": 14,
+      "events_after_filter": 6,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -201,11 +193,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
-      "events_filtered": 0,
+      "events_found": 16,
+      "events_after_filter": 12,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 11,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 231,
+      "events_after_filter": 21,
+      "events_filtered": 210,
       "error": null
     },
     {
@@ -217,18 +225,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 86,
-      "events_after_filter": 86,
+      "events_found": 89,
+      "events_after_filter": 89,
       "events_filtered": 0,
       "error": null
     }
@@ -578,6 +578,13 @@
       "source": "scraper:crosstown_brewing_co"
     },
     {
+      "artist": "Patrick McGee and the Midnight Choir",
+      "venue": "Flyway Brewing",
+      "date": "2026-08-08",
+      "time": "9 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
       "artist": "barnacle boi",
       "venue": "Growlers",
       "date": "2026-08-08",
@@ -683,6 +690,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Phases",
+      "venue": "Growlers",
+      "date": "2026-08-09",
+      "time": "8:00AM",
+      "source": "scraper:growlers"
+    },
+    {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
       "date": "2026-08-09",
@@ -701,6 +715,13 @@
       "venue": "Huey's (Collierville)",
       "date": "2026-08-09",
       "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Breeze Cayolle",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-08-09",
+      "time": "8 PM",
       "source": "scraper:huey_s"
     },
     {
