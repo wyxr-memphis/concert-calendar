@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-08-04T20:41:55.093416+00:00",
+  "run_timestamp": "2026-08-04T20:53:01.052995+00:00",
   "date_range": {
     "start": "2026-08-04",
     "end": "2026-08-11"
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 6,
@@ -41,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -65,27 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_found": 220,
+      "events_after_filter": 29,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -97,18 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 29,
-      "events_filtered": 191,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -145,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 21,
-      "events_filtered": 210,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
       "error": null
     },
     {
@@ -177,19 +153,43 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 3,
-      "events_filtered": 21,
+      "events_found": 231,
+      "events_after_filter": 21,
+      "events_filtered": 210,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
-      "events_filtered": 1,
+      "events_found": 14,
+      "events_after_filter": 6,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 12,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
       "error": null
     },
     {
@@ -201,11 +201,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 12,
-      "events_filtered": 4,
+      "events_found": 12,
+      "events_after_filter": 11,
+      "events_filtered": 1,
       "error": null
     },
     {
