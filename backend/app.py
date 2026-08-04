@@ -22,6 +22,7 @@ import threading
 import uuid
 from datetime import datetime, timedelta, timezone
 from functools import wraps
+from typing import Optional
 from zoneinfo import ZoneInfo
 
 from flask import Flask, request, jsonify, make_response
@@ -1499,6 +1500,66 @@ def _canonical_venue(venue: str) -> str:
         return (venue or "").strip()
 
 
+# Venue strings that mean "I could not tell" — Claude Vision returns one of
+# these when the flyer never prints its own venue name (a venue's own monthly
+# schedule usually doesn't). They must never reach the calendar as a venue.
+_VENUE_PLACEHOLDERS = {
+    "",
+    "unknown",
+    "unknown venue",
+    "venue tba",
+    "venue tbd",
+    "tba",
+    "tbd",
+    "n/a",
+    "na",
+    "none",
+    "not specified",
+    "unspecified",
+}
+
+# Filler that can sit between the trigger phrase and the venue name in a
+# caption: "add to calendar for the Lamplighter" → "lamplighter".
+_CAPTION_VENUE_FILLER = re.compile(r"^(?:for|at|venue|is|the)\b[\s:@,–—-]*")
+
+
+def _is_placeholder_venue(venue: str) -> bool:
+    """True when a venue string carries no actual venue information."""
+    return (venue or "").strip().lower().strip(".") in _VENUE_PLACEHOLDERS
+
+
+def _venue_hint_from_caption(caption: str) -> Optional[str]:
+    """Venue named in the Slack caption, e.g. "add to calendar B-Side".
+
+    Resolved strictly against the DB venues table (names + aliases) so leftover
+    caption chatter can't invent a venue. Trailing words are trimmed one at a
+    time, which lets "add to calendar b-side thanks!" still match "b-side".
+    Returns the canonical venue name, or None if nothing in the caption names a
+    known venue.
+    """
+    lowered = (caption or "").lower()
+    if "add to calendar" not in lowered:
+        return None
+    rest = lowered.split("add to calendar", 1)[1]
+    rest = rest.strip().strip(":;,.@–—-").strip()
+    rest = _CAPTION_VENUE_FILLER.sub("", rest).strip()
+    if not rest:
+        return None
+
+    words = rest.split()
+    for n in range(len(words), 0, -1):
+        candidate = " ".join(words[:n]).strip(":;,.!?@–—-")
+        if not candidate:
+            continue
+        try:
+            canon = normalize_venue_from_db(candidate)
+        except Exception:
+            return None
+        if canon and canon[0]:
+            return str(canon[0]).strip()
+    return None
+
+
 def _slack_escape(text: str) -> str:
     """Escape the three characters Slack treats as markup control chars.
 
@@ -1622,7 +1683,39 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 4. Filter to date range and skip duplicates already in DB (fuzzy match)
+        # 4. Resolve the venue before anything keys off it.
+        #
+        # A venue's own monthly schedule usually never prints the venue name, so
+        # Vision comes back with "Unknown Venue" for every act on it. Naming the
+        # venue in the caption ("add to calendar B-Side") fixes that, and when a
+        # caption names a known venue it wins for the whole image — one flyer is
+        # one venue.
+        venue_hint = _venue_hint_from_caption(caption)
+        if venue_hint:
+            print(f"[slack] caption names venue {venue_hint!r} — applying to all events", flush=True)
+            for event in events:
+                event.venue = venue_hint
+
+        # Without a hint, a placeholder venue can't be inserted — "Unknown Venue"
+        # on the public calendar is worse than not adding the show.
+        unknown_venue = [e for e in events if _is_placeholder_venue(e.venue)]
+        if unknown_venue:
+            events = [e for e in events if not _is_placeholder_venue(e.venue)]
+            print(
+                f"[slack] {len(unknown_venue)} event(s) had no identifiable venue "
+                f"and no caption venue — skipped",
+                flush=True,
+            )
+        if not events:
+            _slack_post_message(
+                channel_id,
+                "⚠️ Couldn't tell which venue this flyer is for — nothing was added.\n"
+                "Re-upload it with the venue in the caption, like "
+                "`add to calendar B-Side`.",
+            )
+            return
+
+        # 5. Filter to date range and skip duplicates already in DB (fuzzy match)
         events_to_insert = []
         for event in events:
             if not (START_DATE <= event.date <= SCRAPER_END_DATE):
@@ -1632,13 +1725,16 @@ def _process_slack_image(file_id: str, channel_id: str):
             events_to_insert.append(event)
 
         if not events_to_insert:
-            _slack_post_message(
-                channel_id,
-                "⚠️ No new events found — all extracted events are already in the calendar.",
-            )
+            msg = "⚠️ No new events found — all extracted events are already in the calendar."
+            if unknown_venue:
+                msg += (
+                    f"\n({len(unknown_venue)} more had no identifiable venue — name the "
+                    "venue in the caption, like `add to calendar B-Side`.)"
+                )
+            _slack_post_message(channel_id, msg)
             return
 
-        # 5. Host the uploaded image so it can be shown alongside the event —
+        # 6. Host the uploaded image so it can be shown alongside the event —
         # but ONLY when the image depicts a single show. What must be avoided is
         # a venue's month-long schedule thumbnailing the whole flyer onto every
         # row; a gig poster for one night is fine even when the bill has four
@@ -1707,7 +1803,7 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 6. Trigger GitHub Actions rebuild
+        # 7. Trigger GitHub Actions rebuild
         github_pat = os.environ.get("GITHUB_PAT", "")
         github_repo = os.environ.get("GITHUB_REPO", "wyxr-memphis/concert-calendar")
         build_triggered = False
@@ -1723,7 +1819,7 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             build_triggered = build_resp.status_code == 204
 
-        # 7. Post results back to Slack
+        # 8. Post results back to Slack
         n = len(inserted)
         lines = [f"✅ *{n} event{'s' if n != 1 else ''} added from image:*"]
         for e in events_to_insert:
@@ -1741,6 +1837,11 @@ def _process_slack_image(file_id: str, channel_id: str):
                 f"• <{edit_url}|{_slack_escape(e.artist)}> — {venue} — {date_str}"
             )
         lines.append("\n_Titles link to the admin editor._")
+        if unknown_venue:
+            lines.append(
+                f"⚠️ Skipped {len(unknown_venue)} event(s) with no identifiable venue. "
+                "Name the venue in the caption (`add to calendar B-Side`) to include them."
+            )
         if build_triggered:
             lines.append("📅 Calendar rebuild triggered — live in ~2 minutes")
 

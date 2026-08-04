@@ -451,6 +451,9 @@ joined title. A four-act bill on one night = four entries.
 VENUE NAME: Return only the venue's name — no city, state, or street address.
 Write "Lamplighter Lounge", not "Lamplighter Lounge, Memphis, TN" and not
 "Lamplighter Lounge, 1702 Madison Ave".
+If the image never names a venue (common for a venue's own monthly schedule),
+return an empty string for venue. Do not invent a placeholder like
+"Unknown Venue" and do not guess a venue from the acts or the artwork.
 
 IMPORTANT YEAR RULE: If no year is shown on the image, default to the CURRENT year ({START_DATE.year}).
 - Use the current year ({START_DATE.year}) for any date in the current month or future months.
