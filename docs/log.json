@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-04T18:23:11.123718+00:00",
+  "run_timestamp": "2026-08-04T20:41:55.093416+00:00",
   "date_range": {
     "start": "2026-08-04",
     "end": "2026-08-11"
   },
-  "total_events_db": 2885,
-  "total_active_display": 89,
+  "total_events_db": 2926,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 6,
@@ -49,18 +41,18 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 33,
       "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -81,26 +73,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 29,
-      "events_filtered": 191,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -113,11 +97,11 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 220,
+      "events_after_filter": 29,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -129,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +129,34 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 231,
+      "events_after_filter": 21,
+      "events_filtered": 210,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -169,26 +177,26 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
+      "events_found": 24,
       "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_filtered": 21,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 6,
-      "events_filtered": 8,
+      "events_found": 12,
+      "events_after_filter": 11,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -201,19 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 231,
-      "events_after_filter": 21,
-      "events_filtered": 210,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 89,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
@@ -317,6 +317,13 @@
       "date": "2026-08-05",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "No Band - Cook Working Bar",
+      "venue": "Unknown Venue",
+      "date": "2026-08-05",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Deep Purple with Kansas Live At the Garden",
@@ -408,6 +415,13 @@
       "date": "2026-08-06",
       "time": "Doors 6:30, Music 7:00",
       "source": "manual"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "Unknown Venue",
+      "date": "2026-08-06",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "DJs Rhinestonee and Digital Tech",
@@ -529,6 +543,13 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Memphis Snake Doctors",
+      "venue": "Unknown Venue",
+      "date": "2026-08-07",
+      "time": "6:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-08",
@@ -646,6 +667,27 @@
       "date": "2026-08-08",
       "time": null,
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Alice Hasen",
+      "venue": "Unknown Venue",
+      "date": "2026-08-08",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mama Honey",
+      "venue": "Unknown Venue",
+      "date": "2026-08-08",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Victim of a Dog",
+      "venue": "Unknown Venue",
+      "date": "2026-08-08",
+      "time": "9 PM",
+      "source": "artifact"
     },
     {
       "artist": "Heartbreak Hill",
@@ -795,6 +837,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Mystrio",
+      "venue": "Unknown Venue",
+      "date": "2026-08-09",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Justin Williams",
       "venue": "Bar DKDC",
       "date": "2026-08-10",
@@ -814,6 +863,13 @@
       "date": "2026-08-10",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "Unknown Venue",
+      "date": "2026-08-10",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -856,6 +912,27 @@
       "date": "2026-08-11",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "CJ Manning",
+      "venue": "Unknown Venue",
+      "date": "2026-08-11",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Logan Hanna",
+      "venue": "Unknown Venue",
+      "date": "2026-08-11",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Shawn Zorn",
+      "venue": "Unknown Venue",
+      "date": "2026-08-11",
+      "time": "9 PM",
+      "source": "artifact"
     }
   ]
 }
