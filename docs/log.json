@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-04T21:52:34.414191+00:00",
+  "run_timestamp": "2026-08-05T07:42:30.044023+00:00",
   "date_range": {
-    "start": "2026-08-04",
-    "end": "2026-08-11"
+    "start": "2026-08-05",
+    "end": "2026-08-12"
   },
-  "total_events_db": 2936,
-  "total_active_display": 102,
+  "total_events_db": 2942,
+  "total_active_display": 107,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 33,
@@ -41,19 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 220,
-      "events_after_filter": 29,
-      "events_filtered": 191,
       "error": null
     },
     {
@@ -65,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -97,22 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
@@ -129,6 +97,30 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -137,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_found": 69,
+      "events_after_filter": 27,
+      "events_filtered": 42,
       "error": null
     },
     {
@@ -153,22 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 69,
-      "events_after_filter": 26,
-      "events_filtered": 43,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 231,
@@ -177,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 5,
-      "events_filtered": 8,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -190,6 +166,30 @@
       "events_found": 12,
       "events_after_filter": 11,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 49,
+      "events_after_filter": 49,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 5,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 30,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -204,15 +204,15 @@
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 16,
-      "events_after_filter": 12,
-      "events_filtered": 4,
+      "events_after_filter": 11,
+      "events_filtered": 5,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -220,69 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 76,
-      "events_filtered": 3,
+      "events_after_filter": 75,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 102,
+      "events_found": 107,
+      "events_after_filter": 107,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "The Mystic",
-      "venue": "Crosstown Arts",
-      "date": "2026-08-04",
-      "time": "6:00 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-04",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-04",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-04",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-04",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "THIS IS MUSIC- Dan Larsen",
-      "venue": "Flyway Brewing",
-      "date": "2026-08-04",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "No Band - Cook Working Bar",
       "venue": "B-Side Memphis",
@@ -578,10 +529,24 @@
       "source": "artifact"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-08",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-08",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-08",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -947,6 +912,76 @@
       "date": "2026-08-11",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Josh and Friends",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-08-12",
+      "time": "6-8pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "WYXR's Stereo Session featuring Snowglobe's \"Our Land Brains\"",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-08-12",
+      "time": "6 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Karaoke w/ Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-12",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-12",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Dean Z",
+      "venue": "Graceland Soundstage",
+      "date": "2026-08-12",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "The Comfort Zone",
+      "venue": "Growlers",
+      "date": "2026-08-12",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Robert Washington Dinner Show \u2013 ELVIS WEEK",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-12",
+      "time": "5:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Victor Trevino Jr \u2013 Music Release Party",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-12",
+      "time": "9:30PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Abigail & The Starlings / Local Brand / Dinosauria [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-12",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "SIDE SET: Wyly Bigger",
+      "venue": "Nashoba",
+      "date": "2026-08-12",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
