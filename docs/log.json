@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-06T07:42:02.740234+00:00",
+  "run_timestamp": "2026-08-06T20:35:43.750354+00:00",
   "date_range": {
     "start": "2026-08-06",
     "end": "2026-08-13"
   },
-  "total_events_db": 2962,
-  "total_active_display": 115,
+  "total_events_db": 2964,
+  "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -49,35 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
+      "events_found": 33,
+      "events_after_filter": 32,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
+      "events_found": 221,
+      "events_after_filter": 30,
+      "events_filtered": 191,
       "error": null
     },
     {
@@ -89,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 12,
       "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -129,11 +121,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 27,
-      "events_filtered": 42,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,18 +161,34 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 9,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 27,
+      "events_filtered": 42,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 11,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
       "events_filtered": 0,
       "error": null
     },
@@ -177,19 +201,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 11,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 30,
-      "events_filtered": 191,
+      "events_found": 18,
+      "events_after_filter": 9,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -197,22 +213,6 @@
       "success": true,
       "events_found": 35,
       "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 115,
-      "events_after_filter": 115,
+      "events_found": 116,
+      "events_after_filter": 116,
       "events_filtered": 0,
       "error": null
     }
@@ -401,6 +401,13 @@
       "date": "2026-08-07",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "SOLD OUT Sunny Side New Orleans Jazz Band",
+      "venue": "Crosstown Arts",
+      "date": "2026-08-07",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
     },
     {
       "artist": "Sunny Side New Orleans Jazz Band",
