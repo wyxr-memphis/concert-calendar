@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-06T20:35:43.750354+00:00",
+  "run_timestamp": "2026-08-07T06:10:15.605738+00:00",
   "date_range": {
-    "start": "2026-08-06",
-    "end": "2026-08-13"
+    "start": "2026-08-07",
+    "end": "2026-08-14"
   },
-  "total_events_db": 2964,
-  "total_active_display": 116,
+  "total_events_db": 2967,
+  "total_active_display": 121,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 34,
-      "events_after_filter": 34,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
     },
@@ -49,14 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 33,
@@ -65,11 +57,27 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 221,
-      "events_after_filter": 30,
-      "events_filtered": 191,
+      "events_found": 27,
+      "events_after_filter": 26,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -85,22 +93,6 @@
       "success": true,
       "events_found": 9,
       "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 12,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -140,31 +132,15 @@
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_after_filter": 7,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 0,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 231,
-      "events_after_filter": 21,
-      "events_filtered": 210,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -177,6 +153,30 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 231,
+      "events_after_filter": 21,
+      "events_filtered": 210,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 0,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 16,
@@ -185,10 +185,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -204,15 +204,15 @@
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 18,
-      "events_after_filter": 9,
-      "events_filtered": 9,
+      "events_after_filter": 8,
+      "events_filtered": 10,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -220,118 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 74,
-      "events_filtered": 5,
+      "events_after_filter": 73,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 116,
-      "events_after_filter": 116,
+      "events_found": 121,
+      "events_after_filter": 121,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Deep Purple with Kansas Live At the Garden",
-      "venue": "Radians Amphitheater",
-      "date": "2026-08-06",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-06",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-06",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-06",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-06",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "THIS IS MUSIC- Death File Red",
-      "venue": "Flyway Brewing",
-      "date": "2026-08-06",
-      "time": "8 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Struggle Jennings",
-      "venue": "Growlers",
-      "date": "2026-08-06",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Massey Tate",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-06",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Southern Grind Sessions",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-08-06",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "FinalBossFight!",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-06",
-      "time": "Doors 6:30, Music 7:00",
-      "source": "manual"
-    },
-    {
-      "artist": "Stay Fashionable",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-06",
-      "time": "Doors 6:30, Music 7:00",
-      "source": "manual"
-    },
-    {
-      "artist": "SUNFO",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-06",
-      "time": "Doors 6:30, Music 7:00",
-      "source": "manual"
-    },
-    {
-      "artist": "Updog",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-06",
-      "time": "Doors 6:30, Music 7:00",
-      "source": "manual"
-    },
     {
       "artist": "DJs Rhinestonee and Digital Tech",
       "venue": "Lamplighter Lounge",
@@ -655,6 +557,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-09",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-08-09",
@@ -821,6 +730,13 @@
       "date": "2026-08-10",
       "time": "10 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-10",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Justin Williams",
@@ -1045,6 +961,125 @@
       "date": "2026-08-13",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Sweeping Promises",
+      "venue": "Goner Records",
+      "date": "2026-08-14",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Stolen Faces",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-14",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Lina Beach",
+      "venue": "Bar DKDC",
+      "date": "2026-08-14",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-14",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "DJ Zirk",
+      "venue": "Growlers",
+      "date": "2026-08-14",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dash Rip Rock",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-14",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Robert Washington Dinner Show \u2013 ELVIS WEEK",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-14",
+      "time": "5:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Rock the Boat",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-14",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Thumpdaddy",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-14",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Chris Crofton",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-14",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jana Whiteside",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-14",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Josh Fadem",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-14",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Prince Bobo",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-14",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ryan M Bush",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-08-14",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DJ AD and the Vibe Tribe",
+      "venue": "Nashoba",
+      "date": "2026-08-14",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Terry Greene on the Patio",
+      "venue": "Nashoba",
+      "date": "2026-08-14",
+      "time": "5 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "John Legend: Songs & Stories Live At the Garden",
+      "venue": "Radians Amphitheater",
+      "date": "2026-08-14",
+      "time": "8 PM",
+      "source": "scraper:radians_amphitheater"
     }
   ]
 }
