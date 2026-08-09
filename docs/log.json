@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-08-09T05:48:31.780267+00:00",
+  "run_timestamp": "2026-08-09T17:23:13.420626+00:00",
   "date_range": {
     "start": "2026-08-09",
     "end": "2026-08-16"
   },
-  "total_events_db": 2979,
+  "total_events_db": 2980,
   "total_active_display": 125,
   "data_store": "postgresql",
   "sources": [
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,26 +41,18 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 27,
+      "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 30,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -73,18 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -97,11 +89,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -109,22 +109,6 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 71,
-      "events_after_filter": 27,
-      "events_filtered": 44,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +145,59 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 27,
+      "events_filtered": 44,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 7,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 11,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 231,
       "events_after_filter": 19,
       "events_filtered": 212,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 9,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -181,38 +213,6 @@
       "success": true,
       "events_found": 49,
       "events_after_filter": 49,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 9,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 7,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
