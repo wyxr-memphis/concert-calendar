@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-11T17:51:16.125165+00:00",
+  "run_timestamp": "2026-08-12T06:17:03.065199+00:00",
   "date_range": {
-    "start": "2026-08-11",
-    "end": "2026-08-18"
+    "start": "2026-08-12",
+    "end": "2026-08-19"
   },
-  "total_events_db": 2994,
-  "total_active_display": 103,
+  "total_events_db": 3002,
+  "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -73,26 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 25,
-      "events_filtered": 196,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +113,19 @@
       "error": null
     },
     {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 2,
-      "events_filtered": 18,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 19,
-      "events_filtered": 212,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -169,27 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 8,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 231,
+      "events_after_filter": 19,
+      "events_filtered": 212,
       "error": null
     },
     {
@@ -201,10 +169,50 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 7,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 25,
+      "events_filtered": 196,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
+      "events_found": 51,
+      "events_after_filter": 51,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -212,91 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 69,
-      "events_filtered": 10,
+      "events_after_filter": 68,
+      "events_filtered": 11,
       "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='crosstownarts.org', port=443): Max retries exceeded wi"
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 99,
+      "events_after_filter": 99,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "CJ Manning",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-11",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Logan Hanna",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-11",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Shawn Zorn",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-11",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-11",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-11",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Mak of Memphis",
-      "venue": "Growlers",
-      "date": "2026-08-11",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Last Song Standing \u2013 Monthly Showcase",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-11",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Robert Washington Dinner Show \u2013 ELVIS WEEK",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-11",
-      "time": "5:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-11",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Josh and Friends",
       "venue": "Crosstown Brewing Co.",
@@ -954,6 +891,41 @@
       "date": "2026-08-18",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Soundhaus",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-19",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-19",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Nethergate",
+      "venue": "Growlers",
+      "date": "2026-08-19",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-19",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "We Are One - D.A.N.C.E.",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-19",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
     }
   ]
 }
