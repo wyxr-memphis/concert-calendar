@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-12T17:52:24.642553+00:00",
+  "run_timestamp": "2026-08-12T21:35:14.419139+00:00",
   "date_range": {
     "start": "2026-08-12",
     "end": "2026-08-19"
   },
-  "total_events_db": 3005,
-  "total_active_display": 101,
+  "total_events_db": 3007,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
@@ -23,6 +23,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 53,
+      "events_after_filter": 53,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -57,18 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 221,
-      "events_after_filter": 25,
-      "events_filtered": 196,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -77,6 +77,22 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 25,
+      "events_filtered": 196,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -97,18 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 28,
       "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -121,18 +137,18 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -145,35 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 19,
-      "events_filtered": 212,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 7,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
+      "events_found": 70,
+      "events_after_filter": 27,
+      "events_filtered": 43,
       "error": null
     },
     {
@@ -185,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 231,
+      "events_after_filter": 19,
+      "events_filtered": 212,
       "error": null
     },
     {
@@ -201,19 +193,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 27,
-      "events_filtered": 43,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 7,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 101,
-      "events_after_filter": 101,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
@@ -548,6 +548,20 @@
       "date": "2026-08-14",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Bryan Hartley Industries",
+      "venue": "Young Avenue Deli",
+      "date": "2026-08-14",
+      "time": "7:45 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Noisy Cats Are We",
+      "venue": "Young Avenue Deli",
+      "date": "2026-08-14",
+      "time": "9:00 PM",
+      "source": "artifact"
     },
     {
       "artist": "Cloudland Canyon",
