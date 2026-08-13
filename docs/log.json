@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-12T21:35:14.419139+00:00",
+  "run_timestamp": "2026-08-13T06:19:13.788742+00:00",
   "date_range": {
-    "start": "2026-08-12",
-    "end": "2026-08-19"
+    "start": "2026-08-13",
+    "end": "2026-08-20"
   },
-  "total_events_db": 3007,
-  "total_active_display": 103,
+  "total_events_db": 3011,
+  "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,27 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,35 +57,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
+      "events_after_filter": 28,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -77,38 +69,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 25,
-      "events_filtered": 196,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -121,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
@@ -137,10 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -149,6 +109,14 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,19 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 7,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 231,
-      "events_after_filter": 19,
-      "events_filtered": 212,
+      "events_found": 36,
+      "events_after_filter": 34,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -193,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 231,
+      "events_after_filter": 18,
+      "events_filtered": 213,
       "error": null
     },
     {
@@ -217,107 +177,63 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 6,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 68,
-      "events_filtered": 11,
+      "events_after_filter": 67,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 105,
+      "events_after_filter": 105,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Josh and Friends",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-12",
-      "time": "6-8pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "WYXR's Stereo Session featuring Snowglobe's \"Our Land Brains\"",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-08-12",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Karaoke w/ Conner",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-12",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-12",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-12",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Dean Z",
-      "venue": "Graceland Soundstage",
-      "date": "2026-08-12",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
-    },
-    {
-      "artist": "The Comfort Zone",
-      "venue": "Growlers",
-      "date": "2026-08-12",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Robert Washington Dinner Show \u2013 ELVIS WEEK",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-12",
-      "time": "5:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Victor Trevino Jr \u2013 Music Release Party",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-12",
-      "time": "9:30PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Abigail & The Starlings / Local Brand / Dinosauria [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "SIDE SET: Wyly Bigger",
-      "venue": "Nashoba",
-      "date": "2026-08-12",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "The Switchblade Kid / Bo Peep and The Backbeat / Los Psychosis / The Rockets [small room-downstairs]",
       "venue": "Hi Tone",
@@ -443,6 +359,13 @@
       "date": "2026-08-14",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Happy Friday\u2014CANCELED DUE TO EXTREME HEAT FORECAST",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-08-14",
+      "time": "5:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
     },
     {
       "artist": "DJ Zirk",
@@ -760,6 +683,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-16",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-16",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-08-16",
@@ -954,6 +891,83 @@
       "date": "2026-08-19",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-20",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Hunny Blunt",
+      "venue": "Bar DKDC",
+      "date": "2026-08-20",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-20",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "THIS IS MUSIC- Big River Roots",
+      "venue": "Flyway Brewing",
+      "date": "2026-08-20",
+      "time": "6 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Ferb",
+      "venue": "Growlers",
+      "date": "2026-08-20",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Canyon Lights",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-20",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Rokkaht Hour [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Angela Burton Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-20",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Hospitality State of Mind (Blues Field Recordings Listening Session)",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-08-20",
+      "time": "6 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Straight Tequila Night \u2013 The Premier Tribute to \u201990s Country",
+      "venue": "Minglewood Hall",
+      "date": "2026-08-20",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "SIDE SET: Grace Askew",
+      "venue": "Nashoba",
+      "date": "2026-08-20",
+      "time": "6 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
