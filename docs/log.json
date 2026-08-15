@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-08-15T05:28:10.592157+00:00",
+  "run_timestamp": "2026-08-15T17:13:30.827765+00:00",
   "date_range": {
     "start": "2026-08-15",
     "end": "2026-08-22"
   },
-  "total_events_db": 3038,
+  "total_events_db": 3039,
   "total_active_display": 111,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 2,
+      "events_after_filter": 1,
       "events_filtered": 1,
       "error": null
     },
@@ -25,7 +25,15 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
@@ -41,34 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 28,
+      "events_found": 27,
       "events_after_filter": 27,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 34,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -81,26 +65,26 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
+      "events_found": 221,
+      "events_after_filter": 22,
+      "events_filtered": 199,
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 34,
+      "events_after_filter": 34,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -113,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 28,
@@ -129,10 +105,42 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -147,9 +155,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 78,
+      "events_found": 77,
       "events_after_filter": 34,
-      "events_filtered": 44,
+      "events_filtered": 43,
       "error": null
     },
     {
@@ -169,19 +177,19 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 16,
       "events_after_filter": 6,
       "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -215,14 +223,6 @@
       "events_after_filter": 65,
       "events_filtered": 14,
       "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='lafayettes.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Database",
@@ -819,7 +819,7 @@
       "artist": "Landslide - A Tribute to the Music of Fleetwood Mac",
       "venue": "Lafayette's Music Room",
       "date": "2026-08-21",
-      "time": "6 PM",
+      "time": "6:30 PM",
       "source": "scraper:lafayette_s_music_room"
     },
     {
@@ -980,7 +980,7 @@
       "artist": "Sarah Spain and the Nightshades",
       "venue": "Lafayette's Music Room",
       "date": "2026-08-22",
-      "time": "5 PM",
+      "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
     },
     {
