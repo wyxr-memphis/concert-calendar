@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-15T17:13:30.827765+00:00",
+  "run_timestamp": "2026-08-16T05:31:32.625587+00:00",
   "date_range": {
-    "start": "2026-08-15",
-    "end": "2026-08-22"
+    "start": "2026-08-16",
+    "end": "2026-08-23"
   },
-  "total_events_db": 3039,
-  "total_active_display": 111,
+  "total_events_db": 3057,
+  "total_active_display": 109,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 27,
+      "events_after_filter": 26,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -44,39 +44,23 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 22,
-      "events_filtered": 199,
+      "events_after_filter": 33,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 34,
-      "events_after_filter": 34,
+      "events_after_filter": 33,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -89,18 +73,18 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 221,
+      "events_after_filter": 20,
+      "events_filtered": 201,
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -121,18 +105,26 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -145,44 +137,44 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 77,
-      "events_after_filter": 34,
+      "events_found": 78,
+      "events_after_filter": 35,
       "events_filtered": 43,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 231,
-      "events_after_filter": 16,
-      "events_filtered": 215,
+      "events_after_filter": 15,
+      "events_filtered": 216,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 16,
+      "events_found": 19,
       "events_after_filter": 6,
-      "events_filtered": 10,
+      "events_filtered": 13,
       "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Huey's",
@@ -193,19 +185,27 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 10,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 8,
-      "events_filtered": 11,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -220,195 +220,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 65,
-      "events_filtered": 14,
+      "events_after_filter": 64,
+      "events_filtered": 15,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 111,
-      "events_after_filter": 111,
+      "events_found": 109,
+      "events_after_filter": 109,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Cloudland Canyon",
-      "venue": "Bar DKDC",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "DJ Livin",
-      "venue": "Bar DKDC",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Strooly",
-      "venue": "Bar DKDC",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Mala Leche",
-      "venue": "Growlers",
-      "date": "2026-08-15",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Soul Circuits, Phases, Justaserg",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-15",
-      "time": "9:01 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Aubrey McCrady",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-15",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-15",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale Street Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-15",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-15",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-15",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jam in the House! Part 2 (SOLD OUT)",
-      "venue": "Crosstown Arts",
-      "date": "2026-08-15",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Big River Roots",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Pilates & Pints - August 15",
-      "venue": "Flyway Brewing",
-      "date": "2026-08-15",
-      "time": "9 AM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "THIS IS MUSIC- Harris & Fitz",
-      "venue": "Flyway Brewing",
-      "date": "2026-08-15",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Robert Washington Dinner Show \u2013 ELVIS WEEK",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-15",
-      "time": "5:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Eternity\u2019s Pillar / Spek Was Here / Ash Leon / Starbunny / Deaf Revival [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baunie & Soul",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-08-15",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Seeing Red",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-08-15",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Juxtasory",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-15",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Planes",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-15",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Soul Circuits",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-15",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Bingo Loco",
-      "venue": "Minglewood Hall",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Poor Elijah w/ The Blue Byrdes + Aubrey McCrady",
-      "venue": "Minglewood Hall",
-      "date": "2026-08-15",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Almost Elton John and the Rocketmen",
-      "venue": "Nashoba",
-      "date": "2026-08-15",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Elvis: From Hollywood To Burning Love",
-      "venue": "Orpheum Theatre",
-      "date": "2026-08-15",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Nubia Yasin",
       "venue": "Bar DKDC",
@@ -606,6 +431,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-18",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-18",
@@ -653,6 +485,20 @@
       "date": "2026-08-19",
       "time": "7 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-19",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Sou Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-19",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Brad Birkedahl",
@@ -861,8 +707,8 @@
       "artist": "901 Rising Ft. Dead Soldiers & Jombi",
       "venue": "Minglewood Hall",
       "date": "2026-08-22",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Dennis Lucky Taylor",
@@ -1010,6 +856,146 @@
       "date": "2026-08-22",
       "time": "6:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "The Danny Banks Quartet",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-08-23",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Susan Marshall",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-23",
+      "time": "4 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Katie Loopz",
+      "venue": "Bar DKDC",
+      "date": "2026-08-23",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-23",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Pretty & Loud Brunch",
+      "venue": "Flyway Brewing",
+      "date": "2026-08-23",
+      "time": "11 AM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Bozo Red",
+      "venue": "Growlers",
+      "date": "2026-08-23",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-23",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Rev Down Trio *Matinee free show* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-23",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Bob Nelson & the Bobcats",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Bugaloos",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-08-23",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Even Odds",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "2 Quarts Low",
+      "venue": "Huey's (Millington)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Elmo & Lester",
+      "venue": "Huey's (Millington)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Medium Walter",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-08-23",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "El Ced & Groove Nation",
+      "venue": "Huey's (Southwind)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Eureka Live Brunch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-23",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "The Scott Sudbury Band",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-23",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "The Scott Sudbury Band w/ Special Opening Guest: Sarah Spain",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-23",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Black Stone Cherry",
+      "venue": "Minglewood Hall",
+      "date": "2026-08-23",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
