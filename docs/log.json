@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-08-17T13:36:01.240791+00:00",
+  "run_timestamp": "2026-08-17T17:19:21.598902+00:00",
   "date_range": {
     "start": "2026-08-17",
     "end": "2026-08-24"
   },
-  "total_events_db": 3061,
+  "total_events_db": 3062,
   "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
@@ -25,10 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 35,
+      "events_after_filter": 34,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -41,27 +57,19 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,50 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +97,42 @@
       "error": null
     },
     {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 78,
-      "events_after_filter": 35,
-      "events_filtered": 43,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,10 +161,26 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 231,
+      "events_after_filter": 15,
+      "events_filtered": 216,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 78,
+      "events_after_filter": 35,
+      "events_filtered": 43,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -177,14 +193,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 13,
@@ -193,27 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 15,
-      "events_filtered": 216,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
-      "events_after_filter": 17,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -382,6 +382,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Hospitality State of Mind (Blues Field Recordings Listening Session)",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-08-20",
+      "time": "6 PM",
+      "source": "manual"
+    },
+    {
       "artist": "Devil Train",
       "venue": "B-Side Memphis",
       "date": "2026-08-20",
@@ -450,13 +457,6 @@
       "date": "2026-08-20",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Hospitality State of Mind (Blues Field Recordings Listening Session)",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-08-20",
-      "time": "6 PM",
-      "source": "artifact"
     },
     {
       "artist": "Straight Tequila Night \u2013 The Premier Tribute to \u201990s Country",
