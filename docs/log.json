@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-08-17T05:37:20.938587+00:00",
+  "run_timestamp": "2026-08-17T13:36:01.240791+00:00",
   "date_range": {
     "start": "2026-08-17",
     "end": "2026-08-24"
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 33,
@@ -33,18 +49,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
+      "events_found": 27,
+      "events_after_filter": 26,
       "events_filtered": 1,
       "error": null
     },
@@ -54,14 +70,6 @@
       "events_found": 221,
       "events_after_filter": 19,
       "events_filtered": 202,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,10 +89,26 @@
       "error": null
     },
     {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 28,
       "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -105,43 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -153,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 231,
-      "events_after_filter": 15,
-      "events_filtered": 216,
+      "events_found": 78,
+      "events_after_filter": 35,
+      "events_filtered": 43,
       "error": null
     },
     {
@@ -169,11 +161,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 78,
-      "events_after_filter": 35,
-      "events_filtered": 43,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
-      "events_after_filter": 17,
-      "events_filtered": 0,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -201,18 +193,26 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
+      "events_found": 231,
+      "events_after_filter": 15,
+      "events_filtered": 216,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 17,
+      "events_after_filter": 17,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
