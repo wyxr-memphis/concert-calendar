@@ -115,6 +115,36 @@ Visit `/admin/` on your Vercel deployment to manage events:
 
 An RSS 2.0 feed is available at [`concert-calendar.wyxr.org/feed.xml`](https://concert-calendar.wyxr.org/feed.xml) for integration with the WYXR app, feed readers, and other platforms. It includes the next 60 days of events, updated automatically with every build (twice daily). Each item includes artist, venue, date, time, price, genre, and WYXR Presents/Pick badges.
 
+### Badge flags (WYXR Pick / WYXR Presents)
+
+The badges are also published as **machine-readable flags**, so a consumer never has to string-match `"WYXR Pick"` out of `<title>` or `<description>` to style a row:
+
+```xml
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:wyxr="https://concert-calendar.wyxr.org/ns/rss/1.0">
+  ...
+  <item>
+    <title>The Danny Banks Quartet — Huey's (Midtown)</title>
+    <description>Sunday, August 23, 2026 | Huey's (Midtown) | 3 PM | WYXR Pick</description>
+    <category>WYXR Pick</category>
+    <wyxr:presents>false</wyxr:presents>
+    <wyxr:pick>true</wyxr:pick>
+    <wyxr:badge>WYXR Pick</wyxr:badge>
+  </item>
+```
+
+| Element | Notes |
+|---|---|
+| `<category>` | Standard RSS, so generic readers surface it. Emitted **only when true** — `WYXR Presents` and/or `WYXR Pick`. Sponsor callout items use `Sponsored`. |
+| `<wyxr:presents>` | Always present on event items: `true` / `false`. Maps to the DB column `is_wyxr_presents`. |
+| `<wyxr:pick>` | Always present on event items: `true` / `false`. Maps to the DB column `is_featured`. |
+| `<wyxr:badge>` | The single label to display when a row can only show one badge. Omitted when the event has neither. **WYXR Presents wins** if an event is flagged both — same precedence as the calendar and the `<description>` text. |
+
+Both flags can be `true` on the same event, which is why they're separate elements rather than one enum. Read `<wyxr:badge>` if you want the one-badge answer with precedence already applied; read the two booleans if you want to render both.
+
+The existing human-readable text in `<title>`, `<description>`, and `<content:encoded>` is unchanged — this is additive, so nothing consuming the feed today breaks.
+
 ## Interactive Calendar
 
 The homepage (`/`) is an interactive calendar with:

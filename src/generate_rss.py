@@ -6,6 +6,14 @@ from email.utils import format_datetime
 from typing import List
 from zoneinfo import ZoneInfo
 
+# Custom namespace for WYXR-specific item metadata. Consumers that want the
+# badges as data (rather than parsing them out of <title>/<description>) read
+# <wyxr:pick>, <wyxr:presents> and <wyxr:badge>.
+WYXR_NS = "https://concert-calendar.wyxr.org/ns/rss/1.0"
+
+BADGE_PICK = "WYXR Pick"
+BADGE_PRESENTS = "WYXR Presents"
+
 
 def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] = None) -> str:
     """Generate an RSS 2.0 XML feed from event dicts.
@@ -16,6 +24,11 @@ def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] 
 
     Sponsors (optional) are promotional callouts inserted as RSS items
     with a Sponsored category and an enclosure for the image.
+
+    WYXR Pick / WYXR Presents are emitted as machine-readable flags on each
+    item (<category>, plus <wyxr:pick>/<wyxr:presents>/<wyxr:badge>) in
+    addition to the human-readable text already baked into the title and
+    description.
     """
     items_xml = []
     for event in events:
@@ -26,7 +39,8 @@ def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] 
 
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">\n'
+        '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"'
+        f' xmlns:wyxr="{WYXR_NS}">\n'
         "    <channel>\n"
         "        <title>WYXR Memphis Concert Calendar</title>\n"
         "        <link>https://concert-calendar.wyxr.org</link>\n"
@@ -50,6 +64,9 @@ def _render_item(event: dict) -> str:
     item_title = f"{title} \u2014 {venue}" if venue else title
     link = event.get("ticket_url") or "https://concert-calendar.wyxr.org"
 
+    is_presents = bool(event.get("is_wyxr_presents"))
+    is_pick = bool(event.get("is_featured"))
+
     # Description — plain text summary
     desc_parts = []
     try:
@@ -63,19 +80,23 @@ def _render_item(event: dict) -> str:
         desc_parts.append(event["start_time"])
     if event.get("ticket_price"):
         desc_parts.append(event["ticket_price"])
-    if event.get("is_wyxr_presents"):
-        desc_parts.append("WYXR Presents")
-    elif event.get("is_featured"):
-        desc_parts.append("WYXR Pick")
+    if is_presents:
+        desc_parts.append(BADGE_PRESENTS)
+    elif is_pick:
+        desc_parts.append(BADGE_PICK)
 
     description = " | ".join(desc_parts)
 
     # content:encoded — rich HTML inside CDATA
     html_parts = []
-    if event.get("is_wyxr_presents"):
-        html_parts.append('<p><strong style="color: #f5a623;">\U0001f4fb WYXR Presents</strong></p>')
-    elif event.get("is_featured"):
-        html_parts.append('<p><strong style="color: #f5a623;">\u2b50 WYXR Pick</strong></p>')
+    if is_presents:
+        html_parts.append(
+            f'<p><strong style="color: #f5a623;">\U0001f4fb {BADGE_PRESENTS}</strong></p>'
+        )
+    elif is_pick:
+        html_parts.append(
+            f'<p><strong style="color: #f5a623;">\u2b50 {BADGE_PICK}</strong></p>'
+        )
 
     html_parts.append(f"<h3>{_esc(title)}</h3>")
     html_parts.append(f"<p><strong>{_esc(venue)}</strong></p>")
@@ -128,11 +149,34 @@ def _render_item(event: dict) -> str:
 
     event_id = event.get("id", title)
 
+    # Machine-readable badge flags. <category> is standard RSS so generic
+    # readers pick it up; the wyxr: elements are always present so a consumer
+    # can branch on an explicit true/false instead of an absent tag.
+    category_xml = ""
+    if is_presents:
+        category_xml += f"            <category>{BADGE_PRESENTS}</category>\n"
+    if is_pick:
+        category_xml += f"            <category>{BADGE_PICK}</category>\n"
+
+    badge_xml = ""
+    if is_presents:
+        badge_xml = f"            <wyxr:badge>{BADGE_PRESENTS}</wyxr:badge>\n"
+    elif is_pick:
+        badge_xml = f"            <wyxr:badge>{BADGE_PICK}</wyxr:badge>\n"
+
+    flags_xml = (
+        f"{category_xml}"
+        f"            <wyxr:presents>{_bool(is_presents)}</wyxr:presents>\n"
+        f"            <wyxr:pick>{_bool(is_pick)}</wyxr:pick>\n"
+        f"{badge_xml}"
+    )
+
     return (
         "        <item>\n"
         f"            <title>{_esc(item_title)}</title>\n"
         f"            <link>{_esc(link)}</link>\n"
         f"            <description>{_esc(description)}</description>\n"
+        f"{flags_xml}"
         f"            <content:encoded><![CDATA[{content_html}]]></content:encoded>"
         f"{image_xml}\n"
         f"            <pubDate>{pub_date_str}</pubDate>\n"
@@ -188,3 +232,8 @@ def _render_sponsor_item(sponsor: dict) -> str:
 def _esc(text: str) -> str:
     """Escape text for XML."""
     return html_module.escape(str(text)) if text else ""
+
+
+def _bool(value: bool) -> str:
+    """Render a boolean as the XML text 'true' or 'false'."""
+    return "true" if value else "false"
