@@ -135,6 +135,14 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 ### Feeds
 - `docs/feed.xml` - RSS 2.0 feed (next 60 days, auto-generated each build)
 - Feed URL: `concert-calendar.wyxr.org/feed.xml`
+- **Badge flags are machine-readable, not just text.** WYXR Pick / WYXR Presents ship as
+  `<category>` plus a `wyxr:` namespaced trio (`<wyxr:pick>`, `<wyxr:presents>`,
+  `<wyxr:badge>`) on every event item — see the RSS Feed section of README.md for the
+  contract. The badge words are *also* still inside `<title>`/`<description>`/
+  `<content:encoded>` for older consumers; keep both in sync if you touch the labels
+  (`BADGE_PICK` / `BADGE_PRESENTS` in `src/generate_rss.py` are the single source).
+  The two booleans are independent — an event can be both — and `<wyxr:badge>` applies the
+  Presents-wins precedence for consumers that can only show one.
 
 ## Venues (15 total)
 
