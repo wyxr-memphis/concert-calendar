@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-17T17:19:21.598902+00:00",
+  "run_timestamp": "2026-08-18T05:32:40.977489+00:00",
   "date_range": {
-    "start": "2026-08-17",
-    "end": "2026-08-24"
+    "start": "2026-08-18",
+    "end": "2026-08-25"
   },
-  "total_events_db": 3062,
-  "total_active_display": 93,
+  "total_events_db": 3082,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 34,
+      "events_found": 30,
+      "events_after_filter": 29,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,26 +49,18 @@
       "error": null
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 34,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -125,6 +125,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +153,35 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
+      "events_found": 77,
+      "events_after_filter": 35,
+      "events_filtered": 42,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 241,
+      "events_after_filter": 25,
+      "events_filtered": 216,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 6,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -161,35 +193,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 231,
-      "events_after_filter": 15,
-      "events_filtered": 216,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 78,
-      "events_after_filter": 35,
-      "events_filtered": 43,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 17,
       "events_after_filter": 17,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 6,
-      "events_filtered": 13,
       "error": null
     },
     {
@@ -209,59 +217,23 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 63,
-      "events_filtered": 16,
+      "events_after_filter": 62,
+      "events_filtered": 17,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 93,
-      "events_after_filter": 93,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-17",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-17",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-17",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-17",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
     {
       "artist": "CJ Manning",
       "venue": "B-Side Memphis",
@@ -364,7 +336,7 @@
       "artist": "Nethergate",
       "venue": "Growlers",
       "date": "2026-08-19",
-      "time": "8:00PM",
+      "time": "7:00PM",
       "source": "scraper:growlers"
     },
     {
@@ -494,10 +466,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-21",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-21",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-21",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -604,6 +590,13 @@
       "date": "2026-08-22",
       "time": "7 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-22",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Ben Church",
@@ -722,6 +715,13 @@
       "venue": "Overton Park Shell",
       "date": "2026-08-22",
       "time": "11:00\u202fAM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Shell on Wheels: Melody for a Movement",
+      "venue": "Overton Park Shell",
+      "date": "2026-08-22",
+      "time": "12:00\u202fPM",
       "source": "scraper:overton_park_shell"
     },
     {
@@ -884,6 +884,55 @@
       "date": "2026-08-24",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-25",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-25",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Jazz Jam Session: Hosted by Kenny Reed",
+      "venue": "Crosstown Arts",
+      "date": "2026-08-25",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-08-25",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Volunteer Training: DAYTIME",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-08-25",
+      "time": "10:30\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Open Mic Nite hosted by Mak of Memphis",
+      "venue": "Growlers",
+      "date": "2026-08-25",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-25",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
