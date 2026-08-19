@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-18T17:19:29.239288+00:00",
+  "run_timestamp": "2026-08-19T05:33:47.810398+00:00",
   "date_range": {
-    "start": "2026-08-18",
-    "end": "2026-08-25"
+    "start": "2026-08-19",
+    "end": "2026-08-26"
   },
-  "total_events_db": 3086,
-  "total_active_display": 99,
+  "total_events_db": 3089,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,8 +27,16 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 48,
+      "events_after_filter": 48,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -44,23 +52,23 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_after_filter": 27,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 221,
+      "events_after_filter": 19,
+      "events_filtered": 202,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -105,14 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -121,10 +121,26 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 32,
       "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -153,18 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 10,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -177,30 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 19,
-      "events_filtered": 202,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 17,
@@ -209,101 +193,47 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 10,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
+      "events_after_filter": 15,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 62,
-      "events_filtered": 17,
+      "events_after_filter": 61,
+      "events_filtered": 18,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 99,
-      "events_after_filter": 99,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "CJ Manning",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-18",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Logan Hanna",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-18",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Shawn Zorn",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-18",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-18",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-18",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-18",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Will Tucker Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-18",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-18",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Left On Red",
-      "venue": "Growlers",
-      "date": "2026-08-18",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-18",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Soundhaus",
       "venue": "B-Side Memphis",
@@ -606,10 +536,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-22",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-22",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-22",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -837,6 +781,13 @@
       "source": "scraper:huey_s"
     },
     {
+      "artist": "The Back Alley String Band",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-08-23",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "El Ced & Groove Nation",
       "venue": "Huey's (Southwind)",
       "date": "2026-08-23",
@@ -926,6 +877,62 @@
       "date": "2026-08-25",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "DJ Wiz and the Solar System",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-26",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Montana Jones",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-26",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Phases",
+      "venue": "B-Side Memphis",
+      "date": "2026-08-26",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-26",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Volunteer Training: EVENING",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-08-26",
+      "time": "5:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "MORIAH",
+      "venue": "Growlers",
+      "date": "2026-08-26",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-08-26",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "SIDE SET: Avid Violin",
+      "venue": "Nashoba",
+      "date": "2026-08-26",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
