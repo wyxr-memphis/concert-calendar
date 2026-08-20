@@ -129,9 +129,12 @@ Pulled from [`REVIEW.md`](REVIEW.md) — the August 2026 full-codebase review, w
 per-item status layer and the detailed reasoning behind these (venue-by-venue scraper
 approach in its §5, Instagram feasibility in its §6). Still pending:
 
-- **New venues** — Railgarten, Black Lodge, Lamplighter Lounge, Young Avenue Deli. None are
-  in `src/config.py` or `_SEED_VENUES`. Lamplighter already has rows in the DB from Slack
-  uploads but no scraper.
+- **New venues** — Lamplighter Lounge and Young Avenue Deli. Neither is in `src/config.py`
+  or `_SEED_VENUES`; Lamplighter already has rows in the DB from Slack uploads but no
+  scraper, so its coverage depends on someone photographing a flyer.
+  ⚠️ **Railgarten and Black Lodge are permanently closed** (confirmed 2026-08-20) — do not
+  add them. `REVIEW.md` §5 recommended both before they closed. Neither has any events or a
+  `venues` row in the database, so nothing needs cleaning up.
 - **"Tonight" Slack post** — the bot already has `chat:write` in the channel; a morning
   message listing tonight's shows. Highest value per line of code.
 - **Weekly email digest** — Mailchimp audience and this-week data both exist.
@@ -155,7 +158,7 @@ approach in its §5, Instagram feasibility in its §6). Still pending:
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
 | 16 | Fuzzy near-duplicate merge UI | Medium | Medium | Pending — exact dedup shipped |
-| — | New venues (Railgarten, Black Lodge, Lamplighter, Young Ave Deli) | Medium | High | Pending |
+| — | New venues (Lamplighter, Young Ave Deli) | Medium | High | Pending |
 | — | "Tonight" Slack post | Low | Medium | Pending |
 | — | iCal subscribe feed | Low-Med | High | ✅ Shipped 2026-08-20 |
 | — | Per-event deep links + OG unfurls | Medium | High | ✅ Shipped 2026-08-20 |
