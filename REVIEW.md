@@ -1,7 +1,29 @@
 # Concert Calendar — Code Review & Enhancement Roadmap
 
-*Full-codebase review, August 20, 2026. Review only — no code was changed. Each item below
-includes file/line references so it can be picked up as an individual task.*
+*Full-codebase review, August 20, 2026. Each item below includes file/line references so it
+can be picked up as an individual task.*
+
+> **This document is a historical record with a status layer, not a to-do list.** The
+> findings below are preserved as written on August 20, 2026; the `Status` notes were added
+> when the doc was merged later the same day, after most of §1 and all of §4 had shipped.
+> **Line numbers are as-of the review and have since moved.** Verify against current code
+> before acting on any item — the status notes were each checked against the code, not
+> assumed from commit messages.
+>
+> Still-live work is tracked in `FEATURES.md`; this doc is where the *reasoning* lives,
+> particularly §5 (venue-by-venue scraper approach) and §6 (Instagram feasibility).
+
+## Status summary
+
+| § | Topic | Status |
+|---|---|---|
+| 1 | Bugs & security | **Mostly shipped** — 1.1–1.10 fixed; parts of 1.11 remain |
+| 2 | Performance quick wins | **Not started** — the two DB indexes and the N+1² bulk insert are the highest-value items left |
+| 3 | Dead code & hygiene | **Docs fixed, code not** — CLAUDE.md/FEATURES.md corrected; dead modules and duplicate scripts still present |
+| 4 | SEO | **Shipped** — structured data, sitemap, robots.txt, feed discovery (PR #34) |
+| 5 | Missing venues | **Not started** — highest-value remaining feature work |
+| 6 | Instagram ingestion | **Not started** — design only; gated on a Meta app existing |
+| 7 | Other feature ideas | **1–3 shipped** (PR #34); 4–9 pending |
 
 **Contents:**
 1. [Bugs & security fixes (do these first)](#1-bugs--security-fixes)
@@ -17,6 +39,10 @@ includes file/line references so it can be picked up as an individual task.*
 ## 1. Bugs & security fixes
 
 ### 1.1 Year-rollover bug — December builds silently drop Jan–Mar shows ⚠️ highest priority
+
+> **Status: fixed.** Centralized in `resolve_yearless_date` (`src/date_utils.py`), shared by
+> `backend/app.py`'s `_normalize_date_iso`. A date more than 45 days before the reference
+> rolls forward. Covered by `scripts/test_normalization.py`.
 `src/date_utils.py:36,43` defaults year-less dates ("Jan 15") to `START_DATE.year`. In a
 December build, "Jan 15" parses to January of the *current* year — a past date — and is
 dropped by the `START_DATE <=` filter at `src/sources/venue_scrapers.py:181`. Affected
@@ -32,6 +58,15 @@ The same bug exists independently in the admin import path: `_normalize_date_iso
 in the past, add a year. Reuse it from `app.py` too.
 
 ### 1.2 Dedup-key corruption — `normalize_text` strips inside words
+
+> **Status: partly fixed.** The inside-word bug is gone — `normalize_text('Tourist')` now
+> returns `'tourist'`, and `'Showcase Showdown'` and `'Olive Branch Boys'` survive intact.
+>
+> **A related problem remains:** the noise-word list still strips words that are legitimate
+> parts of a title when they appear as whole words — `'Live Wire'` → `'wire'` and
+> `'The Show Ponies'` → `'ponies'`. That is the word-boundary fix working as designed against
+> a word list that is too aggressive, so it needs a different fix (context-aware stripping,
+> or dropping `live`/`show` from the list) and a `dedup_key` backfill after.
 `src/models.py:125` strips suffixes/noise words without word boundaries. Verified damage:
 "Tourist" → "ist", "Live Wire" → "wire", "Showcase Showdown" → "case down",
 "Olive Branch Boys" → "o branch boys", "The Show Ponies" → "ponies". This function feeds
@@ -45,6 +80,11 @@ substring match and word-set subset both over-merge (e.g. Crosstown Brewing's li
 `"Live Music"` fallback at `venue_scrapers.py:1380` normalizes to `"music"` and collides).
 
 ### 1.3 Venue mis-canonicalization — bidirectional substring matching
+
+> **Status: fixed.** Bidirectional matching replaced with prefix matching, and — more
+> importantly — every dedup path now canonicalizes through the DB `venues` table rather than
+> `config.normalize_venue_name` alone. See the Deduplication section of `CLAUDE.md` for why
+> that mattered (aliases added via Admin → Venues are invisible to the config function).
 `normalize_venue_name()` at `src/config.py:318-328` matches `alias in name or name in alias`.
 Verified: `"Live"` → Graceland Soundstage, `"Nashoba Valley Ski Area"` → Nashoba,
 `"Bside Bistro"` → B-Side Memphis. Any loose venue string from Ticketmaster or Claude
@@ -52,6 +92,17 @@ Vision can be silently rewritten to the wrong venue, and this feeds the dedup ke
 **Fix:** exact/word-boundary alias matching only.
 
 ### 1.4 XSS — three distinct holes
+
+> **Status: fixed, all three.** `escAttr()` added in both origins for attribute contexts,
+> `descEl` switched to `textContent`, and the admin inline `onclick` handlers on the API-key
+> path replaced with delegated listeners + `data-` attributes. Guarded by
+> `scripts/test_escaping.mjs` (which extracts the helpers from the shipped files, so it fails
+> if they regress) and `scripts/test_xss_browser.py` (drives the real page in Chromium).
+>
+> Browser testing then found a **fourth** sink the review missed: `_buildCalendarData` used
+> the "assign to a detached `innerHTML`, read `textContent` back" idiom to strip tags. A
+> detached div does not run `<script>`, which makes that look safe, but the parser still
+> builds the nodes — so `<img src=x onerror=…>` fired immediately. Now uses `DOMParser`.
 1. **Public page, attribute injection:** `esc()` at `docs/index.html:2160-2165` doesn't
    escape `'` or `"`, but is interpolated into HTML *attributes* at lines 1755 (`data-neighborhood`),
    1926 (`aria-label`), 2004-2006 (`src`, `data-raw`), 2091-2092 (sponsor `href`/`src`).
@@ -70,6 +121,12 @@ Vision can be silently rewritten to the wrong venue, and this feeds the dedup ke
    plus a quote-escaping `escAttr()`.
 
 ### 1.5 CSRF on admin multipart routes
+
+> **Status: fixed.** All four upload routes now use `@require_bearer_auth`, which forces a
+> preflight that CORS rejects for unknown origins. Transparent to the admin UI, which always
+> sends the header. This later surfaced a separate bug — the token lives in per-tab
+> `sessionStorage` while the cookie does not, so a link opened in a new tab got 401 on
+> uploads only; fixed in a follow-up (`GET /api/admin/me` now echoes the token).
 Admin cookie is `SameSite=None; Secure` (`backend/app.py:443-447`). Multipart POSTs are
 CORS-*simple* (no preflight, cookie attached), so `/api/admin/import/upload` (`app.py:910`),
 `/api/admin/import/image` (`:1107`), `/api/admin/sponsors/upload-image` (`:1200`), and
@@ -77,6 +134,15 @@ CORS-*simple* (no preflight, cookie attached), so `/api/admin/import/upload` (`a
 **Fix:** require the `Authorization: Bearer` header on these routes (reject cookie-only auth).
 
 ### 1.6 Admin login hardening
+
+> **Status: fixed, with one deliberate deviation.** Login is throttled (10 failures per
+> client per 15 min; only failures count, so a legitimate admin retyping is never locked out)
+> and passwords are compared as UTF-8 **bytes**, which fixes the non-ASCII 500.
+>
+> `ADMIN_SECRET_KEY` does **not** fail loudly at boot as recommended: it warns at startup and
+> reports in `GET /health` instead. Aborting boot would take the API down on any deploy where
+> the variable was missing — trading a silent session bug for a total outage. It is confirmed
+> set in production.
 - No rate limit on `POST /api/admin/login` (`app.py:429`) — unlimited guesses against one
   shared password. Reuse the submissions rate-limiter pattern (`app.py:228`).
 - `hmac.compare_digest(password, ADMIN_PASSWORD)` at `app.py:438` raises `TypeError`
@@ -86,11 +152,16 @@ CORS-*simple* (no preflight, cookie attached), so `/api/admin/import/upload` (`a
   Fail loudly at boot instead.
 
 ### 1.7 Submit form rejects same-day events after 7 PM
+
+> **Status: fixed.** The min-date check computes the date in `America/Chicago`.
 `docs/submit.html:473,526` uses `new Date().toISOString().split('T')[0]` — the **UTC** date —
 for the min-date check. After 7 PM Central the form refuses tonight's show. Compute the
 date in `America/Chicago`.
 
 ### 1.8 Ticketmaster pagination missing
+
+> **Status: fixed.** Paging added, with `scripts/test_ticketmaster_pagination.py` covering
+> the page loop, the API's 1000-item ceiling, and a non-terminating API.
 `venue_scrapers.py:255` requests `size: 50` (city-wide: `ticketmaster.py:41`, `size: 100`)
 with no `page` loop — any venue with >50 events in the 180-day window is silently truncated.
 Also inconsistent: city-wide TM uses the 8-day `END_DATE` (`ticketmaster.py:39-40`) and
@@ -98,16 +169,34 @@ returned exactly 1 event in the latest build — nearly useless; per-venue uses 
 window.
 
 ### 1.9 Presents section filters on stale state
+
+> **Status: fixed.** `renderPresentsSection` filters on the same module state as the main
+> list instead of re-reading the DOM.
 `renderPresentsSection` (`docs/index.html:1897-1904`) re-reads `searchInput.value` and the
 active chip from the DOM, shadowing module state — during the 200 ms search debounce the
 Presents section and the main list filter on different queries.
 
 ### 1.10 `--dry-run` isn't dry
+
+> **Status: fixed.** The scrape-log row is skipped entirely on a dry run.
 `_create_scrape_log` runs before the dry-run check (`src/main.py:506`) and is never
 finalized (early return at `:660`), leaving a permanent `status='running'` scrape_logs row
 that the health check can read as a hung build.
 
 ### 1.11 Smaller correctness items
+
+> **Status: mixed — check each before acting.**
+>
+> | Item | Status |
+> |---|---|
+> | Slack retry double-insert | fixed — retry header honoured |
+> | Slack caption window (was 10 messages) | fixed — widened to 30 |
+> | Decompression-bomb guard | fixed in `backend/images.py`; **still missing in `src/sources/artifacts.py`** |
+> | `admin_venues_update` non-atomic | fixed — one transaction |
+> | Escape-key handlers stack | fixed — asserted by the browser XSS test |
+> | Subscribe modal always reports success | partly — now resolves `'submitted'` rather than claiming success, but an invalid email still cannot be distinguished |
+> | `bulk_action` 500s on malformed UUIDs | fixed |
+> | `%-I` / `%-d` glibc-only strftime | fixed — `src/time_format.py` is now the single home for time formatting *and* start-time parsing |
 - **Slack retry double-insert:** `slack_events` (`app.py:1858`) ignores `X-Slack-Retry-Num`;
   Slack retries non-2xx responses, so a slow Vision call can insert a flyer twice (fuzzy
   dedup is the only guard).
@@ -131,6 +220,15 @@ that the health check can read as a hung build.
 ---
 
 ## 2. Performance & optimization quick wins
+
+> **Status: not started.** Verified still outstanding: neither `idx_events_venue_lower` nor
+> an `(is_active, date)` index exists; `bulk_insert_events` still inserts one row at a time
+> with no `execute_values`; `docs/admin/edit.html:416` still downloads the whole events table
+> to edit one record (a public `GET /api/events/<id>` exists and could serve it, but no admin
+> equivalent does); the workflow still has the artifact-cleanup step, the dead
+> `GOOGLE_SHEET_CSV_URL` secret, and no `timeout-minutes`.
+>
+> The two indexes and the bulk-insert fix are the best value-for-effort left in this doc.
 
 ### Database
 - **Missing indexes (biggest single win):**
@@ -187,6 +285,15 @@ that the health check can read as a hung build.
 
 ## 3. Dead code & hygiene
 
+> **Status: documentation fixed, code not.** `CLAUDE.md` and `FEATURES.md` are corrected
+> (venue count, scraper list, the removed prune step) and the time-format and start-time
+> parsing duplication is consolidated. Still present: `src/sources/eventbrite.py`,
+> `bandsintown.py`, `dice.py`, `google_sheet.py`, the `scripts/clean_duplicates.py` /
+> `cleanup_duplicates.py` pair, `test-mailchimp.html`, and `manual_events.csv`.
+>
+> Note before deleting `bandsintown.py`: §5 suggests reviving it, scoped to venue pages, as
+> the cheapest coverage for venues with no usable website.
+
 - **Dead source modules:** `src/sources/eventbrite.py` (calls an API endpoint Eventbrite
   removed in 2020), `bandsintown.py` (self-described disabled), `dice.py`,
   `google_sheet.py` — none imported by `src/main.py`. Also the dead serial `fetch()` at
@@ -221,6 +328,17 @@ that the health check can read as a hung build.
 
 ## 4. SEO
 
+> **Status: shipped (PR #34).** `thisweek.html` emits an `ItemList` of `MusicEvent` — it is
+> the server-rendered page, so this is the copy a crawler sees without running JS. The
+> homepage carries `WebSite`/`RadioStation` statically and injects an `ItemList` after the
+> API responds, and every event now has a server-rendered `/e/<id>` page with its own
+> `MusicEvent` block. Added `sitemap.xml` + `robots.txt` and `rel=alternate` feed discovery
+> on every page, plus footer links — the feed is no longer a dead deliverable.
+>
+> **Not done:** the RSS polish in this section. `pubDate` is still the event date rather than
+> build time, and `<enclosure type="image/jpeg">` is still hardcoded regardless of the real
+> image type.
+
 `docs/index.html` is 100 % client-rendered — `<main id="eventList">` ships empty and **no
 page in `docs/` emits `application/ld+json`**. Google effectively sees a blank flagship page.
 - Emit per-event **`Event` JSON-LD** at build time (the static generator already exists —
@@ -236,6 +354,14 @@ page in `docs/` emits `application/ld+json`**. Google effectively sees a blank f
 ---
 
 ## 5. Missing venues & scrapers to add
+
+> **Status: not started, and the highest-value remaining work.** None of Railgarten, Black
+> Lodge, Lamplighter Lounge or Young Avenue Deli is in `src/config.py` or `_SEED_VENUES`.
+>
+> Start with **Lamplighter**: it already has rows and aliases in the DB from Slack flyer
+> uploads (it is what caused the 2026-08-20 dedup collision), so only the scraper is missing.
+> Before writing any scraper, check for a `livenation.com/venue/<ID>` URL — that makes it a
+> `ticketmaster_venue` config entry with no page scraping at all.
 
 Already covered (contrary to CLAUDE.md's stale list): Grind City Amphitheater, Satellite
 Music Hall, Radians, Bluesville, Snowden Grove, Cannon Center — all via the
@@ -264,6 +390,11 @@ Constraint to respect: the stack has **no headless browser** (no Playwright/Sele
 ---
 
 ## 6. Instagram ingestion
+
+> **Status: not started; design only.** Blocked on a Meta app and a long-lived token
+> existing (`IG_ACCESS_TOKEN`, `IG_BUSINESS_ACCOUNT_ID` on Render). The conclusion still
+> holds: stories cannot be automated legitimately, and the Slack screenshot pipeline remains
+> the bridge for them.
 
 **Question asked:** can Instagram stories or posts be scraped automatically for venues that
 only post to social (Bar DKDC, B-Side, etc.)?
@@ -314,6 +445,13 @@ and break when Instagram changes markup. Reasonable only if the Meta app route s
 
 ## 7. Other feature ideas
 
+> **Status: items 1–3 shipped (PR #34); 4–9 pending.** The iCal feed is live at
+> `webcal://concert-calendar.wyxr.org/calendar.ics`, per-event deep links (`#event=<id>`) and
+> `/e/<id>` permalinks with OG unfurls are live, and the SEO work is covered under §4.
+>
+> Of what remains, item 5 ("Tonight" Slack post) is the cheapest — the bot already has
+> `chat:write` in the channel.
+
 In rough value-for-effort order:
 
 1. **iCal subscribe feed** (`docs/calendar.ics`, advertised as `webcal://`) — lets anyone
@@ -343,6 +481,8 @@ In rough value-for-effort order:
 ---
 
 ## Suggested sequencing
+
+*As proposed on review day. Rounds 1 and 3's feed/SEO half are done; the rest stands.*
 
 1. **Round 1 (bugs/security):** §1.1–1.7 + the two DB indexes — small, independent, each
    verifiable with `./test_before_push.sh` and a local run.

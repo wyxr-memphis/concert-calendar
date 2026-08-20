@@ -125,7 +125,9 @@ index `idx_events_dedup_key`, with every dedup path canonicalizing the venue thr
 
 ## New Since the Roadmap
 
-Pulled from `REVIEW.md` (PR #30) and still pending:
+Pulled from [`REVIEW.md`](REVIEW.md) — the August 2026 full-codebase review, which carries a
+per-item status layer and the detailed reasoning behind these (venue-by-venue scraper
+approach in its §5, Instagram feasibility in its §6). Still pending:
 
 - **New venues** — Railgarten, Black Lodge, Lamplighter Lounge, Young Avenue Deli. None are
   in `src/config.py` or `_SEED_VENUES`. Lamplighter already has rows in the DB from Slack
