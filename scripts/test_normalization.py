@@ -31,6 +31,7 @@ from src.config import normalize_venue_name  # noqa: E402
 from src.date_utils import parse_date_text, resolve_yearless_date  # noqa: E402
 from src.models import normalize_text  # noqa: E402
 from src.normalize import _artists_match  # noqa: E402
+from src.time_format import format_event_time, strftime_nopad  # noqa: E402
 
 FAILURES = []
 
@@ -196,6 +197,53 @@ def test_empty_venue_is_safe():
     eq("None", normalize_venue_name(None), "")
 
 
+# ---------------------------------------------------------------------------
+# 1.11  Portable strftime
+# ---------------------------------------------------------------------------
+
+def test_nopad_matches_platform_strftime():
+    """%-d / %-I are a glibc extension; the helper must reproduce them exactly.
+
+    Render runs glibc, so the existing output is the contract. This box is
+    Linux too, which makes a direct comparison possible — the point of the
+    helper is that the same strings come out on macOS and Windows, where the
+    native codes are unsupported.
+    """
+    from datetime import datetime
+
+    formats = ["%-I:%M %p", "%A, %B %-d", "%a %b %-d", "%B %-d, %Y",
+               "%A, %B %-d, %Y", "%-m/%-d", "%-H:%M", "%Y-%m-%d"]
+    moments = [
+        datetime(2026, 1, 1, 0, 0),
+        datetime(2026, 8, 3, 12, 0),
+        datetime(2026, 8, 13, 19, 30),
+        datetime(2026, 12, 31, 23, 59),
+        datetime(2026, 3, 9, 9, 5),
+    ]
+    for moment in moments:
+        for fmt in formats:
+            eq(f"{moment:%Y-%m-%d %H:%M} {fmt!r}",
+               strftime_nopad(moment, fmt), moment.strftime(fmt))
+
+
+def test_nopad_literal_percent():
+    from datetime import date as _date
+    eq("%% stays a literal percent",
+       strftime_nopad(_date(2026, 8, 3), "100%% on %-d"), "100% on 3")
+
+
+def test_event_time_formatting():
+    """The time string used on every event row and in the RSS feed."""
+    from datetime import datetime
+    for hour, minute, want in [
+        (19, 0, "7 PM"), (19, 30, "7:30 PM"), (12, 0, "12 PM"),
+        (0, 0, "12 AM"), (0, 30, "12:30 AM"), (10, 0, "10 AM"),
+        (9, 5, "9:05 AM"), (23, 59, "11:59 PM"),
+    ]:
+        eq(f"{hour:02d}:{minute:02d}",
+           format_event_time(datetime(2026, 8, 3, hour, minute)), want)
+
+
 def main():
     print("Normalization regression tests (offline)")
     for fn in (
@@ -212,6 +260,9 @@ def main():
         test_loose_names_are_not_rewritten,
         test_known_venues_still_canonicalize,
         test_empty_venue_is_safe,
+        test_nopad_matches_platform_strftime,
+        test_nopad_literal_percent,
+        test_event_time_formatting,
     ):
         fn()
 

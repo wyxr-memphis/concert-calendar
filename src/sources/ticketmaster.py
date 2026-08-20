@@ -15,6 +15,7 @@ from ..config import (
     MEMPHIS_LAT, MEMPHIS_LON, MEMPHIS_RADIUS,
     normalize_venue_name, is_music_event,
 )
+from ..time_format import format_event_time
 
 SOURCE_NAME = "scraper:ticketmaster"
 BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json"
@@ -98,7 +99,7 @@ def _parse_event(data: dict) -> Optional[Event]:
     if local_time:
         try:
             t = datetime.strptime(local_time, "%H:%M:%S")
-            time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+            time_str = format_event_time(t)
         except ValueError:
             pass
 

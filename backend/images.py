@@ -46,6 +46,12 @@ MAX_SUBMISSION_IMAGE_BYTES = 3 * 1024 * 1024
 # Longest edge for a stored submission image. Matches the client-side downscale.
 SUBMISSION_MAX_EDGE = 1600
 
+# Decoded-pixel ceiling for an untrusted image, independent of its byte size —
+# a small compressed file can still decode to gigabytes of pixels. 50 MP is far
+# above any real phone photo of a flyer (a 48 MP camera is ~48 MP) and far below
+# what would exhaust the worker.
+MAX_SUBMISSION_IMAGE_PIXELS = 50_000_000
+
 _DEFAULT_PREFIX = "concert-calendar"
 
 
@@ -136,16 +142,31 @@ def sanitize_submitted_image(
             "Try a smaller photo."
         )
 
+    # Cap decoded pixels. The byte-size limit above is not a memory limit: a
+    # highly-compressed image can be a few hundred KB on the wire and still
+    # decode to gigabytes of raw pixels, which on this unauthenticated path
+    # would be a free way to exhaust the worker. Pillow warns past its own
+    # threshold and raises past twice it; setting the limit explicitly and
+    # catching the error turns that into a 400 rather than a crash.
+    previous_max_pixels = Image.MAX_IMAGE_PIXELS
+    Image.MAX_IMAGE_PIXELS = MAX_SUBMISSION_IMAGE_PIXELS
     try:
         # verify() invalidates the object, so decode again afterwards to use it.
         Image.open(io.BytesIO(file_data)).verify()
         img = Image.open(io.BytesIO(file_data))
         img.load()
+    except Image.DecompressionBombError as exc:
+        raise ImageUploadError(
+            "That image's dimensions are too large to process. "
+            "Try exporting it at a smaller size."
+        ) from exc
     except Exception as exc:
         raise ImageUploadError(
             "That file isn't a readable image — it may be corrupt or saved in "
             "an unsupported format"
         ) from exc
+    finally:
+        Image.MAX_IMAGE_PIXELS = previous_max_pixels
 
     # Flatten transparency onto white; JPEG has no alpha channel.
     if img.mode in ("RGBA", "LA", "P"):

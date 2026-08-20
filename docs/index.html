@@ -1117,7 +1117,7 @@
 
             // If already subscribed, hide the button or show checkmark
             if (sessionStorage.getItem('wyxr_signup_banner_success')) {
-                openBtn.textContent = '✓ Subscribed';
+                openBtn.textContent = '✓ Signed up';
                 openBtn.disabled = true;
                 openBtn.style.opacity = '0.5';
                 return;
@@ -1139,6 +1139,12 @@
                 if (e.target === modal) closeModal();
             });
             document.addEventListener('keydown', (e) => {
+                // Only act when this modal is actually open. Both this and the
+                // event detail modal listen for Escape on document, and
+                // listeners on the same node all run regardless of
+                // preventDefault — so an unguarded handler here meant closing
+                // the event modal with Esc also closed the subscribe modal.
+                if (!modal.classList.contains('open')) return;
                 if (e.key === 'Escape') closeModal();
             });
 
@@ -1177,18 +1183,18 @@
                     document.body.appendChild(formEl);
 
                     iframe.onload = function() {
-                        try {
-                            const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                            const bodyText = iframeDoc.body.textContent || iframeDoc.body.innerText || '';
-                            if (bodyText.toLowerCase().includes('already subscribed') ||
-                                bodyText.toLowerCase().includes('is already a list member')) {
-                                resolve('already_subscribed');
-                            } else {
-                                resolve('success');
-                            }
-                        } catch (e) {
-                            resolve('success');
-                        }
+                        // The iframe is on Mailchimp's origin, so its document
+                        // cannot be read from here — the browser blocks it, by
+                        // design. The previous code tried anyway and treated the
+                        // inevitable SecurityError as success, which is why a
+                        // rejected address and an already-subscribed address both
+                        // reported "You're on the list!".
+                        //
+                        // All we can honestly observe is that the POST was
+                        // delivered. Resolve that, and let the wording say so.
+                        // Getting a real result means calling the Mailchimp API
+                        // from the backend instead; see the PR notes.
+                        resolve('submitted');
                         setTimeout(() => { formEl.remove(); iframe.remove(); }, 1000);
                     };
 
@@ -1200,7 +1206,7 @@
             function showSuccess(message) {
                 form.innerHTML = `<p class="subscribe-modal-success">${message}</p>`;
                 sessionStorage.setItem('wyxr_signup_banner_success', '1');
-                openBtn.textContent = '✓ Subscribed';
+                openBtn.textContent = '✓ Signed up';
                 openBtn.disabled = true;
                 openBtn.style.opacity = '0.5';
             }
@@ -1220,22 +1226,17 @@
                 submitBtn.textContent = 'Submitting...';
 
                 try {
-                    const response = await submitToMailchimp(email);
-                    if (response === 'already_subscribed') {
-                        showSuccess("✅ You're already on the list! 🎶");
-                    } else {
-                        showSuccess("✅ You're on the list! Check your inbox for this week's Memphis picks.");
-                    }
+                    await submitToMailchimp(email);
+                    // Deliberately does not claim the address was accepted — we
+                    // cannot see Mailchimp's response from the browser. The list
+                    // is double opt-in, so the confirmation email is the real
+                    // signal either way.
+                    showSuccess("✅ Almost there — check your email to confirm your subscription.");
                 } catch (error) {
                     const errorText = typeof error === 'string' ? error : error.toString();
-                    if (errorText.toLowerCase().includes('already subscribed') ||
-                        errorText.toLowerCase().includes('is already a list member')) {
-                        showSuccess("✅ You're already on the list! 🎶");
-                    } else {
-                        errorMsg.textContent = errorText || 'Something went wrong. Please try again.';
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = 'Get the List';
-                    }
+                    errorMsg.textContent = errorText || 'Something went wrong. Please try again.';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Get the List';
                 }
             }
 

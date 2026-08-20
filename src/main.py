@@ -31,6 +31,7 @@ from src.normalize import deduplicate
 from src.generate_html import generate_html
 from src.generate_rss import generate_rss
 from src.config import START_DATE, END_DATE, normalize_venue_name
+from src.time_format import strftime_nopad
 from src.sources.events_json import (
     EVENTS_JSON_PATH,
     load_events_json,
@@ -725,7 +726,7 @@ def run(dry_run: bool = False) -> None:
     # Write build timestamp
     build_time_path = DOCS_DIR / "build_time.txt"
     with open(build_time_path, "w", encoding="utf-8") as f:
-        f.write(run_timestamp.strftime("%B %-d, %Y at %-I:%M %p CT"))
+        f.write(strftime_nopad(run_timestamp, "%B %-d, %Y at %-I:%M %p CT"))
     print(f"  Wrote {build_time_path}")
 
     _print_summary(active_events)
@@ -914,7 +915,7 @@ def _print_summary(events: List[Event]) -> None:
     print(f"{'='*60}")
 
     for d in sorted(by_date.keys()):
-        day_name = d.strftime("%A, %B %-d").upper()
+        day_name = strftime_nopad(d, "%A, %B %-d").upper()
         print(f"\n  {d} — {day_name}")
         for e in by_date[d]:
             featured = " [FEATURED]" if e.is_featured else ""

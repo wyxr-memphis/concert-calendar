@@ -5,6 +5,7 @@ from datetime import date, datetime
 from email.utils import format_datetime
 from typing import List
 from zoneinfo import ZoneInfo
+from .time_format import strftime_nopad
 
 # Custom namespace for WYXR-specific item metadata. Consumers that want the
 # badges as data (rather than parsing them out of <title>/<description>) read
@@ -71,7 +72,7 @@ def _render_item(event: dict) -> str:
     desc_parts = []
     try:
         d = date.fromisoformat(event_date)
-        desc_parts.append(d.strftime("%A, %B %-d, %Y"))
+        desc_parts.append(strftime_nopad(d, "%A, %B %-d, %Y"))
     except (ValueError, TypeError):
         desc_parts.append(event_date)
     if venue:
@@ -103,7 +104,7 @@ def _render_item(event: dict) -> str:
 
     try:
         d = date.fromisoformat(event_date)
-        html_parts.append(f"<p>{d.strftime('%A, %B %-d, %Y')}</p>")
+        html_parts.append(f"<p>{strftime_nopad(d, '%A, %B %-d, %Y')}</p>")
     except (ValueError, TypeError):
         pass
 

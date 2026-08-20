@@ -101,6 +101,7 @@ from backend.db import (
     health_submissions,
     health_ticketmaster,
 )
+from src.time_format import format_event_time, strftime_nopad
 from backend.auth import (
     ADMIN_PASSWORD,
     SECRET_KEY_IS_EPHEMERAL,
@@ -639,8 +640,13 @@ def admin_events_bulk():
     if not ids:
         return jsonify({"error": "ids array is required"}), 400
 
-    count = bulk_action(action, ids)
-    return jsonify({"ok": True, "affected": count})
+    count, skipped = bulk_action(action, ids)
+    payload = {"ok": True, "affected": count}
+    if skipped:
+        # Report rather than swallow: a malformed id means the caller sent
+        # something unexpected, and it used to 500 the whole request.
+        payload["skipped"] = len(skipped)
+    return jsonify(payload)
 
 
 # ---------------------------------------------------------------------------
@@ -696,38 +702,16 @@ def admin_venues_update(venue_id):
     """Update a venue's name, neighborhood, or aliases."""
     body = request.get_json(silent=True) or {}
 
-    # Get old venue data before update (for rename propagation)
-    from backend.db import get_cursor, get_venue_by_id as _get_venue
-    old_venue = _get_venue(venue_id)
-    if not old_venue:
+    # The venue row and its events are updated in one transaction — see
+    # update_venue_with_propagation. Doing it here in two meant a rename could
+    # commit while the event rewrite failed.
+    from backend.db import update_venue_with_propagation
+
+    venue = update_venue_with_propagation(venue_id, body)
+    if not venue:
         return jsonify({"error": "Venue not found"}), 404
 
-    venue = update_venue(venue_id, body)
-
-    # Propagate changes to events
-    with get_cursor() as cur:
-        # If name changed, update all events with old name → new name
-        if "name" in body and body["name"] != old_venue["name"]:
-            cur.execute(
-                """UPDATE events SET venue = %s, updated_at = NOW()
-                   WHERE LOWER(venue) = LOWER(%s)""",
-                (body["name"], old_venue["name"]),
-            )
-            # Also add old name to aliases if not already there
-            aliases = list(venue.get("aliases") or [])
-            if old_venue["name"].lower() not in [a.lower() for a in aliases]:
-                aliases.append(old_venue["name"])
-                update_venue(venue_id, {"aliases": aliases})
-
-        # If neighborhood changed, update matching events
-        if "neighborhood" in body:
-            cur.execute(
-                """UPDATE events SET neighborhood = %s, updated_at = NOW()
-                   WHERE LOWER(venue) = LOWER(%s)""",
-                (body["neighborhood"], venue["name"]),
-            )
-
-    return jsonify(serialize_event(update_venue(venue_id, {}) or venue))
+    return jsonify(serialize_event(venue))
 
 
 @app.route("/api/admin/venues/<venue_id>", methods=["DELETE"])
@@ -894,7 +878,7 @@ def admin_submission_approve(submission_id):
     if sub.get("event_time"):
         t = sub["event_time"]
         if hasattr(t, "strftime"):
-            event_data["start_time"] = t.strftime("%-I:%M %p").replace(":00 ", " ")
+            event_data["start_time"] = format_event_time(t)
         else:
             event_data["start_time"] = str(t)
     if sub.get("description"):
@@ -1464,7 +1448,7 @@ def _parse_jsonld_event(data, source_filename):
     try:
         dt = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
         event_date = dt.date().isoformat()
-        time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+        time_str = format_event_time(dt)
     except ValueError:
         event_date = start_date
         time_str = None
@@ -1544,6 +1528,35 @@ def admin_trigger_build():
 _SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 _SLACK_SIGNING_SECRET = os.environ.get("SLACK_SIGNING_SECRET", "")
 _SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
+
+# How far back to look for the message carrying an uploaded file. The caption is
+# what authorises processing, so a window too small means the upload is silently
+# ignored — anything said in the channel after the upload pushes it out.
+SLACK_HISTORY_PAGE_SIZE = 50
+SLACK_HISTORY_MAX_PAGES = 4
+
+# File ids already claimed for processing, so a redelivered file_shared event
+# cannot start a second Vision extraction of the same flyer. In process memory:
+# gunicorn runs a single worker by default, and the retry-header check above
+# handles the common case regardless.
+_slack_seen_files = {}  # file_id -> monotonic timestamp of the claim
+_slack_seen_lock = threading.Lock()
+SLACK_FILE_CLAIM_TTL_SECONDS = 60 * 60
+
+
+def _claim_slack_file(file_id):
+    """Claim a file id for processing. False if it was already claimed."""
+    now = time.monotonic()
+    with _slack_seen_lock:
+        for stale in [
+            fid for fid, ts in _slack_seen_files.items()
+            if now - ts > SLACK_FILE_CLAIM_TTL_SECONDS
+        ]:
+            _slack_seen_files.pop(stale, None)
+        if file_id in _slack_seen_files:
+            return False
+        _slack_seen_files[file_id] = now
+        return True
 
 # Public site origin, used to build admin deep-links in Slack replies.
 _SITE_BASE = os.environ.get("SITE_BASE_URL", "https://concert-calendar.wyxr.org").rstrip("/")
@@ -1707,17 +1720,31 @@ def _process_slack_image(file_id: str, channel_id: str):
             _slack_post_message(channel_id, "⚠️ Could not retrieve image URL from Slack.")
             return
 
-        # Find message caption via channel history (initial_comment is empty for UI uploads)
+        # Find message caption via channel history (initial_comment is empty for
+        # UI uploads). A limit of 10 silently dropped uploads in a busy channel:
+        # anything said after the upload pushes it out of the window, and the
+        # caption is what authorises processing at all. Page back further.
         caption = ""
-        history_resp = http_requests.get(
-            "https://slack.com/api/conversations.history",
-            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
-            params={"channel": channel_id, "limit": 10},
-            timeout=10,
-        )
-        for msg in history_resp.json().get("messages", []):
-            if any(f.get("id") == file_id for f in msg.get("files", [])):
-                caption = (msg.get("text") or "").lower()
+        cursor = None
+        for _ in range(SLACK_HISTORY_MAX_PAGES):
+            params = {"channel": channel_id, "limit": SLACK_HISTORY_PAGE_SIZE}
+            if cursor:
+                params["cursor"] = cursor
+            history_resp = http_requests.get(
+                "https://slack.com/api/conversations.history",
+                headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+                params=params,
+                timeout=10,
+            )
+            payload = history_resp.json()
+            for msg in payload.get("messages", []):
+                if any(f.get("id") == file_id for f in msg.get("files", [])):
+                    caption = (msg.get("text") or "").lower()
+                    break
+            if caption:
+                break
+            cursor = (payload.get("response_metadata") or {}).get("next_cursor")
+            if not cursor:
                 break
         print(f"[slack] caption={caption!r}", flush=True)
 
@@ -1898,7 +1925,7 @@ def _process_slack_image(file_id: str, channel_id: str):
             event_id = inserted_ids.get((e.artist, venue, e.date.isoformat()))
             if not event_id:
                 continue  # collided on insert — nothing to link to
-            date_str = e.date.strftime("%a %b %-d")
+            date_str = strftime_nopad(e.date, "%a %b %-d")
             # /admin/edit (no .html) — vercel.json sets cleanUrls, so the
             # .html form would 308-redirect here.
             edit_url = f"{_SITE_BASE}/admin/edit?id={event_id}"
@@ -1954,11 +1981,29 @@ def slack_events():
         file_id = event.get("file_id")
         print(f"[slack] file_shared channel_id={channel_id} file_id={file_id} expected={_SLACK_CHANNEL_ID}", flush=True)
 
+        # Slack redelivers an event when it does not see a 2xx quickly enough.
+        # Vision extraction runs in a background thread, so a redelivery would
+        # start a second extraction of the same flyer and insert it twice — the
+        # fuzzy-duplicate check was the only thing standing in the way.
+        retry_num = request.headers.get("X-Slack-Retry-Num")
+        if retry_num:
+            print(
+                f"[slack] ignoring retry #{retry_num} "
+                f"(reason={request.headers.get('X-Slack-Retry-Reason')}) for file {file_id}",
+                flush=True,
+            )
+            return jsonify({"ok": True})
+
         if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
             print(f"[slack] ignoring — channel mismatch", flush=True)
             return jsonify({"ok": True})
 
         if file_id and channel_id:
+            # Slack can also deliver file_shared more than once without marking
+            # it a retry, so claim the file id before starting work.
+            if not _claim_slack_file(file_id):
+                print(f"[slack] ignoring — file {file_id} already being processed", flush=True)
+                return jsonify({"ok": True})
             print(f"[slack] starting background thread for file {file_id}", flush=True)
             threading.Thread(
                 target=_process_slack_image,
