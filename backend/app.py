@@ -59,7 +59,6 @@ from backend.db import (
     dismiss_venue_name,
     get_venue_by_id,
     create_venue,
-    update_venue,
     delete_venue,
     merge_venues,
     normalize_venue_from_db,

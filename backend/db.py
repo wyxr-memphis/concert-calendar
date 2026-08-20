@@ -1015,7 +1015,13 @@ def update_venue_with_propagation(venue_id, data):
         # A rename keeps the old name as an alias so historical event rows and
         # build logs still resolve to this venue.
         if name_changed:
-            aliases = list(payload.get("aliases") or old.get("aliases") or [])
+            # Key presence, not truthiness: a payload explicitly clearing the
+            # aliases sends [], and treating that as "not provided" would
+            # resurrect the old list.
+            if "aliases" in payload:
+                aliases = list(payload["aliases"] or [])
+            else:
+                aliases = list(old.get("aliases") or [])
             if old["name"].lower() not in [a.lower() for a in aliases]:
                 aliases.append(old["name"])
             payload["aliases"] = aliases
