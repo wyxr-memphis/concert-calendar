@@ -34,9 +34,31 @@ except ImportError:
     sys.exit(1)
 
 
-def normalized_key(title: str, venue: str, date: str) -> str:
+def build_venue_canon(cur) -> dict:
+    """{lowercased name-or-alias: canonical_name} from the venues table.
+
+    The build (src/main.py canon_venue) and scripts/backfill_dedup_key.py both
+    resolve venues through this table, so this script must too. Relying on
+    config.normalize_venue_name alone silently under-detects duplicates: aliases
+    added through Admin -> Venues live only in the database, so two rows for the
+    same show ("Lamplighter Lounge" vs "Lamplighter Lounge, 1702 Madison Ave,
+    Memphis TN") were scored as different events and left in place.
+    """
+    cur.execute("SELECT name, aliases FROM venues")
+    m = {}
+    for v in cur.fetchall():
+        canonical = v["name"]
+        m[canonical.lower()] = canonical
+        for alias in (v.get("aliases") or []):
+            m[alias.lower()] = canonical
+    return m
+
+
+def normalized_key(title: str, venue: str, date: str, venue_canon: dict = None) -> str:
     """Compute normalized key for matching (same logic as _normalized_key in main.py)."""
-    canonical_venue = normalize_venue_name(venue)
+    canonical_venue = (venue_canon or {}).get((venue or "").lower())
+    if not canonical_venue:
+        canonical_venue = normalize_venue_name(venue)
     return f"{normalize_text(title)}|{normalize_text(canonical_venue)}|{date}"
 
 
@@ -92,13 +114,17 @@ def main():
 
     print(f"📊 Total active events: {len(events)}")
 
+    # Resolve venues the same way the build and the dedup_key backfill do.
+    venue_canon = build_venue_canon(cur)
+
     # Group by normalized key
     groups = defaultdict(list)
     for event in events:
         key = normalized_key(
             event["title"] or "",
             event["venue"] or "",
-            str(event["date"])
+            str(event["date"]),
+            venue_canon,
         )
         groups[key].append(dict(event))
 
