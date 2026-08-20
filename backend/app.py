@@ -19,6 +19,7 @@ import os
 import re
 import secrets
 import threading
+import time
 import uuid
 from datetime import date, datetime, timedelta, timezone
 from functools import wraps
@@ -102,8 +103,10 @@ from backend.db import (
 )
 from backend.auth import (
     ADMIN_PASSWORD,
+    SECRET_KEY_IS_EPHEMERAL,
     create_token,
     require_auth,
+    require_bearer_auth,
 )
 
 app = Flask(__name__)
@@ -426,17 +429,76 @@ def public_submit_event():
 # Auth Endpoints
 # ---------------------------------------------------------------------------
 
+# Failed-login throttling.
+#
+# One shared password protects every admin route, so an unthrottled login is an
+# open offline-speed guessing oracle. Kept in process memory rather than a table:
+# gunicorn runs a single worker by default (WEB_CONCURRENCY), so this is
+# effectively global, and it avoids adding schema DDL to the boot path — see the
+# lock-timeout incident in CLAUDE.md. With N workers the effective ceiling is
+# N x LOGIN_MAX_ATTEMPTS, still far better than unlimited.
+LOGIN_MAX_ATTEMPTS = 10
+LOGIN_WINDOW_SECONDS = 15 * 60
+_login_attempts = {}  # ip_hash -> [monotonic timestamps of failures]
+
+
+def _login_attempts_remaining(ip_hash):
+    """Failures still allowed for this client inside the window."""
+    if not ip_hash:
+        return LOGIN_MAX_ATTEMPTS
+    cutoff = time.monotonic() - LOGIN_WINDOW_SECONDS
+    recent = [t for t in _login_attempts.get(ip_hash, []) if t > cutoff]
+    if recent:
+        _login_attempts[ip_hash] = recent
+    else:
+        _login_attempts.pop(ip_hash, None)
+    return LOGIN_MAX_ATTEMPTS - len(recent)
+
+
+def _record_login_failure(ip_hash):
+    if not ip_hash:
+        return
+    _login_attempts.setdefault(ip_hash, []).append(time.monotonic())
+    # Bound total memory: drop buckets that have fully aged out. The dict is
+    # keyed by hashed IP, so a distributed attack could otherwise grow it.
+    if len(_login_attempts) > 4096:
+        cutoff = time.monotonic() - LOGIN_WINDOW_SECONDS
+        for key in [k for k, v in _login_attempts.items() if not any(t > cutoff for t in v)]:
+            _login_attempts.pop(key, None)
+
+
 @app.route("/api/admin/login", methods=["POST"])
 def admin_login():
     """Authenticate with admin password, return JWT."""
     if not ADMIN_PASSWORD:
         return jsonify({"error": "ADMIN_PASSWORD not configured"}), 500
 
+    ip_hash = _hash_ip(_client_ip())
+    if _login_attempts_remaining(ip_hash) <= 0:
+        resp = jsonify({
+            "error": "Too many failed login attempts. Try again later.",
+        })
+        resp.status_code = 429
+        resp.headers["Retry-After"] = str(LOGIN_WINDOW_SECONDS)
+        return resp
+
     body = request.get_json(silent=True) or {}
     password = body.get("password", "")
+    if not isinstance(password, str):
+        password = ""
 
-    if not hmac.compare_digest(password, ADMIN_PASSWORD):
+    # Compare as bytes. hmac.compare_digest rejects str arguments that are not
+    # ASCII-only with a TypeError, so a non-ASCII password produced a 500
+    # instead of a 401.
+    if not hmac.compare_digest(
+        password.encode("utf-8"), ADMIN_PASSWORD.encode("utf-8")
+    ):
+        _record_login_failure(ip_hash)
         return jsonify({"error": "Invalid password"}), 401
+
+    # Successful login clears the client's failure budget.
+    if ip_hash:
+        _login_attempts.pop(ip_hash, None)
 
     token = create_token()
     resp = make_response(jsonify({"ok": True, "token": token}))
@@ -908,7 +970,7 @@ def admin_submission_delete(submission_id):
 # ---------------------------------------------------------------------------
 
 @app.route("/api/admin/import/upload", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_import_upload():
     """Upload HTML files and/or images for parsing.
 
@@ -1113,7 +1175,7 @@ def _handle_image_upload(folder):
 
 
 @app.route("/api/admin/import/image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_import_image():
     """Single event image upload — hosted on Cloudinary.
 
@@ -1206,7 +1268,7 @@ def admin_sponsors_delete(sponsor_id):
 
 
 @app.route("/api/admin/sponsors/upload-image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_sponsors_upload_image():
     """Upload a sponsor image to Cloudinary."""
     return _handle_image_upload("sponsors")
@@ -1285,7 +1347,7 @@ def admin_calendar_sponsor_delete(sponsor_id):
 
 
 @app.route("/api/admin/calendar-sponsor/upload-image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_calendar_sponsor_upload_image():
     """Upload a calendar sponsor image to Cloudinary."""
     return _handle_image_upload("sponsors")
@@ -2443,7 +2505,20 @@ def admin_health_check():
 @app.route("/health", methods=["GET"])
 @app.route("/", methods=["GET", "HEAD"])
 def health():
-    return jsonify({"status": "ok"})
+    # status stays "ok" whenever the process can serve traffic — Render's health
+    # check hits "/" and a non-200 here takes the service out of rotation.
+    # Misconfiguration that degrades behaviour without stopping it is reported
+    # in "warnings" instead.
+    payload = {"status": "ok"}
+    warnings = []
+    if SECRET_KEY_IS_EPHEMERAL:
+        warnings.append(
+            "ADMIN_SECRET_KEY is not set — admin tokens are signed with a "
+            "per-process random key, so sessions break on restart and across workers."
+        )
+    if warnings:
+        payload["warnings"] = warnings
+    return jsonify(payload)
 
 
 

@@ -137,8 +137,20 @@ else
 fi
 echo ""
 
-# Check 9: Git status
-echo "9️⃣  Checking git status..."
+# Check 9: Admin auth regression tests (offline — no DB, no network)
+echo "9️⃣  Running admin auth regression tests..."
+if python3 scripts/test_admin_auth.py > /tmp/admin_auth_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Admin auth regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Admin auth regression tests failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/admin_auth_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 10: Git status
+echo "🔟  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else
