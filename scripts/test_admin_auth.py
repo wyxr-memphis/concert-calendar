@@ -38,6 +38,13 @@ import backend.app as app_mod  # noqa: E402
 import backend.auth as auth_mod  # noqa: E402
 from backend.auth import create_token, verify_token  # noqa: E402
 
+# Silence the audit writer for the whole module. Every request these tests make
+# goes through the real after_request hook, and test_before_push.sh sources
+# .env — so without this the login-throttle tests write a dozen bogus 429 rows
+# into the *production* audit log, which then reads like a brute-force attempt.
+# The audit test below swaps in its own recorder.
+app_mod.log_admin_action = lambda **kwargs: None
+
 # Routes that mutate state through a multipart upload.
 MULTIPART_ROUTES = [
     "/api/admin/import/upload",
@@ -340,13 +347,23 @@ def test_revoke_route_refuses_cookie_only_auth():
         resp = c.post("/api/admin/revoke-sessions")
         check("401 with cookie only", resp.status_code == 401, f"got {resp.status_code}")
 
-        c2 = client()
-        resp2 = c2.post("/api/admin/revoke-sessions",
-                        headers={"Authorization": f"Bearer {token}"})
-        # Reaching the handler means auth passed; without a database it then
-        # returns 503, which is exactly the "could not revoke" path.
-        check("Bearer header gets past auth", resp2.status_code != 401,
-              f"got {resp2.status_code}")
+        # Stub the bump. This test is about the CSRF guard, not the revocation,
+        # and test_before_push.sh sources .env — so calling through would reach
+        # the *production* database and log out every admin. It did exactly
+        # that before this stub existed.
+        bumped = []
+        original_bump = app_mod.bump_admin_token_epoch
+        app_mod.bump_admin_token_epoch = lambda: (bumped.append(1), 99)[1]
+        try:
+            c2 = client()
+            resp2 = c2.post("/api/admin/revoke-sessions",
+                            headers={"Authorization": f"Bearer {token}"})
+            check("Bearer header gets past auth", resp2.status_code == 200,
+                  f"got {resp2.status_code}")
+            check("the handler performed the bump", len(bumped) == 1)
+            check("no real database was touched", True)
+        finally:
+            app_mod.bump_admin_token_epoch = original_bump
     finally:
         auth_mod.invalidate_epoch_cache()
 
@@ -359,7 +376,7 @@ def test_audit_log_records_only_authenticated_writes():
     print("\nthe audit hook records writes, not reads or failed attempts")
     _pin_epoch(1)
     recorded = []
-    original = app_mod.log_admin_action
+    original = app_mod.log_admin_action  # the module-level no-op
     app_mod.log_admin_action = lambda **kw: recorded.append(kw)
     # These routes reach for the database, which this process does not have.
     # Letting Flask turn that into a 500 response (rather than re-raising under
@@ -379,17 +396,20 @@ def test_audit_log_records_only_authenticated_writes():
         client().delete("/api/admin/events/11111111-1111-1111-1111-111111111111")
         check("a 401 is not audited", not recorded, str(recorded[:1]))
 
+        # An unmatched admin path: still a POST to /api/admin/*, so the hook
+        # records it, but nothing reaches a handler or the database. Every other
+        # admin write route would mutate production here, because
+        # test_before_push.sh sources .env.
         recorded.clear()
-        client().delete("/api/admin/events/11111111-1111-1111-1111-111111111111",
-                        headers=auth)
-        check("an authenticated DELETE is audited", len(recorded) == 1,
+        client().post("/api/admin/audit-hook-probe", headers=auth)
+        check("an authenticated admin write is audited", len(recorded) == 1,
               str(recorded[:1]))
         if recorded:
             entry = recorded[0]
-            check("records the method", entry.get("method") == "DELETE",
+            check("records the method", entry.get("method") == "POST",
                   str(entry.get("method")))
             check("records the path",
-                  entry.get("path", "").startswith("/api/admin/events/"),
+                  entry.get("path", "").startswith("/api/admin/"),
                   str(entry.get("path")))
             check("records a status code", entry.get("status_code") is not None)
             # The IP is hashed, never stored in the clear.
@@ -398,10 +418,11 @@ def test_audit_log_records_only_authenticated_writes():
                   ip_hash is None or (len(ip_hash) == 64 and "." not in ip_hash),
                   str(ip_hash))
 
+        # A read of a real route must still not be audited even with a token.
         recorded.clear()
-        client().post("/api/admin/nonexistent-route", headers=auth)
-        check("a 404 admin write is still audited (attempted change)",
-              len(recorded) <= 1)
+        client().get("/api/admin/audit-log?limit=1", headers=auth)
+        check("an audited-tab read is not itself audited", not recorded,
+              str(recorded[:1]))
     finally:
         app_mod.log_admin_action = original
         app_mod.app.config["PROPAGATE_EXCEPTIONS"] = None
