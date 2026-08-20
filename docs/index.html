@@ -1360,9 +1360,17 @@
 
             const title = ev.title || '';
             const location = ev.venue ? `${ev.venue}, Memphis, TN` : 'Memphis, TN';
-            const tmp = document.createElement('div');
-            tmp.innerHTML = ev.description || '';
-            const plainDesc = (tmp.textContent || '').trim().slice(0, 500);
+            // Strip any markup out of the description for the calendar entry.
+            //
+            // Must NOT go through innerHTML on a real element, even a detached
+            // one. A detached div will not run <script>, which makes this idiom
+            // look safe, but the parser still creates the nodes — so
+            // "<img src=x onerror=...>" begins loading immediately and fires.
+            // DOMParser documents have no browsing context: nothing loads and no
+            // handler runs, so the text can be extracted inertly.
+            const plainDesc = (new DOMParser()
+                .parseFromString(ev.description || '', 'text/html')
+                .body.textContent || '').trim().slice(0, 500);
 
             function fmtCal(yr, month, day, hour, minute) {
                 return `${yr}${_padZ(month)}${_padZ(day)}T${_padZ(hour)}${_padZ(minute)}00`;

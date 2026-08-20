@@ -161,8 +161,24 @@ else
 fi
 echo ""
 
-# Check 11: Git status
-echo "1️⃣1️⃣  Checking git status..."
+# Check 11: Browser XSS test (needs playwright + chromium; skips itself if absent)
+echo "1️⃣1️⃣  Running browser XSS test..."
+if python3 scripts/test_xss_browser.py > /tmp/xss_browser_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/xss_browser_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/xss_browser_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Browser XSS test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Browser XSS test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/xss_browser_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 12: Git status
+echo "1️⃣2️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else
