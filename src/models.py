@@ -120,9 +120,28 @@ def normalize_text(text: str) -> str:
     text = re.sub(r'\s*\[([^\]]+)\]\s*', ' ', text)
     text = re.sub(r'\s*\(([^\)]+)\)\s*', ' ', text)
 
-    # Remove common suffixes that don't help distinguish events (more aggressive)
-    # Match anywhere in string, not just at end
-    text = re.sub(r'\s*(live!?|concert|tour|show|presents?|featuring|feat\.?|ft\.?|ep release party?|release party?)\s*', ' ', text, flags=re.IGNORECASE)
+    # Remove common noise words that don't help distinguish events.
+    #
+    # These must only match WHOLE words. Without the boundary guards below the
+    # pattern ate the insides of real names — "Tourist" became "ist",
+    # "Showcase Showdown" became "case down", "Olive Branch Boys" became
+    # "o branch boys" — and because this feeds compute_dedup_key() those
+    # mangled strings became the persisted identity of the event.
+    #
+    # (?<!\w) / (?!\w) are used instead of \b because several alternatives end
+    # in an optional "." — after "feat." a trailing \b would sit between two
+    # non-word characters and fail to match.
+    stripped = re.sub(
+        r'(?<!\w)(live!?|concert|tour|show|presents?|featuring|feat\.?|ft\.?|ep release party?|release party?)(?!\w)',
+        ' ',
+        text,
+        flags=re.IGNORECASE,
+    )
+    # Never let the noise strip consume the entire title — an event actually
+    # called "Live" must not normalize to the empty string, which would collide
+    # with every other title that did the same.
+    if stripped.strip():
+        text = stripped
 
     # Replace punctuation with spaces (fixes "Land/Divided" vs "Land / Divided")
     text = re.sub(r'[^\w\s]', ' ', text)

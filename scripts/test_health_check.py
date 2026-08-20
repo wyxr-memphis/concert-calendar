@@ -142,11 +142,20 @@ def test_removed_venue_stays_visible():
           len([s for s in scr if not s.get("retired")]) == expected_count())
     text = report_for(scr)
     check("named in the report", "Some Closed Venue" in text)
-    # The fixture build has its own real failures, so don't assert all-clean —
-    # the invariant is that the retired entry stays out of the denominator.
-    check("not added to the scraper denominator",
-          f"/{expected_count()} clean" in text,
-          next(l for l in text.splitlines() if "clean" in l).strip())
+    # The invariant is that the retired entry stays out of the denominator. The
+    # fixture is a real build log, so whether it has failures — and therefore
+    # whether the report prints an "N/M clean" tally at all — changes twice a
+    # day. Only assert the tally on the path that emits one; the healthy path
+    # states the same thing as "All checks passed" and is covered by the
+    # scraper-tally check above.
+    tally = next((l for l in text.splitlines() if "clean" in l), None)
+    if tally is not None:
+        check("not added to the scraper denominator",
+              f"/{expected_count()} clean" in text, tally.strip())
+    else:
+        check("healthy fixture reports no failures",
+              "All checks passed" in text,
+              next((l for l in text.splitlines() if l.strip()), ""))
     check("retired entry is not itself a warning",
           not any("Some Closed Venue" in l for l in text.splitlines()
                   if l.startswith("⚠️")))

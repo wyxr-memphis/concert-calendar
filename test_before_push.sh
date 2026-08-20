@@ -111,8 +111,20 @@ else
 fi
 echo ""
 
-# Check 7: Git status
-echo "7️⃣  Checking git status..."
+# Check 7: Normalization regression tests (offline — no DB, no network)
+echo "7️⃣  Running normalization regression tests..."
+if python3 scripts/test_normalization.py > /tmp/normalization_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Normalization regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Normalization regression tests failed${NC}"
+    tail -20 /tmp/normalization_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 8: Git status
+echo "8️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

@@ -20,7 +20,7 @@ import re
 import secrets
 import threading
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from functools import wraps
 from typing import Optional
 from zoneinfo import ZoneInfo
@@ -1023,16 +1023,24 @@ def _normalize_date_iso(date_str):
         return date_str.strip()
     # Strip any trailing time like " - 7:00 PM"
     cleaned = re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', date_str, flags=re.IGNORECASE).strip()
-    # Try parsing
-    current_year = datetime.now().year
+    # Try parsing. The format list stays deliberately tight — this path feeds
+    # the DB directly, so a loose regex fallback would let junk through.
+    from src.date_utils import resolve_yearless_date
+
     for fmt in ('%b %d', '%B %d', '%b %d %Y', '%B %d %Y', '%m/%d/%Y', '%m/%d/%y'):
         try:
             dt = datetime.strptime(cleaned, fmt)
-            if dt.year == 1900:
-                dt = dt.replace(year=current_year)
-            return dt.strftime('%Y-%m-%d')
         except ValueError:
             continue
+        if dt.year == 1900:
+            # No year in the source text. Resolve it with the same New Year
+            # rollover rule the scrapers use, against today's real date — a
+            # "Jan 15" flyer imported in December belongs to next January.
+            resolved = resolve_yearless_date(dt.month, dt.day, date.today())
+            if resolved is None:
+                continue
+            return resolved.strftime('%Y-%m-%d')
+        return dt.strftime('%Y-%m-%d')
     return None  # reject unparseable dates rather than pass bad data to DB
 
 
