@@ -132,6 +132,39 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
   Only failures count and success resets, so a legitimate admin retyping is never locked out.
 - Passwords are compared as **UTF-8 bytes** — `hmac.compare_digest` raises `TypeError` on a
   non-ASCII `str`, which returned 500 instead of 401.
+- **Security headers ship from both origins**, and they are not the same policy:
+  `backend/app.py`'s `_add_security_headers` (an `after_request` that uses `setdefault`, so a
+  route's own `Cache-Control` survives) and the catch-all rule in `vercel.json`.
+  | | Content-Security-Policy |
+  |---|---|
+  | Flask, JSON | `default-src 'none'` — renders nothing, so allow nothing |
+  | Flask, `/e/<id>` HTML | strict, including **`script-src 'none'`** — the page's only `<script>` is a JSON-LD *data* block, which CSP does not treat as script |
+  | Vercel, all pages | `'unsafe-inline'` in `script-src`, because `index.html` and the admin pages carry their JS inline and there is no build step that could add nonces |
+  **So the Vercel CSP does *not* stop injected inline script — `escAttr`/`safeUrl` are still
+  what does that.** What it does stop: loading script from an unlisted host, exfiltrating to
+  one, `<base>` hijacking, plugins, and framing.
+  ⚠️ **The GA4 host list was found empirically, not from documentation.** `analytics.google.com`
+  is a *bare* host, so a `*.analytics.google.com` wildcard misses it — and it carries the core
+  `page_view` beacon, so getting this wrong silently kills analytics. This property also has
+  Google Ads linking on, which adds `*.doubleclick.net` and `www.google.com`.
+  `scripts/test_security_headers.py` drives the real pages under the **shipped** policy
+  (parsed out of `vercel.json`) in Chromium and fails on any violation — a CSP that breaks the
+  page is worse than no CSP. Re-run it after touching either policy or adding any third-party
+  embed.
+- **Image uploads are checked three ways** (`backend/images.py` `validate()`): size, then the
+  claimed extension, then the file's own magic bytes plus a Pillow decode with
+  `MAX_IMAGE_PIXELS` bounded. The extension decides the Content-Type Cloudinary serves; only
+  the signature says whether it is an image at all. Admin uploads are *not* re-encoded (unlike
+  submissions), so this is the only place a mislabelled file is caught.
+  `src/sources/artifacts.py` sets `Image.MAX_IMAGE_PIXELS` at import and its optimize paths
+  re-raise `DecompressionBombError` rather than falling back to the raw bytes — falling back
+  would hand the payload to the Vision API and bill us for it.
+- **`app.run(debug=...)` is gated behind `FLASK_DEBUG`.** Production runs under gunicorn and
+  never reaches that branch, but `debug=True` there would expose the Werkzeug console on any
+  traceback.
+- **Errors are never echoed into the Slack channel.** `#wyxr-concert-calendar` has the whole
+  station in it; exception strings there have carried paths and API responses. The full
+  exception goes to the Render logs (access controlled), the channel gets a generic line.
 
 ### File Operations
 - **Never have two writers to the same file** - race conditions cause data loss
@@ -636,13 +669,14 @@ except for the DB connection check.
 | `scripts/test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 routes |
 | `scripts/test_xss_browser.py` | the real page in Chromium against live payloads |
 | `scripts/test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD |
+| `scripts/test_security_headers.py` | both CSP variants; the real pages driven under the shipped policy |
 
 - `test_escaping.mjs` **extracts the helper sources from the shipped files** rather than
   copying them, so it fails if the implementation regresses, and it asserts no attribute
   site reverts to `esc()`.
-- The two browser suites need Chromium (`pip3 install playwright && python3 -m playwright
+- The three browser suites need Chromium (`pip3 install playwright && python3 -m playwright
   install chromium`). They **skip cleanly when absent** — so a green run can hide them. Check
-  for `16/16`, not just "all checks passed": skipping both shows as `14/14`
+  for `17/17`, not just "all checks passed": skipping all three shows as `14/14`
   (the total exceeds the 15 numbered checks because check 1 counts two env vars). Override
   discovery with `CHROME_PATH` if needed. Chromium discovery and the static file server are
   shared in `scripts/browser_test_util.py`, whose `Checker.equals()` exists because a

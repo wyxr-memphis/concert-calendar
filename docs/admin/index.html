@@ -1365,6 +1365,27 @@
                         <div id="buildHistoryBody"></div>
                     </div>
                 </div>
+
+                <!-- SECTION 4: Security -->
+                <div class="tools-section">
+                    <h2 class="section-title">Security</h2>
+                    <p class="section-subtitle">Session control and a record of recent admin changes</p>
+
+                    <div class="build-controls" style="align-items:center;">
+                        <button class="btn-secondary" id="revokeSessionsBtn" style="color:#c62828;">Log out all sessions</button>
+                        <span style="font-size:0.85em;color:#888;">
+                            Invalidates every admin token, including this one. Use if a session may have leaked.
+                        </span>
+                    </div>
+                    <div id="revokeStatusBar"></div>
+
+                    <h4 style="margin-top:20px;">Recent admin activity</h4>
+                    <p class="section-subtitle" style="margin-top:0;">
+                        State-changing requests only. Reads are not recorded.
+                    </p>
+                    <div id="auditLogBody" style="font-size:0.88em;color:#888;">Not loaded.</div>
+                    <button class="btn-secondary" id="loadAuditLogBtn" style="margin-top:10px;padding:6px 14px;font-size:0.85em;">Load activity</button>
+                </div>
             </div>
         </div>
 
@@ -2677,6 +2698,66 @@
         document.querySelector('[data-tab="tools"]').addEventListener('click', () => {
             loadScraperStatus();
         });
+
+        // ------------------------------------------------------------------------
+        // SECTION 4: Security — session revocation + audit log
+        // ------------------------------------------------------------------------
+
+        document.getElementById('revokeSessionsBtn')?.addEventListener('click', async () => {
+            if (!confirm('Log out every admin session, including this one?\n\nYou will be sent back to the login page.')) return;
+            const btn = document.getElementById('revokeSessionsBtn');
+            btn.disabled = true;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/revoke-sessions', { method: 'POST' });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                showStatus('All sessions revoked — redirecting to login...', 'success', 'revokeStatusBar');
+                // Our own token is dead now, so drop it and go to login rather
+                // than leaving the page in a state where every call 401s.
+                setTimeout(() => {
+                    try { sessionStorage.removeItem('admin_token'); } catch (e) { /* ignore */ }
+                    window.location.href = '/admin/login.html';
+                }, 1200);
+            } catch (err) {
+                btn.disabled = false;
+                showStatus('Error: ' + err.message, 'error', 'revokeStatusBar');
+            }
+        });
+
+        document.getElementById('loadAuditLogBtn')?.addEventListener('click', loadAuditLog);
+
+        async function loadAuditLog() {
+            const el = document.getElementById('auditLogBody');
+            el.textContent = 'Loading...';
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/audit-log?limit=100');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                if (!Array.isArray(data) || data.length === 0) {
+                    el.textContent = 'No admin changes recorded yet.';
+                    return;
+                }
+                const rows = data.map(entry => {
+                    const when = entry.created_at
+                        ? new Date(entry.created_at).toLocaleString()
+                        : '—';
+                    const status = entry.status_code == null ? '—' : entry.status_code;
+                    const ok = Number(status) >= 200 && Number(status) < 400;
+                    return `<tr>
+                        <td style="white-space:nowrap;">${esc(when)}</td>
+                        <td><code>${esc(entry.method || '')}</code></td>
+                        <td style="word-break:break-all;">${esc(entry.path || '')}</td>
+                        <td style="color:${ok ? '#2e7d32' : '#c62828'};">${esc(String(status))}</td>
+                    </tr>`;
+                }).join('');
+                el.innerHTML = `<table style="width:100%;border-collapse:collapse;">
+                    <thead><tr style="text-align:left;color:#666;">
+                        <th>When</th><th>Method</th><th>Path</th><th>Status</th>
+                    </tr></thead>
+                    <tbody>${rows}</tbody>
+                </table>`;
+            } catch (err) {
+                el.textContent = 'Failed to load activity: ' + err.message;
+            }
+        }
 
         // ------------------------------------------------------------------------
         // SECTION 1: Upload & Import

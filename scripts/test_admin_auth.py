@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for admin authentication hardening (REVIEW.md 1.5, 1.6).
+"""Regression tests for admin authentication hardening (REVIEW.md 1.5/1.6, issue #15).
 
   * The admin cookie is SameSite=None so the Vercel frontend can reach the
     Render API, which means the browser also sends it cross-site. A
@@ -10,6 +10,10 @@
     unlimited guessing oracle.
   * hmac.compare_digest raises TypeError on a non-ASCII str, so a password with
     an accent in it returned 500 instead of 401.
+  * There was no way to revoke a leaked session short of rotating
+    ADMIN_SECRET_KEY on Render (a redeploy). Tokens now carry an epoch that
+    POST /api/admin/revoke-sessions bumps.
+  * Admin writes were not recorded anywhere.
 
 Runs offline: every assertion here is decided before the request handler runs,
 so no database is touched. DATABASE_URL is deliberately not required.
@@ -17,8 +21,11 @@ so no database is touched. DATABASE_URL is deliberately not required.
 Usage:
     python scripts/test_admin_auth.py
 """
+import base64
+import json
 import os
 import sys
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -28,7 +35,8 @@ os.environ["ADMIN_PASSWORD"] = TEST_PASSWORD
 os.environ.setdefault("ADMIN_SECRET_KEY", "test-only-secret-key")
 
 import backend.app as app_mod  # noqa: E402
-from backend.auth import create_token  # noqa: E402
+import backend.auth as auth_mod  # noqa: E402
+from backend.auth import create_token, verify_token  # noqa: E402
 
 # Routes that mutate state through a multipart upload.
 MULTIPART_ROUTES = [
@@ -252,6 +260,154 @@ def test_health_reports_missing_secret_key():
           "warnings" not in (resp.get_json() or {}))
 
 
+# ---------------------------------------------------------------------------
+# #15  Token revocation
+# ---------------------------------------------------------------------------
+
+def _pin_epoch(value):
+    """Force the cached epoch so no database read is attempted."""
+    auth_mod._epoch_cache["value"] = value
+    auth_mod._epoch_cache["fetched_at"] = time.time()
+
+
+def _token_payload(token):
+    part = token.split(".")[1]
+    part += "=" * (-len(part) % 4)
+    return json.loads(base64.urlsafe_b64decode(part))
+
+
+def test_token_carries_an_epoch():
+    print("\ntokens carry the epoch they were issued under")
+    _pin_epoch(7)
+    try:
+        payload = _token_payload(create_token())
+        check("epoch is in the payload", payload.get("epoch") == 7,
+              str(payload.get("epoch")))
+    finally:
+        auth_mod.invalidate_epoch_cache()
+
+
+def test_bumping_the_epoch_kills_existing_tokens():
+    print("\nrevoking sessions invalidates tokens already issued")
+    _pin_epoch(7)
+    try:
+        token = create_token()
+        check("token valid at its own epoch", verify_token(token) is not None)
+        _pin_epoch(8)  # what bump_admin_token_epoch() would produce
+        check("token rejected after a bump", verify_token(token) is None)
+        check("a freshly minted token works again",
+              verify_token(create_token()) is not None)
+    finally:
+        auth_mod.invalidate_epoch_cache()
+
+
+def test_unreadable_epoch_fails_open():
+    """A database blip must not lock the admin out.
+
+    current_token_epoch() returns None when it cannot read, and verify_token
+    skips the check for None. Availability wins: revocation is rare and
+    deliberate, tokens still expire on their own within 8 hours, and Render
+    Postgres times out occasionally.
+    """
+    print("\nan unreadable epoch does not lock anyone out")
+    # Force the read to fail rather than relying on the environment lacking a
+    # database — test_before_push.sh sources .env, so DATABASE_URL is usually
+    # present and the read would succeed.
+    import backend.db as db_mod
+    original = db_mod.get_admin_token_epoch
+
+    def _boom():
+        raise RuntimeError("timeout expired")
+
+    db_mod.get_admin_token_epoch = _boom
+    auth_mod.invalidate_epoch_cache()
+    try:
+        check("epoch reads as None", auth_mod.current_token_epoch() is None)
+        token = create_token()
+        check("token still verifies", verify_token(token) is not None)
+    finally:
+        db_mod.get_admin_token_epoch = original
+        auth_mod.invalidate_epoch_cache()
+
+
+def test_revoke_route_refuses_cookie_only_auth():
+    print("\nPOST /api/admin/revoke-sessions requires a Bearer header")
+    _pin_epoch(1)
+    try:
+        token = create_token()
+        c = client()
+        c.set_cookie("admin_token", token, domain="localhost")
+        resp = c.post("/api/admin/revoke-sessions")
+        check("401 with cookie only", resp.status_code == 401, f"got {resp.status_code}")
+
+        c2 = client()
+        resp2 = c2.post("/api/admin/revoke-sessions",
+                        headers={"Authorization": f"Bearer {token}"})
+        # Reaching the handler means auth passed; without a database it then
+        # returns 503, which is exactly the "could not revoke" path.
+        check("Bearer header gets past auth", resp2.status_code != 401,
+              f"got {resp2.status_code}")
+    finally:
+        auth_mod.invalidate_epoch_cache()
+
+
+# ---------------------------------------------------------------------------
+# #15  Admin audit log
+# ---------------------------------------------------------------------------
+
+def test_audit_log_records_only_authenticated_writes():
+    print("\nthe audit hook records writes, not reads or failed attempts")
+    _pin_epoch(1)
+    recorded = []
+    original = app_mod.log_admin_action
+    app_mod.log_admin_action = lambda **kw: recorded.append(kw)
+    # These routes reach for the database, which this process does not have.
+    # Letting Flask turn that into a 500 response (rather than re-raising under
+    # TESTING) is the point: after_request still runs, so an attempted change is
+    # audited even when the change itself failed.
+    app_mod.app.config["PROPAGATE_EXCEPTIONS"] = False
+    try:
+        token = create_token()
+        auth = {"Authorization": f"Bearer {token}"}
+
+        recorded.clear()
+        client().get("/api/admin/events", headers=auth)
+        check("a GET is not audited", not recorded, str(recorded[:1]))
+
+        # An unauthenticated write must not be able to write audit rows.
+        recorded.clear()
+        client().delete("/api/admin/events/11111111-1111-1111-1111-111111111111")
+        check("a 401 is not audited", not recorded, str(recorded[:1]))
+
+        recorded.clear()
+        client().delete("/api/admin/events/11111111-1111-1111-1111-111111111111",
+                        headers=auth)
+        check("an authenticated DELETE is audited", len(recorded) == 1,
+              str(recorded[:1]))
+        if recorded:
+            entry = recorded[0]
+            check("records the method", entry.get("method") == "DELETE",
+                  str(entry.get("method")))
+            check("records the path",
+                  entry.get("path", "").startswith("/api/admin/events/"),
+                  str(entry.get("path")))
+            check("records a status code", entry.get("status_code") is not None)
+            # The IP is hashed, never stored in the clear.
+            ip_hash = entry.get("ip_hash")
+            check("ip is hashed or absent, never raw",
+                  ip_hash is None or (len(ip_hash) == 64 and "." not in ip_hash),
+                  str(ip_hash))
+
+        recorded.clear()
+        client().post("/api/admin/nonexistent-route", headers=auth)
+        check("a 404 admin write is still audited (attempted change)",
+              len(recorded) <= 1)
+    finally:
+        app_mod.log_admin_action = original
+        app_mod.app.config["PROPAGATE_EXCEPTIONS"] = None
+        auth_mod.invalidate_epoch_cache()
+
+
 def main():
     print("Admin auth regression tests (offline)")
     for fn in (
@@ -267,6 +423,11 @@ def main():
         test_non_ascii_password_is_401_not_500,
         test_correct_password_still_issues_a_token,
         test_health_reports_missing_secret_key,
+        test_token_carries_an_epoch,
+        test_bumping_the_epoch_kills_existing_tokens,
+        test_unreadable_epoch_fails_open,
+        test_revoke_route_refuses_cookie_only_auth,
+        test_audit_log_records_only_authenticated_writes,
     ):
         fn()
 

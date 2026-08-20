@@ -40,6 +40,58 @@ else:
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "")
 TOKEN_EXPIRY_SECONDS = 8 * 60 * 60  # 8 hours
 
+# Every token carries the epoch that was current when it was issued;
+# POST /api/admin/revoke-sessions bumps the stored epoch, which invalidates all
+# of them at once. Without this the only way to kill a leaked token was to
+# rotate ADMIN_SECRET_KEY on Render — a redeploy, by someone with dashboard
+# access.
+#
+# The epoch lives in the database because gunicorn runs several workers and a
+# process-local value would only log out one of them. It is cached for a few
+# seconds so this does not become a query on every authenticated request; the
+# cost is that a revocation takes up to that long to reach every worker.
+TOKEN_EPOCH_CACHE_SECONDS = 15
+_epoch_cache = {"value": None, "fetched_at": 0.0}
+
+
+def current_token_epoch(force=False):
+    """The epoch a token must match, or None if it cannot be determined.
+
+    Returns None — rather than raising or defaulting to 0 — when the database
+    is unreachable. Callers treat None as "skip the check": Render Postgres
+    times out occasionally, and an admin locked out of the UI by a transient
+    database blip is a worse outcome than a revoked token surviving a few extra
+    seconds. Availability wins here because revocation is a rare, deliberate
+    act and the token still expires on its own within 8 hours.
+    """
+    now = time.time()
+    if (not force and _epoch_cache["value"] is not None
+            and now - _epoch_cache["fetched_at"] < TOKEN_EPOCH_CACHE_SECONDS):
+        return _epoch_cache["value"]
+
+    try:
+        from backend.db import get_admin_token_epoch
+        epoch = get_admin_token_epoch()
+    except Exception as e:
+        print(f"[auth] Could not read the token epoch: {e}", flush=True)
+        # Keep serving the last known value if we ever had one.
+        return _epoch_cache["value"]
+
+    _epoch_cache["value"] = epoch
+    _epoch_cache["fetched_at"] = now
+    return epoch
+
+
+def invalidate_epoch_cache():
+    """Drop the cached epoch so the next check re-reads it.
+
+    Called right after a bump so the worker that performed the revocation stops
+    honouring its own old tokens immediately, rather than up to
+    TOKEN_EPOCH_CACHE_SECONDS later.
+    """
+    _epoch_cache["value"] = None
+    _epoch_cache["fetched_at"] = 0.0
+
 
 def create_token():
     """Create a JWT token with HMAC-SHA256 signing."""
@@ -48,13 +100,14 @@ def create_token():
         "sub": "admin",
         "exp": int(time.time()) + TOKEN_EXPIRY_SECONDS,
         "iat": int(time.time()),
+        "epoch": current_token_epoch() or 0,
     }))
     signature = _sign(f"{header}.{payload}")
     return f"{header}.{payload}.{signature}"
 
 
 def verify_token(token):
-    """Verify token signature and expiration. Returns payload or None."""
+    """Verify token signature, expiration and epoch. Returns payload or None."""
     try:
         parts = token.split(".")
         if len(parts) != 3:
@@ -67,6 +120,14 @@ def verify_token(token):
 
         payload = json.loads(_b64decode(payload_b64))
         if payload.get("exp", 0) < time.time():
+            return None
+
+        # Revocation check. A token minted before the last bump is dead even
+        # though its signature and expiry are still valid. Tokens issued before
+        # this field existed have no "epoch" and read as 0, so they are only
+        # rejected once someone actually revokes.
+        expected_epoch = current_token_epoch()
+        if expected_epoch is not None and int(payload.get("epoch", 0) or 0) != expected_epoch:
             return None
 
         return payload

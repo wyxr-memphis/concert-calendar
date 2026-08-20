@@ -76,6 +76,8 @@ _SCHEMA_TABLES = (
     "api_keys",
     "api_request_logs",
     "api_key_requests",
+    "admin_audit_log",
+    "admin_settings",
 )
 
 # Columns added by later migration steps, per table. Present == migrations ran.
@@ -86,6 +88,10 @@ _SCHEMA_TABLES = (
 # has run the app before — including production.
 _SCHEMA_COLUMNS = {
     "events": ("neighborhood", "dedup_key", "is_wyxr_presents"),
+    # Presence of these means the api_keys plaintext->hash migration has run.
+    # Without them registered here the table already exists, the fast path
+    # passes, and the migration is silently never applied.
+    "api_keys": ("key_hash", "key_prefix"),
     "submissions": (
         "image_data",
         "image_mime",
@@ -429,6 +435,72 @@ def _run_migrations():
         cur.execute("""UPDATE events SET source = 'scraper:unknown'
                        WHERE source NOT IN ('manual', 'artifact')
                          AND source NOT LIKE 'scraper:%'""")
+
+    # Step 14: Admin action audit log
+    with _ddl_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS admin_audit_log (
+              id          BIGSERIAL PRIMARY KEY,
+              method      TEXT NOT NULL,
+              path        TEXT NOT NULL,
+              status_code INTEGER,
+              actor       TEXT,
+              ip_hash     TEXT,
+              user_agent  TEXT,
+              created_at  TIMESTAMPTZ DEFAULT NOW()
+            );
+            CREATE INDEX IF NOT EXISTS idx_admin_audit_created
+              ON admin_audit_log(created_at DESC);
+        """)
+
+    # Step 15: Key/value store for settings that must be shared across workers.
+    # Currently holds only the admin token epoch (see bump_admin_token_epoch).
+    with _ddl_cursor() as cur:
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS admin_settings (
+              key        TEXT PRIMARY KEY,
+              value      TEXT,
+              updated_at TIMESTAMPTZ DEFAULT NOW()
+            )
+        """)
+
+    # Step 16: Store API keys hashed, not in the clear.
+    #
+    # The admin UI has always shown the full key exactly once at creation and a
+    # truncated form thereafter — but the plaintext sat in the column, so
+    # anything with database access (a backup, a psql session, an SQL injection
+    # anywhere) could read every partner's key. Hashing makes the UI's promise
+    # true.
+    #
+    # Existing keys keep working: the lookup hashes the incoming key and matches
+    # on key_hash. What is lost is the ability to re-read a key we already
+    # issued — which is the point. Postgres's built-in sha256() produces the
+    # same digest as hashlib.sha256(key.encode()).hexdigest().
+    with _ddl_cursor() as cur:
+        cur.execute("ALTER TABLE api_keys ADD COLUMN IF NOT EXISTS key_hash TEXT")
+        cur.execute("ALTER TABLE api_keys ADD COLUMN IF NOT EXISTS key_prefix TEXT")
+
+        cur.execute(
+            """SELECT 1 FROM information_schema.columns
+               WHERE table_name = 'api_keys' AND column_name = 'key'"""
+        )
+        if cur.fetchone():
+            cur.execute("""
+                UPDATE api_keys
+                   SET key_hash = encode(sha256(key::bytea), 'hex'),
+                       key_prefix = LEFT(key, 16)
+                 WHERE key IS NOT NULL AND key_hash IS NULL
+            """)
+            # Only drop the plaintext once every row has a hash — otherwise a
+            # partial backfill would silently invalidate a live key.
+            cur.execute("SELECT count(*) AS n FROM api_keys WHERE key_hash IS NULL")
+            if cur.fetchone()["n"] == 0:
+                cur.execute("ALTER TABLE api_keys DROP COLUMN key")
+
+        cur.execute("""
+            CREATE UNIQUE INDEX IF NOT EXISTS idx_api_keys_key_hash
+              ON api_keys(key_hash)
+        """)
 
     # Venue seeding is deliberately not here — init_db() runs it on every boot,
     # including when migrations are skipped, so newly-configured venues still
@@ -1650,24 +1722,51 @@ def delete_calendar_sponsor(sponsor_id):
 # API Key queries
 # ---------------------------------------------------------------------------
 
+def hash_api_key(key: str) -> str:
+    """The stored form of an API key.
+
+    Plain SHA-256, deliberately not a password hash: these are 256 bits of
+    ``secrets.token_urlsafe`` output, so there is no low-entropy guess to slow
+    down, and this runs on every authenticated v1 API request. It must also
+    match Postgres's ``encode(sha256(key::bytea), 'hex')``, which the migration
+    used to backfill existing rows.
+    """
+    import hashlib as _hashlib
+    return _hashlib.sha256((key or "").encode("utf-8")).hexdigest()
+
+
 def get_api_key(key: str):
-    """Look up an API key by its key string. Returns row or None."""
+    """Look up an API key by the key a client presented. Returns row or None.
+
+    The column holds a hash, so the incoming key is hashed and compared. The
+    row that comes back has no plaintext in it — nothing can recover an issued
+    key, including us.
+    """
+    if not key:
+        return None
     with get_cursor(commit=False) as cur:
-        cur.execute("SELECT * FROM api_keys WHERE key = %s", (key,))
+        cur.execute("SELECT * FROM api_keys WHERE key_hash = %s", (hash_api_key(key),))
         return cur.fetchone()
 
 
 def create_api_key(name, email=None, notes=None) -> dict:
-    """Generate a new API key and insert it. Returns the created row."""
+    """Generate a new API key. Returns the row plus a one-time "key" plaintext.
+
+    The plaintext is in the returned dict and nowhere else — it is never
+    persisted, so this return value is the only chance to show it to whoever
+    the key is for.
+    """
     import secrets as _secrets
     key = "wyxr_" + _secrets.token_urlsafe(32)
     with get_cursor() as cur:
         cur.execute(
-            """INSERT INTO api_keys (key, name, email, notes)
-               VALUES (%s, %s, %s, %s) RETURNING *""",
-            (key, name, email, notes),
+            """INSERT INTO api_keys (key_hash, key_prefix, name, email, notes)
+               VALUES (%s, %s, %s, %s, %s) RETURNING *""",
+            (hash_api_key(key), key[:16], name, email, notes),
         )
-        return cur.fetchone()
+        row = dict(cur.fetchone())
+    row["key"] = key
+    return row
 
 
 def list_api_keys() -> list:
@@ -1794,6 +1893,122 @@ def get_v1_events(start_date=None, end_date=None, featured_only=False,
     with get_cursor(commit=False) as cur:
         cur.execute(query, params)
         return cur.fetchall()
+
+
+# ---------------------------------------------------------------------------
+# Admin audit log
+# ---------------------------------------------------------------------------
+
+def log_admin_action(method, path, status_code, actor="admin",
+                     ip_hash=None, user_agent=None) -> None:
+    """Record one state-changing admin request.
+
+    Never raises: an audit-log failure must not turn a successful admin action
+    into an error response. A dropped row is a gap in the log; a raised
+    exception here would look to the admin like the edit itself failed.
+    """
+    try:
+        with get_cursor() as cur:
+            cur.execute(
+                """INSERT INTO admin_audit_log
+                     (method, path, status_code, actor, ip_hash, user_agent)
+                   VALUES (%s, %s, %s, %s, %s, %s)""",
+                (method, path[:500], status_code, actor, ip_hash,
+                 (user_agent or "")[:300] or None),
+            )
+    except Exception as e:
+        print(f"[audit] Could not record {method} {path}: {e}", flush=True)
+
+
+def get_admin_audit_log(limit=200, before=None) -> list:
+    """Most recent admin actions, newest first."""
+    query = "SELECT * FROM admin_audit_log"
+    params = []
+    if before:
+        query += " WHERE created_at < %s"
+        params.append(before)
+    query += " ORDER BY created_at DESC LIMIT %s"
+    params.append(min(int(limit), 1000))
+    with get_cursor(commit=False) as cur:
+        cur.execute(query, params)
+        return cur.fetchall()
+
+
+def purge_admin_audit_log(older_than_days=365) -> int:
+    """Drop audit rows past the retention window. Returns rows deleted."""
+    with get_cursor() as cur:
+        cur.execute(
+            "DELETE FROM admin_audit_log WHERE created_at < NOW() - (%s * INTERVAL '1 day')",
+            (older_than_days,),
+        )
+        return cur.rowcount
+
+
+def purge_api_request_logs(older_than_days=90) -> int:
+    """Drop API request-log rows past the retention window.
+
+    This table gets a row per v1 API request and had no retention at all, so it
+    only ever grew. The usage graphs in the admin UI look back 30 days.
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            "DELETE FROM api_request_logs WHERE created_at < NOW() - (%s * INTERVAL '1 day')",
+            (older_than_days,),
+        )
+        return cur.rowcount
+
+
+# ---------------------------------------------------------------------------
+# Shared admin settings (cross-worker)
+# ---------------------------------------------------------------------------
+
+TOKEN_EPOCH_SETTING = "admin_token_epoch"
+
+
+def get_admin_setting(key, default=None):
+    """Read a shared setting, or `default` if unset."""
+    with get_cursor(commit=False) as cur:
+        cur.execute("SELECT value FROM admin_settings WHERE key = %s", (key,))
+        row = cur.fetchone()
+    return row["value"] if row else default
+
+
+def set_admin_setting(key, value) -> None:
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO admin_settings (key, value, updated_at)
+               VALUES (%s, %s, NOW())
+               ON CONFLICT (key) DO UPDATE
+                 SET value = EXCLUDED.value, updated_at = NOW()""",
+            (key, str(value)),
+        )
+
+
+def get_admin_token_epoch() -> int:
+    """The epoch every valid admin token must carry. 0 when never bumped."""
+    try:
+        return int(get_admin_setting(TOKEN_EPOCH_SETTING, "0") or 0)
+    except (TypeError, ValueError):
+        return 0
+
+
+def bump_admin_token_epoch() -> int:
+    """Invalidate every existing admin token. Returns the new epoch.
+
+    The alternative — rotating ADMIN_SECRET_KEY on Render — needs a redeploy and
+    a person with dashboard access. This is the same effect from inside the app.
+    """
+    with get_cursor() as cur:
+        cur.execute(
+            """INSERT INTO admin_settings (key, value, updated_at)
+               VALUES (%s, '1', NOW())
+               ON CONFLICT (key) DO UPDATE
+                 SET value = (COALESCE(NULLIF(admin_settings.value, ''), '0')::bigint + 1)::text,
+                     updated_at = NOW()
+               RETURNING value""",
+            (TOKEN_EPOCH_SETTING,),
+        )
+        return int(cur.fetchone()["value"])
 
 
 # ---------------------------------------------------------------------------

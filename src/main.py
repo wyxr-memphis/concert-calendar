@@ -539,6 +539,21 @@ def run(dry_run: bool = False) -> None:
         except Exception as exc:
             print(f"  [submissions] Image purge skipped: {exc}")
 
+    # Log retention. Both tables only ever grew before this: the API request log
+    # gets a row per v1 request, and the admin audit log a row per admin write.
+    # The build is the only thing that runs on a schedule, so it is where the
+    # sweep belongs.
+    if use_db and not dry_run:
+        try:
+            from backend.db import purge_admin_audit_log, purge_api_request_logs
+            audit_rows = purge_admin_audit_log(older_than_days=365)
+            api_rows = purge_api_request_logs(older_than_days=90)
+            if audit_rows or api_rows:
+                print(f"  [retention] Purged {audit_rows} audit row(s), "
+                      f"{api_rows} api request log row(s)")
+        except Exception as exc:
+            print(f"  [retention] Log purge skipped: {exc}")
+
     # ---- STEP 1: Fetch from automated sources ----
     all_source_results: List[SourceResult] = []
     automated_events: List[Event] = []

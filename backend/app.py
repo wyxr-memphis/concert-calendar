@@ -40,6 +40,9 @@ from backend.images import (
 )
 from backend.db import (
     init_db,
+    log_admin_action,
+    get_admin_audit_log,
+    bump_admin_token_epoch,
     get_cursor,
     get_active_events,
     get_event_by_id,
@@ -106,9 +109,10 @@ from backend.auth import (
     ADMIN_PASSWORD,
     SECRET_KEY_IS_EPHEMERAL,
     create_token,
+    current_token,
+    invalidate_epoch_cache,
     require_auth,
     require_bearer_auth,
-    current_token,
 )
 
 app = Flask(__name__)
@@ -124,6 +128,106 @@ Compress(app)
 # Generous enough for admin artifact uploads; the public submit form enforces a
 # much tighter per-image cap of its own.
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
+
+
+# ---------------------------------------------------------------------------
+# Security headers
+# ---------------------------------------------------------------------------
+
+# Sent on every response. Two policies, because this app serves two very
+# different things: JSON on /api/* and real HTML on /e/<id>.
+#
+# The HTML policy can afford to be strict. The event page has an inline
+# <style> block (hence style-src 'unsafe-inline') and one
+# <script type="application/ld+json"> — a *data* block, which CSP does not treat
+# as script — so script-src can be 'none' outright. img-src has to allow any
+# https origin: event images come from Cloudinary, from the legacy Vercel path,
+# and from arbitrary venue-site URLs the scrapers collected.
+_CSP_HTML = "; ".join([
+    "default-src 'none'",
+    "img-src https: data:",
+    "style-src 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src https://fonts.gstatic.com",
+    "script-src 'none'",
+    "frame-ancestors 'none'",
+    "base-uri 'none'",
+    "form-action 'none'",
+])
+
+# API responses render nothing, so everything is denied.
+_CSP_API = "default-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+
+_SECURITY_HEADERS = {
+    # Stop a browser from second-guessing our Content-Type. Without it, a
+    # response we label application/json but which happens to start with markup
+    # can be sniffed as HTML and executed on this origin.
+    "X-Content-Type-Options": "nosniff",
+    # No part of this API is meant to be framed.
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    # Nothing here uses these, so deny them rather than inherit a default.
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+}
+
+
+# Requests that mutate state and are worth being able to reconstruct later.
+# GETs are excluded: they are the overwhelming majority of admin traffic and
+# reading a list is not an action anyone needs to answer for.
+_AUDITED_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
+
+
+@app.after_request
+def _audit_admin_actions(resp):
+    """Record state-changing admin requests.
+
+    Logged from one place rather than per route, so a route added later is
+    covered without anyone remembering to instrument it. Only requests that
+    actually authenticated are recorded — a 401 is a failed attempt, not an
+    action, and logging those would let an unauthenticated caller write rows.
+
+    The actor is always "admin": there is a single shared password. What the log
+    answers is *when* something changed and from where, not who.
+    """
+    try:
+        if (request.method in _AUDITED_METHODS
+                and request.path.startswith("/api/admin/")
+                and resp.status_code != 401):
+            log_admin_action(
+                method=request.method,
+                path=request.full_path.rstrip("?"),
+                status_code=resp.status_code,
+                ip_hash=_hash_ip(_client_ip()),
+                user_agent=request.headers.get("User-Agent"),
+            )
+    except Exception as e:
+        print(f"[audit] hook failed: {e}", flush=True)
+    return resp
+
+
+@app.after_request
+def _add_security_headers(resp):
+    """Attach security headers without clobbering anything a route set itself.
+
+    Routes that need their own value (the event page sets its own
+    Cache-Control, for instance) keep it — this only fills in what is absent.
+    """
+    for header, value in _SECURITY_HEADERS.items():
+        resp.headers.setdefault(header, value)
+
+    # HSTS is only meaningful over TLS, and asserting it from a local http
+    # dev server would pin localhost to https in the developer's browser.
+    if request.is_secure:
+        resp.headers.setdefault(
+            "Strict-Transport-Security", "max-age=63072000; includeSubDomains"
+        )
+
+    if "Content-Security-Policy" not in resp.headers:
+        content_type = (resp.headers.get("Content-Type") or "").lower()
+        resp.headers["Content-Security-Policy"] = (
+            _CSP_HTML if content_type.startswith("text/html") else _CSP_API
+        )
+
+    return resp
 
 
 @app.errorhandler(413)
@@ -158,6 +262,25 @@ def _ensure_db():
     except Exception as e:
         # Leave _db_ready False so the next request retries initialization
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
+
+
+# A deliberately conservative address check: one @, a dotted domain with a
+# 2+ character TLD, no whitespace, and a length cap. Full RFC 5322 is far more
+# permissive than anything worth accepting from a public form, and the previous
+# check ('@' in value) accepted "@" itself.
+_EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[A-Za-z0-9]([A-Za-z0-9.-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$")
+
+MAX_EMAIL_LENGTH = 254  # RFC 5321 limit on a forward path
+
+
+def is_valid_email(value) -> bool:
+    """True if the value is plausibly a deliverable email address."""
+    if not value or not isinstance(value, str):
+        return False
+    candidate = value.strip()
+    if len(candidate) > MAX_EMAIL_LENGTH or ".." in candidate:
+        return False
+    return bool(_EMAIL_RE.match(candidate))
 
 
 # ---------------------------------------------------------------------------
@@ -359,7 +482,7 @@ def public_submit_event():
 
     if not submitter_email:
         errors.append("Email is required")
-    elif "@" not in submitter_email or "." not in submitter_email:
+    elif not is_valid_email(submitter_email):
         errors.append("Please enter a valid email address")
 
     if description and len(description) > 500:
@@ -1960,9 +2083,17 @@ def _process_slack_image(file_id: str, channel_id: str):
         _slack_post_message(channel_id, "\n".join(lines))
 
     except Exception as exc:
-        print(f"[slack] Error processing image: {exc}", flush=True)
+        # The full exception goes to the Render logs, which are access
+        # controlled. The channel gets a generic line: #wyxr-concert-calendar
+        # has the whole station in it, and an exception string here has
+        # previously carried connection strings, file paths and API responses.
+        print(f"[slack] Error processing image: {exc!r}", flush=True)
         try:
-            _slack_post_message(channel_id, f"⚠️ Error processing image: {str(exc)[:100]}")
+            _slack_post_message(
+                channel_id,
+                "⚠️ Something went wrong processing that image. "
+                "The error has been logged — try again, or add the event in the admin UI.",
+            )
         except Exception:
             pass
 
@@ -2083,7 +2214,7 @@ def v1_events():
     duration_ms = int((_time.time() - t0) * 1000)
     _log_api_request_async(
         str(key_row["id"]),
-        key_row["key"][:12],
+        key_row.get("key_prefix"),
         "/api/v1/events",
         request.query_string.decode()[:500],
         request.remote_addr,
@@ -2113,7 +2244,7 @@ def v1_venues():
         for v in venues
     ]
     _log_api_request_async(
-        str(key_row["id"]), key_row["key"][:12],
+        str(key_row["id"]), key_row.get("key_prefix"),
         "/api/v1/venues", "", request.remote_addr, 200, 0,
     )
     return jsonify(data)
@@ -2129,7 +2260,7 @@ def v1_neighborhoods():
 
     rows = get_neighborhoods_with_counts()
     _log_api_request_async(
-        str(key_row["id"]), key_row["key"][:12],
+        str(key_row["id"]), key_row.get("key_prefix"),
         "/api/v1/neighborhoods", "", request.remote_addr, 200, 0,
     )
     resp = jsonify([
@@ -2151,10 +2282,10 @@ def admin_api_keys_list():
     result = []
     for k in keys:
         d = serialize_event(k)
-        # Mask the key — show prefix only
-        if d.get("key"):
-            d["key_display"] = d["key"][:16] + "..."
-            del d["key"]
+        # The plaintext is not in the database at all any more — key_prefix is
+        # stored alongside the hash purely so a key is identifiable in this list.
+        d["key_display"] = (d.get("key_prefix") or "") + "..." if d.get("key_prefix") else "—"
+        d.pop("key_hash", None)
         result.append(d)
     return jsonify(result)
 
@@ -2174,7 +2305,9 @@ def admin_api_keys_create():
         notes=(body.get("notes") or "").strip() or None,
     )
     d = serialize_event(row)
-    # Return the full key once — it cannot be retrieved again
+    d.pop("key_hash", None)
+    # create_api_key puts the plaintext in "key". It was never stored, so this
+    # response is genuinely the only chance to read it.
     return jsonify(d), 201
 
 
@@ -2189,9 +2322,8 @@ def admin_api_keys_update(key_id):
     if not row:
         return jsonify({"error": "API key not found"}), 404
     d = serialize_event(row)
-    if d.get("key"):
-        d["key_display"] = d["key"][:16] + "..."
-        del d["key"]
+    d["key_display"] = (d.get("key_prefix") or "") + "..." if d.get("key_prefix") else "—"
+    d.pop("key_hash", None)
     return jsonify(d)
 
 
@@ -2235,7 +2367,7 @@ def public_request_api_key():
     errors = []
     if not name:
         errors.append("Name is required")
-    if not email or "@" not in email:
+    if not is_valid_email(email):
         errors.append("A valid email is required")
     if errors:
         return jsonify({"error": ", ".join(errors)}), 400
@@ -2274,7 +2406,10 @@ def admin_api_key_requests_approve(request_id):
         notes=f"Company: {req['company'] or '—'}  Use case: {req['use_case'] or '—'}",
     )
     update_api_key_request(request_id, "approved", api_key_id=str(key_row["id"]))
-    return jsonify({"ok": True, "key": serialize_event(key_row)}), 201
+    d = serialize_event(key_row)
+    d.pop("key_hash", None)
+    # The admin UI reads data.key.key — the one-time plaintext.
+    return jsonify({"ok": True, "key": d}), 201
 
 
 @app.route("/api/admin/api-key-requests/<request_id>/reject", methods=["POST"])
@@ -2559,6 +2694,49 @@ def admin_health_check():
 
 
 # ---------------------------------------------------------------------------
+# Admin session control and audit log
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/revoke-sessions", methods=["POST"])
+@require_bearer_auth
+def admin_revoke_sessions():
+    """Invalidate every admin token, including the caller's own.
+
+    For a leaked or forgotten session. The previous remedy was rotating
+    ADMIN_SECRET_KEY on Render, which needs a redeploy and dashboard access.
+
+    Deliberately require_bearer_auth, not require_auth: this is a
+    state-changing action worth protecting from a cross-site POST even though
+    it takes no body.
+    """
+    try:
+        epoch = bump_admin_token_epoch()
+    except Exception as e:
+        print(f"[auth] Could not bump the token epoch: {e}", flush=True)
+        return jsonify({"error": "Could not revoke sessions — try again"}), 503
+
+    # Stop honouring old tokens in this worker immediately rather than after the
+    # cache TTL; the others pick it up within TOKEN_EPOCH_CACHE_SECONDS.
+    invalidate_epoch_cache()
+    return jsonify({
+        "ok": True,
+        "epoch": epoch,
+        "message": "All admin sessions revoked. You will need to log in again.",
+    })
+
+
+@app.route("/api/admin/audit-log", methods=["GET"])
+@require_auth
+def admin_audit_log():
+    """Recent state-changing admin actions, newest first."""
+    try:
+        limit = int(request.args.get("limit", 200))
+    except (TypeError, ValueError):
+        limit = 200
+    return jsonify(serialize_list(get_admin_audit_log(limit=limit)))
+
+
+# ---------------------------------------------------------------------------
 # Public event permalinks
 # ---------------------------------------------------------------------------
 
@@ -2642,4 +2820,8 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
+    # Never default to the Werkzeug debugger: it exposes an interactive Python
+    # console on any traceback. Production runs under gunicorn and never reaches
+    # this branch, but a stray `python -m backend.app` on a public host would.
+    debug = os.environ.get("FLASK_DEBUG", "").lower() in ("1", "true", "yes")
+    app.run(debug=debug, port=int(os.environ.get("PORT", 5000)))
