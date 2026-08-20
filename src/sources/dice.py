@@ -16,6 +16,7 @@ from ..config import (
     normalize_venue_name, is_music_event,
 )
 from ..date_utils import parse_date_text
+from ..time_format import format_event_time
 
 SOURCE_NAME = "DICE"
 BROWSE_URL = "https://dice.fm/browse/Memphis:35.149844:-90.049566"
@@ -154,7 +155,7 @@ def _parse_jsonld(data: dict) -> Optional[Event]:
     try:
         dt = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
         event_date = dt.date()
-        time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+        time_str = format_event_time(dt)
     except ValueError:
         return None
 

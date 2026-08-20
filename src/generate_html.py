@@ -1,10 +1,90 @@
 """Generate the static HTML page for Memphis concert calendar."""
 
-from datetime import date, datetime
+import json
+from datetime import date, datetime, timedelta
 from typing import Dict, List
 from collections import defaultdict
 from zoneinfo import ZoneInfo
 from .models import Event, SourceResult
+from .time_format import (
+    DEFAULT_DURATION_HOURS,
+    parse_start_time,
+    strftime_nopad,
+)
+
+SITE_BASE = "https://concert-calendar.wyxr.org"
+CENTRAL = ZoneInfo("America/Chicago")
+
+
+def _events_jsonld(events: List[Event]) -> str:
+    """schema.org ItemList of the week's events, ready for a <script> tag.
+
+    This page is the *server-rendered* one, so unlike the interactive calendar
+    (whose events arrive over the API after load) its structured data is visible
+    to a crawler that does not run JavaScript. That makes this the page that
+    actually gets Memphis shows into search results.
+
+    ``json.dumps`` will happily emit a literal closing script tag from inside a
+    string value, ending the block early and handing the rest to the HTML
+    parser. Unicode-escaping the three characters that matter keeps the JSON
+    valid and inert — titles here come from scrapers and from OCR of uploaded
+    flyers.
+    """
+    items = []
+    for i, event in enumerate(events):
+        item = {
+            "@type": "MusicEvent",
+            "name": event.artist,
+            "eventStatus": "https://schema.org/EventScheduled",
+            "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+            "location": {
+                "@type": "MusicVenue" if event.venue else "Place",
+                "name": event.venue or "Memphis, TN",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Memphis",
+                    "addressRegion": "TN",
+                    "addressCountry": "US",
+                },
+            },
+        }
+
+        hour, minute = parse_start_time(event.time)
+        start = datetime(
+            event.date.year, event.date.month, event.date.day, hour, minute,
+            tzinfo=CENTRAL,
+        )
+        item["startDate"] = start.isoformat()
+        item["endDate"] = (start + timedelta(hours=DEFAULT_DURATION_HOURS)).isoformat()
+
+        if event.event_id:
+            item["url"] = f"{SITE_BASE}/e/{event.event_id}"
+        elif event.url:
+            item["url"] = event.url
+        if event.image_url:
+            item["image"] = [event.image_url]
+        if event.url:
+            item["offers"] = {
+                "@type": "Offer",
+                "url": event.url,
+                "availability": "https://schema.org/InStock",
+            }
+
+        items.append({"@type": "ListItem", "position": i + 1, "item": item})
+
+    payload = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Live music in Memphis — next 8 days",
+        "numberOfItems": len(items),
+        "itemListElement": items,
+    }
+    return (
+        json.dumps(payload, ensure_ascii=False)
+        .replace("<", "\\u003c")
+        .replace(">", "\\u003e")
+        .replace("&", "\\u0026")
+    )
 
 
 def generate_html(
@@ -26,7 +106,7 @@ def generate_html(
     event_sections = ""
     for d in sorted_dates:
         day_events = by_date[d]
-        day_name = d.strftime("%A, %B %-d").upper()
+        day_name = strftime_nopad(d, "%A, %B %-d").upper()
 
         # Group events by venue (case-insensitive, preserving order)
         venue_groups: Dict[str, List[Event]] = {}
@@ -95,8 +175,9 @@ def generate_html(
     # Convert UTC timestamp to Central Time
     central_tz = ZoneInfo("America/Chicago")
     run_time_central = run_timestamp.astimezone(central_tz)
-    run_time_str = run_time_central.strftime("%B %-d, %Y at %-I:%M %p %Z")
+    run_time_str = strftime_nopad(run_time_central, "%B %-d, %Y at %-I:%M %p %Z")
     total_events = len(events)
+    events_jsonld = _events_jsonld(events)
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -115,20 +196,23 @@ def generate_html(
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="description" content="What's happening in Memphis this week? Live music listings for the next 8 days. From WYXR 91.7 FM.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek.html">
+    <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:title" content="Memphis Live Music — Next 8 Days">
     <meta property="og:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek.html">
+    <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
     <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Memphis Live Music — Next 8 Days">
     <meta name="twitter:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
     <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="/feed.xml">
+    <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="/calendar.ics">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{events_jsonld}</script>
     <style>
         :root {{
             --wyxr-yellow: #FFCF2D;
@@ -286,9 +370,23 @@ def generate_html(
         }}
         footer a {{ color: var(--wyxr-dim); }}
         footer a:hover {{ color: var(--wyxr-yellow); }}
+        /* The page's title is the banner image, so the <h1> exists for screen
+           readers and crawlers. display:none would take it out of the
+           accessibility tree, hence the clip technique. */
+        .sr-only {{
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }}
+        .footer-feeds {{ margin-top: 8px; }}
     </style>
 </head>
 <body>
+    <h1 class="sr-only">Memphis Live Music — live shows in Memphis over the next 8 days, from WYXR 91.7 FM</h1>
     <header>
         <picture>
             <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
@@ -309,6 +407,11 @@ def generate_html(
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         Last built {run_time_str}<br>
         <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
+        <div class="footer-feeds">
+            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">&#128197; Subscribe in your calendar</a> &middot;
+            <a href="/calendar.ics">Download .ics</a> &middot;
+            <a href="/feed.xml">RSS</a>
+        </div>
     </footer>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>

@@ -135,9 +135,19 @@
             return fetch(apiUrl(path), opts);
         }
 
-        // If already authenticated, redirect to admin
+        // If already authenticated, redirect to admin. Store the token the
+        // response echoes back: this bounce is how a new tab reaches the admin
+        // UI on the cookie alone, and without a token in sessionStorage every
+        // upload route (require_bearer_auth) would answer "Not authenticated".
         apiFetch('/api/admin/me')
-            .then(r => { if (r.ok) window.location.href = '/admin/'; });
+            .then(async r => {
+                if (!r.ok) return;
+                try {
+                    const data = await r.json();
+                    if (data && data.token) sessionStorage.setItem('admin_token', data.token);
+                } catch (err) { /* redirect anyway — admin-common.js re-hydrates */ }
+                window.location.href = '/admin/';
+            });
 
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();

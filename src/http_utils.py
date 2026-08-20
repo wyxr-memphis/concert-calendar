@@ -30,3 +30,59 @@ _session = _make_session()
 def get_with_retry(url: str, **kwargs) -> requests.Response:
     """Drop-in replacement for requests.get() with automatic retry."""
     return _session.get(url, **kwargs)
+
+
+# Ticketmaster's Discovery API refuses deep paging beyond 1000 items
+# (page * size must stay under it), so there is no point requesting past that.
+TICKETMASTER_MAX_ITEMS = 1000
+
+
+def fetch_ticketmaster_events(url: str, params: dict, timeout: int = 15):
+    """Fetch every page of a Ticketmaster Discovery query.
+
+    The callers used to issue a single request with size=50 (per venue) or
+    size=100 (city-wide) and no page loop, so any query with more results than
+    one page was silently truncated — a busy venue simply lost the tail of its
+    six-month window with no error anywhere.
+
+    Returns (events, truncated). `truncated` is True when results remain that
+    the API will not serve, so the caller can say so instead of reporting a
+    clean run.
+    """
+    params = dict(params)
+    size = int(params.get("size") or 50)
+    params["size"] = size
+
+    events = []
+    page = 0
+    truncated = False
+
+    while True:
+        params["page"] = page
+        response = get_with_retry(url, params=params, timeout=timeout)
+        response.raise_for_status()
+        data = response.json()
+
+        batch = data.get("_embedded", {}).get("events", [])
+        events.extend(batch)
+
+        page_info = data.get("page", {}) or {}
+        total_pages = page_info.get("totalPages")
+        if total_pages is None:
+            # No pagination metadata — trust a short page to mean the end.
+            if len(batch) < size:
+                break
+            total_pages = page + 2  # keep going, re-checked next iteration
+
+        page += 1
+        if page >= total_pages:
+            break
+        if not batch:
+            # Defensive: an empty page with more claimed would loop forever.
+            break
+        if page * size >= TICKETMASTER_MAX_ITEMS:
+            # More results exist but the API will not page this deep.
+            truncated = page < total_pages
+            break
+
+    return events, truncated

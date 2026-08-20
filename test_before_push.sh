@@ -111,8 +111,114 @@ else
 fi
 echo ""
 
-# Check 7: Git status
-echo "7️⃣  Checking git status..."
+# Check 7: Normalization regression tests (offline — no DB, no network)
+echo "7️⃣  Running normalization regression tests..."
+if python3 scripts/test_normalization.py > /tmp/normalization_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Normalization regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Normalization regression tests failed${NC}"
+    tail -20 /tmp/normalization_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 8: Front-end escaping regression tests (needs node; skipped if absent)
+echo "8️⃣  Running front-end escaping tests..."
+if ! command -v node > /dev/null 2>&1; then
+    echo -e "${YELLOW}   ⚠ Skipped (node not installed)${NC}"
+elif node scripts/test_escaping.mjs > /tmp/escaping_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Escaping regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Escaping regression tests failed${NC}"
+    tail -20 /tmp/escaping_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 9: Admin auth regression tests (offline — no DB, no network)
+echo "9️⃣  Running admin auth regression tests..."
+if python3 scripts/test_admin_auth.py > /tmp/admin_auth_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Admin auth regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Admin auth regression tests failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/admin_auth_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 10: Ticketmaster pagination tests (offline — no network, no API key)
+echo "🔟  Running Ticketmaster pagination tests..."
+if python3 scripts/test_ticketmaster_pagination.py > /tmp/tm_pagination_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Ticketmaster pagination tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Ticketmaster pagination tests failed${NC}"
+    tail -20 /tmp/tm_pagination_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 11: iCalendar feed tests (offline — no DB, no network)
+echo "1️⃣1️⃣  Running iCalendar feed tests..."
+if python3 scripts/test_ics_feed.py > /tmp/ics_feed_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ iCalendar feed tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ iCalendar feed tests failed${NC}"
+    tail -20 /tmp/ics_feed_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 12: Event permalink page tests (offline — no DB, no network)
+echo "1️⃣2️⃣  Running event permalink page tests..."
+if python3 scripts/test_event_page.py > /tmp/event_page_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Event permalink page tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Event permalink page tests failed${NC}"
+    tail -20 /tmp/event_page_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 13: Browser XSS test (needs playwright + chromium; skips itself if absent)
+echo "1️⃣3️⃣  Running browser XSS test..."
+if python3 scripts/test_xss_browser.py > /tmp/xss_browser_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/xss_browser_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/xss_browser_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Browser XSS test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Browser XSS test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/xss_browser_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 14: Browser deep-link test (needs playwright + chromium; skips if absent)
+echo "1️⃣4️⃣  Running browser deep-link test..."
+if python3 scripts/test_deeplink_browser.py > /tmp/deeplink_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/deeplink_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/deeplink_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Browser deep-link test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Browser deep-link test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/deeplink_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 15: Git status
+echo "1️⃣5️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

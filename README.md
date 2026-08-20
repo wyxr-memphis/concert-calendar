@@ -18,13 +18,23 @@ A Python script runs twice daily (midnight and noon Central) via GitHub Actions.
 | Artifacts (images/pages) | Claude Vision API + HTML parsing | Upload flyers or saved web pages |
 | Admin UI | Direct to PostgreSQL | Manual entries, edits, featured picks |
 
-### Venues tracked (15)
+### Venues tracked (27)
 
-**Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland Soundstage, Lafayette's Music Room, Nashoba
+**Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland
+Soundstage, Lafayette's Music Room, Nashoba, Crosstown Arts, Crosstown Brewing Co., Flyway
+Brewing, Huey's (all locations), Overton Park Shell, B.B. King's Blues Club, Blues City Cafe,
+Landers Center, Orpheum Theatre, South Main Sounds
 
-**Generic scrapers:** Crosstown Arts/Green Room, FedExForum, Germantown PAC, Overton Park Shell
+**Ticketmaster (by venue ID):** FedExForum, Cannon Center, Satellite Music Hall, Grind City
+Amphitheater, Radians Amphitheater, BankPlus Amphitheater at Snowden Grove, Bluesville at
+Horseshoe
 
-**Manual entry via admin UI or artifact upload:** B.B. King's Blues Club, Orpheum Theatre, Bar DKDC, B-Side Memphis
+**Generic scraper:** Germantown Performing Arts Center
+
+**Manual entry via admin UI, Slack, or artifact upload:** Bar DKDC, B-Side Memphis
+
+Events also arrive for many other rooms via the Slack flyer pipeline and admin entry, so the
+calendar covers more venues than are scraped on a schedule.
 
 Want to add your venue? Email [contact@wyxr.org](mailto:contact@wyxr.org).
 
@@ -35,8 +45,10 @@ GitHub Actions (twice daily: midnight + noon Central)
   -> Python fetches from all sources
   -> Merges into PostgreSQL (single source of truth)
   -> Exports data/events.json (read-only snapshot)
-  -> Generates docs/thisweek.html (static 8-day calendar)
+  -> Generates docs/thisweek.html (static 8-day calendar, with Event JSON-LD)
   -> Generates docs/feed.xml (RSS feed, next 60 days)
+  -> Generates docs/calendar.ics (iCalendar subscribe feed, next 180 days)
+  -> Generates docs/sitemap.xml + docs/robots.txt
   -> Commits & pushes
   -> Triggers Vercel redeploy
 
@@ -44,11 +56,14 @@ Render (Backend API)
   -> Flask REST API at concert-calendar-api.onrender.com
   -> PostgreSQL database (events + scrape_logs + venues)
   -> Admin auth (JWT), event CRUD, venue management, import, scraper status
+  -> Renders /e/<id> event permalink pages (server-side, for shares + crawlers)
 
 Vercel (Frontend)
   -> Serves docs/index.html (interactive calendar with 6-month lookahead)
   -> Serves docs/thisweek.html (static "This Week" page)
   -> Serves docs/feed.xml (RSS 2.0 feed for app integration)
+  -> Serves docs/calendar.ics (webcal:// subscribe feed)
+  -> Rewrites /e/<id> to the Render API so shared links stay on the public domain
   -> Serves docs/submit.html (public event submission form, optional flyer upload)
   -> Serves docs/admin/ (admin UI — Events, Import, Scrapers, Venues, Sponsors, Submissions)
 ```
@@ -145,6 +160,69 @@ Both flags can be `true` on the same event, which is why they're separate elemen
 
 The existing human-readable text in `<title>`, `<description>`, and `<content:encoded>` is unchanged — this is additive, so nothing consuming the feed today breaks.
 
+## Calendar Subscribe Feed (iCal / webcal)
+
+The whole calendar is published as an iCalendar feed so anyone can subscribe to it in Apple
+Calendar, Google Calendar or Outlook and have it refresh itself twice a day:
+
+| | |
+|---|---|
+| **Subscribe** | `webcal://concert-calendar.wyxr.org/calendar.ics` |
+| **Download / fetch** | [`concert-calendar.wyxr.org/calendar.ics`](https://concert-calendar.wyxr.org/calendar.ics) |
+| **Window** | next 180 days (wider than RSS — a subscribed calendar should show everything we know) |
+| **Refresh hint** | `REFRESH-INTERVAL` / `X-PUBLISHED-TTL` of 12 hours, matching the build cadence |
+
+`webcal://` is what makes a calendar app offer to *subscribe* rather than import a one-off
+copy; the `https://` link next to it in the footer is the fallback.
+
+Each `VEVENT` carries `SUMMARY` ("Artist — Venue"), `LOCATION`, `DTSTART`/`DTEND`,
+`CATEGORIES` (WYXR Presents / WYXR Pick / genre), and a `DESCRIPTION` with doors and show
+times, price, and links to tickets and to the event page.
+
+Two implementation notes that matter if you edit `src/generate_ics.py`:
+
+- **Times are UTC instants, not floating local times with a `VTIMEZONE`.** A hand-maintained
+  VTIMEZONE block can drift; converting Central to UTC through `zoneinfo` cannot. A summer
+  show is `-05:00` and a winter show `-06:00`, and `scripts/test_ics_feed.py` asserts both.
+- **UIDs match the per-event `.ics` download** from the calendar's event modal
+  (`wyxr-event-<id>@concert-calendar.wyxr.org`), so someone who grabbed a single show and
+  later subscribes gets one entry, not two.
+
+## Event Permalinks (`/e/<id>`)
+
+Every event has its own shareable page, e.g.
+`concert-calendar.wyxr.org/e/2f9c…`. Vercel rewrites that path to the Render API, which
+renders the page **from the database on request** — so an admin correction is live
+immediately, with no build.
+
+Why it exists: the homepage is client-rendered, so before this every shared link unfurled
+with the same generic site card in Slack, iMessage and Facebook, and no individual show was
+indexable. Each page carries its own `og:` tags (including the flyer image) plus
+`MusicEvent` structured data, and is listed in `sitemap.xml`.
+
+In the calendar itself:
+
+- Opening a show pushes `#event=<id>` into the URL, so the browser's Back button closes the
+  modal and the address bar always names what is on screen.
+- Loading `/#event=<id>` opens that show's modal directly.
+- The modal has a **Copy link** button that copies the `/e/<id>` permalink — the one that
+  unfurls properly — not the hash URL.
+
+## SEO
+
+- `thisweek.html` is the server-rendered page, so its `ItemList` of `MusicEvent` JSON-LD is
+  visible to crawlers that do not run JavaScript. This is the page that gets Memphis shows
+  into search results.
+- `index.html` carries `WebSite` + `RadioStation` JSON-LD statically and injects an
+  `ItemList` for the rendered month once the API responds.
+- `/e/<id>` pages carry per-event `MusicEvent` JSON-LD, server-rendered.
+- `sitemap.xml` lists the static pages plus one URL per event in the 180-day window;
+  `robots.txt` points at it. Past events are deliberately excluded. Static entries use the
+  extensionless form (`/thisweek`, not `/thisweek.html`) because `cleanUrls` 308-redirects
+  the `.html` paths — each page's `rel=canonical` and `og:url` match.
+- Both feeds are advertised with `<link rel="alternate">` on every page and linked in the
+  footer. Before this they existed with nothing pointing at them.
+
 ## Interactive Calendar
 
 The homepage (`/`) is an interactive calendar with:
@@ -180,7 +258,9 @@ concert-calendar/
 │   ├── app.py                 # Flask REST API (Render)
 │   ├── db.py                  # PostgreSQL queries (events, venues, scrape_logs)
 │   ├── gunicorn_conf.py       # Gunicorn config (preload_app, lifecycle hooks)
-│   ├── auth.py                # JWT auth for Flask
+│   ├── auth.py                # JWT auth, login throttle, CSRF-safe upload guard
+│   ├── event_page.py          # Server-rendered /e/<id> permalink pages (OG + JSON-LD)
+│   ├── images.py              # Cloudinary upload/delete + image sanitization
 │   ├── requirements.txt       # Backend dependencies
 │   └── Procfile               # Render start command
 ├── api/
@@ -191,11 +271,14 @@ concert-calendar/
 │   ├── main.py                # Orchestrator (fetch -> merge -> DB -> HTML -> RSS)
 │   ├── config.py              # Venues, neighborhoods, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
-│   ├── date_utils.py          # Shared date parsing
+│   ├── date_utils.py          # Shared date parsing (incl. year-rollover resolution)
+│   ├── time_format.py         # Cross-platform strftime + event time formatting
 │   ├── http_utils.py          # HTTP client with retry logic
 │   ├── normalize.py           # Deduplication logic
-│   ├── generate_html.py       # Static "This Week" page generator
+│   ├── generate_html.py       # Static "This Week" page generator (+ Event JSON-LD)
 │   ├── generate_rss.py        # RSS 2.0 feed generator (60-day window)
+│   ├── generate_ics.py        # iCalendar subscribe feed (180-day window)
+│   ├── generate_sitemap.py    # sitemap.xml + robots.txt
 │   └── sources/
 │       ├── ticketmaster.py    # Ticketmaster Discovery API
 │       ├── venue_scrapers.py  # Venue website scrapers (custom + generic)
@@ -205,11 +288,20 @@ concert-calendar/
 │   └── events.json            # Read-only snapshot (exported by build)
 ├── scripts/
 │   ├── schema.sql             # PostgreSQL schema
-│   └── migrate_json_to_db.py  # Migration to PostgreSQL
+│   ├── migrate_json_to_db.py  # Migration to PostgreSQL
+│   ├── cleanup_duplicates.py  # Remove duplicate events (dry run by default)
+│   ├── backfill_dedup_key.py  # Recompute dedup_key + build the unique index
+│   ├── reassign_venue.py      # Move events between venues (dry run by default)
+│   ├── nightly_health_check.py
+│   ├── browser_test_util.py   # Shared Chromium discovery + static server for browser tests
+│   └── test_*.py / test_escaping.mjs   # Regression suites (see Testing)
 ├── docs/
 │   ├── index.html             # Interactive calendar (homepage)
 │   ├── thisweek.html          # Static "This Week" page (auto-generated)
 │   ├── feed.xml               # RSS 2.0 feed (auto-generated, 60-day window)
+│   ├── calendar.ics           # iCalendar subscribe feed (auto-generated, 180-day window)
+│   ├── sitemap.xml            # Sitemap incl. every /e/<id> page (auto-generated)
+│   ├── robots.txt             # Points at the sitemap (auto-generated)
 │   ├── admin/                 # Admin UI (login, events, import, scrapers, venues)
 │   └── log.json               # Latest run log
 ├── vercel.json                # Vercel config (redirects, rewrites)
@@ -251,6 +343,48 @@ python -m src.main --dry-run
 
 # Full run — generates docs/thisweek.html and updates database
 python -m src.main
+```
+
+## Testing
+
+```bash
+./test_before_push.sh     # expect 16/16
+```
+
+There is no test framework. Each suite is a standalone script under `scripts/`, offline
+apart from the database connection check, wired into `test_before_push.sh`:
+
+| Suite | Covers |
+|---|---|
+| `test_health_check.py` | nightly health-check report parsing |
+| `test_normalization.py` | year rollover, title/venue normalization, date + time formatting |
+| `test_admin_auth.py` | CSRF guard, login throttling, non-ASCII password (needs no DB) |
+| `test_escaping.mjs` | `escAttr` / `safeUrl` against attack payloads |
+| `test_ticketmaster_pagination.py` | paging, the API's 1000-item ceiling, non-terminating API |
+| `test_ics_feed.py` | iCalendar DST offsets, RFC 5545 folding and escaping, UID stability |
+| `test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 route behaviour |
+| `test_xss_browser.py` | the real calendar page in Chromium against live payloads |
+| `test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD, feed links |
+
+The two browser suites need Chromium and **skip cleanly without it**, so check the count
+rather than the "all checks passed" line — skipping both reports 14/14 instead of 16/16
+(the count exceeds the number of numbered checks because check 1 counts two env vars):
+
+```bash
+pip3 install playwright && python3 -m playwright install chromium
+```
+
+`test_escaping.mjs` extracts the escaping helpers from the shipped files rather than copying
+them, so it fails if the implementation regresses.
+
+### Maintenance scripts
+
+Both preview by default and take `--confirm` (or `--dry-run` for the backfill) — see
+`CLAUDE.md` → *Fix duplicates* for the required order.
+
+```bash
+python scripts/cleanup_duplicates.py            # preview duplicate removal
+python scripts/backfill_dedup_key.py --dry-run  # preview dedup_key changes
 ```
 
 ## Cost

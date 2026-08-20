@@ -40,6 +40,9 @@ Planning doc for upcoming features.
 - ~~Email Signup / Mailchimp (#17)~~ — "📧 Subscribe" button in header opens dark modal with Mailchimp iframe form (wyxr.us19.list-manage.com). sessionStorage tracks signed-up state.
 - ~~Event Submission Form (#18)~~ — `/submit.html` public form + `POST /api/submissions` endpoint + admin review queue. Optional flyer upload (2026-07-30): the browser downscales to 1600px, the server re-encodes and holds the bytes in Postgres, and the image reaches Cloudinary **only on approval** — so anonymous submissions can't consume the free-tier quota. Rate limited to 5/hour per hashed IP.
 - ~~Sponsor Callout (#19)~~ — Inline promo cards between day sections + Calendar Sponsor banner above event list. Full admin UI in Sponsors tab. DB tables: `sponsors`, `calendar_sponsor`.
+- ~~iCal / webcal Subscribe Feed~~ — `docs/calendar.ics` (180-day window), generated each build by `src/generate_ics.py`, advertised as `webcal://concert-calendar.wyxr.org/calendar.ics`. UTC instants (no VTIMEZONE), UIDs shared with the modal's per-event export.
+- ~~Per-Event Deep Links + OG Unfurls~~ — `#event=<id>` opens a show's modal (Back closes it); `/e/<id>` is a server-rendered permalink page with per-event `og:` tags and `MusicEvent` JSON-LD, proxied through Vercel to Render. "Copy link" button in the modal.
+- ~~SEO Basics~~ — `MusicEvent` JSON-LD on `thisweek.html` (server-rendered, so crawlable), `WebSite`/`RadioStation` on the homepage plus a client-injected `ItemList`, `sitemap.xml` + `robots.txt`, `<link rel="alternate">` feed discovery, `<h1>` and a skip link.
 
 ---
 
@@ -112,6 +115,33 @@ Planning doc for upcoming features.
 
 **Effort:** Medium
 
+**Status update (2026-08-20):** largely addressed. Event identity is now the shared
+`compute_dedup_key` (`src/models.py`), stored as a column and enforced by the partial unique
+index `idx_events_dedup_key`, with every dedup path canonicalizing the venue through the DB
+`venues` table. What remains of this item is the *fuzzy* half — near-duplicate artist names
+("Dale Watson" vs "Dale Watson & His Lone Stars") and an admin UI to review them.
+
+---
+
+## New Since the Roadmap
+
+Pulled from `REVIEW.md` (PR #30) and still pending:
+
+- **New venues** — Railgarten, Black Lodge, Lamplighter Lounge, Young Avenue Deli. None are
+  in `src/config.py` or `_SEED_VENUES`. Lamplighter already has rows in the DB from Slack
+  uploads but no scraper.
+- **"Tonight" Slack post** — the bot already has `chat:write` in the channel; a morning
+  message listing tonight's shows. Highest value per line of code.
+- **Weekly email digest** — Mailchimp audience and this-week data both exist.
+- **Instagram posts ingestion** — via the official Business Discovery API, gated on a Meta
+  app. Stories cannot be automated legitimately; the Slack screenshot pipeline stays the
+  bridge.
+- **Remaining security-audit items (issue #15)** — security headers (no CSP/HSTS/
+  X-Frame-Options), `app.run(debug=True)`, magic-byte MIME validation, Slack webhook
+  processing when the signing secret is unset.
+- **Embeddable widget** for wyxr.org; **visual unification** of `thisweek.html` with the
+  slate palette; **accessibility** beyond the h1/skip-link pass.
+
 ---
 
 ## Priority
@@ -122,4 +152,9 @@ Planning doc for upcoming features.
 | 11 | JSON-LD parser consolidation | Medium | Medium | Pending — code quality |
 | 14 | Genre / category tags | Medium | Medium | Pending |
 | 15 | Price / ticket info | Medium | Medium | Pending |
-| 16 | Deduplication improvements | Medium | High | Pending |
+| 16 | Fuzzy near-duplicate merge UI | Medium | Medium | Pending — exact dedup shipped |
+| — | New venues (Railgarten, Black Lodge, Lamplighter, Young Ave Deli) | Medium | High | Pending |
+| — | "Tonight" Slack post | Low | Medium | Pending |
+| — | iCal subscribe feed | Low-Med | High | ✅ Shipped 2026-08-20 |
+| — | Per-event deep links + OG unfurls | Medium | High | ✅ Shipped 2026-08-20 |
+| — | SEO basics (JSON-LD, sitemap, feed links) | Low | High | ✅ Shipped 2026-08-20 |

@@ -24,7 +24,14 @@ Key structural facts about `docs/index.html`:
 - Events are fetched from the **production Render API** at runtime — the page is static, not server-rendered
 - `allEvents` array holds all fetched events; `eventsById` map (`{id: event}`) is built in `showEvents()`
 - Event rows use `data-event-id` attribute + event delegation on `#eventList` to open the modal (no per-row listeners)
-- The `esc()` helper (near bottom of script) HTML-encodes strings for safe interpolation into innerHTML
+- **Three escaping helpers, and picking the wrong one is a live XSS bug** (all near the bottom of the script):
+  | Helper | Use for | Why not the others |
+  |---|---|---|
+  | `esc()` | text **between tags** only | Sets `textContent` and reads `innerHTML` back, which encodes `&`, `<`, `>` but **leaves quotes** — so it does not terminate a quoted attribute |
+  | `escAttr()` | any value going into a **quoted attribute** | 136 of ~3100 event titles contain a quote character, so `esc()` in an attribute breaks on real data, not just on attacks |
+  | `safeUrl()` | any value reaching **`href` / `src`** | Escaping does not stop a `javascript:` URL. Scraper ticket URLs and OCR'd image URLs are untrusted. No-op for `http(s):`, returns `""` otherwise |
+  Compose them: `escAttr(safeUrl(cldImg(ev.image_url, 600)))`.
+- **Never strip markup with the detached-`innerHTML` idiom.** Assigning to `innerHTML` on a detached div and reading `textContent` back looks safe because a detached element does not run `<script>` — but the parser still **builds the nodes**, so `<img src=x onerror=…>` fires immediately. Use `DOMParser` (its documents have no browsing context). This was a real sink in `_buildCalendarData`, found only by driving the page in a browser.
 
 ## Local Development
 
@@ -75,14 +82,56 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
   build; the build's inserts are `ON CONFLICT DO NOTHING` and re-run next cycle.
 
 ### Deduplication
-- Events are deduplicated during scraper runs using normalized keys (title|venue|date)
+- Event identity is `dedup_key` = `normalize_text(title)|normalize_text(canonical_venue)|date`,
+  computed by the single shared `compute_dedup_key` (`src/models.py`). It is stored as a
+  column on `events` and enforced by the partial unique index `idx_events_dedup_key`
+  (`ON events (dedup_key) WHERE is_active`), so duplicate *active* events are structurally
+  impossible.
 - `_save_events_to_db()` tracks inserted events within same batch to prevent duplicates
 - **Never overwrite admin/manual source entries** - automated scrapers always defer to manual edits
+
+⚠️ **Every path that decides "same event?" must canonicalize the venue through the DB
+`venues` table (names + aliases) — not `config.normalize_venue_name` alone.** Aliases added
+through Admin → Venues exist *only* in that table, so the config function cannot see them
+and will score two rows for the same show as different events.
+
+The three call sites that must agree:
+
+| Path | Resolves venue via |
+|---|---|
+| the build — `canon_venue()` in `src/main.py` | `venue_lookup`, built from `SELECT name, aliases FROM venues` |
+| `scripts/backfill_dedup_key.py` | `_venue_canonical_map()`, same query |
+| `scripts/cleanup_duplicates.py` | `build_venue_canon()`, same query |
+
+**Why:** on 2026-08-20 `cleanup_duplicates.py` was the odd one out, using
+`normalize_venue_name` only. The 2026-07-15 Lamplighter bill was stored twice — once as
+`Lamplighter Lounge`, once as `Lamplighter Lounge, 1702 Madison Ave, Memphis TN`, an alias
+the venues table knows and the config does not. The backfill reported **4** collisions while
+cleanup found **2**, so cleanup could never clear the last two and the unique index could
+never be created. The two scripts simply disagreed about what a duplicate was. Add
+`venue_canon` to any new dedup path for the same reason.
+
+**`dedup_key` goes stale whenever normalization changes.** `src/models.normalize_text`,
+`config.normalize_venue_name`, and the `venues` aliases all feed it — including a venue
+rename. Re-run the backfill after touching any of them (see **Fix duplicates** below).
+The daily build partially self-heals: it rebuilds its lookup by *recomputing* every row's
+key with current code and refreshes `dedup_key` on any row it matches, so a re-scraped event
+repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 
 ### Security
 - API keys stored in: `.zshrc` (local), GitHub Secrets (CI/CD), Render env vars (production)
 - `.claude/settings.local.json` contains API keys in permission strings - protected by .gitignore
 - Never commit secrets - use `test_before_push.sh` to check
+- **`ADMIN_SECRET_KEY` must be set on Render.** Unset, `backend/auth.py` falls back to a
+  per-process random key: tokens signed by one worker are rejected by every other and every
+  restart silently invalidates all sessions. It warns loudly at startup and reports in
+  `GET /health` (a `warnings` array means it is missing) rather than aborting boot — making
+  it fatal would take the API down on deploy. **Confirmed set in production 2026-08-20.**
+- **Login is throttled** — 10 failures per client per 15 min → 429, counted in process
+  memory (a new table would add DDL to the boot path; see the `init_db` lock gotcha).
+  Only failures count and success resets, so a legitimate admin retyping is never locked out.
+- Passwords are compared as **UTF-8 bytes** — `hmac.compare_digest` raises `TypeError` on a
+  non-ASCII `str`, which returned 500 instead of 401.
 
 ### File Operations
 - **Never have two writers to the same file** - race conditions cause data loss
@@ -93,16 +142,66 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 - Admin uses JWT Bearer tokens (cross-origin from Vercel to Render)
 - CORS configured for `ALLOWED_ORIGINS` environment variable
 - Render health checks hit `/` not `/health` - both endpoints exist
+- **Multipart upload routes use `@require_bearer_auth`, not `@require_auth`.** The admin
+  cookie is `SameSite=None` so Vercel can reach Render, which means the browser attaches it
+  cross-site too — and a `multipart/form-data` POST is a **CORS-simple** request, so it sends
+  with no preflight and the write lands even though the response is unreadable. Requiring the
+  `Authorization` header forces a preflight that CORS rejects for unknown origins. Transparent
+  to the admin UI, which always sends the header via `AdminAPI.apiFetch`.
+  Apply it to **any new state-mutating route that reads form data**; routes parsing JSON
+  already force a preflight.
+- **The Bearer token lives in `sessionStorage`, which is per-tab — the cookie is not.** So a
+  page opened in a *new* tab (the Slack bot's reply links go straight to
+  `/admin/edit?id=<uuid>`; any middle-click does it too) authenticates fine on the cookie —
+  `/api/admin/me` and every `require_auth` route work, the form loads and saves — while all
+  four `require_bearer_auth` upload routes answer 401 `Not authenticated`. That tab could not
+  recover on its own: `login.html` bounces to `/admin/` whenever the cookie is valid, so there
+  was no way to get a token into it short of logging out. Reported 2026-08-20 as "Not
+  authenticated" when uploading an event image.
+  **Fix:** `GET /api/admin/me` echoes the token it authenticated with (`current_token()` in
+  `backend/auth.py` — the *same* token, never a fresh one, so polling cannot extend the 8-hour
+  session), and `AdminAPI.apiFetch` calls `hydrateToken()` before any request when
+  `sessionStorage` is empty. Echoing it does not weaken the CSRF guard: a cross-site page can
+  send that credentialed GET but CORS won't let it read the response, so it still cannot learn
+  the token or forge the header.
+  A 401 from an upload route now means the session genuinely expired — surface it with
+  `uploadFailureMessage(resp, data)` rather than echoing the API's bare "Not authenticated",
+  which reads like a page bug.
 
 ## Important Files
 
 ### Core Application
 - `src/main.py` - Orchestrator (fetch → merge → prune → HTML → RSS)
 - `src/config.py` - Venues, neighborhoods, keywords, date ranges
+- `src/models.py` - `compute_dedup_key` / `normalize_text` — the shared event-identity logic
 - `src/normalize.py` - Deduplication logic
 - `src/generate_rss.py` - RSS 2.0 feed generator (60-day window)
+- `src/generate_ics.py` - iCalendar subscribe feed (`docs/calendar.ics`, 180-day window)
+- `src/generate_sitemap.py` - `docs/sitemap.xml` + `docs/robots.txt`
+- `src/date_utils.py` - Date parsing, incl. `resolve_yearless_date` (see below)
+- `src/time_format.py` - `strftime_nopad` / `format_event_time` — **use these, never `%-d`/`%-I`**
+- `src/http_utils.py` - Shared HTTP fetch helpers
 - `backend/app.py` - Flask REST API
 - `backend/db.py` - PostgreSQL queries
+- `backend/auth.py` - JWT signing, `require_auth` / `require_bearer_auth`, login throttle
+- `backend/images.py` - Cloudinary upload/delete + submitted-image sanitization
+- `backend/event_page.py` - Server-rendered `/e/<id>` permalink pages (OG tags + JSON-LD)
+
+**Two rules these encode:**
+- **A year-less date must go through `resolve_yearless_date`.** Defaulting to the current
+  year meant every December build read "Jan 15" as 11 months in the past and the `START_DATE`
+  filter silently dropped it — affecting every venue scraper. A date more than 45 days before
+  the reference rolls forward, so a slightly stale listing stays put but a New Year date moves.
+  `backend/app.py`'s `_normalize_date_iso` shares the same helper.
+- **`%-d` / `%-I` are glibc-only** and break local dev on macOS/Windows. Use `strftime_nopad`,
+  and `format_event_time` for the "7:30 PM" rendering (previously duplicated at 11 sites).
+- **`start_time` is parsed in exactly one place: `time_format.parse_start_time`.** The ICS
+  feed, the `/e/<id>` page and `thisweek.html` all call it, and `_parseEventStartTime` in
+  `docs/index.html` mirrors it. `DEFAULT_START_HOUR` (20) and `DEFAULT_DURATION_HOURS` (3)
+  live there too. **Why:** three surfaces now publish machine-readable start times for the
+  same show — an iCalendar `DTSTART`, a schema.org `startDate`, and the modal's calendar
+  buttons. If they disagree, a subscriber and a search result show different times for the
+  same gig, and nothing surfaces the contradiction.
 
 ### Scrapers
 - `src/sources/ticketmaster.py` - Ticketmaster Discovery API
@@ -135,6 +234,11 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 ### Feeds
 - `docs/feed.xml` - RSS 2.0 feed (next 60 days, auto-generated each build)
 - Feed URL: `concert-calendar.wyxr.org/feed.xml`
+- `docs/calendar.ics` - iCalendar subscribe feed (next 180 days), advertised as
+  `webcal://concert-calendar.wyxr.org/calendar.ics`. See **iCalendar feed** below.
+- All three outputs (RSS, ICS, sitemap) share **one** DB read in `src/main.py` — the RSS
+  window is a slice of the wider one. Each writer has its own `try/except` so a failure in
+  one still publishes the others.
 - **Badge flags are machine-readable, not just text.** WYXR Pick / WYXR Presents ship as
   `<category>` plus a `wyxr:` namespaced trio (`<wyxr:pick>`, `<wyxr:presents>`,
   `<wyxr:badge>`) on every event item — see the RSS Feed section of README.md for the
@@ -144,15 +248,121 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
   The two booleans are independent — an event can be both — and `<wyxr:badge>` applies the
   Presents-wins precedence for consumers that can only show one.
 
-## Venues (15 total)
+## iCalendar Feed (`docs/calendar.ics`)
 
-**Custom scrapers (7):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers (SeeTickets), Graceland (Wix), Lafayette's Music Room (Elfsight), Nashoba (Elfsight)
+Generated by `src/generate_ics.py`, published at `/calendar.ics`, advertised in the footer as
+`webcal://` (which is what makes a calendar app *subscribe* rather than import a static copy).
 
-**Generic scraper (4):** Crosstown Arts, Overton Park Shell, FedExForum, Germantown PAC
+Three things here are load-bearing:
 
-**Manual only (4):** B.B. King's, Orpheum, Bar DKDC, B-Side Memphis
+- **Times are UTC instants, not floating local times with a `VTIMEZONE`.** A hand-written
+  VTIMEZONE block means hand-maintaining DST rules; `zoneinfo` cannot drift. `DTSTART:2026…Z`
+  is unambiguous in every client. `scripts/test_ics_feed.py` asserts a summer show at `-05:00`
+  and a winter show at `-06:00` — a fixed offset would put half the year in the wrong hour.
+- **UIDs match the per-event `.ics`** that `_buildCalendarData` produces client-side
+  (`wyxr-event-<id>@concert-calendar.wyxr.org`). Calendar apps key on UID, so a user who
+  downloaded one show and then subscribes gets one entry, not two. **Don't change the UID
+  format on one side only.**
+- **RFC 5545 folding counts octets, at character boundaries.** Nearly every `SUMMARY` here is
+  `Artist — Venue`, and an em dash is 3 bytes — a fold that splits one is mojibake in every
+  client. `_fold()` backs off to a boundary; the test asserts round-trip fidelity on
+  multi-byte content.
+
+Events whose `date` will not parse are **skipped**, not emitted with a broken `DTSTART`:
+some clients reject the whole file over one bad entry.
+
+## Event Permalinks (`/e/<id>`)
+
+`backend/event_page.py` renders a full page for one event; `backend/app.py`'s
+`event_permalink()` is the route; `vercel.json` rewrites
+`concert-calendar.wyxr.org/e/:id` to Render so the shared URL stays on the public domain.
+Rendered from the DB per request, so an admin edit is live with no build.
+
+- **The id is validated as a UUID before the query.** Passing a non-UUID to a `uuid` column
+  raises, and a raised error inside a cursor block leaves the transaction poisoned for the
+  next statement (see the psycopg2 note above).
+- **Soft-deleted events 404**, so a shared link to a pulled show doesn't stay live.
+- **A DB failure returns 503, not 404**, with different wording — Render Postgres timeouts
+  are transient and must not tell a reader the show was deleted. Both non-200 paths send
+  `X-Robots-Tag: noindex` and `Cache-Control: no-store`.
+- **Everything interpolated is untrusted** (scrapers, Vision OCR, the unauthenticated
+  `/submit` form). Text goes through `esc()` (quotes included, so it is attribute-safe),
+  URLs additionally through `safe_http_url()`. This is a *server-side* sink on the public
+  origin — strictly worse than the client-rendered calendar if it leaks.
+- **The JSON-LD block is `json.dumps` + unicode-escaped `<`/`>`/`&`.** A literal
+  `</script>` inside a scraped title would otherwise close the block and hand the rest to the
+  HTML parser. Same rule in `src/generate_html.py` and in `renderEventsJsonLd()`.
+- `ticket_price` becomes a structured `price` **only** for a plain amount (`$25`, `18`) or a
+  free show. `"$15-25"` and `"$20 ADV / $25 DOS"` are left out rather than guessed — a wrong
+  price in a search result is worse than none.
+
+### Deep links in the calendar
+
+`docs/index.html` keeps the URL in step with the modal. Three distinct paths, all covered by
+`scripts/test_deeplink_browser.py`:
+
+| How the modal opened | What closing it must do |
+|---|---|
+| clicked a row (we pushed an entry) | `history.back()` — and the browser's Back must close the modal |
+| loaded straight onto `#event=…` | `replaceState` to strip the hash **in place**; `back()` would leave the site |
+| a Back/Forward navigation | neither push nor pop — `_emSuppressHistory` guards it, or Back becomes an inescapable loop |
+
+`syncModalToHash()` runs at the end of `showEvents()`, because `eventsById` does not exist
+any earlier. The modal's **Copy link** button copies the `/e/<id>` permalink, not
+`location.href` — the hash URL does not unfurl.
+
+⚠️ **Never write a literal `</script>` inside the inline `<script>` in `docs/index.html`** —
+not even in a comment. It closes the script element and takes the whole page's JS with it.
+
+## SEO
+
+| Surface | Structured data | Crawlable without JS? |
+|---|---|---|
+| `docs/thisweek.html` | `ItemList` of `MusicEvent`, built by `_events_jsonld()` | **yes** — this is the page that gets shows indexed |
+| `docs/index.html` | static `WebSite` + `RadioStation`; `ItemList` injected by `renderEventsJsonLd()` | no (events arrive over the API) |
+| `/e/<id>` | per-event `MusicEvent` | **yes** |
+
+- `docs/sitemap.xml` lists the static pages plus one URL per event in the 180-day window.
+  Past events are excluded on purpose — a sitemap advertising thousands of expired shows
+  spends crawl budget on pages nobody wants.
+- Static-page entries use the **extensionless** form (`/thisweek`, `/submit`). `cleanUrls:
+  true` in `vercel.json` 308-redirects `/thisweek.html` → `/thisweek`, so the `.html` paths
+  would point every crawler at a redirect — and those were what the pages' own
+  `rel=canonical`/`og:url` claimed. All three now agree on the URL that actually serves a
+  200. Check with `curl -I` (no `-L`) before adding a static page to the sitemap.
+- Both pages have a screen-reader-only `<h1>` (`.sr-only`, clipped rather than
+  `display:none`, which would remove it from the accessibility tree) because the visible
+  title is a banner image. `index.html` also has a skip link.
+
+## Venues (27 configured)
+
+Source of truth is `VENUES` in `src/config.py`; each entry's `scraper` field selects the
+fetcher. Regenerate this list with:
+`python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"`
+
+**Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
+Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
+Amphitheater, Satellite Music Hall
+
+**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
+(SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
+Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench`, all
+locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe,
+Landers Center, Orpheum Theatre, South Main Sounds
+
+**Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
+
+**Manual only (2):** Bar DKDC, B-Side Memphis
 
 Venue scrapers use 6-month range (`SCRAPER_END_DATE`) for interactive calendar.
+
+> The DB `venues` table is much larger (~104) — it also holds venues created by Slack/artifact
+> uploads and admin entries, which have aliases but no scraper. Those aliases are load-bearing
+> for deduplication (see **Deduplication**).
+
+`ticketmaster_venue` is the cheap win for any Live Nation / Ticketmaster room: a
+`livenation.com/venue/<ID>/…` URL exposes the ID — add a `VENUES` entry plus a
+`backend/db.py` `_SEED_VENUES` row, and no page scraping is needed at all.
 
 ## Slack Image Upload Pipeline
 
@@ -362,13 +572,36 @@ These parameters are sent correctly by the code but are only visible in GA4 repo
 4. Test with `python -m src.main --dry-run`
 
 ### Fix duplicates
+
+Run in this order — cleanup **before** backfill, index last. Both scripts preview by default.
+
 ```bash
-# Preview
+# 1. Preview what would be deleted (dry run)
 python scripts/cleanup_duplicates.py
 
-# Actually delete
+# 2. Actually delete the redundant rows
 python scripts/cleanup_duplicates.py --confirm
+
+# 3. Preview the key changes — writes nothing, and reports whether any
+#    active group would MERGE or SPLIT (a merge means real duplicates surfaced)
+python scripts/backfill_dedup_key.py --dry-run
+
+# 4. Recompute and store dedup_key on every row
+python scripts/backfill_dedup_key.py
+
+# 5. Build the partial unique index — refuses while any collision remains
+python scripts/backfill_dedup_key.py --create-index
 ```
+
+- Step 4 reports any remaining **active collisions**; a non-zero count means step 2 missed
+  them, which historically meant the two scripts disagreed about venue canonicalization
+  (see **Deduplication** above).
+- Before deleting, check that each doomed row holds no field its survivor lacks —
+  `detail_score()` breaks ties arbitrarily when scores are equal.
+- Re-run steps 3–5 after any change to `normalize_text`, `normalize_venue_name`, or venue
+  aliases — including a venue rename, which leaves every one of that venue's keys stale.
+- ⚠️ Never run a bulk DB edit while a build is in flight — check `gh run list` first
+  (see the *Build reverts edits made while it runs* gotcha).
 
 ### Trigger build manually
 - GitHub Actions: Actions tab → Daily Concert Calendar Update → Run workflow
@@ -380,6 +613,34 @@ python scripts/cleanup_duplicates.py --confirm
 # If passed:
 git push origin main
 ```
+
+`test_before_push.sh` runs **15 checks**: env vars, dependencies, DB connection, exposed-key
+scan, Python syntax, git status, and eight regression suites. There is no test framework —
+each suite is a standalone script following the `scripts/test_*.py` convention, offline
+except for the DB connection check.
+
+| Suite | Covers |
+|---|---|
+| `scripts/test_health_check.py` | nightly health-check report parsing |
+| `scripts/test_normalization.py` | year rollover, title/venue normalization, strftime |
+| `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password (no DB needed) |
+| `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
+| `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
+| `scripts/test_ics_feed.py` | ICS DST offsets, RFC 5545 folding/escaping, UID stability |
+| `scripts/test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 routes |
+| `scripts/test_xss_browser.py` | the real page in Chromium against live payloads |
+| `scripts/test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD |
+
+- `test_escaping.mjs` **extracts the helper sources from the shipped files** rather than
+  copying them, so it fails if the implementation regresses, and it asserts no attribute
+  site reverts to `esc()`.
+- The two browser suites need Chromium (`pip3 install playwright && python3 -m playwright
+  install chromium`). They **skip cleanly when absent** — so a green run can hide them. Check
+  for `16/16`, not just "all checks passed": skipping both shows as `14/14`
+  (the total exceeds the 15 numbered checks because check 1 counts two env vars). Override
+  discovery with `CHROME_PATH` if needed. Chromium discovery and the static file server are
+  shared in `scripts/browser_test_util.py`, whose `Checker.equals()` exists because a
+  truthiness check silently passes any non-empty value — and fails a legitimately empty one.
 
 ## Debugging Tips
 
@@ -399,6 +660,19 @@ git push origin main
 ### Scraper failing
 - Check scraper logs in admin UI (Tools tab)
 - Test individual scrapers: `python -c "from src.sources import ticketmaster; print(ticketmaster.fetch())"`
+
+### Transient Postgres connection timeouts
+Anything reaching the Render database **over the internet** — the local backend (`.env`
+holds the external `DATABASE_URL`) and the GitHub Actions build — hits occasional
+`psycopg2.OperationalError: ... timeout expired`. It is latency, not a defect.
+
+- Locally it surfaces as a **500 on whatever admin endpoint happened to fire**; the same
+  request succeeds on retry.
+- In CI the build logs `[scrape_log] Could not create log entry: ... timeout expired` and
+  continues correctly — so **a build with no `scrape_logs` row is not a failed build**.
+  Confirm against the run's own log (`Saved to PostgreSQL: N added, …`) before investigating.
+
+Retry 2–3 times and grep for `OperationalError` before chasing it as a bug.
 
 ## Workflow Preferences
 

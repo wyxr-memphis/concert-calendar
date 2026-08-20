@@ -311,21 +311,138 @@ MUSIC_KEYWORDS = [
 VENUE_ALIAS_MAP = {}
 for _venue_key, _venue_info in VENUES.items():
     canonical = _venue_info["name"]
+    # The canonical name is itself a matchable name. Without this a venue whose
+    # own name is not repeated in its aliases list could never match exactly and
+    # had to fall through to fuzzy matching (e.g. "B.B. King's Blues Club").
+    VENUE_ALIAS_MAP.setdefault(canonical.lower(), canonical)
     for alias in _venue_info.get("aliases", []):
         VENUE_ALIAS_MAP[alias.lower()] = canonical
 
 
+def _flatten_venue_key(value: str) -> str:
+    """Punctuation-insensitive form of a venue name, for exact comparison.
+
+    Sources spell the same venue "Hi-Tone", "Hi Tone" and "Hi-Tone Café", so
+    matching has to ignore punctuation — but it stays an *exact* comparison of
+    the flattened strings, never a substring test.
+    """
+    return re.sub(r'[^a-z0-9]+', ' ', value.lower()).strip()
+
+
+# Flattened alias index, built once. setdefault + sorted keeps the winner
+# deterministic if two aliases ever flatten to the same string.
+VENUE_ALIAS_FLAT_MAP = {}
+for _alias in sorted(VENUE_ALIAS_MAP):
+    VENUE_ALIAS_FLAT_MAP.setdefault(_flatten_venue_key(_alias), VENUE_ALIAS_MAP[_alias])
+
+
+# Trailing words that qualify *which* branch of a venue, not which venue. These
+# are stripped so "Huey's (Midtown)" and "Hi-Tone Cafe, Memphis, TN" both reach
+# their canonical name by exact match instead of by substring guesswork.
+_VENUE_LOCATION_QUALIFIERS = frozenset({
+    "memphis", "midtown", "downtown", "east memphis", "west memphis",
+    "southaven", "germantown", "collierville", "cordova", "millington",
+    "southwind", "poplar", "olive branch", "bartlett", "arlington",
+    "tn", "ms", "ar", "tennessee", "mississippi", "arkansas", "usa", "us",
+})
+
+# An alias must be at least this many characters before we will accept it as a
+# prefix of a longer input ("Grind City Amp" -> "Grind City Amphitheater").
+# Below it, short generic words like "Live" matched a dozen unrelated venues.
+_MIN_PREFIX_MATCH_LEN = 8
+
+
+def _venue_name_variants(lower: str):
+    """Yield progressively-trimmed forms of a venue string to match exactly.
+
+    Handles the two shapes real sources actually produce: a parenthetical or
+    comma-separated location qualifier ("Huey's (Midtown)",
+    "Hi-Tone Cafe, Memphis, TN"), and a bare trailing city ("Minglewood Hall
+    Memphis").
+    """
+    seen = set()
+
+    def _emit(value):
+        value = re.sub(r'\s+', ' ', value).strip(" ,.-–—")
+        if value and value not in seen:
+            seen.add(value)
+            return value
+        return None
+
+    candidates = [lower]
+    # Drop any parenthetical: "huey's (midtown)" -> "huey's"
+    candidates.append(re.sub(r'\s*\([^)]*\)\s*', ' ', lower))
+    # Keep only the part before the first comma: "x, memphis, tn" -> "x"
+    candidates.append(lower.split(",")[0])
+    # Drop a leading article.
+    candidates.extend(re.sub(r'^the\s+', '', c) for c in list(candidates))
+
+    for candidate in candidates:
+        value = _emit(candidate)
+        if value:
+            yield value
+        # Peel bare trailing location words: "minglewood hall memphis".
+        words = (value or candidate).split()
+        while words and words[-1] in _VENUE_LOCATION_QUALIFIERS:
+            words = words[:-1]
+            value = _emit(" ".join(words))
+            if value:
+                yield value
+
+
+def _match_venue_variants(lower: str):
+    """Exact-match any trimmed variant of `lower`, ignoring punctuation."""
+    for variant in _venue_name_variants(lower):
+        if variant in VENUE_ALIAS_MAP:
+            return VENUE_ALIAS_MAP[variant]
+        flat = _flatten_venue_key(variant)
+        if flat in VENUE_ALIAS_FLAT_MAP:
+            return VENUE_ALIAS_FLAT_MAP[flat]
+    return None
+
+
 def normalize_venue_name(name: str) -> str:
-    """Try to match a venue name to our canonical list."""
-    lower = name.lower().strip()
-    if lower in VENUE_ALIAS_MAP:
-        return VENUE_ALIAS_MAP[lower]
-    # Partial match — check if any alias is contained in the name
-    for alias, canonical in VENUE_ALIAS_MAP.items():
-        if alias in lower or lower in alias:
-            return canonical
-    # No match found — return original with title case cleanup
-    return name.strip()
+    """Try to match a venue name to our canonical list.
+
+    Matching is exact against the alias map, optionally after trimming a
+    location qualifier. Bidirectional substring matching used to live here and
+    silently rewrote unrelated venues to the wrong canonical name — "Live"
+    became Graceland Soundstage, "Nashoba Valley Ski Area" (Massachusetts)
+    became Nashoba, "Bside Bistro" became B-Side Memphis. Because this feeds
+    compute_dedup_key(), a wrong answer here corrupts event identity, so an
+    unrecognized name is now returned untouched rather than guessed at. Add an
+    alias in the Admin -> Venues tab to canonicalize a new spelling.
+    """
+    lower = (name or "").lower().strip()
+    if not lower:
+        return (name or "").strip()
+
+    matched = _match_venue_variants(lower)
+    if matched:
+        return matched
+
+    # "<room or event> at|@ <venue>" — the venue is named at the tail. Covers
+    # "Halloran Centre at The Orpheum" and scraper rows where an event title
+    # leaked into the venue field ("... LIVE @ Minglewood Hall Memphis").
+    tail_match = re.search(r'(?:@|\bat\s)\s*(.+)$', lower)
+    if tail_match:
+        matched = _match_venue_variants(tail_match.group(1))
+        if matched:
+            return matched
+
+    # The input is an abbreviation of a longer alias ("Grind City Amp"). Only
+    # accepted for inputs specific enough not to collide by accident; the
+    # shortest matching alias wins so the match stays deterministic.
+    if len(lower) >= _MIN_PREFIX_MATCH_LEN:
+        prefixed = sorted(
+            (alias for alias in VENUE_ALIAS_MAP if alias.startswith(lower)),
+            key=lambda a: (len(a), a),
+        )
+        if prefixed:
+            return VENUE_ALIAS_MAP[prefixed[0]]
+
+    # No match found — return the name as given.
+    return (name or "").strip()
 
 
 # ---------------------------------------------------------------------------

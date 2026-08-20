@@ -14,6 +14,7 @@ from ..config import (
     MEMPHIS_LAT, MEMPHIS_LON,
     normalize_venue_name, is_music_event,
 )
+from ..time_format import format_event_time
 
 EVENTBRITE_API_TOKEN = os.environ.get("EVENTBRITE_API_TOKEN", "")
 
@@ -89,7 +90,7 @@ def _parse_event(data: dict) -> Optional[Event]:
     event_date = dt.date()
 
     # Parse time
-    time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+    time_str = format_event_time(dt)
 
     # Parse venue
     venue_data = data.get("venue", {})

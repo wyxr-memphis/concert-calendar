@@ -4,6 +4,7 @@ Handles merging events from multiple sources and removing duplicates.
 Uses string similarity rather than Claude API — keeps costs at $0.
 """
 
+import re
 from typing import Dict, List
 from .models import Event
 
@@ -49,10 +50,32 @@ def deduplicate(events: List[Event]) -> List[Event]:
     return deduped
 
 
+# Placeholder titles that carry no artist identity. Several scrapers fall back
+# to one of these when a listing has no act named on it (e.g. Crosstown
+# Brewing's literal "Live Music" in venue_scrapers.py). After normalization they
+# collapse to a single common word — "Live Music" becomes "music" — which the
+# substring and word-subset rules below would then match against any real act
+# whose name happens to contain that word. Two distinct shows at one venue on
+# one night would silently become one. These match only their exact selves.
+_GENERIC_TITLES = frozenset({
+    "music", "live music", "band", "concert", "show", "event",
+    "tba", "tbd", "open mic", "dj", "karaoke", "trivia",
+})
+
+
 def _artists_match(a: str, b: str) -> bool:
-    """Check if two artist names are likely the same act."""
+    """Check if two artist names are likely the same act.
+
+    Only ever called for events already grouped by the same date and venue,
+    so this decides "same night, same room — same show?".
+    """
     na = _normalize(a)
     nb = _normalize(b)
+
+    # A placeholder title tells us nothing about who is playing, so it may only
+    # match an identical placeholder — never a named act.
+    if na in _GENERIC_TITLES or nb in _GENERIC_TITLES:
+        return na == nb
 
     # Exact match after normalization
     if na == nb:
@@ -68,10 +91,12 @@ def _artists_match(a: str, b: str) -> bool:
     if na_nospace == nb_nospace and len(na_nospace) >= 5:
         return True
 
-    # One contains the other (handles "Lucero" vs "Lucero with special guests")
-    # But require significant length to avoid false positives
+    # One contains the other (handles "Lucero" vs "Lucero with special guests").
+    # Require significant length, and require the containment to land on whole
+    # words — a raw substring test also matched "music" inside "musical".
     if len(na) >= 5 and len(nb) >= 5:
-        if na in nb or nb in na:
+        shorter_s, longer_s = (na, nb) if len(na) <= len(nb) else (nb, na)
+        if re.search(rf'(?<!\w){re.escape(shorter_s)}(?!\w)', longer_s):
             return True
 
     # High overlap of words (handles word order differences)

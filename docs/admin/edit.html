@@ -368,7 +368,7 @@
             const url = document.getElementById('image_url').value;
             const preview = document.getElementById('imagePreview');
             if (url) {
-                preview.innerHTML = `<img src="${esc(url)}" alt="Preview" onerror="this.style.display='none'">`;
+                preview.innerHTML = `<img src="${escAttr(url)}" alt="Preview" onerror="this.style.display='none'">`;
             } else {
                 preview.innerHTML = '';
             }
@@ -401,7 +401,7 @@
                     updateImagePreview();
                     showStatus('Image uploaded', 'success');
                 } else {
-                    showStatus(data.error || 'Upload failed', 'error');
+                    showStatus(uploadFailureMessage(resp, data), 'error');
                 }
             } catch (err) {
                 showStatus('Upload failed: ' + err.message, 'error');

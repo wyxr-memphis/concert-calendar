@@ -1,0 +1,9 @@
+# WYXR 91.7 FM — Memphis Concert Calendar
+User-agent: *
+Allow: /
+
+# The admin UI is behind a login; there is nothing here for a crawler.
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://concert-calendar.wyxr.org/sitemap.xml

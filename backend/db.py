@@ -1,6 +1,7 @@
 """Database connection and query helpers for PostgreSQL on Render."""
 
 import os
+import uuid
 from contextlib import contextmanager
 
 import psycopg2
@@ -616,9 +617,28 @@ def toggle_wyxr_presents(event_id, is_wyxr_presents):
 
 
 def bulk_action(action, ids):
-    """Bulk operations on events."""
+    """Bulk operations on events.
+
+    Returns (affected_count, skipped_ids). Ids that are not valid UUIDs are
+    filtered out rather than sent to Postgres: events.id is a uuid column, so a
+    single malformed value made the whole statement fail with "invalid input
+    syntax for type uuid" — a 500, and no rows updated even for the valid ids
+    in the same request.
+    """
     if not ids:
-        return 0
+        return 0, []
+
+    valid, skipped = [], []
+    for candidate in ids:
+        try:
+            valid.append(str(uuid.UUID(str(candidate))))
+        except (ValueError, AttributeError, TypeError):
+            skipped.append(candidate)
+
+    if not valid:
+        return 0, skipped
+
+    ids = valid
 
     action_map = {
         "feature": "UPDATE events SET is_featured = true, updated_at = NOW()",
@@ -634,7 +654,7 @@ def bulk_action(action, ids):
     query = base_query + " WHERE id = ANY(%s)"
     with get_cursor() as cur:
         cur.execute(query, (ids,))
-        return cur.rowcount
+        return cur.rowcount, skipped
 
 
 def delete_events_before(before_date):
@@ -958,6 +978,90 @@ def update_venue(venue_id, data):
     with get_cursor() as cur:
         cur.execute(query, params)
         return cur.fetchone()
+
+
+def update_venue_with_propagation(venue_id, data):
+    """Update a venue and propagate the change to its events, atomically.
+
+    Returns the updated venue row, or None if the venue does not exist.
+
+    Two things this fixes over doing it in the route:
+
+    * One transaction. The route used to call update_venue() (which commits)
+      and then open a *second* transaction to rewrite the events. A failure
+      between the two left the venue renamed while every one of its events
+      still pointed at the old name.
+    * Neighborhood is propagated only when it actually changes. The old code
+      ran the event UPDATE whenever "neighborhood" was present in the payload,
+      so any save — even one only editing aliases — rewrote the neighborhood of
+      every event at that venue and silently discarded per-event manual
+      overrides.
+
+    Note: events.dedup_key embeds the venue name, so a rename leaves stored
+    keys stale. That was true before this change too; re-run
+    scripts/backfill_dedup_key.py after renaming a venue.
+    """
+    with get_cursor() as cur:
+        cur.execute("SELECT * FROM venues WHERE id = %s", (venue_id,))
+        old = cur.fetchone()
+        if not old:
+            return None
+
+        payload = dict(data)
+
+        new_name = payload.get("name")
+        name_changed = "name" in payload and new_name != old["name"]
+
+        # A rename keeps the old name as an alias so historical event rows and
+        # build logs still resolve to this venue.
+        if name_changed:
+            # Key presence, not truthiness: a payload explicitly clearing the
+            # aliases sends [], and treating that as "not provided" would
+            # resurrect the old list.
+            if "aliases" in payload:
+                aliases = list(payload["aliases"] or [])
+            else:
+                aliases = list(old.get("aliases") or [])
+            if old["name"].lower() not in [a.lower() for a in aliases]:
+                aliases.append(old["name"])
+            payload["aliases"] = aliases
+
+        neighborhood_changed = (
+            "neighborhood" in payload
+            and payload["neighborhood"] != old["neighborhood"]
+        )
+
+        set_clauses, params = [], []
+        for column in ("name", "neighborhood", "aliases"):
+            if column in payload:
+                set_clauses.append(f"{column} = %s")
+                params.append(payload[column])
+
+        if set_clauses:
+            params.append(venue_id)
+            cur.execute(
+                f"UPDATE venues SET {', '.join(set_clauses)} WHERE id = %s RETURNING *",
+                params,
+            )
+            venue = cur.fetchone()
+        else:
+            venue = old
+
+        if name_changed:
+            cur.execute(
+                """UPDATE events SET venue = %s, updated_at = NOW()
+                   WHERE LOWER(venue) = LOWER(%s)""",
+                (new_name, old["name"]),
+            )
+
+        if neighborhood_changed:
+            cur.execute(
+                """UPDATE events SET neighborhood = %s, updated_at = NOW()
+                   WHERE LOWER(venue) = LOWER(%s)""",
+                (payload["neighborhood"], venue["name"]),
+            )
+
+        return venue
 
 
 def delete_venue(venue_id):
