@@ -123,8 +123,22 @@ else
 fi
 echo ""
 
-# Check 8: Git status
-echo "8️⃣  Checking git status..."
+# Check 8: Front-end escaping regression tests (needs node; skipped if absent)
+echo "8️⃣  Running front-end escaping tests..."
+if ! command -v node > /dev/null 2>&1; then
+    echo -e "${YELLOW}   ⚠ Skipped (node not installed)${NC}"
+elif node scripts/test_escaping.mjs > /tmp/escaping_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Escaping regression tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Escaping regression tests failed${NC}"
+    tail -20 /tmp/escaping_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 9: Git status
+echo "9️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

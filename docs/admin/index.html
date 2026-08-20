@@ -1526,14 +1526,14 @@
                 const starColor = e.is_featured ? 'color:#FFCF2D' : 'color:#ccc';
                 const activeColor = e.is_active !== false ? 'color:#2e7d32' : 'color:#c62828';
 
-                return `<tr${inactive} data-id="${esc(e.id)}">
+                return `<tr${inactive} data-id="${escAttr(e.id)}">
                     <td class="col-date">${esc(dateStr)}</td>
                     <td class="col-title">${esc(e.title || '')}</td>
                     <td class="col-venue">${esc(e.venue || '')}</td>
                     <td class="col-time">${esc(e.start_time || '')}</td>
-                    <td class="col-toggle"><button class="toggle-btn" style="${presentsStyle}" data-action="presents" data-id="${esc(e.id)}" title="Toggle WYXR Presents">${presentsIcon}</button></td>
-                    <td class="col-toggle"><button class="toggle-btn" style="${starColor}" data-action="featured" data-id="${esc(e.id)}" title="Toggle featured">${star}</button></td>
-                    <td class="col-toggle"><button class="toggle-btn" style="${activeColor}" data-action="active" data-id="${esc(e.id)}" title="Toggle active">${active}</button></td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${presentsStyle}" data-action="presents" data-id="${escAttr(e.id)}" title="Toggle WYXR Presents">${presentsIcon}</button></td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${starColor}" data-action="featured" data-id="${escAttr(e.id)}" title="Toggle featured">${star}</button></td>
+                    <td class="col-toggle"><button class="toggle-btn" style="${activeColor}" data-action="active" data-id="${escAttr(e.id)}" title="Toggle active">${active}</button></td>
                 </tr>`;
             }).join('');
 
@@ -1874,22 +1874,22 @@
                 const count = v.event_count || 0;
 
                 const nhOptions = [...NEIGHBORHOODS].sort().map(n =>
-                    `<option value="${esc(n)}"${v.neighborhood === n ? ' selected' : ''}>${esc(n)}</option>`
+                    `<option value="${escAttr(n)}"${v.neighborhood === n ? ' selected' : ''}>${esc(n)}</option>`
                 ).join('');
 
                 const deleteBtn = count === 0
-                    ? `<button class="btn-secondary delete-venue-btn" data-venue-id="${esc(v.id)}" data-venue-name="${esc(v.name)}" style="padding:2px 8px;font-size:0.8em;color:#c62828;margin-left:6px;" title="Delete venue (no events)">✕</button>`
+                    ? `<button class="btn-secondary delete-venue-btn" data-venue-id="${escAttr(v.id)}" data-venue-name="${escAttr(v.name)}" style="padding:2px 8px;font-size:0.8em;color:#c62828;margin-left:6px;" title="Delete venue (no events)">✕</button>`
                     : '';
 
-                return `<tr data-venue-id="${esc(v.id)}">
-                    <td><strong class="venue-name-link" data-venue-id="${esc(v.id)}" data-current-name="${esc(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong>${deleteBtn}</td>
+                return `<tr data-venue-id="${escAttr(v.id)}">
+                    <td><strong class="venue-name-link" data-venue-id="${escAttr(v.id)}" data-current-name="${escAttr(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong>${deleteBtn}</td>
                     <td>
-                        <select data-venue-id="${esc(v.id)}" class="venue-nh-select">
+                        <select data-venue-id="${escAttr(v.id)}" class="venue-nh-select">
                             <option value=""${!v.neighborhood ? ' selected' : ''}>— Not assigned —</option>
                             ${nhOptions}
                         </select>
                     </td>
-                    <td class="venue-aliases" title="${esc(aliases)}">${esc(aliases) || '—'}</td>
+                    <td class="venue-aliases" title="${escAttr(aliases)}">${esc(aliases) || '—'}</td>
                     <td style="text-align:right;">${count}</td>
                 </tr>`;
             }).join('');
@@ -1905,15 +1905,15 @@
                     return `<tr class="unmapped-row">
                         <td><span style="color:#c62828;">${esc(u.name)}</span></td>
                         <td>
-                            <select class="unmapped-nh-select" data-venue-name="${esc(u.name)}">
+                            <select class="unmapped-nh-select" data-venue-name="${escAttr(u.name)}">
                                 <option value="">— Select —</option>
-                                ${[...NEIGHBORHOODS].sort().map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join('')}
+                                ${[...NEIGHBORHOODS].sort().map(n => `<option value="${escAttr(n)}">${esc(n)}</option>`).join('')}
                             </select>
                         </td>
                         <td>
-                            <button class="btn-secondary add-unmapped-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;">Add</button>
-                            <button class="btn-secondary merge-into-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;">Merge into...</button>
-                            <button class="btn-secondary dismiss-unmapped-btn" data-venue-name="${esc(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;color:#888;" title="Not a real venue — hide until new events import this name">Dismiss</button>
+                            <button class="btn-secondary add-unmapped-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;">Add</button>
+                            <button class="btn-secondary merge-into-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;">Merge into...</button>
+                            <button class="btn-secondary dismiss-unmapped-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;color:#888;" title="Not a real venue — hide until new events import this name">Dismiss</button>
                         </td>
                         <td style="text-align:right;">${u.event_count || 0}</td>
                     </tr>`;
@@ -2030,7 +2030,7 @@
 
                     label.textContent = `Merge "${unmappedName}" into which existing venue?`;
                     select.innerHTML = '<option value="">— Select venue —</option>' +
-                        allVenues.map(v => `<option value="${esc(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`).join('');
+                        allVenues.map(v => `<option value="${escAttr(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`).join('');
                     confirmBtn.disabled = true;
                     modal.style.display = 'flex';
 
@@ -2169,7 +2169,7 @@
             const mergeSel = document.getElementById('mergeMerge');
 
             const opts = allVenues.map(v =>
-                `<option value="${esc(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`
+                `<option value="${escAttr(v.id)}">${esc(v.name)} (${v.event_count || 0} events)</option>`
             ).join('');
 
             keepSel.innerHTML = '<option value="">— Keep this venue —</option>' + opts;
@@ -2290,7 +2290,7 @@
                     ? `<button class="toggle-btn" title="Deactivate" onclick="toggleCalSponsorActive('${s.id}', false)">✅</button>`
                     : `<button class="toggle-btn" title="Activate" onclick="toggleCalSponsorActive('${s.id}', true)">⬜</button>`;
                 const thumb = s.image_url
-                    ? `<img src="${esc(s.image_url)}" style="height:28px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
+                    ? `<img src="${escAttr(safeUrl(s.image_url))}" style="height:28px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
                     : '';
                 return `<tr style="${s.is_active ? '' : 'opacity:0.5;'}">
                     <td>${thumb}${esc(s.name)}</td>
@@ -2497,7 +2497,7 @@
                     ? `<button class="toggle-btn" title="Deactivate" onclick="toggleSponsorActive('${s.id}', false)">✅</button>`
                     : `<button class="toggle-btn" title="Activate" onclick="toggleSponsorActive('${s.id}', true)">⬜</button>`;
                 const thumb = s.image_url
-                    ? `<img src="${esc(s.image_url)}" style="height:32px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
+                    ? `<img src="${escAttr(safeUrl(s.image_url))}" style="height:32px;border-radius:2px;vertical-align:middle;margin-right:6px;" alt="">`
                     : '';
                 return `<tr style="${s.is_active ? '' : 'opacity:0.5;'}">
                     <td>${thumb}${esc(s.name)}</td>
@@ -2784,10 +2784,10 @@
                 const cls = e.selected ? '' : ' class="deselected"';
                 return `<tr${cls} data-index="${i}">
                     <td><input type="checkbox" ${e.selected ? 'checked' : ''} data-index="${i}"></td>
-                    <td><input type="text" value="${esc(e.title || '')}" data-field="title" data-index="${i}"></td>
-                    <td><input type="text" value="${esc(e.venue || '')}" data-field="venue" data-index="${i}"></td>
-                    <td><input type="text" value="${esc(e.date || '')}" data-field="date" data-index="${i}" style="width:120px;"></td>
-                    <td><input type="text" value="${esc(e.start_time || '')}" data-field="start_time" data-index="${i}" style="width:100px;"></td>
+                    <td><input type="text" value="${escAttr(e.title || '')}" data-field="title" data-index="${i}"></td>
+                    <td><input type="text" value="${escAttr(e.venue || '')}" data-field="venue" data-index="${i}"></td>
+                    <td><input type="text" value="${escAttr(e.date || '')}" data-field="date" data-index="${i}" style="width:120px;"></td>
+                    <td><input type="text" value="${escAttr(e.start_time || '')}" data-field="start_time" data-index="${i}" style="width:100px;"></td>
                 </tr>`;
             }).join('');
 
@@ -3292,7 +3292,11 @@
                 const statusBadge = k.is_active
                     ? '<span style="color:#2e7d32;font-weight:600;">Active</span>'
                     : '<span style="color:#c62828;font-weight:600;">Revoked</span>';
-                return `<tr data-id="${esc(k.id)}">
+                // Actions use data- attributes + a delegated listener, never an
+                // inline onclick. k.name comes from the unauthenticated
+                // POST /api/request-key, so interpolating it into a quoted JS
+                // string literal let a crafted name run script in this origin.
+                return `<tr data-id="${escAttr(k.id)}" data-name="${escAttr(k.name)}">
                     <td>${esc(k.name)}</td>
                     <td>${esc(k.email || '—')}</td>
                     <td><code style="font-size:0.82em;background:#f5f5f5;padding:2px 6px;border-radius:3px;">${esc(k.key_display || '—')}</code></td>
@@ -3300,14 +3304,27 @@
                     <td>${lastUsed}</td>
                     <td>${statusBadge}</td>
                     <td>
-                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;margin-right:4px;" onclick="showKeyUsage('${esc(k.id)}','${esc(k.name)}')">Usage</button>
+                        <button class="btn-secondary key-action" data-action="usage" style="padding:4px 10px;font-size:0.82em;margin-right:4px;">Usage</button>
                         ${k.is_active
-                            ? `<button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#c62828;" onclick="revokeApiKey('${esc(k.id)}','${esc(k.name)}')">Revoke</button>`
-                            : `<button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#2e7d32;" onclick="reactivateApiKey('${esc(k.id)}')">Reactivate</button>`
+                            ? `<button class="btn-secondary key-action" data-action="revoke" style="padding:4px 10px;font-size:0.82em;color:#c62828;">Revoke</button>`
+                            : `<button class="btn-secondary key-action" data-action="reactivate" style="padding:4px 10px;font-size:0.82em;color:#2e7d32;">Reactivate</button>`
                         }
                     </td>
                 </tr>`;
             }).join('');
+
+            tbody.querySelectorAll('.key-action').forEach(btn => {
+                btn.addEventListener('click', (ev) => {
+                    ev.stopPropagation();
+                    const row = btn.closest('tr');
+                    if (!row) return;
+                    const id = row.dataset.id;
+                    const name = row.dataset.name || '';
+                    if (btn.dataset.action === 'usage') showKeyUsage(id, name);
+                    else if (btn.dataset.action === 'revoke') revokeApiKey(id, name);
+                    else if (btn.dataset.action === 'reactivate') reactivateApiKey(id);
+                });
+            });
         }
 
         async function revokeApiKey(id, name) {
