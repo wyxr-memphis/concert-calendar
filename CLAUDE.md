@@ -325,9 +325,11 @@ not even in a comment. It closes the script element and takes the whole page's J
 - `docs/sitemap.xml` lists the static pages plus one URL per event in the 180-day window.
   Past events are excluded on purpose — a sitemap advertising thousands of expired shows
   spends crawl budget on pages nobody wants.
-- Static-page entries use the same URL shape as each page's own `rel=canonical`
-  (`/thisweek.html`, not `/thisweek`); a sitemap that disagrees with the canonical tag is a
-  mixed signal.
+- Static-page entries use the **extensionless** form (`/thisweek`, `/submit`). `cleanUrls:
+  true` in `vercel.json` 308-redirects `/thisweek.html` → `/thisweek`, so the `.html` paths
+  would point every crawler at a redirect — and those were what the pages' own
+  `rel=canonical`/`og:url` claimed. All three now agree on the URL that actually serves a
+  200. Check with `curl -I` (no `-L`) before adding a static page to the sitemap.
 - Both pages have a screen-reader-only `<h1>` (`.sr-only`, clipped rather than
   `display:none`, which would remove it from the accessibility tree) because the visible
   title is a banner image. `index.html` also has a skip link.

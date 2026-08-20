@@ -17,12 +17,15 @@ from xml.sax.saxutils import escape as _xml_escape
 
 SITE_BASE = "https://concert-calendar.wyxr.org"
 
-# Static pages, with the same URL shape as each page's own rel=canonical — a
-# sitemap that disagrees with the canonical tag is a mixed signal.
+# Static pages, in their extensionless form. `cleanUrls: true` in vercel.json
+# makes "/thisweek.html" 308-redirect to "/thisweek", so listing the .html path
+# would point every crawler at a redirect. Each page's own rel=canonical and
+# og:url match these, because a sitemap that disagrees with the canonical tag is
+# a mixed signal.
 STATIC_PAGES = [
     ("/", "daily", "1.0"),
-    ("/thisweek.html", "daily", "0.8"),
-    ("/submit.html", "monthly", "0.3"),
+    ("/thisweek", "daily", "0.8"),
+    ("/submit", "monthly", "0.3"),
 ]
 
 ROBOTS_TXT = f"""# WYXR 91.7 FM — Memphis Concert Calendar
