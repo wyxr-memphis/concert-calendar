@@ -162,6 +162,22 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 - **`app.run(debug=...)` is gated behind `FLASK_DEBUG`.** Production runs under gunicorn and
   never reaches that branch, but `debug=True` there would expose the Werkzeug console on any
   traceback.
+- **API keys are stored hashed** (`api_keys.key_hash`, sha256), with `key_prefix` kept only
+  so a key is identifiable in the admin list. The plaintext exists exactly once, in the
+  response from `POST /api/admin/api-keys`. **An issued key cannot be recovered** — if a
+  partner loses theirs, issue a new one. `hash_api_key()` must keep producing the same digest
+  as Postgres's `encode(sha256(key::bytea), 'hex')`, which the migration used to backfill.
+- **Admin writes are audited** to `admin_audit_log` by a single `after_request` hook, so a
+  route added later is covered without anyone instrumenting it. GETs are excluded (a read is
+  not an action) and 401s are excluded — otherwise an unauthenticated caller could write
+  rows. `log_admin_action` never raises: an audit failure must not turn a successful edit
+  into an error response. Viewable at Admin → Tools → Security.
+- **Sessions can be revoked** — `POST /api/admin/revoke-sessions` bumps an epoch stored in
+  `admin_settings`, and every token carrying an older epoch dies. The epoch is in the DB
+  because gunicorn runs several workers, cached for `TOKEN_EPOCH_CACHE_SECONDS` (15s) so it
+  is not a query per request, and **reads as `None` on failure so `verify_token` skips the
+  check** — a transient Postgres timeout must not lock the admin out. Availability wins here
+  because revocation is rare and deliberate and tokens expire within 8 hours anyway.
 - **Errors are never echoed into the Slack channel.** `#wyxr-concert-calendar` has the whole
   station in it; exception strings there have carried paths and API responses. The full
   exception goes to the Render logs (access controlled), the channel gets a generic line.
@@ -671,6 +687,22 @@ except for the DB connection check.
 | `scripts/test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD |
 | `scripts/test_security_headers.py` | both CSP variants; the real pages driven under the shipped policy |
 
+- ⚠️ **`./test_before_push.sh` is not read-only against production.** Check 3 calls
+  `init_db()` with the `DATABASE_URL` from `.env`, so **running the test suite applies any
+  pending migration to the production database.** On 2026-08-20 that dropped
+  `api_keys.key` while the deployed code still queried it, and the v1 API returned 500 on
+  every authenticated request until the matching code deployed. For a migration that drops
+  or renames anything: **push and deploy first, or validate the SQL in a transaction you
+  roll back** (`conn.autocommit = False` … `conn.rollback()`) rather than by running the
+  suite.
+- ⚠️ **`scripts/test_admin_auth.py` drives the real app with `.env` loaded**, so anything it
+  does *not* stub reaches production. Two writers are deliberately neutered there and must
+  stay that way: `app_mod.log_admin_action` is replaced with a no-op at module import (the
+  login-throttle tests otherwise wrote ~36 bogus `429 /api/admin/login` rows into the
+  production audit log, which reads exactly like a brute-force attempt), and
+  `bump_admin_token_epoch` is stubbed in the revoke test (it otherwise really revoked every
+  admin session — it did so three times before this was caught). Anything new that mutates
+  state needs the same treatment.
 - `test_escaping.mjs` **extracts the helper sources from the shipped files** rather than
   copying them, so it fails if the implementation regresses, and it asserts no attribute
   site reverts to `esc()`.
