@@ -12,7 +12,7 @@ from datetime import datetime, date
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
-from ..http_utils import get_with_retry
+from ..http_utils import get_with_retry, fetch_ticketmaster_events
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
@@ -20,6 +20,7 @@ from ..config import (
     venue_source_tag as _venue_source_tag,
 )
 from ..date_utils import parse_date_text
+from ..time_format import format_event_time
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -255,16 +256,16 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
             "size": 50,
             "sort": "date,asc",
         }
-        response = get_with_retry(
+        events_data, truncated = fetch_ticketmaster_events(
             "https://app.ticketmaster.com/discovery/v2/events.json",
-            params=params,
-            timeout=15,
+            params,
         )
-        response.raise_for_status()
-        data = response.json()
-
-        events_data = data.get("_embedded", {}).get("events", [])
         result.events_found = len(events_data)
+        if truncated:
+            result.error_message = (
+                "Ticketmaster returned more events than the API will page through; "
+                "the tail of the window is missing"
+            )
 
         for event_data in events_data:
             try:
@@ -282,7 +283,7 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
                 if local_time:
                     try:
                         t = datetime.strptime(local_time, "%H:%M:%S")
-                        time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+                        time_str = format_event_time(t)
                     except ValueError:
                         pass
 
@@ -350,7 +351,7 @@ def _fetch_sitewrench_venue(venue_info: dict) -> SourceResult:
 
             dt = datetime.fromisoformat(start_str)
             event_date = dt.date()
-            time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+            time_str = format_event_time(dt)
 
             # Build venue display name: "Huey's (Midtown)"
             location = item.get("Location", "").strip()
@@ -488,7 +489,7 @@ def _jsonld_to_event(data: dict, default_venue: str) -> Optional[Event]:
         else:
             dt = datetime.strptime(start_date, "%Y-%m-%d")
         event_date = dt.date()
-        time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ") if "T" in start_date else None
+        time_str = format_event_time(dt) if "T" in start_date else None
     except ValueError:
         return None
 
@@ -866,7 +867,7 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
             if time_str_raw:
                 try:
                     t = datetime.strptime(time_str_raw, "%H:%M")
-                    time_str = t.strftime("%-I:%M %p").replace(":00 ", " ")
+                    time_str = format_event_time(t)
                 except ValueError:
                     time_str = time_str_raw
 
@@ -1288,7 +1289,7 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             dt_local = dt_utc.astimezone(CENTRAL)
             event_date = dt_local.date()
 
-            time_str = dt_local.strftime("%-I:%M %p").replace(":00 ", " ")
+            time_str = format_event_time(dt_local)
 
             slug = event.get("slug", "")
             url = f"https://www.flywaybrewingmemphis.com/events/{slug}" if slug else None

@@ -103,11 +103,39 @@ const AdminAPI = (() => {
     return { apiFetch, apiJSON, checkAuth, logout, getToken, setToken, clearToken, headers };
 })();
 
-// Escape HTML
+// Escape HTML text content. Encodes &, < and > but NOT quotes, so this is only
+// safe between tags — never inside an attribute value. Use escAttr() there.
 function esc(str) {
     const el = document.createElement('span');
     el.textContent = str || '';
     return el.innerHTML;
+}
+
+// Escape for an HTML attribute value. Required anywhere a value is interpolated
+// into a quoted attribute: esc() leaves quotes intact, so a value containing one
+// closes the attribute early. That was a stored-XSS vector in the admin origin —
+// API key names arrive from the unauthenticated POST /api/request-key and were
+// interpolated into single-quoted inline onclick handlers, which put attacker
+// script in the same origin as sessionStorage.admin_token.
+function escAttr(str) {
+    return esc(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Reject URL schemes that can execute script, for values reaching an href or
+// src. Sponsor and event image URLs are admin-entered but pass through scrapers
+// and OCR too, and escaping alone does not stop a "javascript:" value.
+// Scheme-less values (relative paths) pass through untouched.
+function safeUrl(url) {
+    const raw = (url == null ? '' : String(url)).trim();
+    if (!raw) return '';
+    // Control characters and whitespace can smuggle a scheme past this test
+    // ("java\tscript:"), so probe a stripped copy.
+    const probe = raw.replace(/[\u0000-\u0020]/g, '').toLowerCase();
+    const scheme = probe.match(/^([a-z][a-z0-9+.\-]*):/);
+    if (scheme && !['http', 'https', 'mailto', 'tel'].includes(scheme[1])) {
+        return '';
+    }
+    return raw;
 }
 
 // Show status message

@@ -38,6 +38,7 @@ except ImportError:
 from ..models import Event, SourceResult
 from ..config import START_DATE, SCRAPER_END_DATE, normalize_venue_name
 from ..date_utils import parse_date_text
+from ..time_format import format_event_time
 
 SOURCE_NAME = "artifact"
 ARTIFACTS_DIR = Path(__file__).parent.parent.parent / "artifacts"
@@ -384,7 +385,7 @@ def _parse_jsonld_event(data: dict, source_path: Path) -> Optional[Event]:
     try:
         dt = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
         event_date = dt.date()
-        time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+        time_str = format_event_time(dt)
     except ValueError:
         return None
 

@@ -5,6 +5,7 @@ from typing import Dict, List
 from collections import defaultdict
 from zoneinfo import ZoneInfo
 from .models import Event, SourceResult
+from .time_format import strftime_nopad
 
 
 def generate_html(
@@ -26,7 +27,7 @@ def generate_html(
     event_sections = ""
     for d in sorted_dates:
         day_events = by_date[d]
-        day_name = d.strftime("%A, %B %-d").upper()
+        day_name = strftime_nopad(d, "%A, %B %-d").upper()
 
         # Group events by venue (case-insensitive, preserving order)
         venue_groups: Dict[str, List[Event]] = {}
@@ -95,7 +96,7 @@ def generate_html(
     # Convert UTC timestamp to Central Time
     central_tz = ZoneInfo("America/Chicago")
     run_time_central = run_timestamp.astimezone(central_tz)
-    run_time_str = run_time_central.strftime("%B %-d, %Y at %-I:%M %p %Z")
+    run_time_str = strftime_nopad(run_time_central, "%B %-d, %Y at %-I:%M %p %Z")
     total_events = len(events)
 
     return f"""<!DOCTYPE html>

@@ -19,8 +19,9 @@ import os
 import re
 import secrets
 import threading
+import time
 import uuid
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from functools import wraps
 from typing import Optional
 from zoneinfo import ZoneInfo
@@ -58,7 +59,6 @@ from backend.db import (
     dismiss_venue_name,
     get_venue_by_id,
     create_venue,
-    update_venue,
     delete_venue,
     merge_venues,
     normalize_venue_from_db,
@@ -100,10 +100,13 @@ from backend.db import (
     health_submissions,
     health_ticketmaster,
 )
+from src.time_format import format_event_time, strftime_nopad
 from backend.auth import (
     ADMIN_PASSWORD,
+    SECRET_KEY_IS_EPHEMERAL,
     create_token,
     require_auth,
+    require_bearer_auth,
 )
 
 app = Flask(__name__)
@@ -426,17 +429,76 @@ def public_submit_event():
 # Auth Endpoints
 # ---------------------------------------------------------------------------
 
+# Failed-login throttling.
+#
+# One shared password protects every admin route, so an unthrottled login is an
+# open offline-speed guessing oracle. Kept in process memory rather than a table:
+# gunicorn runs a single worker by default (WEB_CONCURRENCY), so this is
+# effectively global, and it avoids adding schema DDL to the boot path — see the
+# lock-timeout incident in CLAUDE.md. With N workers the effective ceiling is
+# N x LOGIN_MAX_ATTEMPTS, still far better than unlimited.
+LOGIN_MAX_ATTEMPTS = 10
+LOGIN_WINDOW_SECONDS = 15 * 60
+_login_attempts = {}  # ip_hash -> [monotonic timestamps of failures]
+
+
+def _login_attempts_remaining(ip_hash):
+    """Failures still allowed for this client inside the window."""
+    if not ip_hash:
+        return LOGIN_MAX_ATTEMPTS
+    cutoff = time.monotonic() - LOGIN_WINDOW_SECONDS
+    recent = [t for t in _login_attempts.get(ip_hash, []) if t > cutoff]
+    if recent:
+        _login_attempts[ip_hash] = recent
+    else:
+        _login_attempts.pop(ip_hash, None)
+    return LOGIN_MAX_ATTEMPTS - len(recent)
+
+
+def _record_login_failure(ip_hash):
+    if not ip_hash:
+        return
+    _login_attempts.setdefault(ip_hash, []).append(time.monotonic())
+    # Bound total memory: drop buckets that have fully aged out. The dict is
+    # keyed by hashed IP, so a distributed attack could otherwise grow it.
+    if len(_login_attempts) > 4096:
+        cutoff = time.monotonic() - LOGIN_WINDOW_SECONDS
+        for key in [k for k, v in _login_attempts.items() if not any(t > cutoff for t in v)]:
+            _login_attempts.pop(key, None)
+
+
 @app.route("/api/admin/login", methods=["POST"])
 def admin_login():
     """Authenticate with admin password, return JWT."""
     if not ADMIN_PASSWORD:
         return jsonify({"error": "ADMIN_PASSWORD not configured"}), 500
 
+    ip_hash = _hash_ip(_client_ip())
+    if _login_attempts_remaining(ip_hash) <= 0:
+        resp = jsonify({
+            "error": "Too many failed login attempts. Try again later.",
+        })
+        resp.status_code = 429
+        resp.headers["Retry-After"] = str(LOGIN_WINDOW_SECONDS)
+        return resp
+
     body = request.get_json(silent=True) or {}
     password = body.get("password", "")
+    if not isinstance(password, str):
+        password = ""
 
-    if not hmac.compare_digest(password, ADMIN_PASSWORD):
+    # Compare as bytes. hmac.compare_digest rejects str arguments that are not
+    # ASCII-only with a TypeError, so a non-ASCII password produced a 500
+    # instead of a 401.
+    if not hmac.compare_digest(
+        password.encode("utf-8"), ADMIN_PASSWORD.encode("utf-8")
+    ):
+        _record_login_failure(ip_hash)
         return jsonify({"error": "Invalid password"}), 401
+
+    # Successful login clears the client's failure budget.
+    if ip_hash:
+        _login_attempts.pop(ip_hash, None)
 
     token = create_token()
     resp = make_response(jsonify({"ok": True, "token": token}))
@@ -577,8 +639,13 @@ def admin_events_bulk():
     if not ids:
         return jsonify({"error": "ids array is required"}), 400
 
-    count = bulk_action(action, ids)
-    return jsonify({"ok": True, "affected": count})
+    count, skipped = bulk_action(action, ids)
+    payload = {"ok": True, "affected": count}
+    if skipped:
+        # Report rather than swallow: a malformed id means the caller sent
+        # something unexpected, and it used to 500 the whole request.
+        payload["skipped"] = len(skipped)
+    return jsonify(payload)
 
 
 # ---------------------------------------------------------------------------
@@ -634,38 +701,16 @@ def admin_venues_update(venue_id):
     """Update a venue's name, neighborhood, or aliases."""
     body = request.get_json(silent=True) or {}
 
-    # Get old venue data before update (for rename propagation)
-    from backend.db import get_cursor, get_venue_by_id as _get_venue
-    old_venue = _get_venue(venue_id)
-    if not old_venue:
+    # The venue row and its events are updated in one transaction — see
+    # update_venue_with_propagation. Doing it here in two meant a rename could
+    # commit while the event rewrite failed.
+    from backend.db import update_venue_with_propagation
+
+    venue = update_venue_with_propagation(venue_id, body)
+    if not venue:
         return jsonify({"error": "Venue not found"}), 404
 
-    venue = update_venue(venue_id, body)
-
-    # Propagate changes to events
-    with get_cursor() as cur:
-        # If name changed, update all events with old name → new name
-        if "name" in body and body["name"] != old_venue["name"]:
-            cur.execute(
-                """UPDATE events SET venue = %s, updated_at = NOW()
-                   WHERE LOWER(venue) = LOWER(%s)""",
-                (body["name"], old_venue["name"]),
-            )
-            # Also add old name to aliases if not already there
-            aliases = list(venue.get("aliases") or [])
-            if old_venue["name"].lower() not in [a.lower() for a in aliases]:
-                aliases.append(old_venue["name"])
-                update_venue(venue_id, {"aliases": aliases})
-
-        # If neighborhood changed, update matching events
-        if "neighborhood" in body:
-            cur.execute(
-                """UPDATE events SET neighborhood = %s, updated_at = NOW()
-                   WHERE LOWER(venue) = LOWER(%s)""",
-                (body["neighborhood"], venue["name"]),
-            )
-
-    return jsonify(serialize_event(update_venue(venue_id, {}) or venue))
+    return jsonify(serialize_event(venue))
 
 
 @app.route("/api/admin/venues/<venue_id>", methods=["DELETE"])
@@ -832,7 +877,7 @@ def admin_submission_approve(submission_id):
     if sub.get("event_time"):
         t = sub["event_time"]
         if hasattr(t, "strftime"):
-            event_data["start_time"] = t.strftime("%-I:%M %p").replace(":00 ", " ")
+            event_data["start_time"] = format_event_time(t)
         else:
             event_data["start_time"] = str(t)
     if sub.get("description"):
@@ -908,7 +953,7 @@ def admin_submission_delete(submission_id):
 # ---------------------------------------------------------------------------
 
 @app.route("/api/admin/import/upload", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_import_upload():
     """Upload HTML files and/or images for parsing.
 
@@ -1023,16 +1068,24 @@ def _normalize_date_iso(date_str):
         return date_str.strip()
     # Strip any trailing time like " - 7:00 PM"
     cleaned = re.sub(r'\s*[-–]?\s*\d{1,2}:\d{2}\s*(?:AM|PM)', '', date_str, flags=re.IGNORECASE).strip()
-    # Try parsing
-    current_year = datetime.now().year
+    # Try parsing. The format list stays deliberately tight — this path feeds
+    # the DB directly, so a loose regex fallback would let junk through.
+    from src.date_utils import resolve_yearless_date
+
     for fmt in ('%b %d', '%B %d', '%b %d %Y', '%B %d %Y', '%m/%d/%Y', '%m/%d/%y'):
         try:
             dt = datetime.strptime(cleaned, fmt)
-            if dt.year == 1900:
-                dt = dt.replace(year=current_year)
-            return dt.strftime('%Y-%m-%d')
         except ValueError:
             continue
+        if dt.year == 1900:
+            # No year in the source text. Resolve it with the same New Year
+            # rollover rule the scrapers use, against today's real date — a
+            # "Jan 15" flyer imported in December belongs to next January.
+            resolved = resolve_yearless_date(dt.month, dt.day, date.today())
+            if resolved is None:
+                continue
+            return resolved.strftime('%Y-%m-%d')
+        return dt.strftime('%Y-%m-%d')
     return None  # reject unparseable dates rather than pass bad data to DB
 
 
@@ -1105,7 +1158,7 @@ def _handle_image_upload(folder):
 
 
 @app.route("/api/admin/import/image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_import_image():
     """Single event image upload — hosted on Cloudinary.
 
@@ -1198,7 +1251,7 @@ def admin_sponsors_delete(sponsor_id):
 
 
 @app.route("/api/admin/sponsors/upload-image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_sponsors_upload_image():
     """Upload a sponsor image to Cloudinary."""
     return _handle_image_upload("sponsors")
@@ -1277,7 +1330,7 @@ def admin_calendar_sponsor_delete(sponsor_id):
 
 
 @app.route("/api/admin/calendar-sponsor/upload-image", methods=["POST"])
-@require_auth
+@require_bearer_auth
 def admin_calendar_sponsor_upload_image():
     """Upload a calendar sponsor image to Cloudinary."""
     return _handle_image_upload("sponsors")
@@ -1394,7 +1447,7 @@ def _parse_jsonld_event(data, source_filename):
     try:
         dt = datetime.fromisoformat(start_date.replace("Z", "+00:00"))
         event_date = dt.date().isoformat()
-        time_str = dt.strftime("%-I:%M %p").replace(":00 ", " ")
+        time_str = format_event_time(dt)
     except ValueError:
         event_date = start_date
         time_str = None
@@ -1474,6 +1527,35 @@ def admin_trigger_build():
 _SLACK_BOT_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 _SLACK_SIGNING_SECRET = os.environ.get("SLACK_SIGNING_SECRET", "")
 _SLACK_CHANNEL_ID = os.environ.get("SLACK_CHANNEL_ID", "")
+
+# How far back to look for the message carrying an uploaded file. The caption is
+# what authorises processing, so a window too small means the upload is silently
+# ignored — anything said in the channel after the upload pushes it out.
+SLACK_HISTORY_PAGE_SIZE = 50
+SLACK_HISTORY_MAX_PAGES = 4
+
+# File ids already claimed for processing, so a redelivered file_shared event
+# cannot start a second Vision extraction of the same flyer. In process memory:
+# gunicorn runs a single worker by default, and the retry-header check above
+# handles the common case regardless.
+_slack_seen_files = {}  # file_id -> monotonic timestamp of the claim
+_slack_seen_lock = threading.Lock()
+SLACK_FILE_CLAIM_TTL_SECONDS = 60 * 60
+
+
+def _claim_slack_file(file_id):
+    """Claim a file id for processing. False if it was already claimed."""
+    now = time.monotonic()
+    with _slack_seen_lock:
+        for stale in [
+            fid for fid, ts in _slack_seen_files.items()
+            if now - ts > SLACK_FILE_CLAIM_TTL_SECONDS
+        ]:
+            _slack_seen_files.pop(stale, None)
+        if file_id in _slack_seen_files:
+            return False
+        _slack_seen_files[file_id] = now
+        return True
 
 # Public site origin, used to build admin deep-links in Slack replies.
 _SITE_BASE = os.environ.get("SITE_BASE_URL", "https://concert-calendar.wyxr.org").rstrip("/")
@@ -1637,17 +1719,31 @@ def _process_slack_image(file_id: str, channel_id: str):
             _slack_post_message(channel_id, "⚠️ Could not retrieve image URL from Slack.")
             return
 
-        # Find message caption via channel history (initial_comment is empty for UI uploads)
+        # Find message caption via channel history (initial_comment is empty for
+        # UI uploads). A limit of 10 silently dropped uploads in a busy channel:
+        # anything said after the upload pushes it out of the window, and the
+        # caption is what authorises processing at all. Page back further.
         caption = ""
-        history_resp = http_requests.get(
-            "https://slack.com/api/conversations.history",
-            headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
-            params={"channel": channel_id, "limit": 10},
-            timeout=10,
-        )
-        for msg in history_resp.json().get("messages", []):
-            if any(f.get("id") == file_id for f in msg.get("files", [])):
-                caption = (msg.get("text") or "").lower()
+        cursor = None
+        for _ in range(SLACK_HISTORY_MAX_PAGES):
+            params = {"channel": channel_id, "limit": SLACK_HISTORY_PAGE_SIZE}
+            if cursor:
+                params["cursor"] = cursor
+            history_resp = http_requests.get(
+                "https://slack.com/api/conversations.history",
+                headers={"Authorization": f"Bearer {_SLACK_BOT_TOKEN}"},
+                params=params,
+                timeout=10,
+            )
+            payload = history_resp.json()
+            for msg in payload.get("messages", []):
+                if any(f.get("id") == file_id for f in msg.get("files", [])):
+                    caption = (msg.get("text") or "").lower()
+                    break
+            if caption:
+                break
+            cursor = (payload.get("response_metadata") or {}).get("next_cursor")
+            if not cursor:
                 break
         print(f"[slack] caption={caption!r}", flush=True)
 
@@ -1828,7 +1924,7 @@ def _process_slack_image(file_id: str, channel_id: str):
             event_id = inserted_ids.get((e.artist, venue, e.date.isoformat()))
             if not event_id:
                 continue  # collided on insert — nothing to link to
-            date_str = e.date.strftime("%a %b %-d")
+            date_str = strftime_nopad(e.date, "%a %b %-d")
             # /admin/edit (no .html) — vercel.json sets cleanUrls, so the
             # .html form would 308-redirect here.
             edit_url = f"{_SITE_BASE}/admin/edit?id={event_id}"
@@ -1884,11 +1980,29 @@ def slack_events():
         file_id = event.get("file_id")
         print(f"[slack] file_shared channel_id={channel_id} file_id={file_id} expected={_SLACK_CHANNEL_ID}", flush=True)
 
+        # Slack redelivers an event when it does not see a 2xx quickly enough.
+        # Vision extraction runs in a background thread, so a redelivery would
+        # start a second extraction of the same flyer and insert it twice — the
+        # fuzzy-duplicate check was the only thing standing in the way.
+        retry_num = request.headers.get("X-Slack-Retry-Num")
+        if retry_num:
+            print(
+                f"[slack] ignoring retry #{retry_num} "
+                f"(reason={request.headers.get('X-Slack-Retry-Reason')}) for file {file_id}",
+                flush=True,
+            )
+            return jsonify({"ok": True})
+
         if _SLACK_CHANNEL_ID and channel_id != _SLACK_CHANNEL_ID:
             print(f"[slack] ignoring — channel mismatch", flush=True)
             return jsonify({"ok": True})
 
         if file_id and channel_id:
+            # Slack can also deliver file_shared more than once without marking
+            # it a retry, so claim the file id before starting work.
+            if not _claim_slack_file(file_id):
+                print(f"[slack] ignoring — file {file_id} already being processed", flush=True)
+                return jsonify({"ok": True})
             print(f"[slack] starting background thread for file {file_id}", flush=True)
             threading.Thread(
                 target=_process_slack_image,
@@ -2435,7 +2549,20 @@ def admin_health_check():
 @app.route("/health", methods=["GET"])
 @app.route("/", methods=["GET", "HEAD"])
 def health():
-    return jsonify({"status": "ok"})
+    # status stays "ok" whenever the process can serve traffic — Render's health
+    # check hits "/" and a non-200 here takes the service out of rotation.
+    # Misconfiguration that degrades behaviour without stopping it is reported
+    # in "warnings" instead.
+    payload = {"status": "ok"}
+    warnings = []
+    if SECRET_KEY_IS_EPHEMERAL:
+        warnings.append(
+            "ADMIN_SECRET_KEY is not set — admin tokens are signed with a "
+            "per-process random key, so sessions break on restart and across workers."
+        )
+    if warnings:
+        payload["warnings"] = warnings
+    return jsonify(payload)
 
 
 
