@@ -31,6 +31,7 @@ from flask_cors import CORS, cross_origin
 from flask_compress import Compress
 import requests as http_requests
 
+from backend.event_page import render_event_page, render_missing_page
 from backend.images import (
     MAX_SUBMISSION_IMAGE_BYTES,
     ImageUploadError,
@@ -2555,6 +2556,64 @@ def admin_health_check():
         }), 500
 
     return jsonify({"generated_at": _now_z(), **blocks})
+
+
+# ---------------------------------------------------------------------------
+# Public event permalinks
+# ---------------------------------------------------------------------------
+
+@app.route("/e/<event_id>", methods=["GET", "HEAD"])
+def event_permalink(event_id):
+    """Server-rendered page for a single event, for sharing and for crawlers.
+
+    Reached as ``concert-calendar.wyxr.org/e/<id>`` — Vercel rewrites that path
+    here (see ``vercel.json``) so the shared link stays on the public domain
+    while the HTML is rendered from the database, always current.
+
+    The id is validated as a UUID *before* it reaches the query: passing a
+    non-UUID string to a ``uuid`` column raises, and a raised error inside a
+    cursor block leaves the transaction poisoned for the next statement.
+    """
+    try:
+        uuid.UUID(str(event_id))
+    except (ValueError, AttributeError, TypeError):
+        return _event_page_response(render_missing_page(_SITE_BASE), 404)
+
+    try:
+        row = get_event_by_id(event_id)
+    except Exception as e:
+        # Transient Postgres timeouts happen; do not tell the reader the show
+        # was deleted when the query simply failed, and do not let a crawler
+        # index the failure.
+        print(f"[event_page] lookup failed for {event_id}: {e}")
+        return _event_page_response(
+            render_missing_page(
+                _SITE_BASE,
+                heading="Temporarily unavailable",
+                message="We could not load this show just now. Please try again.",
+            ),
+            503,
+        )
+
+    if not row or not row.get("is_active", True):
+        return _event_page_response(render_missing_page(_SITE_BASE), 404)
+
+    html_body = render_event_page(serialize_event(row), _SITE_BASE)
+    return _event_page_response(html_body, 200)
+
+
+def _event_page_response(html_body, status):
+    resp = make_response(html_body, status)
+    resp.headers["Content-Type"] = "text/html; charset=utf-8"
+    if status == 200:
+        # Long enough that an unfurl storm (a link pasted in a busy channel)
+        # hits the CDN rather than the database; short enough that an admin
+        # correction shows up quickly.
+        resp.headers["Cache-Control"] = "public, max-age=300, s-maxage=900, stale-while-revalidate=3600"
+    else:
+        resp.headers["Cache-Control"] = "no-store"
+        resp.headers["X-Robots-Tag"] = "noindex"
+    return resp
 
 
 # ---------------------------------------------------------------------------

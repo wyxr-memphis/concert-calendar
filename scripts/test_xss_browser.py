@@ -21,46 +21,17 @@ CHROME_PATH at a binary to override discovery.
 Usage:
     python scripts/test_xss_browser.py
 """
-import functools
-import http.server
 import json
 import os
-import socketserver
 import sys
-import threading
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = os.path.join(ROOT, "docs")
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+# Chromium discovery and the static server live in browser_test_util so the two
+# browser tests cannot drift apart on them.
+from browser_test_util import SkipTest, find_chrome, require_playwright, serve_docs  # noqa: E402
+
 PORT = int(os.environ.get("XSS_TEST_PORT", "8787"))
-
-try:
-    from playwright.sync_api import sync_playwright
-except ImportError:
-    print("SKIP: playwright is not installed (pip install playwright)")
-    sys.exit(0)
-
-# Candidate Chromium binaries: an explicit override, then the paths a
-# playwright install or a preinstalled bundle leaves behind.
-def _find_chrome():
-    explicit = os.environ.get("CHROME_PATH")
-    if explicit and os.path.exists(explicit):
-        return explicit
-    roots = [os.environ.get("PLAYWRIGHT_BROWSERS_PATH", ""), "/opt/pw-browsers",
-             os.path.expanduser("~/.cache/ms-playwright"),
-             # macOS puts the playwright cache here, not in ~/.cache — without
-             # this the test silently skips on every Mac.
-             os.path.expanduser("~/Library/Caches/ms-playwright")]
-    for root in roots:
-        if not root or not os.path.isdir(root):
-            continue
-        for dirpath, _dirnames, filenames in os.walk(root):
-            for name in ("chrome", "headless_shell", "chrome-headless-shell"):
-                if name in filenames:
-                    candidate = os.path.join(dirpath, name)
-                    if os.access(candidate, os.X_OK):
-                        return candidate
-    return None
-
 
 FAILURES = []
 
@@ -130,27 +101,17 @@ def build_fixtures():
     return events, sponsors, calendar_sponsor
 
 
-class _QuietHandler(http.server.SimpleHTTPRequestHandler):
-    def log_message(self, *args):
-        pass
-
-
-def _serve():
-    socketserver.TCPServer.allow_reuse_address = True
-    handler = functools.partial(_QuietHandler, directory=DOCS)
-    with socketserver.TCPServer(("127.0.0.1", PORT), handler) as httpd:
-        httpd.serve_forever()
-
-
 def main():
-    chrome = _find_chrome()
-    if not chrome:
-        print("SKIP: no Chromium binary found (set CHROME_PATH or run: playwright install chromium)")
+    try:
+        sync_playwright = require_playwright()
+        chrome = find_chrome()
+    except SkipTest as e:
+        print(f"SKIP: {e}")
         return 0
 
     print("Browser XSS regression test (offline, stubbed API)")
     events, sponsors, calendar_sponsor = build_fixtures()
-    threading.Thread(target=_serve, daemon=True).start()
+    base = serve_docs(PORT)
 
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=chrome)
@@ -172,7 +133,7 @@ def main():
             route.fulfill(status=200, content_type="application/json", body=body)
 
         page.route("**/concert-calendar-api.onrender.com/**", route_api)
-        page.goto(f"http://127.0.0.1:{PORT}/index.html",
+        page.goto(f"{base}/index.html",
                   wait_until="domcontentloaded", timeout=30000)
         page.wait_for_timeout(3500)
 
