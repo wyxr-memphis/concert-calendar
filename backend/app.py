@@ -40,6 +40,9 @@ from backend.images import (
 )
 from backend.db import (
     init_db,
+    log_admin_action,
+    get_admin_audit_log,
+    bump_admin_token_epoch,
     get_cursor,
     get_active_events,
     get_event_by_id,
@@ -106,9 +109,10 @@ from backend.auth import (
     ADMIN_PASSWORD,
     SECRET_KEY_IS_EPHEMERAL,
     create_token,
+    current_token,
+    invalidate_epoch_cache,
     require_auth,
     require_bearer_auth,
-    current_token,
 )
 
 app = Flask(__name__)
@@ -164,6 +168,40 @@ _SECURITY_HEADERS = {
     # Nothing here uses these, so deny them rather than inherit a default.
     "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
 }
+
+
+# Requests that mutate state and are worth being able to reconstruct later.
+# GETs are excluded: they are the overwhelming majority of admin traffic and
+# reading a list is not an action anyone needs to answer for.
+_AUDITED_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
+
+
+@app.after_request
+def _audit_admin_actions(resp):
+    """Record state-changing admin requests.
+
+    Logged from one place rather than per route, so a route added later is
+    covered without anyone remembering to instrument it. Only requests that
+    actually authenticated are recorded — a 401 is a failed attempt, not an
+    action, and logging those would let an unauthenticated caller write rows.
+
+    The actor is always "admin": there is a single shared password. What the log
+    answers is *when* something changed and from where, not who.
+    """
+    try:
+        if (request.method in _AUDITED_METHODS
+                and request.path.startswith("/api/admin/")
+                and resp.status_code != 401):
+            log_admin_action(
+                method=request.method,
+                path=request.full_path.rstrip("?"),
+                status_code=resp.status_code,
+                ip_hash=_hash_ip(_client_ip()),
+                user_agent=request.headers.get("User-Agent"),
+            )
+    except Exception as e:
+        print(f"[audit] hook failed: {e}", flush=True)
+    return resp
 
 
 @app.after_request
@@ -2176,7 +2214,7 @@ def v1_events():
     duration_ms = int((_time.time() - t0) * 1000)
     _log_api_request_async(
         str(key_row["id"]),
-        key_row["key"][:12],
+        key_row.get("key_prefix"),
         "/api/v1/events",
         request.query_string.decode()[:500],
         request.remote_addr,
@@ -2206,7 +2244,7 @@ def v1_venues():
         for v in venues
     ]
     _log_api_request_async(
-        str(key_row["id"]), key_row["key"][:12],
+        str(key_row["id"]), key_row.get("key_prefix"),
         "/api/v1/venues", "", request.remote_addr, 200, 0,
     )
     return jsonify(data)
@@ -2222,7 +2260,7 @@ def v1_neighborhoods():
 
     rows = get_neighborhoods_with_counts()
     _log_api_request_async(
-        str(key_row["id"]), key_row["key"][:12],
+        str(key_row["id"]), key_row.get("key_prefix"),
         "/api/v1/neighborhoods", "", request.remote_addr, 200, 0,
     )
     resp = jsonify([
@@ -2244,10 +2282,10 @@ def admin_api_keys_list():
     result = []
     for k in keys:
         d = serialize_event(k)
-        # Mask the key — show prefix only
-        if d.get("key"):
-            d["key_display"] = d["key"][:16] + "..."
-            del d["key"]
+        # The plaintext is not in the database at all any more — key_prefix is
+        # stored alongside the hash purely so a key is identifiable in this list.
+        d["key_display"] = (d.get("key_prefix") or "") + "..." if d.get("key_prefix") else "—"
+        d.pop("key_hash", None)
         result.append(d)
     return jsonify(result)
 
@@ -2267,7 +2305,9 @@ def admin_api_keys_create():
         notes=(body.get("notes") or "").strip() or None,
     )
     d = serialize_event(row)
-    # Return the full key once — it cannot be retrieved again
+    d.pop("key_hash", None)
+    # create_api_key puts the plaintext in "key". It was never stored, so this
+    # response is genuinely the only chance to read it.
     return jsonify(d), 201
 
 
@@ -2282,9 +2322,8 @@ def admin_api_keys_update(key_id):
     if not row:
         return jsonify({"error": "API key not found"}), 404
     d = serialize_event(row)
-    if d.get("key"):
-        d["key_display"] = d["key"][:16] + "..."
-        del d["key"]
+    d["key_display"] = (d.get("key_prefix") or "") + "..." if d.get("key_prefix") else "—"
+    d.pop("key_hash", None)
     return jsonify(d)
 
 
@@ -2367,7 +2406,10 @@ def admin_api_key_requests_approve(request_id):
         notes=f"Company: {req['company'] or '—'}  Use case: {req['use_case'] or '—'}",
     )
     update_api_key_request(request_id, "approved", api_key_id=str(key_row["id"]))
-    return jsonify({"ok": True, "key": serialize_event(key_row)}), 201
+    d = serialize_event(key_row)
+    d.pop("key_hash", None)
+    # The admin UI reads data.key.key — the one-time plaintext.
+    return jsonify({"ok": True, "key": d}), 201
 
 
 @app.route("/api/admin/api-key-requests/<request_id>/reject", methods=["POST"])
@@ -2649,6 +2691,49 @@ def admin_health_check():
         }), 500
 
     return jsonify({"generated_at": _now_z(), **blocks})
+
+
+# ---------------------------------------------------------------------------
+# Admin session control and audit log
+# ---------------------------------------------------------------------------
+
+@app.route("/api/admin/revoke-sessions", methods=["POST"])
+@require_bearer_auth
+def admin_revoke_sessions():
+    """Invalidate every admin token, including the caller's own.
+
+    For a leaked or forgotten session. The previous remedy was rotating
+    ADMIN_SECRET_KEY on Render, which needs a redeploy and dashboard access.
+
+    Deliberately require_bearer_auth, not require_auth: this is a
+    state-changing action worth protecting from a cross-site POST even though
+    it takes no body.
+    """
+    try:
+        epoch = bump_admin_token_epoch()
+    except Exception as e:
+        print(f"[auth] Could not bump the token epoch: {e}", flush=True)
+        return jsonify({"error": "Could not revoke sessions — try again"}), 503
+
+    # Stop honouring old tokens in this worker immediately rather than after the
+    # cache TTL; the others pick it up within TOKEN_EPOCH_CACHE_SECONDS.
+    invalidate_epoch_cache()
+    return jsonify({
+        "ok": True,
+        "epoch": epoch,
+        "message": "All admin sessions revoked. You will need to log in again.",
+    })
+
+
+@app.route("/api/admin/audit-log", methods=["GET"])
+@require_auth
+def admin_audit_log():
+    """Recent state-changing admin actions, newest first."""
+    try:
+        limit = int(request.args.get("limit", 200))
+    except (TypeError, ValueError):
+        limit = 200
+    return jsonify(serialize_list(get_admin_audit_log(limit=limit)))
 
 
 # ---------------------------------------------------------------------------
