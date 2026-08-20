@@ -355,13 +355,19 @@ page in `docs/` emits `application/ld+json`**. Google effectively sees a blank f
 
 ## 5. Missing venues & scrapers to add
 
-> **Status: not started, and the highest-value remaining work.** None of Railgarten, Black
-> Lodge, Lamplighter Lounge or Young Avenue Deli is in `src/config.py` or `_SEED_VENUES`.
+> **Status: not started, and the highest-value remaining work — but the list below has
+> shrunk.**
 >
-> Start with **Lamplighter**: it already has rows and aliases in the DB from Slack flyer
-> uploads (it is what caused the 2026-08-20 dedup collision), so only the scraper is missing.
-> Before writing any scraper, check for a `livenation.com/venue/<ID>` URL — that makes it a
-> `ticketmaster_venue` config entry with no page scraping at all.
+> ⚠️ **Railgarten and Black Lodge are permanently closed** (confirmed 2026-08-20). Both were
+> recommended here, Black Lodge as a priority; ignore those two rows. Neither has any events
+> or a `venues` row in the database, so there is nothing to clean up. This is the risk of a
+> venue list in a document: rooms close.
+>
+> That leaves **Lamplighter Lounge** and **Young Avenue Deli** from this table, plus the
+> `FEATURES.md` backlog row. Start with Lamplighter: it already has rows and aliases in the
+> DB from Slack flyer uploads (it is what caused the 2026-08-20 dedup collision), so only the
+> scraper is missing. Before writing any scraper, check for a `livenation.com/venue/<ID>`
+> URL — that makes it a `ticketmaster_venue` config entry with no page scraping at all.
 
 Already covered (contrary to CLAUDE.md's stale list): Grind City Amphitheater, Satellite
 Music Hall, Radians, Bluesville, Snowden Grove, Cannon Center — all via the
@@ -373,8 +379,8 @@ live → add to `VENUES` in `src/config.py` → seed in `backend/db.py:_seed_ven
 
 | Venue | Likely approach |
 |---|---|
-| **Railgarten** | `railgarten.com/events` — WordPress events pages; try the `generic` JSON-LD scraper first, else a small custom parser |
-| **Black Lodge** | `blacklodgememphis.com/events` — inspect; frequent shows, strong WYXR-audience overlap |
+| ~~**Railgarten**~~ | **Permanently closed** (2026-08-20). Was: `railgarten.com/events`, WordPress |
+| ~~**Black Lodge**~~ | **Permanently closed** (2026-08-20). Was: `blacklodgememphis.com/events` |
 | **Lamplighter Lounge** | Very active; site/Songkick inspection needed — flyers already arrive via the Slack pipeline today |
 | **Young Avenue Deli** | Cooper-Young regional bands; inspect site |
 | **Wild Bill's** | Juke joint; likely manual/Instagram — candidate for the IG pipeline below |
@@ -488,6 +494,6 @@ In rough value-for-effort order:
    verifiable with `./test_before_push.sh` and a local run.
 2. **Round 2 (pipeline):** TM pagination, bulk-insert fix, workflow cleanup, dead-code
    removal, CLAUDE.md refresh.
-3. **Round 3 (reach):** JSON-LD + feed link + iCal feed; then new venues (Railgarten and
-   Black Lodge first).
+3. **Round 3 (reach):** JSON-LD + feed link + iCal feed; then new venues (this said
+   "Railgarten and Black Lodge first" — both have since closed permanently; see §5).
 4. **Round 4:** Instagram posts pipeline (after the Meta app/token exists).
