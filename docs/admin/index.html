@@ -2398,7 +2398,7 @@
                 formData.append('image', file);
                 const resp = await AdminAPI.apiFetch('/api/admin/calendar-sponsor/upload-image', { method: 'POST', body: formData });
                 const data = await resp.json();
-                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                if (!resp.ok) throw new Error(uploadFailureMessage(resp, data));
                 document.getElementById('csImageUrl').value = data.image_url;
                 // Keep local preview — CDN URL won't resolve until Vercel deploys (~1 min)
             } catch (err) {
@@ -2600,7 +2600,7 @@
                 formData.append('image', file);
                 const resp = await AdminAPI.apiFetch('/api/admin/sponsors/upload-image', { method: 'POST', body: formData });
                 const data = await resp.json();
-                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                if (!resp.ok) throw new Error(uploadFailureMessage(resp, data));
                 document.getElementById('sImageUrl').value = data.image_url;
                 updateImagePreview(data.image_url);
             } catch (err) {
@@ -2723,8 +2723,8 @@
                 });
                 const data = await resp.json();
 
-                if (data.error) {
-                    showStatus(data.error, 'error');
+                if (!resp.ok || data.error) {
+                    showStatus(uploadFailureMessage(resp, data), 'error');
                     return;
                 }
 

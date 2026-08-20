@@ -34,9 +34,52 @@ const AdminAPI = (() => {
         return h;
     }
 
+    // Recover the Bearer token from the cookie session.
+    //
+    // sessionStorage is per-tab; the admin_token cookie is not. Opening an
+    // admin page in a NEW tab (the Slack bot links to /admin/edit?id=..., and
+    // any middle-click does it too) produces a tab that authenticates fine on
+    // the cookie — /api/admin/me and every require_auth route work — while all
+    // four @require_bearer_auth upload routes answer 401 "Not authenticated"
+    // because there is no header to send. That tab could not fix itself:
+    // login.html redirects to /admin/ whenever the cookie is valid.
+    //
+    // GET /api/admin/me echoes the token it authenticated with, so one request
+    // repopulates the header. Uses a bare fetch, not apiFetch, to avoid
+    // recursing. Concurrent callers share one in-flight request.
+    let _hydratePromise = null;
+
+    function hydrateToken() {
+        const existing = getToken();
+        if (existing) return Promise.resolve(existing);
+        if (!_hydratePromise) {
+            _hydratePromise = (async () => {
+                try {
+                    const resp = await fetch(BASE ? BASE + '/api/admin/me' : '/api/admin/me', {
+                        credentials: BASE ? 'include' : 'same-origin',
+                    });
+                    if (!resp.ok) return null;
+                    const data = await resp.json();
+                    if (data && data.token) {
+                        setToken(data.token);
+                        return data.token;
+                    }
+                } catch (err) {
+                    // Offline or cold start — the caller's own request will
+                    // surface the failure.
+                }
+                return null;
+            })().finally(() => { _hydratePromise = null; });
+        }
+        return _hydratePromise;
+    }
+
     async function apiFetch(path, opts = {}) {
         const url = BASE ? BASE + path : path;
         opts.credentials = BASE ? 'include' : 'same-origin';
+        if (!getToken()) {
+            await hydrateToken();
+        }
         opts.headers = headers(opts.headers || {});
 
         // Add timeout (default 30 seconds, configurable)
@@ -100,8 +143,19 @@ const AdminAPI = (() => {
         window.location.href = '/admin/login.html';
     }
 
-    return { apiFetch, apiJSON, checkAuth, logout, getToken, setToken, clearToken, headers };
+    return { apiFetch, apiJSON, checkAuth, logout, getToken, setToken, clearToken, headers, hydrateToken };
 })();
+
+// Message for a failed upload response. admin-common re-hydrates a missing
+// Bearer token before every request, so a 401 on an upload route now really does
+// mean the 8-hour session ran out — say that instead of echoing the API's bare
+// "Not authenticated", which read like a bug in the page.
+function uploadFailureMessage(resp, data) {
+    if (resp && resp.status === 401) {
+        return 'Session expired — log in again';
+    }
+    return (data && data.error) || `Upload failed (${resp ? resp.status : 'no response'})`;
+}
 
 // Escape HTML text content. Encodes &, < and > but NOT quotes, so this is only
 // safe between tags — never inside an attribute value. Use escAttr() there.

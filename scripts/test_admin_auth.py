@@ -115,6 +115,53 @@ def test_cookie_still_works_for_normal_routes():
           f"got {resp.status_code}")
 
 
+def test_me_echoes_the_token_for_bearer_recovery():
+    """A cookie-only tab must be able to recover its Bearer token.
+
+    sessionStorage is per-tab and the cookie is not, so a new tab (the Slack
+    reply links straight to /admin/edit?id=...) authenticates on the cookie but
+    has no header to send, and every multipart upload route 401s. GET
+    /api/admin/me echoes the token it authenticated with so the page can seed
+    the header — and echoes the SAME token, not a fresh one, so a session cannot
+    extend itself past its 8 hours by polling this route.
+    """
+    print("\nGET /api/admin/me echoes the authenticating token")
+    token = create_token()
+    c = client()
+    c.set_cookie("admin_token", token, domain="localhost")
+    body = c.get("/api/admin/me").get_json() or {}
+    check("cookie request gets a token back", body.get("token") == token,
+          f"got {body.get('token')!r}")
+
+    c2 = client()
+    body2 = c2.get("/api/admin/me",
+                   headers={"Authorization": f"Bearer {token}"}).get_json() or {}
+    check("bearer request echoes the same token", body2.get("token") == token,
+          f"got {body2.get('token')!r}")
+
+    c3 = client()
+    check("unauthenticated request gets no token",
+          "token" not in (c3.get("/api/admin/me").get_json() or {}))
+
+
+def test_recovered_token_reaches_the_upload_routes():
+    """The echoed token must actually satisfy require_bearer_auth."""
+    print("\nthe echoed token unlocks the upload routes")
+    c = client()
+    c.set_cookie("admin_token", create_token(), domain="localhost")
+    recovered = (c.get("/api/admin/me").get_json() or {}).get("token")
+    check("a token was recovered", bool(recovered))
+    for route in MULTIPART_ROUTES:
+        resp = c.post(
+            route,
+            data={},
+            content_type="multipart/form-data",
+            headers={"Authorization": f"Bearer {recovered}"},
+        )
+        check(f"not 401 with the recovered token: {route}",
+              resp.status_code != 401, f"got {resp.status_code}")
+
+
 # ---------------------------------------------------------------------------
 # 1.6  Login hardening
 # ---------------------------------------------------------------------------
@@ -212,6 +259,8 @@ def main():
         test_bearer_header_passes_auth,
         test_bad_token_still_rejected,
         test_cookie_still_works_for_normal_routes,
+        test_me_echoes_the_token_for_bearer_recovery,
+        test_recovered_token_reaches_the_upload_routes,
         test_login_is_rate_limited,
         test_throttle_is_per_client,
         test_success_clears_the_failure_budget,

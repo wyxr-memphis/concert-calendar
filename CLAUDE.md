@@ -150,6 +150,23 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
   to the admin UI, which always sends the header via `AdminAPI.apiFetch`.
   Apply it to **any new state-mutating route that reads form data**; routes parsing JSON
   already force a preflight.
+- **The Bearer token lives in `sessionStorage`, which is per-tab — the cookie is not.** So a
+  page opened in a *new* tab (the Slack bot's reply links go straight to
+  `/admin/edit?id=<uuid>`; any middle-click does it too) authenticates fine on the cookie —
+  `/api/admin/me` and every `require_auth` route work, the form loads and saves — while all
+  four `require_bearer_auth` upload routes answer 401 `Not authenticated`. That tab could not
+  recover on its own: `login.html` bounces to `/admin/` whenever the cookie is valid, so there
+  was no way to get a token into it short of logging out. Reported 2026-08-20 as "Not
+  authenticated" when uploading an event image.
+  **Fix:** `GET /api/admin/me` echoes the token it authenticated with (`current_token()` in
+  `backend/auth.py` — the *same* token, never a fresh one, so polling cannot extend the 8-hour
+  session), and `AdminAPI.apiFetch` calls `hydrateToken()` before any request when
+  `sessionStorage` is empty. Echoing it does not weaken the CSRF guard: a cross-site page can
+  send that credentialed GET but CORS won't let it read the response, so it still cannot learn
+  the token or forge the header.
+  A 401 from an upload route now means the session genuinely expired — surface it with
+  `uploadFailureMessage(resp, data)` rather than echoing the API's bare "Not authenticated",
+  which reads like a page bug.
 
 ## Important Files
 

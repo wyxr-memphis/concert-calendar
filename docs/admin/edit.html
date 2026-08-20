@@ -401,7 +401,7 @@
                     updateImagePreview();
                     showStatus('Image uploaded', 'success');
                 } else {
-                    showStatus(data.error || 'Upload failed', 'error');
+                    showStatus(uploadFailureMessage(resp, data), 'error');
                 }
             } catch (err) {
                 showStatus('Upload failed: ' + err.message, 'error');

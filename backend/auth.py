@@ -82,6 +82,17 @@ def _bearer_token():
     return None
 
 
+def current_token():
+    """The token that authenticated this request, header first then cookie.
+
+    Lets a require_auth route hand the *existing* token back to the admin UI so
+    a tab that only has the cookie can populate its Bearer header (see
+    /api/admin/me). Returning the token already in play — rather than minting a
+    new one — keeps the 8-hour session from silently extending itself.
+    """
+    return _bearer_token() or request.cookies.get("admin_token")
+
+
 def require_auth(f):
     """Decorator that requires a valid JWT in the Authorization header or cookie."""
     @wraps(f)

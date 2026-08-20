@@ -107,6 +107,7 @@ from backend.auth import (
     create_token,
     require_auth,
     require_bearer_auth,
+    current_token,
 )
 
 app = Flask(__name__)
@@ -525,8 +526,22 @@ def admin_logout():
 @app.route("/api/admin/me", methods=["GET"])
 @require_auth
 def admin_me():
-    """Check if the current token is valid."""
-    return jsonify({"ok": True, "user": "admin"})
+    """Check if the current token is valid, and hand it back to the caller.
+
+    The token is echoed so a tab holding only the httponly cookie can seed its
+    own Authorization header. sessionStorage is per-tab, but the cookie is not:
+    opening /admin/edit?id=... in a new tab (the Slack bot's reply links do
+    exactly that) gave a page that loaded fine on the cookie while every
+    @require_bearer_auth route — all four upload endpoints — answered "Not
+    authenticated", with no way out, since /admin/login.html bounces straight
+    back whenever the cookie is still valid.
+
+    This does not weaken the CSRF guard the Bearer requirement exists for: a
+    cross-site page can send this credentialed GET but cannot read the response,
+    because CORS only exposes it to ALLOWED_ORIGINS. It cannot learn the token,
+    so it still cannot forge the header.
+    """
+    return jsonify({"ok": True, "user": "admin", "token": current_token()})
 
 
 # ---------------------------------------------------------------------------
