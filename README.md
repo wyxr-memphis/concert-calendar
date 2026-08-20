@@ -348,7 +348,7 @@ python -m src.main
 ## Testing
 
 ```bash
-./test_before_push.sh     # expect 16/16
+./test_before_push.sh     # expect 17/17
 ```
 
 There is no test framework. Each suite is a standalone script under `scripts/`, offline
@@ -365,9 +365,10 @@ apart from the database connection check, wired into `test_before_push.sh`:
 | `test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 route behaviour |
 | `test_xss_browser.py` | the real calendar page in Chromium against live payloads |
 | `test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD, feed links |
+| `test_security_headers.py` | both CSP variants, and the real pages driven under the shipped policy |
 
-The two browser suites need Chromium and **skip cleanly without it**, so check the count
-rather than the "all checks passed" line — skipping both reports 14/14 instead of 16/16
+The three browser suites need Chromium and **skip cleanly without it**, so check the count
+rather than the "all checks passed" line — skipping all three reports 14/14 instead of 17/17
 (the count exceeds the number of numbered checks because check 1 counts two env vars):
 
 ```bash

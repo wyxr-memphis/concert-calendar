@@ -126,6 +126,72 @@ Compress(app)
 app.config["MAX_CONTENT_LENGTH"] = 25 * 1024 * 1024
 
 
+# ---------------------------------------------------------------------------
+# Security headers
+# ---------------------------------------------------------------------------
+
+# Sent on every response. Two policies, because this app serves two very
+# different things: JSON on /api/* and real HTML on /e/<id>.
+#
+# The HTML policy can afford to be strict. The event page has an inline
+# <style> block (hence style-src 'unsafe-inline') and one
+# <script type="application/ld+json"> — a *data* block, which CSP does not treat
+# as script — so script-src can be 'none' outright. img-src has to allow any
+# https origin: event images come from Cloudinary, from the legacy Vercel path,
+# and from arbitrary venue-site URLs the scrapers collected.
+_CSP_HTML = "; ".join([
+    "default-src 'none'",
+    "img-src https: data:",
+    "style-src 'unsafe-inline' https://fonts.googleapis.com",
+    "font-src https://fonts.gstatic.com",
+    "script-src 'none'",
+    "frame-ancestors 'none'",
+    "base-uri 'none'",
+    "form-action 'none'",
+])
+
+# API responses render nothing, so everything is denied.
+_CSP_API = "default-src 'none'; frame-ancestors 'none'; base-uri 'none'"
+
+_SECURITY_HEADERS = {
+    # Stop a browser from second-guessing our Content-Type. Without it, a
+    # response we label application/json but which happens to start with markup
+    # can be sniffed as HTML and executed on this origin.
+    "X-Content-Type-Options": "nosniff",
+    # No part of this API is meant to be framed.
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    # Nothing here uses these, so deny them rather than inherit a default.
+    "Permissions-Policy": "geolocation=(), microphone=(), camera=()",
+}
+
+
+@app.after_request
+def _add_security_headers(resp):
+    """Attach security headers without clobbering anything a route set itself.
+
+    Routes that need their own value (the event page sets its own
+    Cache-Control, for instance) keep it — this only fills in what is absent.
+    """
+    for header, value in _SECURITY_HEADERS.items():
+        resp.headers.setdefault(header, value)
+
+    # HSTS is only meaningful over TLS, and asserting it from a local http
+    # dev server would pin localhost to https in the developer's browser.
+    if request.is_secure:
+        resp.headers.setdefault(
+            "Strict-Transport-Security", "max-age=63072000; includeSubDomains"
+        )
+
+    if "Content-Security-Policy" not in resp.headers:
+        content_type = (resp.headers.get("Content-Type") or "").lower()
+        resp.headers["Content-Security-Policy"] = (
+            _CSP_HTML if content_type.startswith("text/html") else _CSP_API
+        )
+
+    return resp
+
+
 @app.errorhandler(413)
 def _payload_too_large(_e):
     return jsonify({"success": False, "errors": ["That upload is too large."]}), 413
@@ -158,6 +224,25 @@ def _ensure_db():
     except Exception as e:
         # Leave _db_ready False so the next request retries initialization
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)
+
+
+# A deliberately conservative address check: one @, a dotted domain with a
+# 2+ character TLD, no whitespace, and a length cap. Full RFC 5322 is far more
+# permissive than anything worth accepting from a public form, and the previous
+# check ('@' in value) accepted "@" itself.
+_EMAIL_RE = re.compile(r"^[^@\s]{1,64}@[A-Za-z0-9]([A-Za-z0-9.-]*[A-Za-z0-9])?\.[A-Za-z]{2,}$")
+
+MAX_EMAIL_LENGTH = 254  # RFC 5321 limit on a forward path
+
+
+def is_valid_email(value) -> bool:
+    """True if the value is plausibly a deliverable email address."""
+    if not value or not isinstance(value, str):
+        return False
+    candidate = value.strip()
+    if len(candidate) > MAX_EMAIL_LENGTH or ".." in candidate:
+        return False
+    return bool(_EMAIL_RE.match(candidate))
 
 
 # ---------------------------------------------------------------------------
@@ -359,7 +444,7 @@ def public_submit_event():
 
     if not submitter_email:
         errors.append("Email is required")
-    elif "@" not in submitter_email or "." not in submitter_email:
+    elif not is_valid_email(submitter_email):
         errors.append("Please enter a valid email address")
 
     if description and len(description) > 500:
@@ -1960,9 +2045,17 @@ def _process_slack_image(file_id: str, channel_id: str):
         _slack_post_message(channel_id, "\n".join(lines))
 
     except Exception as exc:
-        print(f"[slack] Error processing image: {exc}", flush=True)
+        # The full exception goes to the Render logs, which are access
+        # controlled. The channel gets a generic line: #wyxr-concert-calendar
+        # has the whole station in it, and an exception string here has
+        # previously carried connection strings, file paths and API responses.
+        print(f"[slack] Error processing image: {exc!r}", flush=True)
         try:
-            _slack_post_message(channel_id, f"⚠️ Error processing image: {str(exc)[:100]}")
+            _slack_post_message(
+                channel_id,
+                "⚠️ Something went wrong processing that image. "
+                "The error has been logged — try again, or add the event in the admin UI.",
+            )
         except Exception:
             pass
 
@@ -2235,7 +2328,7 @@ def public_request_api_key():
     errors = []
     if not name:
         errors.append("Name is required")
-    if not email or "@" not in email:
+    if not is_valid_email(email):
         errors.append("A valid email is required")
     if errors:
         return jsonify({"error": ", ".join(errors)}), 400
@@ -2642,4 +2735,8 @@ def health():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
+    # Never default to the Werkzeug debugger: it exposes an interactive Python
+    # console on any traceback. Production runs under gunicorn and never reaches
+    # this branch, but a stray `python -m backend.app` on a public host would.
+    debug = os.environ.get("FLASK_DEBUG", "").lower() in ("1", "true", "yes")
+    app.run(debug=debug, port=int(os.environ.get("PORT", 5000)))

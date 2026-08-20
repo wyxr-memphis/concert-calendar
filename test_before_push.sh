@@ -217,8 +217,20 @@ else
 fi
 echo ""
 
-# Check 15: Git status
-echo "1️⃣5️⃣  Checking git status..."
+# Check 15: Security headers (browser half needs chromium; skips itself if absent)
+echo "1️⃣5️⃣  Running security header tests..."
+if python3 scripts/test_security_headers.py > /tmp/security_headers_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Security header tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Security header tests failed${NC}"
+    grep -E "^  FAIL|^  -" /tmp/security_headers_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 16: Git status
+echo "1️⃣6️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

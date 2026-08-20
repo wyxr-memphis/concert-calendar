@@ -32,8 +32,20 @@ except ImportError:
 try:
     from PIL import Image
     PILLOW_AVAILABLE = True
+
+    # Bound the decoded pixel count. The byte-size checks in this module are not
+    # memory limits: a few hundred KB of highly-compressed image can decode to
+    # gigabytes of raw pixels. Images reach here from the Slack pipeline — where
+    # anyone in the channel can post one — and from admin artifact uploads.
+    #
+    # Pillow's own default would only *warn* above ~89 MP; setting this makes it
+    # raise DecompressionBombError, which the call sites below catch. 100 MP is
+    # far above any real photo of a flyer.
+    MAX_DECODED_PIXELS = 100_000_000
+    Image.MAX_IMAGE_PIXELS = MAX_DECODED_PIXELS
 except ImportError:
     PILLOW_AVAILABLE = False
+    MAX_DECODED_PIXELS = None
 
 from ..models import Event, SourceResult
 from ..config import START_DATE, SCRAPER_END_DATE, normalize_venue_name
@@ -591,6 +603,12 @@ def _optimize_image(image_path: Path) -> Tuple[bytes, str]:
     try:
         img = Image.open(image_path)
         return _resize_and_compress(img, label=image_path.name)
+    except Image.DecompressionBombError:
+        # Do not fall through to the raw bytes: returning them would hand the
+        # payload straight to the Vision API and bill us for it.
+        raise ValueError(
+            f"{image_path.name} decodes to more than {MAX_DECODED_PIXELS:,} pixels"
+        )
     except Exception as e:
         print(f"    Could not optimize {image_path.name}: {str(e)[:50]}")
         with open(image_path, "rb") as f:
@@ -611,6 +629,10 @@ def _optimize_image_bytes(image_bytes: bytes, media_type: str) -> Tuple[bytes, s
     try:
         img = Image.open(io.BytesIO(image_bytes))
         return _resize_and_compress(img)
+    except Image.DecompressionBombError:
+        raise ValueError(
+            f"Image decodes to more than {MAX_DECODED_PIXELS:,} pixels"
+        )
     except Exception as e:
         print(f"    Could not optimize image: {str(e)[:50]}")
         return image_bytes, media_type

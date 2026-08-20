@@ -38,6 +38,26 @@ MAX_UPLOAD_BYTES = 10 * 1024 * 1024
 
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}
 
+# Byte signatures for the formats we accept, checked *in addition to* the
+# extension. An extension is a claim by the uploader; these are the file saying
+# what it is. Admin uploads go to Cloudinary unmodified (unlike submissions,
+# which are re-encoded), so this is the only point at which a mislabelled file
+# is caught.
+#
+# WEBP is RIFF-framed: "RIFF" + 4 size bytes + "WEBP", so the marker sits at
+# offset 8 and cannot be a plain prefix check.
+_MAGIC_PREFIXES = {
+    b"\xff\xd8\xff": "jpeg",
+    b"\x89PNG\r\n\x1a\n": "png",
+    b"GIF87a": "gif",
+    b"GIF89a": "gif",
+}
+
+# Decoded-pixel ceiling for an authenticated upload. Higher than the
+# submission cap (this path needs a login) but still bounded: a decompression
+# bomb from a compromised admin session would otherwise take the worker down.
+MAX_UPLOAD_IMAGE_PIXELS = 100_000_000
+
 # Tighter cap for the public submit form — that path is unauthenticated, and the
 # browser already downscales to ~1600px before sending, so anything approaching
 # this is either a canvas fallback or someone poking at the endpoint directly.
@@ -95,8 +115,28 @@ def _safe_public_id(orig_filename: str, fallback: str = "image") -> str:
     return f"{ts}_{clean}"
 
 
+def sniff_image_type(file_data: bytes) -> str | None:
+    """Return "jpeg"/"png"/"gif"/"webp" from the file's own bytes, else None."""
+    if not file_data:
+        return None
+    for prefix, name in _MAGIC_PREFIXES.items():
+        if file_data.startswith(prefix):
+            return name
+    # RIFF container: bytes 0-3 "RIFF", 8-11 the form type.
+    if len(file_data) >= 12 and file_data[0:4] == b"RIFF" and file_data[8:12] == b"WEBP":
+        return "webp"
+    return None
+
+
 def validate(file_data: bytes, orig_filename: str) -> None:
-    """Raise ImageUploadError if the upload should be rejected outright."""
+    """Raise ImageUploadError if the upload should be rejected outright.
+
+    Three gates, in cost order: size, then the extension the uploader claims,
+    then what the bytes actually are. The last two are both needed — the
+    extension decides the URL Cloudinary serves (and therefore the
+    Content-Type a browser will see), while the signature decides whether this
+    is an image at all.
+    """
     if not file_data:
         raise ImageUploadError("File is empty")
 
@@ -113,6 +153,33 @@ def validate(file_data: bytes, orig_filename: str) -> None:
         raise ImageUploadError(
             f"File type {ext or '(none)'} not allowed — use one of: {allowed}"
         )
+
+    sniffed = sniff_image_type(file_data)
+    if sniffed is None:
+        raise ImageUploadError(
+            "That file is not a JPEG, PNG, WebP or GIF — it may be renamed or corrupt"
+        )
+
+    # A valid header proves nothing about the body. Decoding confirms the file
+    # is what it claims and bounds the pixel count, which the byte-size limit
+    # above does not: a small compressed file can decode to gigabytes.
+    from PIL import Image  # local import — keeps module import cheap
+
+    previous_limit = Image.MAX_IMAGE_PIXELS
+    Image.MAX_IMAGE_PIXELS = MAX_UPLOAD_IMAGE_PIXELS
+    try:
+        with Image.open(io.BytesIO(file_data)) as probe:
+            probe.verify()
+    except Image.DecompressionBombError:
+        raise ImageUploadError(
+            "That image's dimensions are too large to process"
+        )
+    except ImageUploadError:
+        raise
+    except Exception:
+        raise ImageUploadError("That image could not be read — it may be corrupt")
+    finally:
+        Image.MAX_IMAGE_PIXELS = previous_limit
 
 
 def sanitize_submitted_image(

@@ -757,9 +757,20 @@
                     form.style.display = 'none';
                     successMessage.style.display = 'block';
                 } else {
-                    // Show validation errors
+                    // Show validation errors.
+                    //
+                    // Built with createElement + textContent, not innerHTML:
+                    // these strings come off the wire, and this page is on the
+                    // same origin as the admin UI. Interpolating them into
+                    // markup made any API-controlled (or MITM-injected) error
+                    // message executable here.
                     const msgs = data.errors || [data.message || 'Something went wrong'];
-                    errorBanner.innerHTML = msgs.map(m => `<div>${m}</div>`).join('');
+                    errorBanner.textContent = '';
+                    msgs.forEach(m => {
+                        const line = document.createElement('div');
+                        line.textContent = typeof m === 'string' ? m : String(m);
+                        errorBanner.appendChild(line);
+                    });
                     errorBanner.style.display = 'block';
                 }
             } catch (err) {
