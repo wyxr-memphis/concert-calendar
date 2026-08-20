@@ -469,8 +469,26 @@
             })
             .catch(() => {}); // silently fall back to empty list
 
-        // Set min date to today
-        const today = new Date().toISOString().split('T')[0];
+        // Set min date to today — in Memphis, not in UTC.
+        //
+        // toISOString() returns the UTC date, which after 7pm Central is already
+        // tomorrow. The form then set min= to tomorrow and rejected tonight's
+        // show, which is exactly when someone is most likely to be submitting it.
+        function centralToday() {
+            try {
+                const parts = new Intl.DateTimeFormat('en-US', {
+                    timeZone: 'America/Chicago',
+                    year: 'numeric', month: '2-digit', day: '2-digit',
+                }).formatToParts(new Date());
+                const get = (type) => (parts.find(p => p.type === type) || {}).value;
+                const y = get('year'), m = get('month'), d = get('day');
+                if (y && m && d) return `${y}-${m}-${d}`;
+            } catch (err) {
+                /* fall through to UTC below */
+            }
+            return new Date().toISOString().split('T')[0];
+        }
+        const today = centralToday();
         document.getElementById('eventDate').setAttribute('min', today);
 
         // Character count for description

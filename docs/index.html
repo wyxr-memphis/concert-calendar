@@ -1898,19 +1898,25 @@
             const presentsEvents = allEvents.filter(e => {
                 if (!e.is_wyxr_presents || e.is_active === false) return false;
                 if (e.date < todayStr) return false;
-                // Apply search filter
-                if (searchInput.value.trim()) {
-                    const query = searchInput.value.trim().toLowerCase();
-                    const text = `${e.title || ''} ${e.venue || ''} ${e.neighborhood || ''}`.toLowerCase();
-                    if (!text.includes(query)) return false;
-                }
-                // Apply neighborhood filter
-                const activeChip = document.querySelector('.chip.active');
-                const activeNeighborhood = activeChip ? activeChip.dataset.neighborhood : 'all';
+
+                // Filter on the same module state the main list uses. Reading
+                // searchInput.value and the active chip out of the DOM here
+                // shadowed that state, so during the 200ms search debounce this
+                // section filtered on the query the user had already typed while
+                // the list below it still showed the previous one.
+
+                // Neighborhood filter
                 if (activeNeighborhood !== 'all') {
                     const nh = e.neighborhood || 'Other';
                     if (nh !== activeNeighborhood) return false;
                 }
+
+                // Search filter
+                if (searchQuery) {
+                    const text = `${e.title || ''} ${e.venue || ''} ${e.neighborhood || ''}`.toLowerCase();
+                    if (!text.includes(searchQuery)) return false;
+                }
+
                 return true;
             });
 

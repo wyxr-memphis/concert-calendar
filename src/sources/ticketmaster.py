@@ -9,7 +9,7 @@ from typing import Optional
 import requests
 from datetime import datetime
 from ..models import Event, SourceResult, best_ticketmaster_image
-from ..http_utils import get_with_retry
+from ..http_utils import get_with_retry, fetch_ticketmaster_events
 from ..config import (
     TICKETMASTER_API_KEY, START_DATE, END_DATE,
     MEMPHIS_LAT, MEMPHIS_LON, MEMPHIS_RADIUS,
@@ -42,16 +42,17 @@ def fetch() -> SourceResult:
             "sort": "date,asc",
         }
 
-        response = get_with_retry(BASE_URL, params=params, timeout=15)
-        response.raise_for_status()
-        data = response.json()
-
-        if "_embedded" not in data or "events" not in data["_embedded"]:
+        raw_events, truncated = fetch_ticketmaster_events(BASE_URL, params)
+        if not raw_events:
             result.events_found = 0
             return result
 
-        raw_events = data["_embedded"]["events"]
         result.events_found = len(raw_events)
+        if truncated:
+            result.error_message = (
+                "Ticketmaster returned more events than the API will page through; "
+                "the tail of the window is missing"
+            )
 
         for event_data in raw_events:
             try:

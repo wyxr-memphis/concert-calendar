@@ -502,10 +502,19 @@ def run(dry_run: bool = False) -> None:
     print(f"Data store: {'PostgreSQL' if use_db else 'events.json (fallback)'}")
     print(f"{'='*60}\n")
 
-    # Create scrape log entry
-    scrape_log_id = _create_scrape_log("calendar-build", run_timestamp)
-    if scrape_log_id:
-        print(f"  [scrape_log] Created log entry: {scrape_log_id}")
+    # Create scrape log entry.
+    #
+    # Skipped entirely on a dry run. This used to be created unconditionally,
+    # but the dry-run path returns before the log is finalized, so every
+    # --dry-run left a permanent status='running' row behind — which the nightly
+    # health check reads as a build that hung.
+    scrape_log_id = None
+    if dry_run:
+        print("  [scrape_log] Skipped (dry run)")
+    else:
+        scrape_log_id = _create_scrape_log("calendar-build", run_timestamp)
+        if scrape_log_id:
+            print(f"  [scrape_log] Created log entry: {scrape_log_id}")
 
     # Free image bytes held by submissions nobody ever reviewed. Submitted
     # flyers sit in Postgres until approved (so they never touch Cloudinary);

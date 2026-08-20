@@ -12,7 +12,7 @@ from datetime import datetime, date
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
-from ..http_utils import get_with_retry
+from ..http_utils import get_with_retry, fetch_ticketmaster_events
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
@@ -255,16 +255,16 @@ def _fetch_ticketmaster_venue(venue_info: dict) -> SourceResult:
             "size": 50,
             "sort": "date,asc",
         }
-        response = get_with_retry(
+        events_data, truncated = fetch_ticketmaster_events(
             "https://app.ticketmaster.com/discovery/v2/events.json",
-            params=params,
-            timeout=15,
+            params,
         )
-        response.raise_for_status()
-        data = response.json()
-
-        events_data = data.get("_embedded", {}).get("events", [])
         result.events_found = len(events_data)
+        if truncated:
+            result.error_message = (
+                "Ticketmaster returned more events than the API will page through; "
+                "the tail of the window is missing"
+            )
 
         for event_data in events_data:
             try:

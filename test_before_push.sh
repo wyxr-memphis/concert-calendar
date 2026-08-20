@@ -149,8 +149,20 @@ else
 fi
 echo ""
 
-# Check 10: Git status
-echo "🔟  Checking git status..."
+# Check 10: Ticketmaster pagination tests (offline — no network, no API key)
+echo "🔟  Running Ticketmaster pagination tests..."
+if python3 scripts/test_ticketmaster_pagination.py > /tmp/tm_pagination_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Ticketmaster pagination tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Ticketmaster pagination tests failed${NC}"
+    tail -20 /tmp/tm_pagination_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 11: Git status
+echo "1️⃣1️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else
