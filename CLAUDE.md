@@ -170,6 +170,12 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 
 ## Important Files
 
+> **Background reading:** [`REVIEW.md`](REVIEW.md) is a full-codebase review from August 2026
+> with a per-item status layer. Most of its bug/security findings are fixed and its line
+> numbers have moved, but it is the record of *why* several of these decisions were made, and
+> it holds the two designs not yet built: the venue-by-venue scraper approach (§5) and the
+> Instagram ingestion feasibility analysis (§6). Live work is tracked in `FEATURES.md`.
+
 ### Core Application
 - `src/main.py` - Orchestrator (fetch → merge → prune → HTML → RSS)
 - `src/config.py` - Venues, neighborhoods, keywords, date ranges
