@@ -46,7 +46,10 @@ def _find_chrome():
     if explicit and os.path.exists(explicit):
         return explicit
     roots = [os.environ.get("PLAYWRIGHT_BROWSERS_PATH", ""), "/opt/pw-browsers",
-             os.path.expanduser("~/.cache/ms-playwright")]
+             os.path.expanduser("~/.cache/ms-playwright"),
+             # macOS puts the playwright cache here, not in ~/.cache — without
+             # this the test silently skips on every Mac.
+             os.path.expanduser("~/Library/Caches/ms-playwright")]
     for root in roots:
         if not root or not os.path.isdir(root):
             continue
