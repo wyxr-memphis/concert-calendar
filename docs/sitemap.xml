@@ -7,13 +7,13 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/thisweek.html</loc>
+        <loc>https://concert-calendar.wyxr.org/thisweek</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/submit.html</loc>
+        <loc>https://concert-calendar.wyxr.org/submit</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
@@ -253,19 +253,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/980b4f82-8528-46c7-9897-72e40c9db55e</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://concert-calendar.wyxr.org/e/9c58753a-8674-4fdd-9df8-10c4afa431ed</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f16f0056-6350-4792-9519-2f0e55fe1cd0</loc>
+        <loc>https://concert-calendar.wyxr.org/e/980b4f82-8528-46c7-9897-72e40c9db55e</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -277,19 +271,25 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>https://concert-calendar.wyxr.org/e/f16f0056-6350-4792-9519-2f0e55fe1cd0</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://concert-calendar.wyxr.org/e/4ea619a2-e017-4618-bd95-98fbe6d1d128</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/320b0a97-5325-424d-a0ad-e1ca3d99bc7a</loc>
+        <loc>https://concert-calendar.wyxr.org/e/f765438d-8ffb-4c97-8906-c9fd0d7d66f8</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f765438d-8ffb-4c97-8906-c9fd0d7d66f8</loc>
+        <loc>https://concert-calendar.wyxr.org/e/320b0a97-5325-424d-a0ad-e1ca3d99bc7a</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -313,6 +313,12 @@
         <priority>0.6</priority>
     </url>
     <url>
+        <loc>https://concert-calendar.wyxr.org/e/3b138815-bb60-46cf-9847-0e8acc4bedb9</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://concert-calendar.wyxr.org/e/6e7389c7-7dfb-45f9-ba27-b70d15606689</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
@@ -331,12 +337,6 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/3b138815-bb60-46cf-9847-0e8acc4bedb9</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://concert-calendar.wyxr.org/e/b1b44a06-b65b-4b0a-aa4e-a80ea09c4922</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
@@ -349,7 +349,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/9e2be976-127a-4d6b-a418-7ddb594ca2bd</loc>
+        <loc>https://concert-calendar.wyxr.org/e/84bab093-c18e-4e22-9cb6-1356f71e37a8</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -361,13 +361,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/84bab093-c18e-4e22-9cb6-1356f71e37a8</loc>
+        <loc>https://concert-calendar.wyxr.org/e/f3cbfa46-9b97-4008-9421-3aed4de49e3d</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f3cbfa46-9b97-4008-9421-3aed4de49e3d</loc>
+        <loc>https://concert-calendar.wyxr.org/e/9e2be976-127a-4d6b-a418-7ddb594ca2bd</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -451,7 +451,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/e6ec9cbd-3867-4d3e-8e63-ff6bf68acf16</loc>
+        <loc>https://concert-calendar.wyxr.org/e/7f7787c8-09e8-4bf8-ac20-08fa36cca7ef</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -463,7 +463,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/7f7787c8-09e8-4bf8-ac20-08fa36cca7ef</loc>
+        <loc>https://concert-calendar.wyxr.org/e/e6ec9cbd-3867-4d3e-8e63-ff6bf68acf16</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -655,13 +655,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/9909df6d-6fbd-4f12-a4f3-238126797a6f</loc>
+        <loc>https://concert-calendar.wyxr.org/e/0f685616-7d70-462e-9fdc-b85a7360b741</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/0f685616-7d70-462e-9fdc-b85a7360b741</loc>
+        <loc>https://concert-calendar.wyxr.org/e/9909df6d-6fbd-4f12-a4f3-238126797a6f</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -799,19 +799,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f6795fb7-ff58-402c-9c9d-e99fcaf510a2</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://concert-calendar.wyxr.org/e/5acaf407-bbc1-40f6-bc2c-27ab569a8921</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/852fbbdb-71c2-415a-87c3-871285cf6b89</loc>
+        <loc>https://concert-calendar.wyxr.org/e/f6795fb7-ff58-402c-9c9d-e99fcaf510a2</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -823,7 +817,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/35db0ffa-ea7f-4466-b4da-8f29dfc414b3</loc>
+        <loc>https://concert-calendar.wyxr.org/e/852fbbdb-71c2-415a-87c3-871285cf6b89</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -835,7 +829,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/aef1f11d-35d5-43a4-ae4e-bd45f12f0c67</loc>
+        <loc>https://concert-calendar.wyxr.org/e/35db0ffa-ea7f-4466-b4da-8f29dfc414b3</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://concert-calendar.wyxr.org/e/adf4bcb4-25ba-4eea-919e-bce43708595c</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -853,13 +853,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/3cc9be12-529b-43ba-a95d-e1a3c0adb72b</loc>
+        <loc>https://concert-calendar.wyxr.org/e/aef1f11d-35d5-43a4-ae4e-bd45f12f0c67</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/adf4bcb4-25ba-4eea-919e-bce43708595c</loc>
+        <loc>https://concert-calendar.wyxr.org/e/3cc9be12-529b-43ba-a95d-e1a3c0adb72b</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -877,13 +877,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/343eb9ec-3939-4171-9699-723295d9ad34</loc>
+        <loc>https://concert-calendar.wyxr.org/e/bc1779b4-3b3d-4295-85d2-39e682970bf8</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/bc1779b4-3b3d-4295-85d2-39e682970bf8</loc>
+        <loc>https://concert-calendar.wyxr.org/e/343eb9ec-3939-4171-9699-723295d9ad34</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -901,13 +901,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/ffbf12d5-1ebf-41ce-8ddd-999214ef8491</loc>
+        <loc>https://concert-calendar.wyxr.org/e/bbc6444e-9016-4f9d-9f59-bff77e106baf</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/bbc6444e-9016-4f9d-9f59-bff77e106baf</loc>
+        <loc>https://concert-calendar.wyxr.org/e/ffbf12d5-1ebf-41ce-8ddd-999214ef8491</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -931,13 +931,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/bdc9f05b-ba5d-4481-8de0-06a18e9ed041</loc>
+        <loc>https://concert-calendar.wyxr.org/e/6d2aa21c-7ea1-4a8b-bcef-183621f8eb95</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/6d2aa21c-7ea1-4a8b-bcef-183621f8eb95</loc>
+        <loc>https://concert-calendar.wyxr.org/e/bdc9f05b-ba5d-4481-8de0-06a18e9ed041</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1063,13 +1063,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/2b892e78-a3c8-4cb8-a8df-b2eeef5523fe</loc>
+        <loc>https://concert-calendar.wyxr.org/e/54ea091e-68f4-4921-8568-095bcc0dfb70</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/54ea091e-68f4-4921-8568-095bcc0dfb70</loc>
+        <loc>https://concert-calendar.wyxr.org/e/2b892e78-a3c8-4cb8-a8df-b2eeef5523fe</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1093,13 +1093,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/86cb0454-7dc7-426a-90f6-0dab931c6acb</loc>
+        <loc>https://concert-calendar.wyxr.org/e/8f3aa732-24cb-4392-875a-b01ac89d22ed</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/8f3aa732-24cb-4392-875a-b01ac89d22ed</loc>
+        <loc>https://concert-calendar.wyxr.org/e/86cb0454-7dc7-426a-90f6-0dab931c6acb</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1321,13 +1321,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/c52af04d-8f8e-440c-bad1-c4eba63672e4</loc>
+        <loc>https://concert-calendar.wyxr.org/e/4d0d2b2a-c906-40ce-b2b7-0aa5d810e1d1</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/4d0d2b2a-c906-40ce-b2b7-0aa5d810e1d1</loc>
+        <loc>https://concert-calendar.wyxr.org/e/c52af04d-8f8e-440c-bad1-c4eba63672e4</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1399,13 +1399,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/ba94bbae-bd01-4b7a-aec1-dfd625bc88ac</loc>
+        <loc>https://concert-calendar.wyxr.org/e/e3ac68a6-2bb3-4886-91a7-26751b6fe4d0</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/e3ac68a6-2bb3-4886-91a7-26751b6fe4d0</loc>
+        <loc>https://concert-calendar.wyxr.org/e/ba94bbae-bd01-4b7a-aec1-dfd625bc88ac</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1459,13 +1459,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f802123d-e55c-4caf-a954-4e0913fe9067</loc>
+        <loc>https://concert-calendar.wyxr.org/e/2a54e789-8dae-4829-ad93-3f3a6a4f7c58</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/2a54e789-8dae-4829-ad93-3f3a6a4f7c58</loc>
+        <loc>https://concert-calendar.wyxr.org/e/f802123d-e55c-4caf-a954-4e0913fe9067</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -1615,12 +1615,6 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/60a01c49-6428-4e09-b88c-6b73140d01bc</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://concert-calendar.wyxr.org/e/46e1becd-1226-4698-ad2c-399a3654cf37</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
@@ -1628,6 +1622,12 @@
     </url>
     <url>
         <loc>https://concert-calendar.wyxr.org/e/d22c3a8b-7b44-42bb-9e7b-5b5bc40a0300</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://concert-calendar.wyxr.org/e/60a01c49-6428-4e09-b88c-6b73140d01bc</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2017,7 +2017,7 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/6e35307b-5177-45eb-91c4-c5a11b5b8eda</loc>
+        <loc>https://concert-calendar.wyxr.org/e/863b65d3-065c-4f8f-a38d-4600c486ffe4</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2029,13 +2029,19 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/863b65d3-065c-4f8f-a38d-4600c486ffe4</loc>
+        <loc>https://concert-calendar.wyxr.org/e/6e35307b-5177-45eb-91c4-c5a11b5b8eda</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://concert-calendar.wyxr.org/e/6e5b0579-7070-4dfe-9017-ad747c9023a8</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://concert-calendar.wyxr.org/e/a939d504-630a-46b2-8dc0-f24f4eb6d584</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2161,13 +2167,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/e9f3215e-6c39-4a6f-ae54-06cb6cde9420</loc>
+        <loc>https://concert-calendar.wyxr.org/e/7351c5fc-aa9d-4e86-bfaa-29224ce07680</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/7351c5fc-aa9d-4e86-bfaa-29224ce07680</loc>
+        <loc>https://concert-calendar.wyxr.org/e/e9f3215e-6c39-4a6f-ae54-06cb6cde9420</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2365,13 +2371,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/725ef19c-ce38-41d5-8be9-6c8a55f1beb1</loc>
+        <loc>https://concert-calendar.wyxr.org/e/f43ee1c5-8d09-4d29-b378-6468f19ea7e3</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/f43ee1c5-8d09-4d29-b378-6468f19ea7e3</loc>
+        <loc>https://concert-calendar.wyxr.org/e/725ef19c-ce38-41d5-8be9-6c8a55f1beb1</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2383,25 +2389,25 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/96917e3c-8df5-4adf-b0bb-6e30b04f02ae</loc>
-        <lastmod>2026-08-20</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    <url>
         <loc>https://concert-calendar.wyxr.org/e/bab47c63-d7be-4bdb-9f1a-2a0ef6733878</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/e8d4ac71-7769-442e-a30f-1b164156e1ab</loc>
+        <loc>https://concert-calendar.wyxr.org/e/96917e3c-8df5-4adf-b0bb-6e30b04f02ae</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
         <loc>https://concert-calendar.wyxr.org/e/95d8dab0-ebe9-4a4d-b047-affc06e612e4</loc>
+        <lastmod>2026-08-20</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://concert-calendar.wyxr.org/e/e8d4ac71-7769-442e-a30f-1b164156e1ab</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2425,13 +2431,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/a8873eb0-e4cf-4621-a9d8-76e92b610d9b</loc>
+        <loc>https://concert-calendar.wyxr.org/e/711a84d4-e680-4963-8287-bd14166ebe2a</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/711a84d4-e680-4963-8287-bd14166ebe2a</loc>
+        <loc>https://concert-calendar.wyxr.org/e/a8873eb0-e4cf-4621-a9d8-76e92b610d9b</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2443,13 +2449,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/7c797131-f860-42e6-94f8-7f5cf7e6bc93</loc>
+        <loc>https://concert-calendar.wyxr.org/e/166be80a-5eed-4d99-89f0-d994dede90d0</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/166be80a-5eed-4d99-89f0-d994dede90d0</loc>
+        <loc>https://concert-calendar.wyxr.org/e/7c797131-f860-42e6-94f8-7f5cf7e6bc93</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2731,13 +2737,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/c49b3e75-da73-4a0a-bc73-0259474ab178</loc>
+        <loc>https://concert-calendar.wyxr.org/e/bdfc581c-d58d-497b-84b9-36d112bb6cd6</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/bdfc581c-d58d-497b-84b9-36d112bb6cd6</loc>
+        <loc>https://concert-calendar.wyxr.org/e/c49b3e75-da73-4a0a-bc73-0259474ab178</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2767,13 +2773,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/a0f62238-db6b-42ce-a56e-ae68bbb88cd9</loc>
+        <loc>https://concert-calendar.wyxr.org/e/fdebb1e1-814c-4feb-b312-61b20c4f1fdf</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/fdebb1e1-814c-4feb-b312-61b20c4f1fdf</loc>
+        <loc>https://concert-calendar.wyxr.org/e/a0f62238-db6b-42ce-a56e-ae68bbb88cd9</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -2887,13 +2893,13 @@
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/fc3d479c-70a7-44d6-af23-e92cc7705811</loc>
+        <loc>https://concert-calendar.wyxr.org/e/bbe074e0-6081-4e80-a74d-5763ef6106bb</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
     <url>
-        <loc>https://concert-calendar.wyxr.org/e/bbe074e0-6081-4e80-a74d-5763ef6106bb</loc>
+        <loc>https://concert-calendar.wyxr.org/e/fc3d479c-70a7-44d6-af23-e92cc7705811</loc>
         <lastmod>2026-08-20</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

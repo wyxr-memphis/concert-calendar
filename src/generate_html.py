@@ -196,11 +196,11 @@ def generate_html(
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="description" content="What's happening in Memphis this week? Live music listings for the next 8 days. From WYXR 91.7 FM.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek.html">
+    <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:title" content="Memphis Live Music — Next 8 Days">
     <meta property="og:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek.html">
+    <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
     <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
     <meta name="twitter:card" content="summary_large_image">

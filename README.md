@@ -217,7 +217,9 @@ In the calendar itself:
   `ItemList` for the rendered month once the API responds.
 - `/e/<id>` pages carry per-event `MusicEvent` JSON-LD, server-rendered.
 - `sitemap.xml` lists the static pages plus one URL per event in the 180-day window;
-  `robots.txt` points at it. Past events are deliberately excluded.
+  `robots.txt` points at it. Past events are deliberately excluded. Static entries use the
+  extensionless form (`/thisweek`, not `/thisweek.html`) because `cleanUrls` 308-redirects
+  the `.html` paths — each page's `rel=canonical` and `og:url` match.
 - Both feeds are advertised with `<link rel="alternate">` on every page and linked in the
   footer. Before this they existed with nothing pointing at them.
 
