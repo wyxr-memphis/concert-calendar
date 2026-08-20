@@ -5,7 +5,7 @@
         <link>https://concert-calendar.wyxr.org</link>
         <description>Live music events in Memphis, TN — curated by WYXR 91.7 FM</description>
         <language>en-US</language>
-        <lastBuildDate>Thu, 20 Aug 2026 19:15:24 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 20 Aug 2026 19:39:29 +0000</lastBuildDate>
         <generator>WYXR Concert Calendar</generator>
         <docs>https://concert-calendar.wyxr.org</docs>
         <item>
@@ -231,16 +231,6 @@
             <guid isPermaLink="false">wyxr-concert-c13b9166-d222-4777-860e-e16e9b10f4d5</guid>
         </item>
         <item>
-            <title>BB King All-Stars — B.B. King&#x27;s Blues Club</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Friday, August 21, 2026 | B.B. King&#x27;s Blues Club | 8:00 pm</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>BB King All-Stars</h3><p><strong>B.B. King&#x27;s Blues Club</strong></p><p>Friday, August 21, 2026</p><p>Time: 8:00 pm</p>]]></content:encoded>
-            <pubDate>Fri, 21 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-474a5b27-e48a-4d5f-96d0-8f289d0e1f73</guid>
-        </item>
-        <item>
             <title>Will Tucker Band — Blues City Cafe</title>
             <link>https://bluescitycafe.com/music/</link>
             <description>Friday, August 21, 2026 | Blues City Cafe | 8:00 pm</description>
@@ -249,6 +239,16 @@
             <content:encoded><![CDATA[<h3>Will Tucker Band</h3><p><strong>Blues City Cafe</strong></p><p>Friday, August 21, 2026</p><p>Time: 8:00 pm</p><p><a href="https://bluescitycafe.com/music/">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Fri, 21 Aug 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-945033a1-02eb-4f3f-9ac8-de3dd98858cf</guid>
+        </item>
+        <item>
+            <title>BB King All-Stars — B.B. King&#x27;s Blues Club</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Friday, August 21, 2026 | B.B. King&#x27;s Blues Club | 8:00 pm</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>BB King All-Stars</h3><p><strong>B.B. King&#x27;s Blues Club</strong></p><p>Friday, August 21, 2026</p><p>Time: 8:00 pm</p>]]></content:encoded>
+            <pubDate>Fri, 21 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-474a5b27-e48a-4d5f-96d0-8f289d0e1f73</guid>
         </item>
         <item>
             <title>Steve Selvedge — B-Side Memphis</title>
@@ -348,18 +348,6 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-85d48dc5-d563-4d9b-987a-3791de8cbadd</guid>
         </item>
         <item>
-            <title>Ben Church — Bar DKDC</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 22, 2026 | Bar DKDC | WYXR Pick</description>
-            <category>WYXR Pick</category>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>true</wyxr:pick>
-            <wyxr:badge>WYXR Pick</wyxr:badge>
-            <content:encoded><![CDATA[<p><strong style="color: #f5a623;">⭐ WYXR Pick</strong></p><h3>Ben Church</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
-            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-86140747-181d-4579-a247-71467c7b9b7a</guid>
-        </item>
-        <item>
             <title>Graham Winchester — Bar DKDC</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Saturday, August 22, 2026 | Bar DKDC | WYXR Pick</description>
@@ -382,6 +370,18 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <content:encoded><![CDATA[<p><strong style="color: #f5a623;">⭐ WYXR Pick</strong></p><h3>Frank McLallen</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-31643bee-0625-4028-976f-f93e9f954ac3</guid>
+        </item>
+        <item>
+            <title>Ben Church — Bar DKDC</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Saturday, August 22, 2026 | Bar DKDC | WYXR Pick</description>
+            <category>WYXR Pick</category>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>true</wyxr:pick>
+            <wyxr:badge>WYXR Pick</wyxr:badge>
+            <content:encoded><![CDATA[<p><strong style="color: #f5a623;">⭐ WYXR Pick</strong></p><h3>Ben Church</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
+            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-86140747-181d-4579-a247-71467c7b9b7a</guid>
         </item>
         <item>
             <title>Memphis Labor Council Picnic — Overton Park Shell</title>
@@ -434,16 +434,6 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-cae9190f-5091-4e9f-8c3e-70cb3dfa1b15</guid>
         </item>
         <item>
-            <title>Sarah Spain and the Nightshades — Lafayette&#x27;s Music Room</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 22, 2026 | Lafayette&#x27;s Music Room | 6 PM</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Sarah Spain and the Nightshades</h3><p><strong>Lafayette&#x27;s Music Room</strong></p><p>Saturday, August 22, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
-            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-9c58753a-8674-4fdd-9df8-10c4afa431ed</guid>
-        </item>
-        <item>
             <title>THIS IS MUSIC- Harris &amp; Fitz — Flyway Brewing</title>
             <link>https://www.flywaybrewingmemphis.com/events/this-is-music-harris-fitz-2026-08-22-17-00</link>
             <description>Saturday, August 22, 2026 | Flyway Brewing | 6 PM</description>
@@ -455,14 +445,14 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-980b4f82-8528-46c7-9897-72e40c9db55e</guid>
         </item>
         <item>
-            <title>Hope Clayburn — B-Side Memphis</title>
+            <title>Sarah Spain and the Nightshades — Lafayette&#x27;s Music Room</title>
             <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 22, 2026 | B-Side Memphis | 7 PM</description>
+            <description>Saturday, August 22, 2026 | Lafayette&#x27;s Music Room | 6 PM</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Hope Clayburn</h3><p><strong>B-Side Memphis</strong></p><p>Saturday, August 22, 2026</p><p>Time: 7 PM</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Sarah Spain and the Nightshades</h3><p><strong>Lafayette&#x27;s Music Room</strong></p><p>Saturday, August 22, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-7d6dcef5-c156-4f3d-90f4-939fb4f2cb97</guid>
+            <guid isPermaLink="false">wyxr-concert-9c58753a-8674-4fdd-9df8-10c4afa431ed</guid>
         </item>
         <item>
             <title>Willie Firecracker — B-Side Memphis</title>
@@ -485,6 +475,16 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-4ea619a2-e017-4618-bd95-98fbe6d1d128</guid>
         </item>
         <item>
+            <title>Hope Clayburn — B-Side Memphis</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Saturday, August 22, 2026 | B-Side Memphis | 7 PM</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Hope Clayburn</h3><p><strong>B-Side Memphis</strong></p><p>Saturday, August 22, 2026</p><p>Time: 7 PM</p>]]></content:encoded>
+            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-7d6dcef5-c156-4f3d-90f4-939fb4f2cb97</guid>
+        </item>
+        <item>
             <title>Will Tucker Band — Blues City Cafe</title>
             <link>https://bluescitycafe.com/music/</link>
             <description>Saturday, August 22, 2026 | Blues City Cafe | 8:00 pm</description>
@@ -505,6 +505,16 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-320b0a97-5325-424d-a0ad-e1ca3d99bc7a</guid>
         </item>
         <item>
+            <title>Spaceman’s Dead Friends — Hernando&#x27;s Hideaway</title>
+            <link>https://wl.seetickets.us/event/spacemans-dead-friends/695743?afflky=HernandosHideAWay</link>
+            <description>Saturday, August 22, 2026 | Hernando&#x27;s Hideaway | 8:00PM</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Spaceman’s Dead Friends</h3><p><strong>Hernando&#x27;s Hideaway</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8:00PM</p><p><a href="https://wl.seetickets.us/event/spacemans-dead-friends/695743?afflky=HernandosHideAWay">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-347ec04e-fc03-4d04-9b80-910b3184e6cf</guid>
+        </item>
+        <item>
             <title>TopOppGen — Growlers</title>
             <link>https://wl.seetickets.us/event/topoppgen-pdnrome-tour-at-growlers-memphis-tn/696099?afflky=GrowlersMemphisTN</link>
             <description>Saturday, August 22, 2026 | Growlers | 8:00PM</description>
@@ -516,25 +526,15 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-31ba5550-8ab1-486b-b85d-b7360acb941e</guid>
         </item>
         <item>
-            <title>Spaceman’s Dead Friends — Hernando&#x27;s Hideaway</title>
-            <link>https://wl.seetickets.us/event/spacemans-dead-friends/695743?afflky=HernandosHideAWay</link>
-            <description>Saturday, August 22, 2026 | Hernando&#x27;s Hideaway | 8:00PM</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Spaceman’s Dead Friends</h3><p><strong>Hernando&#x27;s Hideaway</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8:00PM</p><p><a href="https://wl.seetickets.us/event/spacemans-dead-friends/695743?afflky=HernandosHideAWay">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-347ec04e-fc03-4d04-9b80-910b3184e6cf</guid>
-        </item>
-        <item>
-            <title>Correction — Society Memphis Skatepark and Coffee</title>
+            <title>Muzzleflash — Society Memphis Skatepark and Coffee</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Saturday, August 22, 2026 | Society Memphis Skatepark and Coffee | 8 PM</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Correction</h3><p><strong>Society Memphis Skatepark and Coffee</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Muzzleflash</h3><p><strong>Society Memphis Skatepark and Coffee</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
             <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1787232639/concert-calendar/event-images/20260820133038_image.png" type="image/jpeg" length="0"/>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-4c8a248b-25d9-4bc7-8303-c16a9345a899</guid>
+            <guid isPermaLink="false">wyxr-concert-b9708ce5-adf1-49c1-93c0-4b0682f7c28e</guid>
         </item>
         <item>
             <title>The Super 5 — Nashoba</title>
@@ -558,6 +558,17 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-6e7389c7-7dfb-45f9-ba27-b70d15606689</guid>
         </item>
         <item>
+            <title>Correction — Society Memphis Skatepark and Coffee</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Saturday, August 22, 2026 | Society Memphis Skatepark and Coffee | 8 PM</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Correction</h3><p><strong>Society Memphis Skatepark and Coffee</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
+            <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1787232639/concert-calendar/event-images/20260820133038_image.png" type="image/jpeg" length="0"/>
+            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-4c8a248b-25d9-4bc7-8303-c16a9345a899</guid>
+        </item>
+        <item>
             <title>Human Shield — Society Memphis Skatepark and Coffee</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Saturday, August 22, 2026 | Society Memphis Skatepark and Coffee | 8 PM</description>
@@ -567,17 +578,6 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1787232639/concert-calendar/event-images/20260820133038_image.png" type="image/jpeg" length="0"/>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-19442a4b-0657-4a52-a6cd-6a5a7154185f</guid>
-        </item>
-        <item>
-            <title>Muzzleflash — Society Memphis Skatepark and Coffee</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 22, 2026 | Society Memphis Skatepark and Coffee | 8 PM</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Muzzleflash</h3><p><strong>Society Memphis Skatepark and Coffee</strong></p><p>Saturday, August 22, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
-            <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1787232639/concert-calendar/event-images/20260820133038_image.png" type="image/jpeg" length="0"/>
-            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-b9708ce5-adf1-49c1-93c0-4b0682f7c28e</guid>
         </item>
         <item>
             <title>Terry Greene &amp; the Honey Golds — Lafayette&#x27;s Music Room</title>
@@ -590,24 +590,14 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-b1b44a06-b65b-4b0a-aa4e-a80ea09c4922</guid>
         </item>
         <item>
-            <title>Healing Frequencies [Big Room-Upstairs] — Hi Tone</title>
-            <link>https://hitonecafe.com/event/healing-frequencies-big-room-upstairs/hi-tone-cafe/memphis-tennessee/</link>
-            <description>Saturday, August 22, 2026 | Hi Tone</description>
+            <title>DJ Mad.D — Bar DKDC</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Saturday, August 22, 2026 | Bar DKDC</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Healing Frequencies [Big Room-Upstairs]</h3><p><strong>Hi Tone</strong></p><p>Saturday, August 22, 2026</p><p><a href="https://hitonecafe.com/event/healing-frequencies-big-room-upstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>DJ Mad.D</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-24cbd9ae-d3e8-40e3-9f00-d1621bd1bab5</guid>
-        </item>
-        <item>
-            <title>Hodge Podge Collage — Crosstown Brewing Co.</title>
-            <link>https://crosstownbeer.com/events/</link>
-            <description>Saturday, August 22, 2026 | Crosstown Brewing Co.</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Hodge Podge Collage</h3><p><strong>Crosstown Brewing Co.</strong></p><p>Saturday, August 22, 2026</p><p><a href="https://crosstownbeer.com/events/">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-84bab093-c18e-4e22-9cb6-1356f71e37a8</guid>
+            <guid isPermaLink="false">wyxr-concert-e2e72f43-863f-41bd-aa69-294fac074371</guid>
         </item>
         <item>
             <title>Just.Josh — Bar DKDC</title>
@@ -620,14 +610,24 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-13caaef5-9173-47e0-b940-7a69518b61e9</guid>
         </item>
         <item>
-            <title>Jeff Hullett — Bar DKDC</title>
+            <title>Healing Frequencies [Big Room-Upstairs] — Hi Tone</title>
+            <link>https://hitonecafe.com/event/healing-frequencies-big-room-upstairs/hi-tone-cafe/memphis-tennessee/</link>
+            <description>Saturday, August 22, 2026 | Hi Tone</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Healing Frequencies [Big Room-Upstairs]</h3><p><strong>Hi Tone</strong></p><p>Saturday, August 22, 2026</p><p><a href="https://hitonecafe.com/event/healing-frequencies-big-room-upstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-24cbd9ae-d3e8-40e3-9f00-d1621bd1bab5</guid>
+        </item>
+        <item>
+            <title>DJ Larry — Bar DKDC</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Saturday, August 22, 2026 | Bar DKDC</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Jeff Hullett</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>DJ Larry</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-f3cbfa46-9b97-4008-9421-3aed4de49e3d</guid>
+            <guid isPermaLink="false">wyxr-concert-5bbbc67f-cb4d-4db8-9df2-110e8978fa72</guid>
         </item>
         <item>
             <title>DJ Brilli — Bar DKDC</title>
@@ -640,24 +640,24 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-9e2be976-127a-4d6b-a418-7ddb594ca2bd</guid>
         </item>
         <item>
-            <title>DJ Mad.D — Bar DKDC</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 22, 2026 | Bar DKDC</description>
+            <title>Hodge Podge Collage — Crosstown Brewing Co.</title>
+            <link>https://crosstownbeer.com/events/</link>
+            <description>Saturday, August 22, 2026 | Crosstown Brewing Co.</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>DJ Mad.D</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Hodge Podge Collage</h3><p><strong>Crosstown Brewing Co.</strong></p><p>Saturday, August 22, 2026</p><p><a href="https://crosstownbeer.com/events/">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-e2e72f43-863f-41bd-aa69-294fac074371</guid>
+            <guid isPermaLink="false">wyxr-concert-84bab093-c18e-4e22-9cb6-1356f71e37a8</guid>
         </item>
         <item>
-            <title>DJ Larry — Bar DKDC</title>
+            <title>Jeff Hullett — Bar DKDC</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Saturday, August 22, 2026 | Bar DKDC</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>DJ Larry</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Jeff Hullett</h3><p><strong>Bar DKDC</strong></p><p>Saturday, August 22, 2026</p>]]></content:encoded>
             <pubDate>Sat, 22 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-5bbbc67f-cb4d-4db8-9df2-110e8978fa72</guid>
+            <guid isPermaLink="false">wyxr-concert-f3cbfa46-9b97-4008-9421-3aed4de49e3d</guid>
         </item>
         <item>
             <title>The Danny Banks Quartet — Huey&#x27;s (Midtown)</title>
@@ -775,14 +775,14 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-c837a5bb-cdf5-411c-9b01-a675468cc725</guid>
         </item>
         <item>
-            <title>The Back Alley String Band — Huey&#x27;s (Southaven)</title>
+            <title>Bob Nelson &amp; the Bobcats — Huey&#x27;s (Collierville)</title>
             <link>https://concert-calendar.wyxr.org</link>
-            <description>Sunday, August 23, 2026 | Huey&#x27;s (Southaven) | 6 PM</description>
+            <description>Sunday, August 23, 2026 | Huey&#x27;s (Collierville) | 6 PM</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>The Back Alley String Band</h3><p><strong>Huey&#x27;s (Southaven)</strong></p><p>Sunday, August 23, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Bob Nelson &amp; the Bobcats</h3><p><strong>Huey&#x27;s (Collierville)</strong></p><p>Sunday, August 23, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
             <pubDate>Sun, 23 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-7f7787c8-09e8-4bf8-ac20-08fa36cca7ef</guid>
+            <guid isPermaLink="false">wyxr-concert-e6ec9cbd-3867-4d3e-8e63-ff6bf68acf16</guid>
         </item>
         <item>
             <title>Elmo &amp; Lester — Huey&#x27;s (Millington)</title>
@@ -795,14 +795,14 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-3b3fa6bc-1754-4040-8300-ccfc4667a837</guid>
         </item>
         <item>
-            <title>Bob Nelson &amp; the Bobcats — Huey&#x27;s (Collierville)</title>
+            <title>The Back Alley String Band — Huey&#x27;s (Southaven)</title>
             <link>https://concert-calendar.wyxr.org</link>
-            <description>Sunday, August 23, 2026 | Huey&#x27;s (Collierville) | 6 PM</description>
+            <description>Sunday, August 23, 2026 | Huey&#x27;s (Southaven) | 6 PM</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Bob Nelson &amp; the Bobcats</h3><p><strong>Huey&#x27;s (Collierville)</strong></p><p>Sunday, August 23, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>The Back Alley String Band</h3><p><strong>Huey&#x27;s (Southaven)</strong></p><p>Sunday, August 23, 2026</p><p>Time: 6 PM</p>]]></content:encoded>
             <pubDate>Sun, 23 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-e6ec9cbd-3867-4d3e-8e63-ff6bf68acf16</guid>
+            <guid isPermaLink="false">wyxr-concert-7f7787c8-09e8-4bf8-ac20-08fa36cca7ef</guid>
         </item>
         <item>
             <title>Even Odds — Huey&#x27;s (Germantown)</title>
@@ -1374,17 +1374,6 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-86c6e98c-31b3-4de6-9c0c-b83ae2fc8f2a</guid>
         </item>
         <item>
-            <title>Live Music (act unspecified) — Wiseacre Brewing Company (Broad Ave)</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 29, 2026 | Wiseacre Brewing Company (Broad Ave) | 8 PM</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Live Music (act unspecified)</h3><p><strong>Wiseacre Brewing Company (Broad Ave)</strong></p><p>Saturday, August 29, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
-            <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1786048516/concert-calendar/event-images/20260806203516_Image_from_iOS.jpg" type="image/jpeg" length="0"/>
-            <pubDate>Sat, 29 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-5acaf407-bbc1-40f6-bc2c-27ab569a8921</guid>
-        </item>
-        <item>
             <title>Memphis Jones — Nashoba</title>
             <link>https://nashoba.live/vip-experience-2/</link>
             <description>Saturday, August 29, 2026 | Nashoba | 8 PM</description>
@@ -1395,14 +1384,15 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-f6795fb7-ff58-402c-9c9d-e99fcaf510a2</guid>
         </item>
         <item>
-            <title>Omcat — B-Side Memphis</title>
+            <title>Live Music (act unspecified) — Wiseacre Brewing Company (Broad Ave)</title>
             <link>https://concert-calendar.wyxr.org</link>
-            <description>Saturday, August 29, 2026 | B-Side Memphis | 9 PM</description>
+            <description>Saturday, August 29, 2026 | Wiseacre Brewing Company (Broad Ave) | 8 PM</description>
             <wyxr:presents>false</wyxr:presents>
             <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Omcat</h3><p><strong>B-Side Memphis</strong></p><p>Saturday, August 29, 2026</p><p>Time: 9 PM</p>]]></content:encoded>
+            <content:encoded><![CDATA[<h3>Live Music (act unspecified)</h3><p><strong>Wiseacre Brewing Company (Broad Ave)</strong></p><p>Saturday, August 29, 2026</p><p>Time: 8 PM</p>]]></content:encoded>
+            <enclosure url="https://res.cloudinary.com/wyxr/image/upload/v1786048516/concert-calendar/event-images/20260806203516_Image_from_iOS.jpg" type="image/jpeg" length="0"/>
             <pubDate>Sat, 29 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-e003e0ac-972a-409f-95a0-96bbfb7975d7</guid>
+            <guid isPermaLink="false">wyxr-concert-5acaf407-bbc1-40f6-bc2c-27ab569a8921</guid>
         </item>
         <item>
             <title>DJ Chris — B-Side Memphis</title>
@@ -1423,6 +1413,16 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <content:encoded><![CDATA[<h3>Walt Phelan</h3><p><strong>B-Side Memphis</strong></p><p>Saturday, August 29, 2026</p><p>Time: 9 PM</p>]]></content:encoded>
             <pubDate>Sat, 29 Aug 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-5ce50d61-8c07-434d-b447-f5828215f9a4</guid>
+        </item>
+        <item>
+            <title>Omcat — B-Side Memphis</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Saturday, August 29, 2026 | B-Side Memphis | 9 PM</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Omcat</h3><p><strong>B-Side Memphis</strong></p><p>Saturday, August 29, 2026</p><p>Time: 9 PM</p>]]></content:encoded>
+            <pubDate>Sat, 29 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-e003e0ac-972a-409f-95a0-96bbfb7975d7</guid>
         </item>
         <item>
             <title>Motel California — Lafayette&#x27;s Music Room</title>
@@ -1509,16 +1509,6 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <guid isPermaLink="false">wyxr-concert-aad2368c-dcc0-4402-8403-972b0e35d5d0</guid>
         </item>
         <item>
-            <title>Keelyn Ellis — Lafayette&#x27;s Music Room</title>
-            <link>https://concert-calendar.wyxr.org</link>
-            <description>Sunday, August 30, 2026 | Lafayette&#x27;s Music Room | 12 PM</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Keelyn Ellis</h3><p><strong>Lafayette&#x27;s Music Room</strong></p><p>Sunday, August 30, 2026</p><p>Time: 12 PM</p>]]></content:encoded>
-            <pubDate>Sun, 30 Aug 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-bc1779b4-3b3d-4295-85d2-39e682970bf8</guid>
-        </item>
-        <item>
             <title>Wyly Bigger — Lafayette&#x27;s Music Room</title>
             <link>https://concert-calendar.wyxr.org</link>
             <description>Sunday, August 30, 2026 | Lafayette&#x27;s Music Room | 12 PM</description>
@@ -1527,6 +1517,16 @@ Count Your Cards - Melodic Punk Rock</p>]]></content:encoded>
             <content:encoded><![CDATA[<h3>Wyly Bigger</h3><p><strong>Lafayette&#x27;s Music Room</strong></p><p>Sunday, August 30, 2026</p><p>Time: 12 PM</p>]]></content:encoded>
             <pubDate>Sun, 30 Aug 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-343eb9ec-3939-4171-9699-723295d9ad34</guid>
+        </item>
+        <item>
+            <title>Keelyn Ellis — Lafayette&#x27;s Music Room</title>
+            <link>https://concert-calendar.wyxr.org</link>
+            <description>Sunday, August 30, 2026 | Lafayette&#x27;s Music Room | 12 PM</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Keelyn Ellis</h3><p><strong>Lafayette&#x27;s Music Room</strong></p><p>Sunday, August 30, 2026</p><p>Time: 12 PM</p>]]></content:encoded>
+            <pubDate>Sun, 30 Aug 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-bc1779b4-3b3d-4295-85d2-39e682970bf8</guid>
         </item>
         <item>
             <title>Spaceman’s Dead Friends — Crosstown Brewing Co.</title>
@@ -2295,16 +2295,6 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <guid isPermaLink="false">wyxr-concert-432b839f-5b4e-4947-970f-b18db9d21bbe</guid>
         </item>
         <item>
-            <title>It’s A 2000’s Party: Memphis — Minglewood Hall</title>
-            <link>https://minglewoodhallmemphis.com/event/its-a-2000s-party-memphis/</link>
-            <description>Friday, September 11, 2026 | Minglewood Hall</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>It’s A 2000’s Party: Memphis</h3><p><strong>Minglewood Hall</strong></p><p>Friday, September 11, 2026</p><p><a href="https://minglewoodhallmemphis.com/event/its-a-2000s-party-memphis/">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Fri, 11 Sep 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-4d0d2b2a-c906-40ce-b2b7-0aa5d810e1d1</guid>
-        </item>
-        <item>
             <title>Ron Pope [Big Room-Upstairs] — Hi Tone</title>
             <link>https://hitonecafe.com/event/ron-pope-big-room-upstairs/hi-tone-cafe/memphis-tennessee/</link>
             <description>Friday, September 11, 2026 | Hi Tone</description>
@@ -2313,6 +2303,16 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <content:encoded><![CDATA[<h3>Ron Pope [Big Room-Upstairs]</h3><p><strong>Hi Tone</strong></p><p>Friday, September 11, 2026</p><p><a href="https://hitonecafe.com/event/ron-pope-big-room-upstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Fri, 11 Sep 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-c52af04d-8f8e-440c-bad1-c4eba63672e4</guid>
+        </item>
+        <item>
+            <title>It’s A 2000’s Party: Memphis — Minglewood Hall</title>
+            <link>https://minglewoodhallmemphis.com/event/its-a-2000s-party-memphis/</link>
+            <description>Friday, September 11, 2026 | Minglewood Hall</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>It’s A 2000’s Party: Memphis</h3><p><strong>Minglewood Hall</strong></p><p>Friday, September 11, 2026</p><p><a href="https://minglewoodhallmemphis.com/event/its-a-2000s-party-memphis/">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Fri, 11 Sep 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-4d0d2b2a-c906-40ce-b2b7-0aa5d810e1d1</guid>
         </item>
         <item>
             <title>Miz Stefani — Crosstown Brewing Co.</title>
@@ -2529,16 +2529,6 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <guid isPermaLink="false">wyxr-concert-e1455c34-0749-4cd2-a606-d425665c44ca</guid>
         </item>
         <item>
-            <title>Open Mic Comedy Night [small room-downstairs] — Hi Tone</title>
-            <link>https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-50/hi-tone-cafe/memphis-tennessee/</link>
-            <description>Tuesday, September 15, 2026 | Hi Tone</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Open Mic Comedy Night [small room-downstairs]</h3><p><strong>Hi Tone</strong></p><p>Tuesday, September 15, 2026</p><p><a href="https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-50/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Tue, 15 Sep 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-2a54e789-8dae-4829-ad93-3f3a6a4f7c58</guid>
-        </item>
-        <item>
             <title>Dopethrone / Fister / Ruined God Mammoth Caravan [Big Room-Upstairs] — Hi Tone</title>
             <link>https://hitonecafe.com/event/dopethrone-fister-ruined-god-mammoth-caravan-big-room-upstairs/hi-tone-cafe/memphis-tennessee/</link>
             <description>Tuesday, September 15, 2026 | Hi Tone</description>
@@ -2547,6 +2537,16 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <content:encoded><![CDATA[<h3>Dopethrone / Fister / Ruined God Mammoth Caravan [Big Room-Upstairs]</h3><p><strong>Hi Tone</strong></p><p>Tuesday, September 15, 2026</p><p><a href="https://hitonecafe.com/event/dopethrone-fister-ruined-god-mammoth-caravan-big-room-upstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Tue, 15 Sep 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-f802123d-e55c-4caf-a954-4e0913fe9067</guid>
+        </item>
+        <item>
+            <title>Open Mic Comedy Night [small room-downstairs] — Hi Tone</title>
+            <link>https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-50/hi-tone-cafe/memphis-tennessee/</link>
+            <description>Tuesday, September 15, 2026 | Hi Tone</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Open Mic Comedy Night [small room-downstairs]</h3><p><strong>Hi Tone</strong></p><p>Tuesday, September 15, 2026</p><p><a href="https://hitonecafe.com/event/open-mic-comedy-night-small-room-downstairs-50/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Tue, 15 Sep 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-2a54e789-8dae-4829-ad93-3f3a6a4f7c58</guid>
         </item>
         <item>
             <title>Dopethrone [Big Room-Upstairs] — Hi Tone</title>
@@ -2661,16 +2661,6 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <guid isPermaLink="false">wyxr-concert-8ca85b4c-9bb5-4044-a9ce-bd156471ad01</guid>
         </item>
         <item>
-            <title>Will Abeles [Small Room-Downstairs] — Hi Tone</title>
-            <link>https://hitonecafe.com/event/will-abeles-small-room-downstairs/hi-tone-cafe/memphis-tennessee/</link>
-            <description>Thursday, September 17, 2026 | Hi Tone</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>Will Abeles [Small Room-Downstairs]</h3><p><strong>Hi Tone</strong></p><p>Thursday, September 17, 2026</p><p><a href="https://hitonecafe.com/event/will-abeles-small-room-downstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Thu, 17 Sep 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-495a4da0-92e5-43dc-bc46-7c1a3bbb676f</guid>
-        </item>
-        <item>
             <title>Memphis Songwriters Series Hosted by Mark Edgar Stuart — Orpheum Theatre</title>
             <link>https://www.orpheum-memphis.com/events/memphis-songwriter-series-september-2026</link>
             <description>Thursday, September 17, 2026 | Orpheum Theatre</description>
@@ -2679,6 +2669,16 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <content:encoded><![CDATA[<h3>Memphis Songwriters Series Hosted by Mark Edgar Stuart</h3><p><strong>Orpheum Theatre</strong></p><p>Thursday, September 17, 2026</p><p><a href="https://www.orpheum-memphis.com/events/memphis-songwriter-series-september-2026">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Thu, 17 Sep 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-f20d3f16-7d36-4fed-8800-9a45405227d4</guid>
+        </item>
+        <item>
+            <title>Will Abeles [Small Room-Downstairs] — Hi Tone</title>
+            <link>https://hitonecafe.com/event/will-abeles-small-room-downstairs/hi-tone-cafe/memphis-tennessee/</link>
+            <description>Thursday, September 17, 2026 | Hi Tone</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>Will Abeles [Small Room-Downstairs]</h3><p><strong>Hi Tone</strong></p><p>Thursday, September 17, 2026</p><p><a href="https://hitonecafe.com/event/will-abeles-small-room-downstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Thu, 17 Sep 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-495a4da0-92e5-43dc-bc46-7c1a3bbb676f</guid>
         </item>
         <item>
             <title>DJ Livin Birthday Bash: Model Zero, Kate Teague, DJ Rhinestonee, DJ Divje Babe — Bar DKDC</title>
@@ -2797,6 +2797,16 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <guid isPermaLink="false">wyxr-concert-17c536ba-a0b8-4925-86c4-724af7b4d545</guid>
         </item>
         <item>
+            <title>United We Dance: Festival Energy. All Night. — Minglewood Hall</title>
+            <link>https://minglewoodhallmemphis.com/event/united-we-dance-festival-energy-all-night/</link>
+            <description>Friday, September 18, 2026 | Minglewood Hall</description>
+            <wyxr:presents>false</wyxr:presents>
+            <wyxr:pick>false</wyxr:pick>
+            <content:encoded><![CDATA[<h3>United We Dance: Festival Energy. All Night.</h3><p><strong>Minglewood Hall</strong></p><p>Friday, September 18, 2026</p><p><a href="https://minglewoodhallmemphis.com/event/united-we-dance-festival-energy-all-night/">Tickets / More Info</a></p>]]></content:encoded>
+            <pubDate>Fri, 18 Sep 2026 12:00:00 -0500</pubDate>
+            <guid isPermaLink="false">wyxr-concert-60a01c49-6428-4e09-b88c-6b73140d01bc</guid>
+        </item>
+        <item>
             <title>Memphis miniFEST [Big Room-Upstairs] — Hi Tone</title>
             <link>https://hitonecafe.com/event/memphis-minifest-big-room-upstairs-8/hi-tone-cafe/memphis-tennessee/</link>
             <description>Friday, September 18, 2026 | Hi Tone</description>
@@ -2815,16 +2825,6 @@ To The Point captures that moment with clarity and confidence—a record shaped 
             <content:encoded><![CDATA[<h3>Superstition Darkwave Dance Night ft. BellHead [Big Room-Upstairs]</h3><p><strong>Hi Tone</strong></p><p>Friday, September 18, 2026</p><p><a href="https://hitonecafe.com/event/superstition-darkwave-dance-night-ft-bellhead-big-room-upstairs/hi-tone-cafe/memphis-tennessee/">Tickets / More Info</a></p>]]></content:encoded>
             <pubDate>Fri, 18 Sep 2026 12:00:00 -0500</pubDate>
             <guid isPermaLink="false">wyxr-concert-d22c3a8b-7b44-42bb-9e7b-5b5bc40a0300</guid>
-        </item>
-        <item>
-            <title>United We Dance: Festival Energy. All Night. — Minglewood Hall</title>
-            <link>https://minglewoodhallmemphis.com/event/united-we-dance-festival-energy-all-night/</link>
-            <description>Friday, September 18, 2026 | Minglewood Hall</description>
-            <wyxr:presents>false</wyxr:presents>
-            <wyxr:pick>false</wyxr:pick>
-            <content:encoded><![CDATA[<h3>United We Dance: Festival Energy. All Night.</h3><p><strong>Minglewood Hall</strong></p><p>Friday, September 18, 2026</p><p><a href="https://minglewoodhallmemphis.com/event/united-we-dance-festival-energy-all-night/">Tickets / More Info</a></p>]]></content:encoded>
-            <pubDate>Fri, 18 Sep 2026 12:00:00 -0500</pubDate>
-            <guid isPermaLink="false">wyxr-concert-60a01c49-6428-4e09-b88c-6b73140d01bc</guid>
         </item>
         <item>
             <title>Larry Heard &quot;On My Way&quot; Book Signing — Memphis Listening Lab</title>
