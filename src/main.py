@@ -18,7 +18,7 @@ import os
 import sys
 import time
 from collections import defaultdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional
 from zoneinfo import ZoneInfo
@@ -30,6 +30,8 @@ from src.models import Event, SourceResult, normalize_text, compute_dedup_key
 from src.normalize import deduplicate
 from src.generate_html import generate_html
 from src.generate_rss import generate_rss
+from src.generate_ics import generate_ics
+from src.generate_sitemap import generate_sitemap, ROBOTS_TXT
 from src.config import START_DATE, END_DATE, normalize_venue_name
 from src.time_format import strftime_nopad
 from src.sources.events_json import (
@@ -48,6 +50,12 @@ from src.sources import (
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 INDEX_PATH = DOCS_DIR / "thisweek.html"
 LOG_PATH = DOCS_DIR / "log.json"
+
+# Syndication windows. RSS stays at 60 days (what readers expect to scroll);
+# the iCalendar feed and sitemap cover the full scraper lookahead, because a
+# subscribed calendar should show everything we know about.
+RSS_WINDOW_DAYS = 60
+FEED_WINDOW_DAYS = 180
 
 # PostgreSQL connection
 DATABASE_URL = os.environ.get("DATABASE_URL", "")
@@ -482,6 +490,8 @@ def _load_events_for_rss(days: int = 60) -> List[dict]:
             "description": row["description"],
             "genre": row["genre"],
             "source": row["source"] or "unknown",
+            "neighborhood": row.get("neighborhood"),
+            "updated_at": row.get("updated_at"),
             "is_featured": row["is_featured"],
             "is_wyxr_presents": row.get("is_wyxr_presents", False),
         })
@@ -676,11 +686,24 @@ def run(dry_run: bool = False) -> None:
         f.write(html_output)
     print(f"\n  Wrote {INDEX_PATH}")
 
-    # Generate RSS feed (next 60 days)
+    # Generate the syndication outputs: RSS (60 days), iCalendar subscribe feed
+    # and sitemap (both the full FEED_WINDOW_DAYS lookahead).
+    #
+    # One DB read serves all three — the RSS window is a slice of the wider one.
+    # Each writer gets its own try/except so a failure in one still leaves the
+    # others published rather than silently skipping everything downstream.
     if use_db:
+        feed_events = []
         try:
-            rss_events = _load_events_for_rss(days=60)
-            rss_sponsors = _load_sponsors_for_rss(days=60)
+            feed_events = _load_events_for_rss(days=FEED_WINDOW_DAYS)
+        except Exception as e:
+            print(f"  WARNING: Could not load events for feeds: {e}")
+
+        rss_cutoff = (date.today() + timedelta(days=RSS_WINDOW_DAYS)).isoformat()
+        rss_events = [e for e in feed_events if str(e.get("date", "")) <= rss_cutoff]
+
+        try:
+            rss_sponsors = _load_sponsors_for_rss(days=RSS_WINDOW_DAYS)
             rss_output = generate_rss(rss_events, run_timestamp, sponsors=rss_sponsors)
             rss_path = DOCS_DIR / "feed.xml"
             with open(rss_path, "w", encoding="utf-8") as f:
@@ -688,6 +711,29 @@ def run(dry_run: bool = False) -> None:
             print(f"  Wrote {rss_path} ({len(rss_events)} events, {len(rss_sponsors)} sponsors)")
         except Exception as e:
             print(f"  WARNING: Could not generate RSS feed: {e}")
+
+        try:
+            ics_output = generate_ics(feed_events, run_timestamp)
+            ics_path = DOCS_DIR / "calendar.ics"
+            # newline="" so the CRLF line endings RFC 5545 requires are written
+            # verbatim instead of being translated by the platform.
+            with open(ics_path, "w", encoding="utf-8", newline="") as f:
+                f.write(ics_output)
+            print(f"  Wrote {ics_path} ({len(feed_events)} events)")
+        except Exception as e:
+            print(f"  WARNING: Could not generate iCalendar feed: {e}")
+
+        try:
+            sitemap_output = generate_sitemap(feed_events, run_timestamp)
+            sitemap_path = DOCS_DIR / "sitemap.xml"
+            with open(sitemap_path, "w", encoding="utf-8") as f:
+                f.write(sitemap_output)
+            robots_path = DOCS_DIR / "robots.txt"
+            with open(robots_path, "w", encoding="utf-8") as f:
+                f.write(ROBOTS_TXT)
+            print(f"  Wrote {sitemap_path} ({len(feed_events)} event URLs)")
+        except Exception as e:
+            print(f"  WARNING: Could not generate sitemap: {e}")
 
     # Write log
     log_data = {

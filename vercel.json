@@ -4,6 +4,9 @@
   "redirects": [
     { "source": "/calendar.html", "destination": "/", "permanent": true }
   ],
+  "rewrites": [
+    { "source": "/e/:id", "destination": "https://concert-calendar-api.onrender.com/e/:id" }
+  ],
   "headers": [
     {
       "source": "/(index\\.html)?",
@@ -15,6 +18,27 @@
       "source": "/thisweek.html",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=1800, stale-while-revalidate=3600" }
+      ]
+    },
+    {
+      "source": "/calendar.ics",
+      "headers": [
+        { "key": "Content-Type", "value": "text/calendar; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=1800, s-maxage=1800, stale-while-revalidate=3600" }
+      ]
+    },
+    {
+      "source": "/feed.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/rss+xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=1800, s-maxage=1800, stale-while-revalidate=3600" }
+      ]
+    },
+    {
+      "source": "/sitemap.xml",
+      "headers": [
+        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Cache-Control", "value": "public, max-age=3600, s-maxage=3600" }
       ]
     },
     {

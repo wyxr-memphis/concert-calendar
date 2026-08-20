@@ -26,6 +26,37 @@
     <meta name="twitter:description" content="Daily-updated live music calendar for Memphis, TN. Find concerts, shows, and gigs at venues across the city.">
     <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <!-- Feed discovery. Both feeds existed with nothing linking to them; a
+         reader or calendar app can only offer to subscribe if it can find them. -->
+    <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="/feed.xml">
+    <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="/calendar.ics">
+    <!-- Site-level structured data. Per-event Event markup is injected by
+         renderEvents() once the API responds, and each event also has a
+         server-rendered page at /e/<id> carrying its own MusicEvent block. -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://concert-calendar.wyxr.org/#website",
+                "url": "https://concert-calendar.wyxr.org/",
+                "name": "Memphis Concert Calendar",
+                "description": "Daily-updated live music calendar for Memphis, TN. Presented by WYXR 91.7 FM.",
+                "inLanguage": "en-US",
+                "publisher": { "@id": "https://wyxr.org/#organization" }
+            },
+            {
+                "@type": "RadioStation",
+                "@id": "https://wyxr.org/#organization",
+                "name": "WYXR 91.7 FM",
+                "url": "https://wyxr.org",
+                "description": "Community radio for Memphis.",
+                "areaServed": { "@type": "City", "name": "Memphis, TN" }
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://concert-calendar-api.onrender.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -756,6 +787,42 @@
             margin-top: 2px;
         }
 
+        /* Accessibility helpers. The page's title is a banner image, so the
+           <h1> exists for screen readers and crawlers rather than sighted
+           users — hiding it with display:none would remove it from the
+           accessibility tree, hence the clip technique. */
+        .sr-only {
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            z-index: 200;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            padding: 10px 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 0 0 6px 0;
+        }
+        .skip-link:focus { left: 0; }
+
+        /* Feed links in the footer */
+        .footer-feeds {
+            margin-top: 8px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px 10px;
+        }
+
         /* Bottom Search */
         .bottom-search {
             margin: 24px 0;
@@ -908,6 +975,9 @@
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#eventList">Skip to events</a>
+    <h1 class="sr-only">Memphis Live Music Calendar — concerts and shows, updated daily by WYXR 91.7 FM</h1>
+
     <!-- Top Navigation Bar -->
     <div class="top-nav-bar">
         <a href="https://wyxr.org" target="_blank" rel="noopener">
@@ -1004,13 +1074,33 @@
         <div class="event-count" id="eventCount"></div>
     </main>
 
+    <!-- Filled in by renderEventsJsonLd() once the API responds. -->
+    <script type="application/ld+json" id="eventsJsonLd"></script>
+
     <div class="bottom-search">
         <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues...">
     </div>
 
     <footer>
-        Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        <a href="/admin/">Admin</a> &middot; <a href="#" id="refreshData">Refresh data</a>
+        Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis
+        <div class="footer-feeds">
+            <!-- webcal:// is what makes Apple Calendar, Google Calendar and
+                 Outlook offer to *subscribe* rather than import a one-off copy.
+                 The https link next to it is the fallback for anything that
+                 does not register the scheme. -->
+            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">&#128197; Subscribe in your calendar</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="/calendar.ics" download>Download .ics</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="/feed.xml">RSS</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="/thisweek.html">This week</a>
+        </div>
+        <div class="footer-feeds">
+            <a href="/admin/">Admin</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="#" id="refreshData">Refresh data</a>
+        </div>
     </footer>
 
     <!-- Sticky Subscribe Footer -->
@@ -1027,6 +1117,9 @@
         'use strict';
 
         const API_BASE = 'https://concert-calendar-api.onrender.com';
+        // The public origin, not location.origin: a copied share link has to
+        // work when the page is being served from localhost during development.
+        const SITE_ORIGIN = 'https://concert-calendar.wyxr.org';
 
         // Cloudinary "fetch" delivery — resizes/optimizes source images on the
         // fly. Cloud name is public (appears in delivery URLs), not a secret.
@@ -1055,6 +1148,13 @@
         let eventsById = {};
         let _emLastFocused = null;
         let _emCurrentId = null;
+        // True while the modal owns a history entry we pushed ourselves, so the
+        // back button closes the modal instead of leaving the site, and closing
+        // the modal does not leave a stale #event= in the URL.
+        let _emPushedState = false;
+        // Set while opening from a hash/history navigation, so openEventModal
+        // does not push another entry for a state we are already in.
+        let _emSuppressHistory = false;
         // Effective "today" respects 4am Central rollover (defined below in Date helpers)
         // Bootstrap a temporary version here for initialization before the function exists.
         // We re-use the same logic inline since getTodayStr() isn't defined yet at this point.
@@ -1415,6 +1515,33 @@
             return { gcalUrl, outlookUrl, icsBlob, icsFilename: `wyxr-${ev.id}.ics` };
         }
 
+        // ---- Deep links: /#event=<uuid> opens that show's modal on load ----
+
+        function _eventIdFromHash() {
+            const m = (location.hash || '').match(/^#event=(.+)$/);
+            if (!m) return null;
+            try { return decodeURIComponent(m[1]); } catch (err) { return m[1]; }
+        }
+
+        // Opens the modal for whatever the URL currently points at, without
+        // touching history — used on first load and on back/forward.
+        function syncModalToHash() {
+            const id = _eventIdFromHash();
+            if (id && eventsById[id]) {
+                if (_emCurrentId === id) return;
+                _emSuppressHistory = true;
+                try { openEventModal(id, null); } finally { _emSuppressHistory = false; }
+            } else if (_emCurrentId) {
+                // Navigated away from an event (back button, or a hash we no
+                // longer recognise): close without pushing another entry.
+                _emPushedState = false;
+                _emSuppressHistory = true;
+                try { closeEventModal('back'); } finally { _emSuppressHistory = false; }
+            }
+        }
+
+        window.addEventListener('popstate', syncModalToHash);
+
         function openEventModal(eventId, triggerEl) {
             const ev = eventsById[eventId];
             if (!ev) return;
@@ -1535,6 +1662,32 @@
             outlookLink.textContent = 'Outlook.com';
             outlookLink.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'outlook' }));
             secRow.appendChild(outlookLink);
+
+            // Share: copies the /e/<id> permalink, which is server-rendered
+            // with its own og: tags so the paste unfurls as this show rather
+            // than as the calendar homepage.
+            const shareBtn = document.createElement('button');
+            shareBtn.type = 'button';
+            shareBtn.className = 'event-modal-btn-secondary';
+            shareBtn.textContent = 'Copy link';
+            shareBtn.addEventListener('click', async () => {
+                const shareUrl = `${SITE_ORIGIN}/e/${encodeURIComponent(ev.id)}`;
+                trackEvent('share_event', { event_id: ev.id, event_title: ev.title });
+                const done = (label) => {
+                    shareBtn.textContent = label;
+                    setTimeout(() => { shareBtn.textContent = 'Copy link'; }, 2000);
+                };
+                try {
+                    await navigator.clipboard.writeText(shareUrl);
+                    done('Link copied ✓');
+                } catch (err) {
+                    // Clipboard access needs a secure context and can be denied.
+                    // Selecting the URL is a worse but working fallback.
+                    window.prompt('Copy this link:', shareUrl);
+                    done('Copy link');
+                }
+            });
+            secRow.appendChild(shareBtn);
             actionsEl.appendChild(secRow);
 
             const safeTicketUrl = safeUrl(ev.ticket_url);
@@ -1556,6 +1709,16 @@
             document.body.style.overflow = 'hidden';
             setTimeout(() => document.getElementById('eventModalClose').focus(), 50);
 
+            // Give the open modal its own URL and history entry, so the show
+            // can be linked directly and the back button closes the modal
+            // instead of leaving the site.
+            if (!_emSuppressHistory) {
+                try {
+                    history.pushState({ wyxrEventId: ev.id }, '', '#event=' + encodeURIComponent(ev.id));
+                    _emPushedState = true;
+                } catch (err) { /* pushState can throw in a sandboxed frame */ }
+            }
+
             trackEvent('modal_open', {
                 event_id: ev.id,
                 event_title: ev.title,
@@ -1574,6 +1737,22 @@
             trackEvent('modal_close', { event_id: _emCurrentId, close_method: method });
             if (_emLastFocused) { _emLastFocused.focus(); _emLastFocused = null; }
             _emCurrentId = null;
+
+            if (_emSuppressHistory) return;
+            try {
+                if (_emPushedState) {
+                    // We own the current entry; going back both restores the
+                    // previous URL and fires popstate, which no-ops because the
+                    // modal is already closed.
+                    _emPushedState = false;
+                    history.back();
+                } else if (_eventIdFromHash()) {
+                    // Page was loaded straight onto #event=... — there is no
+                    // entry of ours to pop, so drop the hash in place rather
+                    // than sending the visitor back off the site.
+                    history.replaceState(null, '', location.pathname + location.search);
+                }
+            } catch (err) { /* history is unavailable in some embeds */ }
         }
 
         (function initEventModal() {
@@ -1679,6 +1858,9 @@
             eventList.style.display = 'block';
             buildChips();
             renderEvents();
+            // eventsById is only populated now, so a #event= in the URL cannot
+            // be resolved any earlier than this.
+            syncModalToHash();
         }
 
         async function fetchFreshEvents(bustCache) {
@@ -1952,6 +2134,75 @@
             eventList.insertBefore(presentsSection, eventList.querySelector('.event-count')?.nextSibling || eventList.querySelector('.day-section') || eventList.firstChild);
         }
 
+        // ---- Structured data for the rendered events ----
+        //
+        // The page fetches its events at runtime, so the HTML a crawler
+        // receives is an empty shell. Google does execute JavaScript and will
+        // pick up JSON-LD injected here; the durable copy of each event's
+        // markup lives on its own server-rendered /e/<id> page, which the
+        // sitemap points at. This block is the belt to that braces.
+        const JSONLD_MAX_EVENTS = 50;
+
+        function renderEventsJsonLd(events) {
+            const node = document.getElementById('eventsJsonLd');
+            if (!node) return;
+
+            const items = events.slice(0, JSONLD_MAX_EVENTS).map((ev, i) => {
+                const url = `${SITE_ORIGIN}/e/${encodeURIComponent(ev.id)}`;
+                const item = {
+                    '@type': 'MusicEvent',
+                    name: ev.title || 'Live Music',
+                    url: url,
+                    startDate: _jsonLdStartDate(ev),
+                    eventStatus: 'https://schema.org/EventScheduled',
+                    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+                    location: {
+                        '@type': ev.venue ? 'MusicVenue' : 'Place',
+                        name: ev.venue || 'Memphis, TN',
+                        address: {
+                            '@type': 'PostalAddress',
+                            addressLocality: 'Memphis',
+                            addressRegion: 'TN',
+                            addressCountry: 'US'
+                        }
+                    }
+                };
+                if (ev.image_url) item.image = [ev.image_url];
+                const ticket = safeUrl(ev.ticket_url);
+                if (ticket) {
+                    item.offers = { '@type': 'Offer', url: ticket, availability: 'https://schema.org/InStock' };
+                }
+                return { '@type': 'ListItem', position: i + 1, item: item };
+            });
+
+            const payload = {
+                '@context': 'https://schema.org',
+                '@type': 'ItemList',
+                name: `Live music in Memphis — ${getDisplayLabel()}`,
+                numberOfItems: items.length,
+                itemListElement: items
+            };
+
+            // textContent, not innerHTML: the content of a script element is
+            // not parsed as markup, so a closing script tag inside a scraped
+            // title cannot end the block. The unicode escaping keeps it inert
+            // even if the DOM is ever serialized and re-parsed, and it stays
+            // valid JSON either way.
+            node.textContent = JSON.stringify(payload)
+                .replace(/</g, '\\u003c')
+                .replace(/>/g, '\\u003e')
+                .replace(/&/g, '\\u0026');
+        }
+
+        function _jsonLdStartDate(ev) {
+            const [y, mo, d] = (ev.date || '').split('-').map(Number);
+            if (!y || !mo || !d) return undefined;
+            const parsed = _parseEventStartTime(ev.start_time);
+            const h = parsed ? parsed.hour : 20;
+            const min = parsed ? parsed.minute : 0;
+            return _chicagoISO(y, mo, d, h, min);
+        }
+
         function renderEvents() {
             const filtered = getFilteredEvents();
 
@@ -1965,6 +2216,7 @@
                 p.className = 'no-events';
                 p.textContent = 'No events found for this month with the current filters.';
                 eventList.appendChild(p);
+                renderEventsJsonLd([]);
                 renderPresentsSection();
                 return;
             }
@@ -2133,6 +2385,7 @@
                 }
             });
 
+            renderEventsJsonLd(filtered);
             renderPresentsSection();
         }
 

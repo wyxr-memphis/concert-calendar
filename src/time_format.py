@@ -1,4 +1,4 @@
-"""Portable strftime for no-padding format codes.
+"""Portable strftime for no-padding format codes, plus the shared time parser.
 
 ``%-d`` / ``%-I`` (day and hour without a leading zero) are a glibc extension.
 They work on Render, which is Linux, and they are what the codebase has always
@@ -13,6 +13,8 @@ sites keep their original format strings.
     strftime_nopad(dt, "%A, %B %-d")   -> "Monday, August 3"
     strftime_nopad(dt, "%-I:%M %p")    -> "7:30 PM"
 """
+
+import re
 
 # Each entry renders the field with no padding. Values are always digits, so
 # substituting them into the format string cannot introduce a new directive.
@@ -70,3 +72,55 @@ def format_event_time(value) -> str:
     backend; they all delegate here now.
     """
     return strftime_nopad(value, "%-I:%M %p").replace(":00 ", " ")
+
+
+# Applied when an event has no parseable start time. These mirror the values
+# the event modal's calendar buttons use in docs/index.html — the iCalendar
+# feed, the event permalink page and the modal must never disagree about when a
+# show is.
+DEFAULT_START_HOUR = 20
+DEFAULT_DURATION_HOURS = 3
+
+
+def parse_start_time(value):
+    """Best-effort "7:30 PM" -> (19, 30). Falls back to the default hour.
+
+    Tolerant of the shapes that actually appear in the database: narrow
+    no-break spaces, ranges like "6:30 PM - 8:30 PM" (the start wins) and bare
+    hours. A bad parse must never move a show to the wrong day, so anything
+    that does not yield a valid hour returns the default rather than guessing.
+
+    Mirrors ``_parseEventStartTime`` in ``docs/index.html``; keep the two in
+    step, including the "a bare number on a concert listing is the evening"
+    rule.
+    """
+    if not value:
+        return DEFAULT_START_HOUR, 0
+
+    text = str(value).replace("\u202f", " ").replace("\u00a0", " ").strip().lower()
+
+    m = re.search(r"(\d{1,2})(?::(\d{2}))?\s*(a\.?m\.?|p\.?m\.?)", text)
+    if m:
+        hour = int(m.group(1))
+        minute = int(m.group(2) or 0)
+        meridiem = m.group(3).replace(".", "")
+        if meridiem == "am":
+            if hour == 12:
+                hour = 0
+        else:
+            if hour != 12:
+                hour += 12
+        if 0 <= hour < 24 and 0 <= minute < 60:
+            return hour, minute
+        return DEFAULT_START_HOUR, 0
+
+    m = re.search(r"(\d{1,2})(?::(\d{2}))?", text)
+    if m:
+        hour = int(m.group(1))
+        minute = int(m.group(2) or 0)
+        if hour < 12:
+            hour += 12
+        if 0 <= hour < 24 and 0 <= minute < 60:
+            return hour, minute
+
+    return DEFAULT_START_HOUR, 0

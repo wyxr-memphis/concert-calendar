@@ -161,8 +161,32 @@ else
 fi
 echo ""
 
-# Check 11: Browser XSS test (needs playwright + chromium; skips itself if absent)
-echo "1️⃣1️⃣  Running browser XSS test..."
+# Check 11: iCalendar feed tests (offline — no DB, no network)
+echo "1️⃣1️⃣  Running iCalendar feed tests..."
+if python3 scripts/test_ics_feed.py > /tmp/ics_feed_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ iCalendar feed tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ iCalendar feed tests failed${NC}"
+    tail -20 /tmp/ics_feed_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 12: Event permalink page tests (offline — no DB, no network)
+echo "1️⃣2️⃣  Running event permalink page tests..."
+if python3 scripts/test_event_page.py > /tmp/event_page_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Event permalink page tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Event permalink page tests failed${NC}"
+    tail -20 /tmp/event_page_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 13: Browser XSS test (needs playwright + chromium; skips itself if absent)
+echo "1️⃣3️⃣  Running browser XSS test..."
 if python3 scripts/test_xss_browser.py > /tmp/xss_browser_tests.log 2>&1; then
     if grep -q "^SKIP:" /tmp/xss_browser_tests.log; then
         echo -e "${YELLOW}   ⚠ $(head -1 /tmp/xss_browser_tests.log)${NC}"
@@ -177,8 +201,24 @@ else
 fi
 echo ""
 
-# Check 12: Git status
-echo "1️⃣2️⃣  Checking git status..."
+# Check 14: Browser deep-link test (needs playwright + chromium; skips if absent)
+echo "1️⃣4️⃣  Running browser deep-link test..."
+if python3 scripts/test_deeplink_browser.py > /tmp/deeplink_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/deeplink_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/deeplink_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Browser deep-link test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Browser deep-link test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/deeplink_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 15: Git status
+echo "1️⃣5️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else
