@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-08-20T13:30:59.332627+00:00",
+  "run_timestamp": "2026-08-20T15:47:24.034823+00:00",
   "date_range": {
     "start": "2026-08-20",
     "end": "2026-08-27"
   },
-  "total_events_db": 3102,
+  "total_events_db": 3099,
   "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 48,
-      "events_after_filter": 48,
-      "events_filtered": 0,
+      "events_found": 37,
+      "events_after_filter": 36,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -38,6 +38,14 @@
       "events_found": 6,
       "events_after_filter": 6,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,66 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 28,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 35,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +81,26 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -141,6 +109,30 @@
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -161,6 +153,22 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 6,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 242,
+      "events_after_filter": 26,
+      "events_filtered": 216,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -177,11 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 242,
-      "events_after_filter": 26,
-      "events_filtered": 216,
+      "events_found": 13,
+      "events_after_filter": 10,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -193,14 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 6,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 17,
@@ -209,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 10,
-      "events_filtered": 3,
+      "events_found": 48,
+      "events_after_filter": 48,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -456,7 +456,7 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-08-22",
       "time": "8 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "901 Rising Ft. Dead Soldiers & Jombi",
@@ -621,28 +621,28 @@
     },
     {
       "artist": "Correction",
-      "venue": "Society Skatepark",
+      "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-08-22",
       "time": "8 PM",
       "source": "artifact"
     },
     {
       "artist": "Frostbitten",
-      "venue": "Society Skatepark",
+      "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-08-22",
       "time": "8 PM",
       "source": "artifact"
     },
     {
       "artist": "Human Shield",
-      "venue": "Society Skatepark",
+      "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-08-22",
       "time": "8 PM",
       "source": "artifact"
     },
     {
       "artist": "Muzzleflash",
-      "venue": "Society Skatepark",
+      "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-08-22",
       "time": "8 PM",
       "source": "artifact"
