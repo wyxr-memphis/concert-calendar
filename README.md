@@ -18,13 +18,23 @@ A Python script runs twice daily (midnight and noon Central) via GitHub Actions.
 | Artifacts (images/pages) | Claude Vision API + HTML parsing | Upload flyers or saved web pages |
 | Admin UI | Direct to PostgreSQL | Manual entries, edits, featured picks |
 
-### Venues tracked (15)
+### Venues tracked (27)
 
-**Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland Soundstage, Lafayette's Music Room, Nashoba
+**Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland
+Soundstage, Lafayette's Music Room, Nashoba, Crosstown Arts, Crosstown Brewing Co., Flyway
+Brewing, Huey's (all locations), Overton Park Shell, B.B. King's Blues Club, Blues City Cafe,
+Landers Center, Orpheum Theatre, South Main Sounds
 
-**Generic scrapers:** Crosstown Arts/Green Room, FedExForum, Germantown PAC, Overton Park Shell
+**Ticketmaster (by venue ID):** FedExForum, Cannon Center, Satellite Music Hall, Grind City
+Amphitheater, Radians Amphitheater, BankPlus Amphitheater at Snowden Grove, Bluesville at
+Horseshoe
 
-**Manual entry via admin UI or artifact upload:** B.B. King's Blues Club, Orpheum Theatre, Bar DKDC, B-Side Memphis
+**Generic scraper:** Germantown Performing Arts Center
+
+**Manual entry via admin UI, Slack, or artifact upload:** Bar DKDC, B-Side Memphis
+
+Events also arrive for many other rooms via the Slack flyer pipeline and admin entry, so the
+calendar covers more venues than are scraped on a schedule.
 
 Want to add your venue? Email [contact@wyxr.org](mailto:contact@wyxr.org).
 
@@ -180,7 +190,8 @@ concert-calendar/
 │   ├── app.py                 # Flask REST API (Render)
 │   ├── db.py                  # PostgreSQL queries (events, venues, scrape_logs)
 │   ├── gunicorn_conf.py       # Gunicorn config (preload_app, lifecycle hooks)
-│   ├── auth.py                # JWT auth for Flask
+│   ├── auth.py                # JWT auth, login throttle, CSRF-safe upload guard
+│   ├── images.py              # Cloudinary upload/delete + image sanitization
 │   ├── requirements.txt       # Backend dependencies
 │   └── Procfile               # Render start command
 ├── api/
@@ -191,7 +202,8 @@ concert-calendar/
 │   ├── main.py                # Orchestrator (fetch -> merge -> DB -> HTML -> RSS)
 │   ├── config.py              # Venues, neighborhoods, keywords, settings
 │   ├── models.py              # Event and SourceResult data models
-│   ├── date_utils.py          # Shared date parsing
+│   ├── date_utils.py          # Shared date parsing (incl. year-rollover resolution)
+│   ├── time_format.py         # Cross-platform strftime + event time formatting
 │   ├── http_utils.py          # HTTP client with retry logic
 │   ├── normalize.py           # Deduplication logic
 │   ├── generate_html.py       # Static "This Week" page generator
@@ -205,7 +217,12 @@ concert-calendar/
 │   └── events.json            # Read-only snapshot (exported by build)
 ├── scripts/
 │   ├── schema.sql             # PostgreSQL schema
-│   └── migrate_json_to_db.py  # Migration to PostgreSQL
+│   ├── migrate_json_to_db.py  # Migration to PostgreSQL
+│   ├── cleanup_duplicates.py  # Remove duplicate events (dry run by default)
+│   ├── backfill_dedup_key.py  # Recompute dedup_key + build the unique index
+│   ├── reassign_venue.py      # Move events between venues (dry run by default)
+│   ├── nightly_health_check.py
+│   └── test_*.py / test_escaping.mjs   # Regression suites (see Testing)
 ├── docs/
 │   ├── index.html             # Interactive calendar (homepage)
 │   ├── thisweek.html          # Static "This Week" page (auto-generated)
@@ -251,6 +268,44 @@ python -m src.main --dry-run
 
 # Full run — generates docs/thisweek.html and updates database
 python -m src.main
+```
+
+## Testing
+
+```bash
+./test_before_push.sh     # expect 13/13
+```
+
+There is no test framework. Each suite is a standalone script under `scripts/`, offline
+apart from the database connection check, wired into `test_before_push.sh`:
+
+| Suite | Covers |
+|---|---|
+| `test_health_check.py` | nightly health-check report parsing |
+| `test_normalization.py` | year rollover, title/venue normalization, date + time formatting |
+| `test_admin_auth.py` | CSRF guard, login throttling, non-ASCII password (needs no DB) |
+| `test_escaping.mjs` | `escAttr` / `safeUrl` against attack payloads |
+| `test_ticketmaster_pagination.py` | paging, the API's 1000-item ceiling, non-terminating API |
+| `test_xss_browser.py` | the real calendar page in Chromium against live payloads |
+
+The browser suite needs Chromium and **skips cleanly without it**, so check the count rather
+than the "all checks passed" line — a skip reports 11/11 instead of 13/13:
+
+```bash
+pip3 install playwright && python3 -m playwright install chromium
+```
+
+`test_escaping.mjs` extracts the escaping helpers from the shipped files rather than copying
+them, so it fails if the implementation regresses.
+
+### Maintenance scripts
+
+Both preview by default and take `--confirm` (or `--dry-run` for the backfill) — see
+`CLAUDE.md` → *Fix duplicates* for the required order.
+
+```bash
+python scripts/cleanup_duplicates.py            # preview duplicate removal
+python scripts/backfill_dedup_key.py --dry-run  # preview dedup_key changes
 ```
 
 ## Cost
