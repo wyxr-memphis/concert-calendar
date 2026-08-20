@@ -24,7 +24,14 @@ Key structural facts about `docs/index.html`:
 - Events are fetched from the **production Render API** at runtime — the page is static, not server-rendered
 - `allEvents` array holds all fetched events; `eventsById` map (`{id: event}`) is built in `showEvents()`
 - Event rows use `data-event-id` attribute + event delegation on `#eventList` to open the modal (no per-row listeners)
-- The `esc()` helper (near bottom of script) HTML-encodes strings for safe interpolation into innerHTML
+- **Three escaping helpers, and picking the wrong one is a live XSS bug** (all near the bottom of the script):
+  | Helper | Use for | Why not the others |
+  |---|---|---|
+  | `esc()` | text **between tags** only | Sets `textContent` and reads `innerHTML` back, which encodes `&`, `<`, `>` but **leaves quotes** — so it does not terminate a quoted attribute |
+  | `escAttr()` | any value going into a **quoted attribute** | 136 of ~3100 event titles contain a quote character, so `esc()` in an attribute breaks on real data, not just on attacks |
+  | `safeUrl()` | any value reaching **`href` / `src`** | Escaping does not stop a `javascript:` URL. Scraper ticket URLs and OCR'd image URLs are untrusted. No-op for `http(s):`, returns `""` otherwise |
+  Compose them: `escAttr(safeUrl(cldImg(ev.image_url, 600)))`.
+- **Never strip markup with the detached-`innerHTML` idiom.** Assigning to `innerHTML` on a detached div and reading `textContent` back looks safe because a detached element does not run `<script>` — but the parser still **builds the nodes**, so `<img src=x onerror=…>` fires immediately. Use `DOMParser` (its documents have no browsing context). This was a real sink in `_buildCalendarData`, found only by driving the page in a browser.
 
 ## Local Development
 
@@ -75,14 +82,56 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
   build; the build's inserts are `ON CONFLICT DO NOTHING` and re-run next cycle.
 
 ### Deduplication
-- Events are deduplicated during scraper runs using normalized keys (title|venue|date)
+- Event identity is `dedup_key` = `normalize_text(title)|normalize_text(canonical_venue)|date`,
+  computed by the single shared `compute_dedup_key` (`src/models.py`). It is stored as a
+  column on `events` and enforced by the partial unique index `idx_events_dedup_key`
+  (`ON events (dedup_key) WHERE is_active`), so duplicate *active* events are structurally
+  impossible.
 - `_save_events_to_db()` tracks inserted events within same batch to prevent duplicates
 - **Never overwrite admin/manual source entries** - automated scrapers always defer to manual edits
+
+⚠️ **Every path that decides "same event?" must canonicalize the venue through the DB
+`venues` table (names + aliases) — not `config.normalize_venue_name` alone.** Aliases added
+through Admin → Venues exist *only* in that table, so the config function cannot see them
+and will score two rows for the same show as different events.
+
+The three call sites that must agree:
+
+| Path | Resolves venue via |
+|---|---|
+| the build — `canon_venue()` in `src/main.py` | `venue_lookup`, built from `SELECT name, aliases FROM venues` |
+| `scripts/backfill_dedup_key.py` | `_venue_canonical_map()`, same query |
+| `scripts/cleanup_duplicates.py` | `build_venue_canon()`, same query |
+
+**Why:** on 2026-08-20 `cleanup_duplicates.py` was the odd one out, using
+`normalize_venue_name` only. The 2026-07-15 Lamplighter bill was stored twice — once as
+`Lamplighter Lounge`, once as `Lamplighter Lounge, 1702 Madison Ave, Memphis TN`, an alias
+the venues table knows and the config does not. The backfill reported **4** collisions while
+cleanup found **2**, so cleanup could never clear the last two and the unique index could
+never be created. The two scripts simply disagreed about what a duplicate was. Add
+`venue_canon` to any new dedup path for the same reason.
+
+**`dedup_key` goes stale whenever normalization changes.** `src/models.normalize_text`,
+`config.normalize_venue_name`, and the `venues` aliases all feed it — including a venue
+rename. Re-run the backfill after touching any of them (see **Fix duplicates** below).
+The daily build partially self-heals: it rebuilds its lookup by *recomputing* every row's
+key with current code and refreshes `dedup_key` on any row it matches, so a re-scraped event
+repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 
 ### Security
 - API keys stored in: `.zshrc` (local), GitHub Secrets (CI/CD), Render env vars (production)
 - `.claude/settings.local.json` contains API keys in permission strings - protected by .gitignore
 - Never commit secrets - use `test_before_push.sh` to check
+- **`ADMIN_SECRET_KEY` must be set on Render.** Unset, `backend/auth.py` falls back to a
+  per-process random key: tokens signed by one worker are rejected by every other and every
+  restart silently invalidates all sessions. It warns loudly at startup and reports in
+  `GET /health` (a `warnings` array means it is missing) rather than aborting boot — making
+  it fatal would take the API down on deploy. **Confirmed set in production 2026-08-20.**
+- **Login is throttled** — 10 failures per client per 15 min → 429, counted in process
+  memory (a new table would add DDL to the boot path; see the `init_db` lock gotcha).
+  Only failures count and success resets, so a legitimate admin retyping is never locked out.
+- Passwords are compared as **UTF-8 bytes** — `hmac.compare_digest` raises `TypeError` on a
+  non-ASCII `str`, which returned 500 instead of 401.
 
 ### File Operations
 - **Never have two writers to the same file** - race conditions cause data loss
@@ -93,16 +142,39 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
 - Admin uses JWT Bearer tokens (cross-origin from Vercel to Render)
 - CORS configured for `ALLOWED_ORIGINS` environment variable
 - Render health checks hit `/` not `/health` - both endpoints exist
+- **Multipart upload routes use `@require_bearer_auth`, not `@require_auth`.** The admin
+  cookie is `SameSite=None` so Vercel can reach Render, which means the browser attaches it
+  cross-site too — and a `multipart/form-data` POST is a **CORS-simple** request, so it sends
+  with no preflight and the write lands even though the response is unreadable. Requiring the
+  `Authorization` header forces a preflight that CORS rejects for unknown origins. Transparent
+  to the admin UI, which always sends the header via `AdminAPI.apiFetch`.
+  Apply it to **any new state-mutating route that reads form data**; routes parsing JSON
+  already force a preflight.
 
 ## Important Files
 
 ### Core Application
 - `src/main.py` - Orchestrator (fetch → merge → prune → HTML → RSS)
 - `src/config.py` - Venues, neighborhoods, keywords, date ranges
+- `src/models.py` - `compute_dedup_key` / `normalize_text` — the shared event-identity logic
 - `src/normalize.py` - Deduplication logic
 - `src/generate_rss.py` - RSS 2.0 feed generator (60-day window)
+- `src/date_utils.py` - Date parsing, incl. `resolve_yearless_date` (see below)
+- `src/time_format.py` - `strftime_nopad` / `format_event_time` — **use these, never `%-d`/`%-I`**
+- `src/http_utils.py` - Shared HTTP fetch helpers
 - `backend/app.py` - Flask REST API
 - `backend/db.py` - PostgreSQL queries
+- `backend/auth.py` - JWT signing, `require_auth` / `require_bearer_auth`, login throttle
+- `backend/images.py` - Cloudinary upload/delete + submitted-image sanitization
+
+**Two rules these encode:**
+- **A year-less date must go through `resolve_yearless_date`.** Defaulting to the current
+  year meant every December build read "Jan 15" as 11 months in the past and the `START_DATE`
+  filter silently dropped it — affecting every venue scraper. A date more than 45 days before
+  the reference rolls forward, so a slightly stale listing stays put but a New Year date moves.
+  `backend/app.py`'s `_normalize_date_iso` shares the same helper.
+- **`%-d` / `%-I` are glibc-only** and break local dev on macOS/Windows. Use `strftime_nopad`,
+  and `format_event_time` for the "7:30 PM" rendering (previously duplicated at 11 sites).
 
 ### Scrapers
 - `src/sources/ticketmaster.py` - Ticketmaster Discovery API
@@ -144,15 +216,35 @@ See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
   The two booleans are independent — an event can be both — and `<wyxr:badge>` applies the
   Presents-wins precedence for consumers that can only show one.
 
-## Venues (15 total)
+## Venues (27 configured)
 
-**Custom scrapers (7):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers (SeeTickets), Graceland (Wix), Lafayette's Music Room (Elfsight), Nashoba (Elfsight)
+Source of truth is `VENUES` in `src/config.py`; each entry's `scraper` field selects the
+fetcher. Regenerate this list with:
+`python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"`
 
-**Generic scraper (4):** Crosstown Arts, Overton Park Shell, FedExForum, Germantown PAC
+**Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
+Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
+Amphitheater, Satellite Music Hall
 
-**Manual only (4):** B.B. King's, Orpheum, Bar DKDC, B-Side Memphis
+**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
+(SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
+Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench`, all
+locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe,
+Landers Center, Orpheum Theatre, South Main Sounds
+
+**Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
+
+**Manual only (2):** Bar DKDC, B-Side Memphis
 
 Venue scrapers use 6-month range (`SCRAPER_END_DATE`) for interactive calendar.
+
+> The DB `venues` table is much larger (~104) — it also holds venues created by Slack/artifact
+> uploads and admin entries, which have aliases but no scraper. Those aliases are load-bearing
+> for deduplication (see **Deduplication**).
+
+`ticketmaster_venue` is the cheap win for any Live Nation / Ticketmaster room: a
+`livenation.com/venue/<ID>/…` URL exposes the ID — add a `VENUES` entry plus a
+`backend/db.py` `_SEED_VENUES` row, and no page scraping is needed at all.
 
 ## Slack Image Upload Pipeline
 
@@ -362,13 +454,36 @@ These parameters are sent correctly by the code but are only visible in GA4 repo
 4. Test with `python -m src.main --dry-run`
 
 ### Fix duplicates
+
+Run in this order — cleanup **before** backfill, index last. Both scripts preview by default.
+
 ```bash
-# Preview
+# 1. Preview what would be deleted (dry run)
 python scripts/cleanup_duplicates.py
 
-# Actually delete
+# 2. Actually delete the redundant rows
 python scripts/cleanup_duplicates.py --confirm
+
+# 3. Preview the key changes — writes nothing, and reports whether any
+#    active group would MERGE or SPLIT (a merge means real duplicates surfaced)
+python scripts/backfill_dedup_key.py --dry-run
+
+# 4. Recompute and store dedup_key on every row
+python scripts/backfill_dedup_key.py
+
+# 5. Build the partial unique index — refuses while any collision remains
+python scripts/backfill_dedup_key.py --create-index
 ```
+
+- Step 4 reports any remaining **active collisions**; a non-zero count means step 2 missed
+  them, which historically meant the two scripts disagreed about venue canonicalization
+  (see **Deduplication** above).
+- Before deleting, check that each doomed row holds no field its survivor lacks —
+  `detail_score()` breaks ties arbitrarily when scores are equal.
+- Re-run steps 3–5 after any change to `normalize_text`, `normalize_venue_name`, or venue
+  aliases — including a venue rename, which leaves every one of that venue's keys stale.
+- ⚠️ Never run a bulk DB edit while a build is in flight — check `gh run list` first
+  (see the *Build reverts edits made while it runs* gotcha).
 
 ### Trigger build manually
 - GitHub Actions: Actions tab → Daily Concert Calendar Update → Run workflow
@@ -380,6 +495,28 @@ python scripts/cleanup_duplicates.py --confirm
 # If passed:
 git push origin main
 ```
+
+`test_before_push.sh` runs **13 checks**: env vars, dependencies, DB connection, exposed-key
+scan, Python syntax, git status, and six regression suites. There is no test framework —
+each suite is a standalone script following the `scripts/test_*.py` convention, offline
+except for the DB connection check.
+
+| Suite | Covers |
+|---|---|
+| `scripts/test_health_check.py` | nightly health-check report parsing |
+| `scripts/test_normalization.py` | year rollover, title/venue normalization, strftime |
+| `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password (no DB needed) |
+| `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
+| `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
+| `scripts/test_xss_browser.py` | the real page in Chromium against live payloads |
+
+- `test_escaping.mjs` **extracts the helper sources from the shipped files** rather than
+  copying them, so it fails if the implementation regresses, and it asserts no attribute
+  site reverts to `esc()`.
+- `test_xss_browser.py` needs Chromium (`pip3 install playwright && python3 -m playwright
+  install chromium`). It **skips cleanly when absent** — so a green run can hide it. Check
+  for `13/13`, not just "all checks passed": a skip shows as `11/11`. Override discovery
+  with `CHROME_PATH` if needed.
 
 ## Debugging Tips
 
@@ -399,6 +536,19 @@ git push origin main
 ### Scraper failing
 - Check scraper logs in admin UI (Tools tab)
 - Test individual scrapers: `python -c "from src.sources import ticketmaster; print(ticketmaster.fetch())"`
+
+### Transient Postgres connection timeouts
+Anything reaching the Render database **over the internet** — the local backend (`.env`
+holds the external `DATABASE_URL`) and the GitHub Actions build — hits occasional
+`psycopg2.OperationalError: ... timeout expired`. It is latency, not a defect.
+
+- Locally it surfaces as a **500 on whatever admin endpoint happened to fire**; the same
+  request succeeds on retry.
+- In CI the build logs `[scrape_log] Could not create log entry: ... timeout expired` and
+  continues correctly — so **a build with no `scrape_logs` row is not a failed build**.
+  Confirm against the run's own log (`Saved to PostgreSQL: N added, …`) before investigating.
+
+Retry 2–3 times and grep for `OperationalError` before chasing it as a bug.
 
 ## Workflow Preferences
 
