@@ -15,8 +15,28 @@ WYXR_NS = "https://concert-calendar.wyxr.org/ns/rss/1.0"
 BADGE_PICK = "WYXR Pick"
 BADGE_PRESENTS = "WYXR Presents"
 
+SITE_BASE = "https://concert-calendar.wyxr.org"
 
-def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] = None) -> str:
+# Channel metadata for the two published feeds. They must differ: a reader
+# keys its subscription list on <title>, so two feeds calling themselves the
+# same thing are indistinguishable once subscribed.
+FEED_TITLE = "WYXR Memphis Concert Calendar"
+FEED_DESCRIPTION = "Live music events in Memphis, TN \u2014 curated by WYXR 91.7 FM"
+
+PICKS_FEED_TITLE = "WYXR Picks \u2014 Memphis Concert Calendar"
+PICKS_FEED_DESCRIPTION = (
+    "WYXR Picks only: the Memphis shows WYXR 91.7 FM is recommending"
+)
+
+
+def generate_rss(
+    events: List[dict],
+    build_date: datetime,
+    sponsors: List[dict] = None,
+    *,
+    feed_title: str = FEED_TITLE,
+    feed_description: str = FEED_DESCRIPTION,
+) -> str:
     """Generate an RSS 2.0 XML feed from event dicts.
 
     Events should be dicts with all DB fields (title, venue, date,
@@ -43,9 +63,9 @@ def generate_rss(events: List[dict], build_date: datetime, sponsors: List[dict] 
         '<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"'
         f' xmlns:wyxr="{WYXR_NS}">\n'
         "    <channel>\n"
-        "        <title>WYXR Memphis Concert Calendar</title>\n"
-        "        <link>https://concert-calendar.wyxr.org</link>\n"
-        "        <description>Live music events in Memphis, TN — curated by WYXR 91.7 FM</description>\n"
+        f"        <title>{_esc(feed_title)}</title>\n"
+        f"        <link>{SITE_BASE}</link>\n"
+        f"        <description>{_esc(feed_description)}</description>\n"
         "        <language>en-US</language>\n"
         f"        <lastBuildDate>{format_datetime(build_date)}</lastBuildDate>\n"
         "        <generator>WYXR Concert Calendar</generator>\n"
@@ -238,3 +258,30 @@ def _esc(text: str) -> str:
 def _bool(value: bool) -> str:
     """Render a boolean as the XML text 'true' or 'false'."""
     return "true" if value else "false"
+
+
+def is_wyxr_pick(event: dict) -> bool:
+    """True when an event carries the WYXR Pick flag.
+
+    ``is_featured`` is the DB column behind the WYXR Pick badge. An event can
+    be both a Pick and a WYXR Presents show; Presents alone does *not* make it
+    a Pick, so the picks feed keys strictly on this flag.
+    """
+    return bool(event.get("is_featured"))
+
+
+def generate_picks_rss(events: List[dict], build_date: datetime) -> str:
+    """Generate the WYXR Picks RSS feed \u2014 Pick-flagged events only.
+
+    Takes the same event dicts as :func:`generate_rss` and filters them, so
+    the caller can reuse one DB read for both feeds. No sponsor items: this
+    feed is a curated recommendation list and nothing else.
+    """
+    picks = [e for e in events if is_wyxr_pick(e)]
+    return generate_rss(
+        picks,
+        build_date,
+        sponsors=None,
+        feed_title=PICKS_FEED_TITLE,
+        feed_description=PICKS_FEED_DESCRIPTION,
+    )
