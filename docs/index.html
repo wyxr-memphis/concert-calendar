@@ -26,9 +26,13 @@
     <meta name="twitter:description" content="Daily-updated live music calendar for Memphis, TN. Find concerts, shows, and gigs at venues across the city.">
     <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <!-- Feed discovery. Both feeds existed with nothing linking to them; a
-         reader or calendar app can only offer to subscribe if it can find them. -->
+    <!-- Feed discovery. A reader or calendar app can only offer to subscribe
+         if it can find these. The full RSS feed is deliberately not linked in
+         the visible footer any more (it lives under Admin -> Tools -> Feeds),
+         but it stays public and unauthenticated, so autodiscovery keeps it
+         reachable for anyone already subscribed. -->
     <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="WYXR Picks — Memphis Concert Calendar" href="/picks.xml">
     <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="/calendar.ics">
     <!-- Site-level structured data. Per-event Event markup is injected by
          renderEvents() once the API responds, and each event also has a
@@ -1092,7 +1096,7 @@
             <span aria-hidden="true">&middot;</span>
             <a href="/calendar.ics" download>Download .ics</a>
             <span aria-hidden="true">&middot;</span>
-            <a href="/feed.xml">RSS</a>
+            <a href="/picks.xml">&#11088; WYXR Picks RSS</a>
             <span aria-hidden="true">&middot;</span>
             <a href="/thisweek">This week</a>
         </div>

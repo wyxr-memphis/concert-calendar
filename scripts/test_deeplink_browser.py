@@ -223,8 +223,23 @@ def main():
                          first.get("location", {}).get("@type"), "MusicVenue")
 
         check.section("feed discovery")
-        check("rss feed is linked",
-              page.locator('link[rel="alternate"][type="application/rss+xml"]').count() == 1)
+        # Two RSS feeds are advertised: the full calendar and the WYXR Picks
+        # subset. Autodiscovery is what keeps /feed.xml reachable now that only
+        # /picks.xml is linked in the visible footer.
+        check.equals("both rss feeds are linked",
+                     page.locator(
+                         'link[rel="alternate"][type="application/rss+xml"]').count(), 2)
+        check("the full rss feed is discoverable",
+              page.locator(
+                  'link[rel="alternate"][type="application/rss+xml"][href="/feed.xml"]'
+              ).count() == 1)
+        check("the picks rss feed is discoverable",
+              page.locator(
+                  'link[rel="alternate"][type="application/rss+xml"][href="/picks.xml"]'
+              ).count() == 1)
+        check("the visible footer links the picks feed, not the full feed",
+              page.locator('footer a[href="/picks.xml"]').count() == 1
+              and page.locator('footer a[href="/feed.xml"]').count() == 0)
         check("calendar feed is linked",
               page.locator('link[rel="alternate"][type="text/calendar"]').count() == 1)
         check("footer offers a webcal subscribe link",

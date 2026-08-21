@@ -29,7 +29,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.models import Event, SourceResult, normalize_text, compute_dedup_key
 from src.normalize import deduplicate
 from src.generate_html import generate_html
-from src.generate_rss import generate_rss
+from src.generate_rss import generate_rss, generate_picks_rss, is_wyxr_pick
 from src.generate_ics import generate_ics
 from src.generate_sitemap import generate_sitemap, ROBOTS_TXT
 from src.config import START_DATE, END_DATE, normalize_venue_name
@@ -701,10 +701,11 @@ def run(dry_run: bool = False) -> None:
         f.write(html_output)
     print(f"\n  Wrote {INDEX_PATH}")
 
-    # Generate the syndication outputs: RSS (60 days), iCalendar subscribe feed
-    # and sitemap (both the full FEED_WINDOW_DAYS lookahead).
+    # Generate the syndication outputs: RSS (60 days), the WYXR Picks feed,
+    # the iCalendar subscribe feed and the sitemap (the last three over the
+    # full FEED_WINDOW_DAYS lookahead).
     #
-    # One DB read serves all three — the RSS window is a slice of the wider one.
+    # One DB read serves all four — the RSS window is a slice of the wider one.
     # Each writer gets its own try/except so a failure in one still leaves the
     # others published rather than silently skipping everything downstream.
     if use_db:
@@ -726,6 +727,19 @@ def run(dry_run: bool = False) -> None:
             print(f"  Wrote {rss_path} ({len(rss_events)} events, {len(rss_sponsors)} sponsors)")
         except Exception as e:
             print(f"  WARNING: Could not generate RSS feed: {e}")
+
+        # WYXR Picks feed — Pick-flagged events only, over the full
+        # FEED_WINDOW_DAYS lookahead rather than the 60-day RSS window, because
+        # picks are sparse and a subscriber wants the whole curated slate.
+        try:
+            picks_output = generate_picks_rss(feed_events, run_timestamp)
+            picks_path = DOCS_DIR / "picks.xml"
+            with open(picks_path, "w", encoding="utf-8") as f:
+                f.write(picks_output)
+            picks_count = sum(1 for e in feed_events if is_wyxr_pick(e))
+            print(f"  Wrote {picks_path} ({picks_count} WYXR Picks)")
+        except Exception as e:
+            print(f"  WARNING: Could not generate WYXR Picks feed: {e}")
 
         try:
             ics_output = generate_ics(feed_events, run_timestamp)

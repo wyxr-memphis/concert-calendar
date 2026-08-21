@@ -436,6 +436,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <meta name="twitter:description" content="{social_description}">
     <meta name="twitter:image" content="{og_image}">
     <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="{site_base}/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="WYXR Picks — Memphis Concert Calendar" href="{site_base}/picks.xml">
     <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="{site_base}/calendar.ics">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -467,7 +468,7 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
         <a href="{site_base}/">Full calendar</a> &middot;
         <a href="{site_base}/calendar.ics">Subscribe (iCal)</a> &middot;
-        <a href="{site_base}/feed.xml">RSS</a>
+        <a href="{site_base}/picks.xml">&#11088; WYXR Picks RSS</a>
     </footer>
 </body>
 </html>
