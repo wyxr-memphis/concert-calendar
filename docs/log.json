@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-08-21T17:21:02.743427+00:00",
+  "run_timestamp": "2026-08-21T22:48:45.642441+00:00",
   "date_range": {
     "start": "2026-08-21",
     "end": "2026-08-28"
   },
-  "total_events_db": 3114,
+  "total_events_db": 3115,
   "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 6,
@@ -33,11 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
+      "events_found": 37,
+      "events_after_filter": 36,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -54,14 +62,6 @@
       "events_found": 10,
       "events_after_filter": 10,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -97,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
@@ -117,6 +109,14 @@
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -145,6 +145,22 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 78,
+      "events_after_filter": 35,
+      "events_filtered": 43,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 19,
@@ -161,10 +177,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -177,22 +193,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 13,
@@ -201,18 +201,18 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 78,
-      "events_after_filter": 35,
-      "events_filtered": 43,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 48,
       "events_after_filter": 48,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -504,7 +504,7 @@
       "artist": "Sarah Spain and the Nightshades",
       "venue": "Lafayette's Music Room",
       "date": "2026-08-22",
-      "time": "6 PM",
+      "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
     },
     {
