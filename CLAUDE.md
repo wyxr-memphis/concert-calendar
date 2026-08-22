@@ -310,6 +310,12 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 - A new `.xml` feed needs a `vercel.json` `headers` entry for its `Content-Type`
   (`application/rss+xml`) — without one Vercel serves it as `application/xml` and some
   readers refuse to subscribe.
+- **An event item's `<link>` is its `/e/<id>` permalink, not the ticket URL.** The ticket URL
+  ships as `<wyxr:ticketUrl>` (http(s) only) and as a link inside `<content:encoded>`; the
+  permalink is echoed as `<wyxr:permalink>` because `<link>` is the element a reader may
+  rewrite for click tracking. `_event_permalink()` requires a **UUID-shaped** id — `id` falls
+  back to the *title* for the guid, and a title must never land in a URL path. `<guid>` was
+  deliberately left alone: changing it would re-notify every subscriber for every event.
 - **Badge flags are machine-readable, not just text.** WYXR Pick / WYXR Presents ship as
   `<category>` plus a `wyxr:` namespaced trio (`<wyxr:pick>`, `<wyxr:presents>`,
   `<wyxr:badge>`) on every event item — see the RSS Feeds section of README.md for the
