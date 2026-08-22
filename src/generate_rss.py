@@ -1,6 +1,7 @@
 """Generate RSS 2.0 feed for Memphis Concert Calendar events."""
 
 import html as html_module
+import re
 from datetime import date, datetime
 from email.utils import format_datetime
 from typing import List
@@ -50,6 +51,10 @@ def generate_rss(
     item (<category>, plus <wyxr:pick>/<wyxr:presents>/<wyxr:badge>) in
     addition to the human-readable text already baked into the title and
     description.
+
+    Each event item's <link> is its ``/e/<id>`` permalink on the site, echoed
+    as <wyxr:permalink>; the ticket URL, when there is one, is published
+    separately as <wyxr:ticketUrl>.
     """
     items_xml = []
     for event in events:
@@ -83,7 +88,15 @@ def _render_item(event: dict) -> str:
     event_date = str(event.get("date", ""))
 
     item_title = f"{title} \u2014 {venue}" if venue else title
-    link = event.get("ticket_url") or "https://concert-calendar.wyxr.org"
+
+    # <link> is the event's own permalink on our site, not the ticket vendor:
+    # that is the page that carries the full listing, the OG tags and the
+    # JSON-LD, and it stays valid after a ticket link rots. The ticket URL is
+    # still published, as <wyxr:ticketUrl> and as a link inside
+    # content:encoded, so nothing that wants the vendor loses it.
+    permalink = _event_permalink(event.get("id"))
+    ticket_url = _http_url(event.get("ticket_url"))
+    link = permalink or ticket_url or SITE_BASE
 
     is_presents = bool(event.get("is_wyxr_presents"))
     is_pick = bool(event.get("is_featured"))
@@ -143,9 +156,14 @@ def _render_item(event: dict) -> str:
     if event.get("description"):
         html_parts.append(f"<p>{_esc(event['description'])}</p>")
 
-    if event.get("ticket_url"):
+    if ticket_url:
         html_parts.append(
-            f'<p><a href="{_esc(event["ticket_url"])}">Tickets / More Info</a></p>'
+            f'<p><a href="{_esc(ticket_url)}">Tickets / More Info</a></p>'
+        )
+
+    if permalink:
+        html_parts.append(
+            f'<p><a href="{_esc(permalink)}">Event details on the WYXR calendar</a></p>'
         )
 
     content_html = "".join(html_parts)
@@ -185,6 +203,15 @@ def _render_item(event: dict) -> str:
     elif is_pick:
         badge_xml = f"            <wyxr:badge>{BADGE_PICK}</wyxr:badge>\n"
 
+    # The permalink is also emitted under our own namespace: <link> is the one
+    # element a reader is free to rewrite or wrap for tracking, so a consumer
+    # that needs the canonical event page reads <wyxr:permalink> instead.
+    link_xml = ""
+    if permalink:
+        link_xml += f"            <wyxr:permalink>{_esc(permalink)}</wyxr:permalink>\n"
+    if ticket_url:
+        link_xml += f"            <wyxr:ticketUrl>{_esc(ticket_url)}</wyxr:ticketUrl>\n"
+
     flags_xml = (
         f"{category_xml}"
         f"            <wyxr:presents>{_bool(is_presents)}</wyxr:presents>\n"
@@ -197,6 +224,7 @@ def _render_item(event: dict) -> str:
         f"            <title>{_esc(item_title)}</title>\n"
         f"            <link>{_esc(link)}</link>\n"
         f"            <description>{_esc(description)}</description>\n"
+        f"{link_xml}"
         f"{flags_xml}"
         f"            <content:encoded><![CDATA[{content_html}]]></content:encoded>"
         f"{image_xml}\n"
@@ -248,6 +276,42 @@ def _render_sponsor_item(sponsor: dict) -> str:
         f'            <guid isPermaLink="false">wyxr-sponsor-{_esc(str(sponsor_id))}</guid>\n'
         "        </item>\n"
     )
+
+
+_UUID_RE = re.compile(
+    r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-"
+    r"[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+)
+
+
+def _event_permalink(event_id) -> str:
+    """Return the ``/e/<id>`` permalink for an event, or "" if there is no id.
+
+    The id is checked against the UUID shape before it goes into a URL. Callers
+    that build items from something other than a DB row (tests, ad-hoc dicts)
+    can omit ``id`` or carry a title there — ``_render_item`` already falls back
+    to the title for the guid — and a title must never be pasted into a path.
+    """
+    raw = ("" if event_id is None else str(event_id)).strip()
+    if not _UUID_RE.match(raw):
+        return ""
+    return f"{SITE_BASE}/e/{raw}"
+
+
+def _http_url(value) -> str:
+    """Return the URL only if it is http(s); otherwise "".
+
+    Ticket URLs come from scrapers and from OCR of uploaded flyers, and
+    content:encoded is rendered as HTML by feed readers — so the same rule the
+    frontend applies to hrefs applies here.
+    """
+    raw = ("" if value is None else str(value)).strip()
+    if not raw:
+        return ""
+    lowered = raw.lower()
+    if lowered.startswith("http://") or lowered.startswith("https://"):
+        return raw
+    return ""
 
 
 def _esc(text: str) -> str:

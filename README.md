@@ -143,6 +143,31 @@ Two RSS 2.0 feeds are published. Both are **public and unauthenticated**, and bo
 
 The full feed is intentionally **not** linked in the visible public footer — only the picks feed is. Moving that link into the admin UI does not restrict the feed itself; `/feed.xml` stays reachable to anyone with the URL and to feed readers via autodiscovery.
 
+### Event links
+
+Every event item in both feeds carries the event's own page on the calendar:
+
+```xml
+<item>
+  <title>The Danny Banks Quartet — Huey's (Midtown)</title>
+  <link>https://concert-calendar.wyxr.org/e/3f4a9c1e-…-444455556666</link>
+  <wyxr:permalink>https://concert-calendar.wyxr.org/e/3f4a9c1e-…-444455556666</wyxr:permalink>
+  <wyxr:ticketUrl>https://tickets.example.com/…</wyxr:ticketUrl>
+```
+
+| Element | Notes |
+|---|---|
+| `<link>` | The `/e/<id>` permalink — the page with the full listing, OG tags and `MusicEvent` JSON-LD. Falls back to the ticket URL, then to the site root, for an item with no usable id. |
+| `<wyxr:permalink>` | The same URL under our namespace. `<link>` is the element a reader is free to rewrite or wrap for click tracking, so a consumer that needs the canonical page reads this. |
+| `<wyxr:ticketUrl>` | The ticket vendor URL, emitted only when the event has one and only when it is `http(s)`. |
+
+`<link>` used to be the ticket URL. It is now the permalink because that page
+outlives a rotted ticket link and is the one URL that unfurls — but nothing is
+lost: the ticket URL is still both `<wyxr:ticketUrl>` and the
+"Tickets / More Info" link inside `<content:encoded>`, which now also carries an
+"Event details on the WYXR calendar" link. `<guid>` is unchanged, so no
+subscriber sees the whole feed as new.
+
 ### Badge flags (WYXR Pick / WYXR Presents)
 
 The badges are also published as **machine-readable flags**, so a consumer never has to string-match `"WYXR Pick"` out of `<title>` or `<description>` to style a row:
