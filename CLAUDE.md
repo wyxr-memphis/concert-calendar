@@ -235,7 +235,7 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
 - `src/generate_ics.py` - iCalendar subscribe feed (`docs/calendar.ics`, 180-day window)
 - `src/generate_sitemap.py` - `docs/sitemap.xml` + `docs/robots.txt`
 - `src/date_utils.py` - Date parsing, incl. `resolve_yearless_date` (see below)
-- `src/time_format.py` - `strftime_nopad` / `format_event_time` — **use these, never `%-d`/`%-I`**
+- `src/time_format.py` - `strftime_nopad` / `format_event_time` / `format_time_of_day` — **use these, never `%-d`/`%-I`**
 - `src/http_utils.py` - Shared HTTP fetch helpers
 - `backend/app.py` - Flask REST API
 - `backend/db.py` - PostgreSQL queries
@@ -251,6 +251,12 @@ repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
   `backend/app.py`'s `_normalize_date_iso` shares the same helper.
 - **`%-d` / `%-I` are glibc-only** and break local dev on macOS/Windows. Use `strftime_nopad`,
   and `format_event_time` for the "7:30 PM" rendering (previously duplicated at 11 sites).
+- **A time shown to a human is am/pm, never a 24-hour clock.** The public submit form's
+  `<input type="time">` posts `19:30` and psycopg2 hands back a `datetime.time`;
+  `format_time_of_day` renders either as `7:30 PM`. It is *not* `parse_start_time` —
+  that one reads a bare `7:30` as the evening, correct for a scraped flyer and wrong for
+  a form field where `07:30` is the morning. Used by the Slack submission notification,
+  the event created on approve, and (as `formatTime`) the admin Edit & Approve link.
 - **`start_time` is parsed in exactly one place: `time_format.parse_start_time`.** The ICS
   feed, the `/e/<id>` page and `thisweek.html` all call it, and `_parseEventStartTime` in
   `docs/index.html` mirrors it. `DEFAULT_START_HOUR` (20) and `DEFAULT_DURATION_HOURS` (3)

@@ -1845,7 +1845,9 @@
             params.set('title', sub.artist_name);
             params.set('venue', sub.venue);
             params.set('date', sub.event_date);
-            if (sub.event_time) params.set('start_time', sub.event_time);
+            // formatTime, not the raw HH:MM:SS — the edit form's start_time is the
+            // string that ships to the calendar, and it reads in am/pm everywhere else.
+            if (sub.event_time) params.set('start_time', formatTime(sub.event_time));
             if (sub.description) params.set('description', sub.description);
             params.set('source', 'submission');
 
