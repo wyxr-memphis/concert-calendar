@@ -104,7 +104,7 @@ from backend.db import (
     health_submissions,
     health_ticketmaster,
 )
-from src.time_format import format_event_time, strftime_nopad
+from src.time_format import format_event_time, format_time_of_day, strftime_nopad
 from backend.auth import (
     ADMIN_PASSWORD,
     SECRET_KEY_IS_EPHEMERAL,
@@ -395,7 +395,10 @@ def _notify_slack_new_submission(artist_name, venue, event_date, event_time, sub
     if not webhook_url:
         return
 
-    time_str = f" at {event_time}" if event_time else ""
+    # The form posts a 24-hour "19:30"; the channel reads in am/pm like the
+    # rest of the calendar.
+    pretty_time = format_time_of_day(event_time)
+    time_str = f" at {pretty_time}" if pretty_time else ""
     desc_str = f"\n> {description}" if description else ""
     admin_url = "https://concert-calendar.wyxr.org/admin/#submissions"
 
@@ -1014,11 +1017,7 @@ def admin_submission_approve(submission_id):
         "is_featured": False,
     }
     if sub.get("event_time"):
-        t = sub["event_time"]
-        if hasattr(t, "strftime"):
-            event_data["start_time"] = format_event_time(t)
-        else:
-            event_data["start_time"] = str(t)
+        event_data["start_time"] = format_time_of_day(sub["event_time"])
     if sub.get("description"):
         event_data["description"] = sub["description"]
 

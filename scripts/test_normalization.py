@@ -31,7 +31,11 @@ from src.config import normalize_venue_name  # noqa: E402
 from src.date_utils import parse_date_text, resolve_yearless_date  # noqa: E402
 from src.models import normalize_text  # noqa: E402
 from src.normalize import _artists_match  # noqa: E402
-from src.time_format import format_event_time, strftime_nopad  # noqa: E402
+from src.time_format import (  # noqa: E402
+    format_event_time,
+    format_time_of_day,
+    strftime_nopad,
+)
 
 FAILURES = []
 
@@ -244,6 +248,27 @@ def test_event_time_formatting():
            format_event_time(datetime(2026, 8, 3, hour, minute)), want)
 
 
+def test_submitted_time_formatting():
+    """A submitted time never reaches a human as a 24-hour clock value.
+
+    ``<input type="time">`` posts "19:30"; psycopg2 returns a ``time``. Both
+    the Slack review notification and the event created on approval must read
+    "7:30 PM". The morning cases are the point of not reusing
+    ``parse_start_time`` here — it would read "07:30" as the evening.
+    """
+    from datetime import time as _time
+    for value, want in [
+        ("19:30", "7:30 PM"), ("19:30:00", "7:30 PM"), ("20:00", "8 PM"),
+        ("07:30", "7:30 AM"), ("00:00", "12 AM"), ("12:00", "12 PM"),
+        ("00:15", "12:15 AM"), ("23:59", "11:59 PM"),
+        (_time(19, 30), "7:30 PM"), (_time(20, 0), "8 PM"),
+        # Not a clock value: passed through rather than mangled.
+        ("7:30 PM", "7:30 PM"), ("doors at 8", "doors at 8"), ("25:00", "25:00"),
+        (None, ""), ("", ""),
+    ]:
+        eq(f"submitted {value!r}", format_time_of_day(value), want)
+
+
 def main():
     print("Normalization regression tests (offline)")
     for fn in (
@@ -263,6 +288,7 @@ def main():
         test_nopad_matches_platform_strftime,
         test_nopad_literal_percent,
         test_event_time_formatting,
+        test_submitted_time_formatting,
     ):
         fn()
 

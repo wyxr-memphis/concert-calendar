@@ -124,3 +124,36 @@ def parse_start_time(value):
             return hour, minute
 
     return DEFAULT_START_HOUR, 0
+
+
+def format_time_of_day(value) -> str:
+    """Render a submitted start time as "7 PM" / "7:30 PM".
+
+    Accepts what the submissions table and the public form actually hand us: a
+    ``datetime.time``/``datetime`` from psycopg2, or the ``HH:MM``/``HH:MM:SS``
+    string an ``<input type="time">`` posts. The string case cannot go through
+    ``parse_start_time`` — that helper reads a bare "7:30" on a concert listing
+    as the evening, which is right for a scraped flyer and wrong for a form
+    field where "07:30" means the morning.
+
+    Anything that does not look like a 24-hour clock value is returned as-is,
+    so an already-formatted "7:30 PM" survives untouched.
+    """
+    if not value:
+        return ""
+
+    if hasattr(value, "strftime"):
+        return format_event_time(value)
+
+    text = str(value).strip()
+    m = re.fullmatch(r"(\d{1,2}):(\d{2})(?::\d{2}(?:\.\d+)?)?", text)
+    if not m:
+        return text
+
+    hour, minute = int(m.group(1)), int(m.group(2))
+    if hour > 23 or minute > 59:
+        return text
+
+    meridiem = "AM" if hour < 12 else "PM"
+    hour = hour % 12 or 12
+    return f"{hour} {meridiem}" if minute == 0 else f"{hour}:{minute:02d} {meridiem}"
