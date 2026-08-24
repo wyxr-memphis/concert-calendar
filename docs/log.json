@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-24T14:41:12.990527+00:00",
+  "run_timestamp": "2026-08-24T17:23:41.156441+00:00",
   "date_range": {
     "start": "2026-08-24",
     "end": "2026-08-31"
   },
-  "total_events_db": 3143,
-  "total_active_display": 94,
+  "total_events_db": 3149,
+  "total_active_display": 91,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 26,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 25,
@@ -33,19 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 221,
-      "events_after_filter": 11,
-      "events_filtered": 210,
       "error": null
     },
     {
@@ -65,10 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -81,34 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +129,27 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 0,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 4,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,18 +161,34 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
+      "events_found": 250,
+      "events_after_filter": 30,
+      "events_filtered": 220,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 47,
+      "events_after_filter": 47,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -177,43 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 30,
-      "events_filtered": 220,
+      "events_found": 221,
+      "events_after_filter": 11,
+      "events_filtered": 210,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 3,
+      "events_found": 19,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 13,
-      "events_after_filter": 10,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
-      "events_filtered": 0,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 91,
+      "events_after_filter": 91,
       "events_filtered": 0,
       "error": null
     }
@@ -277,11 +277,11 @@
       "source": "scraper:hi_tone"
     },
     {
-      "artist": "Amber Rae Dunn",
+      "artist": "Writers in the Round: Amber Rae Dunn, Mark Sinnis, Patrick McGee, Roger Wild",
       "venue": "Lamplighter Lounge",
       "date": "2026-08-25",
       "time": "8 PM",
-      "source": "artifact"
+      "source": "manual"
     },
     {
       "artist": "The Parallax",
@@ -338,27 +338,6 @@
       "date": "2026-08-25",
       "time": null,
       "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Mark Sinnis",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-25",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Patrick McGee",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-25",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Roger Wild",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-25",
-      "time": "8 PM",
-      "source": "artifact"
     },
     {
       "artist": "DJ Wiz and the Solar System",
