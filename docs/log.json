@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-24T17:23:41.156441+00:00",
+  "run_timestamp": "2026-08-25T05:34:40.357269+00:00",
   "date_range": {
-    "start": "2026-08-24",
-    "end": "2026-08-31"
+    "start": "2026-08-25",
+    "end": "2026-09-01"
   },
-  "total_events_db": 3149,
-  "total_active_display": 91,
+  "total_events_db": 3165,
+  "total_active_display": 92,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,33 +27,25 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 26,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 25,
+      "events_found": 26,
       "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -61,22 +53,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -89,6 +65,22 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
@@ -97,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -145,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 85,
+      "events_after_filter": 45,
+      "events_filtered": 40,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -153,19 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 77,
-      "events_after_filter": 36,
-      "events_filtered": 41,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 250,
       "events_after_filter": 30,
       "events_filtered": 220,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 3,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -185,6 +185,14 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 221,
+      "events_after_filter": 11,
+      "events_filtered": 210,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 9,
@@ -201,81 +209,31 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 221,
-      "events_after_filter": 11,
-      "events_filtered": 210,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 56,
-      "events_filtered": 23,
+      "events_after_filter": 55,
+      "events_filtered": 24,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 91,
-      "events_after_filter": 91,
+      "events_found": 92,
+      "events_after_filter": 92,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-24",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-24",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-24",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-24",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-24",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Writers in the Round: Amber Rae Dunn, Mark Sinnis, Patrick McGee, Roger Wild",
       "venue": "Lamplighter Lounge",
@@ -487,10 +445,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-28",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-28",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-28",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -513,6 +485,13 @@
       "date": "2026-08-28",
       "time": "7:30 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Tom Foolery",
+      "venue": "Growlers",
+      "date": "2026-08-28",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
     },
     {
       "artist": "VonOff1700",
@@ -625,6 +604,13 @@
       "date": "2026-08-29",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-29",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Impala",
@@ -870,6 +856,27 @@
       "date": "2026-08-31",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Mystic",
+      "venue": "Crosstown Arts",
+      "date": "2026-09-01",
+      "time": "6:00 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-09-01",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-01",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
