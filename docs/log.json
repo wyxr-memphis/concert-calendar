@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-25T05:34:40.357269+00:00",
+  "run_timestamp": "2026-08-25T17:23:57.244799+00:00",
   "date_range": {
     "start": "2026-08-25",
     "end": "2026-09-01"
   },
-  "total_events_db": 3165,
-  "total_active_display": 92,
+  "total_events_db": 3196,
+  "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,11 +41,19 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -53,14 +61,6 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -81,18 +81,26 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,35 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 30,
-      "events_filtered": 220,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 19,
       "events_after_filter": 3,
       "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,11 +169,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 221,
-      "events_after_filter": 11,
-      "events_filtered": 210,
+      "events_found": 250,
+      "events_after_filter": 30,
+      "events_filtered": 220,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -209,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 47,
+      "events_after_filter": 47,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 40,
+      "events_filtered": 210,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 92,
+      "events_found": 93,
+      "events_after_filter": 93,
       "events_filtered": 0,
       "error": null
     }
@@ -506,6 +506,13 @@
       "date": "2026-08-28",
       "time": "8:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Memphis Hates You presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-08-28",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Cody Clark",
