@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-08-25T17:23:57.244799+00:00",
+  "run_timestamp": "2026-08-26T05:37:09.992664+00:00",
   "date_range": {
-    "start": "2026-08-25",
-    "end": "2026-09-01"
+    "start": "2026-08-26",
+    "end": "2026-09-02"
   },
-  "total_events_db": 3196,
+  "total_events_db": 3205,
   "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -49,10 +41,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 46,
+      "events_after_filter": 46,
       "events_filtered": 0,
       "error": null
     },
@@ -65,10 +57,42 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 40,
+      "events_filtered": 210,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -81,10 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -97,22 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 29,
@@ -121,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -145,27 +161,27 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 85,
-      "events_after_filter": 45,
+      "events_found": 84,
+      "events_after_filter": 44,
       "events_filtered": 40,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
+      "events_found": 17,
+      "events_after_filter": 13,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -177,14 +193,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 9,
@@ -193,35 +201,27 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 14,
+      "events_found": 14,
+      "events_after_filter": 11,
       "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 40,
-      "events_filtered": 210,
+      "events_found": 19,
+      "events_after_filter": 3,
+      "events_filtered": 16,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 55,
-      "events_filtered": 24,
+      "events_after_filter": 54,
+      "events_filtered": 25,
       "error": null
     },
     {
@@ -234,69 +234,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Writers in the Round: Amber Rae Dunn, Mark Sinnis, Patrick McGee, Roger Wild",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-25",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "The Parallax",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-25",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-25",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-25",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-25",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jazz Jam Session: Hosted by Kenny Reed",
-      "venue": "Crosstown Arts",
-      "date": "2026-08-25",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-25",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Open Mic Nite hosted by Mak of Memphis",
-      "venue": "Growlers",
-      "date": "2026-08-25",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "DJ Wiz and the Solar System",
       "venue": "B-Side Memphis",
@@ -415,6 +352,13 @@
       "date": "2026-08-27",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Bob & Angela",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-08-27",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Sarah Spain Acoustic",
@@ -578,6 +522,13 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Shell on Wheels: 901 Day Trolley Night Kick-Off Mixer",
+      "venue": "Overton Park Shell",
+      "date": "2026-08-28",
+      "time": "7:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "The Narrows",
       "venue": "Growlers",
       "date": "2026-08-29",
@@ -613,10 +564,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-29",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale Street Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-08-29",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-29",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -884,6 +849,41 @@
       "date": "2026-09-01",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-02",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Lightwatch",
+      "venue": "Growlers",
+      "date": "2026-09-02",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-02",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Stars & Guitars",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-02",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Community Preview Night",
+      "venue": "Satellite Music Hall",
+      "date": "2026-09-02",
+      "time": "6 PM",
+      "source": "scraper:ticketmaster"
     }
   ]
 }
