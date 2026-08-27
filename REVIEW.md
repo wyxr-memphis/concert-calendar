@@ -415,6 +415,18 @@ Constraint to respect: the stack has **no headless browser** (no Playwright/Sele
 > Reproduce with `scripts/check_instagram_access.py --username <handle>`. It runs a control
 > call against our own account and states which layer is at fault.
 >
+> **The "add the venue as an Instagram Tester" idea does not work, and the test above already
+> proves it.** Standard Access is defined as reaching accounts that hold a role on the app
+> (admin/developer/tester). `business_discovery` failed against `@wyxr_memphis` — the app
+> owner's *own* Instagram account, the most privileged role there is. If role-based Standard
+> Access applied to this endpoint, that call would have succeeded. It is the app's access
+> *tier* that is refused, not the target's relationship to the app, so inviting venues as
+> testers changes nothing. Don't spend a venue relationship finding that out.
+>
+> It is also not a wrong-product problem: Meta files `business_discovery` under *Instagram
+> API with Facebook Login*, and the app already has Facebook Login for Business — which is
+> why step 2 succeeds while step 3 does not.
+>
 > The rest of this section's conclusion still holds: stories cannot be automated
 > legitimately, and the Slack screenshot pipeline remains the bridge for them — and is now
 > the bridge for posts too.
