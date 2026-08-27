@@ -138,9 +138,14 @@ approach in its §5, Instagram feasibility in its §6). Still pending:
 - **"Tonight" Slack post** — the bot already has `chat:write` in the channel; a morning
   message listing tonight's shows. Highest value per line of code.
 - **Weekly email digest** — Mailchimp audience and this-week data both exist.
-- **Instagram posts ingestion** — via the official Business Discovery API, gated on a Meta
-  app. Stories cannot be automated legitimately; the Slack screenshot pipeline stays the
-  bridge.
+- **Instagram posts ingestion** — ⛔ **blocked, tested 2026-08-27.** The Meta app exists and
+  the token authenticates, but `business_discovery` returns `(#10) Application does not have
+  permission for this action` for every account, our own included. It requires **Advanced
+  Access** to `instagram_basic`, which only Meta App Review grants — and review expects a
+  per-user OAuth consent flow this tool does not have. See `REVIEW.md` §6 for the full
+  finding and `scripts/check_instagram_access.py` to re-test if Meta's policy changes.
+  Stories were never automatable; the Slack screenshot pipeline now stays the bridge for
+  posts as well.
 - **Remaining security-audit items (issue #15)** — security headers (no CSP/HSTS/
   X-Frame-Options), `app.run(debug=True)`, magic-byte MIME validation, Slack webhook
   processing when the signing secret is unset.

@@ -116,8 +116,12 @@ def _graph_error(payload: dict) -> str:
     return " | ".join(str(b) for b in bits)
 
 
-def check_token(token: str, account_id: str) -> bool:
-    """Step 2 — does the token work, and does the account id resolve?"""
+def check_token(token: str, account_id: str):
+    """Step 2 — does the token work, and does the account id resolve?
+
+    Returns the authenticated username on success (step 3 uses it as a
+    control), or False.
+    """
     print(f"\n[2/3] Resolving IG_BUSINESS_ACCOUNT_ID {account_id} ...")
     resp = _request(
         f"{GRAPH_BASE}/{account_id}",
@@ -151,12 +155,11 @@ Most likely causes, in order:
     if payload.get("followers_count") is not None:
         print(f"        {payload['followers_count']} followers")
     _print_usage_headers(resp)
-    return True
+    return payload.get("username") or ""
 
 
-def check_business_discovery(token: str, account_id: str, username: str, limit: int) -> bool:
-    """Step 3 — can we read the target venue's public posts?"""
-    print(f"\n[3/3] Reading posts for @{username} via business_discovery ...")
+def _discovery_call(token: str, account_id: str, username: str, timeout: int = 20):
+    """One business_discovery request. Returns (payload, error_message)."""
     fields = (
         f"business_discovery.username({username})"
         f"{{followers_count,media_count,media{{{MEDIA_FIELDS}}}}}"
@@ -165,27 +168,68 @@ def check_business_discovery(token: str, account_id: str, username: str, limit: 
         f"{GRAPH_BASE}/{account_id}",
         {"fields": fields, "access_token": token},
         token,
-        timeout=20,
+        timeout=timeout,
     )
     if resp is None:
-        return False
+        return None, None, "request never completed"
     payload = resp.json() if resp.content else {}
-
     if resp.status_code != 200:
-        _fail(
-            f"HTTP {resp.status_code}: {_graph_error(payload)}",
-            f"""
-Most likely causes, in order:
-  - @{username} is a personal account. business_discovery only reads public
-    Business/Creator accounts — there is no API for personal ones.
-  - The handle is wrong. Check it against the venue's profile URL.
-  - The app cannot read other businesses' data yet. The app dashboard's
-    "Become a Tech Provider" notice points at this: reading another business's
-    data can require App Review. If step 2 passed and only this step fails,
-    that is the blocker — and it is a Meta process, not a code problem.
-""",
-        )
-        _print_usage_headers(resp)
+        return resp, payload, f"HTTP {resp.status_code}: {_graph_error(payload)}"
+    return resp, payload, None
+
+
+def _explain_app_level_block(username: str) -> None:
+    """Print the diagnosis for a #10 that reproduces on our own account."""
+    print(f"""
+        Control FAILED too — and @{username} is provably a Business account
+        (step 2 authenticated it). So this is NOT the handle and NOT the
+        target's account type. The app itself lacks the permission.
+
+        business_discovery requires ADVANCED ACCESS to instagram_basic.
+        Standard Access only reaches accounts with a role on the app, and
+        Advanced Access is granted solely through Meta App Review, which
+        wants business verification, a live-mode app, a privacy policy, a
+        data-deletion path, and a screencast of the full OAuth consent flow.
+
+        That is a Meta process, not a code problem. Nothing in this repo
+        can work around it.""")
+
+
+def check_business_discovery(
+    token: str, account_id: str, username: str, limit: int, self_username: str = ""
+) -> bool:
+    """Step 3 — can we read the target venue's public posts?
+
+    On failure this runs a control: the same call against the *authenticated*
+    account. That account is known to be a Business/Creator (step 2 proved it)
+    and its handle cannot be wrong, so if the control fails too the problem is
+    app-level permission, not the target. Guessing between those two is the
+    whole difficulty of a #10 error, and one extra call settles it.
+    """
+    print(f"\n[3/3] Reading posts for @{username} via business_discovery ...")
+    resp, payload, err = _discovery_call(token, account_id, username)
+
+    if err:
+        _fail(err)
+        if resp is not None:
+            _print_usage_headers(resp)
+
+        if self_username and username.lower() != self_username.lower():
+            print(f"\n        Control: retrying against your own @{self_username} ...")
+            _, _, control_err = _discovery_call(token, account_id, self_username)
+            if control_err:
+                _explain_app_level_block(self_username)
+                return False
+            print(f"        Control PASSED — @{self_username} reads fine.")
+            print(f"\n        So the app works; the problem is specific to @{username}.")
+            print("        Either it is a personal account (business_discovery only")
+            print("        reads Business/Creator accounts) or the handle is wrong.")
+            print("        Check it against the venue's Instagram profile URL.")
+            return False
+
+        # The target *was* the authenticated account, so no control is possible
+        # — and none is needed: this account is provably a Business account.
+        _explain_app_level_block(username)
         return False
 
     disco = payload.get("business_discovery") or {}
@@ -264,9 +308,12 @@ def main() -> int:
     print(f"  OK    IG_ACCESS_TOKEN set ({len(token)} chars)")
     print(f"  OK    IG_BUSINESS_ACCOUNT_ID set ({account_id})")
 
-    if not check_token(token, account_id):
+    self_username = check_token(token, account_id)
+    if not self_username:
         return 1
-    if not check_business_discovery(token, account_id, username, args.limit):
+    if not check_business_discovery(
+        token, account_id, username, args.limit, self_username
+    ):
         return 1
 
     print("\n" + "=" * 60)
