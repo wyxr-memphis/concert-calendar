@@ -24,6 +24,7 @@ into a chat or an issue — a long-lived token is a 60-day credential.
 
 import argparse
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -35,6 +36,29 @@ from src.http_utils import get_with_retry  # noqa: E402
 
 GRAPH_API_VERSION = "v21.0"
 GRAPH_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
+
+
+def _write_env(path: Path, values: dict) -> None:
+    """Update or append `export KEY="value"` lines, leaving the rest alone.
+
+    Matches the convention in .env.example, which run_local_backend.sh loads
+    with `source .env`. Writing the token here instead of printing it means it
+    never appears on screen — the failure mode that matters, because a terminal
+    gets screenshotted, scrolled back to, and pasted into chats.
+    """
+    lines = path.read_text().splitlines() if path.exists() else []
+    for key, value in values.items():
+        escaped = str(value).replace("\\", "\\\\").replace('"', '\\"')
+        new_line = f'export {key}="{escaped}"'
+        for i, line in enumerate(lines):
+            if re.match(rf"\s*(export\s+)?{re.escape(key)}\s*=", line):
+                lines[i] = new_line
+                break
+        else:
+            lines.append(new_line)
+    path.write_text("\n".join(lines) + "\n")
+    # The file now holds a live credential; keep it off other accounts.
+    path.chmod(0o600)
 
 
 def _mask(token: str) -> str:
@@ -74,9 +98,18 @@ def main() -> int:
         description="Exchange a short-lived Instagram token and find the account id.",
     )
     ap.add_argument(
+        "--write-env",
+        nargs="?",
+        const=".env",
+        metavar="PATH",
+        help="Write both values straight into PATH (default: .env, gitignored) "
+             "without printing the token. Preferred over --show-token.",
+    )
+    ap.add_argument(
         "--show-token",
         action="store_true",
-        help="Print the long-lived token in full (default: masked)",
+        help="Print the long-lived token in full. Prefer --write-env: anything "
+             "on screen can be screenshotted or scrolled back to.",
     )
     args = ap.parse_args()
 
@@ -186,6 +219,19 @@ def main() -> int:
         print("        If that is the wrong one, use the id you want instead.")
 
     print("\n" + "=" * 60)
+
+    if args.write_env:
+        env_path = Path(args.write_env)
+        _write_env(
+            env_path,
+            {"IG_ACCESS_TOKEN": long_token, "IG_BUSINESS_ACCOUNT_ID": account["id"]},
+        )
+        print(f"Wrote both values to {env_path} (mode 600). The token was never")
+        print("printed, so nothing on this screen is worth redacting.\n")
+        print(f"  source {env_path}")
+        print("  python scripts/check_instagram_access.py --username <venue-handle>")
+        return 0
+
     print("Set these two, then run the access check:\n")
 
     # The account id is not a credential — always print it in full.
