@@ -397,8 +397,16 @@ Constraint to respect: the stack has **no headless browser** (no Playwright/Sele
 
 ## 6. Instagram ingestion
 
-> **Status: BLOCKED, tested 2026-08-27.** Not "not started" — attempted and stopped by a
-> Meta permission tier this section did not account for.
+> **Status: ABANDONED 2026-08-27** (Robby's call, after testing). Not "not started" —
+> attempted, blocked by a Meta permission tier this section did not account for, and
+> then dropped deliberately. **Do not restart this without new information** — the
+> blocker is a Meta process, and the cost/benefit below is what settled it.
+>
+> The deciding argument was not the difficulty: it is that the Slack screenshot pipeline
+> already puts these venues on the calendar. Instagram ingestion would have removed a
+> DJ's screenshot step, not added a capability the calendar lacks — a poor trade for
+> business verification, a data-deletion endpoint, and an OAuth consent flow built
+> solely to satisfy a reviewer.
 >
 > The Meta app exists and works: a long-lived token authenticates as `@wyxr_memphis`, the
 > account is Business and linked to the WYXR Page, and `instagram_basic` is granted. But
