@@ -397,10 +397,47 @@ Constraint to respect: the stack has **no headless browser** (no Playwright/Sele
 
 ## 6. Instagram ingestion
 
-> **Status: not started; design only.** Blocked on a Meta app and a long-lived token
-> existing (`IG_ACCESS_TOKEN`, `IG_BUSINESS_ACCOUNT_ID` on Render). The conclusion still
-> holds: stories cannot be automated legitimately, and the Slack screenshot pipeline remains
-> the bridge for them.
+> **Status: ABANDONED 2026-08-27** (Robby's call, after testing). Not "not started" —
+> attempted, blocked by a Meta permission tier this section did not account for, and
+> then dropped deliberately. **Do not restart this without new information** — the
+> blocker is a Meta process, and the cost/benefit below is what settled it.
+>
+> The deciding argument was not the difficulty: it is that the Slack screenshot pipeline
+> already puts these venues on the calendar. Instagram ingestion would have removed a
+> DJ's screenshot step, not added a capability the calendar lacks — a poor trade for
+> business verification, a data-deletion endpoint, and an OAuth consent flow built
+> solely to satisfy a reviewer.
+>
+> The Meta app exists and works: a long-lived token authenticates as `@wyxr_memphis`, the
+> account is Business and linked to the WYXR Page, and `instagram_basic` is granted. But
+> **every `business_discovery` call returns `(#10) Application does not have permission for
+> this action`** — including against WYXR's *own* account, which rules out a wrong handle
+> and a personal-account target. `business_discovery` needs **Advanced Access** to
+> `instagram_basic`; Standard Access only reaches accounts with a role on the app, and
+> Advanced Access comes solely through Meta App Review (business verification, live-mode
+> app, privacy policy, data-deletion path, and a screencast of the OAuth consent flow).
+>
+> Note the awkward fit: this tool uses a single station-owned token and has **no per-user
+> OAuth flow at all**, which is precisely what App Review asks to see demonstrated.
+>
+> Reproduce with `scripts/check_instagram_access.py --username <handle>`. It runs a control
+> call against our own account and states which layer is at fault.
+>
+> **The "add the venue as an Instagram Tester" idea does not work, and the test above already
+> proves it.** Standard Access is defined as reaching accounts that hold a role on the app
+> (admin/developer/tester). `business_discovery` failed against `@wyxr_memphis` — the app
+> owner's *own* Instagram account, the most privileged role there is. If role-based Standard
+> Access applied to this endpoint, that call would have succeeded. It is the app's access
+> *tier* that is refused, not the target's relationship to the app, so inviting venues as
+> testers changes nothing. Don't spend a venue relationship finding that out.
+>
+> It is also not a wrong-product problem: Meta files `business_discovery` under *Instagram
+> API with Facebook Login*, and the app already has Facebook Login for Business — which is
+> why step 2 succeeds while step 3 does not.
+>
+> The rest of this section's conclusion still holds: stories cannot be automated
+> legitimately, and the Slack screenshot pipeline remains the bridge for them — and is now
+> the bridge for posts too.
 
 **Question asked:** can Instagram stories or posts be scraped automatically for venues that
 only post to social (Bar DKDC, B-Side, etc.)?
