@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-08-26T19:57:00.113734+00:00",
+  "run_timestamp": "2026-08-27T16:15:57.007459+00:00",
   "date_range": {
-    "start": "2026-08-26",
-    "end": "2026-09-02"
+    "start": "2026-08-27",
+    "end": "2026-09-03"
   },
-  "total_events_db": 3213,
-  "total_active_display": 93,
+  "total_events_db": 3217,
+  "total_active_display": 91,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -25,10 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -41,42 +41,18 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 47,
       "events_after_filter": 47,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -89,18 +65,34 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 41,
+      "events_after_filter": 41,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -125,14 +117,6 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +137,35 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 84,
+      "events_after_filter": 43,
+      "events_filtered": 41,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 250,
-      "events_after_filter": 30,
-      "events_filtered": 220,
+      "events_after_filter": 29,
+      "events_filtered": 221,
       "error": null
     },
     {
@@ -169,19 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 4,
+      "events_found": 19,
+      "events_after_filter": 3,
       "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 84,
-      "events_after_filter": 44,
-      "events_filtered": 40,
       "error": null
     },
     {
@@ -190,14 +190,6 @@
       "events_found": 17,
       "events_after_filter": 13,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
       "error": null
     },
     {
@@ -211,99 +203,37 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
+      "events_found": 15,
+      "events_after_filter": 12,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 79,
-      "events_after_filter": 54,
-      "events_filtered": 25,
+      "events_after_filter": 53,
+      "events_filtered": 26,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 93,
-      "events_after_filter": 93,
+      "events_found": 91,
+      "events_after_filter": 91,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DJ Wiz and the Solar System",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-26",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Montana Jones",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-26",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Phases",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-26",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale Street Blue Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-26",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-26",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-26",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Volunteer Training: EVENING",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-08-26",
-      "time": "5:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "MORIAH",
-      "venue": "Growlers",
-      "date": "2026-08-26",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-26",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "SIDE SET: Avid Violin",
-      "venue": "Nashoba",
-      "date": "2026-08-26",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "Devil Train",
       "venue": "B-Side Memphis",
@@ -529,6 +459,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Amber Rae Dunn and Wayne Alexander Live",
+      "venue": "South Main Sounds",
+      "date": "2026-08-28",
+      "time": "7:00PM",
+      "source": "scraper:south_main_sounds"
+    },
+    {
       "artist": "The Narrows",
       "venue": "Growlers",
       "date": "2026-08-29",
@@ -704,6 +641,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale Street Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-30",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-08-30",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-08-30",
@@ -875,8 +826,8 @@
       "artist": "Stars & Guitars",
       "venue": "Minglewood Hall",
       "date": "2026-09-02",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Community Preview Night",
@@ -884,6 +835,41 @@
       "date": "2026-09-02",
       "time": "6 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Modern Jazz Masters: Jon Cowherd with the Ted Ludwig Trio",
+      "venue": "Crosstown Arts",
+      "date": "2026-09-03",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Major Moment",
+      "venue": "Growlers",
+      "date": "2026-09-03",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Carlos Elliot Jr.",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-03",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Daphnie & Chris Duo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-03",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Alabama Live at the Garden",
+      "venue": "Radians Amphitheater",
+      "date": "2026-09-03",
+      "time": "8 PM",
+      "source": "scraper:radians_amphitheater"
     }
   ]
 }
