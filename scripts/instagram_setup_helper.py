@@ -187,14 +187,24 @@ def main() -> int:
 
     print("\n" + "=" * 60)
     print("Set these two, then run the access check:\n")
-    shown = long_token if args.show_token else _mask(long_token)
-    print(f"  export IG_ACCESS_TOKEN='{shown}'")
-    print(f"  export IG_BUSINESS_ACCOUNT_ID='{account['id']}'")
-    print(f"\n  python scripts/check_instagram_access.py --username <venue-handle>")
 
-    if not args.show_token:
-        print("\n  (token masked — re-run with --show-token to get the real value)")
+    # The account id is not a credential — always print it in full.
+    print(f"  export IG_BUSINESS_ACCOUNT_ID='{account['id']}'")
+
+    if args.show_token:
+        print(f"  export IG_ACCESS_TOKEN='{long_token}'")
     else:
+        # Deliberately NOT a copy-pasteable export line. Printing the masked
+        # value as one invites pasting "EAAWv8...ZDZD (216 chars)" as the token,
+        # which fails later as an opaque auth error rather than an obvious one.
+        print("  export IG_ACCESS_TOKEN=...")
+        print(f"\n  The token is {_mask(long_token)} — masked, so the line above is")
+        print("  a placeholder, not something to paste. Re-run with --show-token")
+        print("  to print the real export line.")
+
+    print("\n  python scripts/check_instagram_access.py --username <venue-handle>")
+
+    if args.show_token:
         print("\n  That token is a 60-day credential. It goes in Render env vars and")
         print("  GitHub Secrets — not into a chat, an issue, or a commit.")
     return 0
