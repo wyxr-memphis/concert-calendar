@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-08-29T11:30:58.970402+00:00",
+  "run_timestamp": "2026-08-29T19:34:28.409610+00:00",
   "date_range": {
     "start": "2026-08-29",
     "end": "2026-09-05"
@@ -25,18 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 24,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 39,
       "events_after_filter": 39,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -49,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -81,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 6,
@@ -97,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -125,6 +117,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -145,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 251,
@@ -161,11 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 12,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -174,6 +174,14 @@
       "events_found": 19,
       "events_after_filter": 3,
       "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,14 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 12,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 250,
@@ -209,20 +209,20 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='bluescitycafe.com', port=443): Max retries exceeded wi"
+      "success": true,
+      "events_found": 86,
+      "events_after_filter": 58,
+      "events_filtered": 28,
+      "error": null
     },
     {
       "name": "Database",
