@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-08-28T17:12:42.802841+00:00",
+  "run_timestamp": "2026-08-29T00:48:41.108264+00:00",
   "date_range": {
-    "start": "2026-08-28",
-    "end": "2026-09-04"
+    "start": "2026-08-29",
+    "end": "2026-09-05"
   },
-  "total_events_db": 3232,
-  "total_active_display": 98,
+  "total_events_db": 3244,
+  "total_active_display": 94,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -25,43 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 56,
+      "events_after_filter": 55,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_after_filter": 7,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -73,33 +49,41 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 41,
+      "events_after_filter": 39,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 250,
+      "events_after_filter": 37,
+      "events_filtered": 213,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
       "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
@@ -113,18 +97,26 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 25,
+      "events_after_filter": 24,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,7 +129,23 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 7,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -145,27 +153,19 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 0,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 83,
-      "events_after_filter": 43,
-      "events_filtered": 40,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 251,
-      "events_after_filter": 30,
-      "events_filtered": 221,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_after_filter": 42,
+      "events_filtered": 41,
       "error": null
     },
     {
@@ -177,22 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 12,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 13,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 19,
@@ -201,207 +185,55 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 15,
+      "events_after_filter": 12,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 251,
+      "events_after_filter": 28,
+      "events_filtered": 223,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 12,
+      "events_filtered": 5,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 52,
-      "events_filtered": 27,
+      "events_found": 86,
+      "events_after_filter": 58,
+      "events_filtered": 28,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 98,
-      "events_after_filter": 98,
+      "events_found": 94,
+      "events_after_filter": 94,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "DKTV2 x Infinity Stairs",
-      "venue": "Bar DKDC",
-      "date": "2026-08-28",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Ted Horrell and the Monday Night Card",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-08-28",
-      "time": null,
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "LJ Cates and Friends",
-      "venue": "B-Side Memphis",
-      "date": "2026-08-28",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-28",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-28",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-08-28",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-08-28",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "MICHAEL: A JussPlay LIVE Experience!",
-      "venue": "Crosstown Arts",
-      "date": "2026-08-28",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "JACQUEES & K CAMP",
-      "venue": "Graceland Soundstage",
-      "date": "2026-08-28",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Tom Foolery",
-      "venue": "Growlers",
-      "date": "2026-08-28",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "VonOff1700",
-      "venue": "Growlers",
-      "date": "2026-08-28",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Covington Creek",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-08-28",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Memphis Hates You presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-08-28",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Cody Clark",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-08-28",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "TILT",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-08-28",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Divingstation 95",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-28",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Social Capital",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-28",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Vampire Police",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-08-28",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "42 Dugg + Babyface Ray -\u00a04 The Trenches Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-08-28",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Dirt Monkey \u2013 Golden Banana Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-08-28",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Bluff City Bandits",
-      "venue": "Nashoba",
-      "date": "2026-08-28",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Lee Gilliland on the Patio",
-      "venue": "Nashoba",
-      "date": "2026-08-28",
-      "time": "5 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Shell on Wheels: 901 Day Trolley Night Kick-Off Mixer",
-      "venue": "Overton Park Shell",
-      "date": "2026-08-28",
-      "time": "7:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Amber Rae Dunn and Wayne Alexander Live",
-      "venue": "South Main Sounds",
-      "date": "2026-08-28",
-      "time": "7:00PM",
-      "source": "scraper:south_main_sounds"
-    },
     {
       "artist": "Impala",
       "venue": "Bar DKDC",
@@ -474,6 +306,13 @@
     },
     {
       "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-08-29",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Kirk Smithhart",
       "venue": "Blues City Cafe",
       "date": "2026-08-29",
       "time": "8:00 pm",
@@ -739,6 +578,13 @@
       "source": "scraper:crosstown_arts"
     },
     {
+      "artist": "Will Tucker Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-01",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
       "artist": "Mark Allen",
       "venue": "Crosstown Brewing Co.",
       "date": "2026-09-01",
@@ -814,6 +660,13 @@
       "date": "2026-09-03",
       "time": "7:30 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-03",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "Major Moment",
@@ -893,6 +746,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Bey Day feat DJ AD 901",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-04",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "Carlos Ecos Band",
       "venue": "Nashoba",
       "date": "2026-09-04",
@@ -917,6 +777,118 @@
       "artist": "The Band Camino - Homecoming",
       "venue": "Satellite Music Hall",
       "date": "2026-09-04",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Candynavia",
+      "venue": "First Congo Church",
+      "date": "2026-09-05",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Carry Ripple",
+      "venue": "First Congo Church",
+      "date": "2026-09-05",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Haley Mosenteen",
+      "venue": "First Congo Church",
+      "date": "2026-09-05",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Infinity Stairs",
+      "venue": "First Congo Church",
+      "date": "2026-09-05",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Memphis PowerPop Festival",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-05",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Blind Mississippi Morris",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-05",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Jeremy Schrader\u2019s \u201cOctocats\u201d featuring Saundra Messinger",
+      "venue": "Crosstown Arts",
+      "date": "2026-09-05",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "THIS IS MUSIC- Harris & Fitz",
+      "venue": "Flyway Brewing",
+      "date": "2026-09-05",
+      "time": "6 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "2000's EMO PARTY",
+      "venue": "Growlers",
+      "date": "2026-09-05",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "JD Simo",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-05",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Havana Good Time [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-05",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Souled Out",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-05",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Twin Soul",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-05",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "College Football",
+      "venue": "Nashoba",
+      "date": "2026-09-05",
+      "time": "2:40 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "The Band CAMINO",
+      "venue": "Satellite Music Hall",
+      "date": "2026-09-05",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "The Band Camino - Homecoming",
+      "venue": "Satellite Music Hall",
+      "date": "2026-09-05",
       "time": "7 PM",
       "source": "scraper:satellite_music_hall"
     }
