@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-08-31T11:27:37.535926+00:00",
+  "run_timestamp": "2026-08-31T21:42:25.190368+00:00",
   "date_range": {
     "start": "2026-08-31",
     "end": "2026-09-07"
   },
-  "total_events_db": 3278,
-  "total_active_display": 68,
+  "total_events_db": 3289,
+  "total_active_display": 71,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,26 +25,34 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
-      "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -65,25 +73,17 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 26,
-      "events_filtered": 1,
+      "events_found": 39,
+      "events_after_filter": 39,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
@@ -97,26 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -129,11 +121,43 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 33,
-      "events_filtered": 217,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 82,
+      "events_after_filter": 43,
+      "events_filtered": 39,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 4,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -142,14 +166,6 @@
       "events_found": 251,
       "events_after_filter": 27,
       "events_filtered": 224,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,14 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 4,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -193,14 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 82,
-      "events_after_filter": 43,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
@@ -209,10 +209,10 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 56,
+      "events_after_filter": 56,
       "events_filtered": 0,
       "error": null
     },
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 68,
-      "events_after_filter": 68,
+      "events_found": 71,
+      "events_after_filter": 71,
       "events_filtered": 0,
       "error": null
     }
@@ -438,6 +438,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-03",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Daphnie & Chris Duo",
       "venue": "Lafayette's Music Room",
       "date": "2026-09-03",
@@ -499,6 +506,13 @@
       "date": "2026-09-04",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Keer / Phases / Vixxen [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-04",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Bey Day (DJ AD 901)",
@@ -614,6 +628,13 @@
     },
     {
       "artist": "Havana Good Time [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-05",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Lob and friends [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-09-05",
       "time": null,
