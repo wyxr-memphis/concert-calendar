@@ -2489,17 +2489,26 @@ def _canonical_source_name(name):
     Resolving through the venue's aliases folds those onto the current name
     instead of leaving a frozen entry that ages into a false staleness alert.
 
-    Returns (canonical_name, is_retired). is_retired is True when the name looks
-    like a venue we no longer configure at all, which is a real signal and must
-    stay visible rather than being quietly dropped.
+    Returns (canonical_name, is_retired). is_retired means "nothing will run
+    this again", which happens two ways: the venue is gone from VENUES entirely,
+    or it is still configured but switched to scraper='manual_only'. Both leave
+    entries in old build logs that no future build will refresh, so both must be
+    retired — otherwise the entry ages past the staleness threshold and warns
+    every day until it falls out of the 30-build window, and it inflates the
+    "N/M clean" denominator with a scraper that cannot run. Retired is a real
+    signal either way and stays visible in the report rather than being dropped.
     """
     if not name.startswith("Venue: "):
         return name, False
-    from src.config import resolve_venue_name
+    from src.config import VENUES, resolve_venue_name
     canonical = resolve_venue_name(name[len("Venue: "):])
     if canonical is None:
         return name, True
-    return f"Venue: {canonical}", False
+    # _expected_scraper_source_names() already skips manual_only venues, so
+    # without this the two disagree and the venue is counted but never logged.
+    disabled = any(v["name"] == canonical and v.get("scraper") == "manual_only"
+                   for v in VENUES.values())
+    return f"Venue: {canonical}", disabled
 
 
 def _health_scrapers():

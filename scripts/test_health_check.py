@@ -118,7 +118,12 @@ def test_rename_does_not_look_like_an_outage():
     bv = next(s for s in scr if s["name"] == "Venue: Bluesville at Horseshoe")
     check("takes the newest run, not the stale one",
           bv["hours_since_last_run"] < 14, f"{bv['hours_since_last_run']}h")
-    check("not counted twice", len(scr) == expected_count(), str(len(scr)))
+    # Count the live entries, not len(scr): retired names (a removed venue, or
+    # one switched to manual_only) legitimately sit in scr alongside them, and
+    # comparing the raw length to the config roster made any such venue look
+    # like the duplicate this check exists to catch.
+    live = [s for s in scr if not s.get("retired")]
+    check("not counted twice", len(live) == expected_count(), str(len(live)))
     check("no staleness warning in the report",
           "46.4h" not in report_for(scr))
 
@@ -130,14 +135,22 @@ def test_removed_venue_stays_visible():
     scraper that genuinely disappeared.
     """
     print("\nremoved venue is reported, not hidden")
-    sources = load_fixture_sources() + [{
+    fixture = load_fixture_sources()
+    # A real build log can already contain retired names — a venue switched to
+    # manual_only keeps logging until the next build drops it. Diff against that
+    # baseline so the assertion stays exact without depending on which venues
+    # happen to be disabled today.
+    already_retired = {s["name"] for s in scrapers_from([(fixture, 2.0)]) if s.get("retired")}
+    sources = fixture + [{
         "name": "Venue: Some Closed Venue", "success": True,
         "events": 3, "events_found": 3, "events_filtered": 0, "error": None,
     }]
     scr = scrapers_from([(sources, 2.0)])
     retired = [s for s in scr if s.get("retired")]
 
-    check("flagged retired", [s["name"] for s in retired] == ["Venue: Some Closed Venue"])
+    check("flagged retired",
+          {s["name"] for s in retired} - already_retired == {"Venue: Some Closed Venue"},
+          str(sorted({s["name"] for s in retired} - already_retired)))
     check("excluded from the scraper tally",
           len([s for s in scr if not s.get("retired")]) == expected_count())
     text = report_for(scr)
@@ -159,6 +172,44 @@ def test_removed_venue_stays_visible():
     check("retired entry is not itself a warning",
           not any("Some Closed Venue" in l for l in text.splitlines()
                   if l.startswith("⚠️")))
+
+
+def test_disabled_scraper_does_not_age_into_a_warning():
+    """Switching a venue to manual_only must retire its logged entries.
+
+    A venue kept in VENUES but switched to scraper='manual_only' still has
+    entries in the last 30 build logs, and no future build will refresh them.
+    _expected_scraper_source_names() already skips manual_only venues, so the
+    entry used to be folded onto a live scraper that could never run: it
+    inflated the "N/M clean" denominator and, past 14h, warned every single day
+    until it aged out of the window. That is the same ghost-entry false positive
+    a rename produces, arrived at from the other direction.
+
+    Live case: Hotel Pontotoc, disabled 2026-09-01 because Cloudflare blocks the
+    CI runner's IP. The build after it logged 26/28 clean instead of 26/27.
+    """
+    print("\ndisabled scraper is retired, not stale")
+    from src.config import VENUES
+    disabled = [v["name"] for v in VENUES.values() if v.get("scraper") == "manual_only"]
+    assert disabled, "config no longer has a manual_only venue to test with"
+    name = f"Venue: {disabled[0]}"
+
+    # Logged 40h ago — well past the 14h staleness threshold.
+    sources = [{"name": name, "success": True, "events": 2,
+                "events_found": 2, "events_filtered": 0, "error": None}]
+    scr = scrapers_from([(sources, 40.0)])
+    entry = next(s for s in scr if s["name"] == name)
+
+    check("flagged retired", entry.get("retired") is True)
+    check("kept out of the live tally",
+          len([s for s in scr if not s.get("retired")]) == expected_count(),
+          str(len([s for s in scr if not s.get("retired")])))
+
+    text = report_for(scr)
+    check("no staleness warning",
+          not any(name in l for l in text.splitlines() if l.startswith("\u26a0\ufe0f")),
+          next((l for l in text.splitlines() if name in l and l.startswith("\u26a0\ufe0f")), ""))
+    check("still named in the report", disabled[0] in text)
 
 
 def test_all_filtered_out_is_not_a_failure():
@@ -251,6 +302,7 @@ def main():
     for fn in (
         test_rename_does_not_look_like_an_outage,
         test_removed_venue_stays_visible,
+        test_disabled_scraper_does_not_age_into_a_warning,
         test_all_filtered_out_is_not_a_failure,
         test_real_breakage_still_flagged,
         test_incomplete_line_reconciles,
