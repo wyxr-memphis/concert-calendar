@@ -1,852 +1,212 @@
 # Claude Code Instructions
 
-This document provides context for AI assistants working on the Memphis Concert Calendar project.
+Context for AI assistants working on the Memphis Concert Calendar — a daily-updating live
+music calendar for Memphis, Tennessee, built for WYXR 91.7 FM DJs.
 
-## Project Overview
+**This file holds only what you need loaded on every turn: the tripwires, the file map, and
+the working preferences.** The reasoning and history behind each rule live in `dev/`.
+**Read the relevant `dev/` doc before working on that subsystem** — every rule below was
+learned from a real outage or bug, and the doc says which one.
 
-A daily-updating live music calendar for Memphis, Tennessee, built for WYXR 91.7 FM DJs.
+## Architecture
 
-**Architecture:**
 - **Frontend:** Vercel at `concert-calendar.wyxr.org` (static HTML + interactive JS)
 - **Backend API:** Flask on Render at `concert-calendar-api.onrender.com`
-- **Database:** PostgreSQL on Render (single source of truth)
+- **Database:** PostgreSQL on Render (**single source of truth**)
 - **Build:** GitHub Actions 2x daily (midnight + noon Central)
 
-## Frontend Architecture (Critical — Read Before Touching the Index Page)
+`data/events.json` is a read-only snapshot exported by builds, never an input.
 
-`docs/index.html` is **fully self-contained** — all CSS is in a single `<style>` block and all JS is in a single `<script>` block at the bottom. There is **no build step, no bundler, no separate CSS/JS files** for the public calendar. Admin pages have their own separate JS files under `docs/admin/`.
+## Deep-dive docs (`dev/` — outside `docs/`, so not published)
 
-Key structural facts about `docs/index.html`:
-- CSS variables defined at `:root` (lines ~34–43): `--wyxr-yellow`, `--wyxr-charcoal`, `--wyxr-border`, etc.
-- Subscribe modal HTML: `#subscribeModal` with card class `.subscribe-modal-card` (background `#1A1A1A`, `border-radius: 8px`, overlay `rgba(0,0,0,0.75)`) — **reuse these patterns for any new modal**
-- Event Detail Modal HTML: `#eventModal` — opened by clicking any `[data-event-id]` element
-- All JS lives inside one IIFE `(function() { 'use strict'; ... })()` starting around line 800
-- Events are fetched from the **production Render API** at runtime — the page is static, not server-rendered
-- `allEvents` array holds all fetched events; `eventsById` map (`{id: event}`) is built in `showEvents()`
-- Event rows use `data-event-id` attribute + event delegation on `#eventList` to open the modal (no per-row listeners)
-- **Three escaping helpers, and picking the wrong one is a live XSS bug** (all near the bottom of the script):
-  | Helper | Use for | Why not the others |
-  |---|---|---|
-  | `esc()` | text **between tags** only | Sets `textContent` and reads `innerHTML` back, which encodes `&`, `<`, `>` but **leaves quotes** — so it does not terminate a quoted attribute |
-  | `escAttr()` | any value going into a **quoted attribute** | 136 of ~3100 event titles contain a quote character, so `esc()` in an attribute breaks on real data, not just on attacks |
-  | `safeUrl()` | any value reaching **`href` / `src`** | Escaping does not stop a `javascript:` URL. Scraper ticket URLs and OCR'd image URLs are untrusted. No-op for `http(s):`, returns `""` otherwise |
-  Compose them: `escAttr(safeUrl(cldImg(ev.image_url, 600)))`.
-- **Never strip markup with the detached-`innerHTML` idiom.** Assigning to `innerHTML` on a detached div and reading `textContent` back looks safe because a detached element does not run `<script>` — but the parser still **builds the nodes**, so `<img src=x onerror=…>` fires immediately. Use `DOMParser` (its documents have no browsing context). This was a real sink in `_buildCalendarData`, found only by driving the page in a browser.
+| Doc | Read before touching |
+|---|---|
+| [`dev/frontend.md`](dev/frontend.md) | `docs/index.html` — escaping, modal, deep links |
+| [`dev/database.md`](dev/database.md) | schema/DDL, dedup, dates & times, DB debugging |
+| [`dev/security.md`](dev/security.md) | auth, CSP, upload validation, audit log, API keys |
+| [`dev/feeds-and-seo.md`](dev/feeds-and-seo.md) | RSS, picks, ICS, sitemap, `/e/<id>`, JSON-LD |
+| [`dev/venues-and-scrapers.md`](dev/venues-and-scrapers.md) | adding a venue, scraper types |
+| [`dev/slack-pipeline.md`](dev/slack-pipeline.md) | the Slack image-upload flow |
+| [`dev/images.md`](dev/images.md) | Cloudinary, `cldImg()`, public submit uploads |
+| [`dev/sponsors-and-analytics.md`](dev/sponsors-and-analytics.md) | sponsors, subscribe modal, GA4 |
+| [`dev/testing.md`](dev/testing.md) | `test_before_push.sh` and its suites |
+| [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) | ⛔ read before any Instagram ingestion idea |
 
-## Local Development
+Also: [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md) for setup, [`FEATURES.md`](FEATURES.md)
+for live work, [`REVIEW.md`](REVIEW.md) for the August 2026 codebase review — most of its
+findings are fixed and its line numbers have moved. Its one still-live design is the
+venue-by-venue scraper approach (§5); **§6's Instagram ingestion is abandoned, not pending**
+— see [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) before acting on it.
 
-**Before making changes, always test locally:**
+---
+
+## Tripwires
+
+Break one of these and you ship a bug that will not show up in review. Each links to the
+doc that explains why.
+
+### Frontend — `docs/index.html` → [`dev/frontend.md`](dev/frontend.md)
+
+The page is **fully self-contained**: one `<style>` block, one `<script>` block, no build
+step, no bundler. Admin pages have separate JS under `docs/admin/`.
+
+- **Three escaping helpers; picking the wrong one is a live XSS bug.** `esc()` for text
+  between tags only (it leaves quotes intact). `escAttr()` for anything in a quoted
+  attribute. `safeUrl()` for anything reaching `href`/`src` (escaping does not stop
+  `javascript:`). Compose them: `escAttr(safeUrl(cldImg(ev.image_url, 600)))`.
+- **Never strip markup with the detached-`innerHTML` idiom** — the parser still builds the
+  nodes, so `<img src=x onerror=…>` fires. Use `DOMParser`.
+- ⚠️ **Never write a literal `</script>` inside the inline script** — not even in a comment.
+  It closes the script element and takes the whole page's JS with it. All three JSON-LD
+  emitters unicode-escape `<`/`>`/`&` for the same reason.
+
+### Database → [`dev/database.md`](dev/database.md)
+
+- **Schema DDL must never run unguarded on boot.** New DDL in `_run_migrations()` must use
+  `_ddl_cursor()` **and** register in the fast path (`_SCHEMA_TABLES` / `_SCHEMA_COLUMNS`),
+  or it is silently skipped forever. An unguarded `CREATE TABLE` took the whole API down on
+  2026-07-29.
+- **psycopg2 transaction poisoning** — one caught exception poisons the block. Use a
+  separate `with get_cursor()` per operation.
+- **Every "same event?" path must canonicalize the venue through the DB `venues` table**
+  (names + aliases), not `config.normalize_venue_name` alone. Three call sites must agree:
+  `src/main.py` `canon_venue()`, `scripts/backfill_dedup_key.py`, `scripts/cleanup_duplicates.py`.
+- **`dedup_key` goes stale whenever normalization changes** — including a venue rename.
+  Re-run the backfill (runbook in the doc).
+- ⚠️ **Never run a bulk DB edit while a build is in flight** — check `gh run list` first.
+  The build writes back stale rows and reverts your edits.
+- **Never write directly to `data/events.json`** and **never overwrite admin/manual source
+  entries** — automated scrapers always defer to manual edits.
+- **`gunicorn preload_app=True`** is load-bearing; the root `/` route is what Render health-
+  checks hit.
+
+### Dates and times → [`dev/database.md`](dev/database.md#date-and-time-rules)
+
+- **A year-less date must go through `resolve_yearless_date`** — otherwise every December
+  build drops January shows.
+- **`%-d` / `%-I` are glibc-only.** Use `strftime_nopad` / `format_event_time`.
+- **`start_time` is parsed in exactly one place:** `time_format.parse_start_time`.
+  `_parseEventStartTime` in `docs/index.html` mirrors it — change both or neither.
+- **A time shown to a human is am/pm**, via `format_time_of_day` (not `parse_start_time`).
+
+### Security → [`dev/security.md`](dev/security.md)
+
+- **Never commit secrets.** Keys live in `.zshrc`, GitHub Secrets, Render env vars.
+- **`ADMIN_SECRET_KEY` must be set on Render** or every worker rejects every other's tokens.
+- **Any new state-mutating route that reads form data needs `@require_bearer_auth`**, not
+  `@require_auth` — a multipart POST is CORS-simple and lands with no preflight.
+- **Everything from scrapers, Vision OCR, and `/submit` is untrusted** — including on the
+  server-rendered `/e/<id>` page.
+- **Errors are never echoed into the Slack channel** — the whole station is in it.
+- Re-run `scripts/test_security_headers.py` after touching either CSP or adding any
+  third-party embed. The GA4 host list was found empirically, not from docs.
+
+### Files and images → [`dev/images.md`](dev/images.md)
+
+- **Never have two writers to the same file** — a race once wiped 37 events.
+- **Render storage is ephemeral** — commit artifacts to GitHub, not `/tmp`.
+- **Never assume `image_url` is a Cloudinary URL** — legacy repo-hosted images coexist. Use
+  `is_cloudinary_url()`.
+- ⚠️ **`submissions.image_data` must never reach `jsonify`** — it is a `memoryview` and would
+  break the whole admin Submissions tab.
+
+### Testing → [`dev/testing.md`](dev/testing.md)
+
+- ⚠️ **`./test_before_push.sh` is not read-only against production.** It calls `init_db()`
+  with the `.env` `DATABASE_URL`, so it applies pending migrations to the live database. For
+  a migration that drops or renames anything, deploy first.
+- **Expect `17/17`, not just "all checks passed"** — `14/14` means the three Chromium browser
+  suites silently skipped.
+- Anything new in `test_admin_auth.py` that mutates state must be stubbed — it drives the
+  real app with `.env` loaded.
+
+### Instagram → [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md)
+
+- ⛔ **Instagram ingestion is a settled dead end (2026-08-27) — don't re-open it** without new
+  information from Meta. `business_discovery` needs Advanced Access via Meta App Review, and
+  it fails even against WYXR's own account, so the Tester workaround is ruled out too. The
+  Slack pipeline already covers these venues.
+- ⚠️ `scripts/instagram_setup_helper.py`: use `--write-env`, **never `--show-token`** — the
+  latter has already leaked a live 60-day token into a screenshot.
+
+### Feeds and URLs → [`dev/feeds-and-seo.md`](dev/feeds-and-seo.md)
+
+- **The public footer links only `/picks.xml`.** `/feed.xml` is Admin → Tools → Feeds. Don't
+  "fix" this by adding it back.
+- **Don't change the ICS UID format on one side only** — it must match the modal's per-event
+  `.ics`.
+- **Verify a URL with `curl -I` (no `-L`) before putting it in a sitemap or canonical tag.**
+  `cleanUrls: true` 308-redirects every `.html` path.
+
+---
+
+## File map
+
+**Core:** `src/main.py` (orchestrator: fetch → merge → prune → HTML → RSS) ·
+`src/config.py` (venues, neighborhoods, keywords, date ranges) ·
+`src/models.py` (`compute_dedup_key` / `normalize_text` — shared event identity) ·
+`src/normalize.py` · `src/date_utils.py` (incl. `resolve_yearless_date`) ·
+`src/time_format.py` (`strftime_nopad`, `format_event_time`, `format_time_of_day`,
+`parse_start_time`) · `src/http_utils.py`
+
+**Generators:** `src/generate_html.py` (→ `docs/thisweek.html`) ·
+`src/generate_rss.py` (→ `docs/feed.xml` 60-day, `docs/picks.xml` 180-day) ·
+`src/generate_ics.py` (→ `docs/calendar.ics` 180-day) ·
+`src/generate_sitemap.py` (→ `docs/sitemap.xml` + `robots.txt`)
+
+**Backend:** `backend/app.py` (Flask REST API) · `backend/db.py` (PostgreSQL queries) ·
+`backend/auth.py` (JWT, `require_auth` / `require_bearer_auth`, login throttle) ·
+`backend/images.py` (Cloudinary + submission sanitization) ·
+`backend/event_page.py` (server-rendered `/e/<id>`) · `backend/gunicorn_conf.py`
+
+**Scrapers:** `src/sources/ticketmaster.py` · `src/sources/venue_scrapers.py` ·
+`src/sources/artifacts.py` (Claude Vision)
+
+**Frontend:** `docs/index.html` (all-in-one calendar) · `docs/thisweek.html` ·
+`docs/admin/` (Events, Import, Scrapers, Venues, Sponsors) ·
+`docs/admin/admin-common.js` (auth, API calls; all admin pages set `window.__API_BASE`)
+
+**Deploy:** `.github/workflows/daily.yml` · `vercel.json` · `scripts/schema.sql`
+
+## Local development
 
 ```bash
-# Terminal 1: Backend
-./run_local_backend.sh
-
-# Terminal 2: Frontend
-./run_local_frontend.sh
-
-# Terminal 3: Test changes
-./test_before_push.sh
+./run_local_backend.sh      # Terminal 1 — localhost:5001
+./run_local_frontend.sh     # Terminal 2 — localhost:8000
+./test_before_push.sh       # Terminal 3
 ```
 
-See [LOCAL_DEVELOPMENT.md](LOCAL_DEVELOPMENT.md) for complete setup.
-
-## Critical Patterns & Lessons Learned
-
-### Data Flow
-- **PostgreSQL is the single source of truth** - never write directly to events.json
-- `data/events.json` is a read-only snapshot exported by builds
-- Admin edits go directly to PostgreSQL via Render API
-- Scrapers merge into PostgreSQL, then export snapshot
-
-### Database
-- Use **external** PostgreSQL URL for local dev (internal URL only works on Render)
-- `gunicorn preload_app=True` is critical - prevents silent worker import failures
-- **psycopg2 transaction poisoning:** Use separate `with get_cursor()` blocks per operation
-- Root `/` route needed for Render health checks
-- **Schema DDL must never run unguarded on boot.** `init_db()` checks the catalog first
-  (`_schema_is_current()`) and skips migrations entirely when every table and column
-  already exists — the case on every deploy after the first. Migrations that do run use
-  `_ddl_cursor()`, which sets `lock_timeout = 5s`.
-  **Why:** `CREATE TABLE` / `ALTER TABLE` need an ACCESS EXCLUSIVE lock, and in Postgres a
-  *queued* exclusive request blocks every later query on that table — so a blocked boot
-  takes plain reads down with it. On 2026-07-29 a stalled build held a lock on `events`
-  while a deploy booted workers; their `CREATE TABLE IF NOT EXISTS events` queued, and the
-  whole API went down (`/api/events`, `/api/sponsors`, even `/health`) until the stuck
-  session was terminated. Any new DDL added to `_run_migrations()` must use `_ddl_cursor()`
-  **and be registered for the fast path, or it will be skipped forever**: new tables go in
-  `_SCHEMA_TABLES`, new columns on an existing table go in `_SCHEMA_COLUMNS[<table>]`. The
-  column case is the sneaky one — the table already exists, so the check passes and the
-  column is silently never created on any database that has run the app before.
-- **Diagnosing a hung API:** query `pg_stat_activity` for `state = 'idle in transaction'`
-  and `wait_event_type = 'Lock'`. Fix is `pg_terminate_backend(<pid>)` plus cancelling the
-  build; the build's inserts are `ON CONFLICT DO NOTHING` and re-run next cycle.
-
-### Deduplication
-- Event identity is `dedup_key` = `normalize_text(title)|normalize_text(canonical_venue)|date`,
-  computed by the single shared `compute_dedup_key` (`src/models.py`). It is stored as a
-  column on `events` and enforced by the partial unique index `idx_events_dedup_key`
-  (`ON events (dedup_key) WHERE is_active`), so duplicate *active* events are structurally
-  impossible.
-- `_save_events_to_db()` tracks inserted events within same batch to prevent duplicates
-- **Never overwrite admin/manual source entries** - automated scrapers always defer to manual edits
-
-⚠️ **Every path that decides "same event?" must canonicalize the venue through the DB
-`venues` table (names + aliases) — not `config.normalize_venue_name` alone.** Aliases added
-through Admin → Venues exist *only* in that table, so the config function cannot see them
-and will score two rows for the same show as different events.
-
-The three call sites that must agree:
-
-| Path | Resolves venue via |
-|---|---|
-| the build — `canon_venue()` in `src/main.py` | `venue_lookup`, built from `SELECT name, aliases FROM venues` |
-| `scripts/backfill_dedup_key.py` | `_venue_canonical_map()`, same query |
-| `scripts/cleanup_duplicates.py` | `build_venue_canon()`, same query |
-
-**Why:** on 2026-08-20 `cleanup_duplicates.py` was the odd one out, using
-`normalize_venue_name` only. The 2026-07-15 Lamplighter bill was stored twice — once as
-`Lamplighter Lounge`, once as `Lamplighter Lounge, 1702 Madison Ave, Memphis TN`, an alias
-the venues table knows and the config does not. The backfill reported **4** collisions while
-cleanup found **2**, so cleanup could never clear the last two and the unique index could
-never be created. The two scripts simply disagreed about what a duplicate was. Add
-`venue_canon` to any new dedup path for the same reason.
-
-**`dedup_key` goes stale whenever normalization changes.** `src/models.normalize_text`,
-`config.normalize_venue_name`, and the `venues` aliases all feed it — including a venue
-rename. Re-run the backfill after touching any of them (see **Fix duplicates** below).
-The daily build partially self-heals: it rebuilds its lookup by *recomputing* every row's
-key with current code and refreshes `dedup_key` on any row it matches, so a re-scraped event
-repairs itself. Rows nothing re-scrapes stay stale until the backfill runs.
-
-### Security
-- API keys stored in: `.zshrc` (local), GitHub Secrets (CI/CD), Render env vars (production)
-- `.claude/settings.local.json` contains API keys in permission strings - protected by .gitignore
-- Never commit secrets - use `test_before_push.sh` to check
-- **`ADMIN_SECRET_KEY` must be set on Render.** Unset, `backend/auth.py` falls back to a
-  per-process random key: tokens signed by one worker are rejected by every other and every
-  restart silently invalidates all sessions. It warns loudly at startup and reports in
-  `GET /health` (a `warnings` array means it is missing) rather than aborting boot — making
-  it fatal would take the API down on deploy. **Confirmed set in production 2026-08-20.**
-- **Login is throttled** — 10 failures per client per 15 min → 429, counted in process
-  memory (a new table would add DDL to the boot path; see the `init_db` lock gotcha).
-  Only failures count and success resets, so a legitimate admin retyping is never locked out.
-- Passwords are compared as **UTF-8 bytes** — `hmac.compare_digest` raises `TypeError` on a
-  non-ASCII `str`, which returned 500 instead of 401.
-- **Security headers ship from both origins**, and they are not the same policy:
-  `backend/app.py`'s `_add_security_headers` (an `after_request` that uses `setdefault`, so a
-  route's own `Cache-Control` survives) and the catch-all rule in `vercel.json`.
-  | | Content-Security-Policy |
-  |---|---|
-  | Flask, JSON | `default-src 'none'` — renders nothing, so allow nothing |
-  | Flask, `/e/<id>` HTML | strict, including **`script-src 'none'`** — the page's only `<script>` is a JSON-LD *data* block, which CSP does not treat as script |
-  | Vercel, all pages | `'unsafe-inline'` in `script-src`, because `index.html` and the admin pages carry their JS inline and there is no build step that could add nonces |
-  **So the Vercel CSP does *not* stop injected inline script — `escAttr`/`safeUrl` are still
-  what does that.** What it does stop: loading script from an unlisted host, exfiltrating to
-  one, `<base>` hijacking, plugins, and framing.
-  ⚠️ **The GA4 host list was found empirically, not from documentation.** `analytics.google.com`
-  is a *bare* host, so a `*.analytics.google.com` wildcard misses it — and it carries the core
-  `page_view` beacon, so getting this wrong silently kills analytics. This property also has
-  Google Ads linking on, which adds `*.doubleclick.net` and `www.google.com`.
-  `scripts/test_security_headers.py` drives the real pages under the **shipped** policy
-  (parsed out of `vercel.json`) in Chromium and fails on any violation — a CSP that breaks the
-  page is worse than no CSP. Re-run it after touching either policy or adding any third-party
-  embed.
-- **Image uploads are checked three ways** (`backend/images.py` `validate()`): size, then the
-  claimed extension, then the file's own magic bytes plus a Pillow decode with
-  `MAX_IMAGE_PIXELS` bounded. The extension decides the Content-Type Cloudinary serves; only
-  the signature says whether it is an image at all. Admin uploads are *not* re-encoded (unlike
-  submissions), so this is the only place a mislabelled file is caught.
-  `src/sources/artifacts.py` sets `Image.MAX_IMAGE_PIXELS` at import and its optimize paths
-  re-raise `DecompressionBombError` rather than falling back to the raw bytes — falling back
-  would hand the payload to the Vision API and bill us for it.
-- **`app.run(debug=...)` is gated behind `FLASK_DEBUG`.** Production runs under gunicorn and
-  never reaches that branch, but `debug=True` there would expose the Werkzeug console on any
-  traceback.
-- **API keys are stored hashed** (`api_keys.key_hash`, sha256), with `key_prefix` kept only
-  so a key is identifiable in the admin list. The plaintext exists exactly once, in the
-  response from `POST /api/admin/api-keys`. **An issued key cannot be recovered** — if a
-  partner loses theirs, issue a new one. `hash_api_key()` must keep producing the same digest
-  as Postgres's `encode(sha256(key::bytea), 'hex')`, which the migration used to backfill.
-- **Admin writes are audited** to `admin_audit_log` by a single `after_request` hook, so a
-  route added later is covered without anyone instrumenting it. GETs are excluded (a read is
-  not an action) and 401s are excluded — otherwise an unauthenticated caller could write
-  rows. `log_admin_action` never raises: an audit failure must not turn a successful edit
-  into an error response. Viewable at Admin → Tools → Security.
-- **Sessions can be revoked** — `POST /api/admin/revoke-sessions` bumps an epoch stored in
-  `admin_settings`, and every token carrying an older epoch dies. The epoch is in the DB
-  because gunicorn runs several workers, cached for `TOKEN_EPOCH_CACHE_SECONDS` (15s) so it
-  is not a query per request, and **reads as `None` on failure so `verify_token` skips the
-  check** — a transient Postgres timeout must not lock the admin out. Availability wins here
-  because revocation is rare and deliberate and tokens expire within 8 hours anyway.
-- **Errors are never echoed into the Slack channel.** `#wyxr-concert-calendar` has the whole
-  station in it; exception strings there have carried paths and API responses. The full
-  exception goes to the Render logs (access controlled), the channel gets a generic line.
-
-### File Operations
-- **Never have two writers to the same file** - race conditions cause data loss
-- Render storage is ephemeral - commit artifacts to GitHub, not /tmp
-- GitHub artifacts are auto-cleaned after 24 hours by daily build workflow
-
-### API Patterns
-- Admin uses JWT Bearer tokens (cross-origin from Vercel to Render)
-- CORS configured for `ALLOWED_ORIGINS` environment variable
-- Render health checks hit `/` not `/health` - both endpoints exist
-- **Multipart upload routes use `@require_bearer_auth`, not `@require_auth`.** The admin
-  cookie is `SameSite=None` so Vercel can reach Render, which means the browser attaches it
-  cross-site too — and a `multipart/form-data` POST is a **CORS-simple** request, so it sends
-  with no preflight and the write lands even though the response is unreadable. Requiring the
-  `Authorization` header forces a preflight that CORS rejects for unknown origins. Transparent
-  to the admin UI, which always sends the header via `AdminAPI.apiFetch`.
-  Apply it to **any new state-mutating route that reads form data**; routes parsing JSON
-  already force a preflight.
-- **The Bearer token lives in `sessionStorage`, which is per-tab — the cookie is not.** So a
-  page opened in a *new* tab (the Slack bot's reply links go straight to
-  `/admin/edit?id=<uuid>`; any middle-click does it too) authenticates fine on the cookie —
-  `/api/admin/me` and every `require_auth` route work, the form loads and saves — while all
-  four `require_bearer_auth` upload routes answer 401 `Not authenticated`. That tab could not
-  recover on its own: `login.html` bounces to `/admin/` whenever the cookie is valid, so there
-  was no way to get a token into it short of logging out. Reported 2026-08-20 as "Not
-  authenticated" when uploading an event image.
-  **Fix:** `GET /api/admin/me` echoes the token it authenticated with (`current_token()` in
-  `backend/auth.py` — the *same* token, never a fresh one, so polling cannot extend the 8-hour
-  session), and `AdminAPI.apiFetch` calls `hydrateToken()` before any request when
-  `sessionStorage` is empty. Echoing it does not weaken the CSRF guard: a cross-site page can
-  send that credentialed GET but CORS won't let it read the response, so it still cannot learn
-  the token or forge the header.
-  A 401 from an upload route now means the session genuinely expired — surface it with
-  `uploadFailureMessage(resp, data)` rather than echoing the API's bare "Not authenticated",
-  which reads like a page bug.
-
-## Important Files
-
-> **Background reading:** [`REVIEW.md`](REVIEW.md) is a full-codebase review from August 2026
-> with a per-item status layer. Most of its bug/security findings are fixed and its line
-> numbers have moved, but it is the record of *why* several of these decisions were made, and
-> it holds the two designs not yet built: the venue-by-venue scraper approach (§5) and the
-> Instagram ingestion feasibility analysis (§6). Live work is tracked in `FEATURES.md`.
-
-### Core Application
-- `src/main.py` - Orchestrator (fetch → merge → prune → HTML → RSS)
-- `src/config.py` - Venues, neighborhoods, keywords, date ranges
-- `src/models.py` - `compute_dedup_key` / `normalize_text` — the shared event-identity logic
-- `src/normalize.py` - Deduplication logic
-- `src/generate_rss.py` - RSS 2.0 feed generator — both `docs/feed.xml` (60-day) and
-  `docs/picks.xml` (WYXR Picks only, 180-day) via `generate_picks_rss`
-- `src/generate_ics.py` - iCalendar subscribe feed (`docs/calendar.ics`, 180-day window)
-- `src/generate_sitemap.py` - `docs/sitemap.xml` + `docs/robots.txt`
-- `src/date_utils.py` - Date parsing, incl. `resolve_yearless_date` (see below)
-- `src/time_format.py` - `strftime_nopad` / `format_event_time` / `format_time_of_day` — **use these, never `%-d`/`%-I`**
-- `src/http_utils.py` - Shared HTTP fetch helpers
-- `backend/app.py` - Flask REST API
-- `backend/db.py` - PostgreSQL queries
-- `backend/auth.py` - JWT signing, `require_auth` / `require_bearer_auth`, login throttle
-- `backend/images.py` - Cloudinary upload/delete + submitted-image sanitization
-- `backend/event_page.py` - Server-rendered `/e/<id>` permalink pages (OG tags + JSON-LD)
-
-**Two rules these encode:**
-- **A year-less date must go through `resolve_yearless_date`.** Defaulting to the current
-  year meant every December build read "Jan 15" as 11 months in the past and the `START_DATE`
-  filter silently dropped it — affecting every venue scraper. A date more than 45 days before
-  the reference rolls forward, so a slightly stale listing stays put but a New Year date moves.
-  `backend/app.py`'s `_normalize_date_iso` shares the same helper.
-- **`%-d` / `%-I` are glibc-only** and break local dev on macOS/Windows. Use `strftime_nopad`,
-  and `format_event_time` for the "7:30 PM" rendering (previously duplicated at 11 sites).
-- **A time shown to a human is am/pm, never a 24-hour clock.** The public submit form's
-  `<input type="time">` posts `19:30` and psycopg2 hands back a `datetime.time`;
-  `format_time_of_day` renders either as `7:30 PM`. It is *not* `parse_start_time` —
-  that one reads a bare `7:30` as the evening, correct for a scraped flyer and wrong for
-  a form field where `07:30` is the morning. Used by the Slack submission notification,
-  the event created on approve, and (as `formatTime`) the admin Edit & Approve link.
-- **`start_time` is parsed in exactly one place: `time_format.parse_start_time`.** The ICS
-  feed, the `/e/<id>` page and `thisweek.html` all call it, and `_parseEventStartTime` in
-  `docs/index.html` mirrors it. `DEFAULT_START_HOUR` (20) and `DEFAULT_DURATION_HOURS` (3)
-  live there too. **Why:** three surfaces now publish machine-readable start times for the
-  same show — an iCalendar `DTSTART`, a schema.org `startDate`, and the modal's calendar
-  buttons. If they disagree, a subscriber and a search result show different times for the
-  same gig, and nothing surfaces the contradiction.
-
-### Scrapers
-- `src/sources/ticketmaster.py` - Ticketmaster Discovery API
-- `src/sources/venue_scrapers.py` - Custom scrapers (Hi Tone, Minglewood, etc.)
-- `src/sources/artifacts.py` - Claude Vision for image processing
-
-### Frontend (Public Calendar)
-- `docs/index.html` - **All-in-one**: CSS + JS + HTML. No separate asset files. Events loaded via API at runtime.
-- `docs/thisweek.html` - Static 8-day view, generated by build
-- `docs/feed.xml` - RSS 2.0 feed, generated by build
-- `docs/picks.xml` - WYXR Picks RSS feed, generated by build
-
-### Event Detail Modal (in docs/index.html)
-- Opened by clicking any `[data-event-id]` element (event delegation on `#eventList`)
-- `openEventModal(eventId, triggerEl)` / `closeEventModal(method)` — module-scope functions
-- `_buildCalendarData(ev)` — builds Google Calendar URL, Outlook.com URL, and Apple .ics Blob
-- GA4: fires `modal_open`, `modal_close`, `add_to_calendar`, `external_link_click` via `trackEvent()`
-- Visual style matches subscribe modal: `#1A1A1A` card, `border-radius: 12px`, yellow primary CTA
-
-### Admin UI
-- `docs/admin/` - Admin interface (Events, Import, Scrapers, Venues, Sponsors tabs)
-- `docs/admin/admin-common.js` - Shared admin utilities (auth, API calls)
-- All admin pages use `window.__API_BASE` to point to Render backend
-
-### Deployment
-- `.github/workflows/daily.yml` - CI/CD (2x daily + manual trigger)
-- `backend/gunicorn_conf.py` - Gunicorn config
-- `vercel.json` - Vercel config
-- `scripts/schema.sql` - PostgreSQL schema
-
-### Feeds
-- `docs/feed.xml` - RSS 2.0 feed (next 60 days, auto-generated each build)
-- Feed URL: `concert-calendar.wyxr.org/feed.xml`
-- `docs/picks.xml` - **WYXR Picks feed** (next 180 days). Same item format as `feed.xml`,
-  filtered to `is_featured` by `generate_picks_rss()`, and **no sponsor items** — it is a
-  curated recommendation list. `is_wyxr_pick()` is the single predicate; note that
-  `is_wyxr_presents` alone does *not* qualify, the two flags are independent.
-- **Which link goes where is deliberate.** The visible public footer (`docs/index.html`,
-  `docs/thisweek.html` via `src/generate_html.py`, and `/e/<id>` via `backend/event_page.py`
-  — all three carry the same link list) links **only** `/picks.xml`. `/feed.xml` is linked
-  from Admin → Tools → Feeds. **Both feeds are public and unauthenticated** — only the link
-  moved, and `<link rel="alternate">` autodiscovery for both stays in every page `<head>`
-  so existing subscribers and readers are unaffected. Don't "fix" the footer by adding
-  `/feed.xml` back.
-- `docs/calendar.ics` - iCalendar subscribe feed (next 180 days), advertised as
-  `webcal://concert-calendar.wyxr.org/calendar.ics`. See **iCalendar feed** below.
-- All four outputs (RSS, picks RSS, ICS, sitemap) share **one** DB read in `src/main.py` —
-  the RSS window is a slice of the wider one. Each writer has its own `try/except` so a
-  failure in one still publishes the others.
-- A new `.xml` feed needs a `vercel.json` `headers` entry for its `Content-Type`
-  (`application/rss+xml`) — without one Vercel serves it as `application/xml` and some
-  readers refuse to subscribe.
-- **An event item's `<link>` is its `/e/<id>` permalink, not the ticket URL.** The ticket URL
-  ships as `<wyxr:ticketUrl>` (http(s) only) and as a link inside `<content:encoded>`; the
-  permalink is echoed as `<wyxr:permalink>` because `<link>` is the element a reader may
-  rewrite for click tracking. `_event_permalink()` requires a **UUID-shaped** id — `id` falls
-  back to the *title* for the guid, and a title must never land in a URL path. `<guid>` was
-  deliberately left alone: changing it would re-notify every subscriber for every event.
-- **Badge flags are machine-readable, not just text.** WYXR Pick / WYXR Presents ship as
-  `<category>` plus a `wyxr:` namespaced trio (`<wyxr:pick>`, `<wyxr:presents>`,
-  `<wyxr:badge>`) on every event item — see the RSS Feeds section of README.md for the
-  contract. The badge words are *also* still inside `<title>`/`<description>`/
-  `<content:encoded>` for older consumers; keep both in sync if you touch the labels
-  (`BADGE_PICK` / `BADGE_PRESENTS` in `src/generate_rss.py` are the single source).
-  The two booleans are independent — an event can be both — and `<wyxr:badge>` applies the
-  Presents-wins precedence for consumers that can only show one.
-
-## iCalendar Feed (`docs/calendar.ics`)
-
-Generated by `src/generate_ics.py`, published at `/calendar.ics`, advertised in the footer as
-`webcal://` (which is what makes a calendar app *subscribe* rather than import a static copy).
-
-Three things here are load-bearing:
-
-- **Times are UTC instants, not floating local times with a `VTIMEZONE`.** A hand-written
-  VTIMEZONE block means hand-maintaining DST rules; `zoneinfo` cannot drift. `DTSTART:2026…Z`
-  is unambiguous in every client. `scripts/test_ics_feed.py` asserts a summer show at `-05:00`
-  and a winter show at `-06:00` — a fixed offset would put half the year in the wrong hour.
-- **UIDs match the per-event `.ics`** that `_buildCalendarData` produces client-side
-  (`wyxr-event-<id>@concert-calendar.wyxr.org`). Calendar apps key on UID, so a user who
-  downloaded one show and then subscribes gets one entry, not two. **Don't change the UID
-  format on one side only.**
-- **RFC 5545 folding counts octets, at character boundaries.** Nearly every `SUMMARY` here is
-  `Artist — Venue`, and an em dash is 3 bytes — a fold that splits one is mojibake in every
-  client. `_fold()` backs off to a boundary; the test asserts round-trip fidelity on
-  multi-byte content.
-
-Events whose `date` will not parse are **skipped**, not emitted with a broken `DTSTART`:
-some clients reject the whole file over one bad entry.
-
-## Event Permalinks (`/e/<id>`)
-
-`backend/event_page.py` renders a full page for one event; `backend/app.py`'s
-`event_permalink()` is the route; `vercel.json` rewrites
-`concert-calendar.wyxr.org/e/:id` to Render so the shared URL stays on the public domain.
-Rendered from the DB per request, so an admin edit is live with no build.
-
-- **The id is validated as a UUID before the query.** Passing a non-UUID to a `uuid` column
-  raises, and a raised error inside a cursor block leaves the transaction poisoned for the
-  next statement (see the psycopg2 note above).
-- **Soft-deleted events 404**, so a shared link to a pulled show doesn't stay live.
-- **A DB failure returns 503, not 404**, with different wording — Render Postgres timeouts
-  are transient and must not tell a reader the show was deleted. Both non-200 paths send
-  `X-Robots-Tag: noindex` and `Cache-Control: no-store`.
-- **Everything interpolated is untrusted** (scrapers, Vision OCR, the unauthenticated
-  `/submit` form). Text goes through `esc()` (quotes included, so it is attribute-safe),
-  URLs additionally through `safe_http_url()`. This is a *server-side* sink on the public
-  origin — strictly worse than the client-rendered calendar if it leaks.
-- **The JSON-LD block is `json.dumps` + unicode-escaped `<`/`>`/`&`.** A literal
-  `</script>` inside a scraped title would otherwise close the block and hand the rest to the
-  HTML parser. Same rule in `src/generate_html.py` and in `renderEventsJsonLd()`.
-- `ticket_price` becomes a structured `price` **only** for a plain amount (`$25`, `18`) or a
-  free show. `"$15-25"` and `"$20 ADV / $25 DOS"` are left out rather than guessed — a wrong
-  price in a search result is worse than none.
-
-### Deep links in the calendar
-
-`docs/index.html` keeps the URL in step with the modal. Three distinct paths, all covered by
-`scripts/test_deeplink_browser.py`:
-
-| How the modal opened | What closing it must do |
-|---|---|
-| clicked a row (we pushed an entry) | `history.back()` — and the browser's Back must close the modal |
-| loaded straight onto `#event=…` | `replaceState` to strip the hash **in place**; `back()` would leave the site |
-| a Back/Forward navigation | neither push nor pop — `_emSuppressHistory` guards it, or Back becomes an inescapable loop |
-
-`syncModalToHash()` runs at the end of `showEvents()`, because `eventsById` does not exist
-any earlier. The modal's **Copy link** button copies the `/e/<id>` permalink, not
-`location.href` — the hash URL does not unfurl.
-
-⚠️ **Never write a literal `</script>` inside the inline `<script>` in `docs/index.html`** —
-not even in a comment. It closes the script element and takes the whole page's JS with it.
-
-## SEO
-
-| Surface | Structured data | Crawlable without JS? |
-|---|---|---|
-| `docs/thisweek.html` | `ItemList` of `MusicEvent`, built by `_events_jsonld()` | **yes** — this is the page that gets shows indexed |
-| `docs/index.html` | static `WebSite` + `RadioStation`; `ItemList` injected by `renderEventsJsonLd()` | no (events arrive over the API) |
-| `/e/<id>` | per-event `MusicEvent` | **yes** |
-
-- `docs/sitemap.xml` lists the static pages plus one URL per event in the 180-day window.
-  Past events are excluded on purpose — a sitemap advertising thousands of expired shows
-  spends crawl budget on pages nobody wants.
-- Static-page entries use the **extensionless** form (`/thisweek`, `/submit`). `cleanUrls:
-  true` in `vercel.json` 308-redirects `/thisweek.html` → `/thisweek`, so the `.html` paths
-  would point every crawler at a redirect — and those were what the pages' own
-  `rel=canonical`/`og:url` claimed. All three now agree on the URL that actually serves a
-  200. Check with `curl -I` (no `-L`) before adding a static page to the sitemap.
-- Both pages have a screen-reader-only `<h1>` (`.sr-only`, clipped rather than
-  `display:none`, which would remove it from the accessibility tree) because the visible
-  title is a banner image. `index.html` also has a skip link.
-
-## Venues (27 configured)
-
-Source of truth is `VENUES` in `src/config.py`; each entry's `scraper` field selects the
-fetcher. Regenerate this list with:
-`python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"`
-
-**Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
-Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
-Amphitheater, Satellite Music Hall
-
-**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
-(SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
-Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench`, all
-locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe,
-Landers Center, Orpheum Theatre, South Main Sounds
-
-**Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
-
-**Manual only (2):** Bar DKDC, B-Side Memphis
-
-Venue scrapers use 6-month range (`SCRAPER_END_DATE`) for interactive calendar.
-
-> The DB `venues` table is much larger (~104) — it also holds venues created by Slack/artifact
-> uploads and admin entries, which have aliases but no scraper. Those aliases are load-bearing
-> for deduplication (see **Deduplication**).
-
-`ticketmaster_venue` is the cheap win for any Live Nation / Ticketmaster room: a
-`livenation.com/venue/<ID>/…` URL exposes the ID — add a `VENUES` entry plus a
-`backend/db.py` `_SEED_VENUES` row, and no page scraping is needed at all.
-
-## Slack Image Upload Pipeline
-
-DJs can upload venue schedule images directly to **#wyxr-concert-calendar** in Slack to add events without touching the admin UI.
-
-### How it works
-1. User uploads an image to #wyxr-concert-calendar with the caption **"add to calendar"**,
-   optionally naming the venue: **"add to calendar B-Side"**
-2. Slack fires a `file_shared` event to `POST /api/slack/events`
-3. Backend downloads the image, checks the caption via `conversations.history`
-4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image
-5. The venue is resolved (see **Venue resolution** below)
-6. New events are deduplicated and inserted into PostgreSQL. The uploaded image is attached
-   **only when every extracted event is the same show** — same canonical venue, same date.
-   A 4-act bill on one night gets the flyer; a venue's month schedule does not (it would
-   thumbnail the whole flyer onto every row). Venue is canonicalized via
-   `normalize_venue_from_db` first, so "Lamplighter Lounge, Memphis, TN" groups with
-   "Lamplighter Lounge".
-7. GitHub Actions rebuild is triggered
-8. Bot replies in the channel listing each added event, with the title linked to
-   `{SITE_BASE}/admin/edit?id=<uuid>` for one-click correction
-
-The reply counts and lists only events that **actually inserted** — `bulk_insert_events`
-uses `ON CONFLICT DO NOTHING`, so a row that collides returns nothing and is skipped.
-`SITE_BASE_URL` overrides the site origin (defaults to `https://concert-calendar.wyxr.org`).
-
-### Venue resolution
-
-A venue's own monthly schedule usually never prints the venue name on it — B-Side's August
-flyer is just "AUGUST" over their logo. Vision has nothing to read, so it used to return
-"Unknown Venue" and 40 shows landed on the public calendar under that string (2026-08-04).
-
-- **Caption wins.** `_venue_hint_from_caption()` reads whatever follows "add to calendar"
-  and resolves it strictly against the DB `venues` table (names + aliases), trimming
-  trailing words one at a time so "add to calendar b-side thanks!" still matches. When it
-  resolves, that venue is applied to **every** event from the image — one flyer is one
-  venue. Nothing in the caption matching a known venue → no hint (chatter can't invent a
-  venue).
-- **Placeholders never insert.** `_is_placeholder_venue()` catches "Unknown Venue",
-  "Venue TBA", "TBA/TBD", "N/A", empty, etc. Those events are dropped and the reply tells
-  the DJ to re-upload with the venue in the caption. Applied **before** the
-  `is_fuzzy_duplicate` check, which keys off venue.
-- The Vision prompt also asks for an empty venue rather than a guessed placeholder.
-- **Recovery for rows already inserted under a wrong venue:**
-  `python scripts/reassign_venue.py --from "Unknown Venue" --to "B-Side Memphis"`
-  (dry-run by default, `--confirm` to write). It sets neighborhood from the venues table,
-  recomputes `dedup_key`, and skips any row that would collide with an existing event.
-  Don't use Admin → Venues **merge** for this — merge adds the bad string as a permanent
-  alias, which would silently route every future venue-less flyer to that venue.
-
-### Environment variables (Render)
-| Variable | Source |
-|---|---|
-| `SLACK_BOT_TOKEN` | api.slack.com → OAuth & Permissions → Bot User OAuth Token |
-| `SLACK_SIGNING_SECRET` | api.slack.com → Basic Information → Signing Secret |
-| `SLACK_CHANNEL_ID` | Right-click channel in Slack → View channel details → Channel ID |
-
-### Slack app config (api.slack.com)
-- **OAuth scopes:** `files:read`, `chat:write`, `channels:history`
-- **Event Subscriptions → Request URL:** `https://concert-calendar-api.onrender.com/api/slack/events`
-- **Subscribe to bot events:** `file_shared`
-- Bot must be invited to the channel: `/invite @WYXR Concert Calendar`
-
-### Key implementation files
-- `backend/app.py` — `slack_events()` route, `_process_slack_image()` background thread
-- `src/sources/artifacts.py` — `extract_events_from_image_bytes()` public entry point
-
-### Debugging
-- All Slack activity logs with `[slack]` prefix in Render logs
-- If no `[slack]` lines appear after upload: bot not in channel, wrong event subscription, or needs reinstall
-- If "No events extracted": check Vision response in logs — year assumption issues are common for handwritten schedules with no year shown (prompt instructs Claude to assume current/next year)
-- Reinstall app after any scope changes: api.slack.com → OAuth & Permissions → Reinstall to WYXR
-
-## Instagram ingestion — ⛔ do not attempt (settled 2026-08-27)
-
-**Reading venue Instagram posts through the Graph API is a dead end. Don't re-open it
-without new information from Meta.** `REVIEW.md` §6 designed this and never mentioned the
-access tier, which is exactly why it got picked up and cost an evening.
-
-- **Posts:** `business_discovery` returns `(#10) Application does not have permission for
-  this action` — **including against WYXR's own `@wyxr_memphis`**. That control is what makes
-  it a diagnosis: a wrong handle and a personal-account target are both ruled out, so it is
-  the app's *access tier* being refused, not the target. It needs **Advanced Access** to
-  `instagram_basic`, granted only by Meta App Review — which expects business verification, a
-  data-deletion endpoint, and a screencast of a per-user OAuth consent flow this tool does
-  not have and would have to build purely to pass review.
-- **The "add the venue as an Instagram Tester" workaround does not work,** and the same
-  evidence proves it. Standard Access covers accounts holding a role on the app;
-  `@wyxr_memphis` holds the *owner* role and still failed. Don't spend a venue relationship
-  finding this out.
-- **Stories have never been automatable** — no Meta API exposes another account's stories,
-  and the alternatives require a logged-in bot session that breaches Instagram's ToS and
-  risks the station's account.
-- **Why it was dropped rather than pursued:** the Slack image pipeline above *already* puts
-  these venues on the calendar. Instagram ingestion would have removed a DJ's screenshot
-  step, not added a capability — a poor trade for weeks of Meta verification.
-
-The Meta app itself is fine (`WYXR Concert Calendar`, Business account linked to the WYXR
-Page, `instagram_basic` granted) — the block is purely the access tier. Re-test the whole
-chain in one command if Meta's policy ever changes:
-`python scripts/check_instagram_access.py --username <handle>`. It runs the control call
-itself and names which layer is at fault. `scripts/instagram_setup_helper.py --write-env`
-regenerates the credentials; **use `--write-env`, never `--show-token`** — the latter put a
-live 60-day token on screen, which is how one got leaked into a screenshot.
-
-## Image Hosting (Cloudinary)
-
-All **uploaded** images — admin event images, sponsor images, calendar sponsor images, and
-Slack-pipeline images — are hosted on Cloudinary. `backend/images.py` is the only place that
-writes them.
-
-```python
-upload_image(file_data, orig_filename, folder) -> str | None   # folder: "event-images" | "sponsors"
-delete_image(image_url) -> bool
-is_cloudinary_url(url) -> bool
-```
-
-- **Config:** `CLOUDINARY_URL` (`cloudinary://<key>:<secret>@wyxr`) — the SDK reads it
-  automatically. Optional `CLOUDINARY_FOLDER_PREFIX` (default `concert-calendar`; set to
-  `concert-calendar-dev` locally so test uploads stay out of the production folder).
-- **Limits:** 10 MB max, extensions `.jpg .jpeg .png .webp .gif`. Enforced in `validate()`.
-- **Error contract:** `ImageUploadError` → HTTP 400 (bad/oversized/corrupt file); `None`
-  return → HTTP 502 (network or provider failure). The Slack path catches `ImageUploadError`
-  and continues without an image — a bad image must never block event insertion.
-- **Deletes actually delete.** The CDN edge may serve a cached copy for a few minutes after
-  `delete_image()`; the Admin API is authoritative, not a browser request to the URL.
-
-**Legacy images stay on the repo.** Files already under `docs/event-images/` and
-`docs/sponsors/` are still served by Vercel and were deliberately not migrated. Both URL
-shapes coexist, so **never assume `image_url` is a Cloudinary URL** — use
-`is_cloudinary_url()` to branch.
-
-`cldImg()` in `docs/index.html` must handle three URL shapes. Getting this wrong is the main
-regression risk in this area:
-| Source | Handling |
-|---|---|
-| `res.cloudinary.com/…/image/upload/…` (new uploads) | splice the transformation into the delivery path — **never** fetch-wrap. A nested URL still returns 200, so this fails silently; the cost is that each one bills as a separate derived asset |
-| `concert-calendar.wyxr.org/…` (legacy) and remote scraper images | `/image/fetch/` wrapped, as before |
-| relative paths | passed through untouched |
-
-`artifacts/` is **not** on Cloudinary — it's a build input read off disk during GitHub
-Actions, so `admin_import_upload()` still commits it to the repo via the Contents API.
-
-### Public submit-form images
-
-`/submit` accepts an optional flyer. **Anonymous uploads never reach Cloudinary** — that is
-the design constraint, not an implementation detail. Bytes are held in
-`submissions.image_data` (BYTEA) and only uploaded when an admin approves, so the free-tier
-quota is spent solely on images someone chose to publish.
-
-- **Browser downscales first** — canvas to 1600px max edge, JPEG q0.82. A 12 MB phone photo
-  becomes a few hundred KB, so submitters never hit a size wall, and EXIF/GPS is dropped.
-- **Server re-encodes anyway** — `sanitize_submitted_image()` in `backend/images.py` decodes
-  with Pillow and writes fresh JPEG bytes. Never store what was submitted: a file can carry
-  a valid image header and be something else. Cap is 3 MB (`MAX_SUBMISSION_IMAGE_BYTES`),
-  tighter than the 10 MB admin cap because this path is unauthenticated.
-- **Rate limit:** 5 submissions/hour per hashed IP (`SUBMISSIONS_PER_HOUR`). Keyed on the
-  leftmost `X-Forwarded-For` entry — `request.remote_addr` is Render's proxy, so using it
-  would put every submitter in one bucket. IP is stored as a salted SHA-256
-  (`SUBMISSION_IP_SALT`), never in the clear.
-- **Rights checkbox** is required when a file is attached, recorded in
-  `image_rights_confirmed`.
-- **Bytes are freed** on approve (after upload), on reject, and by a 90-day sweep
-  (`purge_stale_submission_images()`) at the start of the daily build.
-
-⚠️ `image_data` must never reach `jsonify` — psycopg2 returns it as a `memoryview` and
-`serialize_event()` doesn't convert it, which would break the whole admin Submissions tab.
-All submission queries select `_SUBMISSION_COLUMNS` (which exposes a derived `has_image`
-boolean instead); the bytes come back only from `get_submission_image()`.
-
-## Sponsor System
-
-### Sponsor Callouts
-Inline promotional cards that appear between day sections in the calendar and RSS feed. Managed in the Admin → Sponsors tab → "Sponsor Callouts" section.
-- DB table: `sponsors` (name, image_url, link_url, display_after_date, start_date, end_date, is_active)
-- Public API: `GET /api/sponsors`
-- Admin API: `GET/POST /api/admin/sponsors`, `PUT/DELETE /api/admin/sponsors/<id>`, `POST /api/admin/sponsors/upload-image`
-
-### Calendar Sponsor
-A single featured sponsor banner shown above the event list (below the filter bar). One active sponsor per date range — POST returns 409 on overlap.
-- DB table: `calendar_sponsor` (name, image_url, link_url, copy_line, start_date, end_date, is_active)
-- Recommended image size: **600 × 120px** (5:1 horizontal). Any aspect ratio works — image displays at natural proportions, max-width 600px.
-- Public API: `GET /api/calendar-sponsor` — returns single object or `{}`
-- Admin API: `GET/POST /api/admin/calendar-sponsor`, `PUT/DELETE /api/admin/calendar-sponsor/<id>`, `POST /api/admin/calendar-sponsor/upload-image`
-- Managed in Admin → Sponsors tab → "Calendar Sponsor" section (top of tab)
-- **Image upload timing:** Uploads go to Cloudinary and the returned URL resolves immediately — no commit, no Vercel redeploy, no wait. (Before July 2026 these were committed to `docs/sponsors/` and took ~1 min to go live.)
-
-### Subscribe Modal
-Email signup (Mailchimp) was previously a full yellow banner. Now a compact "📧 Subscribe" button in the header opens a dark modal. Same Mailchimp iframe form + sessionStorage success state (`wyxr_signup_banner_success`). If already subscribed, button shows "✓ Subscribed" (disabled).
-
-## GA4 Analytics
-
-Measurement ID: **`G-9866JXK4ND`** (loaded via gtag.js in `<head>` of `docs/index.html`).
-
-All tracking calls go through a single helper in the page script:
-```javascript
-function trackEvent(name, params) {
-    if (typeof gtag === 'function') gtag('event', name, params);
-}
-```
-The `typeof gtag` guard prevents errors in local dev where the gtag script isn't loaded.
-
-### Custom Events & Parameters
-
-| Event name | Parameters | Fired when |
-|---|---|---|
-| `modal_open` | `event_id`, `event_title`, `venue`, `event_date` (YYYY-MM-DD), `has_ticket_url` (bool) | User opens an event detail modal |
-| `modal_close` | `event_id`, `close_method` ("x" / "esc" / "overlay") | User closes the modal |
-| `add_to_calendar` | `event_id`, `event_title`, `service` ("google" / "apple" / "outlook") | User clicks a calendar button |
-| `external_link_click` | `event_id`, `event_title`, `destination_url` | User clicks "Buy Tickets" |
-
-### GA4 Custom Dimensions (must be registered in GA4 Admin)
-
-These parameters are sent correctly by the code but are only visible in GA4 reports after being registered as **Event-scoped Custom Dimensions** in GA4 Admin → Data display → Custom definitions.
-
-| Dimension name | Event parameter | Used in |
-|---|---|---|
-| Event Title | `event_title` | `modal_open`, `add_to_calendar`, `external_link_click` |
-| Venue | `venue` | `modal_open` |
-| Event Date | `event_date` | `modal_open` |
-| Has Ticket URL | `has_ticket_url` | `modal_open` |
-| Close Method | `close_method` | `modal_close` |
-| Calendar Service | `service` | `add_to_calendar` |
-| Destination URL | `destination_url` | `external_link_click` |
-
-**Note:** The dropdown in GA4 Admin only shows parameters it has already indexed (24–48 hr delay). Type the parameter name directly into the field — it accepts free text even if not in the autocomplete list.
-
-### Verified behaviour (tested 2026-04-24)
-- All 38 distinct `start_time` formats in production parse correctly (0 failures), including narrow no-break space variants (`10:00 PM`) and range formats (`6:30 PM - 8:30 PM` → uses start time)
-- `event_title`, `venue`, and `event_date` are always populated (every event in the DB has these fields)
-- `has_ticket_url` is `true` for ~51% of events (74/144 in current dataset)
-
-## Common Tasks
-
-### Add a new venue
-1. Add to `VENUES` in `src/config.py`
-2. Choose scraper type (generic, custom, or manual_only)
-3. Seed venue in `backend/db.py` → `_seed_venues_if_empty()`
-4. Test with `python -m src.main --dry-run`
-
-### Fix duplicates
-
-Run in this order — cleanup **before** backfill, index last. Both scripts preview by default.
-
-```bash
-# 1. Preview what would be deleted (dry run)
-python scripts/cleanup_duplicates.py
-
-# 2. Actually delete the redundant rows
-python scripts/cleanup_duplicates.py --confirm
-
-# 3. Preview the key changes — writes nothing, and reports whether any
-#    active group would MERGE or SPLIT (a merge means real duplicates surfaced)
-python scripts/backfill_dedup_key.py --dry-run
-
-# 4. Recompute and store dedup_key on every row
-python scripts/backfill_dedup_key.py
-
-# 5. Build the partial unique index — refuses while any collision remains
-python scripts/backfill_dedup_key.py --create-index
-```
-
-- Step 4 reports any remaining **active collisions**; a non-zero count means step 2 missed
-  them, which historically meant the two scripts disagreed about venue canonicalization
-  (see **Deduplication** above).
-- Before deleting, check that each doomed row holds no field its survivor lacks —
-  `detail_score()` breaks ties arbitrarily when scores are equal.
-- Re-run steps 3–5 after any change to `normalize_text`, `normalize_venue_name`, or venue
-  aliases — including a venue rename, which leaves every one of that venue's keys stale.
-- ⚠️ Never run a bulk DB edit while a build is in flight — check `gh run list` first
-  (see the *Build reverts edits made while it runs* gotcha).
-
-### Trigger build manually
-- GitHub Actions: Actions tab → Daily Concert Calendar Update → Run workflow
-- Admin UI: Tools tab → Trigger Build button
-
-### Test before pushing
-```bash
-./test_before_push.sh
-# If passed:
-git push origin main
-```
-
-`test_before_push.sh` runs **15 checks**: env vars, dependencies, DB connection, exposed-key
-scan, Python syntax, git status, and eight regression suites. There is no test framework —
-each suite is a standalone script following the `scripts/test_*.py` convention, offline
-except for the DB connection check.
-
-| Suite | Covers |
-|---|---|
-| `scripts/test_health_check.py` | nightly health-check report parsing |
-| `scripts/test_normalization.py` | year rollover, title/venue normalization, strftime |
-| `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password (no DB needed) |
-| `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
-| `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
-| `scripts/test_ics_feed.py` | ICS DST offsets, RFC 5545 folding/escaping, UID stability |
-| `scripts/test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 routes |
-| `scripts/test_xss_browser.py` | the real page in Chromium against live payloads |
-| `scripts/test_deeplink_browser.py` | `#event=` deep links, Back/Forward, injected JSON-LD |
-| `scripts/test_security_headers.py` | both CSP variants; the real pages driven under the shipped policy |
-
-- ⚠️ **`./test_before_push.sh` is not read-only against production.** Check 3 calls
-  `init_db()` with the `DATABASE_URL` from `.env`, so **running the test suite applies any
-  pending migration to the production database.** On 2026-08-20 that dropped
-  `api_keys.key` while the deployed code still queried it, and the v1 API returned 500 on
-  every authenticated request until the matching code deployed. For a migration that drops
-  or renames anything: **push and deploy first, or validate the SQL in a transaction you
-  roll back** (`conn.autocommit = False` … `conn.rollback()`) rather than by running the
-  suite.
-- ⚠️ **`scripts/test_admin_auth.py` drives the real app with `.env` loaded**, so anything it
-  does *not* stub reaches production. Two writers are deliberately neutered there and must
-  stay that way: `app_mod.log_admin_action` is replaced with a no-op at module import (the
-  login-throttle tests otherwise wrote ~36 bogus `429 /api/admin/login` rows into the
-  production audit log, which reads exactly like a brute-force attempt), and
-  `bump_admin_token_epoch` is stubbed in the revoke test (it otherwise really revoked every
-  admin session — it did so three times before this was caught). Anything new that mutates
-  state needs the same treatment.
-- `test_escaping.mjs` **extracts the helper sources from the shipped files** rather than
-  copying them, so it fails if the implementation regresses, and it asserts no attribute
-  site reverts to `esc()`.
-- The three browser suites need Chromium (`pip3 install playwright && python3 -m playwright
-  install chromium`). They **skip cleanly when absent** — so a green run can hide them. Check
-  for `17/17`, not just "all checks passed": skipping all three shows as `14/14`
-  (the total exceeds the 15 numbered checks because check 1 counts two env vars). Override
-  discovery with `CHROME_PATH` if needed. Chromium discovery and the static file server are
-  shared in `scripts/browser_test_util.py`, whose `Checker.equals()` exists because a
-  truthiness check silently passes any non-empty value — and fails a legitimately empty one.
-
-## Debugging Tips
-
-### Backend won't start
-- Check `DATABASE_URL` format (must be single line, no breaks)
-- Verify port 5001 isn't in use: `lsof -i :5001`
-- Test DB connection: `python -c "from backend.db import init_db; init_db()"`
-
-### Frontend can't connect
-- Check CORS settings in `backend/app.py` - should include `localhost:8000`
-- Open browser console (Cmd+Option+I) for CORS errors
-
-### Duplicates appearing
-- Check `_save_events_to_db()` updates `db_key_to_row` after inserts
-- Run `python scripts/cleanup_duplicates.py` to remove existing
-
-### Scraper failing
-- Check scraper logs in admin UI (Tools tab)
-- Test individual scrapers: `python -c "from src.sources import ticketmaster; print(ticketmaster.fetch())"`
-
-### Transient Postgres connection timeouts
-Anything reaching the Render database **over the internet** — the local backend (`.env`
-holds the external `DATABASE_URL`) and the GitHub Actions build — hits occasional
-`psycopg2.OperationalError: ... timeout expired`. It is latency, not a defect.
-
-- Locally it surfaces as a **500 on whatever admin endpoint happened to fire**; the same
-  request succeeds on retry.
-- In CI the build logs `[scrape_log] Could not create log entry: ... timeout expired` and
-  continues correctly — so **a build with no `scrape_logs` row is not a failed build**.
-  Confirm against the run's own log (`Saved to PostgreSQL: N added, …`) before investigating.
-
-Retry 2–3 times and grep for `OperationalError` before chasing it as a bug.
-
-## Workflow Preferences
-
-- Always commit and push to remote after completing work
-- Test locally before pushing (use `test_before_push.sh`)
-- Use descriptive commit messages
-- Include "Co-Authored-By: Claude" in commits when appropriate
+Admin: `http://localhost:8000/admin/local.html` · Homepage:
+`http://localhost:8000/local_index_home.html`. Config in `.env` (from `.env.example`), which
+holds the **external** `DATABASE_URL`. See [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md).
+
+**Trigger a build manually:** `gh workflow run "Daily Concert Calendar Update"`, or Admin →
+Tools → Trigger Build, or the Actions tab.
+
+## Workflow preferences
+
+- **Test locally before pushing** — `./test_before_push.sh`, expect `17/17`.
+- **Always commit and push after completing work**, then trigger a build, wait for it to
+  finish, and verify live. Don't wait to be asked.
+- Use descriptive commit messages; include "Co-Authored-By: Claude" where appropriate.
+- **When resuming from a previous session**, read the recent git log and open TODO/backlog
+  files to see what's unfinished before asking.
+- **When working with external APIs** (Qgiv, Mailchimp, Twilio, …), verify the exact request
+  format (form-encoded vs JSON), base URL/subdomain, and required credentials before the
+  first call.
+- Transient `psycopg2.OperationalError: timeout expired` against Render Postgres is latency,
+  not a defect — retry 2–3 times before investigating.
 
 ## Environment
 
-- Python 3.12 via Homebrew (not conda)
-- pip install with `--break-system-packages` on macOS
-- Current date for context: Check system for latest
+- Python 3.12 via Homebrew (not conda); `pip install --break-system-packages` on macOS
+- Check the system for the current date rather than assuming
 
 ## Cost
 
-- **Render:** Starter plan ($7/month) - no cold starts
-- **Vercel:** Free tier
-- **GitHub Actions:** Free
-- **Ticketmaster API:** Free
-- **Anthropic API:** ~$0.01 per image processed
+Render Starter ($7/mo, no cold starts) · Vercel free · GitHub Actions free · Ticketmaster API
+free · Anthropic API ~$0.01 per image processed
 
-## Deployment
-
-- After making changes, always commit, push, and deploy without waiting to be asked. Confirm the deployment is live by checking the production URL.
-
-## Debugging
-
-- When debugging image or asset display issues, always check: 
-	1) URL encoding (spaces, special chars)
-	2) CDN/Vercel caching of 404s
-	3) aspect ratio constraints. 
-Never assume a fix worked without verifying the live URL.
-
-## External APIs
-
-- When working with external APIs (Qgiv, Mailchimp, Twilio, etc.), always verify the exact request format (form-encoded vs JSON), correct base URLs/subdomains, and required credentials before making the first call.
-
-## Session Start
-
-- When resuming work from a previous session, read recent git log and open TODO/backlog files to understand what's unfinished before asking the user.
-
-## License
+---
 
 Internal tool for WYXR 91.7 FM. Built in Memphis. 🎸
