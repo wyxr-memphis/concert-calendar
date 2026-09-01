@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-01T19:08:39.543830+00:00",
+  "run_timestamp": "2026-09-01T19:42:14.613629+00:00",
   "date_range": {
     "start": "2026-09-01",
     "end": "2026-09-08"
   },
   "total_events_db": 3304,
-  "total_active_display": 73,
+  "total_active_display": 72,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,26 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 39,
       "events_after_filter": 39,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -57,10 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -73,26 +65,18 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -113,28 +97,28 @@
       "error": null
     },
     {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://nashoba.live/event-calendar/"
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -153,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
@@ -161,11 +153,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
+      "events_found": 251,
+      "events_after_filter": 27,
+      "events_filtered": 224,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 2,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -177,14 +185,6 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 11,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 3,
@@ -193,19 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
+      "events_found": 17,
+      "events_after_filter": 11,
       "events_filtered": 6,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 33,
-      "events_filtered": 217,
+      "events_found": 57,
+      "events_after_filter": 57,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 73,
-      "events_after_filter": 73,
+      "events_found": 72,
+      "events_after_filter": 72,
       "events_filtered": 0,
       "error": null
     }
@@ -526,14 +526,14 @@
       "venue": "Satellite Music Hall",
       "date": "2026-09-04",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "manual"
     },
     {
-      "artist": "The Band Camino - Homecoming",
+      "artist": "The Band CAMINO - Homecoming",
       "venue": "Satellite Music Hall",
       "date": "2026-09-04",
       "time": "7 PM",
-      "source": "scraper:ticketmaster"
+      "source": "manual"
     },
     {
       "artist": "Candynavia",
@@ -618,13 +618,6 @@
       "date": "2026-09-05",
       "time": "9 PM",
       "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "College Football",
-      "venue": "Nashoba",
-      "date": "2026-09-05",
-      "time": "2:40 PM",
-      "source": "scraper:nashoba"
     },
     {
       "artist": "The Band CAMINO",
