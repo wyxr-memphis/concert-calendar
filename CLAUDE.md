@@ -31,6 +31,7 @@ learned from a real outage or bug, and the doc says which one.
 | [`dev/sponsors-and-analytics.md`](dev/sponsors-and-analytics.md) | sponsors, subscribe modal, GA4 |
 | [`dev/testing.md`](dev/testing.md) | `test_before_push.sh` and its suites |
 | [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) | ⛔ read before any Instagram ingestion idea |
+| [`dev/test-plan.md`](dev/test-plan.md) | 79 adversarial cases — a reference catalogue, not a checklist |
 
 Also: [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md) for setup, [`FEATURES.md`](FEATURES.md)
 for live work, [`REVIEW.md`](REVIEW.md) for the August 2026 codebase review — most of its
