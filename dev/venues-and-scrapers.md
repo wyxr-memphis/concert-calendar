@@ -9,7 +9,7 @@ fetcher. **Counts below drift — regenerate rather than trusting them:**
 python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"
 ```
 
-## Configured venues (27 at last count)
+## Configured venues (28 at last count)
 
 **Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
@@ -20,6 +20,8 @@ Amphitheater, Satellite Music Hall
 Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench`, all
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
+
+**The Events Calendar API (1)** — `tribe_events`: Hotel Pontotoc
 
 **Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
 
@@ -48,6 +50,23 @@ reliability. Don't re-add one without a reason that isn't "we don't have it yet.
 
 - `is_music_event()` is bypassed for venue scrapers **except** `crosstown_arts` (mixed music +
   gallery); it also excludes titles containing "film".
+- **`tribe_events` is the reusable win for WordPress venues.** The Events Calendar (the
+  plugin formerly by Modern Tribe) publishes a paginated JSON API at
+  `/wp-json/tribe/events/v1/events` — categories included, and it survives theme changes.
+  Point `calendar_url` at any site running it. Spot it by `tribe-events` / `the-events-calendar`
+  in the page source. (Crosstown Arts runs it too and still uses a bespoke HTML parser — a
+  possible future simplification, untested.)
+  Three opt-in filters exist because a hotel or bar calendar is not a pure music feed:
+  `tribe_skip_categories` (Hotel Pontotoc tags buyouts `Private`), `tribe_own_venues` (the same
+  calendar lists football watch parties at stadiums it doesn't own, which would otherwise
+  publish under its name), and `tribe_music_only` (applies `is_music_event()`). Without all
+  three, 23 of Hotel Pontotoc's 25 upcoming entries were noise.
+  ⚠️ **Classify before stripping labels.** `_strip_billing_label` drops a leading
+  `Live Music:` for display, but `is_music_event()` must run on the *raw* title — that label
+  is the only music signal an artist-only name like "Spaceman's Dead Friends" carries, and
+  stripping first silently drops the show.
+  ⚠️ It sends `_TRIBE_HEADERS`, **not** the shared `HEADERS` — Hotel Pontotoc's WAF 403s the
+  full Chrome user-agent on `/wp-json/` while allowing a plain self-identifying one.
 - **Elfsight widget pattern** — a JSON API at `core.service.elfsight.com/p/boot/` returns
   structured events. Reusable across any Elfsight-backed site (Lafayette's, Nashoba).
 - **`ticketmaster_venue` is the cheap win** for any Live Nation / Ticketmaster room: a

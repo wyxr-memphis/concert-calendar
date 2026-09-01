@@ -6,6 +6,7 @@ When a venue changes their site, you only fix that one function.
 
 from typing import List, Optional
 import requests
+import html as _html
 import json
 import re
 from datetime import datetime, date
@@ -131,6 +132,10 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     # Blues City Cafe — month-per-page HTML calendar, fetches multiple pages
     if scraper_type == "blues_city_cafe":
         return _fetch_blues_city_cafe(venue_info)
+
+    # The Events Calendar (WordPress) JSON API — no webpage fetch
+    if scraper_type == "tribe_events":
+        return _fetch_tribe_events(venue_info)
 
     try:
         response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
@@ -376,6 +381,158 @@ def _fetch_sitewrench_venue(venue_info: dict) -> SourceResult:
     except requests.exceptions.RequestException as e:
         result.success = False
         result.error_message = f"SiteWrench API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
+# The Events Calendar (the WordPress plugin formerly by Modern Tribe) publishes a
+# JSON REST API at /wp-json/tribe/events/v1/events. Read that instead of parsing
+# the rendered calendar: it is paginated, carries categories, and survives theme
+# changes. The plugin is common enough that this scraper is worth keeping generic
+# — point `calendar_url` at any site running it.
+_TRIBE_API_PATH = "/wp-json/tribe/events/v1/events"
+_TRIBE_MAX_PAGES = 10
+
+# Deliberately NOT the shared browser-spoofing HEADERS. Hotel Pontotoc sits
+# behind a WAF that 403s the full Chrome user-agent on /wp-json/ requests —
+# presumably because a real Chrome would also send sec-ch-* and cookies. A
+# plain self-identifying agent is allowed, and is the honest thing to send to
+# a public JSON API anyway.
+_TRIBE_HEADERS = {
+    "User-Agent": "WYXR-Concert-Calendar/1.0 (+https://concert-calendar.wyxr.org)",
+    "Accept": "application/json",
+}
+
+
+# "Live Music: Spaceman's Dead Friends" — the label is redundant on a music
+# calendar and, left in place, it is what a DJ reads in the listing. Strip it so
+# the act stands alone, the way _parse_crosstown_beer already pulls the artist
+# out of "Live Music - Mark Allen". Only this one generic label, and only when a
+# name survives: a bare "Live Music" listing keeps its title, since normalize.py
+# relies on that exact string being a recognised placeholder.
+_TRIBE_LABEL_RE = re.compile(r"^\s*live\s+music\s*[:\u2013\u2014-]\s*", re.I)
+
+
+def _strip_billing_label(title: str) -> str:
+    """Drop a leading "Live Music:" label when a real act name follows."""
+    stripped = _TRIBE_LABEL_RE.sub("", title).strip()
+    return stripped or title
+
+
+def _tribe_site_origin(calendar_url: str) -> str:
+    """Scheme + host for a venue's Events Calendar page, or '' if unparseable."""
+    m = re.match(r"(https?://[^/]+)", calendar_url or "")
+    return m.group(1) if m else ""
+
+
+def _fetch_tribe_events(venue_info: dict) -> SourceResult:
+    """Fetch events from a WordPress "The Events Calendar" REST API.
+
+    Three filters, all opt-in per venue, because a hotel/bar calendar is not the
+    pure music feed most venue scrapers read:
+
+    - ``tribe_skip_categories`` drops whole categories. Hotel Pontotoc tags its
+      buyouts "Private" — 7 of 25 upcoming entries when this was written, and a
+      private buyout must never reach a public calendar.
+    - ``tribe_own_venues`` drops events held somewhere else. The same calendar
+      lists football watch parties *at stadiums the venue does not own*; without
+      this they publish under the venue's own name. An empty venue field is
+      allowed, since many entries simply omit it.
+    - ``tribe_music_only`` applies ``is_music_event()``. The dispatcher trusts
+      venue scrapers to be all-music and skips that check, which is wrong here
+      for the same reason it is wrong for Crosstown Arts.
+    """
+    name = venue_info["name"]
+    result = SourceResult(source_name=f"Venue: {name}")
+
+    origin = _tribe_site_origin(venue_info.get("calendar_url", ""))
+    if not origin:
+        result.success = False
+        result.error_message = "Could not derive site origin from calendar_url"
+        return result
+
+    skip_cats = {c.lower() for c in venue_info.get("tribe_skip_categories", [])}
+    own_venues = {v.lower() for v in venue_info.get("tribe_own_venues", [])}
+    music_only = bool(venue_info.get("tribe_music_only", False))
+
+    try:
+        page = 1
+        while page <= _TRIBE_MAX_PAGES:
+            url = (f"{origin}{_TRIBE_API_PATH}?per_page=50&page={page}"
+                   f"&start_date={START_DATE.isoformat()}"
+                   f"&end_date={SCRAPER_END_DATE.isoformat()}")
+            resp = get_with_retry(url, headers=_TRIBE_HEADERS, timeout=15)
+            # The plugin 404s past the last page rather than returning an empty
+            # list, so treat that as the end instead of a scraper failure.
+            if resp.status_code == 404 and page > 1:
+                break
+            resp.raise_for_status()
+            data = resp.json()
+
+            items = data.get("events") or []
+            if not items:
+                break
+
+            for item in items:
+                raw_title = _html.unescape((item.get("title") or "").strip())
+                if not raw_title:
+                    continue
+                # Classify on the RAW title, display the stripped one. The
+                # "Live Music:" label is precisely the signal is_music_event()
+                # needs — strip it first and an artist-only name like
+                # "Spaceman's Dead Friends" is read as a non-music event and
+                # silently dropped.
+                title = _strip_billing_label(raw_title)
+                result.events_found += 1
+
+                cats = {(c.get("name") or "").lower() for c in (item.get("categories") or [])}
+                if skip_cats & cats:
+                    result.events_filtered += 1
+                    continue
+
+                tribe_venue = _html.unescape(
+                    ((item.get("venue") or {}).get("venue") or "").strip())
+                if own_venues and tribe_venue and tribe_venue.lower() not in own_venues:
+                    result.events_filtered += 1
+                    continue
+
+                try:
+                    dt = datetime.fromisoformat(item.get("start_date") or "")
+                except ValueError:
+                    result.events_filtered += 1
+                    continue
+
+                if not (START_DATE <= dt.date() <= SCRAPER_END_DATE):
+                    result.events_filtered += 1
+                    continue
+
+                if music_only and not is_music_event(raw_title):
+                    result.events_filtered += 1
+                    continue
+
+                result.events.append(Event(
+                    artist=title,
+                    venue=name,
+                    date=dt.date(),
+                    time=None if item.get("all_day") else format_event_time(dt),
+                    source=_venue_source_tag(name),
+                    url=item.get("url") or None,
+                ))
+
+            total_pages = data.get("total_pages") or 1
+            if page >= total_pages:
+                break
+            page += 1
+
+        if result.events_found == 0:
+            result.error_message = "0 events returned — Events Calendar API may have moved"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Events Calendar API error: {str(e)[:80]}"
     except Exception as e:
         result.success = False
         result.error_message = f"Parse error: {str(e)[:80]}"

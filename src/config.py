@@ -214,6 +214,31 @@ VENUES = {
         "calendar_url": None,  # Instagram / socials — manual source
         "scraper": "manual_only",
     },
+    "hotel-pontotoc": {
+        "name": "Hotel Pontotoc",
+        "aliases": [
+            "hotel pontotoc", "the pontotoc", "pontotoc",
+            # In-house rooms — the Events Calendar labels shows by room, not by
+            # hotel, so these must resolve to the same venue for dedup.
+            "the dame", "the dame & garden", "the dame and garden",
+            "dame & garden", "the garden",
+            "69 e. pontotoc", "69 e pontotoc ave", "69 east pontotoc",
+        ],
+        "neighborhood": "South Main Arts District",
+        "calendar_url": "https://hotelpontotoc.com/events/",
+        "scraper": "tribe_events",
+        # This calendar is NOT all music: alongside shows in The Dame & Garden it
+        # lists private buyouts and college-football watch parties held at
+        # stadiums the hotel does not own. All three filters are needed — see
+        # _fetch_tribe_events. Without them 22 of 25 upcoming entries were noise.
+        "tribe_skip_categories": ["private"],
+        "tribe_own_venues": [
+            "hotel pontotoc", "the dame & garden", "the dame and garden",
+            "the dame", "the garden",
+        ],
+        "tribe_music_only": True,
+        "provides": ["ticket_url"],
+    },
     "nashoba": {
         "name": "Nashoba",
         "aliases": ["nashoba", "nashoba live", "nashoba memphis"],
