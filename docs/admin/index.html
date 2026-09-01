@@ -795,6 +795,80 @@
         }
         .merge-preview.visible { display: block; }
 
+        /* Event hover preview. Editors scan this list far more often than they
+           edit, so the full record is shown on hover instead of behind a click. */
+        .hover-card {
+            position: fixed;
+            z-index: 3000;
+            width: 340px;
+            max-width: calc(100vw - 24px);
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+            padding: 14px;
+            font-size: 0.85em;
+            line-height: 1.45;
+            /* The card tracks the cursor, so it must never eat the pointer. */
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.12s ease;
+        }
+        .hover-card.visible { opacity: 1; }
+        .hc-thumb {
+            width: 100%;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            background: #f0f0f0;
+            display: block;
+        }
+        .hc-title {
+            font-family: 'Anybody', sans-serif;
+            font-weight: 700;
+            font-size: 1.15em;
+            line-height: 1.25;
+            margin-bottom: 7px;
+        }
+        .hc-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 9px; }
+        .hc-badge {
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #eee;
+            color: #555;
+        }
+        .hc-badge.presents { background: #FFCF2D; color: #000; }
+        .hc-badge.featured { background: #000; color: #FFCF2D; }
+        .hc-badge.inactive { background: #fdecea; color: #c62828; }
+        .hc-rows { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; }
+        .hc-rows dt { color: #888; white-space: nowrap; }
+        .hc-rows dd { color: #1a1a1a; overflow-wrap: anywhere; }
+        .hc-desc {
+            margin-top: 9px;
+            padding-top: 9px;
+            border-top: 1px solid #eee;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .hc-foot {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 9px;
+            padding-top: 8px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.85em;
+        }
+
         /* Dark Mode */
         @media (prefers-color-scheme: dark) {
             body { background: #1a1a1a; color: #e0e0e0; }
@@ -921,6 +995,18 @@
                 background: #333;
                 color: #aaa;
             }
+
+            .hover-card {
+                background: #242424;
+                border-color: #3a3a3a;
+                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+            }
+            .hc-thumb { background: #333; }
+            .hc-badge { background: #333; color: #bbb; }
+            .hc-badge.inactive { background: #3a2222; color: #ef9a9a; }
+            .hc-rows dd { color: #e0e0e0; }
+            .hc-desc { color: #aaa; }
+            .hc-desc, .hc-foot { border-top-color: #333; }
         }
     </style>
 </head>
@@ -1581,6 +1667,158 @@
             renderPagination();
         }
 
+        // ---- Event hover preview --------------------------------------------
+        // Shows the whole event record on row hover so an editor scanning the
+        // list does not have to open the edit page to see the details. The
+        // admin events endpoint is a SELECT *, so every field is already here
+        // and the card costs no extra request.
+
+        const HOVER_DELAY_MS = 250;
+        // Skip on touch — iOS synthesizes a mouseover on tap, which would flash
+        // the card over the row the moment you meant to open it.
+        const HOVER_ENABLED = !window.matchMedia('(hover: none)').matches;
+        let hoverTimer = null;
+        let hoverRowId = null;
+        let hoverX = 0, hoverY = 0;
+
+        // Only splice a transform into URLs we already host. Fetch-wrapping a
+        // remote scraper image would bill a derived Cloudinary asset for every
+        // row an editor happens to hover past.
+        function hcThumb(src) {
+            const raw = src || '';
+            const m = /^https:\/\/res\.cloudinary\.com\/([^/]+)\/image\/upload\/(.+)$/i.exec(raw);
+            return m ? `https://res.cloudinary.com/${m[1]}/image/upload/w_400,c_fill,g_auto,q_auto,f_auto/${m[2]}` : raw;
+        }
+
+        function hcHost(url) {
+            try { return new URL(url).hostname.replace(/^www\./, ''); } catch (_) { return url; }
+        }
+
+        function hcDate(dateStr) {
+            if (!dateStr) return '';
+            const d = new Date(dateStr + 'T12:00:00');
+            if (isNaN(d)) return dateStr;
+            return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        function hcStamp(ts) {
+            if (!ts) return '';
+            const d = new Date(ts);
+            if (isNaN(d)) return '';
+            return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function hoverCardHTML(e) {
+            const rows = [
+                ['Venue', esc(e.venue || '—')],
+                ['Date', esc(hcDate(e.date))],
+                // start_time is shown exactly as the table shows it — parsing it
+                // here would be a second parser to keep in sync with
+                // time_format.parse_start_time.
+                ['Start', esc(e.start_time || '—')],
+            ];
+            if (e.doors_time) rows.push(['Doors', esc(e.doors_time)]);
+            if (e.ticket_price) rows.push(['Price', esc(e.ticket_price)]);
+            if (e.genre) rows.push(['Genre', esc(e.genre)]);
+            if (e.ticket_url) rows.push(['Tickets', esc(hcHost(e.ticket_url))]);
+
+            const badges = [];
+            if (e.is_wyxr_presents) badges.push('<span class="hc-badge presents">WYXR Presents</span>');
+            if (e.is_featured) badges.push('<span class="hc-badge featured">Featured</span>');
+            if (e.is_active === false) badges.push('<span class="hc-badge inactive">Inactive</span>');
+
+            // safeUrl before escAttr: escaping alone does not stop javascript:,
+            // and image_url reaches here from scrapers and Vision OCR. A rejected
+            // URL collapses to '', which would resolve back to this page and
+            // render a broken-image box — so test the safe value, not the raw one.
+            const src = safeUrl(hcThumb(e.image_url));
+            const thumb = src ? `<img class="hc-thumb" src="${escAttr(src)}" alt="">` : '';
+            const updated = hcStamp(e.updated_at);
+
+            return `
+                ${thumb}
+                <div class="hc-title">${esc(e.title || 'Untitled')}</div>
+                ${badges.length ? `<div class="hc-badges">${badges.join('')}</div>` : ''}
+                <dl class="hc-rows">
+                    ${rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('')}
+                </dl>
+                ${e.description ? `<div class="hc-desc">${esc(e.description)}</div>` : ''}
+                <div class="hc-foot">
+                    <span>${esc(e.source || 'unknown')}</span>
+                    ${updated ? `<span>updated ${esc(updated)}</span>` : ''}
+                </div>`;
+        }
+
+        function positionHoverCard(card) {
+            const pad = 14, gap = 18;
+            const r = card.getBoundingClientRect();
+            let left = hoverX + gap;
+            let top = hoverY + gap;
+            if (left + r.width + pad > window.innerWidth) left = hoverX - r.width - gap;
+            if (left < pad) left = pad;
+            if (top + r.height + pad > window.innerHeight) top = hoverY - r.height - gap;
+            if (top < pad) top = Math.max(pad, window.innerHeight - r.height - pad);
+            card.style.left = `${Math.round(left)}px`;
+            card.style.top = `${Math.round(top)}px`;
+        }
+
+        function showHoverCard(id) {
+            const e = allEvents.find(ev => ev.id === id);
+            const card = document.getElementById('eventHover');
+            if (!e || !card) return;
+            card.innerHTML = hoverCardHTML(e);
+            // Scrapers routinely leave a link to an image the venue has since
+            // deleted; drop the placeholder rather than show a broken box.
+            const thumb = card.querySelector('.hc-thumb');
+            if (thumb) thumb.addEventListener('error', () => thumb.remove());
+            // Unhide before measuring — opacity keeps it invisible until placed.
+            card.hidden = false;
+            positionHoverCard(card);
+            card.classList.add('visible');
+        }
+
+        function hideHoverCard() {
+            clearTimeout(hoverTimer);
+            hoverTimer = null;
+            hoverRowId = null;
+            const card = document.getElementById('eventHover');
+            if (!card) return;
+            card.classList.remove('visible');
+            card.hidden = true;
+        }
+
+        // Delegated once on the tbody, which survives every renderTable() call.
+        function wireHoverCard(tbody) {
+            if (!HOVER_ENABLED || tbody.dataset.hoverWired) return;
+            tbody.dataset.hoverWired = '1';
+
+            tbody.addEventListener('mouseover', (ev) => {
+                const row = ev.target.closest('tr');
+                const id = row && row.dataset.id;
+                if (!id || id === hoverRowId) return;
+                hideHoverCard();
+                hoverRowId = id;
+                hoverX = ev.clientX;
+                hoverY = ev.clientY;
+                hoverTimer = setTimeout(() => showHoverCard(id), HOVER_DELAY_MS);
+            });
+
+            tbody.addEventListener('mousemove', (ev) => {
+                hoverX = ev.clientX;
+                hoverY = ev.clientY;
+                const card = document.getElementById('eventHover');
+                if (card && !card.hidden) positionHoverCard(card);
+            });
+
+            tbody.addEventListener('mouseleave', hideHoverCard);
+            tbody.addEventListener('click', hideHoverCard);
+            // A scrolled page leaves the card pinned to stale coordinates.
+            window.addEventListener('scroll', hideHoverCard, { passive: true });
+            document.addEventListener('keydown', (ev) => {
+                if (ev.key === 'Escape') hideHoverCard();
+            });
+        }
+
         function renderTable() {
             const tbody = document.getElementById('eventBody');
             const start = currentPage * PAGE_SIZE;
@@ -1612,6 +1850,8 @@
                     <td class="col-toggle"><button class="toggle-btn" style="${activeColor}" data-action="active" data-id="${escAttr(e.id)}" title="Toggle active">${active}</button></td>
                 </tr>`;
             }).join('');
+
+            wireHoverCard(tbody);
 
             // Row click -> edit
             tbody.querySelectorAll('tr').forEach(row => {
@@ -3603,5 +3843,7 @@
             }
         });
     </script>
+
+    <div id="eventHover" class="hover-card" hidden aria-hidden="true"></div>
 </body>
 </html>

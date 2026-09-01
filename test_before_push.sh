@@ -217,8 +217,24 @@ else
 fi
 echo ""
 
-# Check 15: Security headers (browser half needs chromium; skips itself if absent)
-echo "1️⃣5️⃣  Running security header tests..."
+# Check 15: Admin hover-card test (needs playwright + chromium; skips if absent)
+echo "1️⃣5️⃣  Running admin hover-card test..."
+if python3 scripts/test_admin_hover_browser.py > /tmp/admin_hover_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/admin_hover_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/admin_hover_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Admin hover-card test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Admin hover-card test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/admin_hover_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 16: Security headers (browser half needs chromium; skips itself if absent)
+echo "1️⃣6️⃣  Running security header tests..."
 if python3 scripts/test_security_headers.py > /tmp/security_headers_tests.log 2>&1; then
     echo -e "${GREEN}   ✓ Security header tests passed${NC}"
     PASSED=$((PASSED + 1))
@@ -229,8 +245,8 @@ else
 fi
 echo ""
 
-# Check 16: Git status
-echo "1️⃣6️⃣  Checking git status..."
+# Check 17: Git status
+echo "1️⃣7️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

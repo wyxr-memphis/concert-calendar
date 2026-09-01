@@ -68,3 +68,33 @@ the hash URL does not unfurl.
 ## Cloudinary URL handling
 
 `cldImg()` must handle three URL shapes — see `dev/images.md`.
+
+## Admin event list — the hover preview card (`docs/admin/index.html`)
+
+Hovering a row in Admin → Events shows the whole event record in a floating card, so an
+editor scanning the list does not have to open the edit page to see the details. Everything
+it shows is already in the browser — `/api/admin/events` is a `SELECT *` — so the card costs
+no extra request.
+
+Things that will break it if changed carelessly:
+
+- **It renders eleven scraper- and OCR-sourced fields into the admin origin.** That is the
+  same origin holding `sessionStorage.admin_token`, and the origin where interpolated API
+  key names were once a live stored-XSS vector (see `dev/security.md`). Every value goes
+  through `esc()`, and the thumbnail through `escAttr(safeUrl(...))`.
+- **Test the safe value, not the raw one, before emitting the `<img>`.** `safeUrl()` collapses
+  a `javascript:` URL to `''`, and `src=""` resolves back to the admin page itself — which
+  renders a broken-image box rather than nothing.
+- **`hcThumb()` only splices a transform into URLs we already host.** Fetch-wrapping a remote
+  scraper image would bill a derived Cloudinary asset for every row an editor happens to hover
+  past — a far higher rate than the public page's per-view cost. See `dev/images.md`.
+- **The card is `pointer-events: none`.** It tracks the cursor, so anything that makes it
+  hit-testable will steal the row click that opens the edit page.
+- **Listeners are delegated once on the `tbody`**, guarded by `dataset.hoverWired` —
+  `renderTable()` replaces the rows on every filter, search keystroke, and page change, and
+  per-row listeners would pile up.
+- **Hover is disabled under `(hover: none)`.** iOS synthesizes a `mouseover` on tap, which
+  would flash the card over the row at the moment you meant to open it.
+
+`scripts/test_admin_hover_browser.py` drives all of this in Chromium against an event whose
+every field is an attack payload.

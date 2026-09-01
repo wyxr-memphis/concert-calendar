@@ -49,7 +49,7 @@ must stay that way:
 
 Anything new that mutates state needs the same treatment.
 
-## Expect 17/17, not "all checks passed"
+## Expect 18/18, not "all checks passed"
 
 The three browser suites need Chromium:
 
@@ -58,7 +58,7 @@ pip3 install playwright && python3 -m playwright install chromium
 ```
 
 They **skip cleanly when absent** — so a green run can hide them. Check the count: skipping all
-three shows as `14/14`. (The total exceeds the 15 numbered checks because check 1 counts two
+three shows as `15/15`. (The total exceeds the 17 numbered checks because check 1 counts two
 env vars.) Override discovery with `CHROME_PATH` if needed.
 
 Chromium discovery and the static file server are shared in `scripts/browser_test_util.py`,
