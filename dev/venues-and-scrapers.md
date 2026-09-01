@@ -21,11 +21,12 @@ Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
 
-**The Events Calendar API (1)** — `tribe_events`: Hotel Pontotoc
-
 **Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
 
-**Manual only (2):** Bar DKDC, B-Side Memphis
+**Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc (see below)
+
+**The Events Calendar API (0 active)** — `tribe_events` is implemented and correct, but the
+only venue on it is currently blocked. See the Cloudflare note below.
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
 
@@ -67,6 +68,31 @@ reliability. Don't re-add one without a reason that isn't "we don't have it yet.
   stripping first silently drops the show.
   ⚠️ It sends `_TRIBE_HEADERS`, **not** the shared `HEADERS` — Hotel Pontotoc's WAF 403s the
   full Chrome user-agent on `/wp-json/` while allowing a plain self-identifying one.
+
+### ⛔ Hotel Pontotoc is disabled — Cloudflare blocks the CI runner
+
+Set to `manual_only` on 2026-09-01. The scraper itself is verified correct (25 found, 23
+filtered, 2 real shows kept, run from a normal connection). **Two independent blocks exist:**
+
+| Origin | User-agent | Result |
+|---|---|---|
+| normal connection | full Chrome UA | 403 |
+| normal connection | `WYXR-Concert-Calendar/1.0` | 200 |
+| GitHub Actions runner | `WYXR-Concert-Calendar/1.0` | **403** |
+
+The first is a UA rule, solved by `_TRIBE_HEADERS`. The second is IP reputation on the runner
+and **cannot be fixed from our side** — confirmed on two consecutive builds, so it is not a
+fluctuating bot score. Things already ruled out: WordPress's alternate `?rest_route=` form
+behaves identically (so the rule is not path-based on `/wp-json/`), and there is **no HTML
+fallback** — `hotelpontotoc.com/events/` is a JS shell containing zero event data, no
+server-rendered cards and no `Event` JSON-LD.
+
+**To re-enable:** ask the venue to add a Cloudflare WAF skip rule for our user-agent, then
+change `"scraper": "manual_only"` back to `"tribe_events"` in `src/config.py`. Nothing else
+needs to change. An untested alternative is moving this one fetch to the Render backend, whose
+egress IP may not be blocked — that has never been probed.
+
+Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
 - **Elfsight widget pattern** — a JSON API at `core.service.elfsight.com/p/boot/` returns
   structured events. Reusable across any Elfsight-backed site (Lafayette's, Nashoba).
 - **`ticketmaster_venue` is the cheap win** for any Live Nation / Ticketmaster room: a

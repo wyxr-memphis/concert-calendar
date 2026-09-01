@@ -867,7 +867,7 @@ def get_scrape_logs(limit=20, scraper_name=None):
 def _seed_venues_if_empty():
     """Seed the venues table with known Memphis venues if empty."""
     _SEED_VENUES = [
-        ("Hotel Pontotoc", "South Main Arts District", ["hotel pontotoc", "the pontotoc", "pontotoc", "the dame", "the dame & garden", "the dame and garden", "dame & garden", "the garden", "69 e. pontotoc", "69 e pontotoc ave", "69 east pontotoc"]),
+        ("Hotel Pontotoc", "Downtown/Beale Street", ["hotel pontotoc", "the pontotoc", "pontotoc", "the dame", "the dame & garden", "the dame and garden", "dame & garden", "the garden", "69 e. pontotoc", "69 e pontotoc ave", "69 east pontotoc"]),
         ("Hi Tone", "Midtown", ["hi tone", "hi-tone", "hi tone café", "hi tone cafe", "the hi-tone"]),
         ("Minglewood Hall", "Midtown", ["minglewood", "minglewood hall", "1555 madison"]),
         ("Growlers", "Overton Square/Cooper-Young", ["growlers", "growlers memphis", "901 growlers"]),

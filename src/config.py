@@ -224,13 +224,30 @@ VENUES = {
             "dame & garden", "the garden",
             "69 e. pontotoc", "69 e pontotoc ave", "69 east pontotoc",
         ],
-        "neighborhood": "South Main Arts District",
+        # 69 E. Pontotoc Ave reads as South Main geographically, but the DB
+        # venues row (created by an earlier artifact import) says Downtown/Beale
+        # Street and the DB is what assigns a neighborhood at save time — five
+        # existing events already display under it. Matching that here so config
+        # and reality agree; change both together or not at all.
+        "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://hotelpontotoc.com/events/",
-        "scraper": "tribe_events",
+        # ⛔ DISABLED 2026-09-01 — Cloudflare blocks the GitHub Actions runner.
+        # The site runs The Events Calendar and `tribe_events` parses it
+        # correctly (verified: 25 found, 23 filtered, 2 real shows kept), but
+        # every build got 403 from the runner's IP while the identical request
+        # succeeds from a normal connection. Two separate blocks were found:
+        # a UA rule (solved — see _TRIBE_HEADERS) and IP reputation on the
+        # runner (not solvable from our side). Confirmed on two consecutive
+        # builds, so it is not a fluctuating bot score. There is no fallback:
+        # /events/ is a JS shell that carries no event data at all.
+        # Meanwhile Pontotoc arrives via Slack flyers, as it already did.
+        # TO RE-ENABLE once the venue allowlists us: change this one line back
+        # to "tribe_events". Everything below is still correct.
+        "scraper": "manual_only",
         # This calendar is NOT all music: alongside shows in The Dame & Garden it
         # lists private buyouts and college-football watch parties held at
         # stadiums the hotel does not own. All three filters are needed — see
-        # _fetch_tribe_events. Without them 22 of 25 upcoming entries were noise.
+        # _fetch_tribe_events. Without them 23 of 25 upcoming entries were noise.
         "tribe_skip_categories": ["private"],
         "tribe_own_venues": [
             "hotel pontotoc", "the dame & garden", "the dame and garden",
