@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-01T09:50:03.163429+00:00",
+  "run_timestamp": "2026-09-01T19:08:39.543830+00:00",
   "date_range": {
     "start": "2026-09-01",
     "end": "2026-09-08"
   },
-  "total_events_db": 3293,
-  "total_active_display": 76,
+  "total_events_db": 3304,
+  "total_active_display": 73,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -49,7 +49,15 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
@@ -65,50 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +113,35 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 251,
-      "events_after_filter": 27,
-      "events_filtered": 224,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://nashoba.live/event-calendar/"
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,19 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 2,
-      "events_filtered": 17,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -185,26 +177,26 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
       "events_after_filter": 11,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 6,
       "events_filtered": 6,
       "error": null
     },
@@ -214,6 +206,14 @@
       "events_found": 250,
       "events_after_filter": 33,
       "events_filtered": 217,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 76,
-      "events_after_filter": 76,
+      "events_found": 73,
+      "events_after_filter": 73,
       "events_filtered": 0,
       "error": null
     }
@@ -240,6 +240,13 @@
       "date": "2026-09-01",
       "time": "6:00 pm",
       "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Turn Down Tuesday",
+      "venue": "Havenhaus",
+      "date": "2026-09-01",
+      "time": "7-10 PM",
+      "source": "artifact"
     },
     {
       "artist": "BB King All-Stars",
@@ -291,6 +298,20 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-02",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Keer / Tayls / Wagoneer [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-02",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-02",
@@ -317,20 +338,6 @@
       "date": "2026-09-02",
       "time": "8:00PM",
       "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-02",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Keer / Tayls / Wagoneer [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-02",
-      "time": null,
-      "source": "scraper:hi_tone"
     },
     {
       "artist": "Stars & Guitars",
@@ -536,27 +543,6 @@
       "source": "artifact"
     },
     {
-      "artist": "Carry Ripple",
-      "venue": "First Congo Church",
-      "date": "2026-09-05",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Haley Mosenteen",
-      "venue": "First Congo Church",
-      "date": "2026-09-05",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Infinity Stairs",
-      "venue": "First Congo Church",
-      "date": "2026-09-05",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
       "artist": "Orion Financial Free Concert Series: Memphis PowerPop Festival",
       "venue": "Overton Park Shell",
       "date": "2026-09-05",
@@ -639,13 +625,6 @@
       "date": "2026-09-05",
       "time": "2:40 PM",
       "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Breath work and Meditation",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-05",
-      "time": "9:00\u202fAM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "The Band CAMINO",
