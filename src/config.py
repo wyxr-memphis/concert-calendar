@@ -188,7 +188,12 @@ VENUES = {
     },
     "germantown-pac": {
         "name": "Germantown Performing Arts Center",
-        "aliases": ["germantown performing arts", "germantown performing arts center", "gpac"],
+        "aliases": [
+            "germantown performing arts", "germantown performing arts center", "gpac",
+            # The Grove is GPAC's outdoor lawn stage, not a separate venue. The
+            # Memphis Symphony calendar books it under this name.
+            "the grove - gpac", "the grove at gpac", "the grove gpac",
+        ],
         "neighborhood": "Germantown",
         "calendar_url": "https://www.gpacweb.com/event-list",
         "scraper": "generic",
@@ -310,6 +315,20 @@ VENUES = {
         "sitewrench_api_token": os.environ.get("SITEWRENCH_API_TOKEN", ""),
         "sitewrench_site_id": "3018",
         "sitewrench_page_part_id": "458501",
+    },
+    # Not a venue — a touring orchestra. The Memphis Symphony has no room of its
+    # own and books eight-plus halls a season (Cannon Center, Scheidt Family PAC,
+    # the Orpheum and Halloran, GPAC's Grove, plus churches for Handel's Messiah).
+    # It lives in VENUES because that is what dispatches a scraper, but
+    # _fetch_memphis_symphony sets each event's venue from the listing's own
+    # location rather than from "name" — see the docstring there. "name" is only
+    # the scraper's identity: its source tag and its health-check row.
+    "memphis-symphony": {
+        "name": "Memphis Symphony Orchestra",
+        "aliases": ["memphis symphony orchestra", "memphis symphony"],
+        "neighborhood": None,  # Varies by hall — comes from the resolved venue
+        "calendar_url": "https://memphissymphony.org/calendar",
+        "scraper": "memphis_symphony",
     },
 }
 

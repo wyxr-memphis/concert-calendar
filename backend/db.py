@@ -884,7 +884,7 @@ def _seed_venues_if_empty():
         ("Grind City Amphitheater", None, ["grind city amphitheater", "grind city amphitheatre", "grind city"]),
         ("Bluesville at Horseshoe", "North Mississippi", ["bluesville at horseshoe", "horseshoe casino's bluesville", "horseshoe casino bluesville", "bluesville", "horseshoe bluesville"]),
         ("BankPlus Amphitheater at Snowden Grove", "North Mississippi", ["bankplus amphitheater at snowden grove", "bankplus amphitheater", "bankplus amphitheatre", "snowden grove amphitheater", "snowden grove"]),
-        ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac"]),
+        ("Germantown Performing Arts Center", "Germantown", ["germantown performing arts", "germantown performing arts center", "gpac", "the grove - gpac", "the grove at gpac", "the grove gpac"]),
         ("Orpheum Theatre", "Downtown/Beale Street", ["orpheum", "orpheum theatre", "halloran centre", "halloran center"]),
         ("Bar DKDC", "Crosstown/Broad Avenue", ["bar dkdc", "dkdc"]),
         ("B-Side Memphis", "South Main Arts District", ["b-side", "bside", "b side", "b-side memphis"]),
@@ -895,6 +895,16 @@ def _seed_venues_if_empty():
         ("Huey's", None, ["hueys", "huey's", "huey's burgers"]),
         ("Crosstown Brewing Co.", "Crosstown/Broad Avenue", ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."]),
         ("Blues City Cafe", "Downtown/Beale Street", ["blues city cafe", "blues city café", "blues city cafe band box"]),
+        # Halls the Memphis Symphony books that no other scraper reaches. The
+        # orchestra owns no room, so these are seeded for the neighborhood and
+        # the aliases rather than because anything scrapes them directly; the
+        # three churches each host one Handel's Messiah performance a season.
+        # St. Paul UMC is in Arlington, outside every Memphis neighborhood we
+        # define, so it takes None the way Grind City and Flyway do.
+        ("Lindenwood Christian Church", "Midtown", ["lindenwood christian church", "lindenwood christian", "lindenwood"]),
+        ("Germantown United Methodist Church", "Germantown", ["germantown united methodist church", "germantown united methodist"]),
+        ("St. Paul United Methodist Church", None, ["st. paul united methodist church", "st paul united methodist church", "saint paul united methodist church"]),
+        ("Dixon Gallery & Gardens", "East Memphis", ["dixon gallery & gardens", "dixon gallery and gardens", "dixon gallery", "the dixon"]),
     ]
 
     with get_cursor(commit=False) as cur:

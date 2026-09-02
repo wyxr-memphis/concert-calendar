@@ -9,7 +9,7 @@ fetcher. **Counts below drift — regenerate rather than trusting them:**
 python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"
 ```
 
-## Configured venues (28 at last count)
+## Configured venues (29 at last count)
 
 **Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
@@ -22,6 +22,8 @@ locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City 
 Center, Orpheum Theatre, South Main Sounds
 
 **Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
+
+**Multi-venue (1)** — `memphis_symphony`: Memphis Symphony Orchestra (see below)
 
 **Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc (see below)
 
@@ -93,6 +95,55 @@ needs to change. An untested alternative is moving this one fetch to the Render 
 egress IP may not be blocked — that has never been probed.
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
+
+### Memphis Symphony Orchestra — the one scraper that is not a venue
+
+Added 2026-09-02. The symphony owns no hall, so it is the only source whose events are
+**spread across venues**: a season plays the Cannon Center, Scheidt Family PAC, the Orpheum
+and its Halloran Centre, GPAC's Grove, the Dixon's gardens, and three churches for *Handel's
+Messiah*. It sits in `VENUES` only because that is what dispatches a scraper —
+`_fetch_memphis_symphony` sets each event's venue from that listing's own
+`location.addressTitle`, and `venue_info["name"]` supplies just the source tag and the
+fallback venue.
+
+**Filing it under one "Memphis Symphony Orchestra" pseudo-venue was rejected:** the venue is
+the field a DJ acts on, and a show at the Cannon Center could then never dedup against that
+venue's own scraper. Eight of the season's Cannon Center dates are absent from Ticketmaster
+(the orchestra sells through its own box office), so excluding already-scraped halls was
+rejected too — it would drop real shows.
+
+- **Squarespace pattern, reusable.** Any Squarespace collection page returns its backing JSON
+  with `?format=json`. An events collection splits it into `upcoming` / `past`; read only
+  `upcoming`. `?offset=` pages *backwards* into past seasons, so there is no pagination to do.
+- ⚠️ **Timestamps are epoch milliseconds and must be read in `America/Chicago`.** A 7:30 PM
+  concert is 00:30 UTC, so a naive `fromtimestamp()` files the entire season one day late on
+  the UTC GitHub Actions runner while looking correct on a Central laptop.
+- **`is_music_event()` must NOT be applied** — it reads no music keyword in "TCHAIKOVSKY'S
+  4TH" and would drop the real concerts. The noise here is the Memphis Symphony League's
+  social calendar (luncheons at private clubs, a holiday tea at the Peabody), so
+  `_MSO_EXCLUDE_KEYWORDS` names what to remove instead. Verified against all 57 published
+  titles: it catches the two fundraisers and nothing else.
+- **Three title normalizations, each load-bearing for dedup, not cosmetics:**
+  `_smart_title_case` de-caps the season (`str.title()` cannot be reused — it yields
+  "Handel'S Messiah", and the apostrophe is U+2019, not ASCII); `MSO` is expanded because
+  GPAC bills the same show as "Memphis Symphony Big Band"; and `_strip_venue_restatement`
+  drops a trailing "at <hall>" that only restates the venue column. Without the last one the
+  intra-scrape fuzzy pass merges the pair, keeps the longer title, and the result no longer
+  matches the row already stored — a permanent duplicate.
+- **Aliases added for this source:** "The Grove - GPAC" → GPAC (the Grove is GPAC's outdoor
+  lawn stage), in both `src/config.py` and `_SEED_VENUES`.
+
+⚠️ **Known limitation, not a bug to fix here.** A matinee and an evening performance of the
+same programme on one day (*Home Alone in Concert*, 2026-11-28, 1 PM and 6:30 PM) share one
+`title|venue|date` dedup key and collapse to a single listing — the matinee wins. Widening
+the key is a cross-cutting change to three call sites plus a backfill; see `dev/database.md`.
+
+⚠️ The **Halloran Centre and Crosstown Theater each exist twice** in the data model — as their
+own row in the DB `venues` table *and* as an alias of the Orpheum / Crosstown Arts in
+`src/config.py`. This predates the symphony scraper and was deliberately left alone; a config
+alias for the Halloran's full formal name was reverted during this work because the DB row
+already claims that exact string. Resolve it before adding another scraper that books either.
+
 - **Elfsight widget pattern** — a JSON API at `core.service.elfsight.com/p/boot/` returns
   structured events. Reusable across any Elfsight-backed site (Lafayette's, Nashoba).
 - **`ticketmaster_venue` is the cheap win** for any Live Nation / Ticketmaster room: a

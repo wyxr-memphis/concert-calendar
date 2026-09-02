@@ -137,6 +137,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "tribe_events":
         return _fetch_tribe_events(venue_info)
 
+    # Memphis Symphony — Squarespace JSON API, and the one source whose events
+    # are spread across many venues rather than held at one
+    if scraper_type == "memphis_symphony":
+        return _fetch_memphis_symphony(venue_info)
+
     try:
         response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
         response.raise_for_status()
@@ -533,6 +538,189 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     except requests.exceptions.RequestException as e:
         result.success = False
         result.error_message = f"Events Calendar API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
+# The Memphis Symphony runs on Squarespace, whose every collection page will
+# return its own backing JSON with ?format=json appended. An events collection
+# splits that JSON into "upcoming" and "past"; only "upcoming" is ever read
+# here. Paging (?offset=) walks *backwards* into past seasons, so one request
+# holds the whole forward schedule and there is no pagination to do.
+_MSO_JSON_SUFFIX = "?format=json"
+
+# Squarespace timestamps are epoch MILLISECONDS at UTC, and the symphony's site
+# is set to America/Chicago. Reading them in the runner's zone instead of this
+# one moves every evening concert to the following day: a 7:30 PM show is
+# 00:30 UTC, so the nightly GitHub Actions build (UTC) would file the entire
+# season one date late. Never replace this with a naive fromtimestamp().
+_MSO_TZ = ZoneInfo("America/Chicago")
+
+# The orchestra's calendar is not a pure concert feed — the Memphis Symphony
+# League's fundraising social calendar shares it ("Annual Luncheon: Stars,
+# Stripes and Strings" at Memphis Country Club, "Holiday Tea" at the Peabody's
+# Chez Philippe). Those are member events at private clubs, not shows a DJ can
+# send a listener to. is_music_event() cannot make this call: it reads no music
+# keyword in "TCHAIKOVSKY'S 4TH" and would drop the real concerts instead, so
+# the filter has to name what to remove rather than what to keep.
+_MSO_EXCLUDE_KEYWORDS = (
+    "luncheon", "holiday tea", "annual tea", "gala", "fundraiser",
+    "auction", "annual meeting", "board meeting", "donor",
+    "masterclass", "master class", "audition", "golf",
+)
+
+# The orchestra bills some shows with its internal initialism ("MSO BIG BAND AT
+# THE GROVE"), which reads as nothing at all to someone scanning a public
+# calendar. Expanding it is also what lets the listing merge with the same show
+# as GPAC's own scraper files it ("Memphis Symphony Big Band") — dedup compares
+# words, and with "MSO" left in place the two titles share only two of seven.
+_MSO_INITIALISM = re.compile(r"\bMSO\b", re.IGNORECASE)
+
+# The symphony bills most of its season in caps ("HANDEL'S MESSIAH"), which
+# shouts next to every other listing on the calendar. The Graceland scraper
+# already de-caps the same way, but with str.title(), which cannot be reused
+# here: it capitalizes the letter after any non-letter, so an apostrophe or a
+# digit corrupts the word — "HANDEL'S MESSIAH" becomes "Handel'S Messiah" and
+# "TCHAIKOVSKY'S 4TH" becomes "Tchaikovsky'S 4Th". Nearly every concert title
+# the orchestra publishes contains one or the other.
+# The apostrophe class must include U+2019 — the symphony's titles use the
+# curly form, and an ASCII-only class yields "Handel’S Messiah".
+_MSO_WORD_START = re.compile(r"(?<![\w'’‘])([a-z])")
+
+
+def _smart_title_case(text: str) -> str:
+    """Title-case an all-caps string without breaking "Handel's" or "4th"."""
+    return _MSO_WORD_START.sub(lambda m: m.group(1).upper(), text.lower())
+
+
+# "MSO BIG BAND AT THE GROVE", "Sunset Symphony at the Overton Park Shell" —
+# the orchestra often bills the hall inside the title, which the venue column
+# already says.
+_MSO_TRAILING_VENUE = re.compile(r"\s+at\s+(.+)$", re.IGNORECASE)
+
+# Below this, what remains is too thin to be a show name — "Live at the
+# Orpheum" must not become "Live".
+_MSO_MIN_TITLE_LEN = 6
+
+
+def _strip_venue_restatement(title: str, venue: str) -> str:
+    """Drop a trailing "at <hall>" when <hall> IS this event's venue.
+
+    Guarded on the tail resolving to the same canonical venue, so a title where
+    "at" means something else is left alone. This is not cosmetic: dedup against
+    events already stored compares titles exactly, so "Memphis Symphony Big Band
+    At The Grove" would sit next to GPAC's own "Memphis Symphony Big Band"
+    forever — the intra-scrape fuzzy pass merges the two, then keeps the longer
+    title, which no longer matches the row already in the database.
+    """
+    match = _MSO_TRAILING_VENUE.search(title)
+    if not match:
+        return title
+    if normalize_venue_name(match.group(1).strip()) != venue:
+        return title
+    stripped = title[: match.start()].strip()
+    return stripped if len(stripped) >= _MSO_MIN_TITLE_LEN else title
+
+
+def _fetch_memphis_symphony(venue_info: dict) -> SourceResult:
+    """Fetch Memphis Symphony Orchestra concerts from its Squarespace JSON.
+
+    ⚠️ This is the only scraper whose events do NOT all belong to the venue in
+    its ``VENUES`` entry. The symphony owns no hall; a single season plays the
+    Cannon Center, Scheidt Family PAC, the Orpheum and its Halloran Centre,
+    GPAC's Grove, the Dixon's gardens and three churches for Handel's Messiah.
+    Each event therefore takes its venue from that listing's own
+    ``location.addressTitle``, canonicalized through ``normalize_venue_name``,
+    and ``venue_info["name"]`` is used only for the source tag and as the
+    fallback when a listing names no location at all.
+
+    Filing these under a single "Memphis Symphony Orchestra" pseudo-venue was
+    the alternative and is worse twice over: the venue is the one field a DJ
+    acts on, and it would also guarantee permanent duplicates, since a show at
+    the Cannon Center or the Orpheum can never dedup against those venues' own
+    scrapers unless it is stored under the same venue name.
+    """
+    name = venue_info["name"]
+    source_tag = _venue_source_tag(name)
+    result = SourceResult(source_name=f"Venue: {name}")
+
+    calendar_url = venue_info.get("calendar_url", "")
+    origin = _tribe_site_origin(calendar_url)
+    if not origin:
+        result.success = False
+        result.error_message = "Could not derive site origin from calendar_url"
+        return result
+
+    try:
+        resp = get_with_retry(
+            f"{calendar_url}{_MSO_JSON_SUFFIX}", headers=HEADERS, timeout=15
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        # "upcoming" is what an events collection populates. Fall back to the
+        # plain item list for a layout that doesn't split them, but never to
+        # "past" — that would republish finished seasons.
+        items = data.get("upcoming") or data.get("items") or []
+
+        for item in items:
+            # A dangling "Orchestra Unplugged:" ships on the real calendar
+            # where the subtitle was never filled in; the colon is an authoring
+            # artifact, not part of the name.
+            title = _html.unescape((item.get("title") or "").strip()).rstrip(" :-–—")
+            # De-caps before expanding, so the guard still sees a caps title.
+            if title == title.upper() and len(title) > 3:
+                title = _smart_title_case(title)
+            title = _MSO_INITIALISM.sub("Memphis Symphony", title)
+            start_ms = item.get("startDate")
+            if not title or not isinstance(start_ms, (int, float)):
+                continue
+            result.events_found += 1
+
+            lowered = title.lower()
+            if any(kw in lowered for kw in _MSO_EXCLUDE_KEYWORDS):
+                result.events_filtered += 1
+                continue
+
+            dt = datetime.fromtimestamp(start_ms / 1000, _MSO_TZ)
+            if not (START_DATE <= dt.date() <= SCRAPER_END_DATE):
+                result.events_filtered += 1
+                continue
+
+            # The hall this particular concert plays, not the orchestra.
+            location = item.get("location") or {}
+            raw_venue = _html.unescape((location.get("addressTitle") or "").strip())
+            event_venue = normalize_venue_name(raw_venue) if raw_venue else name
+
+            title = _strip_venue_restatement(title, event_venue)
+
+            full_url = item.get("fullUrl") or ""
+            if full_url.startswith("/"):
+                full_url = f"{origin}{full_url}"
+
+            result.events.append(Event(
+                artist=title,
+                venue=event_venue,
+                date=dt.date(),
+                time=format_event_time(dt),
+                # Tagged to the symphony, never to the hall — the source tag is
+                # what the nightly health check counts, and borrowing e.g.
+                # scraper:orpheum_theatre here would credit this run to the
+                # Orpheum's own scraper and mask it going dark.
+                source=source_tag,
+                url=full_url or None,
+                image_url=first_image_url(item.get("assetUrl")),
+            ))
+
+        if result.events_found == 0:
+            result.error_message = "0 events parsed — Squarespace JSON may have moved"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Request failed: {str(e)[:80]}"
     except Exception as e:
         result.success = False
         result.error_message = f"Parse error: {str(e)[:80]}"
