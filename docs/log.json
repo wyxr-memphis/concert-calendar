@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-02T09:22:02.235490+00:00",
+  "run_timestamp": "2026-09-02T19:34:32.982166+00:00",
   "date_range": {
     "start": "2026-09-02",
     "end": "2026-09-09"
   },
-  "total_events_db": 3312,
-  "total_active_display": 73,
+  "total_events_db": 3320,
+  "total_active_display": 75,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -57,14 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
@@ -81,10 +73,50 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 62,
+      "events_after_filter": 62,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 33,
+      "events_filtered": 217,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -97,26 +129,18 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -129,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 82,
-      "events_after_filter": 43,
-      "events_filtered": 39,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,22 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -177,27 +185,11 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 33,
-      "events_filtered": 217,
+      "events_found": 82,
+      "events_after_filter": 43,
+      "events_filtered": 39,
       "error": null
     },
     {
@@ -209,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 73,
-      "events_after_filter": 73,
+      "events_found": 75,
+      "events_after_filter": 75,
       "events_filtered": 0,
       "error": null
     }
@@ -599,6 +599,13 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
+      "artist": "Rev Neil Down *free show* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-06",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Duane Cleveland Acoustic",
       "venue": "Lafayette's Music Room",
       "date": "2026-09-06",
@@ -625,6 +632,13 @@
       "date": "2026-09-07",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-07",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "ET Cruiser",
