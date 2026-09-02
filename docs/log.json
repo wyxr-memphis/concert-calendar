@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-02T19:34:32.982166+00:00",
+  "run_timestamp": "2026-09-02T22:05:25.792864+00:00",
   "date_range": {
     "start": "2026-09-02",
     "end": "2026-09-09"
   },
-  "total_events_db": 3320,
-  "total_active_display": 75,
+  "total_events_db": 3336,
+  "total_active_display": 76,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,10 +33,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 62,
+      "events_after_filter": 62,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
@@ -45,6 +53,30 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -65,18 +97,26 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 62,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -89,43 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 250,
       "events_after_filter": 33,
       "events_filtered": 217,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,19 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 6,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 20,
+      "events_after_filter": 4,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -169,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 4,
-      "events_filtered": 16,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 6,
+      "events_found": 27,
+      "events_after_filter": 18,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -227,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 75,
-      "events_after_filter": 75,
+      "events_found": 76,
+      "events_after_filter": 76,
       "events_filtered": 0,
       "error": null
     }
@@ -413,8 +421,8 @@
       "artist": "Memphis Symphony Big Band",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-09-04",
-      "time": "7:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
+      "time": "7 PM",
+      "source": "scraper:memphis_symphony_orchestra"
     },
     {
       "artist": "Rosamii",
@@ -618,6 +626,13 @@
       "date": "2026-09-06",
       "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Princess & the Kashjimer Band",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-09-06",
+      "time": "8 PM",
+      "source": "manual"
     },
     {
       "artist": "FATTMACK - The McKenzie Tour 2.0",
