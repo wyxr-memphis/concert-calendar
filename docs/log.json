@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-03T19:32:17.365993+00:00",
+  "run_timestamp": "2026-09-04T09:23:46.833143+00:00",
   "date_range": {
-    "start": "2026-09-03",
-    "end": "2026-09-10"
+    "start": "2026-09-04",
+    "end": "2026-09-11"
   },
-  "total_events_db": 3353,
-  "total_active_display": 79,
+  "total_events_db": 3359,
+  "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -25,10 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 40,
+      "events_after_filter": 40,
       "events_filtered": 0,
       "error": null
     },
@@ -41,34 +41,10 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 33,
-      "events_filtered": 217,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -81,34 +57,42 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 32,
+      "events_found": 250,
       "events_after_filter": 32,
+      "events_filtered": 218,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -133,6 +117,30 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -161,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -185,14 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 10,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -201,18 +193,26 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 10,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 62,
-      "events_after_filter": 62,
+      "events_found": 60,
+      "events_after_filter": 60,
       "events_filtered": 0,
       "error": null
     },
@@ -228,83 +228,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
-      "events_after_filter": 53,
-      "events_filtered": 2,
+      "events_after_filter": 52,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 79,
+      "events_found": 89,
+      "events_after_filter": 89,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Modern Jazz Masters: Jon Cowherd with the Ted Ludwig Trio",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-03",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Ashton Riker & The Memphis Royals",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-03",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-03",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-03",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Major Moment",
-      "venue": "Growlers",
-      "date": "2026-09-03",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Carlos Elliot Jr.",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-03",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-03",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Daphnie & Chris Duo",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-03",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Alabama Live at the Garden",
-      "venue": "Radians Amphitheater",
-      "date": "2026-09-03",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Clownvis / IV and The Strange Band [Big Room-Upstairs]",
       "venue": "Hi Tone",
@@ -395,6 +332,13 @@
       "date": "2026-09-04",
       "time": "5 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Shell on Wheels: Metal Museum Grand Opening",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-04",
+      "time": "12:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "The Band CAMINO",
@@ -537,6 +481,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-06",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-09-06",
@@ -591,6 +542,13 @@
       "date": "2026-09-06",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-07",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Rockin 88's",
@@ -733,11 +691,11 @@
       "source": "manual"
     },
     {
-      "artist": "Daniel Donato\u2019s Cosmic Country",
+      "artist": "Daniel Donato's Cosmic Country",
       "venue": "Minglewood Hall",
       "date": "2026-09-10",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Shell Yeah! Benefit Series Presents Booker T. Jones",
@@ -794,6 +752,118 @@
       "date": "2026-09-10",
       "time": "7:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "8Ball & MJG and Bun B ft. the Renaissance Orchestra",
+      "venue": "Orpheum Theatre",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
+    },
+    {
+      "artist": "90th Shellebration: Birthday Picnic ft. Memphis Youth Symphony",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-11",
+      "time": "12:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "CowBoy Neil And The Real Deal",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-11",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Matt Axton",
+      "venue": "Growlers",
+      "date": "2026-09-11",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Old School Jungle Night",
+      "venue": "Growlers",
+      "date": "2026-09-11",
+      "time": "11:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Alvin Youngblood Hart\u2019s Muscle Theory",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-11",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Next Top Comic [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Ron Pope / Zach Berkman [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Ron Pope [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Basketcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-11",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "The Lost 45's",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-11",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Big Decisions, Godmillk, and sweet Ladies",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-09-11",
+      "time": "7:30 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "It\u2019s A 2000\u2019s Party: Memphis",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Hope Clayburn's Soul Scrimmage",
+      "venue": "Nashoba",
+      "date": "2026-09-11",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Josh Threlkeld on the Patio",
+      "venue": "Nashoba",
+      "date": "2026-09-11",
+      "time": "5 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "ISAIAH RASHAD: Lil Sunny's Awful Road Trip",
+      "venue": "Satellite Music Hall",
+      "date": "2026-09-11",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
     }
   ]
 }
