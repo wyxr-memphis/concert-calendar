@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-09-04T09:23:46.833143+00:00",
+  "run_timestamp": "2026-09-04T19:14:20.939481+00:00",
   "date_range": {
     "start": "2026-09-04",
     "end": "2026-09-11"
   },
-  "total_events_db": 3359,
+  "total_events_db": 3363,
   "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
@@ -27,16 +27,16 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
+      "events_found": 41,
+      "events_after_filter": 41,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -49,34 +49,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 32,
-      "events_filtered": 218,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -89,11 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 250,
+      "events_after_filter": 32,
+      "events_filtered": 218,
       "error": null
     },
     {
@@ -113,18 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +129,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -163,25 +163,17 @@
     {
       "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 257,
-      "events_after_filter": 33,
+      "events_found": 258,
+      "events_after_filter": 34,
       "events_filtered": 224,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 31,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 6,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,6 +193,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 60,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
@@ -209,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 60,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 6,
       "error": null
     },
     {
