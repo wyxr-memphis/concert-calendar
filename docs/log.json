@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-09-05T08:52:54.369109+00:00",
+  "run_timestamp": "2026-09-05T18:42:25.015502+00:00",
   "date_range": {
     "start": "2026-09-05",
     "end": "2026-09-12"
   },
-  "total_events_db": 3371,
+  "total_events_db": 3372,
   "total_active_display": 95,
   "data_store": "postgresql",
   "sources": [
@@ -33,50 +33,18 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 31,
-      "events_filtered": 219,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -89,6 +57,22 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 5,
@@ -97,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -121,35 +105,19 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 258,
-      "events_after_filter": 32,
-      "events_filtered": 226,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 82,
-      "events_after_filter": 43,
-      "events_filtered": 39,
       "error": null
     },
     {
@@ -161,26 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -193,12 +145,44 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 58,
+      "events_found": 82,
+      "events_after_filter": 43,
+      "events_filtered": 39,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 258,
+      "events_after_filter": 32,
+      "events_filtered": 226,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 6,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
     },
     {
       "name": "Venue: Crosstown Brewing Co.",
@@ -209,11 +193,27 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 58,
+      "events_after_filter": 58,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
       "events_after_filter": 17,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 31,
+      "events_filtered": 219,
       "error": null
     },
     {
