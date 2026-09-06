@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-05T18:42:25.015502+00:00",
+  "run_timestamp": "2026-09-06T09:12:40.411521+00:00",
   "date_range": {
-    "start": "2026-09-05",
-    "end": "2026-09-12"
+    "start": "2026-09-06",
+    "end": "2026-09-13"
   },
-  "total_events_db": 3372,
-  "total_active_display": 95,
+  "total_events_db": 3377,
+  "total_active_display": 92,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
+      "events_found": 16,
+      "events_after_filter": 15,
       "events_filtered": 0,
       "error": null
     },
@@ -36,8 +36,16 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 29,
+      "events_filtered": 221,
       "error": null
     },
     {
@@ -45,6 +53,22 @@
       "success": true,
       "events_found": 10,
       "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 32,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -57,34 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -97,18 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -121,27 +121,19 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 20,
       "events_after_filter": 4,
       "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -153,19 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 258,
-      "events_after_filter": 32,
-      "events_filtered": 226,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 6,
-      "events_filtered": 6,
+      "events_found": 32,
+      "events_after_filter": 31,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -177,6 +161,22 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 258,
+      "events_after_filter": 31,
+      "events_filtered": 227,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -185,18 +185,10 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 10,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 58,
+      "events_found": 56,
+      "events_after_filter": 56,
       "events_filtered": 0,
       "error": null
     },
@@ -209,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 31,
-      "events_filtered": 219,
+      "events_found": 17,
+      "events_after_filter": 10,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -228,139 +228,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
-      "events_after_filter": 51,
-      "events_filtered": 4,
+      "events_after_filter": 50,
+      "events_filtered": 5,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 95,
-      "events_after_filter": 95,
+      "events_found": 92,
+      "events_after_filter": 92,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Candynavia",
-      "venue": "First Congo Church",
-      "date": "2026-09-05",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Memphis PowerPop Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-05",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "BB King All-Stars Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-05",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-05",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-05",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-05",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jeremy Schrader\u2019s \u201cOctocats\u201d featuring Saundra Messinger",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-05",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "THIS IS MUSIC- Harris & Fitz",
-      "venue": "Flyway Brewing",
-      "date": "2026-09-05",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "2000's EMO PARTY",
-      "venue": "Growlers",
-      "date": "2026-09-05",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "JD Simo",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-05",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Havana Good Time [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-05",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Lob and friends [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-05",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Souled Out",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-05",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Twin Soul",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-05",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Shell on Wheels: Metal Museum Grand Opening",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-05",
-      "time": "12:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "The Band CAMINO",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-05",
-      "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
-    },
-    {
-      "artist": "The Band Camino - Homecoming",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-05",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
@@ -544,6 +425,20 @@
       "source": "manual"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-09",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-09",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
       "date": "2026-09-09",
@@ -619,6 +514,13 @@
       "date": "2026-09-10",
       "time": "7:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Memphis Soul Factory",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-10",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -800,7 +702,7 @@
       "venue": "Bluesville at Horseshoe",
       "date": "2026-09-12",
       "time": "8 PM",
-      "source": "scraper:bluesville_at_horseshoe"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Will Graves and Soul LIVE at the Green Room",
@@ -876,8 +778,15 @@
       "artist": "Strangelove: The Depeche Mode Experience",
       "venue": "Minglewood Hall",
       "date": "2026-09-12",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "8 Ball & MJG and Bun B ft. The Renaissance Orchestra",
+      "venue": "Orpheum Theatre",
+      "date": "2026-09-12",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Memphis Talent Showcase",
@@ -898,7 +807,7 @@
       "venue": "Satellite Music Hall",
       "date": "2026-09-12",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "SoFar Memphis presents : SOUNDS OF MEMPHIS",
@@ -906,6 +815,76 @@
       "date": "2026-09-12",
       "time": "6:30 PM",
       "source": "manual"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-13",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Pickin and Pints with the Late Greats",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-09-13",
+      "time": "2-5pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-13",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Neil Hamburger / Major Entertainer / Hunter Sandlin [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Neil Hamburger / Major Entertainer [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Eureka Live Brunch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-13",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Memphis Unplugged",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-13",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "90th Shellebration: Memphis Studio Super-Set",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-13",
+      "time": "7:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "90th Shellebration: The Gathering ft. Evie Mckinney",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-13",
+      "time": "12:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "90th Shellebration: The Gathering ft. Evvie Mckinney",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-13",
+      "time": "12:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
