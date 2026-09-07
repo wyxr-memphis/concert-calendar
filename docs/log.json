@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-06T18:46:13.772855+00:00",
+  "run_timestamp": "2026-09-07T10:00:53.425337+00:00",
   "date_range": {
-    "start": "2026-09-06",
-    "end": "2026-09-13"
+    "start": "2026-09-07",
+    "end": "2026-09-14"
   },
-  "total_events_db": 3377,
-  "total_active_display": 92,
+  "total_events_db": 3382,
+  "total_active_display": 86,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
+      "events_found": 15,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -25,43 +25,35 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 29,
+      "events_after_filter": 28,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 29,
-      "events_filtered": 221,
+      "events_found": 41,
+      "events_after_filter": 41,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -89,42 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -137,59 +97,35 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 82,
-      "events_after_filter": 43,
-      "events_filtered": 39,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 4,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
+      "events_found": 5,
       "events_after_filter": 5,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 258,
-      "events_after_filter": 31,
-      "events_filtered": 227,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
+      "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 10,
-      "events_filtered": 7,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,11 +137,75 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
+      "events_found": 20,
+      "events_after_filter": 4,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 82,
+      "events_after_filter": 44,
+      "events_filtered": 38,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 258,
+      "events_after_filter": 31,
+      "events_filtered": 227,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 30,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 10,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -219,8 +219,8 @@
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -228,97 +228,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
-      "events_after_filter": 50,
-      "events_filtered": 5,
+      "events_after_filter": 49,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 92,
-      "events_after_filter": 92,
+      "events_found": 86,
+      "events_after_filter": 86,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-06",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Flic's Pic's Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-06",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-06",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-06",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "KOLONY",
-      "venue": "Growlers",
-      "date": "2026-09-06",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-06",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Rev Neil Down *free show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Duane Cleveland Acoustic",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-06",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Pulse",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-06",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Princess & the Kashjimer Band",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-09-06",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "FATTMACK - The McKenzie Tour 2.0",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-06",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
@@ -516,6 +439,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-10",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Soul Factory",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-10",
@@ -584,6 +514,20 @@
       "date": "2026-09-11",
       "time": "12:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-11",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Jones",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-11",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
@@ -884,6 +828,20 @@
       "venue": "Overton Park Shell",
       "date": "2026-09-13",
       "time": "12:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-14",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-14",
+      "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
   ]
