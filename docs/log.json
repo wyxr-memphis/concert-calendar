@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-09-08T19:21:49.278559+00:00",
+  "run_timestamp": "2026-09-08T19:41:04.622411+00:00",
   "date_range": {
     "start": "2026-09-08",
     "end": "2026-09-15"
@@ -41,18 +41,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -65,50 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 27,
-      "events_filtered": 223,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,6 +105,38 @@
       "error": null
     },
     {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 27,
+      "events_filtered": 223,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 10,
@@ -145,27 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
-      "events_filtered": 7,
       "error": null
     },
     {
@@ -174,6 +158,14 @@
       "events_found": 258,
       "events_after_filter": 31,
       "events_filtered": 227,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,11 +185,27 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 80,
+      "events_after_filter": 44,
+      "events_filtered": 36,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 14,
       "events_after_filter": 11,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -209,18 +217,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 44,
-      "events_filtered": 36,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
