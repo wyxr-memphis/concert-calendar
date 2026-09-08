@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-07T20:18:43.140061+00:00",
+  "run_timestamp": "2026-09-08T09:26:29.232625+00:00",
   "date_range": {
-    "start": "2026-09-07",
-    "end": "2026-09-14"
+    "start": "2026-09-08",
+    "end": "2026-09-15"
   },
-  "total_events_db": 3384,
-  "total_active_display": 87,
+  "total_events_db": 3386,
+  "total_active_display": 91,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 41,
@@ -45,6 +37,22 @@
       "success": true,
       "events_found": 29,
       "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -65,26 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -93,6 +85,14 @@
       "success": true,
       "events_found": 32,
       "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -113,6 +113,14 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -121,27 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 258,
+      "events_after_filter": 31,
+      "events_filtered": 227,
       "error": null
     },
     {
@@ -155,33 +147,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 82,
+      "events_found": 81,
       "events_after_filter": 44,
-      "events_filtered": 38,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 258,
-      "events_after_filter": 31,
-      "events_filtered": 227,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 10,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -201,6 +169,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -209,11 +185,27 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
+      "events_found": 250,
+      "events_after_filter": 27,
+      "events_filtered": 223,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 10,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -225,51 +217,31 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
-      "events_after_filter": 49,
-      "events_filtered": 6,
+      "events_after_filter": 48,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 87,
-      "events_after_filter": 87,
+      "events_found": 91,
+      "events_after_filter": 91,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-07",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-07",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-07",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-07",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "ET Cruiser",
       "venue": "Bar DKDC",
@@ -516,6 +488,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-11",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Jason Foree Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-11",
@@ -633,6 +612,13 @@
       "date": "2026-09-11",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-12",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
@@ -850,6 +836,48 @@
       "date": "2026-09-14",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-09-15",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Adult Tap Class",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-09-15",
+      "time": "10:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Dopethrone / Fister / Ruined God Mammoth Caravan [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-15",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Dopethrone [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-15",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-15",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "SIDE SET: Reba Russell",
+      "venue": "Nashoba",
+      "date": "2026-09-15",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
