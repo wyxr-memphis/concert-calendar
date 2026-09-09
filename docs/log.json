@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-08T19:41:04.622411+00:00",
+  "run_timestamp": "2026-09-09T09:28:01.951385+00:00",
   "date_range": {
-    "start": "2026-09-08",
-    "end": "2026-09-15"
+    "start": "2026-09-09",
+    "end": "2026-09-16"
   },
-  "total_events_db": 3391,
+  "total_events_db": 3401,
   "total_active_display": 87,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 14,
+      "events_found": 14,
+      "events_after_filter": 13,
       "events_filtered": 0,
       "error": null
     },
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -41,10 +33,18 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 41,
       "events_filtered": 0,
       "error": null
     },
@@ -57,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -81,10 +73,58 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -105,59 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 5,
+      "events_found": 12,
       "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 27,
-      "events_filtered": 223,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 258,
-      "events_after_filter": 31,
-      "events_filtered": 227,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -169,51 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 10,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 80,
-      "events_after_filter": 44,
-      "events_filtered": 36,
+      "events_after_filter": 43,
+      "events_filtered": 37,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 17,
-      "events_filtered": 9,
+      "events_found": 258,
+      "events_after_filter": 31,
+      "events_filtered": 227,
       "error": null
     },
     {
@@ -225,11 +185,51 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 9,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 27,
+      "events_filtered": 223,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 17,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
-      "events_after_filter": 48,
-      "events_filtered": 7,
+      "events_after_filter": 47,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -242,69 +242,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "ET Cruiser",
-      "venue": "Bar DKDC",
-      "date": "2026-09-08",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Orchid Mantis, Missed Dunks at Summer League, and ET Cruiser",
-      "venue": "Bar DKDC",
-      "date": "2026-09-08",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Chance The Rapper - Coloring Book 10 Year Anniversary Tour",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-08",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-08",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-08",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Blind Mississippi Morris",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-08",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-09-08",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-09-08",
-      "time": "10:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-08",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "WYXR's Stereo Session featuring KWICK's \"To The Point\"",
       "venue": "Memphis Listening Lab",
@@ -649,10 +586,24 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-12",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-12",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-12",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -850,6 +801,55 @@
       "date": "2026-09-15",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-16",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Everything Yes",
+      "venue": "Crosstown Arts",
+      "date": "2026-09-16",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-16",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-16",
+      "time": "12 AM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Jackyl",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-16",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Jackyl w/ Every Mother\u2019s Nightmare & Lenox Creek",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-16",
+      "time": null,
+      "source": "manual"
+    },
+    {
+      "artist": "Jackyl w/ Lenox Creek",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-16",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
