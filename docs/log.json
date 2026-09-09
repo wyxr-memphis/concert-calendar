@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-09T09:28:01.951385+00:00",
+  "run_timestamp": "2026-09-09T19:33:58.259654+00:00",
   "date_range": {
     "start": "2026-09-09",
     "end": "2026-09-16"
   },
-  "total_events_db": 3401,
-  "total_active_display": 87,
+  "total_events_db": 3403,
+  "total_active_display": 88,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,34 +33,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 42,
+      "events_after_filter": 42,
       "events_filtered": 0,
       "error": null
     },
@@ -73,22 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 7,
@@ -97,10 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -113,18 +89,18 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 27,
+      "events_filtered": 223,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,6 +113,14 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -145,11 +129,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 12,
+      "events_found": 10,
       "events_after_filter": 5,
-      "events_filtered": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,11 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 258,
-      "events_after_filter": 31,
-      "events_filtered": 227,
+      "events_found": 17,
+      "events_after_filter": 9,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -185,14 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 9,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 0,
@@ -201,19 +193,11 @@
       "error": "0 events from SiteWrench API"
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 27,
-      "events_filtered": 223,
+      "events_found": 258,
+      "events_after_filter": 31,
+      "events_filtered": 227,
       "error": null
     },
     {
@@ -222,6 +206,22 @@
       "events_found": 26,
       "events_after_filter": 17,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 87,
-      "events_after_filter": 87,
+      "events_found": 88,
+      "events_after_filter": 88,
       "events_filtered": 0,
       "error": null
     }
@@ -587,6 +587,13 @@
     },
     {
       "artist": "Ashton Riker & The Memphis Royals",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-12",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-12",
       "time": "8:00 pm",
