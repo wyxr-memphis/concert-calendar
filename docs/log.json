@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-10T20:22:30.523164+00:00",
+  "run_timestamp": "2026-09-10T20:37:42.598674+00:00",
   "date_range": {
     "start": "2026-09-10",
     "end": "2026-09-17"
   },
-  "total_events_db": 3468,
-  "total_active_display": 123,
+  "total_events_db": 3497,
+  "total_active_display": 124,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 40,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -33,27 +41,19 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
+      "events_found": 250,
+      "events_after_filter": 27,
+      "events_filtered": 223,
       "error": null
     },
     {
@@ -89,6 +89,22 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 29,
@@ -97,18 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -153,10 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -169,7 +185,15 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 36,
       "events_after_filter": 36,
@@ -190,14 +214,6 @@
       "events_found": 17,
       "events_after_filter": 9,
       "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
-      "events_filtered": 7,
       "error": null
     },
     {
@@ -235,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 123,
-      "events_after_filter": 123,
+      "events_found": 124,
+      "events_after_filter": 124,
       "events_filtered": 0,
       "error": null
     }
@@ -489,6 +505,13 @@
     },
     {
       "artist": "Basketcase",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-09-11",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Carlos Ecos Band",
       "venue": "Lafayette's Music Room",
       "date": "2026-09-11",
       "time": "6 PM",
