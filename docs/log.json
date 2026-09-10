@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-10T19:23:43.332609+00:00",
+  "run_timestamp": "2026-09-10T20:22:30.523164+00:00",
   "date_range": {
     "start": "2026-09-10",
     "end": "2026-09-17"
   },
-  "total_events_db": 3443,
-  "total_active_display": 107,
+  "total_events_db": 3468,
+  "total_active_display": 123,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -41,34 +33,18 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 32,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -81,6 +57,14 @@
       "error": null
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 40,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -89,10 +73,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -105,9 +97,9 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 5,
+      "events_found": 10,
       "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
@@ -129,18 +121,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
       "events_filtered": 0,
       "error": null
     },
@@ -153,6 +145,22 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 80,
+      "events_after_filter": 43,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 258,
@@ -161,10 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -185,6 +193,22 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 17,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 26,
@@ -201,30 +225,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 17,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 80,
-      "events_after_filter": 43,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 55,
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 107,
-      "events_after_filter": 107,
+      "events_found": 123,
+      "events_after_filter": 123,
       "events_filtered": 0,
       "error": null
     }
@@ -264,6 +264,13 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-10",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Ashton Riker & The Memphis Royals",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-10",
@@ -276,6 +283,13 @@
       "date": "2026-09-10",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Memphis Dyke Night",
+      "venue": "Bar DKDC",
+      "date": "2026-09-10",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Blind Mississippi Morris",
@@ -355,6 +369,34 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "ALT 72",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-11",
+      "time": "6 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jombi",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-11",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Keer",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-11",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Phil Nye",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-11",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "BB King All-Stars",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-11",
@@ -374,6 +416,13 @@
       "date": "2026-09-11",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "Bar DKDC",
+      "date": "2026-09-11",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "JB Horrell",
@@ -509,6 +558,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Jimmy Davis and RBC Revival feat/ Bill Yearwood/ Richard Ford plus special guest",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-12",
+      "time": "6 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Ashton Riker & The Memphis Royals",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-12",
@@ -535,6 +591,13 @@
       "date": "2026-09-12",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Sonidero G\u00f3tico",
+      "venue": "Bar DKDC",
+      "date": "2026-09-12",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
@@ -647,6 +710,13 @@
       "date": "2026-09-13",
       "time": "7:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Mystrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-13",
+      "time": "7:30 PM",
+      "source": "artifact"
     },
     {
       "artist": "Beale St Blues Band",
@@ -789,6 +859,20 @@
       "source": "scraper:blues_city_cafe"
     },
     {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-14",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Like Really Creative Collage Clash",
+      "venue": "Bar DKDC",
+      "date": "2026-09-14",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Board Games, Bad Movies & Beer Bust [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-09-14",
@@ -801,6 +885,13 @@
       "date": "2026-09-15",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Dolly Parton Tribute",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-15",
+      "time": "7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Mark Allen",
@@ -822,6 +913,13 @@
       "date": "2026-09-15",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "DJ Zirk",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-16",
+      "time": "8 PM",
+      "source": "artifact"
     },
     {
       "artist": "Brad Birkedahl",
@@ -906,6 +1004,20 @@
       "date": "2026-09-17",
       "time": "7:32 PM",
       "source": "manual"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-17",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jack O",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-17",
+      "time": "7 PM",
+      "source": "artifact"
     },
     {
       "artist": "Concerts in The Grove: The Memphis Rhythm Revue",
