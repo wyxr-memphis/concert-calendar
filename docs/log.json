@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-09-11T19:22:06.547450+00:00",
+  "run_timestamp": "2026-09-11T21:09:55.077996+00:00",
   "date_range": {
     "start": "2026-09-11",
     "end": "2026-09-18"
   },
-  "total_events_db": 3502,
+  "total_events_db": 3506,
   "total_active_display": 132,
   "data_store": "postgresql",
   "sources": [
@@ -41,18 +41,18 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -65,6 +65,14 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
@@ -73,18 +81,26 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 250,
+      "events_after_filter": 26,
+      "events_filtered": 224,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -97,15 +113,7 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -121,7 +129,7 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -129,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 42,
-      "events_filtered": 38,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,6 +153,14 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 79,
+      "events_after_filter": 42,
+      "events_filtered": 37,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 258,
@@ -153,10 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -169,38 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 26,
-      "events_filtered": 224,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 61,
-      "events_after_filter": 61,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
@@ -209,11 +193,27 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
       "events_after_filter": 17,
       "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 61,
+      "events_after_filter": 61,
+      "events_filtered": 0,
       "error": null
     },
     {
