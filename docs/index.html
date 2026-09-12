@@ -79,6 +79,7 @@
             --wyxr-dim: #8B93A1;
             --wyxr-border: #464C58;
             --wyxr-presents-blue: #6BC9EC;
+            --wyxr-fund-coral: #E94F37; /* fund-drive banner only */
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -651,34 +652,36 @@
             color: var(--wyxr-black);
         }
 
-        /* Pledge Drive Banner (admin-toggled; percent read live from wyxr.org) */
+        /* Fund Drive Banner (admin-toggled; percent read live from wyxr.org).
+           Coral is deliberately not used anywhere else on the page so the drive
+           reads as an announcement, not another sponsor slot. */
         .pledge-banner { margin: 0 0 16px; }
         .pledge-banner-inner {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px 16px;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 6px;
-            background: var(--wyxr-charcoal);
-            border-left: 5px solid var(--wyxr-yellow);
+            background: var(--wyxr-fund-coral);
+            box-shadow: 0 4px 18px rgba(233, 79, 55, 0.35);
         }
         .pledge-text { flex: 1 1 200px; min-width: 0; }
         .pledge-headline {
             display: block;
             font-family: 'Anybody', sans-serif;
             font-weight: 800;
-            font-size: 1.05em;
+            font-size: 1.1em;
             letter-spacing: 0.02em;
             text-transform: uppercase;
-            color: var(--wyxr-yellow);
+            color: #FFFFFF;
             overflow-wrap: anywhere;
         }
         .pledge-copy {
             display: block;
             margin-top: 2px;
             font-size: 0.85em;
-            color: var(--wyxr-gray);
+            color: rgba(255, 255, 255, 0.88);
             overflow-wrap: anywhere;
         }
         .pledge-copy:empty { display: none; }
@@ -692,14 +695,14 @@
             flex: 1;
             height: 10px;
             border-radius: 5px;
-            background: var(--wyxr-border);
+            background: rgba(0, 0, 0, 0.28);
             overflow: hidden;
         }
         .pledge-fill {
             height: 100%;
             width: var(--pct, 0%);
             border-radius: 5px;
-            background: var(--wyxr-yellow);
+            background: #FFFFFF;
             transition: width 0.6s ease;
         }
         .pledge-pct {
@@ -708,19 +711,19 @@
             font-weight: 700;
             font-size: 0.95em;
             font-variant-numeric: tabular-nums;
-            color: var(--wyxr-white);
+            color: #FFFFFF;
         }
         .pledge-donate {
             flex: 0 0 auto;
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 4px;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
+            background: var(--wyxr-black);
+            color: #FFFFFF;
             font-weight: 700;
             font-size: 0.9em;
             text-decoration: none;
         }
-        .pledge-donate:hover { opacity: 0.9; }
+        .pledge-donate:hover { background: #000; }
         .pledge-donate:not([href]) { opacity: 0.6; cursor: default; }
         @media (max-width: 768px) {
             .pledge-banner { margin-top: 12px; }
@@ -1088,7 +1091,7 @@
         </div>
     </header>
 
-    <!-- Pledge Drive Banner: shown only while Admin → Sponsors → Pledge Drive is
+    <!-- Fund Drive Banner: shown only while Admin → Sponsors → Fund Drive is
          enabled and inside its date window. Percent comes from wyxr.org via
          /api/pledge-drive; every field here is untrusted text. -->
     <div id="pledgeDriveBanner" class="pledge-banner" style="display:none;">

@@ -1147,10 +1147,10 @@
             <!-- SPONSORS TAB -->
             <div class="tab-content" id="tab-sponsors">
 
-                <!-- Pledge Drive sub-section -->
+                <!-- Fund Drive sub-section -->
                 <div style="margin-bottom:32px;">
                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-                        <h2 style="font-size:1.1em;font-weight:700;">Pledge Drive</h2>
+                        <h2 style="font-size:1.1em;font-weight:700;">Fund Drive</h2>
                         <span id="pdActiveBadge" style="font-size:0.75em;font-weight:700;padding:3px 10px;border-radius:12px;background:#eee;color:#666;">…</span>
                     </div>
                     <p style="font-size:0.85em;color:#666;margin-bottom:6px;">
@@ -1164,7 +1164,7 @@
                     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:760px;">
                         <div style="grid-column:1 / -1;display:flex;align-items:center;gap:8px;">
                             <input type="checkbox" id="pdEnabled" style="width:16px;height:16px;cursor:pointer;">
-                            <label for="pdEnabled" style="font-size:0.9em;font-weight:600;cursor:pointer;">Pledge drive mode on</label>
+                            <label for="pdEnabled" style="font-size:0.9em;font-weight:600;cursor:pointer;">Fund drive mode on</label>
                         </div>
                         <div style="grid-column:1 / -1;">
                             <label for="pdHeadline" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Headline</label>
@@ -1187,7 +1187,7 @@
                             <input type="date" id="pdEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
                         </div>
                         <div style="grid-column:1 / -1;display:flex;gap:10px;align-items:center;">
-                            <button class="btn-primary" id="pdSaveBtn">Save Pledge Drive</button>
+                            <button class="btn-primary" id="pdSaveBtn">Save Fund Drive</button>
                             <span style="font-size:0.8em;color:#999;">Leave both dates blank to run until you turn it off.</span>
                         </div>
                     </div>
@@ -2634,7 +2634,7 @@
             loadSponsors();
         });
 
-        // ---- Pledge Drive ----
+        // ---- Fund Drive ----
 
         function renderPledgeDriveForm(data) {
             document.getElementById('pdEnabled').checked = !!data.enabled;
@@ -2667,7 +2667,7 @@
                 if (!resp.ok) throw new Error(data.error || `${resp.status}`);
                 renderPledgeDriveForm(data);
             } catch (err) {
-                showStatus('Failed to load pledge drive settings: ' + err.message, 'error', 'pledgeStatusBar');
+                showStatus('Failed to load fund drive settings: ' + err.message, 'error', 'pledgeStatusBar');
             }
         }
 
@@ -2691,8 +2691,8 @@
                 if (!resp.ok) throw new Error(data.error || `${resp.status}`);
                 renderPledgeDriveForm(data);
                 showStatus(data.active
-                    ? 'Pledge drive saved — the banner is live on the calendar (allow up to a minute for caches).'
-                    : 'Pledge drive saved — the banner is hidden.', 'success', 'pledgeStatusBar');
+                    ? 'Fund drive saved — the banner is live on the calendar (allow up to a minute for caches).'
+                    : 'Fund drive saved — the banner is hidden.', 'success', 'pledgeStatusBar');
             } catch (err) {
                 showStatus('Error: ' + err.message, 'error', 'pledgeStatusBar');
             } finally {

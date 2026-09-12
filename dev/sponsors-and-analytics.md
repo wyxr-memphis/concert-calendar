@@ -27,7 +27,7 @@ Inline promotional cards between day sections in the calendar and RSS feed. Admi
 - Admin API: `GET/POST /api/admin/sponsors`, `PUT/DELETE /api/admin/sponsors/<id>`,
   `POST /api/admin/sponsors/upload-image`
 
-## Pledge Drive Banner
+## Fund Drive Banner
 
 A date-bounded, admin-toggled banner under the header image (above the sticky filter bar) with
 the fund-drive headline, a progress meter, and a Donate button. It coexists with the paid
@@ -49,7 +49,7 @@ Calendar Sponsor banner — it never displaces it.
   `{active, headline, copy, donate_url, percentage, goal_url}`. `Cache-Control: max-age=60`.
 - **Admin API:** `GET/PUT /api/admin/pledge-drive` (`@require_auth`; JSON body, so no bearer-only
   guard needed). Writes are picked up by the audit after-request hook automatically.
-- **Admin UI:** Admin → Sponsors → "Pledge Drive" (top of tab). Shows the live percent and
+- **Admin UI:** Admin → Sponsors → "Fund Drive" (top of tab). Shows the live percent and
   whether the banner is active today.
 - **Frontend:** `renderPledgeDrive()` in `docs/index.html`, fetched in the same `Promise.all`
   as the sponsors. All text via `textContent`, href via `safeUrl()`; a non-integer or
