@@ -32,6 +32,7 @@ from flask_compress import Compress
 import requests as http_requests
 
 from backend.event_page import render_event_page, render_missing_page
+import backend.pledge_drive as pledge_drive
 from backend.images import (
     MAX_SUBMISSION_IMAGE_BYTES,
     ImageUploadError,
@@ -1472,6 +1473,55 @@ def admin_calendar_sponsor_delete(sponsor_id):
 def admin_calendar_sponsor_upload_image():
     """Upload a calendar sponsor image to Cloudinary."""
     return _handle_image_upload("sponsors")
+
+
+# ---------------------------------------------------------------------------
+# Pledge Drive Endpoints
+# ---------------------------------------------------------------------------
+# Settings are one JSON blob in admin_settings (no DDL). The percentage is read
+# from wyxr.org's public thermometer endpoint and cached per worker — see
+# backend/pledge_drive.py. The password-protected editor page on wyxr.org is
+# deliberately not referenced anywhere in this codebase.
+
+@app.route("/api/pledge-drive", methods=["GET"])
+def public_pledge_drive():
+    """Pledge-drive banner state for the homepage (public, no auth).
+
+    Returns {"active": false} without touching wyxr.org when the drive is off
+    or outside its date window."""
+    from datetime import date
+    today = date.today()
+    settings = pledge_drive.load_settings()
+    pct = pledge_drive.fetch_percentage() if pledge_drive.is_active(settings, today) else None
+    resp = jsonify(pledge_drive.public_payload(settings, pct, today))
+    resp.headers["Cache-Control"] = "public, max-age=60, stale-while-revalidate=300"
+    return resp
+
+
+@app.route("/api/admin/pledge-drive", methods=["GET"])
+@require_auth
+def admin_pledge_drive_get():
+    """Raw settings plus the live percentage, so admins can preview."""
+    from datetime import date
+    settings = pledge_drive.load_settings()
+    return jsonify(pledge_drive.admin_payload(
+        settings, pledge_drive.fetch_percentage(), date.today()))
+
+
+@app.route("/api/admin/pledge-drive", methods=["PUT"])
+@require_auth
+def admin_pledge_drive_update():
+    """Replace the pledge-drive settings. JSON body, so @require_auth is the
+    right guard (a JSON PUT always preflights)."""
+    from datetime import date
+    body = request.get_json(silent=True)
+    try:
+        settings = pledge_drive.validate_settings(body)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
+    pledge_drive.save_settings(settings)
+    return jsonify(pledge_drive.admin_payload(
+        settings, pledge_drive.fetch_percentage(), date.today()))
 
 
 # ---------------------------------------------------------------------------

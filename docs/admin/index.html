@@ -1147,6 +1147,54 @@
             <!-- SPONSORS TAB -->
             <div class="tab-content" id="tab-sponsors">
 
+                <!-- Pledge Drive sub-section -->
+                <div style="margin-bottom:32px;">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                        <h2 style="font-size:1.1em;font-weight:700;">Pledge Drive</h2>
+                        <span id="pdActiveBadge" style="font-size:0.75em;font-weight:700;padding:3px 10px;border-radius:12px;background:#eee;color:#666;">…</span>
+                    </div>
+                    <p style="font-size:0.85em;color:#666;margin-bottom:6px;">
+                        A site-wide banner under the header with a progress meter and a Donate button.
+                        The percentage is read live from the wyxr.org fund-drive thermometer — update it on wyxr.org, not here.
+                    </p>
+                    <p style="font-size:0.8em;color:#999;margin-bottom:16px;">
+                        Live progress right now: <strong id="pdLivePct">…</strong>
+                    </p>
+                    <div class="status-bar" id="pledgeStatusBar"></div>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;max-width:760px;">
+                        <div style="grid-column:1 / -1;display:flex;align-items:center;gap:8px;">
+                            <input type="checkbox" id="pdEnabled" style="width:16px;height:16px;cursor:pointer;">
+                            <label for="pdEnabled" style="font-size:0.9em;font-weight:600;cursor:pointer;">Pledge drive mode on</label>
+                        </div>
+                        <div style="grid-column:1 / -1;">
+                            <label for="pdHeadline" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Headline</label>
+                            <input type="text" id="pdHeadline" maxlength="80" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="WYXR Fund Drive">
+                        </div>
+                        <div style="grid-column:1 / -1;">
+                            <label for="pdCopy" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Copy line (optional)</label>
+                            <input type="text" id="pdCopy" maxlength="200" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="Help us reach our goal — every dollar keeps Memphis music on the air.">
+                        </div>
+                        <div style="grid-column:1 / -1;">
+                            <label for="pdDonateUrl" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Donate link (https)</label>
+                            <input type="text" id="pdDonateUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://wyxr.org">
+                        </div>
+                        <div>
+                            <label for="pdStartDate" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start date (optional)</label>
+                            <input type="date" id="pdStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                        </div>
+                        <div>
+                            <label for="pdEndDate" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End date (optional)</label>
+                            <input type="date" id="pdEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                        </div>
+                        <div style="grid-column:1 / -1;display:flex;gap:10px;align-items:center;">
+                            <button class="btn-primary" id="pdSaveBtn">Save Pledge Drive</button>
+                            <span style="font-size:0.8em;color:#999;">Leave both dates blank to run until you turn it off.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+
                 <!-- Calendar Sponsor sub-section -->
                 <div style="margin-bottom:32px;">
                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
@@ -2581,8 +2629,75 @@
         let editingCalSponsorId = null;
 
         document.querySelector('[data-tab="sponsors"]').addEventListener('click', () => {
+            loadPledgeDrive();
             loadCalSponsors();
             loadSponsors();
+        });
+
+        // ---- Pledge Drive ----
+
+        function renderPledgeDriveForm(data) {
+            document.getElementById('pdEnabled').checked = !!data.enabled;
+            document.getElementById('pdHeadline').value = data.headline || '';
+            document.getElementById('pdCopy').value = data.copy || '';
+            document.getElementById('pdDonateUrl').value = data.donate_url || '';
+            document.getElementById('pdStartDate').value = data.start_date || '';
+            document.getElementById('pdEndDate').value = data.end_date || '';
+            const pct = document.getElementById('pdLivePct');
+            pct.textContent = (typeof data.percentage === 'number') ? `${data.percentage}%` : 'unavailable';
+            const badge = document.getElementById('pdActiveBadge');
+            if (data.active) {
+                badge.textContent = 'LIVE on the calendar';
+                badge.style.background = '#e8f5e9';
+                badge.style.color = '#2e7d32';
+            } else if (data.enabled) {
+                badge.textContent = 'Enabled, outside date window';
+                badge.style.background = '#fff8e1';
+                badge.style.color = '#8d6e00';
+            } else {
+                badge.textContent = 'Off';
+                badge.style.background = '#eee';
+                badge.style.color = '#666';
+            }
+        }
+
+        async function loadPledgeDrive() {
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/pledge-drive');
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                renderPledgeDriveForm(data);
+            } catch (err) {
+                showStatus('Failed to load pledge drive settings: ' + err.message, 'error', 'pledgeStatusBar');
+            }
+        }
+
+        document.getElementById('pdSaveBtn').addEventListener('click', async () => {
+            const btn = document.getElementById('pdSaveBtn');
+            const body = {
+                enabled: document.getElementById('pdEnabled').checked,
+                headline: document.getElementById('pdHeadline').value.trim(),
+                copy: document.getElementById('pdCopy').value.trim(),
+                donate_url: document.getElementById('pdDonateUrl').value.trim(),
+                start_date: document.getElementById('pdStartDate').value || null,
+                end_date: document.getElementById('pdEndDate').value || null,
+            };
+            btn.disabled = true;
+            try {
+                const { resp, data } = await AdminAPI.apiJSON('/api/admin/pledge-drive', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (!resp.ok) throw new Error(data.error || `${resp.status}`);
+                renderPledgeDriveForm(data);
+                showStatus(data.active
+                    ? 'Pledge drive saved — the banner is live on the calendar (allow up to a minute for caches).'
+                    : 'Pledge drive saved — the banner is hidden.', 'success', 'pledgeStatusBar');
+            } catch (err) {
+                showStatus('Error: ' + err.message, 'error', 'pledgeStatusBar');
+            } finally {
+                btn.disabled = false;
+            }
         });
 
         async function loadCalSponsors() {

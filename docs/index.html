@@ -651,6 +651,83 @@
             color: var(--wyxr-black);
         }
 
+        /* Pledge Drive Banner (admin-toggled; percent read live from wyxr.org) */
+        .pledge-banner { margin: 0 0 16px; }
+        .pledge-banner-inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            background: var(--wyxr-charcoal);
+            border-left: 5px solid var(--wyxr-yellow);
+        }
+        .pledge-text { flex: 1 1 200px; min-width: 0; }
+        .pledge-headline {
+            display: block;
+            font-family: 'Anybody', sans-serif;
+            font-weight: 800;
+            font-size: 1.05em;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: var(--wyxr-yellow);
+            overflow-wrap: anywhere;
+        }
+        .pledge-copy {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.85em;
+            color: var(--wyxr-gray);
+            overflow-wrap: anywhere;
+        }
+        .pledge-copy:empty { display: none; }
+        .pledge-meter {
+            flex: 2 1 220px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pledge-track {
+            flex: 1;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--wyxr-border);
+            overflow: hidden;
+        }
+        .pledge-fill {
+            height: 100%;
+            width: var(--pct, 0%);
+            border-radius: 5px;
+            background: var(--wyxr-yellow);
+            transition: width 0.6s ease;
+        }
+        .pledge-pct {
+            min-width: 3.2em;
+            text-align: right;
+            font-weight: 700;
+            font-size: 0.95em;
+            font-variant-numeric: tabular-nums;
+            color: var(--wyxr-white);
+        }
+        .pledge-donate {
+            flex: 0 0 auto;
+            padding: 8px 18px;
+            border-radius: 4px;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            font-weight: 700;
+            font-size: 0.9em;
+            text-decoration: none;
+        }
+        .pledge-donate:hover { opacity: 0.9; }
+        .pledge-donate:not([href]) { opacity: 0.6; cursor: default; }
+        @media (max-width: 768px) {
+            .pledge-banner { margin-top: 12px; }
+            .pledge-meter { flex-basis: 100%; order: 3; }
+            .pledge-donate { margin-left: auto; }
+        }
+
         /* Calendar Sponsor Banner */
         #calendarSponsorBanner {
             margin: 0 0 20px;
@@ -1011,6 +1088,23 @@
         </div>
     </header>
 
+    <!-- Pledge Drive Banner: shown only while Admin → Sponsors → Pledge Drive is
+         enabled and inside its date window. Percent comes from wyxr.org via
+         /api/pledge-drive; every field here is untrusted text. -->
+    <div id="pledgeDriveBanner" class="pledge-banner" style="display:none;">
+        <div class="pledge-banner-inner">
+            <div class="pledge-text">
+                <span class="pledge-headline" id="pledgeHeadline"></span>
+                <span class="pledge-copy" id="pledgeCopy"></span>
+            </div>
+            <div class="pledge-meter" id="pledgeMeter" role="progressbar" aria-label="Fund drive progress" aria-valuemin="0" aria-valuemax="100">
+                <div class="pledge-track"><div class="pledge-fill" id="pledgeFill"></div></div>
+                <span class="pledge-pct" id="pledgePct"></span>
+            </div>
+            <a id="pledgeDonateLink" class="pledge-donate" target="_blank" rel="noopener">Donate</a>
+        </div>
+    </div>
+
     <!-- Subscribe Modal -->
     <div class="subscribe-modal" id="subscribeModal" role="dialog" aria-modal="true" aria-label="Subscribe to WYXR weekly picks">
         <div class="subscribe-modal-card">
@@ -1149,6 +1243,7 @@
         let allEvents = [];
         let allSponsors = [];
         let calendarSponsor = null;
+        let pledgeDrive = null;
         let eventsById = {};
         let _emLastFocused = null;
         let _emCurrentId = null;
@@ -1822,6 +1917,48 @@
             } catch { /* quota exceeded — ignore */ }
         }
 
+        function renderPledgeDrive() {
+            const banner = document.getElementById('pledgeDriveBanner');
+            if (!banner) return;
+            if (!pledgeDrive) {
+                banner.style.display = 'none';
+                return;
+            }
+            // Every field is untrusted: textContent for text, safeUrl for the href.
+            document.getElementById('pledgeHeadline').textContent = String(pledgeDrive.headline || 'WYXR Fund Drive');
+            document.getElementById('pledgeCopy').textContent = String(pledgeDrive.copy || '');
+
+            const meter = document.getElementById('pledgeMeter');
+            const raw = pledgeDrive.percentage;
+            const n = (typeof raw === 'number' && Number.isInteger(raw) && raw >= 0 && raw <= 100) ? raw : null;
+            if (n === null) {
+                meter.style.display = 'none';
+                meter.removeAttribute('aria-valuenow');
+                meter.removeAttribute('aria-valuetext');
+            } else {
+                meter.style.display = '';
+                meter.setAttribute('aria-valuenow', String(n));
+                meter.setAttribute('aria-valuetext', n + '% of goal');
+                document.getElementById('pledgeFill').style.setProperty('--pct', n + '%');
+                document.getElementById('pledgePct').textContent = n + '%';
+            }
+
+            const link = document.getElementById('pledgeDonateLink');
+            const href = safeUrl(pledgeDrive.donate_url);
+            if (href) {
+                link.href = href;
+            } else {
+                link.removeAttribute('href');
+            }
+            banner.style.display = 'block';
+        }
+
+        document.getElementById('pledgeDonateLink').addEventListener('click', () => {
+            trackEvent('pledge_donate_click', {
+                percentage: pledgeDrive && pledgeDrive.percentage,
+            });
+        });
+
         function renderCalendarSponsor() {
             const banner = document.getElementById('calendarSponsorBanner');
             if (!banner) return;
@@ -1887,13 +2024,16 @@
 
             // 2. Fetch fresh events + sponsors + calendar sponsor in parallel
             try {
-                const [fresh, sponsors, calSponsor] = await Promise.all([
+                const [fresh, sponsors, calSponsor, pledge] = await Promise.all([
                     fetchFreshEvents(false),
                     fetch(`${API_BASE}/api/sponsors`).then(r => r.ok ? r.json() : []).catch(() => []),
                     fetch(`${API_BASE}/api/calendar-sponsor`).then(r => r.ok ? r.json() : null).catch(() => null),
+                    fetch(`${API_BASE}/api/pledge-drive`).then(r => r.ok ? r.json() : null).catch(() => null),
                 ]);
                 allSponsors = Array.isArray(sponsors) ? sponsors : [];
                 calendarSponsor = (calSponsor && calSponsor.id) ? calSponsor : null;
+                pledgeDrive = (pledge && typeof pledge === 'object' && pledge.active === true) ? pledge : null;
+                renderPledgeDrive();
                 renderCalendarSponsor();
                 const changed = JSON.stringify(fresh) !== JSON.stringify(allEvents);
                 setCachedEvents(fresh);

@@ -429,6 +429,57 @@ def test_audit_log_records_only_authenticated_writes():
         auth_mod.invalidate_epoch_cache()
 
 
+def test_pledge_drive_routes():
+    """The admin PUT is state-mutating and must sit behind auth; the public GET
+    must not. Storage and the outbound wyxr.org fetch are stubbed so nothing
+    here touches Postgres or the network."""
+    import backend.pledge_drive as pd_mod
+    store = {}
+    saved = (pd_mod.get_admin_setting, pd_mod.set_admin_setting, pd_mod.fetch_percentage)
+    pd_mod.get_admin_setting = lambda key, default=None: store.get(key, default)
+    pd_mod.set_admin_setting = lambda key, value: store.__setitem__(key, value)
+    pd_mod.fetch_percentage = lambda *a, **k: 42
+    try:
+        c = client()
+        resp = c.put("/api/admin/pledge-drive", json={"enabled": True})
+        check("PUT /api/admin/pledge-drive is 401 without a token",
+              resp.status_code == 401, f"got {resp.status_code}")
+        check("unauthenticated PUT wrote nothing", store == {}, str(store))
+
+        resp = c.get("/api/admin/pledge-drive")
+        check("GET /api/admin/pledge-drive is 401 without a token",
+              resp.status_code == 401, f"got {resp.status_code}")
+
+        resp = c.get("/api/pledge-drive")
+        check("public GET /api/pledge-drive is 200 without auth",
+              resp.status_code == 200, f"got {resp.status_code}")
+        check("public GET reports inactive by default",
+              resp.get_json() == {"active": False}, str(resp.get_json()))
+
+        token = create_token()
+        headers = {"Authorization": f"Bearer {token}"}
+        resp = c.put("/api/admin/pledge-drive", json={"enabled": True, "donate_url": "http://x"},
+                     headers=headers)
+        check("authed PUT with http:// donate_url is 400",
+              resp.status_code == 400, f"got {resp.status_code}")
+        resp = c.put("/api/admin/pledge-drive", json={"enabled": True, "headline": "Drive"},
+                     headers=headers)
+        check("authed PUT with a valid body is 200",
+              resp.status_code == 200, f"got {resp.status_code}")
+        check("authed PUT persisted the blob", "pledge_drive" in store, str(store))
+        body = resp.get_json() or {}
+        check("authed PUT echoes the live percentage", body.get("percentage") == 42, str(body))
+
+        resp = c.get("/api/pledge-drive")
+        pub = resp.get_json() or {}
+        check("public GET now active with percentage",
+              pub.get("active") is True and pub.get("percentage") == 42, str(pub))
+        check("public GET is cacheable", "max-age=60" in (resp.headers.get("Cache-Control") or ""),
+              resp.headers.get("Cache-Control"))
+    finally:
+        pd_mod.get_admin_setting, pd_mod.set_admin_setting, pd_mod.fetch_percentage = saved
+
+
 def main():
     print("Admin auth regression tests (offline)")
     for fn in (
@@ -449,6 +500,7 @@ def main():
         test_unreadable_epoch_fails_open,
         test_revoke_route_refuses_cookie_only_auth,
         test_audit_log_records_only_authenticated_writes,
+        test_pledge_drive_routes,
     ):
         fn()
 

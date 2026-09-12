@@ -28,7 +28,7 @@ learned from a real outage or bug, and the doc says which one.
 | [`dev/venues-and-scrapers.md`](dev/venues-and-scrapers.md) | adding a venue, scraper types |
 | [`dev/slack-pipeline.md`](dev/slack-pipeline.md) | the Slack image-upload flow |
 | [`dev/images.md`](dev/images.md) | Cloudinary, `cldImg()`, public submit uploads |
-| [`dev/sponsors-and-analytics.md`](dev/sponsors-and-analytics.md) | sponsors, subscribe modal, GA4 |
+| [`dev/sponsors-and-analytics.md`](dev/sponsors-and-analytics.md) | sponsors, pledge-drive banner, subscribe modal, GA4 |
 | [`dev/testing.md`](dev/testing.md) | `test_before_push.sh` and its suites |
 | [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) | ⛔ read before any Instagram ingestion idea |
 | [`dev/test-plan.md`](dev/test-plan.md) | 79 adversarial cases — a reference catalogue, not a checklist |
@@ -116,7 +116,7 @@ step, no bundler. Admin pages have separate JS under `docs/admin/`.
 - ⚠️ **`./test_before_push.sh` is not read-only against production.** It calls `init_db()`
   with the `.env` `DATABASE_URL`, so it applies pending migrations to the live database. For
   a migration that drops or renames anything, deploy first.
-- **Expect `18/18`, not just "all checks passed"** — `15/15` means the three Chromium browser
+- **Expect `19/19`, not just "all checks passed"** — `16/16` means the three Chromium browser
   suites silently skipped.
 - Anything new in `test_admin_auth.py` that mutates state must be stubbed — it drives the
   real app with `.env` loaded.
@@ -158,7 +158,8 @@ step, no bundler. Admin pages have separate JS under `docs/admin/`.
 **Backend:** `backend/app.py` (Flask REST API) · `backend/db.py` (PostgreSQL queries) ·
 `backend/auth.py` (JWT, `require_auth` / `require_bearer_auth`, login throttle) ·
 `backend/images.py` (Cloudinary + submission sanitization) ·
-`backend/event_page.py` (server-rendered `/e/<id>`) · `backend/gunicorn_conf.py`
+`backend/event_page.py` (server-rendered `/e/<id>`) · `backend/pledge_drive.py` (fund-drive
+banner settings + wyxr.org thermometer read) · `backend/gunicorn_conf.py`
 
 **Scrapers:** `src/sources/ticketmaster.py` · `src/sources/venue_scrapers.py` ·
 `src/sources/artifacts.py` (Claude Vision)
@@ -186,7 +187,7 @@ Tools → Trigger Build, or the Actions tab.
 
 ## Workflow preferences
 
-- **Test locally before pushing** — `./test_before_push.sh`, expect `18/18`.
+- **Test locally before pushing** — `./test_before_push.sh`, expect `19/19`.
 - **Always commit and push after completing work**, then trigger a build, wait for it to
   finish, and verify live. Don't wait to be asked.
 - Use descriptive commit messages; include "Co-Authored-By: Claude" where appropriate.

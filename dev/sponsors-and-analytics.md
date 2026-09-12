@@ -27,6 +27,37 @@ Inline promotional cards between day sections in the calendar and RSS feed. Admi
 - Admin API: `GET/POST /api/admin/sponsors`, `PUT/DELETE /api/admin/sponsors/<id>`,
   `POST /api/admin/sponsors/upload-image`
 
+## Pledge Drive Banner
+
+A date-bounded, admin-toggled banner under the header image (above the sticky filter bar) with
+the fund-drive headline, a progress meter, and a Donate button. It coexists with the paid
+Calendar Sponsor banner — it never displaces it.
+
+- **Where the percent comes from.** WYXR's WordPress thermometer block publishes the goal at
+  `https://wyxr.org/wp-json/wyxr-blocks/v1/thermostat-goal` → `{"percentage": 5}`. Public, no
+  auth. The number is *edited* on wyxr.org through a password-protected stepper page; that URL
+  is private to Robby and **must never be committed, put in an env var, or pasted into Slack** —
+  this repo only reads the public endpoint.
+- **Storage:** one JSON blob under key `pledge_drive` in the existing `admin_settings` table
+  (`enabled`, `headline` ≤80, `copy` ≤200, `donate_url` https-only, `start_date`/`end_date`
+  optional ISO). No DDL, so nothing to register in the schema fast path.
+- **Logic:** `backend/pledge_drive.py` — `is_active()` (inclusive window), `validate_settings()`,
+  `parse_percentage()` (int, clamped 0–100), `fetch_percentage()` (60 s per-worker cache, 4 s
+  timeout, returns the **last good value** on any failure so a wyxr.org hiccup never blanks the
+  meter).
+- **Public API:** `GET /api/pledge-drive` → `{"active": false}` (without calling wyxr.org) or
+  `{active, headline, copy, donate_url, percentage, goal_url}`. `Cache-Control: max-age=60`.
+- **Admin API:** `GET/PUT /api/admin/pledge-drive` (`@require_auth`; JSON body, so no bearer-only
+  guard needed). Writes are picked up by the audit after-request hook automatically.
+- **Admin UI:** Admin → Sponsors → "Pledge Drive" (top of tab). Shows the live percent and
+  whether the banner is active today.
+- **Frontend:** `renderPledgeDrive()` in `docs/index.html`, fetched in the same `Promise.all`
+  as the sponsors. All text via `textContent`, href via `safeUrl()`; a non-integer or
+  out-of-range percentage hides the meter but keeps the headline and Donate button. Fires GA4
+  `pledge_donate_click` with `percentage`.
+- **Tests:** `scripts/test_pledge_drive.py` (pure logic), `test_admin_auth.py` (route auth,
+  storage and fetch stubbed), `test_xss_browser.py` (hostile fixture + clean 42% pass).
+
 ## Subscribe Modal
 
 Email signup (Mailchimp). Was a full-width yellow `.signup-banner`; now a compact "📧
@@ -56,6 +87,7 @@ The `typeof gtag` guard prevents errors in local dev where the gtag script isn't
 | `modal_close` | `event_id`, `close_method` ("x" / "esc" / "overlay") | User closes the modal |
 | `add_to_calendar` | `event_id`, `event_title`, `service` ("google" / "apple" / "outlook") | User clicks a calendar button |
 | `external_link_click` | `event_id`, `event_title`, `destination_url` | User clicks "Buy Tickets" |
+| `pledge_donate_click` | `percentage` | User clicks Donate on the pledge-drive banner |
 
 ### Custom dimensions (must be registered in GA4 Admin)
 

@@ -185,8 +185,20 @@ else
 fi
 echo ""
 
-# Check 13: Browser XSS test (needs playwright + chromium; skips itself if absent)
-echo "1️⃣3️⃣  Running browser XSS test..."
+# Check 13: Pledge-drive banner tests (offline — no DB, no network)
+echo "1️⃣3️⃣  Running pledge-drive banner tests..."
+if python3 scripts/test_pledge_drive.py > /tmp/pledge_drive_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Pledge-drive banner tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Pledge-drive banner tests failed${NC}"
+    tail -20 /tmp/pledge_drive_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 14: Browser XSS test (needs playwright + chromium; skips itself if absent)
+echo "1️⃣4️⃣  Running browser XSS test..."
 if python3 scripts/test_xss_browser.py > /tmp/xss_browser_tests.log 2>&1; then
     if grep -q "^SKIP:" /tmp/xss_browser_tests.log; then
         echo -e "${YELLOW}   ⚠ $(head -1 /tmp/xss_browser_tests.log)${NC}"
@@ -201,8 +213,8 @@ else
 fi
 echo ""
 
-# Check 14: Browser deep-link test (needs playwright + chromium; skips if absent)
-echo "1️⃣4️⃣  Running browser deep-link test..."
+# Check 15: Browser deep-link test (needs playwright + chromium; skips if absent)
+echo "1️⃣5️⃣  Running browser deep-link test..."
 if python3 scripts/test_deeplink_browser.py > /tmp/deeplink_tests.log 2>&1; then
     if grep -q "^SKIP:" /tmp/deeplink_tests.log; then
         echo -e "${YELLOW}   ⚠ $(head -1 /tmp/deeplink_tests.log)${NC}"
@@ -217,8 +229,8 @@ else
 fi
 echo ""
 
-# Check 15: Admin hover-card test (needs playwright + chromium; skips if absent)
-echo "1️⃣5️⃣  Running admin hover-card test..."
+# Check 16: Admin hover-card test (needs playwright + chromium; skips if absent)
+echo "1️⃣6️⃣  Running admin hover-card test..."
 if python3 scripts/test_admin_hover_browser.py > /tmp/admin_hover_tests.log 2>&1; then
     if grep -q "^SKIP:" /tmp/admin_hover_tests.log; then
         echo -e "${YELLOW}   ⚠ $(head -1 /tmp/admin_hover_tests.log)${NC}"
@@ -233,8 +245,8 @@ else
 fi
 echo ""
 
-# Check 16: Security headers (browser half needs chromium; skips itself if absent)
-echo "1️⃣6️⃣  Running security header tests..."
+# Check 17: Security headers (browser half needs chromium; skips itself if absent)
+echo "1️⃣7️⃣  Running security header tests..."
 if python3 scripts/test_security_headers.py > /tmp/security_headers_tests.log 2>&1; then
     echo -e "${GREEN}   ✓ Security header tests passed${NC}"
     PASSED=$((PASSED + 1))
@@ -245,8 +257,8 @@ else
 fi
 echo ""
 
-# Check 17: Git status
-echo "1️⃣7️⃣  Checking git status..."
+# Check 18: Git status
+echo "1️⃣8️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

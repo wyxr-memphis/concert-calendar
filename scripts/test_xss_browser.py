@@ -98,7 +98,16 @@ def build_fixtures():
         "copy_line": "<script>window.__XSS14=1</script>",
         "start_date": "2020-01-01", "end_date": "2099-12-31", "is_active": True,
     }
-    return events, sponsors, calendar_sponsor
+    # Pledge-drive banner: headline/copy are admin text, percentage comes from a
+    # third-party WordPress endpoint, donate_url reaches an href.
+    pledge_drive = {
+        "active": True,
+        "headline": '<img src=x onerror="window.__XSS15=1">Fund Drive',
+        "copy": '</script><script>window.__XSS16=1</script>',
+        "donate_url": "javascript:window.__XSS17=1",
+        "percentage": "999",
+    }
+    return events, sponsors, calendar_sponsor, pledge_drive
 
 
 def main():
@@ -110,7 +119,7 @@ def main():
         return 0
 
     print("Browser XSS regression test (offline, stubbed API)")
-    events, sponsors, calendar_sponsor = build_fixtures()
+    events, sponsors, calendar_sponsor, pledge_drive = build_fixtures()
     base = serve_docs(PORT)
 
     with sync_playwright() as p:
@@ -128,10 +137,13 @@ def main():
                 body = json.dumps(calendar_sponsor)
             elif "/api/sponsors" in url:
                 body = json.dumps(sponsors)
+            elif "/api/pledge-drive" in url:
+                body = json.dumps(pledge_state["payload"])
             else:
                 body = "[]"
             route.fulfill(status=200, content_type="application/json", body=body)
 
+        pledge_state = {"payload": pledge_drive}
         page.route("**/concert-calendar-api.onrender.com/**", route_api)
         page.goto(f"{base}/index.html",
                   wait_until="domcontentloaded", timeout=30000)
@@ -181,6 +193,54 @@ def main():
         intact = [l for l in labels if l and "onerror" in l]
         check("attribute holds the payload as data, not markup", len(intact) > 0,
               intact[0][:60] if intact else "not found")
+
+        print("\nthe pledge-drive banner")
+        banner = page.locator("#pledgeDriveBanner")
+        check("banner shown for an active drive", banner.is_visible())
+        headline = page.locator("#pledgeHeadline")
+        # text_content(), not inner_text(): the headline is CSS-uppercased.
+        check("headline markup rendered as literal text",
+              "<img" in headline.text_content(), headline.text_content()[:50])
+        check("no real <img> created in the headline", headline.locator("img").count() == 0)
+        copy = page.locator("#pledgeCopy")
+        check("copy's </script> rendered as literal text, page script intact",
+              "<script>" in copy.inner_text() and not errors, copy.inner_text()[:50])
+        check("donate link stripped of a javascript: href",
+              page.locator("#pledgeDonateLink[href]").count() == 0)
+        check("meter hidden for a non-integer percentage",
+              not page.locator("#pledgeMeter").is_visible())
+
+        # Second pass: a clean payload renders the meter with a clamped integer.
+        pledge_state["payload"] = {
+            "active": True, "headline": "WYXR Fall Drive", "copy": "Keep Memphis music on the air.",
+            "donate_url": "https://wyxr.org", "percentage": 42,
+        }
+        page.reload(wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_timeout(2500)
+        check("clean payload: meter visible", page.locator("#pledgeMeter").is_visible())
+        check("clean payload: percent text", page.locator("#pledgePct").inner_text().strip() == "42%",
+              page.locator("#pledgePct").inner_text())
+        check("clean payload: aria-valuenow",
+              page.locator("#pledgeMeter").get_attribute("aria-valuenow") == "42")
+        donate_href = page.locator("#pledgeDonateLink").get_attribute("href") or ""
+        check("clean payload: donate href kept",
+              donate_href.startswith("https://wyxr.org"), donate_href)
+
+        # Third pass: inactive → hidden, regardless of other fields.
+        pledge_state["payload"] = {"active": False, "headline": "should not show", "percentage": 50}
+        page.reload(wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_timeout(2500)
+        check("inactive payload hides the banner", not page.locator("#pledgeDriveBanner").is_visible())
+
+        # Restore the hostile payload for the modal checks below.
+        pledge_state["payload"] = pledge_drive
+        page.reload(wait_until="domcontentloaded", timeout=30000)
+        page.wait_for_timeout(3000)
+        for _ in range(2):
+            if page.locator(f'[data-event-id="{PAYLOAD_ID}"]').count():
+                break
+            page.locator("#nextMonth").click()
+            page.wait_for_timeout(800)
 
         print("\nthe event modal")
         target = page.locator(f'[data-event-id="{PAYLOAD_ID}"]').first

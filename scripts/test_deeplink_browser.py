@@ -95,6 +95,8 @@ def main():
                 body = json.dumps(events)
             elif "/api/calendar-sponsor" in url:
                 body = "{}"
+            elif "/api/pledge-drive" in url:
+                body = '{"active": false}'
             else:
                 body = "[]"
             route.fulfill(status=200, content_type="application/json", body=body)

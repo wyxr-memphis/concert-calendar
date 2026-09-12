@@ -42,6 +42,7 @@ Planning doc for upcoming features.
 - ~~Sponsor Callout (#19)~~ — Inline promo cards between day sections + Calendar Sponsor banner above event list. Full admin UI in Sponsors tab. DB tables: `sponsors`, `calendar_sponsor`.
 - ~~iCal / webcal Subscribe Feed~~ — `docs/calendar.ics` (180-day window), generated each build by `src/generate_ics.py`, advertised as `webcal://concert-calendar.wyxr.org/calendar.ics`. UTC instants (no VTIMEZONE), UIDs shared with the modal's per-event export.
 - ~~Per-Event Deep Links + OG Unfurls~~ — `#event=<id>` opens a show's modal (Back closes it); `/e/<id>` is a server-rendered permalink page with per-event `og:` tags and `MusicEvent` JSON-LD, proxied through Vercel to Render. "Copy link" button in the modal.
+- ~~Pledge Drive Mode~~ — Admin → Sponsors → Pledge Drive toggles a date-bounded banner under the header with the live fund-drive percent (read from wyxr.org's public thermometer endpoint, cached 60 s with last-good fallback) and a Donate button. Settings in `admin_settings.pledge_drive`; no new tables. (2026-09-12)
 - ~~SEO Basics~~ — `MusicEvent` JSON-LD on `thisweek.html` (server-rendered, so crawlable), `WebSite`/`RadioStation` on the homepage plus a client-injected `ItemList`, `sitemap.xml` + `robots.txt`, `<link rel="alternate">` feed discovery, `<h1>` and a skip link.
 
 ---

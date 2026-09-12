@@ -251,6 +251,9 @@ def test_page_under_csp():
                               body=json.dumps(events))
             elif "calendar-sponsor" in url:
                 route.fulfill(status=200, content_type="application/json", body="{}")
+            elif "pledge-drive" in url:
+                route.fulfill(status=200, content_type="application/json",
+                              body='{"active": false}')
             else:
                 route.fulfill(status=200, content_type="application/json", body="[]")
 
