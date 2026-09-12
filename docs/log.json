@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-09-12T18:53:06.451885+00:00",
+  "run_timestamp": "2026-09-12T21:17:09.139192+00:00",
   "date_range": {
     "start": "2026-09-12",
     "end": "2026-09-19"
   },
-  "total_events_db": 3520,
+  "total_events_db": 3521,
   "total_active_display": 123,
   "data_store": "postgresql",
   "sources": [
@@ -25,10 +25,26 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -41,18 +57,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +89,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
+      "events_found": 60,
+      "events_after_filter": 60,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 24,
+      "events_filtered": 226,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -89,27 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 5,
       "events_after_filter": 5,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 79,
+      "events_after_filter": 42,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -129,26 +153,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 258,
+      "events_found": 28,
       "events_after_filter": 28,
-      "events_filtered": 230,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -161,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 42,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
-      "events_filtered": 7,
+      "events_found": 258,
+      "events_after_filter": 28,
+      "events_filtered": 230,
       "error": null
     },
     {
@@ -185,19 +185,19 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 5,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 17,
       "events_after_filter": 8,
       "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 10,
-      "events_filtered": 4,
       "error": null
     },
     {
@@ -209,19 +209,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 60,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 24,
-      "events_filtered": 226,
+      "events_found": 14,
+      "events_after_filter": 10,
+      "events_filtered": 4,
       "error": null
     },
     {
