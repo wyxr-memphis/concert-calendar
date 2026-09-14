@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-09-14T10:25:11.619350+00:00",
+  "run_timestamp": "2026-09-14T20:42:06.370338+00:00",
   "date_range": {
     "start": "2026-09-14",
     "end": "2026-09-21"
   },
-  "total_events_db": 3534,
+  "total_events_db": 3537,
   "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
@@ -25,20 +25,28 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
       "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -49,7 +57,7 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
@@ -57,26 +65,18 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 20,
+      "events_filtered": 230,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 36,
+      "events_found": 35,
       "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 26,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -85,6 +85,22 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -101,14 +117,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 79,
-      "events_after_filter": 43,
-      "events_filtered": 36,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 7,
@@ -158,6 +158,14 @@
       "events_found": 258,
       "events_after_filter": 28,
       "events_filtered": 230,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 79,
+      "events_after_filter": 43,
+      "events_filtered": 36,
       "error": null
     },
     {
@@ -179,9 +187,17 @@
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 10,
+      "events_found": 14,
+      "events_after_filter": 11,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 6,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -206,22 +222,6 @@
       "events_found": 58,
       "events_after_filter": 58,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 6,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 250,
-      "events_after_filter": 20,
-      "events_filtered": 230,
       "error": null
     },
     {
