@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-15T09:51:01.471309+00:00",
+  "run_timestamp": "2026-09-15T19:56:30.952625+00:00",
   "date_range": {
     "start": "2026-09-15",
     "end": "2026-09-22"
   },
-  "total_events_db": 3541,
-  "total_active_display": 110,
+  "total_events_db": 3554,
+  "total_active_display": 115,
   "data_store": "postgresql",
   "sources": [
     {
@@ -27,16 +27,8 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 38,
+      "events_after_filter": 38,
       "events_filtered": 0,
       "error": null
     },
@@ -49,14 +41,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -65,10 +49,74 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 57,
+      "events_after_filter": 57,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 250,
+      "events_after_filter": 20,
+      "events_filtered": 230,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -89,23 +137,31 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 250,
-      "events_after_filter": 20,
-      "events_filtered": 230,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 258,
+      "events_after_filter": 27,
+      "events_filtered": 231,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -129,22 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 14,
@@ -153,34 +193,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 258,
-      "events_after_filter": 27,
-      "events_filtered": 231,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -193,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 19,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -209,34 +225,18 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 19,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 41,
+      "events_found": 66,
+      "events_after_filter": 52,
       "events_filtered": 14,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 115,
+      "events_after_filter": 115,
       "events_filtered": 0,
       "error": null
     }
@@ -269,6 +269,13 @@
       "date": "2026-09-15",
       "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-15",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "Mark Allen",
@@ -425,6 +432,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Jacob Huffman",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-17",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
       "artist": "Concerts in The Grove: The Memphis Rhythm Revue",
       "venue": "Germantown Performing Arts Center",
       "date": "2026-09-17",
@@ -551,6 +565,13 @@
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
+      "artist": "Will Tucker Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-18",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
       "artist": "Gary Allan",
       "venue": "Bluesville at Horseshoe",
       "date": "2026-09-18",
@@ -666,7 +687,7 @@
       "artist": "Judah & the Lion",
       "venue": "Satellite Music Hall",
       "date": "2026-09-18",
-      "time": "7 PM",
+      "time": "6:30 PM",
       "source": "scraper:ticketmaster"
     },
     {
@@ -703,6 +724,13 @@
       "date": "2026-09-19",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Will Tucker Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-19",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "Tchaikovsky\u2019s 4th",
@@ -962,6 +990,13 @@
       "date": "2026-09-22",
       "time": "6:30 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Jacob Huffman",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-22",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     },
     {
       "artist": "Jazz Jam Session: Hosted by UofM Jazz Singers Alumni Ensemble",
