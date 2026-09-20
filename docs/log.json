@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-09-20T09:39:12.976620+00:00",
+  "run_timestamp": "2026-09-20T19:12:13.231806+00:00",
   "date_range": {
     "start": "2026-09-20",
     "end": "2026-09-27"
@@ -59,9 +59,9 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 29,
+      "events_found": 28,
       "events_after_filter": 28,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -83,9 +83,9 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 21,
+      "events_found": 23,
       "events_after_filter": 19,
-      "events_filtered": 2,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -93,30 +93,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -137,6 +113,22 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -145,19 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 76,
-      "events_after_filter": 39,
-      "events_filtered": 37,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 3,
-      "events_filtered": 9,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -177,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 10,
-      "events_filtered": 3,
+      "events_found": 76,
+      "events_after_filter": 39,
+      "events_filtered": 37,
       "error": null
     },
     {
@@ -193,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 4,
-      "events_filtered": 13,
+      "events_found": 12,
+      "events_after_filter": 3,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -209,11 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 18,
-      "events_filtered": 7,
+      "events_found": 13,
+      "events_after_filter": 10,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 4,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -222,6 +214,14 @@
       "events_found": 288,
       "events_after_filter": 52,
       "events_filtered": 236,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 18,
+      "events_filtered": 7,
       "error": null
     },
     {
