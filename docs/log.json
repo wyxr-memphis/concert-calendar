@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-22T09:42:36.469535+00:00",
+  "run_timestamp": "2026-09-22T19:58:58.603591+00:00",
   "date_range": {
     "start": "2026-09-22",
     "end": "2026-09-29"
   },
-  "total_events_db": 3657,
-  "total_active_display": 138,
+  "total_events_db": 3664,
+  "total_active_display": 135,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -41,27 +41,27 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 56,
+      "events_after_filter": 56,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
-      "events_filtered": 1,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,18 +73,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
-      "events_filtered": 0,
+      "events_found": 288,
+      "events_after_filter": 50,
+      "events_filtered": 238,
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +105,26 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -131,25 +139,17 @@
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 73,
+      "events_after_filter": 39,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -157,22 +157,6 @@
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 74,
-      "events_after_filter": 39,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -193,14 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 264,
@@ -209,11 +185,27 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 17,
-      "events_filtered": 7,
+      "events_found": 14,
+      "events_after_filter": 11,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -222,6 +214,14 @@
       "events_found": 17,
       "events_after_filter": 4,
       "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 17,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 138,
-      "events_after_filter": 138,
+      "events_found": 135,
+      "events_after_filter": 135,
       "events_filtered": 0,
       "error": null
     }
@@ -285,18 +285,18 @@
       "source": "scraper:crosstown_brewing_co"
     },
     {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-09-22",
-      "time": "10:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
       "artist": "Ask Carol",
       "venue": "Growlers",
       "date": "2026-09-22",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "The Schisms, Adjunct Facility, Neon Glittery",
+      "venue": "Havenhaus",
+      "date": "2026-09-22",
+      "time": "7 PM",
+      "source": "submission"
     },
     {
       "artist": "Open Mic Comedy Night [small room-downstairs]",
@@ -311,13 +311,6 @@
       "date": "2026-09-22",
       "time": "7 PM",
       "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-22",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "FAKE",
@@ -402,13 +395,6 @@
       "date": "2026-09-23",
       "time": "9 PM",
       "source": "submission"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Pilates in the Park",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-23",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Gonerfest 23",
@@ -509,13 +495,6 @@
       "source": "submission"
     },
     {
-      "artist": "Baptist Health & Wellness Series: WellGroove Uptempo Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-24",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "Gonerfest 23",
       "venue": "Wiseacre Brewing Company (Broad Ave)",
       "date": "2026-09-25",
@@ -612,6 +591,20 @@
       "date": "2026-09-25",
       "time": "9:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Deerfields, Auberi, Fearless Dave and the Tsunamis",
+      "venue": "Havenhaus",
+      "date": "2026-09-25",
+      "time": "7:30 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "GONERFEST after show: Trash Goblin, Spoonful, Wet Robot, Slats",
+      "venue": "Havenhaus",
+      "date": "2026-09-25",
+      "time": "11 PM",
+      "source": "submission"
     },
     {
       "artist": "Airshow",
@@ -808,6 +801,13 @@
       "date": "2026-09-26",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Basshaven: Obiscuithead, Raxx, Seraph, Grigs, Dale",
+      "venue": "Havenhaus",
+      "date": "2026-09-26",
+      "time": "9 PM",
+      "source": "submission"
     },
     {
       "artist": "Fuck You Joe / Becky D / Sam\u2019s Town [Small Room-Downstairs]",
@@ -1090,13 +1090,6 @@
       "source": "scraper:minglewood_hall"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-28",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "Built To Spill",
       "venue": "Minglewood Hall",
       "date": "2026-09-29",
@@ -1146,13 +1139,6 @@
       "source": "scraper:crosstown_brewing_co"
     },
     {
-      "artist": "Adult Tap Class",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-09-29",
-      "time": "10:00\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
       "artist": "Simon Michael with Garlic Butter",
       "venue": "Growlers",
       "date": "2026-09-29",
@@ -1200,13 +1186,6 @@
       "date": "2026-09-29",
       "time": "7 PM",
       "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-29",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     }
   ]
 }
