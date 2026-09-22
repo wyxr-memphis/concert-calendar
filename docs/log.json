@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-21T20:43:02.541553+00:00",
+  "run_timestamp": "2026-09-22T09:42:36.469535+00:00",
   "date_range": {
-    "start": "2026-09-21",
-    "end": "2026-09-28"
+    "start": "2026-09-22",
+    "end": "2026-09-29"
   },
-  "total_events_db": 3654,
-  "total_active_display": 126,
+  "total_events_db": 3657,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -41,27 +41,27 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 36,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,18 +81,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -105,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +121,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -133,14 +141,6 @@
       "success": true,
       "events_found": 6,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
       "events_filtered": 0,
       "error": null
     },
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 3,
-      "events_filtered": 9,
+      "events_found": 74,
+      "events_after_filter": 39,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -177,35 +177,19 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 3,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 18,
       "events_after_filter": 18,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 74,
-      "events_after_filter": 39,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 264,
-      "events_after_filter": 30,
-      "events_filtered": 234,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 4,
-      "events_filtered": 13,
       "error": null
     },
     {
@@ -217,6 +201,14 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 264,
+      "events_after_filter": 30,
+      "events_filtered": 234,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
@@ -225,65 +217,31 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 4,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 46,
-      "events_filtered": 20,
+      "events_after_filter": 45,
+      "events_filtered": 21,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 126,
-      "events_after_filter": 126,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-21",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-21",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-21",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "FELICITY",
-      "venue": "Growlers",
-      "date": "2026-09-21",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-21",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-21",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "GWAR",
       "venue": "Satellite Music Hall",
@@ -572,6 +530,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB King All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-25",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-25",
@@ -780,6 +745,13 @@
       "date": "2026-09-26",
       "time": "11:30 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-26",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Amy Beth & Thee Creeps",
@@ -1121,6 +1093,118 @@
       "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
       "venue": "Overton Park Shell",
       "date": "2026-09-28",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Built To Spill",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Shell Yeah! Benefit Series Presents Indigo Girls with Linda Perry",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-29",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Shell Yeah! Presents Indigo Girls with Linda Perry",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-29",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-29",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Jacob Huffman",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-29",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Wind & Wire: Chamber Music for Flute and Harp",
+      "venue": "Crosstown Arts",
+      "date": "2026-09-29",
+      "time": "7:30 pm",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "Mark Allen",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-09-29",
+      "time": "4-6pm",
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Adult Tap Class",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-09-29",
+      "time": "10:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Simon Michael with Garlic Butter",
+      "venue": "Growlers",
+      "date": "2026-09-29",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Memphis Blues Society \u2013 Blues Battle",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Extortionist / Deathtape / East Ov Eden [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Extortionist / Deathtape [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Nevertel",
+      "venue": "Minglewood Hall",
+      "date": "2026-09-29",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Dolly Parton Music Bingo",
+      "venue": "Nashoba",
+      "date": "2026-09-29",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-29",
       "time": "5:30\u202fPM",
       "source": "scraper:overton_park_shell"
     }
