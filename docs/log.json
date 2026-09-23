@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-23T09:49:03.048431+00:00",
+  "run_timestamp": "2026-09-23T13:32:26.984027+00:00",
   "date_range": {
     "start": "2026-09-23",
     "end": "2026-09-30"
   },
-  "total_events_db": 3675,
-  "total_active_display": 139,
+  "total_events_db": 3677,
+  "total_active_display": 140,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -41,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -59,40 +67,8 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
+      "events_found": 29,
       "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 50,
-      "events_filtered": 238,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -105,10 +81,50 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,26 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -161,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 264,
-      "events_after_filter": 29,
-      "events_filtered": 235,
+      "events_found": 12,
+      "events_after_filter": 3,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -177,27 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 18,
       "events_after_filter": 18,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 3,
-      "events_filtered": 14,
       "error": null
     },
     {
@@ -217,11 +201,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 12,
+      "events_found": 17,
       "events_after_filter": 3,
-      "events_filtered": 9,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 264,
+      "events_after_filter": 29,
+      "events_filtered": 235,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 50,
+      "events_filtered": 238,
       "error": null
     },
     {
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 139,
-      "events_after_filter": 139,
+      "events_found": 140,
+      "events_after_filter": 140,
       "events_filtered": 0,
       "error": null
     }
@@ -990,6 +990,13 @@
       "date": "2026-09-27",
       "time": "5 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Dolly Creamer, Diet Riot, and Special Guest!",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-09-27",
+      "time": "8 PM",
+      "source": "submission"
     },
     {
       "artist": "School of Rock Showcase",
