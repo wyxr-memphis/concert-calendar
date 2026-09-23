@@ -87,7 +87,10 @@ The `typeof gtag` guard prevents errors in local dev where the gtag script isn't
 | `modal_close` | `event_id`, `close_method` ("x" / "esc" / "overlay") | User closes the modal |
 | `add_to_calendar` | `event_id`, `event_title`, `service` ("google" / "apple" / "outlook") | User clicks a calendar button |
 | `external_link_click` | `event_id`, `event_title`, `destination_url` | User clicks "Buy Tickets" |
+| `share_event` | `event_id`, `event_title` | User clicks "Copy link" in the modal |
 | `pledge_donate_click` | `percentage` | User clicks Donate on the pledge-drive banner |
+| `neighborhood_select` | `neighborhood` (chip value, incl. "all") | User clicks a neighborhood chip |
+| `search` | `search_term` | Search query settles (1.5 s after typing stops, ≥2 chars, deduped against the last tracked query) |
 
 ### Custom dimensions (must be registered in GA4 Admin)
 
@@ -96,7 +99,10 @@ being registered as **Event-scoped Custom Dimensions** in GA4 Admin → Data dis
 definitions:
 
 `event_title`, `venue`, `event_date`, `has_ticket_url`, `close_method`, `service`,
-`destination_url`
+`destination_url`, `neighborhood`
+
+(`search` is GA4's standard search event — `search_term` is collected automatically and
+needs no custom dimension.)
 
 **Note:** the GA4 dropdown only shows parameters it has already indexed (24–48 hr delay).
 Type the parameter name directly into the field — it accepts free text.

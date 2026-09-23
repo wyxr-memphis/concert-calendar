@@ -43,7 +43,9 @@ reverts to `esc()`.
 
 - `openEventModal(eventId, triggerEl)` / `closeEventModal(method)` — module-scope functions
 - `_buildCalendarData(ev)` — builds Google Calendar URL, Outlook.com URL, and Apple `.ics` Blob
-- GA4: fires `modal_open`, `modal_close`, `add_to_calendar`, `external_link_click`
+- GA4: fires `modal_open`, `modal_close`, `add_to_calendar`, `external_link_click`, `share_event`
+  (the page also fires `neighborhood_select` on chip clicks and `search` on settled queries —
+  full table in `dev/sponsors-and-analytics.md`)
 - Visual style matches the subscribe modal: `#1A1A1A` card, `border-radius: 12px`, yellow CTA
 - Accessibility: `role="dialog"`, `aria-modal`, focus trap, focus returns to the trigger row
 - `_parseEventStartTime()` mirrors `time_format.parse_start_time` — see `dev/database.md`

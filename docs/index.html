@@ -1268,6 +1268,8 @@
         let activeNeighborhood = 'all';
         let searchQuery = '';
         let searchTimer = null;
+        let searchTrackTimer = null;
+        let lastTrackedSearch = '';
 
         // Month bounds (current month through 6 months ahead)
         const minMonth = _initCentral.getMonth();
@@ -2101,6 +2103,7 @@
             // Chip click handlers
             chipRow.querySelectorAll('.chip').forEach(chip => {
                 chip.addEventListener('click', () => {
+                    trackEvent('neighborhood_select', { neighborhood: chip.dataset.neighborhood });
                     activeNeighborhood = chip.dataset.neighborhood;
                     chipRow.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
                     chip.classList.add('active');
@@ -2574,6 +2577,15 @@
                 searchQuery = searchInput.value.toLowerCase().trim();
                 renderEvents();
             }, 200);
+            // Analytics on a longer debounce so we log settled queries, not keystrokes
+            clearTimeout(searchTrackTimer);
+            searchTrackTimer = setTimeout(() => {
+                const q = searchInput.value.toLowerCase().trim();
+                if (q.length >= 2 && q !== lastTrackedSearch) {
+                    lastTrackedSearch = q;
+                    trackEvent('search', { search_term: q });
+                }
+            }, 1500);
         });
 
         // ---- HTML Escape ----
