@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-22T19:58:58.603591+00:00",
+  "run_timestamp": "2026-09-23T09:49:03.048431+00:00",
   "date_range": {
-    "start": "2026-09-22",
-    "end": "2026-09-29"
+    "start": "2026-09-23",
+    "end": "2026-09-30"
   },
-  "total_events_db": 3664,
-  "total_active_display": 135,
+  "total_events_db": 3675,
+  "total_active_display": 139,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -43,17 +35,17 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,10 +57,26 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
       "events_filtered": 0,
       "error": null
     },
@@ -81,26 +89,18 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -113,18 +113,18 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 6,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +137,18 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -148,8 +156,16 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 73,
-      "events_after_filter": 39,
-      "events_filtered": 34,
+      "events_after_filter": 38,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 264,
+      "events_after_filter": 29,
+      "events_filtered": 235,
       "error": null
     },
     {
@@ -161,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 3,
-      "events_filtered": 9,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -177,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 264,
-      "events_after_filter": 30,
-      "events_filtered": 234,
+      "events_found": 17,
+      "events_after_filter": 3,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -193,30 +209,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 4,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
@@ -225,93 +217,31 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 3,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 45,
-      "events_filtered": 21,
+      "events_after_filter": 44,
+      "events_filtered": 22,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 135,
-      "events_after_filter": 135,
+      "events_found": 139,
+      "events_after_filter": 139,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "GWAR",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-22",
-      "time": "6:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-22",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-22",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-22",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jazz Jam Session: Hosted by UofM Jazz Singers Alumni Ensemble",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-22",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-09-22",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Ask Carol",
-      "venue": "Growlers",
-      "date": "2026-09-22",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "The Schisms, Adjunct Facility, Neon Glittery",
-      "venue": "Havenhaus",
-      "date": "2026-09-22",
-      "time": "7 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-22",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "FreeWorld Quartet",
-      "venue": "Nashoba",
-      "date": "2026-09-22",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "FAKE",
       "venue": "Murphy\u2019s Memphis",
@@ -740,10 +670,24 @@
       "source": "artifact"
     },
     {
+      "artist": "BB Kings All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-26",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Beale St Blues Band",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-26",
       "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-26",
+      "time": "4:00 pm",
       "source": "scraper:b_b_king_s_blues_club"
     },
     {
@@ -1093,8 +1037,8 @@
       "artist": "Built To Spill",
       "venue": "Minglewood Hall",
       "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Shell Yeah! Benefit Series Presents Indigo Girls with Linda Perry",
@@ -1186,6 +1130,90 @@
       "date": "2026-09-29",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Memphis Export Memphis w/ Nick Black",
+      "venue": "B-Side Memphis",
+      "date": "2026-09-30",
+      "time": "6 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-09-30",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Memphis Poetry Comedy Jam Session hosted by Mak of Memphis",
+      "venue": "Growlers",
+      "date": "2026-09-30",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Memphis Blues Society \u2013 Blues Battle",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-30",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-30",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER \u2013 LATE NIGHT EDITION",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-09-30",
+      "time": "10:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-09-30",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-09-30",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Patio Pirates",
+      "venue": "Huey's (Millington)",
+      "date": "2026-09-30",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Gerry Finney",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-09-30",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "SIDE SET: Ted Horrell Trio",
+      "venue": "Nashoba",
+      "date": "2026-09-30",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "ZZ Top",
+      "venue": "Satellite Music Hall",
+      "date": "2026-09-30",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
     }
   ]
 }
