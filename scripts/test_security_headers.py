@@ -172,6 +172,8 @@ def test_vercel_csp_declaration():
         ("https://fonts.gstatic.com", "the font files"),
         ("https://wyxr.us19.list-manage.com", "the Mailchimp subscribe iframe"),
         ("https://www.googletagmanager.com", "gtag.js"),
+        ("img-src 'self' data: blob: https:",
+         "blob previews: admin Submissions/sponsors, submit-form downscale"),
     ]:
         check(f"CSP declares {directive} ({why})", directive in csp)
     for header, expected in [
@@ -312,6 +314,30 @@ def test_page_under_csp():
                   "; ".join(page_violations[:3]))
             check(f"{path}: rendered its form",
                   page.locator(must_contain).count() > 0)
+
+        # The admin Submissions/sponsor previews and the submit form's
+        # downscale all draw images from URL.createObjectURL, which needs
+        # blob: in img-src. Nothing above exercises it, and the previews
+        # once shipped broken because the directive was missing.
+        blob_renders = page.evaluate(
+            """async () => {
+                const png = atob(
+                    'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJ'
+                    + 'AAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==');
+                const bytes = Uint8Array.from(png, c => c.charCodeAt(0));
+                const url = URL.createObjectURL(new Blob([bytes], {type: 'image/png'}));
+                const img = new Image();
+                const ok = await new Promise(res => {
+                    img.onload = () => res(img.naturalWidth > 0);
+                    img.onerror = () => res(false);
+                    img.src = url;
+                });
+                URL.revokeObjectURL(url);
+                return ok;
+            }"""
+        )
+        check("a blob: image renders under the CSP (admin/submit previews)",
+              blob_renders)
 
         browser.close()
 

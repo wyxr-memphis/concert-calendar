@@ -250,6 +250,15 @@
             margin: 8px 0;
             cursor: zoom-in;
         }
+        .submission-card .sub-image-unavailable {
+            display: inline-block;
+            font-size: 0.8em;
+            color: #888;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            padding: 4px 8px;
+            margin: 8px 0;
+        }
         .submission-card .sub-submitter {
             font-size: 0.8em;
             color: #999;
@@ -2065,6 +2074,16 @@
             // a blob URL instead.
             container.querySelectorAll('[data-sub-image]').forEach(img => {
                 const id = img.dataset.subImage;
+                // A render failure (blocked or corrupt src) shows a broken-image
+                // icon with the alt text, which reads as a bug — swap in a plain
+                // note instead. Fetch failures below take the same path.
+                const degrade = () => {
+                    const note = document.createElement('div');
+                    note.className = 'sub-image-unavailable';
+                    note.textContent = 'Flyer attached (preview unavailable)';
+                    img.replaceWith(note);
+                };
+                img.addEventListener('error', degrade);
                 AdminAPI.apiFetch(`/api/admin/submissions/${id}/image`)
                     .then(resp => resp.ok ? resp.blob() : Promise.reject(resp.status))
                     .then(blob => {
@@ -2072,7 +2091,7 @@
                         img.src = url;
                         img.addEventListener('click', () => window.open(url, '_blank'));
                     })
-                    .catch(() => { img.remove(); });
+                    .catch(degrade);
             });
 
             // Attach action handlers
