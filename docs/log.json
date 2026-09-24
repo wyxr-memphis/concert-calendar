@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-23T19:55:12.653134+00:00",
+  "run_timestamp": "2026-09-24T09:45:35.604463+00:00",
   "date_range": {
-    "start": "2026-09-23",
-    "end": "2026-09-30"
+    "start": "2026-09-24",
+    "end": "2026-10-01"
   },
-  "total_events_db": 3683,
-  "total_active_display": 141,
+  "total_events_db": 3689,
+  "total_active_display": 138,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 40,
+      "events_after_filter": 39,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,18 +41,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 39,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -65,27 +57,43 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_found": 288,
+      "events_after_filter": 49,
+      "events_filtered": 239,
       "error": null
     },
     {
@@ -97,18 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 288,
-      "events_after_filter": 50,
-      "events_filtered": 238,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -129,14 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 6,
@@ -146,14 +138,6 @@
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -177,18 +161,18 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 3,
-      "events_filtered": 14,
+      "events_found": 264,
+      "events_after_filter": 29,
+      "events_filtered": 235,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -209,11 +193,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 264,
-      "events_after_filter": 29,
-      "events_filtered": 235,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 3,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 16,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -228,104 +228,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 44,
-      "events_filtered": 22,
+      "events_after_filter": 43,
+      "events_filtered": 23,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 141,
-      "events_after_filter": 141,
+      "events_found": 138,
+      "events_after_filter": 138,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "FAKE",
-      "venue": "Murphy\u2019s Memphis",
-      "date": "2026-09-23",
-      "time": "7 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-23",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-23",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "YVNG $ICK",
-      "venue": "Growlers",
-      "date": "2026-09-23",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-23",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Memphis underworld presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-23",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Gerry Finney",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-09-23",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-09-23",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ken Houston Duo",
-      "venue": "Huey's (Millington)",
-      "date": "2026-09-23",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-09-23",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "We Are One - D.A.N.C.E.",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-23",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Turnt, Jack O, Laundry Bats, Pepper and the Sausage Boys, DJ Glittorious",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-09-23",
-      "time": "9 PM",
-      "source": "submission"
-    },
     {
       "artist": "Gonerfest 23",
       "venue": "Wiseacre Brewing Company (Broad Ave)",
@@ -852,6 +768,20 @@
       "source": "artifact"
     },
     {
+      "artist": "Beale St Blues Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-27",
+      "time": "12:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Flic's Pic's Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-27",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Gonerfest Official Comedown Dance Party",
       "venue": "Bar DKDC",
       "date": "2026-09-27",
@@ -884,6 +814,13 @@
       "venue": "Growlers",
       "date": "2026-09-27",
       "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Quadscool, Lemon King Oddy, Dough Joe Beatz, Nalyk, Dera",
+      "venue": "Growlers",
+      "date": "2026-09-27",
+      "time": "5:30PM",
       "source": "scraper:growlers"
     },
     {
@@ -1226,6 +1163,48 @@
       "artist": "ZZ Top",
       "venue": "Satellite Music Hall",
       "date": "2026-09-30",
+      "time": "7 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Concerts in The Grove: Southbound",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-01",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Three Dog Night",
+      "venue": "Graceland Soundstage",
+      "date": "2026-10-01",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "The Avett Brothers w/ Drive By Truckers",
+      "venue": "Grind City Amp",
+      "date": "2026-10-01",
+      "time": "5:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Keaton Adams",
+      "venue": "Growlers",
+      "date": "2026-10-01",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Sarah Spain Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-01",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Umphrey's McGee",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-01",
       "time": "7 PM",
       "source": "scraper:satellite_music_hall"
     }
