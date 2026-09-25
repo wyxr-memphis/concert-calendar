@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-25T10:04:01.382391+00:00",
+  "run_timestamp": "2026-09-25T20:11:28.421738+00:00",
   "date_range": {
     "start": "2026-09-25",
     "end": "2026-10-02"
   },
-  "total_events_db": 3702,
-  "total_active_display": 140,
+  "total_events_db": 3707,
+  "total_active_display": 141,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,22 +33,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 40,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 10,
@@ -62,6 +46,22 @@
       "events_found": 58,
       "events_after_filter": 58,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 42,
+      "events_after_filter": 40,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -89,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -105,18 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -125,6 +117,14 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,27 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 75,
-      "events_after_filter": 39,
-      "events_filtered": 36,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 264,
-      "events_after_filter": 29,
-      "events_filtered": 235,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,6 +169,22 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 74,
+      "events_after_filter": 39,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 264,
+      "events_after_filter": 29,
+      "events_filtered": 235,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 12,
@@ -193,19 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 11,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 14,
       "events_after_filter": 14,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 12,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -219,8 +219,8 @@
     {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 17,
+      "events_found": 25,
+      "events_after_filter": 18,
       "events_filtered": 7,
       "error": null
     },
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 140,
-      "events_after_filter": 140,
+      "events_found": 141,
+      "events_after_filter": 141,
       "events_filtered": 0,
       "error": null
     }
@@ -1081,6 +1081,13 @@
       "date": "2026-09-30",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Memphis Symphony Preview Night",
+      "venue": "The Front Porch",
+      "date": "2026-09-30",
+      "time": "6 PM",
+      "source": "scraper:memphis_symphony_orchestra"
     },
     {
       "artist": "Concerts in The Grove: Southbound",
