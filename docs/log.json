@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-09-26T09:45:18.607912+00:00",
+  "run_timestamp": "2026-09-26T19:30:10.856683+00:00",
   "date_range": {
     "start": "2026-09-26",
     "end": "2026-10-03"
@@ -33,34 +33,18 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +57,34 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 46,
+      "events_filtered": 242,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -84,23 +92,15 @@
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 4,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,18 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 74,
-      "events_after_filter": 39,
-      "events_filtered": 35,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,6 +161,22 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 74,
+      "events_after_filter": 39,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 12,
@@ -169,10 +185,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -185,27 +201,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 12,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 46,
-      "events_filtered": 242,
+      "events_found": 25,
+      "events_after_filter": 18,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -217,11 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 18,
-      "events_filtered": 7,
+      "events_found": 14,
+      "events_after_filter": 12,
+      "events_filtered": 2,
       "error": null
     },
     {
