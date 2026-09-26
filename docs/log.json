@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-25T20:11:28.421738+00:00",
+  "run_timestamp": "2026-09-26T09:45:18.607912+00:00",
   "date_range": {
-    "start": "2026-09-25",
-    "end": "2026-10-02"
+    "start": "2026-09-26",
+    "end": "2026-10-03"
   },
-  "total_events_db": 3707,
-  "total_active_display": 141,
+  "total_events_db": 3713,
+  "total_active_display": 127,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 11,
+      "events_after_filter": 11,
       "events_filtered": 0,
       "error": null
     },
@@ -41,27 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 58,
-      "events_after_filter": 58,
+      "events_found": 15,
+      "events_after_filter": 15,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 42,
-      "events_after_filter": 40,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -69,38 +53,6 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 48,
-      "events_filtered": 240,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -113,6 +65,46 @@
       "error": null
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 39,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 57,
+      "events_after_filter": 57,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
@@ -121,15 +113,15 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -145,23 +137,7 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -177,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 264,
-      "events_after_filter": 29,
-      "events_filtered": 235,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -193,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 12,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -214,6 +182,38 @@
       "events_found": 17,
       "events_after_filter": 3,
       "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 12,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 46,
+      "events_filtered": 242,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 264,
+      "events_after_filter": 27,
+      "events_filtered": 237,
       "error": null
     },
     {
@@ -228,223 +228,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 42,
-      "events_filtered": 24,
+      "events_after_filter": 41,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 141,
-      "events_after_filter": 141,
+      "events_found": 127,
+      "events_after_filter": 127,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Gonerfest 23",
-      "venue": "Wiseacre Brewing Company (Broad Ave)",
-      "date": "2026-09-25",
-      "time": "1:00 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Goner Fest After Party",
-      "venue": "B-Side Memphis",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "BB King All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-25",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-25",
-      "time": "12:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-25",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "DJ Damp Velour",
-      "venue": "Bar DKDC",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Mod Lang",
-      "venue": "Bar DKDC",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Timgenerate",
-      "venue": "Bar DKDC",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "TV Lottery FKA Nightmare Boyzzz",
-      "venue": "Bar DKDC",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Ye Sophisticated Doods",
-      "venue": "Bar DKDC",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-25",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Mid-Autumn Festival",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-25",
-      "time": "6:00 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Sanctuary with DJ Brilli and Lana J.",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-25",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "MLG 420 Rave at Growlers - Memphis, TN ( \u0361\u00b0 \u035c\u0296 \u0361\u00b0)",
-      "venue": "Growlers",
-      "date": "2026-09-25",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Deerfields, Auberi, Fearless Dave and the Tsunamis",
-      "venue": "Havenhaus",
-      "date": "2026-09-25",
-      "time": "7:30 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "GONERFEST after show: Trash Goblin, Spoonful, Wet Robot, Slats",
-      "venue": "Havenhaus",
-      "date": "2026-09-25",
-      "time": "11 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Airshow",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-25",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Burnt Witch / Plus 3 Against Undead / Sibyl [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Raise Your Paddle: A Kink Auction [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baunie & Soul",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-25",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Terry Greene & the Honey Golds",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-09-25",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Musclegoose, Grimey, TerryMalts, Brain Eating Ameba 666, and Mr.Clit & the Pink Cigarettes !",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-09-25",
-      "time": "11:30 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Jozzy",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Radio City",
-      "venue": "Nashoba",
-      "date": "2026-09-25",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Scott Sudbury on the Patio",
-      "venue": "Nashoba",
-      "date": "2026-09-25",
-      "time": "5 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Orchestra Noir Presents: The Culture 2000 Tour II",
-      "venue": "Orpheum Theatre",
-      "date": "2026-09-25",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Memphis Country Blues Festival",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-25",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Club 90s Present MJ Night - 18+",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-25",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Richard Wilson, Ashlee Jean and Rachel Ross",
-      "venue": "South Main Sounds",
-      "date": "2026-09-25",
-      "time": "7:00PM",
-      "source": "scraper:south_main_sounds"
-    },
     {
       "artist": "\"Weird Al\" Yankovic: Bigger & Weirder 2026 Tour",
       "venue": "Landers Center",
@@ -873,6 +670,13 @@
       "source": "artifact"
     },
     {
+      "artist": "BB Kings All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-28",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
       "artist": "Memphis Jones",
       "venue": "B.B. King's Blues Club",
       "date": "2026-09-28",
@@ -885,6 +689,13 @@
       "date": "2026-09-28",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-09-28",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "American Aquarium",
@@ -927,6 +738,20 @@
       "date": "2026-09-29",
       "time": "9 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "BB Kings All-Stars",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-29",
+      "time": "8:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
+    },
+    {
+      "artist": "Jason Foree Band",
+      "venue": "B.B. King's Blues Club",
+      "date": "2026-09-29",
+      "time": "4:00 pm",
+      "source": "scraper:b_b_king_s_blues_club"
     },
     {
       "artist": "Jacob Huffman",
@@ -1132,11 +957,11 @@
       "source": "scraper:ticketmaster"
     },
     {
-      "artist": "Amy Grant& Mac Mcanally",
+      "artist": "Amy Grant + Mac McAnally",
       "venue": "Graceland Soundstage",
       "date": "2026-10-02",
-      "time": null,
-      "source": "scraper:graceland_soundstage"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Convictions",
@@ -1184,8 +1009,8 @@
       "artist": "Drake White",
       "venue": "Minglewood Hall",
       "date": "2026-10-02",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Fox N\u2019 Vead",
@@ -1220,7 +1045,7 @@
       "venue": "Satellite Music Hall",
       "date": "2026-10-02",
       "time": "8 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Tamar Love Live",
@@ -1228,6 +1053,83 @@
       "date": "2026-10-02",
       "time": "7:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "Jordan Occasionally, Jamogi, Celest, Davidd, Jodi\u2019s Fable",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-03",
+      "time": "8 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "THIS IS MUSIC- Harris & Fitz",
+      "venue": "Flyway Brewing",
+      "date": "2026-10-03",
+      "time": "4 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Lakecia Benjamin",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-03",
+      "time": "8:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Satin Hour",
+      "venue": "Growlers",
+      "date": "2026-10-03",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dolly Parton Tribute Show",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-03",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Hidden Sixes / Red Sun Sermon [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-03",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Rice Drewry Collective",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-03",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Seeing Red",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-03",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "XAVIER WULF \u2013 THE COOL WORLD TOUR",
+      "venue": "Minglewood Hall",
+      "date": "2026-10-03",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-03",
+      "time": "6:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Shell on Wheels: Evergreen Street Fair",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-03",
+      "time": "11:00\u202fAM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
