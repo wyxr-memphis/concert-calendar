@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-09-27T10:24:54.717387+00:00",
+  "run_timestamp": "2026-09-27T19:56:08.683223+00:00",
   "date_range": {
     "start": "2026-09-27",
     "end": "2026-10-04"
@@ -25,20 +25,28 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 39,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -57,18 +65,18 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 39,
-      "events_filtered": 3,
+      "events_found": 288,
+      "events_after_filter": 44,
+      "events_filtered": 244,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -81,26 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_found": 13,
+      "events_after_filter": 12,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 288,
-      "events_after_filter": 44,
-      "events_filtered": 244,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -121,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -133,6 +133,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -161,14 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 264,
@@ -185,19 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 12,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
+      "events_found": 17,
+      "events_after_filter": 3,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -209,19 +201,27 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 25,
       "events_after_filter": 18,
       "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 3,
-      "events_filtered": 14,
       "error": null
     },
     {
