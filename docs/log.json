@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-29T11:12:02.812060+00:00",
+  "run_timestamp": "2026-09-29T21:11:22.085857+00:00",
   "date_range": {
     "start": "2026-09-29",
     "end": "2026-10-06"
   },
-  "total_events_db": 3725,
-  "total_active_display": 79,
+  "total_events_db": 3750,
+  "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 38,
-      "events_filtered": 3,
-      "error": null
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -41,11 +41,11 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_found": 42,
+      "events_after_filter": 40,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,18 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -81,42 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 42,
-      "events_filtered": 246,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     },
@@ -125,6 +85,22 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +121,34 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -163,9 +163,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 74,
+      "events_found": 73,
       "events_after_filter": 39,
-      "events_filtered": 35,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -177,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 15,
+      "events_after_filter": 13,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -193,11 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 17,
-      "events_filtered": 7,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -209,19 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 12,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
+      "events_found": 24,
+      "events_after_filter": 17,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -235,8 +235,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 79,
-      "events_after_filter": 79,
+      "events_found": 89,
+      "events_after_filter": 89,
       "events_filtered": 0,
       "error": null
     }
@@ -353,6 +353,13 @@
       "date": "2026-09-29",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
+      "venue": "Overton Park Shell",
+      "date": "2026-09-29",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Memphis Export Memphis w/ Nick Black",
@@ -488,6 +495,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Bob And Angela",
       "venue": "Lafayette's Music Room",
       "date": "2026-10-01",
@@ -502,11 +516,32 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Burlesque Karaoke with Moxie Macabre",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-01",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: FLOW",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-01",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "Umphrey's McGee",
       "venue": "Satellite Music Hall",
       "date": "2026-10-01",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "New York-based composer Dave Soldier joins Alex Greene, The Otha Turner Boys (led by Andre Turner), and other Memphians for a new expression of his LeWitt Etudes: Fifty Architectural Designs for Music",
+      "venue": "The Green Room at  Crosstown Arts",
+      "date": "2026-10-02",
+      "time": "7:30 PM",
+      "source": "manual"
     },
     {
       "artist": "Amy Grant + Mac McAnally",
@@ -586,6 +621,13 @@
       "source": "scraper:nashoba"
     },
     {
+      "artist": "It's Raining Queens\u2122",
+      "venue": "Orpheum Theatre",
+      "date": "2026-10-02",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
+    },
+    {
       "artist": "Orion Financial Free Concert Series: Drivin N Cryin",
       "venue": "Overton Park Shell",
       "date": "2026-10-02",
@@ -649,6 +691,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Outside Source / Strooly / Dancealone [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-03",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Rice Drewry Collective",
       "venue": "Lafayette's Music Room",
       "date": "2026-10-03",
@@ -668,6 +717,13 @@
       "date": "2026-10-03",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: WellGroove Dance Flow",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-03",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
@@ -754,6 +810,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-05",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
       "artist": "Bryson Tiller Presents: The Neo Trapsoul Tour",
       "venue": "FedExForum",
       "date": "2026-10-06",
@@ -787,6 +850,13 @@
       "date": "2026-10-06",
       "time": "12 AM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-06",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Shell on Wheels: MMDC Taste of the District",
