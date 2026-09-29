@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-28T22:21:54.558429+00:00",
+  "run_timestamp": "2026-09-29T11:12:02.812060+00:00",
   "date_range": {
-    "start": "2026-09-28",
-    "end": "2026-10-05"
+    "start": "2026-09-29",
+    "end": "2026-10-06"
   },
-  "total_events_db": 3724,
-  "total_active_display": 81,
+  "total_events_db": 3725,
+  "total_active_display": 79,
   "data_store": "postgresql",
   "sources": [
     {
@@ -28,16 +28,8 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 41,
-      "events_after_filter": 39,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
-      "events_filtered": 0,
+      "events_after_filter": 38,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -57,26 +49,26 @@
       "error": null
     },
     {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 11,
       "events_filtered": 0,
       "error": null
     },
@@ -89,26 +81,26 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 10,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -129,6 +121,14 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
@@ -145,19 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 265,
-      "events_after_filter": 27,
-      "events_filtered": 238,
       "error": null
     },
     {
@@ -201,6 +193,22 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 17,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 265,
+      "events_after_filter": 27,
+      "events_filtered": 238,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 14,
@@ -217,87 +225,23 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 17,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 39,
-      "events_filtered": 27,
+      "events_after_filter": 38,
+      "events_filtered": 28,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 81,
-      "events_after_filter": 81,
+      "events_found": 79,
+      "events_after_filter": 79,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "M. Isaac Ripple, Conflence",
-      "venue": "Harris Concert Hall",
-      "date": "2026-09-28",
-      "time": "7:30:00",
-      "source": "manual"
-    },
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-09-28",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB Kings All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-28",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Jones",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-28",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-28",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-28",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "American Aquarium",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-28",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "American Aquarium w/ Buffalo Nichols",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-28",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
     {
       "artist": "Built To Spill",
       "venue": "Minglewood Hall",
@@ -808,6 +752,48 @@
       "date": "2026-10-05",
       "time": "12 AM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Bryson Tiller Presents: The Neo Trapsoul Tour",
+      "venue": "FedExForum",
+      "date": "2026-10-06",
+      "time": "7:30 PM",
+      "source": "scraper:fedexforum"
+    },
+    {
+      "artist": "Greyson Turner",
+      "venue": "Growlers",
+      "date": "2026-10-06",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dale Watson Birthday Bash \u2013 With His Lone Stars",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-06",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-06",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-06",
+      "time": "12 AM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Shell on Wheels: MMDC Taste of the District",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-06",
+      "time": "4:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     }
   ]
 }
