@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-09-29T21:11:22.085857+00:00",
+  "run_timestamp": "2026-09-30T11:00:16.902578+00:00",
   "date_range": {
-    "start": "2026-09-29",
-    "end": "2026-10-06"
+    "start": "2026-09-30",
+    "end": "2026-10-07"
   },
-  "total_events_db": 3750,
-  "total_active_display": 89,
+  "total_events_db": 3754,
+  "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -43,24 +35,24 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 40,
+      "events_found": 40,
+      "events_after_filter": 38,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -73,10 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -89,6 +81,22 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 25,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
@@ -97,18 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
+      "events_found": 73,
+      "events_after_filter": 38,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -157,46 +149,6 @@
       "success": true,
       "events_found": 5,
       "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 73,
-      "events_after_filter": 39,
-      "events_filtered": 34,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 13,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 2,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -212,8 +164,48 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 265,
-      "events_after_filter": 27,
-      "events_filtered": 238,
+      "events_after_filter": 26,
+      "events_filtered": 239,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 13,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 1,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -225,142 +217,31 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 42,
+      "events_filtered": 246,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 66,
-      "events_after_filter": 38,
-      "events_filtered": 28,
+      "events_after_filter": 37,
+      "events_filtered": 29,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 89,
+      "events_found": 84,
+      "events_after_filter": 84,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Built To Spill",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-29",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Shell Yeah! Benefit Series Presents Indigo Girls with Linda Perry",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-29",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Shell Yeah! Presents Indigo Girls with Linda Perry",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-29",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "The Parallax",
-      "venue": "B-Side Memphis",
-      "date": "2026-09-29",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "BB Kings All-Stars",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-29",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jason Foree Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-29",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-29",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Wind & Wire: Chamber Music for Flute and Harp",
-      "venue": "Crosstown Arts",
-      "date": "2026-09-29",
-      "time": "7:30 pm",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Mark Allen",
-      "venue": "Crosstown Brewing Co.",
-      "date": "2026-09-29",
-      "time": "4-6pm",
-      "source": "scraper:crosstown_brewing_co"
-    },
-    {
-      "artist": "Simon Michael with Garlic Butter",
-      "venue": "Growlers",
-      "date": "2026-09-29",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Memphis Blues Society \u2013 Blues Battle",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Extortionist / Deathtape / East Ov Eden [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Extortionist / Deathtape [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Nevertel",
-      "venue": "Minglewood Hall",
-      "date": "2026-09-29",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Dolly Parton Music Bingo",
-      "venue": "Nashoba",
-      "date": "2026-09-29",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
-      "venue": "Overton Park Shell",
-      "date": "2026-09-29",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Memphis Export Memphis w/ Nick Black",
       "venue": "B-Side Memphis",
@@ -761,6 +642,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "The Sweet Kill / DJ Audio Spectre [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-04",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "The Sweet Kill [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-10-04",
@@ -821,7 +709,7 @@
       "venue": "FedExForum",
       "date": "2026-10-06",
       "time": "7:30 PM",
-      "source": "scraper:fedexforum"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Greyson Turner",
@@ -864,6 +752,83 @@
       "date": "2026-10-06",
       "time": "4:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Dave Schools",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-10-07",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-07",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Earl Hondo",
+      "venue": "Growlers",
+      "date": "2026-10-07",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dale Watson Birthday Bash \u2013 Swang Thang With Twang",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-07",
+      "time": "7:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-07",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER \u2013 LATE NIGHT EDITION",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-07",
+      "time": "10:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-07",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-07",
+      "time": "12 AM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Colin Butler",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-10-07",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Bayway",
+      "venue": "Minglewood Hall",
+      "date": "2026-10-07",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "SIDE SET: Lee Gilliland & Julian Wong",
+      "venue": "Nashoba",
+      "date": "2026-10-07",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
