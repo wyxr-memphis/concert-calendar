@@ -6,12 +6,10 @@ societymemphis.com/event-list, carrying the warmup-data blob the real page
 server-renders.
 
 What these protect:
-  * the music-only filter — Society is a skatepark + coffee shop whose calendar
-    is mostly markets, chess night, skate nights and pro wrestling. Titles here
-    are taken from its real listings;
-  * artist-only titles ("Encircled Throne") — the usual shape of a Society show,
-    kept only on a music/show word in the description;
-  * whole-word matching — "dj" must not match "adjacent";
+  * the music-only filter, against every title on Society's live calendar as
+    of 2026-09-30 — skate sessions, comedy, gaming, cosplay and RC drifting
+    out; artist-only show titles ("Encircled Throne") in;
+  * whole-word "skate" — a show at the skatepark is not a skate session;
   * the UTC -> Central date conversion (a 7:30 PM show is 00:30 UTC next day);
   * Flyway, which now shares the Wix warmup reader, still parses.
 """
@@ -59,49 +57,58 @@ def ev(title, start, slug="x", description="", about="", categories=None):
 
 VENUE = "Society Memphis Skatepark and Coffee"
 
-print("Society music filter")
-events = [
-    # Non-music programming — must all be dropped.
-    ev("Society Sunday Market", "2026-10-11T18:00:00Z", description="Local vendors, greens and treats. Live music on the patio!"),
-    ev("Scott Street Market @ Society Memphis", "2026-10-17T16:00:00Z", description="Makers market with a DJ"),
-    ev("Checkmate Chess Night", "2026-10-07T23:00:00Z", description="All ages, bring a board"),
-    ev("Thursdays Are Rad", "2026-10-09T00:00:00Z", description="Skate night with DJ sets"),
-    ev("Tiger Pro Wrestling", "2026-10-18T00:00:00Z", description="Live show! Doors at 6"),
-    ev("Comedy Show", "2026-10-20T01:00:00Z", description="Stand-up night"),
-    ev("Private Event - Park Closed", "2026-10-21T17:00:00Z"),
-    ev("Beginner Skate Lesson", "2026-10-22T15:00:00Z"),
-    ev("Blend Fingerboard Jam", "2026-10-04T18:00:00Z"),
-    ev("Coffee Tasting", "2026-10-23T15:00:00Z", description="Beans from the adjacent roaster"),
-    # Music — must all be kept.
-    ev("Jazz Night", "2026-10-10T00:00:00Z", slug="jazz-night"),
-    ev("Bruised Peach Presents: Ladies Takeover Jam", "2026-10-12T00:00:00Z", slug="bruised-peach"),
-    ev("Encircled Throne", "2026-10-04T00:30:00Z", slug="encircled-throne",
-       about="<p>Doors 7pm. With Frostbitten and Human Shield. All ages.</p>"),
-    ev("Frostbitten / Muzzleflash", "2026-10-24T01:00:00Z", description="Hardcore show, $10"),
-    ev("LUCA (US)", "2026-10-25T00:00:00Z", categories=[{"name": "Music"}]),
+print("Society music filter — the live calendar as of 2026-09-30")
+# (title, expected keep). Every title below is a real Society listing.
+LIVE = [
+    ("Comedy Delicious", False),
+    ("Girls Skate Session", False),
+    ("Girls Skate Night", False),
+    ("Saturday Skate School", False),
+    ("Cookout and Skate", False),
+    ("Licensed to Cosplay", False),
+    ("Street Dancers RC Drifting", False),
+    ("Match Gaming Fighting Tournaments", False),
+    ("Match Gaming Avatar and Tokon Fight Nighy", False),
+    ("Blend Fingerboard Jam", False),
+    ("Society Sunday Market", False),
+    ("Scott Street Market @ Society Memphis", False),
+    ("Checkmate Chess Night", False),
+    ("Thursdays Are Rad", False),
+    ("Tiger Pro Wrestling", False),
+    ("Jazz Nite", True),
+    ("Jookin Muzik Friday", True),
+    ("H.E.C.K. Melting Pot Music Show", True),
+    ("We're loud Africa", True),
+    ("The Only Name Left", True),
+    ("Zynical Presents", True),
+    ("Phases Psych Fest", True),
+    # Artist-only title, no description — the shape that the first version's
+    # "require a music word" rule wrongly dropped.
+    ("Encircled Throne", True),
+    # A show *at* the skatepark is not a skate session.
+    ("Xavier Wulf Skatepark Popout", True),
+    ("Bruised Peach Presents: Ladies Takeover Jam", True),
 ]
-parsed = vs._parse_society(wix_page(events), VENUE)
-titles = {e.artist for e in parsed}
-expected = {"Jazz Night", "Bruised Peach Presents: Ladies Takeover Jam",
-            "Encircled Throne", "Frostbitten / Muzzleflash", "LUCA (US)"}
-check("keeps exactly the music events", titles == expected, f"got {sorted(titles)}")
+events = [ev(t, "2026-10-10T00:00:00Z", slug=f"s{i}") for i, (t, _) in enumerate(LIVE)]
+parsed = {e.artist for e in vs._parse_society(wix_page(events), VENUE)}
+for title, keep in LIVE:
+    check(f"{'keep' if keep else 'drop'}: {title}", (title in parsed) == keep)
 
-by_title = {e.artist: e for e in parsed}
-et = by_title.get("Encircled Throne")
+print("Society parsing")
+one = vs._parse_society(wix_page([
+    ev("Encircled Throne", "2026-10-04T00:30:00Z", slug="encircled-throne"),
+]), VENUE)
+et = one[0] if one else None
 check("7:30 PM show stays on its Central date",
       et is not None and str(et.date) == "2026-10-03" and et.time == "7:30 PM",
       f"got {et and (et.date, et.time)}")
 check("event URL uses /event-details/<slug>",
       et is not None and et.url == "https://www.societymemphis.com/event-details/encircled-throne")
 check("venue name matches the existing DB row", et is not None and et.venue == VENUE)
-
-print("Society unit cases")
-check("artist-only title with no description is excluded",
-      not vs._society_is_music("Frostbitten", "", []))
-check("'dj' does not match inside 'adjacent'",
-      not vs._society_is_music("Open House", "Right adjacent to the bowl", []))
-check("band blurb saying 'play' is not dropped as theater",
-      vs._society_is_music("Human Shield", "Three bands play, doors at 7", []))
+check("a Wix category is checked too",
+      not vs._society_is_music("Saturday Night", ["Skate"]))
+check("comedy with a music keyword in the title is kept",
+      vs._society_is_music("Comedy & Live Band Night", []))
 
 print("Venue config")
 from src.config import VENUES, normalize_venue_name  # noqa: E402

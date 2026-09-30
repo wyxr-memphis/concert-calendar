@@ -18,7 +18,7 @@ script following the `scripts/test_*.py` convention, offline except for the DB c
 | `scripts/test_normalization.py` | year rollover, title/venue normalization, strftime |
 | `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password, pledge-drive route auth (no DB needed) |
 | `scripts/test_pledge_drive.py` | pledge-drive date window, percentage clamp, last-good fallback, settings validation |
-| `scripts/test_society_scraper.py` | Society Memphis music-only filter, shared Wix Events reader (Flyway) |
+| `scripts/test_society_scraper.py` | Society Memphis music filter vs. its live calendar titles, shared Wix Events reader (Flyway) |
 | `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
 | `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
 | `scripts/test_ics_feed.py` | ICS DST offsets, RFC 5545 folding/escaping, UID stability |

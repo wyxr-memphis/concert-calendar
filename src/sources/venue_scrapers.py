@@ -1672,63 +1672,50 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     return events
 
 
-# Society Memphis is a skatepark + coffee shop, so its calendar is mostly
-# not music: the Sunday and Scott Street markets, chess night, skate nights,
-# pro wrestling, private rentals. These are dropped outright — a market with a
-# live band is still a market, not a show a DJ would announce.
+# Society Memphis is a skatepark + coffee shop, so much of its calendar is not
+# music. Its shows, though, are billed by artist name alone ("Encircled
+# Throne", "Phases Psych Fest") with no description, so a positive music-word
+# test drops most of them — verified against the live calendar 2026-09-30.
+# The filter is therefore a denylist of Society's recurring non-music
+# programming, which is a small and recognizable set.
 _SOCIETY_EXCLUDE_KEYWORDS = (
     "market", "chess", "wrestling", "thursdays are rad",
-    "skate night", "skate session", "open skate", "skate lesson", "skate camp",
-    "skate class", "skate clinic", "skate jam", "skate contest", "skate comp",
     "fingerboard", "tech deck",  # mini-skateboard meetups, billed as "jams"
+    "cosplay", "gaming", "tournament", "fight night", "drifting", "rc car",
     "private event", "private party", "closed for", "rental",
     "workshop", "swap meet", "pop-up shop", "popup shop", "flea",
 )
 
-# Words that mark a listing as a show even when the title is only band names
-# ("Encircled Throne", "Frostbitten") — the common case at Society. Added to
-# MUSIC_KEYWORDS for the positive check below.
-_SOCIETY_SHOW_SIGNALS = (
-    "live music", "music", "musician", "lineup", "line-up",
-    "headliner", "headlining", "support from", "doors", "all ages", "set times",
-    "show", "gig", "album", "ep release", "single release",
-    "jam", "band", "dj", "vinyl", "listening party",
-)
+# Skate sessions, skate school, "Cookout and Skate". Matched as a whole word so
+# a show *at* the skatepark ("Xavier Wulf Skatepark Popout") is kept.
+_SOCIETY_SKATE_WORDS = ("skate", "skating", "skateboarding")
 
 
 def _has_word(text: str, phrases) -> bool:
-    """Whole-word/phrase match (a trailing plural "s" allowed). Plain substring
-    tests are too loose once descriptions are in play: "dj" is in "adjacent",
-    "rock" in "Rockaway"."""
+    """Whole-word/phrase match (a trailing plural "s" allowed). A substring
+    test would read "skate" into "Skatepark" and "play" into "Playboi"."""
     return any(
         re.search(r"(?<![a-z0-9])" + re.escape(p.strip()) + r"s?(?![a-z0-9])", text)
         for p in phrases if p.strip()
     )
 
 
-def _society_is_music(title: str, description: str, categories: List[str]) -> bool:
+def _society_is_music(title: str, categories: List[str]) -> bool:
     """Whether a Society Memphis listing is a music event.
 
-    Stricter than the other venue scrapers on purpose, because most of this
-    calendar is not music:
-      1. Society's own non-music programming (title or Wix category) is dropped
-         outright, whatever else the listing says.
-      2. Generic non-music in the title or category (comedy, trivia, yoga,
-         film...) is dropped unless the title/category also carries a real
-         music keyword. The description is not checked here — a band blurb
-         routinely says "play".
-      3. Otherwise a music or show word must appear somewhere in the title,
-         description or category. Unknown listings are excluded, not included.
+    Dropped: Society's own non-music programming (_SOCIETY_EXCLUDE_KEYWORDS,
+    skate sessions), and generic non-music (comedy, trivia, yoga...) unless the
+    title also carries a music keyword. Everything else is kept, because an
+    artist-only title is the normal shape of a show here.
     """
     head = f"{title} {' '.join(categories)}".lower()
     if any(kw in head for kw in _SOCIETY_EXCLUDE_KEYWORDS):
         return False
-
+    if _has_word(head, _SOCIETY_SKATE_WORDS):
+        return False
     if _has_word(head, EXCLUDE_KEYWORDS) and not _has_word(head, MUSIC_KEYWORDS):
         return False
-
-    text = f"{head} {description.lower()}"
-    return _has_word(text, tuple(MUSIC_KEYWORDS) + _SOCIETY_SHOW_SIGNALS)
+    return True
 
 
 def _parse_society(soup: BeautifulSoup, venue_name: str) -> List[Event]:
@@ -1741,18 +1728,11 @@ def _parse_society(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             if not title:
                 continue
 
-            description = " ".join(
-                str(event.get(k) or "") for k in ("description", "about")
-            )
-            # `about` can carry HTML; the filter only needs its words.
-            if "<" in description:
-                description = BeautifulSoup(description, "html.parser").get_text(" ")
             categories = [
                 (c.get("name") or "") if isinstance(c, dict) else str(c)
                 for c in (event.get("categories") or [])
             ]
-
-            if not _society_is_music(title, description, categories):
+            if not _society_is_music(title, categories):
                 continue
 
             dt_local = _wix_event_start(event)

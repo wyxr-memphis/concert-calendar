@@ -148,22 +148,25 @@ already claims that exact string. Resolve it before adding another scraper that 
 ### Society Memphis — Wix Events, filtered to music
 
 Added 2026-09-30. Society is a skatepark + coffee shop at 583 Scott St whose calendar
-(`societymemphis.com/event-list`) is mostly *not* music: Sunday and Scott Street markets, chess
-night, "Thursdays Are Rad" skate nights, Tiger Pro Wrestling. `_parse_society` keeps a listing
-only if:
+(`societymemphis.com/event-list`) mixes shows with skate sessions, comedy, gaming tournaments,
+cosplay, RC drifting and fingerboard jams. `_society_is_music` is a **denylist**, and it drops a
+listing only when its title or Wix category:
 
-1. its title/Wix category hits nothing in `_SOCIETY_EXCLUDE_KEYWORDS` (hard drop — a market
-   with a band is still a market);
-2. its title/category hits no generic `EXCLUDE_KEYWORDS`, unless a `MUSIC_KEYWORDS` word is
-   there too (the description is deliberately not checked here: band blurbs say "play");
-3. a music or show word (`MUSIC_KEYWORDS` + `_SOCIETY_SHOW_SIGNALS`) appears in the title,
-   description or category. **Unknown listings are excluded**, so an artist-only title with
-   an empty description is dropped. Those still arrive via Slack flyers.
+1. hits `_SOCIETY_EXCLUDE_KEYWORDS` (markets, chess, wrestling, gaming, cosplay, drifting,
+   fingerboard…);
+2. contains the **whole word** "skate"/"skating". It's whole-word so that "Xavier Wulf Skatepark
+   Popout" (a rapper's show) survives while "Saturday Skate School" does not;
+3. hits a generic `EXCLUDE_KEYWORDS` word (comedy, trivia, yoga…) with no `MUSIC_KEYWORDS`
+   word alongside.
 
-Matching is **whole-word** (`_has_word`), not substring: once descriptions are in play, `"dj"`
-matches "adjacent". The name is `Society Memphis Skatepark and Coffee` because the DB row
-that Slack uploads already created uses it; renaming it would orphan those rows' dedup keys.
-Tests: `scripts/test_society_scraper.py`.
+⚠️ **Don't turn this back into "require a music word."** The first version did that, and
+against the live calendar it dropped Encircled Throne, Phases Psych Fest, Xavier Wulf and
+Zynical Presents. Society bills its shows by artist name alone, with empty descriptions, so a
+positive test cannot see them. A new kind of non-music event means one new denylist word.
+`scripts/test_society_scraper.py` pins every title that was on the live calendar that day.
+
+The name is `Society Memphis Skatepark and Coffee` because the DB row that Slack uploads
+already created uses it. Renaming it would orphan those rows' dedup keys.
 
 - **Wix Events pattern, reusable.** `_wix_warmup_events()` reads the server-rendered
   `wix-warmup-data` blob under app id `140603ad-…` (shared by Flyway and Society);
