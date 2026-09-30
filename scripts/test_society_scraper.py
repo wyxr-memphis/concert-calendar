@@ -70,6 +70,7 @@ events = [
     ev("Comedy Show", "2026-10-20T01:00:00Z", description="Stand-up night"),
     ev("Private Event - Park Closed", "2026-10-21T17:00:00Z"),
     ev("Beginner Skate Lesson", "2026-10-22T15:00:00Z"),
+    ev("Blend Fingerboard Jam", "2026-10-04T18:00:00Z"),
     ev("Coffee Tasting", "2026-10-23T15:00:00Z", description="Beans from the adjacent roaster"),
     # Music — must all be kept.
     ev("Jazz Night", "2026-10-10T00:00:00Z", slug="jazz-night"),

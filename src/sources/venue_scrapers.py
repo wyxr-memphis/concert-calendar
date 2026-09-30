@@ -1680,6 +1680,7 @@ _SOCIETY_EXCLUDE_KEYWORDS = (
     "market", "chess", "wrestling", "thursdays are rad",
     "skate night", "skate session", "open skate", "skate lesson", "skate camp",
     "skate class", "skate clinic", "skate jam", "skate contest", "skate comp",
+    "fingerboard", "tech deck",  # mini-skateboard meetups, billed as "jams"
     "private event", "private party", "closed for", "rental",
     "workshop", "swap meet", "pop-up shop", "popup shop", "flea",
 )
