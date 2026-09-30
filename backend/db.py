@@ -893,6 +893,7 @@ def _seed_venues_if_empty():
         ("South Main Sounds", "South Main Arts District", ["south main sounds", "south main sounds memphis"]),
         ("Flyway Brewing", None, ["flyway brewing", "flyway brewing memphis", "flyway"]),
         ("Huey's", None, ["hueys", "huey's", "huey's burgers"]),
+        ("Society Memphis Skatepark and Coffee", "Crosstown/Broad Avenue", ["society memphis", "society memphis skatepark", "society memphis skatepark and coffee", "society memphis skatepark & coffee", "society skatepark", "society skatepark and coffee"]),
         ("Crosstown Brewing Co.", "Crosstown/Broad Avenue", ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."]),
         ("Blues City Cafe", "Downtown/Beale Street", ["blues city cafe", "blues city café", "blues city cafe band box"]),
         # Halls the Memphis Symphony books that no other scraper reaches. The

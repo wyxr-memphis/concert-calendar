@@ -290,6 +290,17 @@ VENUES = {
         "calendar_url": "https://www.flywaybrewingmemphis.com/events",
         "scraper": "flyway",
     },
+    "society-memphis": {
+        # Skatepark + coffee shop (583 Scott St) — a Wix Events calendar that is
+        # mostly markets, chess and skate nights, so _parse_society filters to
+        # music. The name matches the DB row Slack flyers already created.
+        "name": "Society Memphis Skatepark and Coffee",
+        "aliases": ["society memphis", "society memphis skatepark", "society memphis skatepark and coffee",
+                    "society memphis skatepark & coffee", "society skatepark", "society skatepark and coffee"],
+        "neighborhood": "Crosstown/Broad Avenue",
+        "calendar_url": "https://www.societymemphis.com/event-list",
+        "scraper": "society",
+    },
     "crosstown-beer": {
         "name": "Crosstown Brewing Co.",
         "aliases": ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."],

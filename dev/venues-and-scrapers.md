@@ -9,15 +9,15 @@ fetcher. **Counts below drift — regenerate rather than trusting them:**
 python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"
 ```
 
-## Configured venues (29 at last count)
+## Configured venues (30 at last count)
 
 **Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
 Amphitheater, Satellite Music Hall
 
-**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
+**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
 (SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
-Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Huey's (`sitewrench`, all
+Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
 
@@ -52,7 +52,8 @@ reliability. Don't re-add one without a reason that isn't "we don't have it yet.
 ## Scraper notes
 
 - `is_music_event()` is bypassed for venue scrapers **except** `crosstown_arts` (mixed music +
-  gallery); it also excludes titles containing "film".
+  gallery); it also excludes titles containing "film". `society` has its own stricter filter —
+  see below.
 - **`tribe_events` is the reusable win for WordPress venues.** The Events Calendar (the
   plugin formerly by Modern Tribe) publishes a paginated JSON API at
   `/wp-json/tribe/events/v1/events` — categories included, and it survives theme changes.
@@ -144,6 +145,33 @@ own row in the DB `venues` table *and* as an alias of the Orpheum / Crosstown Ar
 alias for the Halloran's full formal name was reverted during this work because the DB row
 already claims that exact string. Resolve it before adding another scraper that books either.
 
+### Society Memphis — Wix Events, filtered to music
+
+Added 2026-09-30. Society is a skatepark + coffee shop at 583 Scott St whose calendar
+(`societymemphis.com/event-list`) mixes shows with skate sessions, comedy, gaming tournaments,
+cosplay, RC drifting and fingerboard jams. `_society_is_music` is a **denylist**, and it drops a
+listing only when its title or Wix category:
+
+1. hits `_SOCIETY_EXCLUDE_KEYWORDS` (markets, chess, wrestling, gaming, cosplay, drifting,
+   fingerboard…);
+2. contains the **whole word** "skate"/"skating". It's whole-word so that "Xavier Wulf Skatepark
+   Popout" (a rapper's show) survives while "Saturday Skate School" does not;
+3. hits a generic `EXCLUDE_KEYWORDS` word (comedy, trivia, yoga…) with no `MUSIC_KEYWORDS`
+   word alongside.
+
+⚠️ **Don't turn this back into "require a music word."** The first version did that, and
+against the live calendar it dropped Encircled Throne, Phases Psych Fest, Xavier Wulf and
+Zynical Presents. Society bills its shows by artist name alone, with empty descriptions, so a
+positive test cannot see them. A new kind of non-music event means one new denylist word.
+`scripts/test_society_scraper.py` pins every title that was on the live calendar that day.
+
+The name is `Society Memphis Skatepark and Coffee` because the DB row that Slack uploads
+already created uses it. Renaming it would orphan those rows' dedup keys.
+
+- **Wix Events pattern, reusable.** `_wix_warmup_events()` reads the server-rendered
+  `wix-warmup-data` blob under app id `140603ad-…` (shared by Flyway and Society);
+  `_wix_event_start()` converts its UTC `startDate` to Central. Event pages live at
+  `/event-details/<slug>` on a default Wix Events site (Flyway customized theirs to `/events/`).
 - **Elfsight widget pattern** — a JSON API at `core.service.elfsight.com/p/boot/` returns
   structured events. Reusable across any Elfsight-backed site (Lafayette's, Nashoba).
 - **`ticketmaster_venue` is the cheap win** for any Live Nation / Ticketmaster room: a

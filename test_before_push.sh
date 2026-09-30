@@ -197,6 +197,18 @@ else
 fi
 echo ""
 
+# Check 13b: Society Memphis scraper music filter (offline — no DB, no network)
+echo "1️⃣3️⃣b Running Society Memphis scraper tests..."
+if python3 scripts/test_society_scraper.py > /tmp/society_scraper_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Society Memphis scraper tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Society Memphis scraper tests failed${NC}"
+    tail -20 /tmp/society_scraper_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
 # Check 14: Browser XSS test (needs playwright + chromium; skips itself if absent)
 echo "1️⃣4️⃣  Running browser XSS test..."
 if python3 scripts/test_xss_browser.py > /tmp/xss_browser_tests.log 2>&1; then
