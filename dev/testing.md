@@ -8,8 +8,8 @@
 git push origin main
 ```
 
-Runs **18 numbered checks**: env vars, dependencies, DB connection, exposed-key scan, Python syntax,
-git status, and twelve regression suites. There is no test framework — each suite is a standalone
+Runs **18 numbered checks** (plus 13b): env vars, dependencies, DB connection, exposed-key scan, Python syntax,
+git status, and thirteen regression suites. There is no test framework — each suite is a standalone
 script following the `scripts/test_*.py` convention, offline except for the DB connection check.
 
 | Suite | Covers |
@@ -18,6 +18,7 @@ script following the `scripts/test_*.py` convention, offline except for the DB c
 | `scripts/test_normalization.py` | year rollover, title/venue normalization, strftime |
 | `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password, pledge-drive route auth (no DB needed) |
 | `scripts/test_pledge_drive.py` | pledge-drive date window, percentage clamp, last-good fallback, settings validation |
+| `scripts/test_society_scraper.py` | Society Memphis music-only filter, shared Wix Events reader (Flyway) |
 | `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
 | `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
 | `scripts/test_ics_feed.py` | ICS DST offsets, RFC 5545 folding/escaping, UID stability |
@@ -50,7 +51,7 @@ must stay that way:
 
 Anything new that mutates state needs the same treatment.
 
-## Expect 19/19, not "all checks passed"
+## Expect 20/20, not "all checks passed"
 
 The three browser suites need Chromium:
 
@@ -59,8 +60,8 @@ pip3 install playwright && python3 -m playwright install chromium
 ```
 
 They **skip cleanly when absent** — so a green run can hide them. Check the count: skipping all
-three shows as `16/16`. (The total exceeds the 18 numbered checks because check 1 counts two
-env vars.) Override discovery with `CHROME_PATH` if needed.
+three shows as `17/17`. (The total exceeds the 18 numbered checks because check 1 counts two
+env vars and 13b is an extra suite.) Override discovery with `CHROME_PATH` if needed.
 
 Chromium discovery and the static file server are shared in `scripts/browser_test_util.py`,
 whose `Checker.equals()` exists because a truthiness check silently passes any non-empty value

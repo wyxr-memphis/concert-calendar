@@ -175,6 +175,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_crosstown_arts(soup, name)
         elif scraper_type == "flyway":
             events = _parse_flyway(soup, name)
+        elif scraper_type == "society":
+            events = _parse_society(soup, name)
         elif scraper_type == "bbkings":
             events = _parse_bbkings(soup, name)
         elif scraper_type == "crosstown_beer":
@@ -1585,35 +1587,57 @@ def _parse_bbkings(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     return events
 
 
-def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Flyway Brewing events from Wix warmup data JSON blob."""
-    events = []
-    CENTRAL = ZoneInfo("America/Chicago")
+# Wix Events app id — its widgets' server-rendered data lives under this key
+# in the page's `wix-warmup-data` script tag.
+_WIX_EVENTS_APP_ID = "140603ad-af8d-84a5-2c80-a0f60cb47351"
 
+
+def _wix_warmup_events(soup: BeautifulSoup) -> list:
+    """Raw event dicts from a Wix Events page's warmup-data JSON blob.
+
+    Shared by every Wix Events venue (Flyway, Society). A page can carry more
+    than one events widget, so the one holding the most events wins.
+    """
     script_tag = soup.find("script", {"id": "wix-warmup-data"})
     if not script_tag or not script_tag.string:
-        return events
+        return []
 
     try:
         data = json.loads(script_tag.string)
     except (json.JSONDecodeError, ValueError):
-        return events
+        return []
 
-    # Navigate to the events list; search all widget components for an 'events' list
-    apps_data = data.get("appsWarmupData", {})
-    wix_events_app = apps_data.get("140603ad-af8d-84a5-2c80-a0f60cb47351", {})
+    wix_events_app = data.get("appsWarmupData", {}).get(_WIX_EVENTS_APP_ID, {})
 
-    # Pick the widget component with the most events (page may have multiple widgets)
     raw_events = []
     for widget_data in wix_events_app.values():
         if isinstance(widget_data, dict):
             nested = widget_data.get("events", {})
-            if isinstance(nested, dict) and "events" in nested:
+            if isinstance(nested, dict) and isinstance(nested.get("events"), list):
                 candidate = nested["events"]
                 if len(candidate) > len(raw_events):
                     raw_events = candidate
+    return raw_events
 
-    for event in raw_events:
+
+def _wix_event_start(event: dict):
+    """A Wix event's start as a Central-time datetime, or None.
+
+    Wix stores UTC ("2026-10-04T00:30:00Z"); converting to America/Chicago is
+    what keeps a 7:30 PM show on the right day on the UTC Actions runner.
+    """
+    start_date_str = ((event.get("scheduling") or {}).get("config") or {}).get("startDate")
+    if not start_date_str:
+        return None
+    dt_utc = datetime.fromisoformat(start_date_str.replace("Z", "+00:00"))
+    return dt_utc.astimezone(ZoneInfo("America/Chicago"))
+
+
+def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Flyway Brewing events from Wix warmup data JSON blob."""
+    events = []
+
+    for event in _wix_warmup_events(soup):
         try:
             title = event.get("title", "").strip()
             if not title:
@@ -1626,15 +1650,9 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 if not any(mk in text for mk in MUSIC_KEYWORDS):
                     continue
 
-            start_date_str = (event.get("scheduling") or {}).get("config", {}).get("startDate")
-            if not start_date_str:
+            dt_local = _wix_event_start(event)
+            if not dt_local:
                 continue
-
-            dt_utc = datetime.fromisoformat(start_date_str.replace("Z", "+00:00"))
-            dt_local = dt_utc.astimezone(CENTRAL)
-            event_date = dt_local.date()
-
-            time_str = format_event_time(dt_local)
 
             slug = event.get("slug", "")
             url = f"https://www.flywaybrewingmemphis.com/events/{slug}" if slug else None
@@ -1642,8 +1660,112 @@ def _parse_flyway(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             events.append(Event(
                 artist=title,
                 venue=venue_name,
-                date=event_date,
-                time=time_str,
+                date=dt_local.date(),
+                time=format_event_time(dt_local),
+                source=_venue_source_tag(venue_name),
+                url=url,
+                image_url=first_image_url(event.get("mainImage")),
+            ))
+        except Exception:
+            continue
+
+    return events
+
+
+# Society Memphis is a skatepark + coffee shop, so its calendar is mostly
+# not music: the Sunday and Scott Street markets, chess night, skate nights,
+# pro wrestling, private rentals. These are dropped outright — a market with a
+# live band is still a market, not a show a DJ would announce.
+_SOCIETY_EXCLUDE_KEYWORDS = (
+    "market", "chess", "wrestling", "thursdays are rad",
+    "skate night", "skate session", "open skate", "skate lesson", "skate camp",
+    "skate class", "skate clinic", "skate jam", "skate contest", "skate comp",
+    "private event", "private party", "closed for", "rental",
+    "workshop", "swap meet", "pop-up shop", "popup shop", "flea",
+)
+
+# Words that mark a listing as a show even when the title is only band names
+# ("Encircled Throne", "Frostbitten") — the common case at Society. Added to
+# MUSIC_KEYWORDS for the positive check below.
+_SOCIETY_SHOW_SIGNALS = (
+    "live music", "music", "musician", "lineup", "line-up",
+    "headliner", "headlining", "support from", "doors", "all ages", "set times",
+    "show", "gig", "album", "ep release", "single release",
+    "jam", "band", "dj", "vinyl", "listening party",
+)
+
+
+def _has_word(text: str, phrases) -> bool:
+    """Whole-word/phrase match (a trailing plural "s" allowed). Plain substring
+    tests are too loose once descriptions are in play: "dj" is in "adjacent",
+    "rock" in "Rockaway"."""
+    return any(
+        re.search(r"(?<![a-z0-9])" + re.escape(p.strip()) + r"s?(?![a-z0-9])", text)
+        for p in phrases if p.strip()
+    )
+
+
+def _society_is_music(title: str, description: str, categories: List[str]) -> bool:
+    """Whether a Society Memphis listing is a music event.
+
+    Stricter than the other venue scrapers on purpose, because most of this
+    calendar is not music:
+      1. Society's own non-music programming (title or Wix category) is dropped
+         outright, whatever else the listing says.
+      2. Generic non-music in the title or category (comedy, trivia, yoga,
+         film...) is dropped unless the title/category also carries a real
+         music keyword. The description is not checked here — a band blurb
+         routinely says "play".
+      3. Otherwise a music or show word must appear somewhere in the title,
+         description or category. Unknown listings are excluded, not included.
+    """
+    head = f"{title} {' '.join(categories)}".lower()
+    if any(kw in head for kw in _SOCIETY_EXCLUDE_KEYWORDS):
+        return False
+
+    if _has_word(head, EXCLUDE_KEYWORDS) and not _has_word(head, MUSIC_KEYWORDS):
+        return False
+
+    text = f"{head} {description.lower()}"
+    return _has_word(text, tuple(MUSIC_KEYWORDS) + _SOCIETY_SHOW_SIGNALS)
+
+
+def _parse_society(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+    """Parse Society Memphis (Wix Events) and keep only music events."""
+    events = []
+
+    for event in _wix_warmup_events(soup):
+        try:
+            title = (event.get("title") or "").strip()
+            if not title:
+                continue
+
+            description = " ".join(
+                str(event.get(k) or "") for k in ("description", "about")
+            )
+            # `about` can carry HTML; the filter only needs its words.
+            if "<" in description:
+                description = BeautifulSoup(description, "html.parser").get_text(" ")
+            categories = [
+                (c.get("name") or "") if isinstance(c, dict) else str(c)
+                for c in (event.get("categories") or [])
+            ]
+
+            if not _society_is_music(title, description, categories):
+                continue
+
+            dt_local = _wix_event_start(event)
+            if not dt_local:
+                continue
+
+            slug = event.get("slug", "")
+            url = f"https://www.societymemphis.com/event-details/{slug}" if slug else None
+
+            events.append(Event(
+                artist=title,
+                venue=venue_name,
+                date=dt_local.date(),
+                time=format_event_time(dt_local),
                 source=_venue_source_tag(venue_name),
                 url=url,
                 image_url=first_image_url(event.get("mainImage")),
