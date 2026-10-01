@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-09-30T23:09:56.159431+00:00",
+  "run_timestamp": "2026-10-01T11:27:00.911844+00:00",
   "date_range": {
-    "start": "2026-09-30",
-    "end": "2026-10-07"
+    "start": "2026-10-01",
+    "end": "2026-10-08"
   },
-  "total_events_db": 3768,
-  "total_active_display": 88,
+  "total_events_db": 3770,
+  "total_active_display": 80,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 9,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -44,9 +44,17 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -57,27 +65,11 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 42,
-      "events_filtered": 246,
       "error": null
     },
     {
@@ -89,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -105,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
@@ -121,10 +105,34 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 288,
+      "events_after_filter": 42,
+      "events_filtered": 246,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -137,18 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 73,
-      "events_after_filter": 38,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -161,14 +161,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
@@ -177,11 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 265,
-      "events_after_filter": 26,
-      "events_filtered": 239,
+      "events_found": 73,
+      "events_after_filter": 38,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -203,9 +195,25 @@
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 1,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
@@ -214,14 +222,6 @@
       "events_found": 15,
       "events_after_filter": 13,
       "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 1,
-      "events_filtered": 16,
       "error": null
     },
     {
@@ -235,126 +235,21 @@
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 37,
-      "events_filtered": 29,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 88,
-      "events_after_filter": 88,
+      "events_found": 80,
+      "events_after_filter": 80,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Memphis Export Memphis w/ Nick Black",
-      "venue": "B-Side Memphis",
-      "date": "2026-09-30",
-      "time": "6 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Beale St Blues Band",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-30",
-      "time": "4:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Memphis Soul Factory",
-      "venue": "B.B. King's Blues Club",
-      "date": "2026-09-30",
-      "time": "8:00 pm",
-      "source": "scraper:b_b_king_s_blues_club"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-09-30",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Memphis Poetry Comedy Jam Session hosted by Mak of Memphis",
-      "venue": "Growlers",
-      "date": "2026-09-30",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Memphis Blues Society \u2013 Blues Battle",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-30",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-30",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER \u2013 LATE NIGHT EDITION",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-09-30",
-      "time": "10:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "The Pretty Boys",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-09-30",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-09-30",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Patio Pirates",
-      "venue": "Huey's (Millington)",
-      "date": "2026-09-30",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Gerry Finney",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-09-30",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "SIDE SET: Ted Horrell Trio",
-      "venue": "Nashoba",
-      "date": "2026-09-30",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "ZZ Top",
-      "venue": "Satellite Music Hall",
-      "date": "2026-09-30",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Memphis Symphony Preview Night",
-      "venue": "The Front Porch",
-      "date": "2026-09-30",
-      "time": "6 PM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
     {
       "artist": "Concerts in The Grove: Southbound",
       "venue": "Germantown Performing Arts Center",
@@ -865,6 +760,55 @@
       "date": "2026-10-07",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Concerts in The Grove: Alice Hasen & the Blaze",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-08",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Memphis Jazz Workshop School Matinee",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-08",
+      "time": "10:00\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Bored Teachers",
+      "venue": "Graceland Soundstage",
+      "date": "2026-10-08",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Phil Nye, Austin Varner",
+      "venue": "Growlers",
+      "date": "2026-10-08",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Parker Barrow",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-08",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Scott Sudbury Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-08",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Natalie Brooke",
+      "venue": "Minglewood Hall",
+      "date": "2026-10-08",
+      "time": null,
+      "source": "scraper:minglewood_hall"
     }
   ]
 }
