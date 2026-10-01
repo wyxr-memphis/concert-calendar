@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-01T13:37:04.222657+00:00",
+  "run_timestamp": "2026-10-01T16:14:38.583415+00:00",
   "date_range": {
     "start": "2026-10-01",
     "end": "2026-10-08"
   },
-  "total_events_db": 3770,
-  "total_active_display": 80,
+  "total_events_db": 3799,
+  "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,20 +25,20 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -57,14 +57,6 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 54,
@@ -81,50 +73,18 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +97,58 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -161,59 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
       "events_after_filter": 4,
       "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 13,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -225,11 +185,51 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 13,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
       "events_after_filter": 17,
       "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -243,13 +243,20 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 80,
+      "events_found": 84,
+      "events_after_filter": 84,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
+    {
+      "artist": "The Avett Brothers w/ Drive By Truckers",
+      "venue": "Grind City Amp",
+      "date": "2026-10-01",
+      "time": "5:30 PM",
+      "source": "scraper:ticketmaster"
+    },
     {
       "artist": "Concerts in The Grove: Southbound",
       "venue": "Germantown Performing Arts Center",
@@ -262,13 +269,6 @@
       "venue": "Graceland Soundstage",
       "date": "2026-10-01",
       "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Avett Brothers w/ Drive By Truckers",
-      "venue": "Grind City Amp",
-      "date": "2026-10-01",
-      "time": "5:30 PM",
       "source": "scraper:ticketmaster"
     },
     {
@@ -305,13 +305,6 @@
       "date": "2026-10-01",
       "time": null,
       "source": "submission"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: FLOW",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-01",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Umphrey's McGee",
@@ -447,11 +440,32 @@
       "source": "scraper:south_main_sounds"
     },
     {
+      "artist": "Dolly Parton Tribute Show",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-03",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Outside Source / Strooly / Dancealone [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-03",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Jordan Occasionally, Jamogi, Celest, Davidd, Jodi\u2019s Fable",
       "venue": "Lamplighter Lounge",
       "date": "2026-10-03",
       "time": "8 PM",
       "source": "submission"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-03",
+      "time": "6:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "THIS IS MUSIC- Harris & Fitz",
@@ -475,21 +489,7 @@
       "source": "scraper:growlers"
     },
     {
-      "artist": "Dolly Parton Tribute Show",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-03",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
       "artist": "Hidden Sixes / Red Sun Sermon [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-03",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Outside Source / Strooly / Dancealone [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-10-03",
       "time": null,
@@ -515,20 +515,6 @@
       "date": "2026-10-03",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: WellGroove Dance Flow",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-03",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-03",
-      "time": "6:00\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Shell on Wheels: Evergreen Street Fair",
@@ -580,6 +566,62 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-10-04",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Charvey Mac",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-10-04",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Even Odds",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-10-04",
+      "time": "6 AM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-10-04",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Back Alley String Band",
+      "venue": "Huey's (Millington)",
+      "date": "2026-10-04",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Jack & Noah",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-10-04",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "John Paul Keith",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-04",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-10-04",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "Pulse",
       "venue": "Lafayette's Music Room",
       "date": "2026-10-04",
@@ -629,13 +671,6 @@
       "source": "submission"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-05",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "Bryson Tiller Presents: The Neo Trapsoul Tour",
       "venue": "FedExForum",
       "date": "2026-10-06",
@@ -669,13 +704,6 @@
       "date": "2026-10-06",
       "time": "12 AM",
       "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-06",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Shell on Wheels: MMDC Taste of the District",
