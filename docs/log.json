@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-01T11:27:00.911844+00:00",
+  "run_timestamp": "2026-10-01T13:37:04.222657+00:00",
   "date_range": {
     "start": "2026-10-01",
     "end": "2026-10-08"
@@ -33,19 +33,19 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,25 +57,57 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 3,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 42,
+      "events_filtered": 246,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -89,34 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 42,
-      "events_filtered": 246,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -129,26 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -161,14 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 73,
@@ -177,35 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 17,
+      "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 16,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,11 +185,43 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 15,
       "events_after_filter": 13,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 1,
+      "events_filtered": 16,
       "error": null
     },
     {
