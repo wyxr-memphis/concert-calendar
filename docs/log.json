@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-01T16:14:38.583415+00:00",
+  "run_timestamp": "2026-10-01T16:34:08.771039+00:00",
   "date_range": {
     "start": "2026-10-01",
     "end": "2026-10-08"
   },
-  "total_events_db": 3799,
+  "total_events_db": 3800,
   "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
@@ -41,11 +41,11 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,10 +57,42 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 54,
       "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -73,9 +105,17 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 3,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -85,6 +125,22 @@
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -169,6 +225,14 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
@@ -185,22 +249,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 15,
@@ -209,11 +257,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -230,6 +278,14 @@
       "events_found": 26,
       "events_after_filter": 26,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
