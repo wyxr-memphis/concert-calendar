@@ -11,14 +11,23 @@ touching the admin UI.
    **"add to calendar B-Side"**
 2. Slack fires a `file_shared` event to `POST /api/slack/events`
 3. Backend downloads the image, checks the caption via `conversations.history`
-4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image
+4. Claude Vision (`claude-sonnet-4-6`) extracts events from the image. **One show is one
+   event**, however many acts are on the bill (since 2026-10-01; before that every act became
+   its own row). Vision returns `event_name` + `artists`, and
+   `compose_show_title()` in `src/sources/artifacts.py` joins them:
+   `MDR Showcase: General Labor, Missed Dunks at Summer League, Carry Ripple` when the flyer
+   names the show, `Headliner w/ Opener 1, Opener 2` when it doesn't. A venue's month
+   schedule is still one row per show. The same prompt serves the daily build's artifacts
+   scan (Admin → Import), so both paths agree.
 5. The venue is resolved (see below)
-6. New events are deduplicated and inserted into PostgreSQL. The uploaded image is attached
-   **only when every extracted event is the same show** — same canonical venue, same date. A
-   4-act bill on one night gets the flyer; a venue's month schedule does not (it would
-   thumbnail the whole flyer onto every row). Venue is canonicalized via
-   `normalize_venue_from_db` first, so "Lamplighter Lounge, Memphis, TN" groups with
-   "Lamplighter Lounge".
+6. New events are deduplicated and inserted into PostgreSQL. The title-level fuzzy check can't
+   see a lone act inside a joined title, so each act is also checked on its own; a hit does
+   not block the insert but adds a ⚠️ "may already be on the calendar" line to the reply.
+   The uploaded image is attached **only when every extracted event is the same show** —
+   same canonical venue, same date. A one-night gig poster gets the flyer; a venue's month
+   schedule does not (it would thumbnail the whole flyer onto every row). Venue is
+   canonicalized via `normalize_venue_from_db` first, so "Lamplighter Lounge, Memphis, TN"
+   groups with "Lamplighter Lounge".
 7. GitHub Actions rebuild is triggered
 8. Bot replies in the channel listing each added event, with the title linked to
    `{SITE_BASE}/admin/edit?id=<uuid>` for one-click correction

@@ -18,6 +18,11 @@ class Event:
     is_featured: bool = False  # Highlighted on calendar
     event_id: Optional[str] = None  # Stable ID from PostgreSQL
     image_url: Optional[str] = None  # Promo artwork URL from the source, if any
+    # Set only by Vision extraction: the acts on the bill and the show's own
+    # name, before they were joined into `artist`. Not persisted — the Slack
+    # pipeline uses them to warn about a per-act duplicate.
+    lineup: Optional[List[str]] = None
+    event_name: Optional[str] = None
 
     @property
     def sort_key(self):

@@ -23,6 +23,7 @@ Usage:
 import os
 import sys
 from datetime import date
+from pathlib import Path
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -30,6 +31,7 @@ sys.path.insert(0, ROOT)
 from src.config import normalize_venue_name  # noqa: E402
 from src.date_utils import parse_date_text, resolve_yearless_date  # noqa: E402
 from src.models import normalize_text  # noqa: E402
+from src.sources.artifacts import _parse_vision_event, compose_show_title  # noqa: E402
 from src.normalize import _artists_match  # noqa: E402
 from src.time_format import (  # noqa: E402
     format_event_time,
@@ -140,6 +142,64 @@ def test_noise_strip_never_empties_a_title():
     """An event actually called "Live" must not normalize to the empty string."""
     for title in ("Live", "Show", "Concert", "Tour"):
         eq(f"{title!r} survives", normalize_text(title), title.lower())
+
+
+# ---------------------------------------------------------------------------
+# 1.3  One show, one title (Vision multi-act bills)
+# ---------------------------------------------------------------------------
+
+_MDR = ["General Labor", "Missed Dunks at Summer League", "Carry Ripple"]
+
+
+def test_multi_act_bill_becomes_one_title():
+    """A flyer for one night is one event; the acts ride in the title."""
+    eq("named show lists its acts",
+       compose_show_title("MDR Showcase", _MDR),
+       "MDR Showcase: General Labor, Missed Dunks at Summer League, Carry Ripple")
+    eq("unnamed bill is headliner w/ support",
+       compose_show_title("", _MDR),
+       "General Labor w/ Missed Dunks at Summer League, Carry Ripple")
+    eq("single act is just the act", compose_show_title("", ["General Labor"]), "General Labor")
+    eq("name with no acts is just the name", compose_show_title("MDR Showcase", []), "MDR Showcase")
+    eq("name repeated as the only act is not doubled",
+       compose_show_title("MDR Showcase", ["MDR Showcase"]), "MDR Showcase")
+    eq("blanks and repeats are dropped",
+       compose_show_title("", [" A ", "", "a", None, "B"]), "A w/ B")
+    eq("a string lineup is accepted", compose_show_title("", "Solo Act"), "Solo Act")
+    eq("nothing in, nothing out", compose_show_title(None, None), "")
+
+
+def test_vision_parser_builds_the_joined_title():
+    src = Path("flyer.png")
+    ev = _parse_vision_event(
+        {"event_name": "MDR Showcase", "artists": _MDR,
+         "venue": "The Green Room at Crosstown", "date": "10/17/2026", "time": "7 PM"},
+        src,
+    )
+    check("current schema parses", ev is not None)
+    eq("title is joined", ev.artist,
+       "MDR Showcase: General Labor, Missed Dunks at Summer League, Carry Ripple")
+    eq("lineup is kept for the per-act dup check", ev.lineup, _MDR)
+    eq("event_name is kept", ev.event_name, "MDR Showcase")
+    eq("date parsed", ev.date, date(2026, 10, 17))
+
+    legacy = _parse_vision_event({"artist": "Legacy Band", "venue": "Hi Tone",
+                                  "date": "10/17/2026"}, src)
+    check("legacy single-artist reply still parses", legacy is not None)
+    eq("legacy title", legacy.artist, "Legacy Band")
+
+    check("no acts and no name is dropped",
+          _parse_vision_event({"event_name": "", "artists": [], "date": "10/17/2026"}, src) is None)
+
+
+def test_joined_titles_survive_dedup_normalization():
+    """The separators must not mangle the dedup key: ':' and '/' become spaces,
+    and the whole-word noise strip must leave 'showcase' alone."""
+    eq("named show key",
+       normalize_text("MDR Showcase: General Labor, Carry Ripple"),
+       "mdr showcase general labor carry ripple")
+    eq("w/ is harmless", normalize_text("General Labor w/ Carry Ripple"),
+       "general labor w carry ripple")
 
 
 # ---------------------------------------------------------------------------
@@ -280,6 +340,9 @@ def main():
         test_noise_words_only_strip_as_whole_words,
         test_noise_words_still_strip_when_standalone,
         test_noise_strip_never_empties_a_title,
+        test_multi_act_bill_becomes_one_title,
+        test_vision_parser_builds_the_joined_title,
+        test_joined_titles_survive_dedup_normalization,
         test_placeholder_titles_do_not_swallow_real_acts,
         test_real_acts_still_match,
         test_loose_names_are_not_rewritten,

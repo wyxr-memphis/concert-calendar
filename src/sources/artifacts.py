@@ -450,16 +450,19 @@ def _run_vision_api(image_bytes: bytes, media_type: str, filename: str) -> List[
 
 Today's date is {START_DATE}. The target date range is {START_DATE} to {SCRAPER_END_DATE}.
 
-For EACH visible event, extract:
-- artist/act name
+For EACH visible show, extract:
+- event_name: the show's own name if the image gives it one (a showcase, fest, series
+  night, release show, "An Evening With…"). Empty string if the show is just the acts.
+- artists: EVERY act on the bill, headliner first, then in billing order as printed
 - venue (venue name, Instagram handle, website, or "Bandsintown")
 - date (in any format visible)
 - time (if visible)
 
-MULTI-ACT BILLS: When one show has several acts on the bill (a headliner plus support,
-or a lineup listed together for the same night), return a SEPARATE entry for EACH act,
-all sharing the same venue, date, and time. Do not combine them into one entry with a
-joined title. A four-act bill on one night = four entries.
+ONE SHOW = ONE ENTRY: A flyer for a single night is ONE entry, however many acts are on
+it. Put all the acts in "artists" — never return one entry per act, and never fold the
+acts into event_name. A four-act bill on one night = one entry with four artists.
+A venue's monthly schedule (many dates) is one entry PER SHOW; a show on it with several
+acts is still one entry listing those acts.
 
 VENUE NAME: Return only the venue's name — no city, state, or street address.
 Write "Lamplighter Lounge", not "Lamplighter Lounge, Memphis, TN" and not
@@ -480,13 +483,16 @@ include everything and let the system handle filtering.
 Return ONLY a valid JSON array, no other text:
 [
   {{
-    "artist": "Artist Name",
+    "event_name": "MDR Showcase",
+    "artists": ["Headliner Name", "Support Act", "Opener"],
     "venue": "Venue Name",
     "date": "3/15/2026",
     "time": "9 PM",
     "source_note": "Brief description - e.g. 'Instagram', 'flyer', 'schedule'"
   }}
 ]
+
+event_name is "" when the flyer has no name for the show. artists is never empty.
 
 If no events found, return: []
 
@@ -545,15 +551,71 @@ Extract all visible events, even if text is small or handwritten."""
     return events
 
 
+def _clean_lineup(artists) -> List[str]:
+    """Trim, drop blanks, and drop case-insensitive repeats, keeping billing order.
+
+    Vision is asked for a list but an off-spec reply may hand back one string
+    (or nothing); accept all three shapes.
+    """
+    if artists is None:
+        return []
+    if isinstance(artists, str):
+        artists = [artists]
+    seen = set()
+    cleaned: List[str] = []
+    for name in artists:
+        name = (str(name) if name is not None else "").strip()
+        if not name or name.lower() in seen:
+            continue
+        seen.add(name.lower())
+        cleaned.append(name)
+    return cleaned
+
+
+def compose_show_title(event_name: str, artists) -> str:
+    """Build the one calendar title for a show from its name and its bill.
+
+    One flyer is one show, so a multi-act bill becomes one event. The rules,
+    agreed with the station (2026-10-01):
+      named show + acts  → "MDR Showcase: General Labor, Missed Dunks, Carry Ripple"
+      acts only          → "Headliner w/ Opener 1, Opener 2"
+      one act, no name   → "Headliner"
+      name, no acts      → "MDR Showcase"
+    Both separators survive dedup: normalize_text turns ":" and "/" into spaces
+    and leaves "showcase" alone (the noise strip is whole-word only).
+    """
+    event_name = (event_name or "").strip()
+    lineup = _clean_lineup(artists)
+    # A flyer that prints the show name as the only act is still just the name.
+    if event_name and lineup == [event_name]:
+        lineup = []
+
+    if event_name and lineup:
+        return f"{event_name}: {', '.join(lineup)}"
+    if lineup:
+        if len(lineup) == 1:
+            return lineup[0]
+        return f"{lineup[0]} w/ {', '.join(lineup[1:])}"
+    return event_name
+
+
 def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
-    """Convert Claude vision extracted event data to Event object."""
-    artist = (data.get("artist") or "").strip()
+    """Convert Claude vision extracted event data to Event object.
+
+    Expects the current schema (``event_name`` + ``artists``) but still accepts
+    the legacy single ``artist`` key so an off-spec reply does not drop a show.
+    """
+    event_name = (data.get("event_name") or "").strip()
+    lineup = _clean_lineup(data.get("artists"))
+    if not lineup and not event_name:
+        lineup = _clean_lineup(data.get("artist"))
+    title = compose_show_title(event_name, lineup)
     venue = (data.get("venue") or "").strip()
     date_str = (data.get("date") or "").strip()
     time_str = (data.get("time") or "").strip()
     source_note = (data.get("source_note") or "").strip()
 
-    if not artist or not date_str:
+    if not title or not date_str:
         return None
 
     event_date = parse_date_text(date_str)
@@ -561,11 +623,16 @@ def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
         return None
 
     return Event(
-        artist=artist,
+        artist=title,
         venue=normalize_venue_name(venue) if venue else "Venue TBA",
         date=event_date,
         time=time_str if time_str else None,
         source="artifact",
+        # Keep the parts so the Slack pipeline can still check each act for a
+        # duplicate — the joined title alone scores far below the fuzzy bar
+        # against a lone act name already on the calendar.
+        lineup=lineup or None,
+        event_name=event_name or None,
     )
 
 

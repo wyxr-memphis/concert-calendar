@@ -2018,13 +2018,35 @@ def _process_slack_image(file_id: str, channel_id: str):
             _slack_post_message(channel_id, msg)
             return
 
+        # 5b. A multi-act bill is now one event with a joined title ("MDR
+        # Showcase: General Labor, …"). That title scores far below the fuzzy
+        # bar against a lone act name, so a Ticketmaster "General Labor" row on
+        # the same night would no longer be caught above. Check each act on its
+        # own and warn — don't skip, since the joined row is usually the one the
+        # DJ wants; they merge via the edit link in the reply.
+        overlaps = []
+        for event in events_to_insert:
+            parts = list(event.lineup or [])
+            if event.event_name:
+                parts.append(event.event_name)
+            for part in parts:
+                if part == event.artist:
+                    continue  # already checked as the title above
+                try:
+                    if is_fuzzy_duplicate(part, event.venue, event.date.isoformat()):
+                        overlaps.append(part)
+                except Exception as exc:  # advisory only — never block the insert
+                    print(f"[slack] per-act dup check failed for {part!r}: {exc}", flush=True)
+
         # 6. Host the uploaded image so it can be shown alongside the event —
         # but ONLY when the image depicts a single show. What must be avoided is
         # a venue's month-long schedule thumbnailing the whole flyer onto every
-        # row; a gig poster for one night is fine even when the bill has four
-        # acts on it and Vision returns one event per act.
+        # row. A gig poster for one night is fine: since 2026-10 Vision returns
+        # a multi-act bill as ONE event with a joined title, but the same-venue,
+        # same-date test below is kept rather than "exactly one event" so a
+        # flyer that lists two shows on one night at one venue still gets its
+        # image, and so an off-spec per-act reply still behaves.
         #
-        # So the test is "same venue, same date", not "exactly one event".
         # Keyed on everything extracted (not events_to_insert) so a schedule is
         # still excluded when only one of its shows happens to be new.
         #
@@ -2121,6 +2143,12 @@ def _process_slack_image(file_id: str, channel_id: str):
                 f"• <{edit_url}|{_slack_escape(e.artist)}> — {venue} — {date_str}"
             )
         lines.append("\n_Titles link to the admin editor._")
+        if overlaps:
+            names = ", ".join(f"\"{_slack_escape(n)}\"" for n in dict.fromkeys(overlaps))
+            lines.append(
+                f"⚠️ {names} may already be on the calendar for that night — "
+                "check for a duplicate."
+            )
         if unknown_venue:
             lines.append(
                 f"⚠️ Skipped {len(unknown_venue)} event(s) with no identifiable venue. "
