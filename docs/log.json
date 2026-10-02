@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-02T13:25:10.865029+00:00",
+  "run_timestamp": "2026-10-02T19:42:40.342411+00:00",
   "date_range": {
     "start": "2026-10-02",
     "end": "2026-10-09"
   },
-  "total_events_db": 3875,
-  "total_active_display": 97,
+  "total_events_db": 3881,
+  "total_active_display": 94,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 40,
@@ -41,18 +33,26 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -65,58 +65,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 41,
-      "events_filtered": 247,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
+      "events_found": 3,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +81,66 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 41,
+      "events_filtered": 247,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 72,
+      "events_after_filter": 37,
+      "events_filtered": 35,
       "error": null
     },
     {
@@ -161,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 72,
-      "events_after_filter": 37,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 5,
-      "events_filtered": 9,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
@@ -185,11 +185,35 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
       "events_after_filter": 1,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 3,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,51 +225,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
       "events_after_filter": 17,
       "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -259,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 97,
-      "events_after_filter": 97,
+      "events_found": 94,
+      "events_after_filter": 94,
       "events_filtered": 0,
       "error": null
     }
@@ -411,7 +395,7 @@
       "venue": "Lamplighter Lounge",
       "date": "2026-10-03",
       "time": "8 PM",
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
@@ -498,11 +482,25 @@
       "source": "artifact"
     },
     {
+      "artist": "John Paul Keith",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-04",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-10-04",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Thought",
+      "venue": "Growlers",
+      "date": "2026-10-04",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
@@ -575,13 +573,6 @@
       "source": "scraper:huey_s"
     },
     {
-      "artist": "John Paul Keith",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-10-04",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
       "artist": "Tequila Mockingbird",
       "venue": "Huey's (Southaven)",
       "date": "2026-10-04",
@@ -624,18 +615,11 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
-      "artist": "Private Event",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-05",
-      "time": "12 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
       "artist": "Queens Hunny Blunt, Juicy Massacre, and Naveh Gates",
       "venue": "Lamplighter Lounge",
       "date": "2026-10-05",
       "time": null,
-      "source": "submission"
+      "source": "manual"
     },
     {
       "artist": "Kirk Smithhart",
@@ -673,13 +657,6 @@
       "source": "scraper:hi_tone"
     },
     {
-      "artist": "Private Event",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-06",
-      "time": "12 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
       "artist": "Shell on Wheels: MMDC Taste of the District",
       "venue": "Overton Park Shell",
       "date": "2026-10-06",
@@ -687,11 +664,11 @@
       "source": "scraper:overton_park_shell"
     },
     {
-      "artist": "Dave Schools",
+      "artist": "Dave Schools w/Colin Butler",
       "venue": "Memphis Listening Lab",
       "date": "2026-10-07",
       "time": "7 PM",
-      "source": "artifact"
+      "source": "manual"
     },
     {
       "artist": "Brad Birkedahl",
@@ -762,20 +739,6 @@
       "date": "2026-10-07",
       "time": "5:30 PM",
       "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Private Event",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-07",
-      "time": "12 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Colin Butler",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-10-07",
-      "time": "7 PM",
-      "source": "artifact"
     },
     {
       "artist": "Bayway",
