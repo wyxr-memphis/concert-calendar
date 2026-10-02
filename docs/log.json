@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-02T01:22:40.185564+00:00",
+  "run_timestamp": "2026-10-02T10:57:18.751654+00:00",
   "date_range": {
     "start": "2026-10-02",
     "end": "2026-10-09"
   },
-  "total_events_db": 3868,
+  "total_events_db": 3870,
   "total_active_display": 95,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -33,18 +33,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 56,
-      "events_after_filter": 55,
+      "events_found": 30,
+      "events_after_filter": 29,
       "events_filtered": 1,
       "error": null
     },
@@ -57,34 +49,18 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 288,
-      "events_after_filter": 41,
-      "events_filtered": 247,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
@@ -97,10 +73,34 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 41,
+      "events_filtered": 247,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -123,16 +123,8 @@
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 27,
+      "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -145,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 73,
-      "events_after_filter": 37,
-      "events_filtered": 36,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 5,
@@ -161,10 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -177,19 +161,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
+      "events_found": 73,
+      "events_after_filter": 37,
+      "events_filtered": 36,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 3,
-      "events_filtered": 12,
+      "events_found": 14,
+      "events_after_filter": 5,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -201,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -230,6 +222,14 @@
       "events_found": 24,
       "events_after_filter": 17,
       "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
