@@ -90,7 +90,7 @@ The `typeof gtag` guard prevents errors in local dev where the gtag script isn't
 | `share_event` | `event_id`, `event_title` | User clicks "Copy link" in the modal |
 | `pledge_donate_click` | `percentage` | User clicks Donate on the pledge-drive banner |
 | `neighborhood_select` | `neighborhood` (chip value, incl. "all") | User clicks a neighborhood chip |
-| `search` | `search_term` | Search query settles (1.5 s after typing stops, ≥2 chars, deduped against the last tracked query) |
+| `search` | `search_term`, `search_location` ("top" = sticky filter bar / "bottom" = below the event list) | Search query settles (1.5 s after typing stops, ≥2 chars, deduped against the last tracked query) |
 
 ### Custom dimensions (must be registered in GA4 Admin)
 
@@ -99,7 +99,7 @@ being registered as **Event-scoped Custom Dimensions** in GA4 Admin → Data dis
 definitions:
 
 `event_title`, `venue`, `event_date`, `has_ticket_url`, `close_method`, `service`,
-`destination_url`, `neighborhood`
+`destination_url`, `neighborhood`, `search_location`
 
 (`search` is GA4's standard search event — `search_term` is collected automatically and
 needs no custom dimension.)
