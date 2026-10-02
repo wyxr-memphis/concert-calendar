@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-02T10:57:18.751654+00:00",
+  "run_timestamp": "2026-10-02T13:06:01.822832+00:00",
   "date_range": {
     "start": "2026-10-02",
     "end": "2026-10-09"
   },
-  "total_events_db": 3870,
-  "total_active_display": 95,
+  "total_events_db": 3873,
+  "total_active_display": 97,
   "data_store": "postgresql",
   "sources": [
     {
@@ -35,9 +35,17 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 30,
+      "events_found": 29,
       "events_after_filter": 29,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -49,34 +57,10 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     },
@@ -113,6 +97,14 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
@@ -125,6 +117,14 @@
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -163,25 +163,17 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 73,
+      "events_found": 72,
       "events_after_filter": 37,
-      "events_filtered": 36,
+      "events_filtered": 35,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 5,
-      "events_filtered": 9,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
@@ -193,19 +185,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
+      "events_found": 14,
+      "events_after_filter": 5,
+      "events_filtered": 9,
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 4,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -217,19 +209,27 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
       "events_after_filter": 17,
       "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 95,
-      "events_after_filter": 95,
+      "events_found": 97,
+      "events_after_filter": 97,
       "events_filtered": 0,
       "error": null
     }
@@ -473,6 +473,13 @@
       "date": "2026-10-03",
       "time": "12 AM",
       "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon",
+      "venue": "38104 Bar DKDC",
+      "date": "2026-10-04",
+      "time": "3 PM - 8 PM",
+      "source": "artifact"
     },
     {
       "artist": "FreeWorld",
@@ -767,6 +774,13 @@
       "date": "2026-10-07",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Dyke Fright: La Femme Radical, DJ Shai",
+      "venue": "Bar DKDC",
+      "date": "2026-10-08",
+      "time": "8 PM",
+      "source": "artifact"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
