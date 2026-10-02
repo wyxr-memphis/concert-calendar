@@ -141,9 +141,9 @@
             text-align: center;
         }
 
-        /* Search */
+        /* Search (top box lives in the sticky filter bar, below the chips) */
         .search-row {
-            margin-bottom: 12px;
+            margin-top: 8px;
         }
         .search-input {
             width: 100%;
@@ -1157,6 +1157,9 @@
         <div class="chip-row" id="chipRow">
             <button class="chip active" data-neighborhood="all">All</button>
         </div>
+        <div class="search-row">
+            <input type="text" class="search-input" id="searchInputTop" placeholder="Search artists, venues..." aria-label="Search artists and venues">
+        </div>
     </div>
 
     <!-- Calendar Sponsor Banner -->
@@ -1179,7 +1182,7 @@
     <script type="application/ld+json" id="eventsJsonLd"></script>
 
     <div class="bottom-search">
-        <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues...">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues..." aria-label="Search artists and venues">
     </div>
 
     <footer>
@@ -1302,6 +1305,7 @@
         const prevBtn = document.getElementById('prevMonth');
         const nextBtn = document.getElementById('nextMonth');
         const searchInput = document.getElementById('searchInput');
+        const searchInputTop = document.getElementById('searchInputTop');
         const chipRow = document.getElementById('chipRow');
         const eventList = document.getElementById('eventList');
         const eventCount = document.getElementById('eventCount');
@@ -2571,22 +2575,29 @@
         });
 
         // ---- Search ----
-        searchInput.addEventListener('input', () => {
-            clearTimeout(searchTimer);
-            searchTimer = setTimeout(() => {
-                searchQuery = searchInput.value.toLowerCase().trim();
-                renderEvents();
-            }, 200);
-            // Analytics on a longer debounce so we log settled queries, not keystrokes
-            clearTimeout(searchTrackTimer);
-            searchTrackTimer = setTimeout(() => {
-                const q = searchInput.value.toLowerCase().trim();
-                if (q.length >= 2 && q !== lastTrackedSearch) {
-                    lastTrackedSearch = q;
-                    trackEvent('search', { search_term: q });
-                }
-            }, 1500);
-        });
+        // Two synced boxes: one in the sticky filter bar, one below the event
+        // list. search_location tells GA which box the query was typed into.
+        function wireSearchBox(input, mirror, location) {
+            input.addEventListener('input', () => {
+                mirror.value = input.value;
+                clearTimeout(searchTimer);
+                searchTimer = setTimeout(() => {
+                    searchQuery = input.value.toLowerCase().trim();
+                    renderEvents();
+                }, 200);
+                // Analytics on a longer debounce so we log settled queries, not keystrokes
+                clearTimeout(searchTrackTimer);
+                searchTrackTimer = setTimeout(() => {
+                    const q = input.value.toLowerCase().trim();
+                    if (q.length >= 2 && q !== lastTrackedSearch) {
+                        lastTrackedSearch = q;
+                        trackEvent('search', { search_term: q, search_location: location });
+                    }
+                }, 1500);
+            });
+        }
+        wireSearchBox(searchInputTop, searchInput, 'top');
+        wireSearchBox(searchInput, searchInputTop, 'bottom');
 
         // ---- HTML Escape ----
         // Safe for HTML *text* content only. Setting textContent and reading
