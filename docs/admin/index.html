@@ -3157,7 +3157,7 @@
                 // Our own token is dead now, so drop it and go to login rather
                 // than leaving the page in a state where every call 401s.
                 setTimeout(() => {
-                    try { sessionStorage.removeItem('admin_token'); } catch (e) { /* ignore */ }
+                    try { AdminAPI.clearToken(); } catch (e) { /* ignore */ }
                     window.location.href = '/admin/login.html';
                 }, 1200);
             } catch (err) {

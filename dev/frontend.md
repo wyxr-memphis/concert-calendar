@@ -68,6 +68,47 @@ The page keeps the URL in step with the modal. Three distinct paths, all covered
 earlier. The modal's **Copy link** button copies the `/e/<id>` permalink, not `location.href` —
 the hash URL does not unfurl.
 
+## Admin mode on the public page
+
+A logged-in admin can toggle **WYXR Pick** (`events.is_featured`) from the public calendar:
+a `☆ Mark as WYXR Pick` button in the event modal and a ★ on every row. Public visitors see
+none of it — the markup is byte-identical to before unless `adminMode` is true. Covered by
+`scripts/test_pick_toggle_browser.py`.
+
+**How the page knows.** `/admin/` shares this origin, so a tab that logged in carries
+`sessionStorage.admin_token`. Other tabs don't (`sessionStorage` is per-tab), so
+`admin-common.js` also writes a non-secret `localStorage.wyxr_admin_hint = '1'` whenever it
+stores a token and removes it whenever it clears one (`login.html` and the revoke-sessions
+path do the same). At script start the page evaluates `_adminMaybe` synchronously from those
+two keys. **If neither is set, no admin request is made at all** — anonymous visitors must
+never pay a `/api/admin/me` round-trip (or wake Render) for this. If one is set,
+`detectAdminMode()` sends one credentialed `GET /api/admin/me`: 200 → admin mode on and the
+echoed token is stored for this tab; 401/403 → token and hint cleared, page stays anonymous;
+network error → hint left alone (a cold start is not a logout).
+
+Safari/Firefox block the cross-site cookie, so there a *new* tab can't hydrate and shows no
+controls until you visit `/admin/` in that tab. Same limitation the admin UI already has.
+
+Things that will break it if changed carelessly:
+
+- **A 401 never redirects.** This is the public page; `dropAdminMode()` removes the controls
+  in place and shows a notice. Don't reuse `AdminAPI.apiJSON`, which redirects to the login.
+- **`fetchFreshEvents` busts the HTTP cache whenever `_adminMaybe` is true.** `/api/events` is
+  `max-age=120`; without this, a reload within two minutes of a toggle re-renders the stale
+  copy and the star visibly reverts. It has to be the synchronous pre-check, not `adminMode`,
+  because `/me` resolves after the first fetch has already gone out.
+- **`togglePick()` writes through to `wyxr_events_cache`** on the optimistic apply *and* on
+  the revert, so a reload shows the same state the admin just saw.
+- **It never calls `openEventModal`/`closeEventModal` or touches history.** Badges are
+  re-rendered in place via `renderModalBadges(ev)`. After `renderEvents()` rebuilds the rows,
+  `_emLastFocused` is re-pointed at the new row, or closing the modal would focus a detached
+  node and drop focus to `<body>`.
+- **The row star sits inside `li[role=button]`.** The delegated click handler must check
+  `[data-pick-toggle]` first and stop; the keydown handler must return for it, or Enter on the
+  star also opens the modal (`closest()` walks up to the row).
+- **`rowStar()` interpolates only `e.id` and `e.title`, both through `escAttr`.** It is the
+  one piece of admin-only HTML built as a string; keep it that way.
+
 ## Cloudinary URL handling
 
 `cldImg()` must handle three URL shapes — see `dev/images.md`.

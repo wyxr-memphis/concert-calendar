@@ -136,3 +136,12 @@ the token or forge the header.
 A 401 from an upload route now means the session genuinely expired — surface it with
 `uploadFailureMessage(resp, data)` rather than echoing the API's bare "Not authenticated",
 which reads like a page bug.
+
+**The public calendar reads the same token.** `docs/index.html` lives on the admin origin, so
+it can read `sessionStorage.admin_token` and, via the non-secret `localStorage.wyxr_admin_hint`
+that `setToken()` writes alongside it, decide whether to ask `/api/admin/me` at all. That hint
+carries no credential — any script on this origin could already read the token or call the
+credentialed `/me` — so it widens nothing; it only spares anonymous visitors the request. A 401
+on the public page clears both keys in place and never redirects. It does raise the stakes of
+the escaping rules in `dev/frontend.md`: scraper, OCR and `/submit` text renders on the origin
+that holds the token. See "Admin mode on the public page" there.

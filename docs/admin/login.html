@@ -144,7 +144,10 @@
                 if (!r.ok) return;
                 try {
                     const data = await r.json();
-                    if (data && data.token) sessionStorage.setItem('admin_token', data.token);
+                    if (data && data.token) {
+                        sessionStorage.setItem('admin_token', data.token);
+                        try { localStorage.setItem('wyxr_admin_hint', '1'); } catch (e) { /* storage blocked */ }
+                    }
                 } catch (err) { /* redirect anyway — admin-common.js re-hydrates */ }
                 window.location.href = '/admin/';
             });
@@ -177,6 +180,9 @@
                     // Store token for Bearer auth (cross-origin)
                     if (data.token) {
                         sessionStorage.setItem('admin_token', data.token);
+                        // Same hint admin-common.js sets: lets the public
+                        // calendar show its pick controls in another tab.
+                        try { localStorage.setItem('wyxr_admin_hint', '1'); } catch (e) { /* storage blocked */ }
                     }
                     window.location.href = '/admin/';
                 } else {
