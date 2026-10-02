@@ -2040,6 +2040,10 @@
                 const d = s.event_date ? new Date(s.event_date + 'T12:00:00') : null;
                 const dateStr = d ? d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' }) : '';
                 const timeStr = s.event_time ? formatTime(s.event_time) : '';
+                const doorsStr = s.doors_time ? formatTime(s.doors_time) : '';
+                // Untrusted URL from the public form — scheme-checked before it
+                // becomes an href, then attribute-escaped.
+                const ticketHref = s.ticket_url ? safeUrl(s.ticket_url) : '';
                 const submittedAt = s.submitted_at ? timeAgo(s.submitted_at) : '';
 
                 let actions = '';
@@ -2062,6 +2066,10 @@
                         <span><strong>Venue:</strong> ${esc(s.venue)}</span>
                         <span><strong>Date:</strong> ${esc(dateStr)}</span>
                         ${timeStr ? `<span><strong>Time:</strong> ${esc(timeStr)}</span>` : ''}
+                        ${doorsStr ? `<span><strong>Doors:</strong> ${esc(doorsStr)}</span>` : ''}
+                        ${s.genre ? `<span><strong>Genre:</strong> ${esc(s.genre)}</span>` : ''}
+                        ${s.ticket_price ? `<span><strong>Price:</strong> ${esc(s.ticket_price)}</span>` : ''}
+                        ${ticketHref ? `<span><strong>Tickets:</strong> <a href="${escAttr(ticketHref)}" target="_blank" rel="noopener noreferrer">${esc(s.ticket_url)}</a></span>` : (s.ticket_url ? `<span><strong>Tickets:</strong> ${esc(s.ticket_url)} <em>(not a web link)</em></span>` : '')}
                     </div>
                     ${s.description ? `<div class="sub-desc">${esc(s.description)}</div>` : ''}
                     <div class="sub-submitter">Submitted by ${esc(s.submitter_name)} (${esc(s.submitter_email)}) &middot; ${submittedAt}</div>
@@ -2155,6 +2163,10 @@
             // formatTime, not the raw HH:MM:SS — the edit form's start_time is the
             // string that ships to the calendar, and it reads in am/pm everywhere else.
             if (sub.event_time) params.set('start_time', formatTime(sub.event_time));
+            if (sub.doors_time) params.set('doors_time', formatTime(sub.doors_time));
+            if (sub.ticket_url && safeUrl(sub.ticket_url)) params.set('ticket_url', sub.ticket_url);
+            if (sub.ticket_price) params.set('ticket_price', sub.ticket_price);
+            if (sub.genre) params.set('genre', sub.genre);
             if (sub.description) params.set('description', sub.description);
             params.set('source', 'submission');
 

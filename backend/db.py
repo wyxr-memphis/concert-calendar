@@ -98,6 +98,11 @@ _SCHEMA_COLUMNS = {
         "image_filename",
         "image_rights_confirmed",
         "submitter_ip_hash",
+        # Step 4c — optional event details the public form can now collect.
+        "doors_time",
+        "ticket_url",
+        "ticket_price",
+        "genre",
     ),
 }
 
@@ -304,6 +309,17 @@ def _run_migrations():
             ALTER TABLE submissions ADD COLUMN IF NOT EXISTS submitter_ip_hash VARCHAR(64);
             CREATE INDEX IF NOT EXISTS idx_submissions_ip_hash
               ON submissions(submitter_ip_hash, submitted_at DESC);
+        """)
+
+    # Step 4c: Optional event details on a submission (doors time, ticket link
+    # and price, genre). These mirror the admin editor's fields and are copied
+    # onto the event on approve. Also registered in _SCHEMA_COLUMNS above.
+    with _ddl_cursor() as cur:
+        cur.execute("""
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS doors_time TIME;
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS ticket_url TEXT;
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS ticket_price VARCHAR(100);
+            ALTER TABLE submissions ADD COLUMN IF NOT EXISTS genre VARCHAR(100);
         """)
 
     # Step 5: Add is_wyxr_presents column
@@ -1419,7 +1435,7 @@ _SUBMISSION_COLUMNS = """
     id, artist_name, venue, event_date, event_time, description,
     submitter_name, submitter_email, status, submitted_at, reviewed_at,
     reviewed_by, created_event_id, honeypot, image_mime, image_filename,
-    image_rights_confirmed,
+    image_rights_confirmed, doors_time, ticket_url, ticket_price, genre,
     (image_data IS NOT NULL) AS has_image
 """
 
@@ -1432,8 +1448,9 @@ def create_submission(data):
                (artist_name, venue, event_date, event_time, description,
                 submitter_name, submitter_email, honeypot,
                 image_data, image_mime, image_filename,
-                image_rights_confirmed, submitter_ip_hash)
-               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                image_rights_confirmed, submitter_ip_hash,
+                doors_time, ticket_url, ticket_price, genre)
+               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                RETURNING {_SUBMISSION_COLUMNS}""",
             (
                 data["artist_name"],
@@ -1449,6 +1466,10 @@ def create_submission(data):
                 data.get("image_filename"),
                 bool(data.get("image_rights_confirmed")),
                 data.get("submitter_ip_hash"),
+                data.get("doors_time"),
+                data.get("ticket_url"),
+                data.get("ticket_price"),
+                data.get("genre"),
             ),
         )
         return cur.fetchone()
