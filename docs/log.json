@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-02T19:42:40.342411+00:00",
+  "run_timestamp": "2026-10-02T21:06:44.226826+00:00",
   "date_range": {
     "start": "2026-10-02",
     "end": "2026-10-09"
   },
-  "total_events_db": 3881,
-  "total_active_display": 94,
+  "total_events_db": 3884,
+  "total_active_display": 96,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -49,18 +41,26 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 55,
       "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -73,6 +73,14 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
@@ -81,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -97,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -121,18 +129,18 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 5,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +153,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
-      "events_after_filter": 3,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -161,19 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 265,
-      "events_after_filter": 25,
-      "events_filtered": 240,
+      "events_found": 15,
+      "events_after_filter": 6,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -185,35 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 3,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
-      "events_filtered": 0,
+      "events_found": 265,
+      "events_after_filter": 25,
+      "events_filtered": 240,
       "error": null
     },
     {
@@ -225,11 +209,27 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
       "events_after_filter": 17,
       "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 96,
+      "events_after_filter": 96,
       "events_filtered": 0,
       "error": null
     }
@@ -347,6 +347,13 @@
       "date": "2026-10-02",
       "time": null,
       "source": "scraper:orpheum_theatre"
+    },
+    {
+      "artist": "CANCELLED: Orion Financial Free Concert Series: Drivin N Cryin",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-02",
+      "time": "7:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Orion Financial Free Concert Series: Drivin N Cryin",
@@ -907,6 +914,13 @@
       "date": "2026-10-09",
       "time": "5 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "S.K.A.T.E and Cookout",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-09",
+      "time": "5:30 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
