@@ -257,6 +257,22 @@ else
 fi
 echo ""
 
+# Check 16b: Public-page WYXR Pick toggle (needs playwright + chromium; skips if absent)
+echo "1️⃣6️⃣b Running public pick-toggle browser test..."
+if python3 scripts/test_pick_toggle_browser.py > /tmp/pick_toggle_tests.log 2>&1; then
+    if grep -q "^SKIP:" /tmp/pick_toggle_tests.log; then
+        echo -e "${YELLOW}   ⚠ $(head -1 /tmp/pick_toggle_tests.log)${NC}"
+    else
+        echo -e "${GREEN}   ✓ Public pick-toggle browser test passed${NC}"
+        PASSED=$((PASSED + 1))
+    fi
+else
+    echo -e "${RED}   ✗ Public pick-toggle browser test failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/pick_toggle_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
 # Check 17: Security headers (browser half needs chromium; skips itself if absent)
 echo "1️⃣7️⃣  Running security header tests..."
 if python3 scripts/test_security_headers.py > /tmp/security_headers_tests.log 2>&1; then

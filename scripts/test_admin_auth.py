@@ -480,6 +480,59 @@ def test_pledge_drive_routes():
         pd_mod.get_admin_setting, pd_mod.set_admin_setting, pd_mod.fetch_percentage = saved
 
 
+# ---------------------------------------------------------------------------
+# The public-page pick toggle calls PATCH /api/admin/events/<id>/featured
+# ---------------------------------------------------------------------------
+
+def test_featured_toggle_route():
+    print("\nPATCH /api/admin/events/<id>/featured (public-page pick toggle)")
+    _pin_epoch(1)
+    known = "aaaaaaaa-0000-4000-8000-00000000000a"
+    unknown = "ffffffff-0000-4000-8000-00000000ffff"
+    calls = []
+
+    # Both DB helpers are stubbed: test_before_push.sh sources .env, so an
+    # unstubbed call here would star a real production row.
+    original_get, original_toggle = app_mod.get_event_by_id, app_mod.toggle_featured
+
+    def fake_get(event_id):
+        return {"id": event_id, "title": "x", "is_featured": False} if event_id == known else None
+
+    def fake_toggle(event_id, value):
+        calls.append((event_id, value))
+        return {"id": event_id, "title": "x", "is_featured": value}
+
+    app_mod.get_event_by_id = fake_get
+    app_mod.toggle_featured = fake_toggle
+    try:
+        c = client()
+        resp = c.patch(f"/api/admin/events/{known}/featured", json={"is_featured": True})
+        check("401 without auth", resp.status_code == 401, f"got {resp.status_code}")
+        check("nothing reached the database", not calls)
+
+        token = create_token()
+        auth = {"Authorization": f"Bearer {token}"}
+        resp = c.patch(f"/api/admin/events/{known}/featured", json={"is_featured": True},
+                       headers=auth)
+        check("200 with a Bearer header", resp.status_code == 200, f"got {resp.status_code}")
+        check("toggle called with the boolean", calls == [(known, True)], str(calls))
+        body = resp.get_json() or {}
+        check("response echoes the new flag", body.get("is_featured") is True, str(body))
+
+        resp = c.patch(f"/api/admin/events/{known}/featured", json={"is_featured": False},
+                       headers=auth)
+        check("unmarking works the same way", resp.status_code == 200
+              and calls[-1] == (known, False), str(calls[-1:]))
+
+        resp = c.patch(f"/api/admin/events/{unknown}/featured", json={"is_featured": True},
+                       headers=auth)
+        check("404 for an unknown event", resp.status_code == 404, f"got {resp.status_code}")
+        check("and no toggle attempted", len(calls) == 2, str(calls))
+    finally:
+        app_mod.get_event_by_id, app_mod.toggle_featured = original_get, original_toggle
+        auth_mod.invalidate_epoch_cache()
+
+
 def main():
     print("Admin auth regression tests (offline)")
     for fn in (
@@ -501,6 +554,7 @@ def main():
         test_revoke_route_refuses_cookie_only_auth,
         test_audit_log_records_only_authenticated_writes,
         test_pledge_drive_routes,
+        test_featured_toggle_route,
     ):
         fn()
 

@@ -652,6 +652,63 @@
             color: var(--wyxr-black);
         }
 
+        /* Admin mode — only rendered for a logged-in admin (dev/frontend.md,
+           "Admin mode on the public page"). Public visitors never see these. */
+        .event-modal-btn-admin { border-color: var(--wyxr-yellow); color: var(--wyxr-yellow); }
+        .event-modal-btn-admin:hover { border-color: var(--wyxr-yellow); color: var(--wyxr-white); }
+        .event-modal-btn-admin[aria-pressed="true"] { background: var(--wyxr-yellow); color: var(--wyxr-black); }
+        .event-modal-btn-admin[aria-pressed="true"]:hover { color: var(--wyxr-black); opacity: 0.88; }
+        .event-modal-btn-admin:disabled { opacity: 0.5; cursor: wait; }
+        .pick-toggle {
+            margin-left: auto;
+            flex-shrink: 0;
+            background: none;
+            border: 0;
+            padding: 0 6px;
+            font-size: 1.15em;
+            line-height: 1;
+            color: var(--wyxr-dim);
+            opacity: 0.55;
+            cursor: pointer;
+        }
+        .pick-toggle:hover, .pick-toggle:focus-visible { opacity: 1; color: var(--wyxr-yellow); outline: 2px solid var(--wyxr-yellow); outline-offset: 1px; border-radius: 3px; }
+        .pick-toggle:hover { outline: none; }
+        .pick-toggle[aria-pressed="true"] { color: var(--wyxr-yellow); opacity: 1; }
+        .admin-pill {
+            position: fixed;
+            right: 12px;
+            bottom: 12px;
+            z-index: 150;
+            background: var(--wyxr-yellow);
+            color: var(--wyxr-black);
+            font-family: 'Anybody', sans-serif;
+            font-weight: 800;
+            font-size: 0.72em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 6px 10px;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        }
+        .admin-pill:hover { color: var(--wyxr-black); opacity: 0.9; }
+        body.has-subscribe-footer .admin-pill { bottom: 60px; }
+        .admin-notice {
+            position: fixed;
+            right: 12px;
+            bottom: 48px;
+            z-index: 310; /* above the modal (300) so a failed toggle is seen */
+            background: var(--wyxr-charcoal);
+            color: var(--wyxr-white);
+            border: 1px solid var(--wyxr-yellow);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 0.85em;
+            max-width: 320px;
+        }
+        body.has-subscribe-footer .admin-notice { bottom: 96px; }
+        .admin-pill[hidden], .admin-notice[hidden] { display: none; }
+
         /* Fund Drive Banner (admin-toggled; percent read live from wyxr.org).
            Coral is deliberately not used anywhere else on the page so the drive
            reads as an announcement, not another sponsor slot. */
@@ -1207,6 +1264,11 @@
         </div>
     </footer>
 
+    <!-- Admin mode: unhidden by JS only after /api/admin/me confirms a live
+         admin session. Anonymous visitors never trigger that request. -->
+    <a href="/admin/" id="adminPill" class="admin-pill" hidden>Admin mode &middot; Open admin</a>
+    <div id="adminNotice" class="admin-notice" role="status" hidden></div>
+
     <!-- Sticky Subscribe Footer -->
     <div class="subscribe-footer" id="subscribeFooter" role="complementary" aria-label="Subscribe to newsletter">
         <div class="subscribe-footer-inner">
@@ -1670,21 +1732,7 @@
                 imgWrap.style.display = 'none';
             }
 
-            const badgesEl = document.getElementById('eventModalBadges');
-            badgesEl.innerHTML = '';
-            if (ev.is_wyxr_presents) {
-                const b = document.createElement('span');
-                b.className = 'event-modal-badge-presents';
-                b.textContent = 'WYXR Presents';
-                badgesEl.appendChild(b);
-            }
-            if (ev.is_featured) {
-                const b = document.createElement('span');
-                b.className = 'event-modal-badge-pick';
-                b.textContent = 'WYXR Pick';
-                badgesEl.appendChild(b);
-            }
-            badgesEl.style.display = badgesEl.children.length > 0 ? 'flex' : 'none';
+            renderModalBadges(ev);
 
             document.getElementById('eventModalTitle').textContent = ev.title || '';
 
@@ -1796,6 +1844,7 @@
                 }
             });
             secRow.appendChild(shareBtn);
+            if (adminMode) renderAdminControls(ev, secRow);
             actionsEl.appendChild(secRow);
 
             const safeTicketUrl = safeUrl(ev.ticket_url);
@@ -1896,18 +1945,209 @@
             });
 
             eventList.addEventListener('click', (e) => {
+                // Admin-mode star sits inside the row: toggle, don't open.
+                const star = e.target.closest('[data-pick-toggle]');
+                if (star) {
+                    e.stopPropagation();
+                    togglePick(star.dataset.pickToggle, null);
+                    return;
+                }
                 const row = e.target.closest('[data-event-id]');
                 if (!row) return;
                 openEventModal(row.dataset.eventId, row);
             });
             eventList.addEventListener('keydown', (e) => {
                 if (e.key !== 'Enter' && e.key !== ' ') return;
+                // Enter/Space on the star fires its own click; closest() would
+                // otherwise walk up to the row and open the modal as well.
+                if (e.target.closest('[data-pick-toggle]')) return;
                 const row = e.target.closest('[data-event-id]');
                 if (!row) return;
                 e.preventDefault();
                 openEventModal(row.dataset.eventId, row);
             });
         })();
+
+        // ---- Admin mode: WYXR Pick toggle for a logged-in admin ----
+        //
+        // /admin/ shares this origin, so a tab that went through the admin
+        // login carries sessionStorage.admin_token. Other tabs only carry the
+        // non-secret localStorage hint that admin-common.js sets alongside it.
+        // Either one earns a single credentialed GET /api/admin/me; anonymous
+        // visitors (neither set) make no admin request at all. A 401 anywhere
+        // drops admin mode in place — never a redirect, this is still the
+        // public page. See dev/frontend.md, "Admin mode on the public page".
+        const ADMIN_TOKEN_KEY = 'admin_token';
+        const ADMIN_HINT_KEY = 'wyxr_admin_hint';
+        let adminMode = false;
+        let adminToken = null;
+        const _adminMaybe = (() => {
+            try {
+                return !!(sessionStorage.getItem(ADMIN_TOKEN_KEY) || localStorage.getItem(ADMIN_HINT_KEY));
+            } catch (err) { return false; }
+        })();
+
+        async function adminFetch(path, opts = {}) {
+            const ctrl = new AbortController();
+            const timer = setTimeout(() => ctrl.abort(), 20000);
+            try {
+                const headers = Object.assign({}, opts.headers || {});
+                if (adminToken) headers['Authorization'] = 'Bearer ' + adminToken;
+                return await fetch(API_BASE + path, Object.assign({}, opts, {
+                    headers, credentials: 'include', signal: ctrl.signal,
+                }));
+            } finally { clearTimeout(timer); }
+        }
+
+        async function detectAdminMode() {
+            if (!_adminMaybe) return;
+            try { adminToken = sessionStorage.getItem(ADMIN_TOKEN_KEY); } catch (err) { adminToken = null; }
+            let resp;
+            try { resp = await adminFetch('/api/admin/me'); }
+            catch (err) { return; } // offline or cold start: keep the hint for next load
+            if (resp.status === 401 || resp.status === 403) { dropAdminMode(null); return; }
+            if (!resp.ok) return;
+            let data = null;
+            try { data = await resp.json(); } catch (err) { return; }
+            if (data && data.token) {
+                adminToken = data.token;
+                try { sessionStorage.setItem(ADMIN_TOKEN_KEY, data.token); } catch (err) { /* storage blocked */ }
+            }
+            enterAdminMode();
+        }
+
+        function enterAdminMode() {
+            adminMode = true;
+            const pill = document.getElementById('adminPill');
+            if (pill) pill.hidden = false;
+            if (allEvents.length) renderEvents();
+            // A deep-linked modal may already be open by the time /me answers.
+            if (_emCurrentId && eventsById[_emCurrentId]) renderAdminControls(eventsById[_emCurrentId], null);
+        }
+
+        function dropAdminMode(message) {
+            adminMode = false;
+            adminToken = null;
+            try { sessionStorage.removeItem(ADMIN_TOKEN_KEY); } catch (err) { /* ignore */ }
+            try { localStorage.removeItem(ADMIN_HINT_KEY); } catch (err) { /* ignore */ }
+            const pill = document.getElementById('adminPill');
+            if (pill) pill.hidden = true;
+            document.querySelectorAll('.event-modal-btn-admin').forEach(b => b.remove());
+            if (allEvents.length) renderEvents();
+            if (message) showAdminError(message);
+        }
+
+        function renderModalBadges(ev) {
+            const badgesEl = document.getElementById('eventModalBadges');
+            badgesEl.innerHTML = '';
+            if (ev.is_wyxr_presents) {
+                const b = document.createElement('span');
+                b.className = 'event-modal-badge-presents';
+                b.textContent = 'WYXR Presents';
+                badgesEl.appendChild(b);
+            }
+            if (ev.is_featured) {
+                const b = document.createElement('span');
+                b.className = 'event-modal-badge-pick';
+                b.textContent = 'WYXR Pick';
+                badgesEl.appendChild(b);
+            }
+            badgesEl.style.display = badgesEl.children.length > 0 ? 'flex' : 'none';
+        }
+
+        function syncAdminButton(btn, ev) {
+            if (!btn) return;
+            const on = !!ev.is_featured;
+            btn.textContent = on ? '\u2605 Remove WYXR Pick' : '\u2606 Mark as WYXR Pick';
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+
+        // Adds the pick button to the modal's secondary row. Idempotent.
+        function renderAdminControls(ev, row) {
+            const actionsEl = document.getElementById('eventModalActions');
+            const secRow = row || actionsEl.querySelector('.event-modal-btn-secondary-row');
+            if (!secRow || secRow.querySelector('.event-modal-btn-admin')) return;
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'event-modal-btn-secondary event-modal-btn-admin';
+            syncAdminButton(btn, ev);
+            btn.addEventListener('click', () => togglePick(ev.id, btn));
+            secRow.appendChild(btn);
+        }
+
+        let _adminNoticeTimer = null;
+        function showAdminError(msg) {
+            const el = document.getElementById('adminNotice');
+            if (!el) return;
+            el.textContent = msg;
+            el.hidden = false;
+            clearTimeout(_adminNoticeTimer);
+            _adminNoticeTimer = setTimeout(() => { el.hidden = true; }, 4000);
+        }
+
+        // Per-row star for renderEvents(). Empty string unless in admin mode,
+        // so the public markup is byte-identical to before. Only e.id and
+        // e.title are interpolated, both through escAttr (attribute context).
+        function rowStar(e) {
+            if (!adminMode) return '';
+            const on = !!e.is_featured;
+            const label = (on ? 'Remove WYXR Pick: ' : 'Mark as WYXR Pick: ') + (e.title || '');
+            return `<button type="button" class="pick-toggle" data-pick-toggle="${escAttr(e.id)}" aria-pressed="${on ? 'true' : 'false'}" aria-label="${escAttr(label)}" title="${on ? 'Remove WYXR Pick' : 'Mark as WYXR Pick'}">\u2605</button>`;
+        }
+
+        // Optimistic toggle with write-through to the localStorage cache and
+        // revert on failure. Never opens/closes the modal or touches history.
+        const _pickInFlight = new Set();
+        async function togglePick(eventId, btn) {
+            const ev = eventsById[eventId];
+            if (!ev || !adminMode || _pickInFlight.has(eventId)) return;
+            const next = !ev.is_featured;
+            const starHadFocus = !!(document.activeElement && document.activeElement.matches &&
+                document.activeElement.matches('[data-pick-toggle]'));
+            const apply = (val) => {
+                ev.is_featured = val;
+                setCachedEvents(allEvents);
+                renderEvents();
+                if (starHadFocus) {
+                    const star = eventList.querySelector(`[data-pick-toggle="${CSS.escape(eventId)}"]`);
+                    if (star) star.focus();
+                }
+                if (_emCurrentId === eventId) {
+                    renderModalBadges(ev);
+                    syncAdminButton(document.querySelector('#eventModalActions .event-modal-btn-admin'), ev);
+                    // renderEvents() rebuilt the rows, so the element that close
+                    // would return focus to is now detached — re-point it.
+                    const row = eventList.querySelector(`[data-event-id="${CSS.escape(eventId)}"]`);
+                    if (row) _emLastFocused = row;
+                }
+            };
+            _pickInFlight.add(eventId);
+            if (btn) btn.disabled = true;
+            apply(next);
+            try {
+                const resp = await adminFetch(`/api/admin/events/${encodeURIComponent(eventId)}/featured`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ is_featured: next }),
+                });
+                if (resp.status === 401) {
+                    apply(!next);
+                    dropAdminMode('Session expired \u2014 log in again at /admin/');
+                    return;
+                }
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                let data = null;
+                try { data = await resp.json(); } catch (err) { data = null; }
+                // The server row is the truth; re-apply only if it disagrees.
+                if (data && typeof data.is_featured === 'boolean' && data.is_featured !== ev.is_featured) apply(data.is_featured);
+            } catch (err) {
+                apply(!next);
+                showAdminError('Could not update the pick \u2014 try again');
+            } finally {
+                _pickInFlight.delete(eventId);
+                if (btn && btn.isConnected) btn.disabled = false;
+            }
+        }
 
         // ---- Data Loading (stale-while-revalidate with localStorage) ----
         const CACHE_KEY = 'wyxr_events_cache';
@@ -2017,7 +2257,11 @@
             const startDate = new Date(minYear, minMonth, 1).toISOString().split('T')[0];
             const endDate = new Date(maxYear, maxMonth + 1, 0).toISOString().split('T')[0];
             let url = `${API_BASE}/api/events?start_date=${startDate}&end_date=${endDate}`;
-            if (bustCache) url += `&_t=${Date.now()}`;
+            // Admins bypass the 120 s HTTP cache on /api/events: otherwise a
+            // reload right after a pick toggle re-renders the stale copy and
+            // the star visibly reverts. Decided synchronously (_adminMaybe)
+            // so it also covers the very first fetch.
+            if (bustCache || _adminMaybe) url += `&_t=${Date.now()}`;
 
             const resp = await fetch(url);
             if (!resp.ok) throw new Error(`API error ${resp.status}`);
@@ -2445,7 +2689,7 @@
                             let line = `<span class="artist">${esc(e.title)}</span> — `;
                             line += `<span class="venue">${esc(e.venue || '')}</span>`;
                             if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                            pickItems += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span></li>`;
+                            pickItems += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span>${rowStar(e)}</li>`;
                         });
                         eventLines += `<li class="venue-group featured-group"><div class="featured-group-header"><span class="featured-badge">${label}</span></div><ul class="venue-artists">${pickItems}</ul></li>`;
                     }
@@ -2456,7 +2700,7 @@
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
                         const badge = '<span class="presents-badge">WYXR Presents</span> ';
-                        eventLines += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${badge}${line}</span></li>`;
+                        eventLines += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${badge}${line}</span>${rowStar(e)}</li>`;
                     });
                 }
 
@@ -2480,7 +2724,7 @@
                         let line = `<span class="artist">${esc(e.title)}</span> — `;
                         line += `<span class="venue">${esc(e.venue || '')}</span>`;
                         if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                        eventLines += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span></li>`;
+                        eventLines += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span>${rowStar(e)}</li>`;
                     } else {
                         const venueName = events[0].venue || '';
                         const times = events.map(e => e.start_time);
@@ -2493,7 +2737,7 @@
                             if (!allSameTime && e.start_time) {
                                 artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
                             }
-                            artistItems += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${artistText}</span></li>`;
+                            artistItems += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${artistText}</span>${rowStar(e)}</li>`;
                         });
 
                         let footer = `<span class="venue">${esc(venueName)}</span>`;
@@ -2640,6 +2884,7 @@
         // ---- Init ----
         updateMonthDisplay();
         loadAllEvents();
+        detectAdminMode(); // no-op for anonymous visitors; never blocks events
     })();
     </script>
     <script defer src="/_vercel/insights/script.js"></script>

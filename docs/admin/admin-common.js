@@ -13,16 +13,25 @@ const AdminAPI = (() => {
     // API base URL — must be set via window.__API_BASE
     const BASE = window.__API_BASE || '';
 
+    // Non-secret "an admin logged in from this browser" marker. sessionStorage
+    // is per-tab, so the public calendar (same origin, often a different tab)
+    // cannot see the token; it reads this hint instead and, only when set,
+    // asks /api/admin/me whether the cookie session is still alive. It holds
+    // no credential — it just spares anonymous visitors that request.
+    const ADMIN_HINT_KEY = 'wyxr_admin_hint';
+
     function getToken() {
         return sessionStorage.getItem('admin_token');
     }
 
     function setToken(token) {
         sessionStorage.setItem('admin_token', token);
+        try { localStorage.setItem(ADMIN_HINT_KEY, '1'); } catch (e) { /* storage blocked */ }
     }
 
     function clearToken() {
         sessionStorage.removeItem('admin_token');
+        try { localStorage.removeItem(ADMIN_HINT_KEY); } catch (e) { /* storage blocked */ }
     }
 
     function headers(extra = {}) {
