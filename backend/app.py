@@ -243,23 +243,39 @@ def _payload_too_large(_e):
 # ---------------------------------------------------------------------------
 
 _db_ready = False
+# When init_db() had to defer a migration step (schema lock held by a build in
+# flight), don't retry on every request — each attempt can wait up to the DDL
+# lock_timeout. Retry at most this often, and serve on the existing schema in
+# between.
+DB_INIT_RETRY_SECONDS = 60
+_db_retry_after = 0.0
 
 print("[startup] App loaded (DB init deferred to first request)", flush=True)
 
 
 @app.before_request
 def _ensure_db():
-    global _db_ready
+    global _db_ready, _db_retry_after
     if _db_ready:
         return
     # Skip DB init for health/root check — must respond instantly
     if request.path in ("/health", "/"):
         return
+    if time.monotonic() < _db_retry_after:
+        return
     try:
         print("[startup] Connecting to database...", flush=True)
-        init_db()
-        _db_ready = True
-        print("[startup] Database initialized OK", flush=True)
+        if init_db():
+            _db_ready = True
+            print("[startup] Database initialized OK", flush=True)
+        else:
+            # Schema not current yet: a migration step is waiting on a lock
+            # another process holds. Keep _db_ready False and try again later.
+            _db_retry_after = time.monotonic() + DB_INIT_RETRY_SECONDS
+            print(
+                f"[startup] Schema migration deferred; retrying in {DB_INIT_RETRY_SECONDS}s",
+                flush=True,
+            )
     except Exception as e:
         # Leave _db_ready False so the next request retries initialization
         print(f"[startup] WARNING: Could not initialize database: {e}", flush=True)

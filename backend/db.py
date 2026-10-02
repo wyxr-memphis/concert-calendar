@@ -107,6 +107,11 @@ _SCHEMA_COLUMNS = {
 }
 
 
+# Set by _ddl_cursor() when a migration step gave up waiting for a lock. Read
+# (and reset) by init_db() so it can report that the schema is not yet current.
+_ddl_deferred = 0
+
+
 @contextmanager
 def _ddl_cursor():
     """Cursor for schema changes, with a bounded lock wait.
@@ -117,12 +122,30 @@ def _ddl_cursor():
     reads down with it. That is exactly how a stalled build plus a concurrent
     deploy took the API offline on 2026-07-29.
 
-    Failing fast instead leaves the app serving on the existing schema, and the
-    migration retries on the next boot.
+    Failing fast instead leaves the app serving on the existing schema. The
+    timeout is swallowed *per step*, so an uncontended table's DDL still runs
+    when a different table is locked: on 2026-10-02 a build was mid-batch on
+    ``events`` while a deploy added columns to ``submissions``, the first ALTER
+    on ``events`` timed out, and the abandoned run left ``submissions`` without
+    its new columns for every request until the next boot. init_db() reports
+    the deferral so the caller keeps retrying until the schema is current.
     """
+    global _ddl_deferred
     with get_cursor() as cur:
         cur.execute("SET LOCAL lock_timeout = '5s'")
-        yield cur
+        try:
+            yield cur
+        except psycopg2.errors.LockNotAvailable as e:
+            # Roll back the aborted transaction ourselves so get_cursor()'s
+            # commit on the way out is a clean no-op, then carry on to the
+            # next step.
+            cur.connection.rollback()
+            _ddl_deferred += 1
+            print(
+                f"[init_db] WARNING: migration step skipped — timed out waiting for a "
+                f"schema lock ({str(e).strip().splitlines()[0]}). Will retry.",
+                flush=True,
+            )
 
 
 def _schema_is_current():
@@ -166,19 +189,27 @@ def init_db():
     more than speed: DDL takes exclusive locks, and a blocked exclusive request
     blocks all reads behind it.
 
+    Returns True when the schema is current on exit, False when one or more
+    migration steps had to be deferred because another process (typically a
+    build mid-batch) held a lock. On False the app is still serving, on the
+    existing schema, and the caller should call again later.
+
     Venue seeding always runs — it adds newly-configured venues to an existing
     table, not only to an empty one.
     """
+    global _ddl_deferred
+    schema_ok = True
     if _schema_is_current():
         print("[init_db] schema current — skipping migrations", flush=True)
     else:
-        try:
-            _run_migrations()
-        except psycopg2.errors.LockNotAvailable:
+        _ddl_deferred = 0
+        _run_migrations()
+        if _ddl_deferred:
+            schema_ok = False
             print(
-                "[init_db] WARNING: timed out waiting for schema locks — another "
-                "process is holding them. Serving on the existing schema; "
-                "migrations will retry on the next boot.",
+                f"[init_db] WARNING: {_ddl_deferred} migration step(s) deferred — another "
+                "process is holding schema locks. Serving on the existing schema; "
+                "migrations will retry shortly.",
                 flush=True,
             )
 
@@ -186,6 +217,8 @@ def init_db():
         _seed_venues_if_empty()
     except Exception as e:
         print(f"[init_db] Warning: venue seeding failed: {e}", flush=True)
+
+    return schema_ok
 
 
 def _run_migrations():

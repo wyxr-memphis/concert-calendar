@@ -25,6 +25,15 @@
 when every table and column already exists — the case on every deploy after the first.
 Migrations that do run use `_ddl_cursor()`, which sets `lock_timeout = 5s`.
 
+**A lock timeout skips that one step, not the whole run, and the app keeps retrying.**
+`_ddl_cursor()` swallows `LockNotAvailable` per step and counts it; `init_db()` then returns
+`False`, and `_ensure_db()` in `backend/app.py` leaves `_db_ready` unset and tries again no
+more than once a minute (`DB_INIT_RETRY_SECONDS`), serving on the existing schema in between.
+**Why:** on 2026-10-02 a build was mid-batch on `events` when a deploy added columns to
+`submissions`. The first `ALTER TABLE events` timed out, the old code abandoned the entire run
+and marked the DB ready, and every public submission 500'd on the missing columns until the
+next boot — even though nothing was holding a lock on `submissions`.
+
 **Why:** `CREATE TABLE` / `ALTER TABLE` need an ACCESS EXCLUSIVE lock, and in Postgres a
 *queued* exclusive request blocks every later query on that table — so a blocked boot takes
 plain reads down with it. On 2026-07-29 a stalled build held a lock on `events` while a deploy

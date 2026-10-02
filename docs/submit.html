@@ -802,7 +802,20 @@
                     body: JSON.stringify(payload),
                 });
 
-                const data = await resp.json();
+                // A 5xx comes back as an HTML error page, not JSON. Parse
+                // failures used to fall through to the "check your connection"
+                // message, which sent people chasing their wifi when the
+                // server was the problem.
+                let data;
+                try {
+                    data = await resp.json();
+                } catch (parseErr) {
+                    data = {
+                        success: false,
+                        errors: ['The calendar server could not save your event right now. '
+                               + 'Please wait a minute and try again.'],
+                    };
+                }
 
                 if (resp.ok && data.success) {
                     // Show success
