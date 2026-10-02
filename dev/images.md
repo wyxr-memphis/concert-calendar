@@ -65,6 +65,21 @@ images someone chose to publish.
 - **Bytes are freed** on approve (after upload), on reject, and by a 90-day sweep
   (`purge_stale_submission_images()`) at the start of the daily build.
 
+### Optional event details (2026-10-02)
+
+Besides the flyer, the form also takes **doors time, ticket link, ticket price, and genre** —
+the same optional fields the admin editor has. They live on the `submissions` row
+(`doors_time`, `ticket_url`, `ticket_price`, `genre`, registered in
+`_SCHEMA_COLUMNS["submissions"]`) and are copied onto the event by both approve paths: the
+one-click Approve route and the Edit & Approve handoff into `admin/edit.html`.
+
+- **`ticket_url` is scheme-checked twice** — `safe_http_url()` rejects anything but http(s) at
+  submit time, and the approve route re-checks before the value reaches `events.ticket_url`.
+  The admin card runs it through `safeUrl()` before it becomes an `href`.
+- **Times post as 24-hour `HH:MM`** from `<input type="time">` and are stored as `TIME`. They
+  become am/pm strings via `format_time_of_day` on approve, same as `event_time` →
+  `start_time`. Neighborhood, featured, and WYXR Presents stay admin-only.
+
 ⚠️ `image_data` must never reach `jsonify` — psycopg2 returns it as a `memoryview` and
 `serialize_event()` doesn't convert it, which would break the whole admin Submissions tab. All
 submission queries select `_SUBMISSION_COLUMNS` (which exposes a derived `has_image` boolean

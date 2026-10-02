@@ -67,11 +67,21 @@ CREATE TABLE IF NOT EXISTS submissions (
   reviewed_at TIMESTAMP,
   reviewed_by VARCHAR(100),
   created_event_id VARCHAR(255),
-  honeypot VARCHAR(255)
+  honeypot VARCHAR(255),
+  image_data BYTEA,
+  image_mime VARCHAR(40),
+  image_filename VARCHAR(255),
+  image_rights_confirmed BOOLEAN DEFAULT false,
+  submitter_ip_hash VARCHAR(64),
+  doors_time TIME,
+  ticket_url TEXT,
+  ticket_price VARCHAR(100),
+  genre VARCHAR(100)
 );
 
 CREATE INDEX IF NOT EXISTS idx_submissions_status ON submissions(status);
 CREATE INDEX IF NOT EXISTS idx_submissions_date ON submissions(submitted_at DESC);
+CREATE INDEX IF NOT EXISTS idx_submissions_ip_hash ON submissions(submitter_ip_hash, submitted_at DESC);
 
 -- Dismissed venue names (unmapped venue names that are not real venues)
 -- A dismissed name re-appears automatically if new events are imported after the dismissal date

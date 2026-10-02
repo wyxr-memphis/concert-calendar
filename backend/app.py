@@ -31,7 +31,7 @@ from flask_cors import CORS, cross_origin
 from flask_compress import Compress
 import requests as http_requests
 
-from backend.event_page import render_event_page, render_missing_page
+from backend.event_page import render_event_page, render_missing_page, safe_http_url
 import backend.pledge_drive as pledge_drive
 from backend.images import (
     MAX_SUBMISSION_IMAGE_BYTES,
@@ -390,7 +390,8 @@ def _hash_ip(ip):
 # Slack Notifications
 # ---------------------------------------------------------------------------
 
-def _notify_slack_new_submission(artist_name, venue, event_date, event_time, submitter_name, description=None, has_image=False):
+def _notify_slack_new_submission(artist_name, venue, event_date, event_time, submitter_name, description=None, has_image=False,
+                                 doors_time=None, ticket_url=None, ticket_price=None, genre=None):
     """Post a new submission notification to Slack. Fails silently."""
     webhook_url = os.environ.get("SLACK_WEBHOOK_URL")
     if not webhook_url:
@@ -400,6 +401,16 @@ def _notify_slack_new_submission(artist_name, venue, event_date, event_time, sub
     # rest of the calendar.
     pretty_time = format_time_of_day(event_time)
     time_str = f" at {pretty_time}" if pretty_time else ""
+    pretty_doors = format_time_of_day(doors_time)
+    if pretty_doors:
+        time_str += f" (doors {pretty_doors})"
+    extra_lines = ""
+    if genre:
+        extra_lines += f"\n*Genre:* {genre}"
+    if ticket_price:
+        extra_lines += f"\n*Price:* {ticket_price}"
+    if ticket_url:
+        extra_lines += f"\n*Tickets:* {ticket_url}"
     desc_str = f"\n> {description}" if description else ""
     admin_url = "https://concert-calendar.wyxr.org/admin/#submissions"
 
@@ -409,7 +420,8 @@ def _notify_slack_new_submission(artist_name, venue, event_date, event_time, sub
         f":musical_note: *New event submission needs review*\n"
         f"*Artist:* {artist_name}\n"
         f"*Venue:* {venue}\n"
-        f"*Date:* {event_date}{time_str}\n"
+        f"*Date:* {event_date}{time_str}"
+        f"{extra_lines}\n"
         f"*Submitted by:* {submitter_name}"
         f"{desc_str}{image_str}\n"
         f"<{admin_url}|Review in Admin UI>"
@@ -457,6 +469,11 @@ def public_submit_event():
     description = (body.get("description") or "").strip() or None
     submitter_name = (body.get("submitter_name") or "").strip()
     submitter_email = (body.get("submitter_email") or "").strip()
+    # Optional event details — mirror the admin editor's fields. All untrusted.
+    doors_time = (body.get("doors_time") or "").strip() or None
+    ticket_url = (body.get("ticket_url") or "").strip() or None
+    ticket_price = (body.get("ticket_price") or "").strip() or None
+    genre = (body.get("genre") or "").strip() or None
 
     if not artist_name:
         errors.append("Artist / band name is required")
@@ -491,6 +508,23 @@ def public_submit_event():
 
     if description and len(description) > 500:
         errors.append("Description must be 500 characters or less")
+
+    # <input type="time"> posts HH:MM; anything else is a hand-crafted request.
+    for label, value in (("Time", event_time), ("Doors time", doors_time)):
+        if value and not re.fullmatch(r"\d{2}:\d{2}(:\d{2})?", value):
+            errors.append(f"{label} must be in HH:MM format")
+
+    if ticket_url:
+        if len(ticket_url) > 2000:
+            errors.append("Ticket link must be 2000 characters or less")
+        elif not safe_http_url(ticket_url):
+            errors.append("Ticket link must start with http:// or https://")
+
+    if ticket_price and len(ticket_price) > 100:
+        errors.append("Ticket price must be 100 characters or less")
+
+    if genre and len(genre) > 100:
+        errors.append("Genre must be 100 characters or less")
 
     # Optional flyer image, sent as a base64 data URL. Held in Postgres — it is
     # NOT uploaded to Cloudinary here. Anonymous submissions must never consume
@@ -541,11 +575,16 @@ def public_submit_event():
         "image_filename": (body.get("image_filename") or "")[:255] or None,
         "image_rights_confirmed": bool(image_bytes and body.get("image_rights_confirmed")),
         "submitter_ip_hash": ip_hash,
+        "doors_time": doors_time,
+        "ticket_url": ticket_url,
+        "ticket_price": ticket_price,
+        "genre": genre,
     })
 
     _notify_slack_new_submission(
         artist_name, venue, event_date, event_time, submitter_name, description,
         has_image=bool(image_bytes),
+        doors_time=doors_time, ticket_url=ticket_url, ticket_price=ticket_price, genre=genre,
     )
 
     return jsonify({
@@ -1019,8 +1058,17 @@ def admin_submission_approve(submission_id):
     }
     if sub.get("event_time"):
         event_data["start_time"] = format_time_of_day(sub["event_time"])
+    if sub.get("doors_time"):
+        event_data["doors_time"] = format_time_of_day(sub["doors_time"])
     if sub.get("description"):
         event_data["description"] = sub["description"]
+    # Re-check the URL scheme on the way out, not just on the way in.
+    if safe_http_url(sub.get("ticket_url")):
+        event_data["ticket_url"] = sub["ticket_url"]
+    if sub.get("ticket_price"):
+        event_data["ticket_price"] = sub["ticket_price"]
+    if sub.get("genre"):
+        event_data["genre"] = sub["genre"]
 
     # Look up venue neighborhood from DB
     venue_match = normalize_venue_from_db(sub["venue"])

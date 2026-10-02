@@ -380,10 +380,34 @@
                 <div class="field-error" id="eventDateError"></div>
             </div>
             <div class="form-group">
-                <label for="eventTime">Time</label>
+                <label for="eventTime">Show Time</label>
                 <input type="time" id="eventTime" name="event_time">
-                <div class="field-hint">Doors time (optional)</div>
+                <div class="field-hint">Optional</div>
             </div>
+            <div class="form-group">
+                <label for="doorsTime">Doors</label>
+                <input type="time" id="doorsTime" name="doors_time">
+                <div class="field-hint">Optional</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="ticketUrl">Ticket Link</label>
+                <input type="url" id="ticketUrl" name="ticket_url" maxlength="2000" placeholder="https://..." inputmode="url" autocomplete="off">
+                <div class="field-error" id="ticketUrlError"></div>
+            </div>
+            <div class="form-group">
+                <label for="ticketPrice">Ticket Price</label>
+                <input type="text" id="ticketPrice" name="ticket_price" maxlength="100" placeholder="e.g. $15 / $20 door, or Free">
+                <div class="field-error" id="ticketPriceError"></div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" name="genre" maxlength="100" placeholder="e.g. Blues, Jazz, Rock, Hip-Hop">
+            <div class="field-error" id="genreError"></div>
         </div>
 
         <div class="form-group">
@@ -565,6 +589,30 @@
                 clearError('submitterEmail', 'submitterEmailError');
             }
 
+            // Optional event details — only checked when filled in
+            const ticketUrl = document.getElementById('ticketUrl').value.trim();
+            if (ticketUrl && !/^https?:\/\//i.test(ticketUrl)) {
+                setError('ticketUrl', 'ticketUrlError', 'Ticket link must start with http:// or https://');
+            } else if (ticketUrl.length > 2000) {
+                setError('ticketUrl', 'ticketUrlError', 'Ticket link is too long');
+            } else {
+                clearError('ticketUrl', 'ticketUrlError');
+            }
+
+            const ticketPrice = document.getElementById('ticketPrice').value.trim();
+            if (ticketPrice.length > 100) {
+                setError('ticketPrice', 'ticketPriceError', 'Ticket price must be 100 characters or less');
+            } else {
+                clearError('ticketPrice', 'ticketPriceError');
+            }
+
+            const genre = document.getElementById('genre').value.trim();
+            if (genre.length > 100) {
+                setError('genre', 'genreError', 'Genre must be 100 characters or less');
+            } else {
+                clearError('genre', 'genreError');
+            }
+
             // Rights confirmation — only required when an image is attached
             if (attachedImage && !imageRights.checked) {
                 setError('imageInput', 'imageError',
@@ -731,6 +779,10 @@
                 venue: document.getElementById('venue').value.trim(),
                 event_date: document.getElementById('eventDate').value,
                 event_time: document.getElementById('eventTime').value || '',
+                doors_time: document.getElementById('doorsTime').value || '',
+                ticket_url: document.getElementById('ticketUrl').value.trim(),
+                ticket_price: document.getElementById('ticketPrice').value.trim(),
+                genre: document.getElementById('genre').value.trim(),
                 description: document.getElementById('description').value.trim(),
                 submitter_name: document.getElementById('submitterName').value.trim(),
                 submitter_email: document.getElementById('submitterEmail').value.trim(),

@@ -265,6 +265,10 @@
       "venue": "Hi Tone",
       "event_date": "2026-09-15",
       "event_time": "20:00",
+      "doors_time": "19:00",
+      "ticket_url": "https://example.com/tickets",
+      "ticket_price": "$15",
+      "genre": "Rock",
       "description": "QA test submission",
       "submitter_name": "QA Tester",
       "submitter_email": "qa@test.com"
@@ -272,9 +276,11 @@
   ```
   2. Check pending count: GET `/api/admin/submissions/pending-count`
   3. Approve it: POST `/api/admin/submissions/<id>/approve`
-  4. Verify an event was created in the events table
+  4. Verify an event was created in the events table with `doors_time` "7 PM",
+     `ticket_url`, `ticket_price`, and `genre` carried over
   5. Verify the submission status changed to "approved"
-- **Expected:** Clean lifecycle. Event created with data from submission.
+- **Expected:** Clean lifecycle. Event created with data from submission. A `ticket_url` of
+  `javascript:alert(1)` is rejected with 400 at step 1.
 - **Failure looks like:** Event not created, submission stuck in pending, or duplicate events.
 
 ### TEST-SRC-10: Reject submission, then verify no event created
