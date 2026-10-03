@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-03T19:37:30.214568+00:00",
+  "run_timestamp": "2026-10-03T22:58:40.626145+00:00",
   "date_range": {
     "start": "2026-10-03",
     "end": "2026-10-10"
   },
-  "total_events_db": 3887,
-  "total_active_display": 99,
+  "total_events_db": 3902,
+  "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,12 +49,20 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: FedExForum",
@@ -65,74 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 39,
-      "events_filtered": 249,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 53,
+      "events_after_filter": 53,
       "events_filtered": 0,
       "error": null
     },
@@ -145,10 +89,74 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -161,27 +169,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 265,
       "events_after_filter": 23,
       "events_filtered": 242,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,19 +201,19 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 52,
       "events_after_filter": 52,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
       "error": null
     },
     {
@@ -225,11 +225,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 99,
-      "events_after_filter": 99,
+      "events_found": 105,
+      "events_after_filter": 105,
       "events_filtered": 0,
       "error": null
     }
@@ -277,6 +277,13 @@
       "date": "2026-10-03",
       "time": "6:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Foxy Brown Live: The Memphis Edition: Foxy Brown",
+      "venue": "Bar DKDC",
+      "date": "2026-10-03",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
@@ -361,6 +368,13 @@
       "date": "2026-10-04",
       "time": "3 PM",
       "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Rescued Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon",
+      "venue": "Bar DKDC",
+      "date": "2026-10-04",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "FreeWorld",
@@ -545,6 +559,13 @@
       "source": "manual"
     },
     {
+      "artist": "Sweet Darlin w/ Ibex Clone",
+      "venue": "Bar DKDC",
+      "date": "2026-10-07",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Brad Birkedahl",
       "venue": "Blues City Cafe",
       "date": "2026-10-07",
@@ -636,6 +657,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Memphis Dyke Night",
+      "venue": "Bar DKDC",
+      "date": "2026-10-08",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "CowBoy Neil And The Real Deal",
       "venue": "Blues City Cafe",
       "date": "2026-10-08",
@@ -697,6 +725,13 @@
       "date": "2026-10-09",
       "time": "12 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Turnstyles Vinyl Release: Turnstyles, Arc of Quasar, Hit Parade",
+      "venue": "Bar DKDC",
+      "date": "2026-10-09",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Jacob Huffman",
@@ -816,6 +851,13 @@
       "date": "2026-10-10",
       "time": "12 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "John Prine Night!!: John Prine Night",
+      "venue": "Bar DKDC",
+      "date": "2026-10-10",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Jacob Huffman",
