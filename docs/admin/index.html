@@ -2137,7 +2137,18 @@
                     method: 'POST',
                 });
                 if (resp.ok) {
-                    showStatus(`Approved! Event "${data.title || ''}" created.`, 'success');
+                    if (data.merged_into_existing) {
+                        // The show was already on the calendar; the submission
+                        // filled in whatever that event was missing.
+                        const labels = { image_url: 'image', start_time: 'time', doors_time: 'doors time',
+                                         ticket_url: 'ticket link', ticket_price: 'price' };
+                        const added = (data.filled || []).length
+                            ? ` (added ${data.filled.map(f => labels[f] || f.replace(/_/g, ' ')).join(', ')})`
+                            : ' — nothing new to add';
+                        showStatus(`Approved! Merged into existing event "${data.title || ''}"${added}.`, 'success');
+                    } else {
+                        showStatus(`Approved! Event "${data.title || ''}" created.`, 'success');
+                    }
                     loadSubmissions();
                     loadPendingCount();
                 } else {
@@ -3384,8 +3395,13 @@
 
                 if (resp.ok || data.ok) {
                     const parts = [`${data.imported} events imported`];
+                    // Shows already on the calendar are merged, not skipped:
+                    // `updated` had blank fields filled from this import,
+                    // `duplicates` had nothing new to add.
+                    if (data.updated && data.updated.length)
+                        parts.push(`${data.updated.length} existing updated`);
                     if (data.duplicates && data.duplicates.length)
-                        parts.push(`${data.duplicates.length} duplicates skipped`);
+                        parts.push(`${data.duplicates.length} already on the calendar`);
                     if (data.skipped && data.skipped.length)
                         parts.push(`${data.skipped.length} skipped (bad dates)`);
                     const summary = parts.join(', ');

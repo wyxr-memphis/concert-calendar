@@ -197,6 +197,18 @@ else
 fi
 echo ""
 
+# Check 13c: Update-on-duplicate imports (offline — every DB helper stubbed)
+echo "1️⃣3️⃣c Running import merge tests..."
+if python3 scripts/test_import_merge.py > /tmp/import_merge_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Import merge tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Import merge tests failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/import_merge_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
 # Check 13b: Society Memphis scraper music filter (offline — no DB, no network)
 echo "1️⃣3️⃣b Running Society Memphis scraper tests..."
 if python3 scripts/test_society_scraper.py > /tmp/society_scraper_tests.log 2>&1; then

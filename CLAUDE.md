@@ -116,7 +116,7 @@ step, no bundler. Admin pages have separate JS under `docs/admin/`.
 - ⚠️ **`./test_before_push.sh` is not read-only against production.** It calls `init_db()`
   with the `.env` `DATABASE_URL`, so it applies pending migrations to the live database. For
   a migration that drops or renames anything, deploy first.
-- **Expect `21/21`, not just "all checks passed"** — `17/17` means the four Chromium browser
+- **Expect `22/22`, not just "all checks passed"** — `18/18` means the four Chromium browser
   suites silently skipped.
 - Anything new in `test_admin_auth.py` that mutates state must be stubbed — it drives the
   real app with `.env` loaded.
@@ -187,7 +187,7 @@ Tools → Trigger Build, or the Actions tab.
 
 ## Workflow preferences
 
-- **Test locally before pushing** — `./test_before_push.sh`, expect `21/21`.
+- **Test locally before pushing** — `./test_before_push.sh`, expect `22/22`.
 - **Always commit and push after completing work**, then trigger a build, wait for it to
   finish, and verify live. Don't wait to be asked.
 - Use descriptive commit messages; include "Co-Authored-By: Claude" where appropriate.
