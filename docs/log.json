@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-04T17:57:21.571870+00:00",
+  "run_timestamp": "2026-10-04T18:13:09.226892+00:00",
   "date_range": {
     "start": "2026-10-04",
     "end": "2026-10-11"
   },
-  "total_events_db": 3906,
+  "total_events_db": 3907,
   "total_active_display": 115,
   "data_store": "postgresql",
   "sources": [
@@ -33,19 +33,11 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,6 +57,22 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 51,
+      "events_after_filter": 51,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -75,8 +83,16 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -89,22 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 25,
@@ -113,10 +113,26 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -145,15 +161,7 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 72,
-      "events_after_filter": 37,
-      "events_filtered": 35,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -169,6 +177,14 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 72,
+      "events_after_filter": 37,
+      "events_filtered": 35,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 265,
@@ -177,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -201,6 +217,22 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 52,
@@ -214,22 +246,6 @@
       "events_found": 14,
       "events_after_filter": 13,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
       "error": null
     },
     {
