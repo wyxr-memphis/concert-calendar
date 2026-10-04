@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-03T22:58:40.626145+00:00",
+  "run_timestamp": "2026-10-04T11:01:26.443162+00:00",
   "date_range": {
-    "start": "2026-10-03",
-    "end": "2026-10-10"
+    "start": "2026-10-04",
+    "end": "2026-10-11"
   },
-  "total_events_db": 3902,
-  "total_active_display": 105,
+  "total_events_db": 3905,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 7,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -25,27 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 39,
+      "events_found": 38,
       "events_after_filter": 37,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,12 +49,20 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 29,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "error": null
     },
     {
       "name": "Venue: FedExForum",
@@ -73,11 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 53,
-      "events_after_filter": 53,
-      "events_filtered": 0,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -89,10 +89,34 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -115,48 +139,8 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 21,
+      "events_after_filter": 21,
       "events_filtered": 0,
       "error": null
     },
@@ -169,6 +153,14 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 265,
@@ -177,35 +169,19 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 3,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 5,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 4,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -225,6 +201,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
@@ -233,128 +217,39 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 37,
+      "events_filtered": 251,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 69,
-      "events_filtered": 2,
+      "events_after_filter": 68,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 105,
-      "events_after_filter": 105,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Dolly Parton Tribute Show",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-03",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Outside Source / Strooly / Dancealone [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-03",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Jordan Occasionally, Jamogi, Celest, Davidd, Jodi\u2019s Fable",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-03",
-      "time": "8 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Hispanic Heritage Celebration",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-03",
-      "time": "6:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Foxy Brown Live: The Memphis Edition: Foxy Brown",
-      "venue": "Bar DKDC",
-      "date": "2026-10-03",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "CowBoy Neil And The Real Deal",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-03",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "THIS IS MUSIC- Harris & Fitz",
-      "venue": "Flyway Brewing",
-      "date": "2026-10-03",
-      "time": "4 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Lakecia Benjamin",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-10-03",
-      "time": "8:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "The Satin Hour",
-      "venue": "Growlers",
-      "date": "2026-10-03",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Hidden Sixes / Red Sun Sermon [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-03",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Rice Drewry Collective",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-03",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Seeing Red",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-03",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "XAVIER WULF - THE COOL WORLD TOUR",
-      "venue": "Minglewood Hall",
-      "date": "2026-10-03",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Shell on Wheels: Evergreen Street Fair",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-03",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Xavier Wulf Skatepark Popout",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-03",
-      "time": "12 AM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
     {
       "artist": "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon",
       "venue": "38104 Bar DKDC",
@@ -871,7 +766,7 @@
       "venue": "FedExForum",
       "date": "2026-10-10",
       "time": "7 PM",
-      "source": "scraper:fedexforum"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Edgetoberfest",
@@ -983,6 +878,174 @@
       "venue": "South Main Sounds",
       "date": "2026-10-10",
       "time": "6:30PM",
+      "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "Mempho Fest",
+      "venue": "Radians Amphitheater",
+      "date": "2026-10-11",
+      "time": "12 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Sunday Tea Dance: Digital Tech, Jake Jones",
+      "venue": "Bar DKDC",
+      "date": "2026-10-11",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Tea Dance: Jake Jones, Digital Tech",
+      "venue": "Bar DKDC",
+      "date": "2026-10-11",
+      "time": "4PM-8PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-11",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-11",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "2nd Sunday Drag Bingo [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Rev & Marcia *Matinee-Free Show* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-11",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Double Ds",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-10-11",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Terry & the Wallbangers",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-10-11",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-10-11",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-10-11",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Jack & Noah",
+      "venue": "Huey's (Millington)",
+      "date": "2026-10-11",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Twin Soul Duo",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-10-11",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-11",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "T. Jarrod Bonta Band",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-10-11",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Breeze Cayolle",
+      "venue": "Huey's (Southwind)",
+      "date": "2026-10-11",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Deep Roots",
+      "venue": "Hueys (Downtown)",
+      "date": "2026-10-11",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Back in Time: Huey Lewis & The News Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-11",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-11",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Memphis improv Alliance",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-11",
+      "time": "6:30 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Joey Cash",
+      "venue": "Minglewood Hall",
+      "date": "2026-10-11",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Orion Financial Free Concert Series: Shakespeare at the Shell Presents Love\u2019s Labor\u2019s Lost",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-11",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Dona Nobis Pacem: Grant Us Peace",
+      "venue": "Scheidt Family Performing Arts Center",
+      "date": "2026-10-11",
+      "time": "2:30 PM",
+      "source": "scraper:memphis_symphony_orchestra"
+    },
+    {
+      "artist": "Kelly Hunt Live",
+      "venue": "South Main Sounds",
+      "date": "2026-10-11",
+      "time": "3:00PM",
       "source": "scraper:south_main_sounds"
     }
   ]
