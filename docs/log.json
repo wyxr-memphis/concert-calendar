@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-04T11:01:26.443162+00:00",
+  "run_timestamp": "2026-10-04T17:57:21.571870+00:00",
   "date_range": {
     "start": "2026-10-04",
     "end": "2026-10-11"
   },
-  "total_events_db": 3905,
-  "total_active_display": 114,
+  "total_events_db": 3906,
+  "total_active_display": 115,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,11 +33,27 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 51,
+      "events_after_filter": 51,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 38,
       "events_after_filter": 37,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -49,22 +65,6 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 29,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -73,11 +73,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 37,
+      "events_filtered": 251,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,14 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
@@ -121,14 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 5,
@@ -137,10 +137,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -153,10 +153,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -169,19 +177,27 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 7,
       "events_after_filter": 3,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,22 +233,6 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 37,
-      "events_filtered": 251,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 114,
-      "events_after_filter": 114,
+      "events_found": 115,
+      "events_after_filter": 115,
       "events_filtered": 0,
       "error": null
     }
@@ -258,6 +258,13 @@
       "source": "artifact"
     },
     {
+      "artist": "The Rescued Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon",
+      "venue": "Bar DKDC",
+      "date": "2026-10-04",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "John Paul Keith",
       "venue": "Huey's (Poplar)",
       "date": "2026-10-04",
@@ -265,10 +272,10 @@
       "source": "scraper:huey_s"
     },
     {
-      "artist": "The Rescued Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon",
+      "artist": "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon",
       "venue": "Bar DKDC",
       "date": "2026-10-04",
-      "time": null,
+      "time": "3 PM - 8 PM",
       "source": "artifact"
     },
     {
