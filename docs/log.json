@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-04T19:52:30.025681+00:00",
+  "run_timestamp": "2026-10-04T22:24:21.312302+00:00",
   "date_range": {
     "start": "2026-10-04",
     "end": "2026-10-11"
@@ -33,12 +33,20 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -46,6 +54,22 @@
       "events_found": 38,
       "events_after_filter": 37,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,18 +81,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
-      "events_filtered": 0,
+      "events_found": 288,
+      "events_after_filter": 37,
+      "events_filtered": 251,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -81,38 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 25,
@@ -121,7 +113,7 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
@@ -145,11 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 72,
-      "events_after_filter": 37,
-      "events_filtered": 35,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,22 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
@@ -193,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
+      "events_found": 71,
+      "events_after_filter": 37,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -209,14 +193,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 52,
@@ -225,11 +201,35 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 288,
-      "events_after_filter": 37,
-      "events_filtered": 251,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
       "error": null
     },
     {
