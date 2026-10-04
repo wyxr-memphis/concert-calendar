@@ -161,7 +161,7 @@ def test_import_confirm_merges_duplicates():
     existing = existing_row()
     enrich_calls, inserted_batches = [], []
 
-    def fake_find(title, venue, date_str, threshold=0.8):
+    def fake_find(title, venue, date_str, threshold=0.8, lineup=None):
         return dict(existing) if title.lower().startswith("sweet darlin") else None
 
     def fake_bulk(events_list):
@@ -356,7 +356,7 @@ def _run_slack(events, existing_rows, enrich_calls, inserted_batches, posts, mes
     """Drive _process_slack_image with every external surface stubbed."""
     import src.sources.artifacts as artifacts_mod
 
-    def fake_find(title, venue, date_str, threshold=0.8):
+    def fake_find(title, venue, date_str, threshold=0.8, lineup=None):
         for row in existing_rows:
             if row["title"].lower() == title.lower():
                 return dict(row)
@@ -458,10 +458,138 @@ def test_slack_nothing_to_add():
     check("nothing inserted", not inserted)
 
 
+# ---------------------------------------------------------------------------
+# 5. Same show, different title — the lineup-aware match (2026-10-04)
+# ---------------------------------------------------------------------------
+#
+# The first live test of update-on-duplicate failed: the Paws & Tunes poster
+# for the Oct 4 Rescued Pack benefit at Bar DKDC did not match the row the
+# venue's month schedule had already added, because the two titles score 0.53
+# and the matcher wanted 0.8. A third row for the same show, from an earlier
+# upload of the same poster, had been filed under "38104 Bar DKDC" (Vision
+# read the zip code into the venue) and missed on venue similarity (0.73).
+
+POSTER = "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon"
+SCHEDULE = "The Rescued Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon"
+OCT4_ROWS = [
+    {"id": "sched", "title": SCHEDULE, "venue": "Bar DKDC"},
+    {"id": "libra", "title": "Night of the Libra: DJ Larry, DJ Divje Babe, Kid Mestizo, DJ Automatic Black",
+     "venue": "Bar DKDC"},
+    {"id": "swap", "title": "Graham Winchesters Song Swap: Graham Winchester, Frank McLallen, Ben Church, Jeff Hulett",
+     "venue": "Bar DKDC"},
+    {"id": "elsewhere", "title": SCHEDULE, "venue": "Hi Tone"},
+]
+
+
+def test_split_title_acts():
+    print("\nsplit_title_acts — reading the bill back out of a title")
+    from src.models import split_title_acts
+    check("named show + acts", split_title_acts(SCHEDULE) == ["Alexis Jade", "Mary Hatley", "Kim Harmon"],
+          str(split_title_acts(SCHEDULE)))
+    check("show name with its own colon keeps the acts",
+          split_title_acts(POSTER) == ["Mary Hatley", "Alexis Jade", "Kim Garmon"], str(split_title_acts(POSTER)))
+    check("headliner w/ openers", split_title_acts("Sweet Darlin w/ Ibex Clone") == ["Sweet Darlin", "Ibex Clone"])
+    check("lone act", split_title_acts("Foxy Brown") == ["Foxy Brown"])
+    check("'&' inside a band name is not a separator",
+          split_title_acts("Dale Watson & His Lone Stars") == ["Dale Watson & His Lone Stars"])
+    check("empty title → no acts", split_title_acts("") == [] and split_title_acts(None) == [])
+
+
+def test_clean_venue_text():
+    print("\nclean_venue_text — stripping address debris Vision reads into a venue")
+    from src.models import clean_venue_text
+    cases = {
+        "38104 Bar DKDC": "Bar DKDC",
+        "Bar DKDC 964 S Cooper St": "Bar DKDC",
+        "Lamplighter Lounge, Memphis, TN 38104": "Lamplighter Lounge",
+        "B-Side Memphis 38104": "B-Side Memphis",
+        "1884 Lounge": "1884 Lounge",          # a real venue — a 4-digit number is not a zip
+        "Hi Tone": "Hi Tone",
+        "": "",
+    }
+    for raw, want in cases.items():
+        got = clean_venue_text(raw)
+        check(f"{raw!r} → {want!r}", got == want, repr(got))
+    check("never empties a venue", clean_venue_text("38104") == "38104")
+
+
+def test_lineup_aware_match():
+    print("\n_best_fuzzy_match — same show, different title")
+    from backend.db import _best_fuzzy_match, _fuzzy_norm
+    from src.models import split_title_acts
+    dkdc = {_fuzzy_norm("Bar DKDC")}
+    acts = ["Mary Hatley", "Alexis Jade", "Kim Garmon"]
+
+    m = _best_fuzzy_match(OCT4_ROWS, POSTER, dkdc, acts)
+    check("poster matches the schedule row via the shared bill", m and m["id"] == "sched", str(m and m["id"]))
+    check("…and not the Hi Tone row with the same title", m["id"] != "elsewhere")
+
+    m = _best_fuzzy_match(OCT4_ROWS, POSTER, dkdc, split_title_acts(POSTER))
+    check("works with acts read back out of the title (no Vision lineup)", m and m["id"] == "sched")
+
+    m = _best_fuzzy_match(OCT4_ROWS, "Night of the Libra: DJ Larry", dkdc, ["DJ Larry"])
+    check("ONE shared act is not enough", m is None, str(m and m["id"]))
+
+    m = _best_fuzzy_match(OCT4_ROWS, "Song Swap: Graham Winchester, Ben Church", dkdc,
+                          ["Graham Winchester", "Ben Church"])
+    check("two shared acts under a different show name match", m and m["id"] == "swap", str(m and m["id"]))
+
+    m = _best_fuzzy_match(OCT4_ROWS, POSTER, {_fuzzy_norm("Growlers")}, acts)
+    check("same bill at a different venue is a different show", m is None, str(m and m["id"]))
+
+    legacy = [{"id": "zip", "title": POSTER, "venue": "38104 Bar DKDC"}]
+    m = _best_fuzzy_match(legacy, POSTER, dkdc, acts)
+    check("a legacy row filed under the zip-code venue still matches", m and m["id"] == "zip", str(m and m["id"]))
+    m = _best_fuzzy_match(legacy, POSTER, {_fuzzy_norm("Hi Tone")}, acts)
+    check("…but containment needs the real venue name", m is None)
+
+    both = [{"id": "sched", "title": SCHEDULE, "venue": "Bar DKDC"},
+            {"id": "exact", "title": POSTER, "venue": "Bar DKDC"}]
+    m = _best_fuzzy_match(both, POSTER, dkdc, acts)
+    check("a title hit outranks a lineup-only hit", m and m["id"] == "exact", str(m and m["id"]))
+
+
+def test_slack_passes_lineup_to_matcher():
+    print("\nSlack: the Vision lineup reaches find_fuzzy_duplicate")
+    import src.sources.artifacts as artifacts_mod
+    seen = []
+
+    def fake_find(title, venue, date_str, threshold=0.8, lineup=None):
+        seen.append(lineup)
+        return None
+
+    original_extract = artifacts_mod.extract_events_from_image_bytes
+    ev = SimpleNamespace(artist=POSTER, venue="Bar DKDC", date=IN_RANGE, time="3 PM",
+                         lineup=["Mary Hatley", "Alexis Jade", "Kim Garmon"], event_name="Paws & Tunes")
+    artifacts_mod.extract_events_from_image_bytes = lambda *a, **k: [ev]
+    inserted = []
+    try:
+        with stubbed(app_mod,
+                     http_requests=_fake_http([]),
+                     _slack_post_message=lambda channel, text: None,
+                     upload_image=lambda *a, **k: None,
+                     normalize_venue_from_db=lambda v: None,
+                     is_fuzzy_duplicate=lambda *a, **k: False,
+                     find_fuzzy_duplicate=fake_find,
+                     enrich_event=lambda *a, **k: (None, []),
+                     bulk_insert_events=lambda rows: inserted.extend(rows) or [dict(r, id="n") for r in rows]):
+            app_mod._process_slack_image("F1", "C1")
+    finally:
+        artifacts_mod.extract_events_from_image_bytes = original_extract
+    check("lineup passed through", seen == [["Mary Hatley", "Alexis Jade", "Kim Garmon"]], str(seen))
+    check("_lineup never reaches the insert allowlist",
+          inserted and "_lineup" in inserted[0] and
+          "_lineup" not in __import__("backend.db", fromlist=["bulk_insert_events"]).ENRICH_FIELDS)
+
+
 def main():
     print("Import merge regression tests (offline)")
     for fn in (
         test_fields_to_fill_rule,
+        test_split_title_acts,
+        test_clean_venue_text,
+        test_lineup_aware_match,
+        test_slack_passes_lineup_to_matcher,
         test_import_confirm_merges_duplicates,
         test_submission_approve_merges_into_existing,
         test_slack_poster_enriches_existing_show,

@@ -136,7 +136,15 @@ See `dev/database.md` → "Fill-only enrichment on import". Follow-ups:
   poster fill those too.
 - A joined bill title ("Foxy Brown Live: The Memphis Edition: Foxy Brown") still scores below
   the 0.8 fuzzy bar against a lone Ticketmaster "Foxy Brown" row; that remains the ⚠️ per-act
-  warning rather than a merge.
+  warning rather than a merge. (Two shared acts *do* merge since the same-day follow-up below;
+  one shared act is deliberately not enough, so a lone-act Ticketmaster row stays a warning.)
+
+**Follow-up (2026-10-04, same day):** the first live test missed — a show's own poster named
+it differently from the venue's month schedule (titles scored 0.53), and an earlier upload had
+been filed under "38104 Bar DKDC". `find_fuzzy_duplicate` now also matches on a **shared bill**
+(≥ 2 acts in common, from the Vision `lineup` or `split_title_acts`) and compares venues by
+**containment after `clean_venue_text`** strips zip codes and street addresses; Vision venues
+are cleaned the same way before storage. See `dev/database.md` → "Fill-only enrichment on import".
 
 ---
 

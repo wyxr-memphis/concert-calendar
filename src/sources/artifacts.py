@@ -47,7 +47,7 @@ except ImportError:
     PILLOW_AVAILABLE = False
     MAX_DECODED_PIXELS = None
 
-from ..models import Event, SourceResult
+from ..models import Event, SourceResult, clean_venue_text
 from ..config import START_DATE, SCRAPER_END_DATE, normalize_venue_name
 from ..date_utils import parse_date_text
 from ..time_format import format_event_time
@@ -610,7 +610,9 @@ def _parse_vision_event(data: dict, source_image: Path) -> Optional[Event]:
     if not lineup and not event_name:
         lineup = _clean_lineup(data.get("artist"))
     title = compose_show_title(event_name, lineup)
-    venue = (data.get("venue") or "").strip()
+    # Vision copies address debris off the flyer ("38104 Bar DKDC"); strip it
+    # before alias lookup so the row lands under the real venue.
+    venue = clean_venue_text((data.get("venue") or "").strip())
     date_str = (data.get("date") or "").strip()
     time_str = (data.get("time") or "").strip()
     source_note = (data.get("source_note") or "").strip()

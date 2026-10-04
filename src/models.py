@@ -161,6 +161,62 @@ def normalize_text(text: str) -> str:
 _normalize = normalize_text
 
 
+def split_title_acts(title: str) -> List[str]:
+    """Invert ``compose_show_title``: the acts named in a calendar title.
+
+    ``"Name: A, B, C"`` → ``[A, B, C]``; ``"A w/ B, C"`` → ``[A, B, C]``;
+    ``"A"`` → ``[A]``. The show name before the first ":" is dropped — it is
+    what differs between a venue's schedule ("The Rescued Pack Benefit
+    Concert: …") and the show's own poster ("Paws & Tunes: A Benefit for The
+    Rescued Pack: …"), while the bill is what they share. Only the LAST ":"
+    splits, so a show name containing a colon keeps its acts.
+    """
+    text = (title or "").strip()
+    if not text:
+        return []
+    if ":" in text:
+        text = text.rsplit(":", 1)[1]
+    # Only the separators compose_show_title writes (plus "+", which flyers
+    # use the same way). Not "&"/"and" — those sit inside band names
+    # ("Dale Watson & His Lone Stars") far more often than between acts.
+    parts = re.split(r'\s+w/\s+|\s*,\s*|\s+\+\s+', text)
+    acts = []
+    seen = set()
+    for part in parts:
+        part = part.strip()
+        if len(part) < 2:
+            continue
+        if part.lower() in seen:
+            continue
+        seen.add(part.lower())
+        acts.append(part)
+    return acts
+
+
+def clean_venue_text(venue: str) -> str:
+    """Strip address debris Vision reads into a venue name.
+
+    A flyer prints "38104 Bar DKDC" or "Bar DKDC 964 S Cooper St" and the
+    model copies it, so the row lands under a venue string no alias knows and
+    no fuzzy check reaches ("bar dkdc" vs "38104 bar dkdc" scores 0.73 against
+    a 0.8 bar). Removes a leading 5-digit zip, a trailing zip, a trailing
+    ", Memphis, TN 38104"-style tail and a trailing street address. Never
+    empties a venue — if the strip would leave nothing, the original is
+    returned.
+    """
+    text = (venue or "").strip()
+    if not text:
+        return text
+    # Zip codes only (5 digits) — "1884 Lounge" is a real venue name.
+    cleaned = re.sub(r'^\s*\d{5}(-\d{4})?\s+', '', text)                # "38104 Bar DKDC"
+    cleaned = re.sub(r'\s*,\s*memphis\b.*$', '', cleaned, flags=re.I)  # ", Memphis, TN 38104"
+    cleaned = re.sub(r'\s+\d{5}(-\d{4})?\s*$', '', cleaned)             # trailing zip
+    cleaned = re.sub(r'\s*\d+\s+[NSEW]\.?\s+\w+\s+(st|ave|rd|blvd|dr|ln)\.?\s*$', '',
+                     cleaned, flags=re.I)                               # "964 S Cooper St"
+    cleaned = cleaned.strip(" ,-")
+    return cleaned or text
+
+
 def compute_dedup_key(title: str, venue: str, date_str: str) -> str:
     """Canonical deduplication key: normalized artist|venue|date.
 
