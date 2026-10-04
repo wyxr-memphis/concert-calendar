@@ -74,6 +74,7 @@ The three call sites that must agree:
 | the build — `canon_venue()` in `src/main.py` | `venue_lookup`, built from `SELECT name, aliases FROM venues` |
 | `scripts/backfill_dedup_key.py` | `_venue_canonical_map()`, same query |
 | `scripts/cleanup_duplicates.py` | `build_venue_canon()`, same query |
+| the API imports — `find_fuzzy_duplicate()` in `backend/db.py` | `normalize_venue_from_db`, matching rows by the raw **or** canonical spelling |
 
 **Why:** on 2026-08-20 `cleanup_duplicates.py` was the odd one out, using
 `normalize_venue_name` only. The 2026-07-15 Lamplighter bill was stored twice — once as
@@ -82,6 +83,38 @@ venues table knows and the config does not. The backfill reported **4** collisio
 cleanup found **2**, so cleanup could never clear the last two and the unique index could
 never be created. The two scripts simply disagreed about what a duplicate was. Add
 `venue_canon` to any new dedup path for the same reason.
+
+### Fill-only enrichment on import
+
+Since 2026-10-04 the three API import paths — the Slack flyer flow, Admin → Import → Confirm,
+and Admin → Submissions → Approve — **update a show that already exists instead of dropping
+the incoming data**. Before, a gig poster uploaded a week after the venue's month schedule got
+"already in the calendar" and its image never reached the row it described; an approved public
+submission silently lost its image, ticket link, price and description to `create_event`'s
+`ON CONFLICT` backstop while the UI said "Event created".
+
+- `find_fuzzy_duplicate(title, venue, date)` (`backend/db.py`) returns the matching active row:
+  exact `dedup_key` first (index hit), then SequenceMatcher ≥ 0.8 on both title and venue over
+  the same night, closest title winning. `is_fuzzy_duplicate` is now a wrapper over it.
+- `fields_to_fill(existing, incoming)` is the rule, as a pure function: a column in
+  `ENRICH_FIELDS` (`start_time`, `doors_time`, `ticket_url`, `ticket_price`, `image_url`,
+  `description`, `genre`, `neighborhood`) is written only when the stored value is NULL/blank
+  and the incoming one is not. **Nothing stored is ever replaced.** Title, venue, date, `source`
+  and the `is_*` flags are never part of a merge, so `dedup_key` needs no recompute and the
+  source-priority ladder is untouched.
+- `enrich_event(id, incoming)` applies it and returns `(row, filled_columns)` so the caller can
+  say *what* was added. Read and write are separate cursor blocks.
+- **Manual rows are filled too.** Filling an empty field never changes what the admin typed,
+  so this stays inside "never overwrite admin/manual source entries" — which is about
+  *replacing* values. The daily build (`_save_events_to_db`) is unchanged and still skips
+  manual rows entirely.
+- Submission Approve checks for the match **before** promoting the image to Cloudinary and
+  skips the upload when the existing row already has one, so no orphan is created.
+
+Not covered: `POST /api/admin/events` (the Edit & Approve path) still returns the existing row
+silently on a key collision, and a joined bill title ("Foxy Brown Live: …: Foxy Brown") still
+scores below the fuzzy bar against a lone "Foxy Brown" Ticketmaster row — that stays a ⚠️
+per-act warning in the Slack reply.
 
 ### `dedup_key` goes stale whenever normalization changes
 

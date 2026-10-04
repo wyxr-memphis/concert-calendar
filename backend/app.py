@@ -56,6 +56,8 @@ from backend.db import (
     bulk_action,
     bulk_insert_events,
     is_fuzzy_duplicate,
+    find_fuzzy_duplicate,
+    enrich_event,
     delete_events_before,
     get_scrape_logs,
     get_scraper_status_summary,
@@ -1093,11 +1095,29 @@ def admin_submission_approve(submission_id):
         if venue_match[1]:
             event_data["neighborhood"] = venue_match[1]
 
-    # Now — and only now — the submitted image goes to Cloudinary.
-    if sub.get("has_image"):
+    # Is this show already on the calendar? Then the submission fills in what
+    # the existing row is missing rather than being discarded on the dedup
+    # index (which is what create_event's ON CONFLICT backstop used to do,
+    # silently, while the UI said "Event created").
+    existing = find_fuzzy_duplicate(
+        event_data["title"], event_data["venue"], event_data["date"]
+    )
+
+    # Now — and only now — the submitted image goes to Cloudinary. Skipped when
+    # the existing row already has one: the upload would be an orphan.
+    if sub.get("has_image") and not (existing and existing.get("image_url")):
         image_url = _promote_submission_image(submission_id, sub)
         if image_url:
             event_data["image_url"] = image_url
+
+    if existing:
+        event, filled = enrich_event(existing["id"], event_data)
+        event = event or existing
+        update_submission_status(submission_id, "approved", created_event_id=str(event["id"]))
+        payload = serialize_event(event)
+        payload["merged_into_existing"] = True
+        payload["filled"] = filled
+        return jsonify(payload), 200
 
     event = create_event(event_data)
     event_id = str(event["id"]) if event else None
@@ -1303,7 +1323,7 @@ def admin_import_confirm():
         return jsonify({"error": "No events to import"}), 400
 
     valid = []
-    skipped = []
+    skipped = []  # bad dates only — duplicates are merged, not skipped
     for evt in events_to_import:
         evt.setdefault("source", "artifact")
         evt.setdefault("is_featured", False)
@@ -1313,20 +1333,21 @@ def admin_import_confirm():
             skipped.append(evt.get("title", "?"))
             continue
         evt["date"] = iso_date
-        if is_fuzzy_duplicate(evt.get("title", ""), evt.get("venue", ""), iso_date):
-            skipped.append(evt.get("title", "?"))
-            continue
         valid.append(evt)
 
     if not valid:
         return jsonify({"error": "No events with valid dates to import", "skipped": skipped}), 400
 
-    # Save to PostgreSQL
-    created = bulk_insert_events(valid)
+    # New shows insert; a show already on the calendar has its blank fields
+    # (image, time, ticket link, …) filled from the import instead of being
+    # dropped. Nothing already stored is replaced.
+    result = _import_or_enrich(valid)
 
     return jsonify({
         "ok": True,
-        "imported": len(created),
+        "imported": len(result["inserted"]),
+        "updated": [row.get("title") for row, _filled in result["updated"]],
+        "duplicates": [row.get("title") for row in result["unchanged"]],
         "skipped": skipped,
     })
 
@@ -1834,6 +1855,57 @@ def _canonical_venue(venue: str) -> str:
         return (venue or "").strip()
 
 
+# Human words for the columns a merge can fill, for Slack replies and the
+# admin status line ("added image, time").
+_FILLED_LABELS = {
+    "image_url": "image",
+    "start_time": "time",
+    "doors_time": "doors time",
+    "ticket_url": "ticket link",
+    "ticket_price": "price",
+    "description": "description",
+    "genre": "genre",
+    "neighborhood": "neighborhood",
+}
+
+
+def _describe_filled(filled) -> str:
+    return ", ".join(_FILLED_LABELS.get(f, f) for f in filled)
+
+
+def _import_or_enrich(event_dicts):
+    """Insert the events that are new; fill the blanks on the ones that exist.
+
+    Shared by the Slack flyer flow and Admin → Import → Confirm. Each dict must
+    already carry a normalized title/venue/ISO date. For every event:
+
+      * ``find_fuzzy_duplicate`` finds the active row already describing that
+        show (exact dedup_key first, then same-night fuzzy title+venue);
+      * a match is passed to ``enrich_event``, which writes only the columns
+        the stored row has blank — image, time, ticket link, price,
+        description — and never title/venue/date/source. The row lands in
+        ``updated`` (something was filled) or ``unchanged`` (nothing to add);
+      * no match → inserted in one ``bulk_insert_events`` call at the end.
+
+    Returns ``{"inserted": [rows], "updated": [(row, filled)], "unchanged": [rows]}``.
+    """
+    to_insert, updated, unchanged = [], [], []
+    for d in event_dicts:
+        match = find_fuzzy_duplicate(d.get("title", ""), d.get("venue", ""), d.get("date", ""))
+        if not match:
+            to_insert.append(d)
+            continue
+        row, filled = enrich_event(match["id"], d)
+        if row is None:
+            unchanged.append(match)
+        elif filled:
+            updated.append((row, filled))
+        else:
+            unchanged.append(row)
+    inserted = bulk_insert_events(to_insert) if to_insert else []
+    return {"inserted": inserted, "updated": updated, "unchanged": unchanged}
+
+
 # Venue strings that mean "I could not tell" — Claude Vision returns one of
 # these when the flyer never prints its own venue name (a venue's own monthly
 # schedule usually doesn't). They must never reach the calendar as a venue.
@@ -2063,17 +2135,18 @@ def _process_slack_image(file_id: str, channel_id: str):
             )
             return
 
-        # 5. Filter to date range and skip duplicates already in DB (fuzzy match)
+        # 5. Filter to date range. Shows already on the calendar are NOT dropped
+        # here any more: _import_or_enrich below fills their blank fields
+        # (the flyer image, a start time) and the reply reports them under
+        # "existing events updated" instead of pretending they weren't seen.
         events_to_insert = []
         for event in events:
             if not (START_DATE <= event.date <= SCRAPER_END_DATE):
                 continue
-            if is_fuzzy_duplicate(event.artist, event.venue, event.date.isoformat()):
-                continue
             events_to_insert.append(event)
 
         if not events_to_insert:
-            msg = "⚠️ No new events found — all extracted events are already in the calendar."
+            msg = "⚠️ No events in range — everything on that image is outside the calendar window."
             if unknown_venue:
                 msg += (
                     f"\n({len(unknown_venue)} more had no identifiable venue — name the "
@@ -2157,20 +2230,33 @@ def _process_slack_image(file_id: str, channel_id: str):
                 d["image_url"] = hosted_url
             event_dicts.append(d)
 
-        # Keep the created rows so the Slack reply can deep-link each event to
-        # its admin edit page. ON CONFLICT DO NOTHING means a row that collided
-        # returns nothing, so this can be shorter than event_dicts.
-        inserted = bulk_insert_events(event_dicts)
+        # New shows insert; shows already on the calendar get their blank
+        # fields filled from this upload (fill-only — nothing stored is
+        # replaced). Keep the rows so the reply can deep-link each one to its
+        # admin edit page. ON CONFLICT DO NOTHING means a row that collided on
+        # a concurrent insert returns nothing, so `inserted` can be shorter
+        # than the new events.
+        result = _import_or_enrich(event_dicts)
+        inserted = result["inserted"]
+        updated = result["updated"]
+        unchanged = result["unchanged"]
         inserted_ids = {
             (row.get("title"), row.get("venue"), str(row.get("date"))): row.get("id")
             for row in inserted
         }
 
-        if not inserted:
-            _slack_post_message(
-                channel_id,
-                "⚠️ No new events found — all extracted events are already in the calendar.",
+        if not inserted and not updated:
+            n_same = len(unchanged)
+            msg = (
+                f"ℹ️ Nothing new — {n_same} event{'s' if n_same != 1 else ''} on that image "
+                f"{'are' if n_same != 1 else 'is'} already on the calendar with nothing to add."
             )
+            if unknown_venue:
+                msg += (
+                    f"\n({len(unknown_venue)} more had no identifiable venue — name the "
+                    "venue in the caption, like `add to calendar B-Side`.)"
+                )
+            _slack_post_message(channel_id, msg)
             return
 
         # 7. Trigger GitHub Actions rebuild
@@ -2190,14 +2276,16 @@ def _process_slack_image(file_id: str, channel_id: str):
             build_triggered = build_resp.status_code == 204
 
         # 8. Post results back to Slack
+        lines = []
         n = len(inserted)
-        lines = [f"✅ *{n} event{'s' if n != 1 else ''} added from image:*"]
+        if inserted:
+            lines.append(f"✅ *{n} event{'s' if n != 1 else ''} added from image:*")
         for e in events_to_insert:
             # Must match what was stored, which is the canonical venue.
             venue = _canonical_venue(e.venue)
             event_id = inserted_ids.get((e.artist, venue, e.date.isoformat()))
             if not event_id:
-                continue  # collided on insert — nothing to link to
+                continue  # merged into an existing row, or collided on insert
             date_str = strftime_nopad(e.date, "%a %b %-d")
             # /admin/edit (no .html) — vercel.json sets cleanUrls, so the
             # .html form would 308-redirect here.
@@ -2205,6 +2293,31 @@ def _process_slack_image(file_id: str, channel_id: str):
             # Slack mrkdwn link: <url|label>
             lines.append(
                 f"• <{edit_url}|{_slack_escape(e.artist)}> — {venue} — {date_str}"
+            )
+        if updated:
+            n_up = len(updated)
+            lines.append(
+                f"🔄 *{n_up} existing event{'s' if n_up != 1 else ''} updated:*"
+            )
+            for row, filled in updated:
+                # The STORED title/venue, not the OCR'd one — the row the DJ
+                # will see in the editor is the one that already existed.
+                row_date = row.get("date")
+                date_str = (
+                    strftime_nopad(row_date, "%a %b %-d")
+                    if hasattr(row_date, "strftime") else str(row_date)
+                )
+                edit_url = f"{_SITE_BASE}/admin/edit?id={row.get('id')}"
+                lines.append(
+                    f"• <{edit_url}|{_slack_escape(row.get('title') or '')}> — "
+                    f"{_slack_escape(row.get('venue') or '')} — {date_str} "
+                    f"(added {_describe_filled(filled)})"
+                )
+        if unchanged:
+            n_same = len(unchanged)
+            lines.append(
+                f"ℹ️ {n_same} event{'s' if n_same != 1 else ''} already on the calendar "
+                "— nothing new to add."
             )
         lines.append("\n_Titles link to the admin editor._")
         if overlaps:

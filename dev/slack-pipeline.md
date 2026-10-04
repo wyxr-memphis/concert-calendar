@@ -20,7 +20,13 @@ touching the admin UI.
    schedule is still one row per show. The same prompt serves the daily build's artifacts
    scan (Admin → Import), so both paths agree.
 5. The venue is resolved (see below)
-6. New events are deduplicated and inserted into PostgreSQL. The title-level fuzzy check can't
+6. New events are inserted into PostgreSQL; **a show already on the calendar is updated, not
+   skipped** (since 2026-10-04). `_import_or_enrich()` in `backend/app.py` runs
+   `find_fuzzy_duplicate` (exact `dedup_key`, then same-night fuzzy title+venue) and hands a
+   match to `enrich_event`, which fills only the columns the stored row has **blank** — the
+   flyer image, a start time — and never replaces a stored value, never touches
+   title/venue/date/`source`, and fills manual rows like any other. See
+   `dev/database.md` → "Fill-only enrichment on import". The title-level fuzzy check can't
    see a lone act inside a joined title, so each act is also checked on its own; a hit does
    not block the insert but adds a ⚠️ "may already be on the calendar" line to the reply.
    The uploaded image is attached **only when every extracted event is the same show** —
@@ -32,8 +38,21 @@ touching the admin UI.
 8. Bot replies in the channel listing each added event, with the title linked to
    `{SITE_BASE}/admin/edit?id=<uuid>` for one-click correction
 
-The reply counts and lists only events that **actually inserted** — `bulk_insert_events` uses
-`ON CONFLICT DO NOTHING`, so a row that collides returns nothing and is skipped.
+The reply has up to three sections, each omitted when empty, every title deep-linked:
+
+```
+✅ *3 events added from image:*
+• <edit link|Title> — Venue — Sat Oct 3
+🔄 *2 existing events updated:*
+• <edit link|Stored title> — Venue — Fri Oct 9 (added image, time)
+ℹ️ 4 events already on the calendar — nothing new to add.
+```
+
+The 🔄 lines show the **stored** title and link the **existing** row, since that is the one the
+DJ will see in the editor. A rebuild is triggered when anything was inserted *or* updated. When
+nothing was, the reply is "ℹ️ Nothing new — N events … already on the calendar with nothing to
+add." `bulk_insert_events` still uses `ON CONFLICT DO NOTHING` as a race backstop, so a row that
+collides on a concurrent insert returns nothing and is left out of the ✅ list.
 `SITE_BASE_URL` overrides the site origin (defaults to `https://concert-calendar.wyxr.org`).
 
 ## Venue resolution
@@ -49,7 +68,7 @@ flyer is just "AUGUST" over their logo. Vision has nothing to read, so it used t
   matching a known venue → no hint (chatter can't invent a venue).
 - **Placeholders never insert.** `_is_placeholder_venue()` catches "Unknown Venue", "Venue
   TBA", "TBA/TBD", "N/A", empty, etc. Those events are dropped and the reply tells the DJ to
-  re-upload with the venue in the caption. Applied **before** the `is_fuzzy_duplicate` check,
+  re-upload with the venue in the caption. Applied **before** the `find_fuzzy_duplicate` match,
   which keys off venue.
 - The Vision prompt also asks for an empty venue rather than a guessed placeholder.
 

@@ -123,6 +123,21 @@ index `idx_events_dedup_key`, with every dedup path canonicalizing the venue thr
 `venues` table. What remains of this item is the *fuzzy* half — near-duplicate artist names
 ("Dale Watson" vs "Dale Watson & His Lone Stars") and an admin UI to review them.
 
+**Status update (2026-10-04): imports now update a duplicate instead of dropping it.** The
+Slack flyer flow, Admin → Import → Confirm and Submission Approve all run
+`find_fuzzy_duplicate` and fill the existing row's *blank* fields (image, time, ticket link,
+price, description) via `enrich_event` — fill-only, `source` untouched, manual rows included.
+The Slack reply gained 🔄 "existing events updated" and ℹ️ "already on the calendar" sections.
+See `dev/database.md` → "Fill-only enrichment on import". Follow-ups:
+- `POST /api/admin/events` (Edit & Approve) still returns the existing row silently on a
+  `dedup_key` collision — give it the same merge treatment.
+- The Vision prompt extracts only title/venue/date/time, so a Slack merge can add an image and
+  a time but never a price, doors time or description. Extending the prompt would let a gig
+  poster fill those too.
+- A joined bill title ("Foxy Brown Live: The Memphis Edition: Foxy Brown") still scores below
+  the 0.8 fuzzy bar against a lone Ticketmaster "Foxy Brown" row; that remains the ⚠️ per-act
+  warning rather than a merge.
+
 ---
 
 ## New Since the Roadmap

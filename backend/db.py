@@ -785,18 +785,29 @@ def delete_events_before(before_date):
         return cur.rowcount
 
 
-def is_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
-    """Return True if an event with similar title+venue already exists on this date.
+def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
+    """Return the active event that already describes this show, or None.
 
-    Uses SequenceMatcher similarity so OCR/handwriting variations don't create dupes.
-    Both title and venue must meet the threshold (default 80%).
+    Checks the exact ``dedup_key`` first (an index hit), then falls back to
+    SequenceMatcher similarity over every active event on the same date so
+    OCR/handwriting variations don't create dupes. Both title and venue must
+    meet the threshold (default 80%); among several hits the closest title wins.
+
+    The incoming venue is canonicalized through the DB ``venues`` table and
+    matched against stored rows by either its raw or canonical spelling — the
+    same authority ``_event_dedup_key`` uses, so an alias spelling can't pass
+    the fuzzy check here and then collide silently on the unique index.
+
+    Returns the full row (``SELECT *``) so a caller that wants to fill in the
+    existing event's blanks (``enrich_event``) has every column without a
+    second query.
     """
     from difflib import SequenceMatcher
 
     def _norm(s):
         # Inline normalize: lowercase, strip punctuation, collapse whitespace
         import re
-        s = s.lower().strip()
+        s = (s or "").lower().strip()
         s = re.sub(r'^the\s+', '', s)
         s = re.sub(r'[^\w\s]', ' ', s)
         s = re.sub(r'\s+', ' ', s).strip()
@@ -805,21 +816,116 @@ def is_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
     def _sim(a, b):
         return SequenceMatcher(None, a, b).ratio()
 
-    norm_title = _norm(title)
-    norm_venue = _norm(venue)
+    title = title or ""
+    venue = venue or ""
+    date_str = str(date_str or "")
 
-    with get_cursor() as cur:
+    canon = normalize_venue_from_db(venue)
+    canonical_venue = canon[0] if canon else venue
+
+    # 1. Exact identity — the same key the unique index enforces.
+    from src.models import compute_dedup_key
+    key = compute_dedup_key(title, canonical_venue, date_str)
+    with get_cursor(commit=False) as cur:
         cur.execute(
-            "SELECT title, venue FROM events WHERE date = %s AND is_active = TRUE",
+            "SELECT * FROM events WHERE dedup_key = %s AND is_active = TRUE LIMIT 1",
+            (key,),
+        )
+        row = cur.fetchone()
+    if row:
+        return row
+
+    # 2. Fuzzy — same night, similar title, similar venue (raw or canonical).
+    norm_title = _norm(title)
+    venue_forms = {_norm(venue), _norm(canonical_venue)} - {""}
+
+    with get_cursor(commit=False) as cur:
+        cur.execute(
+            "SELECT * FROM events WHERE date = %s AND is_active = TRUE",
             (date_str,),
         )
         existing = cur.fetchall()
 
-    return any(
-        _sim(_norm(row["title"]), norm_title) >= threshold and
-        _sim(_norm(row["venue"]), norm_venue) >= threshold
-        for row in existing
-    )
+    best, best_score = None, 0.0
+    for row in existing:
+        title_score = _sim(_norm(row["title"]), norm_title)
+        if title_score < threshold:
+            continue
+        row_venue = _norm(row["venue"])
+        if not any(_sim(row_venue, v) >= threshold for v in venue_forms):
+            continue
+        if title_score > best_score:
+            best, best_score = row, title_score
+    return best
+
+
+def is_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
+    """Return True if an event with similar title+venue already exists on this date."""
+    return find_fuzzy_duplicate(title, venue, date_str, threshold) is not None
+
+
+# Columns an import may FILL on an existing event when the stored value is
+# blank. Identity (title/venue/date), `source`, and the is_* flags are never
+# touched by a merge — see dev/database.md "Fill-only enrichment on import".
+ENRICH_FIELDS = (
+    "start_time", "doors_time", "ticket_url", "ticket_price",
+    "image_url", "description", "genre", "neighborhood",
+)
+
+
+def _is_blank(value) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return not value.strip()
+    return False
+
+
+def fields_to_fill(existing, incoming) -> dict:
+    """The fill-only merge rule, as a pure function.
+
+    Returns ``{column: value}`` for each ENRICH_FIELDS column that is blank on
+    ``existing`` and non-blank on ``incoming``. A stored value is never
+    replaced, whatever the row's source — filling an empty field never changes
+    what an admin typed, so this stays inside "never overwrite manual".
+    """
+    fill = {}
+    for col in ENRICH_FIELDS:
+        new = incoming.get(col)
+        if _is_blank(new):
+            continue
+        if not _is_blank(existing.get(col)):
+            continue
+        fill[col] = new.strip() if isinstance(new, str) else new
+    return fill
+
+
+def enrich_event(event_id, incoming):
+    """Fill the blank enrichable columns of an existing event from ``incoming``.
+
+    Returns ``(row, filled)`` where ``filled`` is the sorted list of column
+    names actually written (empty when nothing was blank). Identity fields are
+    never written, so ``dedup_key`` needs no recompute. The read and the write
+    are separate cursor blocks (psycopg2 transaction-poisoning rule).
+    """
+    current = get_event_by_id(event_id)
+    if not current:
+        return None, []
+    fill = fields_to_fill(current, incoming)
+    if not fill:
+        return current, []
+
+    set_clauses = [f"{col} = %s" for col in fill]
+    params = list(fill.values()) + [event_id]
+    query = f"""
+        UPDATE events SET {', '.join(set_clauses)}, updated_at = NOW()
+        WHERE id = %s
+        RETURNING *
+    """
+    with get_cursor() as cur:
+        cur.execute(query, params)
+        row = cur.fetchone()
+    return row, sorted(fill)
 
 
 def bulk_insert_events(events_list):
