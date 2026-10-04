@@ -93,9 +93,19 @@ the incoming data**. Before, a gig poster uploaded a week after the venue's mont
 submission silently lost its image, ticket link, price and description to `create_event`'s
 `ON CONFLICT` backstop while the UI said "Event created".
 
-- `find_fuzzy_duplicate(title, venue, date)` (`backend/db.py`) returns the matching active row:
-  exact `dedup_key` first (index hit), then SequenceMatcher ≥ 0.8 on both title and venue over
-  the same night, closest title winning. `is_fuzzy_duplicate` is now a wrapper over it.
+- `find_fuzzy_duplicate(title, venue, date, lineup=None)` (`backend/db.py`) returns the
+  matching active row: exact `dedup_key` first (index hit), then `_best_fuzzy_match` over the
+  same night. A row qualifies when its **venue matches** (SequenceMatcher ≥ 0.8, *or* one name
+  contains the other after `clean_venue_text` strips address debris — a legacy row Vision filed
+  under "38104 Bar DKDC" scores only 0.73 against "Bar DKDC") **and either** its title scores
+  ≥ 0.8 **or** at least `LINEUP_MATCH_MIN_ACTS` (2) of the incoming acts appear in it. The acts
+  are the Vision `lineup` when the caller has it, else `split_title_acts(title)` reads them
+  back out of the joined title. `is_fuzzy_duplicate` is a wrapper over it.
+  **Why the lineup rule (2026-10-04):** the first live test failed. The Paws & Tunes poster for
+  the Oct 4 Rescued Pack benefit scored 0.53 against the schedule row "The Rescued Pack Benefit
+  Concert: Alexis Jade, Mary Hatley, Kim Harmon" — a show's own poster names it differently from
+  the venue's month schedule, but the bill is the same. One shared act is deliberately *not*
+  enough: an EARLY and a LATE show at one venue on one night must stay two events.
 - `fields_to_fill(existing, incoming)` is the rule, as a pure function: a column in
   `ENRICH_FIELDS` (`start_time`, `doors_time`, `ticket_url`, `ticket_price`, `image_url`,
   `description`, `genre`, `neighborhood`) is written only when the stored value is NULL/blank

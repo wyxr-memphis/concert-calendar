@@ -1891,7 +1891,13 @@ def _import_or_enrich(event_dicts):
     """
     to_insert, updated, unchanged = [], [], []
     for d in event_dicts:
-        match = find_fuzzy_duplicate(d.get("title", ""), d.get("venue", ""), d.get("date", ""))
+        # "_lineup" is the show's acts when the caller has them separately
+        # (Vision does); it never reaches the DB — bulk_insert_events and
+        # enrich_event write only their column allowlists.
+        match = find_fuzzy_duplicate(
+            d.get("title", ""), d.get("venue", ""), d.get("date", ""),
+            lineup=d.get("_lineup"),
+        )
         if not match:
             to_insert.append(d)
             continue
@@ -2228,6 +2234,8 @@ def _process_slack_image(file_id: str, channel_id: str):
                 d["start_time"] = e.time
             if hosted_url:
                 d["image_url"] = hosted_url
+            if e.lineup:
+                d["_lineup"] = list(e.lineup)  # for the shared-bill match only
             event_dicts.append(d)
 
         # New shows insert; shows already on the calendar get their blank

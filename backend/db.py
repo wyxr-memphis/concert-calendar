@@ -785,13 +785,99 @@ def delete_events_before(before_date):
         return cur.rowcount
 
 
-def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
+def _fuzzy_norm(s):
+    """Lowercase, drop a leading "the", punctuation → spaces, collapse whitespace."""
+    import re
+    s = (s or "").lower().strip()
+    s = re.sub(r'^the\s+', '', s)
+    s = re.sub(r'[^\w\s]', ' ', s)
+    s = re.sub(r'\s+', ' ', s).strip()
+    return s
+
+
+def _venues_match(row_venue, venue_forms, threshold):
+    """Same venue? Fuzzy ≥ threshold against any form, OR one contains the
+    other once address debris is stripped ("bar dkdc" ⊂ "38104 bar dkdc" —
+    a legacy row Vision filed under the zip code scores only 0.73)."""
+    from difflib import SequenceMatcher
+    from src.models import clean_venue_text
+    rv = _fuzzy_norm(clean_venue_text(row_venue))
+    if not rv:
+        return False
+    for v in venue_forms:
+        if SequenceMatcher(None, rv, v).ratio() >= threshold:
+            return True
+        if len(v) >= 5 and len(rv) >= 5 and (v in rv or rv in v):
+            return True
+    return False
+
+
+# How many of the incoming show's acts must appear in a stored same-night,
+# same-venue title before the two are the same show, whatever the titles say.
+LINEUP_MATCH_MIN_ACTS = 2
+
+
+def _shared_acts(acts, row_title, threshold):
+    """Acts from the incoming bill that fuzzy-match an act in the stored title."""
+    from difflib import SequenceMatcher
+    from src.models import split_title_acts
+    stored = [_fuzzy_norm(a) for a in split_title_acts(row_title)]
+    stored = [a for a in stored if a]
+    if not stored:
+        return []
+    shared = []
+    for act in acts:
+        na = _fuzzy_norm(act)
+        if na and any(SequenceMatcher(None, na, s).ratio() >= threshold for s in stored):
+            shared.append(act)
+    return shared
+
+
+def _best_fuzzy_match(rows, title, venue_forms, acts, threshold=0.8):
+    """Pure core of ``find_fuzzy_duplicate`` — pick the stored row that is the
+    same show as (title, venue, acts), or None.
+
+    A row qualifies when its venue matches (``_venues_match``) and EITHER
+      * its title scores ≥ threshold against the incoming title, OR
+      * at least LINEUP_MATCH_MIN_ACTS of the incoming acts appear in it.
+    The second rule is what catches a show whose own poster names it
+    differently from the venue's month schedule ("Paws & Tunes: A Benefit for
+    The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon" vs "The Rescued
+    Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon" — titles score
+    0.53, but three acts are shared). Two different shows at one venue on one
+    night (an EARLY and a LATE bill) have disjoint lineups and stay apart.
+
+    Among several hits the closest title wins; a lineup-only hit ranks by the
+    share of acts matched, below any title hit.
+    """
+    from difflib import SequenceMatcher
+    norm_title = _fuzzy_norm(title)
+    acts = [a for a in (acts or []) if a and str(a).strip()]
+    best, best_score = None, 0.0
+    for row in rows:
+        if not _venues_match(row.get("venue"), venue_forms, threshold):
+            continue
+        title_score = SequenceMatcher(None, _fuzzy_norm(row.get("title")), norm_title).ratio()
+        score = title_score if title_score >= threshold else 0.0
+        if not score and acts:
+            shared = _shared_acts(acts, row.get("title"), threshold)
+            if len(shared) >= LINEUP_MATCH_MIN_ACTS:
+                # Below every title hit (max 1.0 → here ≤ 0.79), above nothing.
+                score = 0.5 + 0.29 * len(shared) / len(acts)
+        if score > best_score:
+            best, best_score = row, score
+    return best
+
+
+def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8, lineup=None):
     """Return the active event that already describes this show, or None.
 
-    Checks the exact ``dedup_key`` first (an index hit), then falls back to
-    SequenceMatcher similarity over every active event on the same date so
-    OCR/handwriting variations don't create dupes. Both title and venue must
-    meet the threshold (default 80%); among several hits the closest title wins.
+    Checks the exact ``dedup_key`` first (an index hit), then every active
+    event on the same date through ``_best_fuzzy_match``: same venue (fuzzy or
+    containment after stripping address debris) and either a similar title or
+    a shared bill. ``lineup`` is the show's acts when the caller has them
+    (Vision returns them separately); otherwise they are read back out of the
+    title with ``split_title_acts``.
 
     The incoming venue is canonicalized through the DB ``venues`` table and
     matched against stored rows by either its raw or canonical spelling — the
@@ -802,19 +888,7 @@ def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
     existing event's blanks (``enrich_event``) has every column without a
     second query.
     """
-    from difflib import SequenceMatcher
-
-    def _norm(s):
-        # Inline normalize: lowercase, strip punctuation, collapse whitespace
-        import re
-        s = (s or "").lower().strip()
-        s = re.sub(r'^the\s+', '', s)
-        s = re.sub(r'[^\w\s]', ' ', s)
-        s = re.sub(r'\s+', ' ', s).strip()
-        return s
-
-    def _sim(a, b):
-        return SequenceMatcher(None, a, b).ratio()
+    from src.models import compute_dedup_key, split_title_acts, clean_venue_text
 
     title = title or ""
     venue = venue or ""
@@ -824,7 +898,6 @@ def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
     canonical_venue = canon[0] if canon else venue
 
     # 1. Exact identity — the same key the unique index enforces.
-    from src.models import compute_dedup_key
     key = compute_dedup_key(title, canonical_venue, date_str)
     with get_cursor(commit=False) as cur:
         cur.execute(
@@ -835,9 +908,12 @@ def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
     if row:
         return row
 
-    # 2. Fuzzy — same night, similar title, similar venue (raw or canonical).
-    norm_title = _norm(title)
-    venue_forms = {_norm(venue), _norm(canonical_venue)} - {""}
+    # 2. Same night, same venue, similar title or shared bill.
+    venue_forms = {
+        _fuzzy_norm(clean_venue_text(venue)),
+        _fuzzy_norm(clean_venue_text(canonical_venue)),
+    } - {""}
+    acts = list(lineup) if lineup else split_title_acts(title)
 
     with get_cursor(commit=False) as cur:
         cur.execute(
@@ -846,17 +922,7 @@ def find_fuzzy_duplicate(title, venue, date_str, threshold=0.8):
         )
         existing = cur.fetchall()
 
-    best, best_score = None, 0.0
-    for row in existing:
-        title_score = _sim(_norm(row["title"]), norm_title)
-        if title_score < threshold:
-            continue
-        row_venue = _norm(row["venue"])
-        if not any(_sim(row_venue, v) >= threshold for v in venue_forms):
-            continue
-        if title_score > best_score:
-            best, best_score = row, title_score
-    return best
+    return _best_fuzzy_match(existing, title, venue_forms, acts, threshold)
 
 
 def is_fuzzy_duplicate(title, venue, date_str, threshold=0.8):

@@ -22,7 +22,9 @@ touching the admin UI.
 5. The venue is resolved (see below)
 6. New events are inserted into PostgreSQL; **a show already on the calendar is updated, not
    skipped** (since 2026-10-04). `_import_or_enrich()` in `backend/app.py` runs
-   `find_fuzzy_duplicate` (exact `dedup_key`, then same-night fuzzy title+venue) and hands a
+   `find_fuzzy_duplicate` (exact `dedup_key`, then same-night same-venue with a similar title
+   **or a shared bill** — the Vision `lineup` is passed along as `_lineup`, so a poster that
+   names the show differently from the venue's schedule still finds it) and hands a
    match to `enrich_event`, which fills only the columns the stored row has **blank** — the
    flyer image, a start time — and never replaces a stored value, never touches
    title/venue/date/`source`, and fills manual rows like any other. See
