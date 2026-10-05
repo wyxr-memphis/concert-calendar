@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-04T23:08:36.105141+00:00",
+  "run_timestamp": "2026-10-05T12:07:44.876190+00:00",
   "date_range": {
-    "start": "2026-10-04",
-    "end": "2026-10-11"
+    "start": "2026-10-05",
+    "end": "2026-10-12"
   },
-  "total_events_db": 3911,
-  "total_active_display": 115,
+  "total_events_db": 3913,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
+      "events_found": 8,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,12 +49,12 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -57,6 +65,14 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -65,43 +81,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 288,
-      "events_after_filter": 37,
-      "events_filtered": 251,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_after_filter": 35,
+      "events_filtered": 253,
       "error": null
     },
     {
@@ -113,26 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -145,18 +113,26 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,11 +145,19 @@
       "error": null
     },
     {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 37,
-      "events_filtered": 34,
+      "events_after_filter": 38,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -185,35 +169,27 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 14,
       "events_after_filter": 13,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
       "error": null
     },
     {
@@ -227,162 +203,53 @@
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 52,
-      "events_after_filter": 52,
+      "events_found": 44,
+      "events_after_filter": 44,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 68,
-      "events_filtered": 3,
+      "events_after_filter": 67,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 115,
-      "events_after_filter": 115,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon",
-      "venue": "38104 Bar DKDC",
-      "date": "2026-10-04",
-      "time": "3 PM - 8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "The Rescued Pack Benefit Concert: Alexis Jade, Mary Hatley, Kim Harmon",
-      "venue": "Bar DKDC",
-      "date": "2026-10-04",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "John Paul Keith",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-10-04",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Paws & Tunes: A Benefit for The Rescued Pack: Mary Hatley, Alexis Jade, Kim Garmon",
-      "venue": "Bar DKDC",
-      "date": "2026-10-04",
-      "time": "3 PM - 8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-04",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Thought",
-      "venue": "Growlers",
-      "date": "2026-10-04",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-04",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Bay Street / Ruined God / Bath Salt Munchies [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Sweet Kill / DJ Audio Spectre [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Sweet Kill [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-04",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Pretty Boys",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-10-04",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-10-04",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Even Odds",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-10-04",
-      "time": "6 AM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Chaulkies",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-10-04",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Back Alley String Band",
-      "venue": "Huey's (Millington)",
-      "date": "2026-10-04",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jack & Noah",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-10-04",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Southaven)",
-      "date": "2026-10-04",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Pulse",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-04",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-04",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
     {
       "artist": "WYXR 6th Birthday Picture and Hang",
       "venue": "WYXR",
@@ -1054,6 +921,34 @@
       "date": "2026-10-11",
       "time": "3:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "\"The Hayley Williams Show\"",
+      "venue": "BankPlus Amphitheater at Snowden Grove",
+      "date": "2026-10-12",
+      "time": "7 PM",
+      "source": "scraper:bankplus_amphitheater_at_snowden_grove"
+    },
+    {
+      "artist": "Modest Mouse",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-12",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Like Really Creative: Artist Speed Date: Like Really Creative",
+      "venue": "Bar DKDC",
+      "date": "2026-10-12",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-12",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
     }
   ]
 }
