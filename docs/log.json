@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-05T23:01:13.460576+00:00",
+  "run_timestamp": "2026-10-06T01:33:19.018110+00:00",
   "date_range": {
-    "start": "2026-10-05",
-    "end": "2026-10-12"
+    "start": "2026-10-06",
+    "end": "2026-10-13"
   },
-  "total_events_db": 3915,
-  "total_active_display": 101,
+  "total_events_db": 3939,
+  "total_active_display": 108,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 7,
+      "events_found": 10,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -33,14 +33,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
@@ -57,27 +49,19 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
-      "events_filtered": 0,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 288,
-      "events_after_filter": 35,
-      "events_filtered": 253,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -89,11 +73,35 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 50,
+      "events_after_filter": 50,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 36,
       "events_after_filter": 36,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 33,
+      "events_filtered": 255,
       "error": null
     },
     {
@@ -105,11 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
+      "events_found": 71,
+      "events_after_filter": 38,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -129,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
@@ -145,51 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 38,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 3,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -209,11 +169,43 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 3,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
       "events_after_filter": 4,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -233,51 +225,31 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 67,
-      "events_filtered": 4,
+      "events_after_filter": 66,
+      "events_filtered": 5,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 101,
-      "events_after_filter": 101,
+      "events_found": 108,
+      "events_after_filter": 108,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "WYXR 6th Birthday Picture and Hang",
-      "venue": "WYXR",
-      "date": "2026-10-05",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-05",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Brian \"Breeze\" Cayolle",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-05",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Queens Hunny Blunt, Juicy Massacre, and Naveh Gates",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-05",
-      "time": null,
-      "source": "manual"
-    },
     {
       "artist": "Kirk Smithhart",
       "venue": "Blues City Cafe",
@@ -426,6 +398,13 @@
       "source": "artifact"
     },
     {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-08",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Memphis Dyke Night",
       "venue": "Bar DKDC",
       "date": "2026-10-08",
@@ -494,6 +473,13 @@
       "date": "2026-10-09",
       "time": "12 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Proving Ground (Mempho After): Proving Ground",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-09",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Turnstyles Vinyl Release: Turnstyles, Arc of Quasar, Hit Parade",
@@ -620,6 +606,13 @@
       "date": "2026-10-10",
       "time": "12 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Aubrey McCrady (Mempho After): Aubrey McCrady",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-10",
+      "time": "11 PM",
+      "source": "artifact"
     },
     {
       "artist": "John Prine Night!!: John Prine Night",
@@ -760,6 +753,13 @@
       "date": "2026-10-11",
       "time": "12 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Mystrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-11",
+      "time": "7:30 PM",
+      "source": "artifact"
     },
     {
       "artist": "Sunday Tea Dance: Digital Tech, Jake Jones",
@@ -934,14 +934,21 @@
       "venue": "BankPlus Amphitheater at Snowden Grove",
       "date": "2026-10-12",
       "time": "7 PM",
-      "source": "scraper:bankplus_amphitheater_at_snowden_grove"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Modest Mouse",
       "venue": "Satellite Music Hall",
       "date": "2026-10-12",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-12",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Like Really Creative: Artist Speed Date: Like Really Creative",
@@ -956,6 +963,48 @@
       "date": "2026-10-12",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Willie G's Psychedelic Blues Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-13",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-13",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-13",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Scott Sudbury Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-13",
+      "time": "6:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Disney Villians Trivia",
+      "venue": "Nashoba",
+      "date": "2026-10-13",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Ryan Bingham and The Texas Gentlemen - Still Gettin' Away With It Tour",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-13",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
     }
   ]
 }
