@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-06T16:47:23.879905+00:00",
+  "run_timestamp": "2026-10-06T21:24:19.214978+00:00",
   "date_range": {
     "start": "2026-10-06",
     "end": "2026-10-13"
   },
-  "total_events_db": 3963,
-  "total_active_display": 112,
+  "total_events_db": 3966,
+  "total_active_display": 113,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
+      "events_found": 49,
+      "events_after_filter": 49,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,6 +41,14 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
@@ -49,11 +57,19 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 38,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,18 +81,34 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 5,
       "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 33,
+      "events_filtered": 255,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,38 +129,6 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 33,
-      "events_filtered": 255,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 26,
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 277,
-      "events_after_filter": 36,
-      "events_filtered": 241,
+      "events_found": 70,
+      "events_after_filter": 38,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -169,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 71,
-      "events_after_filter": 38,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
+      "events_found": 26,
+      "events_after_filter": 15,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -193,19 +185,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
+      "events_found": 277,
+      "events_after_filter": 36,
+      "events_filtered": 241,
       "error": null
     },
     {
@@ -217,6 +209,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 24,
@@ -225,11 +225,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 24,
+      "events_found": 14,
       "events_after_filter": 13,
-      "events_filtered": 11,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 112,
-      "events_after_filter": 112,
+      "events_found": 113,
+      "events_after_filter": 113,
       "events_filtered": 0,
       "error": null
     }
@@ -1033,6 +1033,13 @@
       "date": "2026-10-13",
       "time": "7 PM",
       "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Healing Metal",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-13",
+      "time": "7 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
