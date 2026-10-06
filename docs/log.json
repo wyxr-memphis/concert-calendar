@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-06T11:52:04.995813+00:00",
+  "run_timestamp": "2026-10-06T16:47:23.879905+00:00",
   "date_range": {
     "start": "2026-10-06",
     "end": "2026-10-13"
   },
-  "total_events_db": 3939,
-  "total_active_display": 108,
+  "total_events_db": 3963,
+  "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 38,
@@ -41,12 +33,12 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -65,14 +57,6 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 33,
-      "events_filtered": 255,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -81,10 +65,26 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -105,14 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 5,
@@ -121,11 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 33,
+      "events_filtered": 255,
       "error": null
     },
     {
@@ -137,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 277,
+      "events_after_filter": 36,
+      "events_filtered": 241,
       "error": null
     },
     {
@@ -177,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -209,14 +209,6 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 266,
-      "events_after_filter": 24,
-      "events_filtered": 242,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 44,
@@ -225,11 +217,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 14,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 24,
       "events_after_filter": 13,
-      "events_filtered": 1,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 108,
-      "events_after_filter": 108,
+      "events_found": 112,
+      "events_after_filter": 112,
       "events_filtered": 0,
       "error": null
     }
@@ -384,6 +384,13 @@
       "source": "scraper:minglewood_hall"
     },
     {
+      "artist": "SIDE SET: Lee Gilliland",
+      "venue": "Nashoba",
+      "date": "2026-10-07",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
       "artist": "SIDE SET: Lee Gilliland & Julian Wong",
       "venue": "Nashoba",
       "date": "2026-10-07",
@@ -466,6 +473,13 @@
       "date": "2026-10-08",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Comedy Delicous Open Mic",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-08",
+      "time": "8 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     },
     {
       "artist": "Mempho Fest",
@@ -923,6 +937,13 @@
       "source": "scraper:memphis_symphony_orchestra"
     },
     {
+      "artist": "Street Dancers RC Drift",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-11",
+      "time": "1 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
       "artist": "Kelly Hunt Live",
       "venue": "South Main Sounds",
       "date": "2026-10-11",
@@ -963,6 +984,13 @@
       "date": "2026-10-12",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Monday Night Football: Bills vs Rams",
+      "venue": "Nashoba",
+      "date": "2026-10-12",
+      "time": "7:15 PM",
+      "source": "scraper:nashoba"
     },
     {
       "artist": "Willie G's Psychedelic Blues Band",
