@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-07T11:36:56.597770+00:00",
+  "run_timestamp": "2026-10-07T21:42:41.129250+00:00",
   "date_range": {
     "start": "2026-10-07",
     "end": "2026-10-14"
   },
-  "total_events_db": 3968,
-  "total_active_display": 116,
+  "total_events_db": 3976,
+  "total_active_display": 117,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,12 +25,20 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 38,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Growlers",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -39,6 +47,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 39,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -51,16 +67,16 @@
     {
       "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 48,
-      "events_after_filter": 48,
+      "events_found": 51,
+      "events_after_filter": 51,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -73,18 +89,26 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -105,50 +129,18 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 32,
-      "events_filtered": 256,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 5,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -161,22 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 13,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
@@ -185,19 +161,27 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 278,
+      "events_after_filter": 37,
+      "events_filtered": 241,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 3,
+      "events_found": 8,
+      "events_after_filter": 4,
       "events_filtered": 4,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -205,6 +189,14 @@
       "success": true,
       "events_found": 44,
       "events_after_filter": 44,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
@@ -217,19 +209,27 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 277,
-      "events_after_filter": 36,
-      "events_filtered": 241,
+      "events_found": 290,
+      "events_after_filter": 34,
+      "events_filtered": 256,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 15,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 116,
-      "events_after_filter": 116,
+      "events_found": 117,
+      "events_after_filter": 117,
       "events_filtered": 0,
       "error": null
     }
@@ -611,7 +611,7 @@
       "artist": "Edgetoberfest",
       "venue": "Flyway Brewing",
       "date": "2026-10-10",
-      "time": "1 PM",
+      "time": "12 PM",
       "source": "scraper:flyway_brewing"
     },
     {
@@ -942,6 +942,13 @@
       "date": "2026-10-12",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-12",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Monday Night Football: Bills vs Rams",
