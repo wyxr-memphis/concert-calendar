@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-06T21:24:19.214978+00:00",
+  "run_timestamp": "2026-10-07T11:36:56.597770+00:00",
   "date_range": {
-    "start": "2026-10-06",
-    "end": "2026-10-13"
+    "start": "2026-10-07",
+    "end": "2026-10-14"
   },
-  "total_events_db": 3966,
-  "total_active_display": 113,
+  "total_events_db": 3968,
+  "total_active_display": 116,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 9,
+      "events_found": 11,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 49,
-      "events_after_filter": 49,
-      "events_filtered": 0,
+      "events_found": 39,
+      "events_after_filter": 38,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -41,14 +41,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
@@ -57,19 +49,19 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 48,
+      "events_after_filter": 48,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 30,
       "events_after_filter": 30,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 38,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -81,42 +73,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 288,
-      "events_after_filter": 33,
-      "events_filtered": 255,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -129,10 +89,50 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 288,
+      "events_after_filter": 32,
+      "events_filtered": 256,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -145,11 +145,19 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 70,
-      "events_after_filter": 38,
-      "events_filtered": 32,
+      "events_after_filter": 37,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -161,19 +169,19 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 13,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 15,
-      "events_filtered": 11,
       "error": null
     },
     {
@@ -185,19 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 277,
-      "events_after_filter": 36,
-      "events_filtered": 241,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -206,14 +206,6 @@
       "events_found": 44,
       "events_after_filter": 44,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -233,65 +225,31 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 277,
+      "events_after_filter": 36,
+      "events_filtered": 241,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 66,
-      "events_filtered": 5,
+      "events_after_filter": 65,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 113,
-      "events_after_filter": 113,
+      "events_found": 116,
+      "events_after_filter": 116,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Kirk Smithhart",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-06",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Bryson Tiller Presents: The Neo Trapsoul Tour",
-      "venue": "FedExForum",
-      "date": "2026-10-06",
-      "time": "7:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Greyson Turner",
-      "venue": "Growlers",
-      "date": "2026-10-06",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Dale Watson Birthday Bash \u2013 With His Lone Stars",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-06",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Shell on Wheels: MMDC Taste of the District",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-06",
-      "time": "4:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Dave Schools w/Colin Butler",
       "venue": "Memphis Listening Lab",
@@ -1032,7 +990,7 @@
       "venue": "Satellite Music Hall",
       "date": "2026-10-13",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Healing Metal",
@@ -1040,6 +998,69 @@
       "date": "2026-10-13",
       "time": "7 PM",
       "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Karaoke w/ Conner: Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-14",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-14",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Fashionmobboss",
+      "venue": "Growlers",
+      "date": "2026-10-14",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-14",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Basic Printer / Spirit of the Bear [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "T. Jarrod Bonta",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-10-14",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Charvey Mac",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-10-14",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Millington)",
+      "date": "2026-10-14",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "MacLeod & Lonardo",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-14",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
     }
   ]
 }
