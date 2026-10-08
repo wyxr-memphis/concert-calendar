@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-08T11:51:29.454762+00:00",
+  "run_timestamp": "2026-10-08T21:41:02.962375+00:00",
   "date_range": {
     "start": "2026-10-08",
     "end": "2026-10-15"
   },
-  "total_events_db": 3979,
-  "total_active_display": 114,
+  "total_events_db": 3986,
+  "total_active_display": 112,
   "data_store": "postgresql",
   "sources": [
     {
@@ -41,6 +41,30 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 51,
+      "events_after_filter": 51,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 38,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 3,
@@ -55,30 +79,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 38,
-      "events_filtered": 1,
-      "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -97,22 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
@@ -121,15 +105,15 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
@@ -145,11 +129,35 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 18,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 70,
+      "events_found": 69,
       "events_after_filter": 37,
-      "events_filtered": 33,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -161,30 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 15,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 278,
-      "events_after_filter": 36,
-      "events_filtered": 242,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
@@ -193,26 +177,18 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
-      "events_filtered": 0,
+      "events_found": 283,
+      "events_after_filter": 41,
+      "events_filtered": 242,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -225,11 +201,35 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 40,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
       "events_after_filter": 1,
       "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 16,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 114,
-      "events_after_filter": 114,
+      "events_found": 112,
+      "events_after_filter": 112,
       "events_filtered": 0,
       "error": null
     }
@@ -265,13 +265,6 @@
       "source": "artifact"
     },
     {
-      "artist": "Memphis Dyke Night",
-      "venue": "Bar DKDC",
-      "date": "2026-10-08",
-      "time": null,
-      "source": "artifact"
-    },
-    {
       "artist": "CowBoy Neil And The Real Deal",
       "venue": "Blues City Cafe",
       "date": "2026-10-08",
@@ -283,13 +276,6 @@
       "venue": "Germantown Performing Arts Center",
       "date": "2026-10-08",
       "time": "6:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Memphis Jazz Workshop School Matinee",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-10-08",
-      "time": "10:00\u202fAM",
       "source": "scraper:germantown_performing_arts_center"
     },
     {
@@ -335,6 +321,13 @@
       "source": "scraper:society_memphis_skatepark_and_coffee"
     },
     {
+      "artist": "Turnstyles Vinyl Release: Turnstyles, Arc of Quasar, Hit Parade",
+      "venue": "Bar DKDC",
+      "date": "2026-10-09",
+      "time": null,
+      "source": "artifact"
+    },
+    {
       "artist": "Mempho Fest",
       "venue": "Radians Amphitheater",
       "date": "2026-10-09",
@@ -346,13 +339,6 @@
       "venue": "B-Side Memphis",
       "date": "2026-10-09",
       "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Turnstyles Vinyl Release: Turnstyles, Arc of Quasar, Hit Parade",
-      "venue": "Bar DKDC",
-      "date": "2026-10-09",
-      "time": null,
       "source": "artifact"
     },
     {
@@ -445,6 +431,13 @@
       "date": "2026-10-09",
       "time": "5:30 PM",
       "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Diane Green, Steve Selvidge, Lorette Velvette, Michael Graber,Jason Freeman, Marcia Clifton, Sweet Cream Ladies, Doug MacLeod, Alex Greene, Miz Stefani ,Dr Dave Evans & Last Chance Jug Band",
+      "venue": "Zen House, 831 S Cooper Street, Memphis, TN",
+      "date": "2026-10-09",
+      "time": null,
+      "source": "submission"
     },
     {
       "artist": "Aquarian Blood",
@@ -776,13 +769,6 @@
       "source": "scraper:minglewood_hall"
     },
     {
-      "artist": "Sunday Football",
-      "venue": "Nashoba",
-      "date": "2026-10-11",
-      "time": "1:30 PM",
-      "source": "scraper:nashoba"
-    },
-    {
       "artist": "Orion Financial Free Concert Series: Shakespeare at the Shell Presents Love\u2019s Labor\u2019s Lost",
       "venue": "Overton Park Shell",
       "date": "2026-10-11",
@@ -853,11 +839,11 @@
       "source": "scraper:hi_tone"
     },
     {
-      "artist": "Monday Night Football: Bills vs Rams",
-      "venue": "Nashoba",
+      "artist": "Monster Monday Drag",
+      "venue": "Lamplighter Lounge",
       "date": "2026-10-12",
-      "time": "7:15 PM",
-      "source": "scraper:nashoba"
+      "time": "9:30 PM",
+      "source": "submission"
     },
     {
       "artist": "Willie G's Psychedelic Blues Band",
