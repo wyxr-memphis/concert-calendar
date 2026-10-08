@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-07T21:42:41.129250+00:00",
+  "run_timestamp": "2026-10-08T11:51:29.454762+00:00",
   "date_range": {
-    "start": "2026-10-07",
-    "end": "2026-10-14"
+    "start": "2026-10-08",
+    "end": "2026-10-15"
   },
-  "total_events_db": 3976,
-  "total_active_display": 117,
+  "total_events_db": 3979,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": false,
       "events_found": 0,
@@ -41,19 +33,19 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 39,
-      "events_filtered": 1,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,6 +65,22 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 38,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 5,
@@ -81,19 +89,11 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 290,
+      "events_after_filter": 33,
+      "events_filtered": 257,
       "error": null
     },
     {
@@ -101,14 +101,6 @@
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +129,18 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -150,6 +150,22 @@
       "events_found": 70,
       "events_after_filter": 37,
       "events_filtered": 33,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 6,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 15,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -164,16 +180,24 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 278,
-      "events_after_filter": 37,
-      "events_filtered": 241,
+      "events_after_filter": 36,
+      "events_filtered": 242,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 4,
-      "events_filtered": 4,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 40,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -182,14 +206,6 @@
       "events_found": 14,
       "events_after_filter": 13,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,144 +233,23 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 34,
-      "events_filtered": 256,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 15,
-      "events_filtered": 11,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 65,
-      "events_filtered": 6,
+      "events_after_filter": 64,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 117,
-      "events_after_filter": 117,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Dave Schools w/Colin Butler",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-10-07",
-      "time": "7 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Sweet Darlin w/ Ibex Clone",
-      "venue": "Bar DKDC",
-      "date": "2026-10-07",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-07",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Earl Hondo",
-      "venue": "Growlers",
-      "date": "2026-10-07",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Dale Watson Birthday Bash \u2013 Swang Thang With Twang",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-07",
-      "time": "7:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-07",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER \u2013 LATE NIGHT EDITION",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-07",
-      "time": "10:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Bluff CITY Liars Improv [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-07",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Patio Pirates",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-10-07",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Gerry Finney",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-10-07",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Pretty Boys",
-      "venue": "Huey's (Millington)",
-      "date": "2026-10-07",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jay Pride",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-10-07",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Bayway",
-      "venue": "Minglewood Hall",
-      "date": "2026-10-07",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "SIDE SET: Lee Gilliland",
-      "venue": "Nashoba",
-      "date": "2026-10-07",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "SIDE SET: Lee Gilliland & Julian Wong",
-      "venue": "Nashoba",
-      "date": "2026-10-07",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "Dyke Fright: La Femme Radical, DJ Shai",
       "venue": "Bar DKDC",
@@ -606,6 +501,13 @@
       "date": "2026-10-10",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Beer Keg Relay Race",
+      "venue": "Flyway Brewing",
+      "date": "2026-10-10",
+      "time": "3:30 PM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Edgetoberfest",
@@ -1068,6 +970,83 @@
       "date": "2026-10-14",
       "time": "5:30 PM",
       "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Concerts in The Grove: One After 901- A Beatles Celebration",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-15",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-15",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Memphis Concrete Presents: An Evening of Boring Music: Memphis Concrete",
+      "venue": "Bar DKDC",
+      "date": "2026-10-15",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Jacob Huffman",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-15",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "CONR",
+      "venue": "Growlers",
+      "date": "2026-10-15",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Aseethe / Autolith / Chora [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-15",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Daphnie & Chris Duo",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-15",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Rock-and-Roll Theater by LA\u2019s trickster spirit, CHICKEN SOUP & RICE, SCREAMER and PYRRHIC VIC",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-15",
+      "time": "7 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Joston Cooper, Illustrate, & Darius Mullin",
+      "venue": "Living \u5c45\u9593 Room",
+      "date": "2026-10-15",
+      "time": null,
+      "source": "submission"
+    },
+    {
+      "artist": "SIDE SET: Duane Cleveland",
+      "venue": "Nashoba",
+      "date": "2026-10-15",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Jazz Nite",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-15",
+      "time": "7:30 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
