@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-09T11:43:20.053346+00:00",
+  "run_timestamp": "2026-10-09T21:24:33.507032+00:00",
   "date_range": {
     "start": "2026-10-09",
     "end": "2026-10-16"
   },
-  "total_events_db": 3992,
-  "total_active_display": 120,
+  "total_events_db": 3999,
+  "total_active_display": 121,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,20 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -49,12 +41,28 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 55,
+      "events_after_filter": 55,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: FedExForum",
@@ -65,7 +73,23 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 32,
+      "events_filtered": 258,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
@@ -73,18 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 18,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -105,11 +121,27 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 69,
+      "events_after_filter": 35,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -121,59 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 51,
-      "events_after_filter": 51,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 32,
-      "events_filtered": 258,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 5,
       "events_after_filter": 5,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 68,
-      "events_after_filter": 35,
-      "events_filtered": 33,
       "error": null
     },
     {
@@ -185,6 +169,22 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 15,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
@@ -193,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 14,
-      "events_filtered": 12,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -209,14 +209,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 40,
@@ -225,11 +217,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 18,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 120,
-      "events_after_filter": 120,
+      "events_found": 121,
+      "events_after_filter": 121,
       "events_filtered": 0,
       "error": null
     }
@@ -532,6 +532,13 @@
     },
     {
       "artist": "Orion Financial Free Concert Series: Opera Memphis",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-10",
+      "time": "7:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "WEATHER CANCELLATION: Orion Financial Free Concert Series: Opera Memphis",
       "venue": "Overton Park Shell",
       "date": "2026-10-10",
       "time": "7:00\u202fPM",
