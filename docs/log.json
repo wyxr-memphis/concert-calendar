@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-09T21:24:33.507032+00:00",
+  "run_timestamp": "2026-10-10T11:01:35.249774+00:00",
   "date_range": {
-    "start": "2026-10-09",
-    "end": "2026-10-16"
+    "start": "2026-10-10",
+    "end": "2026-10-17"
   },
-  "total_events_db": 3999,
+  "total_events_db": 4002,
   "total_active_display": 121,
   "data_store": "postgresql",
   "sources": [
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -41,14 +41,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
@@ -57,11 +49,11 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 55,
-      "events_after_filter": 55,
-      "events_filtered": 0,
+      "events_found": 37,
+      "events_after_filter": 36,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,20 +65,20 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 54,
+      "events_after_filter": 54,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 32,
-      "events_filtered": 258,
-      "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -107,24 +99,8 @@
     {
       "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 5,
+      "events_found": 3,
       "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +113,27 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 35,
-      "events_filtered": 34,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,19 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
+      "events_found": 67,
+      "events_after_filter": 34,
+      "events_filtered": 33,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 283,
-      "events_after_filter": 41,
-      "events_filtered": 242,
+      "events_found": 27,
+      "events_after_filter": 14,
+      "events_filtered": 13,
       "error": null
     },
     {
@@ -177,35 +169,19 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 15,
-      "events_filtered": 12,
+      "events_found": 283,
+      "events_after_filter": 39,
+      "events_filtered": 244,
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 6,
-      "events_filtered": 4,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -233,11 +209,35 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 6,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 30,
+      "events_filtered": 260,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 63,
-      "events_filtered": 8,
+      "events_after_filter": 62,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -250,132 +250,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Turnstyles Vinyl Release: Turnstyles, Arc of Quasar, Hit Parade",
-      "venue": "Bar DKDC",
-      "date": "2026-10-09",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Mempho Fest",
-      "venue": "Radians Amphitheater",
-      "date": "2026-10-09",
-      "time": "12 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Proving Ground (Mempho After): Proving Ground",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-09",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-09",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jazz in the Box: Ehud Asherie Duo featuring Zaid Nasser",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-10-09",
-      "time": "7:00\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Lyelack, Rosamii, Von G\u00f6gh",
-      "venue": "Growlers",
-      "date": "2026-10-09",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Ernie Johnson From Detroit",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-09",
-      "time": "10:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "HEADCANNON / The Narrows / Joybomb [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-09",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Ronaldo Mercado & friends [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-09",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Ronaldo Mercado [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-09",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Big Wheel",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-09",
-      "time": "9:30 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "The Lori Willis Band",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-09",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "PRETTY LIGHTS AFTER PARTY: w/ Maddy O'Neal, Motifv, Since Juleye",
-      "venue": "Minglewood Hall",
-      "date": "2026-10-09",
-      "time": "11:30 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Almost Famous",
-      "venue": "Nashoba",
-      "date": "2026-10-09",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Southbound Acoustic on the Patio",
-      "venue": "Nashoba",
-      "date": "2026-10-09",
-      "time": "5 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "S.K.A.T.E and Cookout",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-09",
-      "time": "5:30 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
-    {
-      "artist": "Friday Night Jazz in the Westin Memphis Beale Street Hotel lobby: Strictly Jazz Entertainment",
-      "venue": "Westin Memphis Beale Street Hotel",
-      "date": "2026-10-09",
-      "time": "6-9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Diane Green, Steve Selvidge, Lorette Velvette, Michael Graber,Jason Freeman, Marcia Clifton, Sweet Cream Ladies, Doug MacLeod, Alex Greene, Miz Stefani ,Dr Dave Evans & Last Chance Jug Band",
-      "venue": "Zen House, 831 S Cooper Street, Memphis, TN",
-      "date": "2026-10-09",
-      "time": null,
-      "source": "submission"
-    },
     {
       "artist": "Free performances in the NewDaisy Theatre; Jazz Jam at The Dame at Hotel Pontotoc: DJ Digital Tech, Alex Upton Trio, Henry Conerway III, Dear Silas, Theo Croker",
       "venue": "Hotel Pontotoc",
@@ -853,6 +727,13 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
+      "artist": "Natasha Ariel, Haley Mosenteen, Bridger Whitter",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-13",
+      "time": "8 PM",
+      "source": "submission"
+    },
+    {
       "artist": "Disney Villians Trivia",
       "venue": "Nashoba",
       "date": "2026-10-13",
@@ -1096,6 +977,125 @@
       "date": "2026-10-16",
       "time": "7:00PM",
       "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "MDR Showcase: General Labor, Missed Dunks At Summer League, Carry Ripple",
+      "venue": "Crosstown Arts",
+      "date": "2026-10-17",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Mavis Staples",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-17",
+      "time": "8:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Sick Thoughts, Pig Detective, and Spoonful",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-17",
+      "time": "9 PM",
+      "source": "manual"
+    },
+    {
+      "artist": "Metal Night: TBA",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-17",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Graham Winchesters Song Swap: Graham Winchester, Frank McLallen, Ben Church, Jeff Hulett",
+      "venue": "Bar DKDC",
+      "date": "2026-10-17",
+      "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Night of the Libra: DJ Larry, DJ Divje Babe, Kid Mestizo, DJ Automatic Black",
+      "venue": "Bar DKDC",
+      "date": "2026-10-17",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "CowBoy Neil And The Real Deal",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-17",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "and of course, our fan-favorite stein-holding contest! \ud83c\udf7a We can\u2019t wait to celebrate with our wonderful community! So bring your best traditional German outfit and Oktoberfest spirit for a day full of memories as Crosstown Brewing. Prost! \ud83c\udde9\ud83c\uddea \ud83c\udf7b",
+      "venue": "Crosstown Brewing Co.",
+      "date": "2026-10-17",
+      "time": null,
+      "source": "scraper:crosstown_brewing_co"
+    },
+    {
+      "artist": "Tommy Stewart's Dyrewulf",
+      "venue": "Growlers",
+      "date": "2026-10-17",
+      "time": "3:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Robert Ellis at Hernando\u2019s Hide-A-Way Memphis, TN",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-17",
+      "time": "8:00PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Psyche Fest 901 [Both Rooms]",
+      "venue": "Hi Tone",
+      "date": "2026-10-17",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Six-One-Six Reunion 2.0",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-17",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Twin Soul",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-17",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "23rd Annual Memphis Tri-State Blues Festival",
+      "venue": "Landers Center",
+      "date": "2026-10-17",
+      "time": "6:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Blisspop Presents: Hot In Herre: 2000s Dance Party",
+      "venue": "Minglewood Hall",
+      "date": "2026-10-17",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Trap Karaoke (21+ Event)",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-17",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Grind City Showcase",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-17",
+      "time": "7 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
