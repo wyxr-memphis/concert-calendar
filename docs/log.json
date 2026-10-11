@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-10T20:25:20.666708+00:00",
+  "run_timestamp": "2026-10-11T11:18:37.641877+00:00",
   "date_range": {
-    "start": "2026-10-10",
-    "end": "2026-10-17"
+    "start": "2026-10-11",
+    "end": "2026-10-18"
   },
   "total_events_db": 4003,
-  "total_active_display": 122,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 9,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -33,14 +33,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": false,
       "events_found": 0,
@@ -49,20 +41,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
-      "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -75,8 +59,24 @@
     {
       "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 52,
+      "events_after_filter": 52,
       "events_filtered": 0,
       "error": null
     },
@@ -89,18 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -113,26 +113,26 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
+      "events_found": 18,
+      "events_after_filter": 18,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -145,35 +145,35 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 34,
+      "events_found": 66,
+      "events_after_filter": 33,
       "events_filtered": 33,
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 14,
-      "events_filtered": 13,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 6,
-      "events_filtered": 4,
+      "events_after_filter": 4,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 13,
+      "events_filtered": 14,
       "error": null
     },
     {
@@ -181,6 +181,14 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 40,
       "events_filtered": 0,
       "error": null
     },
@@ -193,38 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 283,
-      "events_after_filter": 39,
-      "events_filtered": 244,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 40,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 30,
-      "events_filtered": 260,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 18,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
@@ -233,226 +209,47 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 17,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 283,
+      "events_after_filter": 39,
+      "events_filtered": 244,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 28,
+      "events_filtered": 262,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 62,
-      "events_filtered": 9,
+      "events_after_filter": 61,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 122,
-      "events_after_filter": 122,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Free performances in the NewDaisy Theatre; Jazz Jam at The Dame at Hotel Pontotoc: DJ Digital Tech, Alex Upton Trio, Henry Conerway III, Dear Silas, Theo Croker",
-      "venue": "Hotel Pontotoc",
-      "date": "2026-10-10",
-      "time": "1:00 PM - 7:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Aquarian Blood",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-10",
-      "time": "7 PM (doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lorette Velvette, Aquarian blood, Bluff City Backsliders, Diane Greene, and Roy Brewer Oct 10 at Lamp!",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-10",
-      "time": "7 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "The Cramps \"Greatest Gravy\" Listen Up Session w/Henry Rollins (SOLD OUT)",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-10-10",
-      "time": "6:00-7:30pm",
-      "source": "manual"
-    },
-    {
-      "artist": "Mempho Fest",
-      "venue": "Radians Amphitheater",
-      "date": "2026-10-10",
-      "time": "12 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Aubrey McCrady (Mempho After): Aubrey McCrady",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-10",
-      "time": "11 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "John Prine Night!!: John Prine Night",
-      "venue": "Bar DKDC",
-      "date": "2026-10-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Jacob Huffman",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-10",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Elevation Worship & Steven Furtick - Fall Tour 2026",
-      "venue": "FedExForum",
-      "date": "2026-10-10",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Beer Keg Relay Race",
-      "venue": "Flyway Brewing",
-      "date": "2026-10-10",
-      "time": "3:30 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Edgetoberfest",
-      "venue": "Flyway Brewing",
-      "date": "2026-10-10",
-      "time": "12 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Peanut Butter & Jam: Songs by Jake",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-10-10",
-      "time": "10:30\u202fAM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "OmenBringer",
-      "venue": "Growlers",
-      "date": "2026-10-10",
-      "time": "7:30PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Cowboy Fly Presents [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-10",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Rough Dreams / The Catastrophe\u2019s / The 714\u2019s / Serg [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-10",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Jazz Jam at The Dame: Jazz Jam performers",
-      "venue": "Hotel Pontotoc",
-      "date": "2026-10-10",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Aquanet",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-10",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "The Lost 45's",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-10",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Bluff City Backsliders",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-10",
-      "time": "7 PM (doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Diane Green",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-10",
-      "time": "7 PM (doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Roy Brewer",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-10",
-      "time": "7 PM (doors)",
-      "source": "artifact"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Opera Memphia",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-10",
-      "time": "7:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Orion Financial Free Concert Series: Opera Memphis",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-10",
-      "time": "7:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "WEATHER CANCELLATION: Baptist Health & Wellness Series: Breath work and Meditation",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-10",
-      "time": "9:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "WEATHER CANCELLATION: Orion Financial Free Concert Series: Opera Memphis",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-10",
-      "time": "7:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Motionless In White",
-      "venue": "Satellite Music Hall",
-      "date": "2026-10-10",
-      "time": "6 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Dona Nobis Pacem: Grant Us Peace",
-      "venue": "Scheidt Family Performing Arts Center",
-      "date": "2026-10-10",
-      "time": "7:30 PM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
-    {
-      "artist": "The Only Name Left",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-10",
-      "time": "7 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
-    {
-      "artist": "Van Duren Returns to South Main Sounds",
-      "venue": "South Main Sounds",
-      "date": "2026-10-10",
-      "time": "6:30PM",
-      "source": "scraper:south_main_sounds"
-    },
     {
       "artist": "Sunset Jazz at Court Square Park: Stephen Lee & In the Moment, Pat Register, Gary Topper & Symmetry",
       "venue": "Court Square Park",
@@ -1087,20 +884,167 @@
       "artist": "Blisspop Presents: Hot In Herre: 2000s Dance Party",
       "venue": "Minglewood Hall",
       "date": "2026-10-17",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "9 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Trap Karaoke (21+ Event)",
       "venue": "Satellite Music Hall",
       "date": "2026-10-17",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Grind City Showcase",
       "venue": "Society Memphis Skatepark and Coffee",
       "date": "2026-10-17",
+      "time": "7 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Heartbreak Hill",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-10-18",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Mastodon",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-18",
+      "time": "6 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Echo Party: Art, Hanna, Hirsh",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-18",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Memphis Dance",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-18",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-18",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-18",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Fraxiom / Cel Shade [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-18",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Fraxiom [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-18",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Mean Green / Ruined God / Burnt Witch / Stone Wielder [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-18",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-10-18",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "El Ced & Groove Nation",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-10-18",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Five O'Clock Shadow",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-10-18",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Bugaloos",
+      "venue": "Huey's (Millington)",
+      "date": "2026-10-18",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Deep Roots",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-10-18",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Medium Walter",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-18",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Back Alley String Band",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-10-18",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Eureka Live Brunch",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-18",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Motel California",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-18",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Natasha Ariel, Haley Mosenteen, Bridger Whitter",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-10-18",
+      "time": "8 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "Shell on Wheels: \u201cBreak the Cycle\u201d Day",
+      "venue": "Overton Park Shell",
+      "date": "2026-10-18",
+      "time": "4:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Pestilence Presents",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-10-18",
       "time": "7 PM",
       "source": "scraper:society_memphis_skatepark_and_coffee"
     }
