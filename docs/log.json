@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-13T12:31:35.554961+00:00",
+  "run_timestamp": "2026-10-13T13:17:11.757427+00:00",
   "date_range": {
     "start": "2026-10-13",
     "end": "2026-10-20"
   },
-  "total_events_db": 4010,
+  "total_events_db": 4012,
   "total_active_display": 86,
   "data_store": "postgresql",
   "sources": [
@@ -25,36 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 49,
-      "events_after_filter": 49,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -65,23 +41,23 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 35,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
       "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 16,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -97,34 +73,10 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 49,
+      "events_after_filter": 49,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +89,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -153,11 +105,51 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 33,
-      "events_filtered": 33,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 16,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 26,
+      "events_filtered": 264,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
+      "events_found": 66,
+      "events_after_filter": 33,
+      "events_filtered": 33,
       "error": null
     },
     {
@@ -182,14 +174,6 @@
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 12,
-      "events_filtered": 15,
       "error": null
     },
     {
@@ -209,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 16,
-      "events_filtered": 6,
+      "events_found": 289,
+      "events_after_filter": 43,
+      "events_filtered": 246,
       "error": null
     },
     {
@@ -225,11 +209,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 289,
-      "events_after_filter": 43,
-      "events_filtered": 246,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 16,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 12,
+      "events_filtered": 15,
       "error": null
     },
     {
