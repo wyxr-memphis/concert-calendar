@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-12T23:24:23.495557+00:00",
+  "run_timestamp": "2026-10-13T12:31:35.554961+00:00",
   "date_range": {
-    "start": "2026-10-12",
-    "end": "2026-10-19"
+    "start": "2026-10-13",
+    "end": "2026-10-20"
   },
   "total_events_db": 4010,
-  "total_active_display": 88,
+  "total_active_display": 86,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -25,44 +25,20 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+    },
+    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 50,
-      "events_after_filter": 50,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -73,10 +49,34 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 49,
+      "events_after_filter": 49,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
+    },
+    {
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 16,
       "events_filtered": 0,
       "error": null
     },
@@ -89,12 +89,12 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -105,12 +105,28 @@
       "error": null
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -129,34 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -169,19 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 26,
-      "events_filtered": 264,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 289,
-      "events_after_filter": 44,
-      "events_filtered": 245,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,35 +177,19 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 27,
       "events_after_filter": 12,
       "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 16,
-      "events_filtered": 6,
       "error": null
     },
     {
@@ -233,72 +201,55 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 16,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 43,
+      "events_filtered": 246,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 60,
-      "events_filtered": 11,
+      "events_after_filter": 59,
+      "events_filtered": 12,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 88,
-      "events_after_filter": 88,
+      "events_found": 86,
+      "events_after_filter": 86,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "\"The Hayley Williams Show\"",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-10-12",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Modest Mouse",
-      "venue": "Satellite Music Hall",
-      "date": "2026-10-12",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-12",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Like Really Creative: Artist Speed Date: Like Really Creative",
-      "venue": "Bar DKDC",
-      "date": "2026-10-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-12",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Monster Monday Drag",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-12",
-      "time": "9:30 PM",
-      "source": "submission"
-    },
     {
       "artist": "Willie G's Psychedelic Blues Band",
       "venue": "B-Side Memphis",
@@ -865,6 +816,41 @@
       "date": "2026-10-19",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Delta Joe w/ Nancy Apple, Gann Brewer",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-20",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-20",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "FATHOM",
+      "venue": "Growlers",
+      "date": "2026-10-20",
+      "time": "7:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Spooky Music Bingo",
+      "venue": "Nashoba",
+      "date": "2026-10-20",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
