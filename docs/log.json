@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-14T20:22:52.623559+00:00",
+  "run_timestamp": "2026-10-15T09:40:37.141252+00:00",
   "date_range": {
-    "start": "2026-10-14",
-    "end": "2026-10-21"
+    "start": "2026-10-15",
+    "end": "2026-10-22"
   },
-  "total_events_db": 4025,
-  "total_active_display": 94,
+  "total_events_db": 4026,
+  "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
@@ -41,12 +33,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 37,
-      "events_filtered": 1,
-      "error": null
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -57,11 +49,27 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 17,
+      "events_found": 48,
+      "events_after_filter": 48,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -69,14 +77,6 @@
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 49,
-      "events_after_filter": 49,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +89,18 @@
       "error": null
     },
     {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -110,14 +118,6 @@
       "events_found": 291,
       "events_after_filter": 25,
       "events_filtered": 266,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 289,
-      "events_after_filter": 42,
-      "events_filtered": 247,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_found": 67,
+      "events_after_filter": 34,
+      "events_filtered": 33,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -179,8 +187,8 @@
     {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -193,30 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 1,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 22,
@@ -225,94 +209,47 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 67,
-      "events_after_filter": 34,
-      "events_filtered": 33,
+      "events_found": 289,
+      "events_after_filter": 42,
+      "events_filtered": 247,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 17,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 1,
+      "events_filtered": 3,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 58,
-      "events_filtered": 13,
+      "events_after_filter": 57,
+      "events_filtered": 14,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 94,
-      "events_after_filter": 94,
+      "events_found": 93,
+      "events_after_filter": 93,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Karaoke w/ Conner: Conner",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-14",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-14",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Fashionmobboss",
-      "venue": "Growlers",
-      "date": "2026-10-14",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-14",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Basic Printer / Spirit of the Bear [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-14",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "T. Jarrod Bonta",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-10-14",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-10-14",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Millington)",
-      "date": "2026-10-14",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "MacLeod & Lonardo",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-10-14",
-      "time": "5:30 PM",
-      "source": "scraper:huey_s"
-    },
     {
       "artist": "Concerts in The Grove: One After 901- A Beatles Celebration",
       "venue": "Germantown Performing Arts Center",
@@ -907,6 +844,62 @@
       "date": "2026-10-21",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Back-Alley String Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-22",
+      "time": "7 PM - 9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-22",
+      "time": "9:30 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-22",
+      "time": "2:14 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Concerts in The Grove: Memphis Wind Symphony",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-10-22",
+      "time": "6:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Journey to Jersey",
+      "venue": "Growlers",
+      "date": "2026-10-22",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Bobcat / Burning Brigids [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-22",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Southern Grind Sessions",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-10-22",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "SIDE SET: Becky Denton",
+      "venue": "Nashoba",
+      "date": "2026-10-22",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
