@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-18T09:23:22.264863+00:00",
+  "run_timestamp": "2026-10-18T19:08:13.652264+00:00",
   "date_range": {
     "start": "2026-10-18",
     "end": "2026-10-25"
@@ -11,8 +11,8 @@
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 12,
+      "events_found": 12,
+      "events_after_filter": 11,
       "events_filtered": 0,
       "error": null
     },
@@ -23,14 +23,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
-    },
-    {
-      "name": "Venue: Growlers",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -49,18 +41,18 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
+      "name": "Venue: Growlers",
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -73,12 +65,12 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: B.B. King's Blues Club",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -89,19 +81,19 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 26,
       "events_after_filter": 26,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 291,
-      "events_after_filter": 20,
-      "events_filtered": 271,
       "error": null
     },
     {
@@ -129,6 +121,14 @@
       "error": null
     },
     {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 5,
@@ -137,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_found": 291,
+      "events_after_filter": 20,
+      "events_filtered": 271,
       "error": null
     },
     {
@@ -155,9 +155,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 65,
+      "events_found": 66,
       "events_after_filter": 32,
-      "events_filtered": 33,
+      "events_filtered": 34,
       "error": null
     },
     {
@@ -169,28 +169,12 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 8,
-      "events_filtered": 19,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
     },
     {
       "name": "Venue: Nashoba",
@@ -201,11 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 16,
-      "events_filtered": 6,
+      "events_found": 27,
+      "events_after_filter": 8,
+      "events_filtered": 19,
       "error": null
     },
     {
@@ -225,11 +209,27 @@
       "error": null
     },
     {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 16,
       "events_after_filter": 16,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 16,
+      "events_filtered": 6,
       "error": null
     },
     {
