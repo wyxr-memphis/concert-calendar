@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-19T21:18:13.849641+00:00",
+  "run_timestamp": "2026-10-20T09:52:32.613171+00:00",
   "date_range": {
-    "start": "2026-10-19",
-    "end": "2026-10-26"
+    "start": "2026-10-20",
+    "end": "2026-10-27"
   },
-  "total_events_db": 4048,
-  "total_active_display": 98,
+  "total_events_db": 4050,
+  "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Growlers",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": false,
       "events_found": 0,
@@ -41,18 +33,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 36,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 47,
+      "events_after_filter": 47,
       "events_filtered": 0,
       "error": null
     },
@@ -65,6 +49,14 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
@@ -73,11 +65,35 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Growlers",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
       "events_after_filter": 4,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -97,10 +113,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
@@ -121,51 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 291,
-      "events_after_filter": 18,
-      "events_filtered": 273,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 48,
-      "events_after_filter": 48,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -177,19 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 7,
-      "events_filtered": 20,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 289,
-      "events_after_filter": 40,
-      "events_filtered": 249,
+      "events_found": 10,
+      "events_after_filter": 4,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -201,19 +169,19 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
-      "events_filtered": 4,
+      "events_found": 27,
+      "events_after_filter": 7,
+      "events_filtered": 20,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 4,
-      "events_filtered": 6,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -225,59 +193,63 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 0,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 22,
+      "events_after_filter": 18,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 39,
+      "events_filtered": 250,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 291,
       "events_after_filter": 17,
-      "events_filtered": 5,
+      "events_filtered": 274,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 53,
-      "events_filtered": 18,
+      "events_after_filter": 52,
+      "events_filtered": 19,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 98,
-      "events_after_filter": 98,
+      "events_found": 99,
+      "events_after_filter": 99,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Memphis Drone (12+ artists)",
-      "venue": "H and S Printing Company",
-      "date": "2026-10-19",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-19",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-19",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-19",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
     {
       "artist": "Delta Joe w/ Nancy Apple, Gann Brewer",
       "venue": "B-Side Memphis",
@@ -935,6 +907,41 @@
       "date": "2026-10-26",
       "time": "8:00PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Iron & Wine",
+      "venue": "Satellite Music Hall",
+      "date": "2026-10-27",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "The Parallax",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-27",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-27",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "THIS IS MUSIC- Dan Larsen",
+      "venue": "Flyway Brewing",
+      "date": "2026-10-27",
+      "time": "6 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-27",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
