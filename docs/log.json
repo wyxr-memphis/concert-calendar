@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-21T09:53:40.155320+00:00",
+  "run_timestamp": "2026-10-21T20:25:03.966959+00:00",
   "date_range": {
     "start": "2026-10-21",
     "end": "2026-10-28"
   },
-  "total_events_db": 4054,
+  "total_events_db": 4057,
   "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -41,12 +41,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: Growlers",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
+      "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -57,11 +57,11 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 4,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -73,28 +73,12 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 4,
-      "events_filtered": 2,
-      "error": null
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -121,10 +105,18 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 47,
+      "events_after_filter": 47,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -137,10 +129,26 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 291,
+      "events_after_filter": 16,
+      "events_filtered": 275,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -171,8 +179,8 @@
     {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 7,
+      "events_found": 29,
+      "events_after_filter": 9,
       "events_filtered": 20,
       "error": null
     },
@@ -185,19 +193,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 289,
-      "events_after_filter": 38,
-      "events_filtered": 251,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
-      "events_filtered": 4,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -209,19 +209,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
+      "events_found": 4,
+      "events_after_filter": 0,
+      "events_filtered": 4,
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
+      "events_found": 289,
+      "events_after_filter": 38,
+      "events_filtered": 251,
       "error": null
     },
     {
