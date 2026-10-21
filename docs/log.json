@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-20T20:13:55.054921+00:00",
+  "run_timestamp": "2026-10-21T09:53:40.155320+00:00",
   "date_range": {
-    "start": "2026-10-20",
-    "end": "2026-10-27"
+    "start": "2026-10-21",
+    "end": "2026-10-28"
   },
-  "total_events_db": 4053,
-  "total_active_display": 99,
+  "total_events_db": 4054,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 11,
+      "events_found": 13,
+      "events_after_filter": 12,
       "events_filtered": 0,
       "error": null
     },
@@ -25,12 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -49,20 +49,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -81,6 +73,22 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 47,
+      "events_after_filter": 47,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
@@ -89,18 +97,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 5,
-      "events_after_filter": 3,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -113,31 +121,23 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 291,
-      "events_after_filter": 17,
-      "events_filtered": 274,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -156,8 +156,8 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 64,
-      "events_after_filter": 33,
-      "events_filtered": 31,
+      "events_after_filter": 32,
+      "events_filtered": 32,
       "error": null
     },
     {
@@ -185,6 +185,14 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 38,
+      "events_filtered": 251,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
@@ -209,18 +217,10 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 289,
-      "events_after_filter": 39,
-      "events_filtered": 250,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
+      "events_found": 14,
+      "events_after_filter": 14,
       "events_filtered": 0,
       "error": null
     },
@@ -236,55 +236,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 52,
-      "events_filtered": 19,
+      "events_after_filter": 51,
+      "events_filtered": 20,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 99,
-      "events_after_filter": 99,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Delta Joe w/ Nancy Apple, Gann Brewer",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-20",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-20",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "FATHOM",
-      "venue": "Growlers",
-      "date": "2026-10-20",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-20",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Spooky Music Bingo",
-      "venue": "Nashoba",
-      "date": "2026-10-20",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "Bush Hound",
       "venue": "B-Side Memphis",
@@ -913,7 +878,7 @@
       "venue": "Satellite Music Hall",
       "date": "2026-10-27",
       "time": "7 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "The Parallax",
@@ -942,6 +907,69 @@
       "date": "2026-10-27",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Soundhause",
+      "venue": "B-Side Memphis",
+      "date": "2026-10-28",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-10-28",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Evil Karaoke *no cover* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-28",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Twin Soul Duo",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-10-28",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Gerry Finney",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-10-28",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "MacLeod & Lonardo",
+      "venue": "Huey's (Millington)",
+      "date": "2026-10-28",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Pretty Boys",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-10-28",
+      "time": "5:30 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "SIDE SET: Jason Middlekauff of Short in the Sleeve",
+      "venue": "Nashoba",
+      "date": "2026-10-28",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
     }
   ]
 }
