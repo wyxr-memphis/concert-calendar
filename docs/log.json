@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-22T09:53:45.138486+00:00",
+  "run_timestamp": "2026-10-22T20:21:24.546456+00:00",
   "date_range": {
     "start": "2026-10-22",
     "end": "2026-10-29"
   },
-  "total_events_db": 4059,
+  "total_events_db": 4061,
   "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
@@ -25,20 +25,28 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -49,10 +57,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 47,
+      "events_after_filter": 47,
       "events_filtered": 0,
       "error": null
     },
@@ -65,18 +73,10 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 38,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 47,
-      "events_after_filter": 47,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -97,18 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 4,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -118,14 +110,6 @@
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 291,
-      "events_after_filter": 15,
-      "events_filtered": 276,
       "error": null
     },
     {
@@ -161,14 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 10,
@@ -185,10 +161,18 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 29,
+      "events_after_filter": 9,
+      "events_filtered": 20,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -199,6 +183,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
@@ -217,19 +209,27 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 292,
+      "events_after_filter": 16,
+      "events_filtered": 276,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 4,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 22,
       "events_after_filter": 18,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 9,
-      "events_filtered": 20,
       "error": null
     },
     {
