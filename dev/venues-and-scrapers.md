@@ -9,7 +9,7 @@ fetcher. **Counts below drift — regenerate rather than trusting them:**
 python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"
 ```
 
-## Configured venues (30 at last count)
+## Configured venues (31 at last count)
 
 **Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
@@ -27,8 +27,8 @@ Center, Orpheum Theatre, South Main Sounds
 
 **Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc
 
-**The Events Calendar API (0 active)** — `tribe_events` is implemented and correct, but the
-only venue on it is currently blocked. See the Cloudflare note below.
+**The Events Calendar API (1 active)** — `tribe_events`: Memphis Listening Lab. Hotel Pontotoc
+runs it too but is blocked — see the Cloudflare note below.
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
 
