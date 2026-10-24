@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
-from src.config import normalize_venue_name  # noqa: E402
+from src.config import normalize_venue_name, is_music_event  # noqa: E402
 from src.date_utils import parse_date_text, resolve_yearless_date  # noqa: E402
 from src.models import normalize_text  # noqa: E402
 from src.sources.artifacts import _parse_vision_event, compose_show_title  # noqa: E402
@@ -252,8 +252,21 @@ def test_known_venues_still_canonicalize():
         ("B.B. King's Blues Club", "B.B. King's Blues Club"),
         ("A Foreigners Journey To Boston LIVE @ Minglewood Hall Memphis",
          "Minglewood Hall"),
+        ("WYXR Stereo Sessions / MEMPHO Listening Lab", "Memphis Listening Lab"),
+        ("Memphis Listening Lab at Crosstown Concourse", "Memphis Listening Lab"),
+        ("Crosstown Concourse", "Crosstown Arts"),
     ]:
         eq(f"canonicalizes: {name!r}", normalize_venue_name(name), want)
+
+
+def test_listening_sessions_count_as_music():
+    # Memphis Listening Lab bills record playback, not acts: none of these
+    # carries a genre word, so a music filter would otherwise drop them all.
+    for title in ["HiFi Friday", "Hi-Fi Friday with DJ Kid Kut",
+                  "WYXR Stereo Sessions: KWICK", "Stereo Sessions: Wanda Lott",
+                  "Gunter Gaupp Listening Session", "Album Listening Party"]:
+        eq(f"is music: {title!r}", is_music_event(title), True)
+    eq("non-music still excluded", is_music_event("Trivia Night"), False)
 
 
 def test_empty_venue_is_safe():
@@ -347,6 +360,7 @@ def main():
         test_real_acts_still_match,
         test_loose_names_are_not_rewritten,
         test_known_venues_still_canonicalize,
+        test_listening_sessions_count_as_music,
         test_empty_venue_is_safe,
         test_nopad_matches_platform_strftime,
         test_nopad_literal_percent,

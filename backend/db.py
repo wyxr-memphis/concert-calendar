@@ -1117,6 +1117,10 @@ def _seed_venues_if_empty():
         ("Society Memphis Skatepark and Coffee", "Crosstown/Broad Avenue", ["society memphis", "society memphis skatepark", "society memphis skatepark and coffee", "society memphis skatepark & coffee", "society skatepark", "society skatepark and coffee"]),
         ("Crosstown Brewing Co.", "Crosstown/Broad Avenue", ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."]),
         ("Blues City Cafe", "Downtown/Beale Street", ["blues city cafe", "blues city café", "blues city cafe band box"]),
+        # Seeding is skipped when a row by this name already exists (Slack
+        # uploads may have created one) — then add the Stereo Sessions alias
+        # through Admin → Venues instead.
+        ("Memphis Listening Lab", "Crosstown/Broad Avenue", ["memphis listening lab", "the memphis listening lab", "listening lab", "mempho listening lab", "wyxr stereo sessions / mempho listening lab", "memphis listening lab at crosstown concourse"]),
         # Halls the Memphis Symphony books that no other scraper reaches. The
         # orchestra owns no room, so these are seeded for the neighborhood and
         # the aliases rather than because anything scrapes them directly; the

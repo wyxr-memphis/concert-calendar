@@ -212,6 +212,23 @@ VENUES = {
         "calendar_url": None,  # Instagram only — manual source
         "scraper": "manual_only",
     },
+    "memphis-listening-lab": {
+        "name": "Memphis Listening Lab",
+        # Mostly WYXR Stereo Sessions and HiFi Friday listening sessions, which
+        # arrive as Slack flyers billed under the show name — hence the
+        # "WYXR Stereo Sessions / MEMPHO …" alias, which must also exist on the
+        # DB venues row or those rows never dedup (dev/database.md).
+        "aliases": [
+            "memphis listening lab", "the memphis listening lab", "listening lab",
+            "mempho listening lab", "wyxr stereo sessions / mempho listening lab",
+            "memphis listening lab at crosstown concourse",
+        ],
+        "neighborhood": "Crosstown/Broad Avenue",
+        # WordPress + The Events Calendar (tribe_events) confirmed Oct 2026.
+        # Feed has no categories or venue fields, so no filtering options needed.
+        "calendar_url": "https://memphislisteninglab.org/events/",
+        "scraper": "tribe_events",
+    },
     "bside": {
         "name": "B-Side Memphis",
         "aliases": ["b-side", "bside", "b side", "b-side memphis"],
@@ -372,6 +389,10 @@ MUSIC_KEYWORDS = [
     "beats", "bass", "house music", "techno", "disco",
     "open mic",  # Usually music-focused in Memphis
     "jam session", "jam night",
+    # Record-playback events (Memphis Listening Lab's WYXR Stereo Sessions,
+    # HiFi Friday) name no genre or act type, so nothing else here sees them.
+    "stereo session", "hifi friday", "hi-fi friday", "listening party",
+    "listening session",
     "karaoke",  # Borderline but keep it — DJs run these
 ]
 
