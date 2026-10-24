@@ -25,7 +25,7 @@ Center, Orpheum Theatre, South Main Sounds
 
 **Multi-venue (1)** — `memphis_symphony`: Memphis Symphony Orchestra (see below)
 
-**Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc (see below)
+**Manual only (4):** Bar DKDC, B-Side Memphis, Hotel Pontotoc, Memphis Listening Lab (see below)
 
 **The Events Calendar API (0 active)** — `tribe_events` is implemented and correct, but the
 only venue on it is currently blocked. See the Cloudflare note below.
@@ -96,6 +96,30 @@ needs to change. An untested alternative is moving this one fetch to the Render 
 egress IP may not be blocked — that has never been probed.
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
+
+### Memphis Listening Lab — registered, scraper pending
+
+Added 2026-10-24 as `manual_only`. The Lab (Crosstown Concourse, Suite 269) is mostly WYXR
+Stereo Sessions and HiFi Friday listening sessions, which arrive as Slack flyers. **No scraper
+yet:** `memphislisteninglab.org` was unreachable from the dev sandbox, and the runbook is
+"identify the platform first, never write a scraper blind." To finish: fetch
+`/events/`, pick `tribe_events` / Squarespace `?format=json` / Wix warmup / custom, change
+`"scraper"`, and confirm real upcoming events with `--dry-run`.
+
+- **Alias `wyxr stereo sessions / mempho listening lab`** is load-bearing: seven Slack rows
+  were filed under that name and never deduped against the Lab's own rows. It is in
+  `src/config.py` and `_SEED_VENUES`, but the seed is skipped if a `Memphis Listening Lab` row
+  already exists, so it must also be added through Admin → Venues, and then the
+  `dedup_key` backfill re-run (`dev/database.md`). Most of those seven still differ from
+  their twins by OCR title typos, so the alias alone will not merge them.
+- **`is_music_event` would drop these listings** ("HiFi Friday", "Stereo Sessions: …" carry
+  no genre word), so `MUSIC_KEYWORDS` now includes `stereo session`, `hifi friday`,
+  `listening party` and `listening session`. Not needed by a `manual_only` venue, but needed by
+  any scraper that applies the filter (e.g. `tribe_music_only`).
+- **Crosstown Arts overlap: none so far.** None of the 71 `scraper:crosstown_arts` rows in the
+  2026-10-24 snapshot matches a Listening Lab show on the same date. The Crosstown parser
+  files *every* non-gallery, non-film listing under "Crosstown Arts", though, so if the Lab
+  starts appearing on crosstownarts.org it will be double-sourced under the wrong venue.
 
 ### Memphis Symphony Orchestra — the one scraper that is not a venue
 
