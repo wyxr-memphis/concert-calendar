@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-24T19:34:31.563807+00:00",
+  "run_timestamp": "2026-10-24T19:48:33.887905+00:00",
   "date_range": {
     "start": "2026-10-24",
     "end": "2026-10-31"
   },
-  "total_events_db": 4071,
-  "total_active_display": 108,
+  "total_events_db": 4079,
+  "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
@@ -57,6 +41,14 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
+    },
+    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
@@ -65,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 38,
+      "events_after_filter": 38,
       "events_filtered": 0,
       "error": null
     },
@@ -89,10 +81,26 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +121,10 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 44,
+      "events_after_filter": 44,
       "events_filtered": 0,
       "error": null
     },
@@ -137,20 +145,20 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
+      "events_found": 8,
+      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: South Main Sounds",
@@ -166,6 +174,30 @@
       "events_found": 64,
       "events_after_filter": 32,
       "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 292,
+      "events_after_filter": 13,
+      "events_filtered": 279,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 33,
+      "events_filtered": 256,
       "error": null
     },
     {
@@ -185,26 +217,10 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 0,
+      "events_found": 4,
       "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 18,
       "events_filtered": 4,
       "error": null
     },
@@ -217,19 +233,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
+      "events_found": 22,
+      "events_after_filter": 18,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 289,
-      "events_after_filter": 33,
-      "events_filtered": 256,
       "error": null
     },
     {
@@ -243,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 108,
-      "events_after_filter": 108,
+      "events_found": 110,
+      "events_after_filter": 110,
       "events_filtered": 0,
       "error": null
     }
@@ -629,6 +637,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Book Signing and Signing with Amy Rigby \u2013 Girl to Country",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-10-27",
+      "time": "6 PM",
+      "source": "scraper:memphis_listening_lab"
+    },
+    {
       "artist": "Soundhause",
       "venue": "B-Side Memphis",
       "date": "2026-10-28",
@@ -753,6 +768,13 @@
       "date": "2026-10-29",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "MLL PRESENTS: INVISIBLE LISTENING \u2013 A Journey Through the Life & Career of Jon Hassell \u2013 Curated by NDEYA Records & Hosted Jared Boyd",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-10-29",
+      "time": "6 PM",
+      "source": "scraper:memphis_listening_lab"
     },
     {
       "artist": "Sterling Elza",
