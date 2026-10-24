@@ -224,12 +224,10 @@ VENUES = {
             "memphis listening lab at crosstown concourse",
         ],
         "neighborhood": "Crosstown/Broad Avenue",
-        # TODO: scrape nightly. The platform is unverified — the site was
-        # unreachable from the dev sandbox, so no scraper was written blind.
-        # Fetch this page, identify the platform (tribe_events / Squarespace
-        # ?format=json / Wix warmup / custom), then change "scraper".
+        # WordPress + The Events Calendar (tribe_events) confirmed Oct 2026.
+        # Feed has no categories or venue fields, so no filtering options needed.
         "calendar_url": "https://memphislisteninglab.org/events/",
-        "scraper": "manual_only",
+        "scraper": "tribe_events",
     },
     "bside": {
         "name": "B-Side Memphis",

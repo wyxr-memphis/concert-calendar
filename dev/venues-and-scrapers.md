@@ -25,7 +25,7 @@ Center, Orpheum Theatre, South Main Sounds
 
 **Multi-venue (1)** — `memphis_symphony`: Memphis Symphony Orchestra (see below)
 
-**Manual only (4):** Bar DKDC, B-Side Memphis, Hotel Pontotoc, Memphis Listening Lab (see below)
+**Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc
 
 **The Events Calendar API (0 active)** — `tribe_events` is implemented and correct, but the
 only venue on it is currently blocked. See the Cloudflare note below.
@@ -97,14 +97,14 @@ egress IP may not be blocked — that has never been probed.
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
 
-### Memphis Listening Lab — registered, scraper pending
+### Memphis Listening Lab — `tribe_events` scraper live
 
-Added 2026-10-24 as `manual_only`. The Lab (Crosstown Concourse, Suite 269) is mostly WYXR
-Stereo Sessions and HiFi Friday listening sessions, which arrive as Slack flyers. **No scraper
-yet:** `memphislisteninglab.org` was unreachable from the dev sandbox, and the runbook is
-"identify the platform first, never write a scraper blind." To finish: fetch
-`/events/`, pick `tribe_events` / Squarespace `?format=json` / Wix warmup / custom, change
-`"scraper"`, and confirm real upcoming events with `--dry-run`.
+Added 2026-10-24; scraper confirmed and activated 2026-10-24. The Lab (Crosstown Concourse,
+Suite 269) is mostly WYXR Stereo Sessions and HiFi Friday listening sessions, which also
+arrive as Slack flyers. Platform: WordPress + The Events Calendar REST API
+(`/wp-json/tribe/events/v1/events`), confirmed via `x-tec-api-root` header and 8 real
+upcoming events. No categories or venue fields, so no filtering options (`tribe_skip_categories`,
+`tribe_own_venues`, `tribe_music_only`) are needed.
 
 - **Alias `wyxr stereo sessions / mempho listening lab`** is load-bearing: seven Slack rows
   were filed under that name and never deduped against the Lab's own rows. It is in
