@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-24T18:00:27.057300+00:00",
+  "run_timestamp": "2026-10-24T19:10:52.548949+00:00",
   "date_range": {
     "start": "2026-10-24",
     "end": "2026-10-31"
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
+    },
+    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
@@ -41,18 +49,10 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 44,
+      "events_after_filter": 44,
       "events_filtered": 0,
       "error": null
     },
@@ -65,14 +65,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: B.B. King's Blues Club",
       "success": true,
       "events_found": 0,
@@ -81,26 +73,18 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -121,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 292,
+      "events_after_filter": 13,
+      "events_filtered": 279,
       "error": null
     },
     {
@@ -137,23 +121,31 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 292,
-      "events_after_filter": 13,
-      "events_filtered": 279,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -169,11 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 289,
-      "events_after_filter": 33,
-      "events_filtered": 256,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,6 +177,22 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 14,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 33,
+      "events_filtered": 256,
+      "error": null
+    },
+    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 0,
@@ -193,11 +201,11 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Crosstown Brewing Co.",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
+      "events_found": 4,
+      "events_after_filter": 0,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -213,14 +221,6 @@
       "success": true,
       "events_found": 22,
       "events_after_filter": 18,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
       "events_filtered": 4,
       "error": null
     },
