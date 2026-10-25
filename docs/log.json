@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-24T19:48:33.887905+00:00",
+  "run_timestamp": "2026-10-25T09:38:08.554233+00:00",
   "date_range": {
-    "start": "2026-10-24",
-    "end": "2026-10-31"
+    "start": "2026-10-25",
+    "end": "2026-11-01"
   },
-  "total_events_db": 4079,
-  "total_active_display": 110,
+  "total_events_db": 4083,
+  "total_active_display": 90,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 15,
+      "events_found": 10,
+      "events_after_filter": 10,
       "events_filtered": 0,
       "error": null
     },
@@ -33,14 +33,6 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": false,
       "events_found": 0,
@@ -49,20 +41,28 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: B.B. King's Blues Club",
@@ -73,10 +73,50 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 45,
+      "events_after_filter": 45,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 37,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
       "error": null
     },
@@ -89,79 +129,7 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 44,
-      "events_after_filter": 44,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 4,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -171,33 +139,17 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 32,
+      "events_found": 63,
+      "events_after_filter": 31,
       "events_filtered": 32,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 292,
-      "events_after_filter": 13,
-      "events_filtered": 279,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 289,
-      "events_after_filter": 33,
-      "events_filtered": 256,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -212,8 +164,40 @@
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 29,
-      "events_after_filter": 9,
-      "events_filtered": 20,
+      "events_after_filter": 7,
+      "events_filtered": 22,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 13,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 33,
+      "events_filtered": 256,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -233,10 +217,26 @@
       "error": null
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 292,
+      "events_after_filter": 11,
+      "events_filtered": 281,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 12,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 18,
+      "events_found": 21,
+      "events_after_filter": 17,
       "events_filtered": 4,
       "error": null
     },
@@ -244,188 +244,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 48,
-      "events_filtered": 23,
+      "events_after_filter": 47,
+      "events_filtered": 24,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 90,
+      "events_after_filter": 90,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Rigoletto In Concert",
-      "venue": "Cannon Center for the Performing Arts",
-      "date": "2026-10-24",
-      "time": "7:30 PM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
-    {
-      "artist": "The Robert Cray Band",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-10-24",
-      "time": "8:00\u202fPM",
-      "source": "manual"
-    },
-    {
-      "artist": "Alice Hasen Halloween Show: Alice Hasen, TBA",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Dru Hill",
-      "venue": "BankPlus Amphitheater at Snowden Grove",
-      "date": "2026-10-24",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Night of Synths: Recent Future Record Release Party: Recent Future, Wet Robot, Neon Glittery",
-      "venue": "Bar DKDC",
-      "date": "2026-10-24",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Recent Future Record Release Party: Recent Future",
-      "venue": "Bar DKDC",
-      "date": "2026-10-24",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Jad Tariq",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-24",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Cash Money & No Limit Tour",
-      "venue": "FedExForum",
-      "date": "2026-10-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Ole 60 w/ Arcy Drive",
-      "venue": "Grind City Amp",
-      "date": "2026-10-24",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "901 Wrestling LIVE TAPING at Growlers - Memphis, TN",
-      "venue": "Growlers",
-      "date": "2026-10-24",
-      "time": "2:30PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Rave till the Grave at Growlers - Memphis, TN",
-      "venue": "Growlers",
-      "date": "2026-10-24",
-      "time": "9:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Joshua Ray Walker \u2013 Ain\u2019t Dead Yet Tour \u2013 Memphis,TN",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-24",
-      "time": "8:00PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Memphis Punk Rock Flea Market  *free* [Both Rooms]",
-      "venue": "Hi Tone",
-      "date": "2026-10-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Almost Famous",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-24",
-      "time": "9 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Souled Out",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-24",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Emo Nite",
-      "venue": "Minglewood Hall",
-      "date": "2026-10-24",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "R&B ONLY LIVE - Memphis, TN",
-      "venue": "Minglewood Hall",
-      "date": "2026-10-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Sarah Jakes Roberts - The Rogue Route Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-10-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Shell on Wheels: Memphis Cup of Nations",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-24",
-      "time": "10:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Ch\u00eane Fest 2026",
-      "venue": "Radians Amphitheater",
-      "date": "2026-10-24",
-      "time": "2 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Ch\u00eane Film Festival 2026",
-      "venue": "Radians Amphitheater",
-      "date": "2026-10-24",
-      "time": "2 PM",
-      "source": "scraper:radians_amphitheater"
-    },
-    {
-      "artist": "THE EMO NIGHT TOUR (18+)",
-      "venue": "Satellite Music Hall",
-      "date": "2026-10-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Shelby County Convening",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-24",
-      "time": "1 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
-    {
-      "artist": "Video Game Fright Night",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-24",
-      "time": "4 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
     {
       "artist": "Heartbreak Hill",
       "venue": "Huey's (Cordova)",
@@ -602,6 +434,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Board Games, Bad Movies & Beer Bust *no cover* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-26",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "Iron & Wine",
       "venue": "Satellite Music Hall",
       "date": "2026-10-27",
@@ -747,6 +586,13 @@
       "date": "2026-10-29",
       "time": "8:00PM",
       "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Halloween-ish Punk Nite [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-10-29",
+      "time": null,
+      "source": "scraper:hi_tone"
     },
     {
       "artist": "Crowder LIVE! - Cordova, TN",
@@ -1018,15 +864,29 @@
       "artist": "Blac Youngsta Presents: The Sammie Krueger Fest",
       "venue": "Minglewood Hall",
       "date": "2026-10-31",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Love in the Club - 2000's Hip Hop and R&B Party",
       "venue": "Satellite Music Hall",
       "date": "2026-10-31",
       "time": "8 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-01",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "FreeWorld",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-01",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
     }
   ]
 }
