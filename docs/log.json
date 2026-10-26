@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-26T21:16:20.890678+00:00",
+  "run_timestamp": "2026-10-26T21:34:38.409793+00:00",
   "date_range": {
     "start": "2026-10-26",
     "end": "2026-11-02"
   },
-  "total_events_db": 4090,
-  "total_active_display": 69,
+  "total_events_db": 4123,
+  "total_active_display": 71,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,20 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hernando's Hideaway",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
       "name": "Venue: Growlers",
@@ -49,20 +41,28 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
       "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: 403 Client Error: Forbidden for url: https://crosstownarts.org/wp-json/tribe/eve"
+    },
+    {
+      "name": "Venue: B.B. King's Blues Club",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: FedExForum",
@@ -89,20 +89,12 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -113,10 +105,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -129,6 +121,14 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 323,
+      "events_after_filter": 41,
+      "events_filtered": 282,
+      "error": null
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -137,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 3,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 63,
-      "events_after_filter": 31,
-      "events_filtered": 32,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,14 +169,6 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
@@ -185,18 +177,26 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 63,
+      "events_after_filter": 31,
+      "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 3,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
       "events_filtered": 0,
       "error": null
     },
@@ -209,19 +209,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
       "events_after_filter": 0,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 69,
-      "events_after_filter": 69,
+      "events_found": 71,
+      "events_after_filter": 71,
       "events_filtered": 0,
       "error": null
     }
@@ -726,6 +726,20 @@
       "date": "2026-11-01",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Duane Cleveland Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-01",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Trouble No More",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-01",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
