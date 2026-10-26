@@ -94,8 +94,24 @@ VENUES = {
             "crosstown theater", "crosstown arts theater",
         ],
         "neighborhood": "Crosstown/Broad Avenue",
+        # WordPress + The Events Calendar. Switched from a bespoke HTML parser to
+        # the tribe_events JSON API on 2026-10-26: the rendered list view is one
+        # page (~8 events) while the API returns the whole six-month window, and
+        # Cloudflare began 403ing the GitHub Actions runner on the HTML page on
+        # 2026-09-08. Categories are rooms, not genres — skip the galleries and
+        # the screening room, and drop the film series by title because it
+        # shares "Crosstown Theater" with real concerts.
         "calendar_url": "https://crosstownarts.org/calendar/",
-        "scraper": "crosstown_arts",
+        "scraper": "tribe_events",
+        "tribe_skip_categories": [
+            "Gallery", "East Gallery", "West Gallery", "Screening Room",
+            "430",  # rentals / private bookings
+            "Shared Art Making", "Residency",
+            # The Lab has its own tribe_events scraper; a Crosstown listing for
+            # it would double-source the show under the wrong venue.
+            "Memphis Listening Lab",
+        ],
+        "tribe_skip_title_pattern": r"\bfilm\b",
     },
     "lafayettes": {
         "name": "Lafayette's Music Room",

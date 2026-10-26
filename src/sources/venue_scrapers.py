@@ -171,8 +171,6 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_south_main_sounds(soup, name)
         elif scraper_type == "landers":
             events = _parse_landers(soup, name)
-        elif scraper_type == "crosstown_arts":
-            events = _parse_crosstown_arts(soup, name)
         elif scraper_type == "flyway":
             events = _parse_flyway(soup, name)
         elif scraper_type == "society":
@@ -451,6 +449,10 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     - ``tribe_music_only`` applies ``is_music_event()``. The dispatcher trusts
       venue scrapers to be all-music and skips that check, which is wrong here
       for the same reason it is wrong for Crosstown Arts.
+    - ``tribe_skip_title_pattern`` drops events whose raw title matches a
+      regex. Crosstown Arts files its film series under the same "Crosstown
+      Theater" category as record-release shows, so the category alone cannot
+      separate them; the title can.
     """
     name = venue_info["name"]
     result = SourceResult(source_name=f"Venue: {name}")
@@ -464,6 +466,8 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     skip_cats = {c.lower() for c in venue_info.get("tribe_skip_categories", [])}
     own_venues = {v.lower() for v in venue_info.get("tribe_own_venues", [])}
     music_only = bool(venue_info.get("tribe_music_only", False))
+    skip_title_pat = venue_info.get("tribe_skip_title_pattern")
+    skip_title_re = re.compile(skip_title_pat, re.I) if skip_title_pat else None
 
     try:
         page = 1
@@ -497,6 +501,10 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
 
                 cats = {(c.get("name") or "").lower() for c in (item.get("categories") or [])}
                 if skip_cats & cats:
+                    result.events_filtered += 1
+                    continue
+
+                if skip_title_re and skip_title_re.search(raw_title):
                     result.events_filtered += 1
                     continue
 
@@ -729,68 +737,6 @@ def _fetch_memphis_symphony(venue_info: dict) -> SourceResult:
 
     return result
 
-
-def _parse_crosstown_arts(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Crosstown Arts events — WordPress with The Events Calendar v6+.
-
-    Crosstown's calendar mixes music (The Green Room), film screenings, and
-    gallery exhibitions. We filter by the WordPress category embedded in the
-    article's class list rather than is_music_event() — artist-only titles like
-    "An Intimate Night with Keia" carry no music keywords and would be rejected.
-    """
-    events = []
-
-    for article in soup.select("article.tribe-events-calendar-list__event"):
-        try:
-            classes = article.get("class", [])
-            if any(c in ("cat_gallery", "tribe_events_cat-gallery") for c in classes):
-                continue
-
-            title_el = article.select_one(".tribe-events-calendar-list__event-title-link")
-            if not title_el:
-                continue
-            title = title_el.get_text(strip=True)
-            if not title:
-                continue
-            # Crosstown's calendar includes film screenings — exclude them
-            if re.search(r'\bfilm\b', title, re.I):
-                continue
-
-            date_el = article.select_one("time.tribe-events-calendar-list__event-datetime")
-            if not date_el:
-                continue
-            dt_attr = date_el.get("datetime")
-            event_date = None
-            if dt_attr:
-                try:
-                    event_date = datetime.strptime(dt_attr[:10], "%Y-%m-%d").date()
-                except ValueError:
-                    pass
-            if not event_date:
-                event_date = parse_date_text(date_el.get_text(strip=True))
-            if not event_date:
-                continue
-
-            time_str = None
-            date_text = date_el.get_text(strip=True)
-            time_match = re.search(r"@\s*(\d{1,2}:\d{2}\s*[ap]m)", date_text, re.I)
-            if time_match:
-                time_str = time_match.group(1).strip()
-
-            url = title_el.get("href")
-
-            events.append(Event(
-                artist=title,
-                venue=venue_name,
-                date=event_date,
-                time=time_str,
-                source=_venue_source_tag(venue_name),
-                url=url,
-            ))
-        except Exception:
-            continue
-
-    return events
 
 
 def _try_jsonld(soup: BeautifulSoup, venue_name: str) -> List[Event]:
