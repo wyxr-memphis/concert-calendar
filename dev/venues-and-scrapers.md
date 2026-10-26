@@ -15,9 +15,9 @@ python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;prin
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
 Amphitheater, Satellite Music Hall
 
-**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
+**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
 (SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
-Crosstown Arts, Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
+Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
 
@@ -27,7 +27,8 @@ Center, Orpheum Theatre, South Main Sounds
 
 **Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc
 
-**The Events Calendar API (1 active)** — `tribe_events`: Memphis Listening Lab. Hotel Pontotoc
+**The Events Calendar API (2 configured)** — `tribe_events`: Memphis Listening Lab, Crosstown
+Arts (Cloudflare-blocked on the runner — see below). Hotel Pontotoc
 runs it too but is blocked — see the Cloudflare note below.
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
@@ -51,20 +52,22 @@ reliability. Don't re-add one without a reason that isn't "we don't have it yet.
 
 ## Scraper notes
 
-- `is_music_event()` is bypassed for venue scrapers **except** `crosstown_arts` (mixed music +
-  gallery); it also excludes titles containing "film". `society` has its own stricter filter —
-  see below.
+- `is_music_event()` is bypassed for venue scrapers. Mixed calendars filter some other way:
+  `tribe_events` has per-venue opt-in filters (below), and `society` has its own stricter
+  filter — see below.
 - **`tribe_events` is the reusable win for WordPress venues.** The Events Calendar (the
   plugin formerly by Modern Tribe) publishes a paginated JSON API at
   `/wp-json/tribe/events/v1/events` — categories included, and it survives theme changes.
   Point `calendar_url` at any site running it. Spot it by `tribe-events` / `the-events-calendar`
-  in the page source. (Crosstown Arts runs it too and still uses a bespoke HTML parser — a
-  possible future simplification, untested.)
-  Three opt-in filters exist because a hotel or bar calendar is not a pure music feed:
-  `tribe_skip_categories` (Hotel Pontotoc tags buyouts `Private`), `tribe_own_venues` (the same
-  calendar lists football watch parties at stadiums it doesn't own, which would otherwise
-  publish under its name), and `tribe_music_only` (applies `is_music_event()`). Without all
-  three, 23 of Hotel Pontotoc's 25 upcoming entries were noise.
+  in the page source.
+  Four opt-in filters exist because a hotel, bar or arts-center calendar is not a pure music
+  feed: `tribe_skip_categories` (Hotel Pontotoc tags buyouts `Private`; Crosstown Arts's
+  categories are rooms, so it skips the galleries and screening room), `tribe_own_venues` (the
+  same hotel calendar lists football watch parties at stadiums it doesn't own, which would
+  otherwise publish under its name), `tribe_music_only` (applies `is_music_event()`), and
+  `tribe_skip_title_pattern` (a regex on the raw title — Crosstown's film series shares the
+  "Crosstown Theater" category with record-release shows, so only the title separates them).
+  Without the first three, 23 of Hotel Pontotoc's 25 upcoming entries were noise.
   ⚠️ **Classify before stripping labels.** `_strip_billing_label` drops a leading
   `Live Music:` for display, but `is_music_event()` must run on the *raw* title — that label
   is the only music signal an artist-only name like "Spaceman's Dead Friends" carries, and
@@ -97,6 +100,38 @@ egress IP may not be blocked — that has never been probed.
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
 
+### ⚠️ Crosstown Arts is blocked too — same Cloudflare pattern, left enabled
+
+The bespoke HTML parser worked until the 2026-09-07 build and has returned 403 on every build
+since 2026-09-08. On 2026-10-26 it was replaced by `tribe_events` (the API returns the whole
+six-month window, 37 events, where the rendered list view is one page of 8), and the result
+matrix is the Pontotoc one again:
+
+| Origin | Request | Result |
+|---|---|---|
+| normal connection | HTML page, full Chrome UA (via `requests`) | 200 |
+| normal connection | `/wp-json/tribe/events/v1/events`, `WYXR-Concert-Calendar/1.0` | 200 |
+| normal connection, after ~6 probes in a few minutes | same API request | **403** challenge |
+| GitHub Actions runner | HTML page (every build since 2026-09-08) | **403** |
+| GitHub Actions runner | API, `WYXR-Concert-Calendar/1.0` (build 40405466930) | **403** |
+
+The 403 body is Cloudflare's "Just a moment…" managed challenge, and the fact that a normal
+connection is challenged after a short burst shows it is a **bot-score / IP-reputation rule,
+not a UA or path rule** — nothing we send will change it, and the Memphis Listening Lab's
+identical `tribe_events` fetch succeeded in the same build, so it is not the fetcher.
+
+Unlike Pontotoc it is **left on `tribe_events`, not `manual_only`**: the config is correct and
+tested, and the ❌ line in each build is the cheapest way to notice the moment the block
+lifts. Flip it to `manual_only` if the noise becomes a problem.
+
+**To fix:** WYXR is a Crosstown Concourse tenant — ask Crosstown Arts to add a Cloudflare WAF
+skip rule for the `WYXR-Concert-Calendar/1.0` user-agent (or for `/wp-json/tribe/`). Nothing
+in the repo needs to change afterwards. The untested fallback is the same as Pontotoc's:
+run this one fetch from the Render backend, whose egress IP may score differently.
+
+Until then Crosstown Arts shows arrive only via Slack flyers, admin entries and `/submit`;
+the last scraped row is dated 2026-09-29.
+
 ### Memphis Listening Lab — `tribe_events` scraper live
 
 Added 2026-10-24; scraper confirmed and activated 2026-10-24. The Lab (Crosstown Concourse,
@@ -117,9 +152,9 @@ upcoming events. No categories or venue fields, so no filtering options (`tribe_
   `listening party` and `listening session`. Not needed by a `manual_only` venue, but needed by
   any scraper that applies the filter (e.g. `tribe_music_only`).
 - **Crosstown Arts overlap: none so far.** None of the 71 `scraper:crosstown_arts` rows in the
-  2026-10-24 snapshot matches a Listening Lab show on the same date. The Crosstown parser
-  files *every* non-gallery, non-film listing under "Crosstown Arts", though, so if the Lab
-  starts appearing on crosstownarts.org it will be double-sourced under the wrong venue.
+  2026-10-24 snapshot matches a Listening Lab show on the same date. crosstownarts.org does
+  have a `Memphis Listening Lab` event category, so the Crosstown Arts scraper skips it —
+  otherwise a Lab show listed there would be double-sourced under the wrong venue.
 
 ### Memphis Symphony Orchestra — the one scraper that is not a venue
 
