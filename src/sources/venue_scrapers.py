@@ -137,6 +137,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "tribe_events":
         return _fetch_tribe_events(venue_info)
 
+    # DICE promoter page — server-rendered Next.js data plus one detail
+    # fetch per event for its Schema.org type
+    if scraper_type == "dice_promoter":
+        return _fetch_dice_promoter(venue_info)
+
     # Memphis Symphony — Squarespace JSON API, and the one source whose events
     # are spread across many venues rather than held at one
     if scraper_type == "memphis_symphony":
@@ -449,10 +454,6 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     - ``tribe_music_only`` applies ``is_music_event()``. The dispatcher trusts
       venue scrapers to be all-music and skips that check, which is wrong here
       for the same reason it is wrong for Crosstown Arts.
-    - ``tribe_skip_title_pattern`` drops events whose raw title matches a
-      regex. Crosstown Arts files its film series under the same "Crosstown
-      Theater" category as record-release shows, so the category alone cannot
-      separate them; the title can.
     """
     name = venue_info["name"]
     result = SourceResult(source_name=f"Venue: {name}")
@@ -466,8 +467,6 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     skip_cats = {c.lower() for c in venue_info.get("tribe_skip_categories", [])}
     own_venues = {v.lower() for v in venue_info.get("tribe_own_venues", [])}
     music_only = bool(venue_info.get("tribe_music_only", False))
-    skip_title_pat = venue_info.get("tribe_skip_title_pattern")
-    skip_title_re = re.compile(skip_title_pat, re.I) if skip_title_pat else None
 
     try:
         page = 1
@@ -501,10 +500,6 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
 
                 cats = {(c.get("name") or "").lower() for c in (item.get("categories") or [])}
                 if skip_cats & cats:
-                    result.events_filtered += 1
-                    continue
-
-                if skip_title_re and skip_title_re.search(raw_title):
                     result.events_filtered += 1
                     continue
 
@@ -548,6 +543,121 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     except requests.exceptions.RequestException as e:
         result.success = False
         result.error_message = f"Events Calendar API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
+# A DICE promoter page (dice.fm/promoters/<slug>) is a Next.js app that
+# server-renders its whole upcoming list into the `__NEXT_DATA__` script —
+# name, start time with zone, room, artwork and the event id — so no JS is
+# needed. Only the city-wide browse page was ever a JS shell; that is the DICE
+# source that was removed in February 2026, and this is not it.
+#
+# What the list does NOT carry is any kind of type, and Crosstown Arts sells
+# its film series through the same promoter under bare titles ("Creepshow",
+# "The Holdovers") that no keyword filter can catch. Each event's own page has
+# Schema.org JSON-LD whose @type is `ScreeningEvent` for a film and
+# `MusicEvent` for a show, so the fetcher reads one detail page per in-window
+# event. That is ~25 requests a build; DICE served 27 in a row without a
+# challenge when this was written. If the detail fetch fails the event is kept
+# — a stray film beats a silently missing concert.
+_DICE_HEADERS = {
+    "User-Agent": "WYXR-Concert-Calendar/1.0 (+https://concert-calendar.wyxr.org)",
+    "Accept": "text/html",
+}
+_DICE_EVENT_URL = "https://dice.fm/event/{id}"
+_DICE_SKIP_TYPES = {"ScreeningEvent"}
+_DICE_SKIP_STATUSES = {"cancelled", "canceled", "postponed"}
+_NEXT_DATA_RE = re.compile(
+    r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', re.S)
+_LDJSON_RE = re.compile(
+    r'<script type="application/ld\+json">(.*?)</script>', re.S)
+
+
+def _dice_event_type(html_text: str) -> Optional[str]:
+    """The Schema.org @type of the Event on a DICE event page, if any."""
+    for block in _LDJSON_RE.findall(html_text):
+        try:
+            data = json.loads(block)
+        except ValueError:
+            continue
+        for item in (data if isinstance(data, list) else [data]):
+            t = item.get("@type") if isinstance(item, dict) else None
+            if isinstance(t, str) and t.endswith("Event"):
+                return t
+    return None
+
+
+def _fetch_dice_promoter(venue_info: dict) -> SourceResult:
+    """Fetch a venue's events from its DICE promoter page."""
+    name = venue_info["name"]
+    result = SourceResult(source_name=f"Venue: {name}")
+    skip_types = {t for t in venue_info.get("dice_skip_types", _DICE_SKIP_TYPES)}
+
+    try:
+        resp = get_with_retry(venue_info["calendar_url"], headers=_DICE_HEADERS, timeout=15)
+        resp.raise_for_status()
+        m = _NEXT_DATA_RE.search(resp.text)
+        if not m:
+            result.success = False
+            result.error_message = "No __NEXT_DATA__ on page — DICE may have changed its markup"
+            return result
+
+        sections = (json.loads(m.group(1)).get("props", {}).get("pageProps", {})
+                    .get("profile", {}).get("sections") or [])
+        items = [ev for sec in sections for ev in (sec.get("events") or [])]
+
+        for item in items:
+            title = (item.get("name") or "").strip()
+            event_id = item.get("id")
+            if not title or not event_id:
+                continue
+            result.events_found += 1
+
+            if (item.get("status") or "").lower() in _DICE_SKIP_STATUSES:
+                result.events_filtered += 1
+                continue
+
+            try:
+                dt = datetime.fromisoformat((item.get("dates") or {}).get("event_start_date") or "")
+            except ValueError:
+                result.events_filtered += 1
+                continue
+            if not (START_DATE <= dt.date() <= SCRAPER_END_DATE):
+                result.events_filtered += 1
+                continue
+
+            url = _DICE_EVENT_URL.format(id=event_id)
+            try:
+                detail = get_with_retry(url, headers=_DICE_HEADERS, timeout=15)
+                detail.raise_for_status()
+                if detail.url:
+                    url = detail.url  # the slugged canonical link
+                if _dice_event_type(detail.text) in skip_types:
+                    result.events_filtered += 1
+                    continue
+            except requests.exceptions.RequestException:
+                pass  # keep the event; see the note above
+
+            result.events.append(Event(
+                artist=title,
+                venue=name,
+                date=dt.date(),
+                time=format_event_time(dt),
+                source=_venue_source_tag(name),
+                url=url,
+                image_url=first_image_url(list((item.get("images") or {}).values())),
+            ))
+
+        if result.events_found == 0:
+            result.error_message = "0 events on promoter page — DICE may have changed its data shape"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"DICE request failed: {str(e)[:80]}"
     except Exception as e:
         result.success = False
         result.error_message = f"Parse error: {str(e)[:80]}"

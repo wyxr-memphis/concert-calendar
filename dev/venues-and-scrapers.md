@@ -15,9 +15,9 @@ python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;prin
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
 Amphitheater, Satellite Music Hall
 
-**Custom scrapers (17):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
+**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
 (SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
-Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
+Crosstown Arts (`dice_promoter` — see below), Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
 
@@ -27,8 +27,7 @@ Center, Orpheum Theatre, South Main Sounds
 
 **Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc
 
-**The Events Calendar API (2 configured)** — `tribe_events`: Memphis Listening Lab, Crosstown
-Arts (Cloudflare-blocked on the runner — see below). Hotel Pontotoc
+**The Events Calendar API (1 active)** — `tribe_events`: Memphis Listening Lab. Hotel Pontotoc
 runs it too but is blocked — see the Cloudflare note below.
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
@@ -49,6 +48,8 @@ have aliases but no scraper. **Those aliases are load-bearing for deduplication*
 **Eventbrite, Bandsintown, DICE, Memphis Flyer,** and the old **Google Sheet** were all
 removed. The sheet was replaced by the admin UI; the rest were dropped for coverage or
 reliability. Don't re-add one without a reason that isn't "we don't have it yet."
+(The DICE source that was removed read the city-wide *browse* page, a JS shell. A single
+promoter's page is server-rendered and is a different thing — see `dice_promoter` below.)
 
 ## Scraper notes
 
@@ -60,14 +61,11 @@ reliability. Don't re-add one without a reason that isn't "we don't have it yet.
   `/wp-json/tribe/events/v1/events` — categories included, and it survives theme changes.
   Point `calendar_url` at any site running it. Spot it by `tribe-events` / `the-events-calendar`
   in the page source.
-  Four opt-in filters exist because a hotel, bar or arts-center calendar is not a pure music
-  feed: `tribe_skip_categories` (Hotel Pontotoc tags buyouts `Private`; Crosstown Arts's
-  categories are rooms, so it skips the galleries and screening room), `tribe_own_venues` (the
-  same hotel calendar lists football watch parties at stadiums it doesn't own, which would
-  otherwise publish under its name), `tribe_music_only` (applies `is_music_event()`), and
-  `tribe_skip_title_pattern` (a regex on the raw title — Crosstown's film series shares the
-  "Crosstown Theater" category with record-release shows, so only the title separates them).
-  Without the first three, 23 of Hotel Pontotoc's 25 upcoming entries were noise.
+  Three opt-in filters exist because a hotel or bar calendar is not a pure music feed:
+  `tribe_skip_categories` (Hotel Pontotoc tags buyouts `Private`), `tribe_own_venues` (the same
+  calendar lists football watch parties at stadiums it doesn't own, which would otherwise
+  publish under its name), and `tribe_music_only` (applies `is_music_event()`). Without all
+  three, 23 of Hotel Pontotoc's 25 upcoming entries were noise.
   ⚠️ **Classify before stripping labels.** `_strip_billing_label` drops a leading
   `Live Music:` for display, but `is_music_event()` must run on the *raw* title — that label
   is the only music signal an artist-only name like "Spaceman's Dead Friends" carries, and
@@ -100,12 +98,12 @@ egress IP may not be blocked — that has never been probed.
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
 
-### ⚠️ Crosstown Arts is blocked too — same Cloudflare pattern, left enabled
+### Crosstown Arts — Cloudflare blocks the runner, so it reads DICE instead
 
-The bespoke HTML parser worked until the 2026-09-07 build and has returned 403 on every build
-since 2026-09-08. On 2026-10-26 it was replaced by `tribe_events` (the API returns the whole
-six-month window, 37 events, where the rendered list view is one page of 8), and the result
-matrix is the Pontotoc one again:
+crosstownarts.org's own calendar worked until the 2026-09-07 build and has returned 403 on
+every build since 2026-09-08. The HTML parser was replaced by `tribe_events` on 2026-10-26
+(the API returns the whole six-month window where the list view is one page of 8) and the
+result matrix is the Pontotoc one again:
 
 | Origin | Request | Result |
 |---|---|---|
@@ -115,22 +113,33 @@ matrix is the Pontotoc one again:
 | GitHub Actions runner | HTML page (every build since 2026-09-08) | **403** |
 | GitHub Actions runner | API, `WYXR-Concert-Calendar/1.0` (build 40405466930) | **403** |
 
-The 403 body is Cloudflare's "Just a moment…" managed challenge, and the fact that a normal
-connection is challenged after a short burst shows it is a **bot-score / IP-reputation rule,
-not a UA or path rule** — nothing we send will change it, and the Memphis Listening Lab's
-identical `tribe_events` fetch succeeded in the same build, so it is not the fetcher.
+The 403 body is Cloudflare's "Just a moment…" managed challenge, and a normal connection being
+challenged after a short burst shows it is a **bot-score / IP-reputation rule, not a UA or path
+rule** — the Memphis Listening Lab's identical `tribe_events` fetch succeeded in the same build.
+The working `tribe_events` config (room categories to skip, a `\bfilm\b` title filter) is in
+commit `28ec11a` should the block ever lift, or should Crosstown add a WAF skip rule for the
+`WYXR-Concert-Calendar/1.0` user-agent.
 
-Unlike Pontotoc it is **left on `tribe_events`, not `manual_only`**: the config is correct and
-tested, and the ❌ line in each build is the cheapest way to notice the moment the block
-lifts. Flip it to `manual_only` if the noise becomes a problem.
+**Since 2026-10-26 Crosstown Arts is scraped from its DICE promoter page instead**
+(`dice_promoter`, `https://dice.fm/promoters/crosstown-arts-y56r`). How it works:
 
-**To fix:** WYXR is a Crosstown Concourse tenant — ask Crosstown Arts to add a Cloudflare WAF
-skip rule for the `WYXR-Concert-Calendar/1.0` user-agent (or for `/wp-json/tribe/`). Nothing
-in the repo needs to change afterwards. The untested fallback is the same as Pontotoc's:
-run this one fetch from the Render backend, whose egress IP may score differently.
-
-Until then Crosstown Arts shows arrive only via Slack flyers, admin entries and `/submit`;
-the last scraped row is dated 2026-09-29.
+- The promoter page is a Next.js app that server-renders its entire upcoming list into the
+  `__NEXT_DATA__` script: name, start time with zone, room (`The Green Room at Crosstown Arts`
+  / `Crosstown Arts Theater`, both already aliases), square artwork and the event id. No JS
+  needed, no pagination (`load_more` was false at 27 events).
+- **The list carries no event type, and Crosstown sells its film series through the same
+  promoter under bare titles** ("Creepshow", "The Holdovers", "Seconds") that no keyword
+  filter can catch. Each event's own page has Schema.org JSON-LD whose `@type` is
+  `ScreeningEvent` for a film and `MusicEvent` for a show, so the fetcher reads one detail page
+  per in-window event and drops `ScreeningEvent` (`dice_skip_types` to override). That is
+  ~25 requests a build; DICE served 27 in a row without a challenge. A failed detail fetch
+  keeps the event — a stray film beats a silently missing concert.
+- The detail fetch also upgrades the link to DICE's slugged canonical URL, which is the ticket
+  link. Cancelled/postponed statuses are skipped.
+- DICE lists ticketed shows only. The free recurring listings the WordPress calendar had
+  ("The Mystic" monthly, Resident Artist Talks, Crafts & Drafts) are not on it — those were
+  never concerts anyway.
+- It sends the same plain self-identifying user-agent as `tribe_events`.
 
 ### Memphis Listening Lab — `tribe_events` scraper live
 
