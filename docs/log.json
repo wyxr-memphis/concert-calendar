@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-25T19:24:23.321581+00:00",
+  "run_timestamp": "2026-10-26T10:50:45.015323+00:00",
   "date_range": {
-    "start": "2026-10-25",
-    "end": "2026-11-01"
+    "start": "2026-10-26",
+    "end": "2026-11-02"
   },
   "total_events_db": 4083,
-  "total_active_display": 90,
+  "total_active_display": 69,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,36 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 403 Client Error: Forbidden for url: https://lafayettes.com/event-calendar-memph"
-    },
-    {
       "name": "Venue: Growlers",
       "success": false,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "Request failed: 403 Client Error: Forbidden for url: https://901growlers.com/"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 12,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -65,12 +41,12 @@
       "error": "Request failed: 403 Client Error: Forbidden for url: https://hernandoshideawaymemphis.com/calend"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "name": "Venue: Crosstown Arts",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "Request failed: 403 Client Error: Forbidden for url: https://crosstownarts.org/calendar/"
     },
     {
       "name": "Venue: FedExForum",
@@ -81,19 +57,11 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 45,
-      "events_after_filter": 45,
+      "events_found": 37,
+      "events_after_filter": 37,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -105,15 +73,23 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -129,9 +105,9 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 2,
+      "events_found": 3,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -145,20 +121,12 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 64,
-      "events_after_filter": 31,
-      "events_filtered": 33,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: South Main Sounds",
@@ -169,27 +137,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
+      "events_found": 64,
+      "events_after_filter": 31,
+      "events_filtered": 33,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 289,
-      "events_after_filter": 33,
-      "events_filtered": 256,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 7,
-      "events_filtered": 22,
+      "events_found": 14,
+      "events_after_filter": 12,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -201,6 +169,46 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 289,
+      "events_after_filter": 32,
+      "events_filtered": 257,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 9,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 44,
+      "events_after_filter": 44,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 292,
+      "events_after_filter": 8,
+      "events_filtered": 284,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Brewing Co.",
       "success": true,
       "events_found": 4,
@@ -209,27 +217,19 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 14,
-      "events_filtered": 0,
+      "events_found": 10,
+      "events_after_filter": 3,
+      "events_filtered": 7,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 13,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 29,
+      "events_after_filter": 6,
+      "events_filtered": 23,
       "error": null
     },
     {
@@ -244,181 +244,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 47,
-      "events_filtered": 24,
+      "events_after_filter": 46,
+      "events_filtered": 25,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 90,
-      "events_after_filter": 90,
+      "events_found": 69,
+      "events_after_filter": 69,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Heartbreak Hill",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-10-25",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Shell on Wheels: Mekong Festival Reunion",
-      "venue": "Overton Park Shell",
-      "date": "2026-10-25",
-      "time": "11:00\u202fAM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Memphis Reggae Nights: Exodus Soul Reggae Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-25",
-      "time": "7:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-25",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "The Convalescence",
-      "venue": "Growlers",
-      "date": "2026-10-25",
-      "time": "7:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-10-25",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Rev & Marcia *Matinee-Free Show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-25",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-10-25",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-10-25",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Davis Coen & the Change",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-10-25",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Twin Soul Duo",
-      "venue": "Huey's (Millington)",
-      "date": "2026-10-25",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Pretty Boys",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-10-25",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Settlers",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-10-25",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Even Odds",
-      "venue": "Huey's (Southaven)",
-      "date": "2026-10-25",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Duane Cleveland Band",
-      "venue": "Huey's (Southwind)",
-      "date": "2026-10-25",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Bugaloos",
-      "venue": "Hueys (Downtown)",
-      "date": "2026-10-25",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Breast Cancer Charity Event",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-25",
-      "time": "12 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Landslide - A Tribute to the Music of Fleetwood Mac",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-25",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-10-25",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Mistix w/ Rae (Full Band), The Cattle Detectives, San Salida",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-10-25",
-      "time": "2 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "[POSTPONED] Morris Day & The Time + The S.O.S. Band The Ultimate Funk & Soul Experience",
-      "venue": "Orpheum Theatre",
-      "date": "2026-10-25",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "Morris Day and the Time & The S.O.S Band. The Ultimate Funk & Soul Exp",
-      "venue": "Orpheum Theatre",
-      "date": "2026-10-25",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Street Dancers RC Drift",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-10-25",
-      "time": "1 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
     {
       "artist": "Rockin 88's",
       "venue": "Blues City Cafe",
@@ -886,6 +725,20 @@
       "venue": "Blues City Cafe",
       "date": "2026-11-01",
       "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
+      "venue": "Overton Park Shell",
+      "date": "2026-11-02",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-02",
+      "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
     }
   ]
