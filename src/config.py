@@ -75,15 +75,20 @@ VENUES = {
         "name": "Growlers",
         "aliases": ["growlers", "growlers memphis", "901 growlers"],
         "neighborhood": "Overton Square/Cooper-Young",
-        "calendar_url": "https://901growlers.com/",
-        "scraper": "growlers",
+        # 901growlers.com is Cloudflare-blocked from CI; read its ticketing
+        # organizer page instead (dev/venues-and-scrapers.md)
+        "calendar_url": "https://wl.eventim.us/GrowlersMemphisTN",
+        "scraper": "eventim_whitelabel",
     },
     "hernandos-hideaway": {
         "name": "Hernando's Hideaway",
-        "aliases": ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway"],
+        "aliases": ["hernandos", "hernando's", "hernandos hideaway", "hernando's hideaway",
+                    "hernando's hide-a-way", "hernandos hide-a-way"],
         "neighborhood": "Midtown",
-        "calendar_url": "https://hernandoshideawaymemphis.com/calendar/",
-        "scraper": "hernandos",
+        # The venue's own calendar is Cloudflare-blocked from CI; read its
+        # ticketing organizer page instead (dev/venues-and-scrapers.md)
+        "calendar_url": "https://wl.eventim.us/HernandosHideAWay",
+        "scraper": "eventim_whitelabel",
     },
     "crosstown-arts": {
         "name": "Crosstown Arts",

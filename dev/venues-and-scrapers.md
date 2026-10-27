@@ -15,8 +15,8 @@ python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;prin
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
 Amphitheater, Satellite Music Hall
 
-**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers
-(SeeTickets), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
+**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway + Growlers
+(`eventim_whitelabel` — see below), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
 Crosstown Arts (`dice_promoter` — see below), Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
 locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
 Center, Orpheum Theatre, South Main Sounds
@@ -93,8 +93,8 @@ server-rendered cards and no `Event` JSON-LD.
 
 **To re-enable:** ask the venue to add a Cloudflare WAF skip rule for our user-agent, then
 change `"scraper": "manual_only"` back to `"tribe_events"` in `src/config.py`. Nothing else
-needs to change. An untested alternative is moving this one fetch to the Render backend, whose
-egress IP may not be blocked — that has never been probed.
+needs to change. Relaying the fetch through the Render backend was probed on 2026-10-27 and **does not
+work** — Render's egress IP is challenged too (see the Growlers/Hernando's section).
 
 Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
 
@@ -140,6 +140,48 @@ commit `28ec11a` should the block ever lift, or should Crosstown add a WAF skip 
   ("The Mystic" monthly, Resident Artist Talks, Crafts & Drafts) are not on it — those were
   never concerts anyway.
 - It sends the same plain self-identifying user-agent as `tribe_events`.
+
+### Growlers + Hernando's Hideaway — Cloudflare blocks CI *and* Render, so they read Eventim
+
+Both venues' own sites (901growlers.com's SeeTickets widget, Hernando's WordPress calendar)
+worked in the 2026-10-07 11:36 UTC build and have 403'd on every build since 21:42 UTC that
+day — the Pontotoc / Crosstown pattern again. On 2026-10-27 the fetch was probed from the
+Render backend's own shell to test relaying CI fetches through it
+([`spec-render-fetch-relay.md`](spec-render-fetch-relay.md)):
+
+| Origin | Growlers | Hernando's | Pontotoc API | Crosstown API |
+|---|---|---|---|---|
+| normal connection | 200 | 200 | 200 | 200 → 403 after a burst |
+| GitHub Actions runner | **403** | **403** | **403** | **403** |
+| Render backend (`concert-calendar-api` shell) | **403** | **403** | **403** | **403** |
+
+Render's outbound IPs are shared with other customers and score as badly as GitHub's, so
+**the relay is dead — don't build it.**
+
+**Since 2026-10-27 both venues are scraped from their ticketing organizer pages instead**
+(`eventim_whitelabel`): `wl.eventim.us/GrowlersMemphisTN` and `wl.eventim.us/HernandosHideAWay`.
+SeeTickets US rebranded as Eventim; every `wl.seetickets.us` link 302s there, and the
+`afflky=` key on a stored ticket link is the organizer slug. The host is Cloudflare-fronted
+too, but serves the plain `WYXR-Concert-Calendar/1.0` UA. How it works (full notes on
+`_fetch_eventim_whitelabel`):
+
+- Page one holds 12 events. Further pages come from `wafform.aspx?…&AJAX=1&_lfv=<offset>`,
+  which returns an **empty 200** without the session cookie page one sets — hence a private
+  `http_utils.new_session()` per venue. `FetchSize` above 12 is ignored. The `ProfileID` the
+  AJAX URL needs is read off page one's pager links.
+- The year is only in the buy button's `aria-label` ("… on November 05 2026").
+- No time on the cards. Each event page's JSON-LD `startDate` supplies it, but Eventim runs a
+  Cloudflare **waiting room** ("You're in line!") during big on-sales, and on 2026-10-27 every
+  event page was queued. So event pages are best-effort: the first queued page stops them for
+  the run, the event keeps its card data, and the build's `COALESCE` keeps any time already
+  stored. New shows may sit without a time until a build gets through.
+- **Titles come only from the cards, never the event page**, so they can't flip between
+  builds. The old Growlers scraper used SeeTickets' headliner field ("Fika, EOS"); Eventim's
+  billing is the full name ("Cohesion: Fika & EOS w/ …"), so 8 stored Growlers rows were
+  retitled on the switch, paired with their new listing by the event id in `ticket_url`.
+- Hernando's: 22 events on Eventim against ~33 on the venue's site — free/no-ticket nights
+  that aren't sold through Eventim don't appear. Stored rows for those stay until they pass.
+- The old `growlers` / `hernandos` HTML parsers are deleted; they're in git before this change.
 
 ### Memphis Listening Lab — `tribe_events` scraper live
 

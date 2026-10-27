@@ -32,7 +32,7 @@ learned from a real outage or bug, and the doc says which one.
 | [`dev/testing.md`](dev/testing.md) | `test_before_push.sh` and its suites |
 | [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) | ⛔ read before any Instagram ingestion idea |
 | [`dev/test-plan.md`](dev/test-plan.md) | 79 adversarial cases — a reference catalogue, not a checklist |
-| [`dev/spec-render-fetch-relay.md`](dev/spec-render-fetch-relay.md) | **planned, not started:** relaying scraper fetches through Render for the Cloudflare-blocked venues (Growlers, Hernando's, Pontotoc) — start with its Step 0 probe |
+| [`dev/spec-render-fetch-relay.md`](dev/spec-render-fetch-relay.md) | ⛔ **abandoned:** relaying scraper fetches through Render — Render's IP is Cloudflare-blocked too (probed 2026-10-27). Growlers/Hernando's now read Eventim |
 
 Also: [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md) for setup, [`FEATURES.md`](FEATURES.md)
 for live work, [`REVIEW.md`](REVIEW.md) for the August 2026 codebase review — most of its

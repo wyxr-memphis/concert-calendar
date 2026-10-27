@@ -32,6 +32,17 @@ def get_with_retry(url: str, **kwargs) -> requests.Response:
     return _session.get(url, **kwargs)
 
 
+def new_session() -> requests.Session:
+    """A private session with the same retry policy as get_with_retry.
+
+    For a source whose pagination depends on a session cookie. The shared
+    session's cookie jar is common to every scraper thread, so two venues
+    paging the same host at once would share — and clobber — one server-side
+    session.
+    """
+    return _make_session()
+
+
 # Ticketmaster's Discovery API refuses deep paging beyond 1000 items
 # (page * size must stay under it), so there is no point requesting past that.
 TICKETMASTER_MAX_ITEMS = 1000

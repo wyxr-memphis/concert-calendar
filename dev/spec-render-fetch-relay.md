@@ -1,7 +1,9 @@
 # Spec: relay scraper fetches through Render for Cloudflare-blocked venues
 
-**Status:** proposed 2026-10-27, not started. **Step 0 (the probe) decides whether the rest
-is built at all — do it first.**
+**Status: abandoned 2026-10-27 — Step 0 failed.** All four probes returned 403 from the
+Render backend's shell, so Render's egress IP is blocked like GitHub's and the relay would
+not help. Growlers and Hernando's now scrape their Eventim ticketing pages instead (see
+`dev/venues-and-scrapers.md`). Kept for the reasoning and the evidence; don't build it.
 
 ## Problem
 

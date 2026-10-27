@@ -13,7 +13,7 @@ from datetime import datetime, date
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
-from ..http_utils import get_with_retry, fetch_ticketmaster_events
+from ..http_utils import get_with_retry, fetch_ticketmaster_events, new_session
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
@@ -142,6 +142,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "dice_promoter":
         return _fetch_dice_promoter(venue_info)
 
+    # Eventim (formerly SeeTickets) white-label listing — the venue's own site
+    # is Cloudflare-blocked from CI; the ticketing host is not
+    if scraper_type == "eventim_whitelabel":
+        return _fetch_eventim_whitelabel(venue_info)
+
     # Memphis Symphony — Squarespace JSON API, and the one source whose events
     # are spread across many venues rather than held at one
     if scraper_type == "memphis_symphony":
@@ -159,10 +164,6 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_hi_tone(soup, name)
         elif scraper_type == "minglewood":
             events = _parse_minglewood(soup, name)
-        elif scraper_type == "hernandos":
-            events = _parse_hernandos(soup, name)
-        elif scraper_type == "growlers":
-            events = _parse_growlers(soup, name)
         elif scraper_type == "graceland":
             events = _parse_graceland(soup, name)
         elif scraper_type == "elfsight":
@@ -665,6 +666,157 @@ def _fetch_dice_promoter(venue_info: dict) -> SourceResult:
     return result
 
 
+# Growlers and Hernando's Hideaway both sell through Eventim's white-label
+# ticketing (wl.eventim.us — SeeTickets US before the rebrand; the old
+# wl.seetickets.us links redirect there). Both venues' own sites have
+# Cloudflare-challenged every CI build since 2026-10-07, and the Render backend's
+# egress IP is challenged too, but the ticketing host serves the plain
+# WYXR user-agent. calendar_url is the organizer page, wl.eventim.us/<key>.
+#
+# - The organizer page holds the first 12 events. Later pages come from an AJAX
+#   endpoint that answers with an EMPTY body unless the request carries the
+#   session cookie the organizer page set, so all of one venue's requests go
+#   through one private session (not the shared one — see new_session()). The
+#   AJAX URL needs the organizer's numeric ProfileID, read off page one's own
+#   pager links rather than configured.
+# - A card has the title, the date with its year (only in the buy button's
+#   aria-label), the ticket link and the artwork — but no time. The time comes
+#   from each event page's Schema.org startDate, one request per event.
+# - The title is always the card's billing, minus "at <venue> - Memphis, TN".
+#   Never take it from the event page (its .talent-list has a cleaner
+#   headliner field): event pages are best-effort, so the title would flip
+#   between builds with and without them, and dedup matches on title — every
+#   flip would be a new row. Growlers' old venue-site scraper used that
+#   headliner field, so on the switch (2026-10-27) eight of its stored rows were
+#   retitled by hand rather than left as duplicates.
+# - Eventim runs a Cloudflare waiting room ("You're in line!") during heavy
+#   on-sales. Detail pages are therefore best-effort: the first page with no
+#   startDate stops detail fetches for the rest of the run and every remaining
+#   event keeps its card data, without a time. A listing page that is a queue
+#   page fails the source loudly instead of reporting 0 events as success.
+_EVENTIM_HEADERS = {
+    "User-Agent": "WYXR-Concert-Calendar/1.0 (+https://concert-calendar.wyxr.org)",
+    "Accept": "text/html",
+}
+_EVENTIM_BASE = "https://wl.eventim.us"
+_EVENTIM_PAGE_SIZE = 12  # the endpoint ignores larger FetchSize values
+_EVENTIM_MAX_PAGES = 15
+_EVENTIM_AJAX = (
+    _EVENTIM_BASE + "/wafform.aspx?_act=Search&_tab=Event&_sea=WhiteLabelEventSearchNdV3"
+    "&_sft=0&ProfileID={pid}&WhiteLabelKey={key}&IsProfilePage=1&IsWhiteLabelPage=1"
+    "&CurrentTab=all&FetchSize={size}&_lfv={offset}&AJAX=1"
+)
+_EVENTIM_PROFILE_RE = re.compile(r"ProfileID=(\d+)")
+_EVENTIM_LABEL_RE = re.compile(r"^Buy tickets for .* on (\w+ \d{1,2} \d{4})$")
+_EVENTIM_START_RE = re.compile(r'"startDate"\s*:\s*"([^"]+)"')
+_EVENTIM_QUEUE_MARKER = "You're in line"
+# "The Faint at Growlers - Memphis,TN", "Jon Spencer at Hernando's Hide-A-Way -
+# Memphis,TN", 'Yheti x Toadface "Sleight of Sound Tour" Memphis, TN'
+_EVENTIM_CITY_SUFFIX = re.compile(r"[\s,\-–|]*\bMemphis,\s*TN\s*$", re.IGNORECASE)
+
+
+def _eventim_strip_venue(title: str, venue_name: str) -> str:
+    """Drop a trailing "- Memphis, TN" and "at <this venue>" from a billing."""
+    title = _EVENTIM_CITY_SUFFIX.sub("", title).strip()
+    match = re.search(r"\s+at\s+(.+)$", title, re.IGNORECASE)
+    if match and normalize_venue_name(match.group(1).strip()) == venue_name:
+        title = title[: match.start()].strip()
+    return title
+
+
+def _eventim_cards(html_text: str) -> list:
+    return BeautifulSoup(html_text, "html.parser").select("div.search-event")
+
+
+def _fetch_eventim_whitelabel(venue_info: dict) -> SourceResult:
+    """Fetch a venue's events from its Eventim white-label organizer page."""
+    name = venue_info["name"]
+    url = venue_info["calendar_url"]
+    result = SourceResult(source_name=f"Venue: {name}")
+    key = url.rstrip("/").rsplit("/", 1)[-1]
+    session = new_session()
+    session.headers.update(_EVENTIM_HEADERS)
+
+    try:
+        resp = session.get(url, timeout=15)
+        resp.raise_for_status()
+        if _EVENTIM_QUEUE_MARKER in resp.text:
+            result.success = False
+            result.error_message = "Eventim waiting room on the organizer page — retry next build"
+            return result
+        cards = _eventim_cards(resp.text)
+
+        pid = _EVENTIM_PROFILE_RE.search(resp.text)
+        offset = _EVENTIM_PAGE_SIZE
+        while pid and len(cards) == offset and offset < _EVENTIM_PAGE_SIZE * _EVENTIM_MAX_PAGES:
+            page = session.get(_EVENTIM_AJAX.format(
+                pid=pid.group(1), key=key, size=_EVENTIM_PAGE_SIZE, offset=offset), timeout=15)
+            page.raise_for_status()
+            cards += _eventim_cards(page.text)
+            offset += _EVENTIM_PAGE_SIZE
+
+        details_ok = True
+        seen = set()
+        for card in cards:
+            buy = card.select_one('a[aria-label^="Buy tickets for "]')
+            name_el = card.select_one(".event-name")
+            if not buy or not name_el or card.get("id") in seen:
+                continue
+            seen.add(card.get("id"))
+            result.events_found += 1
+
+            m = _EVENTIM_LABEL_RE.match(buy["aria-label"].strip())
+            try:
+                event_date = datetime.strptime(m.group(1), "%B %d %Y").date() if m else None
+            except ValueError:
+                event_date = None
+            if not event_date or not (START_DATE <= event_date <= SCRAPER_END_DATE):
+                result.events_filtered += 1
+                continue
+
+            title = _eventim_strip_venue(name_el.get_text(" ", strip=True), name)
+            event_url = _EVENTIM_BASE + buy["href"] if buy["href"].startswith("/") else buy["href"]
+            time_str = None
+
+            if details_ok:
+                try:
+                    detail = session.get(event_url, timeout=15)
+                    detail.raise_for_status()
+                    start = _EVENTIM_START_RE.search(detail.text)
+                    if not start:
+                        details_ok = False  # waiting room or new markup; stop asking
+                    else:
+                        dt = datetime.fromisoformat(start.group(1))
+                        if dt.date() == event_date:
+                            time_str = format_event_time(dt)
+                except (requests.exceptions.RequestException, ValueError):
+                    pass  # keep the card's data
+
+            result.events.append(Event(
+                artist=title,
+                venue=name,
+                date=event_date,
+                time=time_str,
+                source=_venue_source_tag(name),
+                url=event_url,
+                image_url=_img_src(card),
+            ))
+
+        if result.events_found == 0:
+            result.error_message = "0 events on Eventim organizer page — markup may have changed"
+        elif not details_ok:
+            result.error_message = "Eventim event pages unavailable mid-run — some show times missing"
+
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Eventim request failed: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
+
+    return result
+
+
 # The Memphis Symphony runs on Squarespace, whose every collection page will
 # return its own backing JSON with ?format=json appended. An events collection
 # splits that JSON into "upcoming" and "past"; only "upcoming" is ever read
@@ -1078,94 +1230,6 @@ def _parse_minglewood(soup: BeautifulSoup, venue_name: str) -> List[Event]:
                 date=event_date,
                 source=_venue_source_tag(venue_name),
                 url=url,
-            ))
-        except Exception:
-            continue
-
-    return events
-
-
-def _parse_hernandos(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Hernando's Hideaway events from .event-info-block cards."""
-    events = []
-
-    for card in soup.select(".event-info-block"):
-        try:
-            title_el = card.select_one(".title a, .title")
-            date_el = card.select_one(".date")
-            time_el = card.select_one(".see-showtime")
-            link_el = card.select_one("a[href]")
-
-            if not title_el or not date_el:
-                continue
-
-            title = title_el.get_text(strip=True)
-            date_text = date_el.get_text(strip=True)
-
-            event_date = parse_date_text(date_text)
-            if not event_date:
-                continue
-
-            time_str = time_el.get_text(strip=True) if time_el else None
-            url = link_el["href"] if link_el else None
-
-            events.append(Event(
-                artist=title,
-                venue=venue_name,
-                date=event_date,
-                time=time_str,
-                source=_venue_source_tag(venue_name),
-                url=url,
-            ))
-        except Exception:
-            continue
-
-    return events
-
-
-def _parse_growlers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Growlers events from SeeTickets widget on 901growlers.com."""
-    events = []
-
-    for card in soup.select("div.seetickets-list-event-container"):
-        try:
-            title_el = card.select_one("p.event-title a")
-            date_el = card.select_one("p.event-date")
-            showtime_el = card.select_one("span.see-showtime")
-            doortime_el = card.select_one("span.see-doortime")
-
-            if not title_el or not date_el:
-                continue
-
-            # Prefer headliners field for cleaner artist name
-            headliner_el = card.select_one("p.headliners")
-            title = headliner_el.get_text(strip=True) if headliner_el else title_el.get_text(strip=True)
-            # Strip trailing "at Growlers" / "at Venue" from SeeTickets titles
-            title = re.sub(r'\s+at\s+\S.*$', '', title, flags=re.IGNORECASE).strip()
-            if not title:
-                title = title_el.get_text(strip=True)
-            date_text = date_el.get_text(strip=True)
-
-            event_date = parse_date_text(date_text)
-            if not event_date:
-                continue
-
-            time_str = None
-            if showtime_el:
-                time_str = showtime_el.get_text(strip=True)
-            elif doortime_el:
-                time_str = doortime_el.get_text(strip=True)
-
-            url = title_el.get("href")
-
-            events.append(Event(
-                artist=title,
-                venue=venue_name,
-                date=event_date,
-                time=time_str,
-                source=_venue_source_tag(venue_name),
-                url=url,
-                image_url=_img_src(card),
             ))
         except Exception:
             continue
