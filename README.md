@@ -21,9 +21,9 @@ A Python script runs twice daily (midnight and noon Central) via GitHub Actions.
 ### Venues tracked (27)
 
 **Custom scrapers:** Hi Tone, Minglewood Hall, Hernando's Hideaway, Growlers, Graceland
-Soundstage, Lafayette's Music Room, Nashoba, Crosstown Arts, Crosstown Brewing Co., Flyway
-Brewing, Huey's (all locations), Overton Park Shell, B.B. King's Blues Club, Blues City Cafe,
-Landers Center, Orpheum Theatre, South Main Sounds
+Soundstage, Lafayette's Music Room, Nashoba, Crosstown Arts, Flyway Brewing, Huey's (all
+locations), Overton Park Shell, Blues City Cafe, Landers Center, Orpheum Theatre, South Main
+Sounds, Hotel Pontotoc (via Cloudflare proxy fallback)
 
 **Ticketmaster (by venue ID):** FedExForum, Cannon Center, Satellite Music Hall, Grind City
 Amphitheater, Radians Amphitheater, BankPlus Amphitheater at Snowden Grove, Bluesville at

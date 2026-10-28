@@ -297,8 +297,20 @@ else
 fi
 echo ""
 
-# Check 18: Git status
-echo "1️⃣8️⃣  Checking git status..."
+# Check 18: Cloudflare proxy fallback + Eventim queue poll (offline — no network, no key)
+echo "1️⃣8️⃣  Running Cloudflare fallback tests..."
+if python3 scripts/test_cloudflare_fallback.py > /tmp/cloudflare_fallback_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Cloudflare fallback tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Cloudflare fallback tests failed${NC}"
+    grep -E "^  FAIL|^FAILED" /tmp/cloudflare_fallback_tests.log | tail -20 | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
+# Check 19: Git status
+echo "1️⃣9️⃣  Checking git status..."
 if git diff --quiet && git diff --staged --quiet; then
     echo -e "${YELLOW}   ⚠ No changes to commit${NC}"
 else

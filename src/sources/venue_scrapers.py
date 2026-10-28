@@ -9,11 +9,12 @@ import requests
 import html as _html
 import json
 import re
+import time
 from datetime import datetime, date
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
-from ..http_utils import get_with_retry, fetch_ticketmaster_events, new_session
+from ..http_utils import get_with_retry, fetch_ticketmaster_events, new_session, proxy_configured
 from ..config import (
     VENUES, START_DATE, END_DATE, SCRAPER_END_DATE,
     TICKETMASTER_API_KEY,
@@ -26,6 +27,16 @@ from ..time_format import format_event_time
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                   "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
+
+# Some origins refuse the browser UA above and serve a plain self-identifying
+# one: Landers Center answers 406 to the Chrome UA (and nothing else in HEADERS
+# matters — verified header by header on 2026-10-28), which left it at "0
+# events parsed" for 27 of 40 builds. A venue opts in with `plain_user_agent`.
+PLAIN_HEADERS = {
+    "User-Agent": "WYXR-Concert-Calendar/1.0 (+https://concert-calendar.wyxr.org)",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Language": "en-US,en;q=0.9",
 }
@@ -103,6 +114,21 @@ def fetch_individual() -> List[SourceResult]:
     ]
 
     results = []
+
+    # A venue whose site Cloudflare-blocks the runner can only be read through
+    # the proxy (http_utils). Without a key it would 403 on every build and
+    # flag the whole run "partial", so it is reported as skipped instead —
+    # still a row in the build log, so the health check sees it, but honest
+    # about why it has nothing.
+    if not proxy_configured():
+        for venue_key, venue_info in venues_to_scrape:
+            if venue_info.get("requires_proxy"):
+                skipped = SourceResult(source_name=f"Venue: {venue_info['name']}")
+                skipped.error_message = ("Skipped — Cloudflare blocks the runner and "
+                                         "SCRAPERAPI_KEY is not set")
+                results.append(skipped)
+        venues_to_scrape = [(k, v) for k, v in venues_to_scrape if not v.get("requires_proxy")]
+
     with ThreadPoolExecutor(max_workers=8) as executor:
         future_to_venue = {
             executor.submit(_scrape_venue, venue_key, venue_info): venue_key
@@ -152,8 +178,16 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
     if scraper_type == "memphis_symphony":
         return _fetch_memphis_symphony(venue_info)
 
+    # Elfsight widget — JSON API keyed by the widget id in config; the venue
+    # page itself holds nothing we need
+    if scraper_type == "elfsight":
+        return _fetch_elfsight_venue(venue_info)
+
+    headers = PLAIN_HEADERS if venue_info.get("plain_user_agent") else HEADERS
+    non_music = 0  # listings a mixed-use venue's parser dropped as not concerts
+
     try:
-        response = get_with_retry(url, headers=HEADERS, timeout=15, allow_redirects=True)
+        response = get_with_retry(url, headers=headers, timeout=15, allow_redirects=True)
         response.raise_for_status()
 
         soup = BeautifulSoup(response.text, "html.parser")
@@ -166,9 +200,6 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_minglewood(soup, name)
         elif scraper_type == "graceland":
             events = _parse_graceland(soup, name)
-        elif scraper_type == "elfsight":
-            widget_id = venue_info.get("elfsight_widget_id", "")
-            events = _parse_elfsight(name, url, widget_id)
         elif scraper_type == "orpheum":
             events = _parse_orpheum(soup, name)
         elif scraper_type == "overton_shell":
@@ -176,15 +207,11 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         elif scraper_type == "south_main_sounds":
             events = _parse_south_main_sounds(soup, name)
         elif scraper_type == "landers":
-            events = _parse_landers(soup, name)
+            events, non_music = _parse_landers(soup, name)
         elif scraper_type == "flyway":
             events = _parse_flyway(soup, name)
         elif scraper_type == "society":
             events = _parse_society(soup, name)
-        elif scraper_type == "bbkings":
-            events = _parse_bbkings(soup, name)
-        elif scraper_type == "crosstown_beer":
-            events = _parse_crosstown_beer(soup, name)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -193,17 +220,14 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             if not events:
                 events = _try_generic_parse(soup, name)
 
-        result.events_found = len(events)
-        for event in events:
-            if not (START_DATE <= event.date <= SCRAPER_END_DATE):
-                result.events_filtered += 1
-            else:
-                # Events from venue calendars are music events by definition —
-                # skip is_music_event() check which false-negatives on artist names
-                result.events.append(event)
-
-        if result.events_found == 0:
-            result.error_message = f"0 events parsed — page structure may have changed"
+        _collect_in_window(result, events, "0 events parsed — page structure may have changed")
+        if non_music:
+            # An arena calendar that is all hockey and cheer this month parsed
+            # fine — say so instead of "page structure may have changed".
+            result.events_found += non_music
+            result.events_filtered += non_music
+            if not events:
+                result.error_message = None
 
     except requests.exceptions.RequestException as e:
         result.success = False
@@ -212,6 +236,46 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
         result.success = False
         result.error_message = f"Parse error: {str(e)[:80]}"
 
+    return result
+
+
+def _collect_in_window(result: SourceResult, events: List[Event], empty_message: str) -> None:
+    """File parsed events into `result`, keeping those inside the scrape window.
+
+    Events from venue calendars are music events by definition, so there is no
+    is_music_event() check here — it false-negatives on artist names.
+    """
+    result.events_found = len(events)
+    for event in events:
+        if not (START_DATE <= event.date <= SCRAPER_END_DATE):
+            result.events_filtered += 1
+        else:
+            result.events.append(event)
+    if result.events_found == 0:
+        result.error_message = empty_message
+
+
+def _fetch_elfsight_venue(venue_info: dict) -> SourceResult:
+    """Elfsight Event Calendar widget — read its JSON API, not the venue page.
+
+    The venue page only hosts the widget; the events live at
+    core.service.elfsight.com and the widget id is in config. Fetching the page
+    first was pure overhead, and on lafayettes.com Cloudflare 403'd that fetch
+    in 8 of 40 October builds while the API call that followed never failed —
+    Lafayette's dropped out of the calendar one build in five for nothing.
+    """
+    name = venue_info["name"]
+    result = SourceResult(source_name=f"Venue: {name}")
+    try:
+        events = _parse_elfsight(name, venue_info.get("calendar_url", ""),
+                                 venue_info.get("elfsight_widget_id", ""))
+        _collect_in_window(result, events, "0 events from the Elfsight API — widget id may have changed")
+    except requests.exceptions.RequestException as e:
+        result.success = False
+        result.error_message = f"Elfsight API error: {str(e)[:80]}"
+    except Exception as e:
+        result.success = False
+        result.error_message = f"Parse error: {str(e)[:80]}"
     return result
 
 
@@ -420,8 +484,8 @@ _TRIBE_HEADERS = {
 
 # "Live Music: Spaceman's Dead Friends" — the label is redundant on a music
 # calendar and, left in place, it is what a DJ reads in the listing. Strip it so
-# the act stands alone, the way _parse_crosstown_beer already pulls the artist
-# out of "Live Music - Mark Allen". Only this one generic label, and only when a
+# the act stands alone, the way the old Crosstown Brewing parser pulled the
+# artist out of "Live Music - Mark Allen". Only this one generic label, and only when a
 # name survives: a bare "Live Music" listing keeps its title, since normalize.py
 # relies on that exact string being a recognised placeholder.
 _TRIBE_LABEL_RE = re.compile(r"^\s*live\s+music\s*[:\u2013\u2014-]\s*", re.I)
@@ -710,6 +774,15 @@ _EVENTIM_PROFILE_RE = re.compile(r"ProfileID=(\d+)")
 _EVENTIM_LABEL_RE = re.compile(r"^Buy tickets for .* on (\w+ \d{1,2} \d{4})$")
 _EVENTIM_START_RE = re.compile(r'"startDate"\s*:\s*"([^"]+)"')
 _EVENTIM_QUEUE_MARKER = "You're in line"
+# Cloudflare's waiting room sets a __cfwaitingroom cookie and asks the browser
+# to refresh; a session that keeps polling the same URL is admitted when its
+# turn comes. Before this the first queued page ended the venue for the build,
+# and Hernando's organizer page was queued in 2 of its first 3 Eventim builds.
+# One poll budget per venue, shared by the organizer page and the event pages,
+# so a long queue costs a few minutes of one worker thread and no more.
+_EVENTIM_QUEUE_POLLS = 6
+_EVENTIM_QUEUE_INTERVAL = 20   # seconds between polls unless the page says otherwise
+_EVENTIM_QUEUE_MAX_WAIT = 30   # cap on a Refresh header's own interval
 # "The Faint at Growlers - Memphis,TN", "Jon Spencer at Hernando's Hide-A-Way -
 # Memphis,TN", 'Yheti x Toadface "Sleight of Sound Tour" Memphis, TN'
 _EVENTIM_CITY_SUFFIX = re.compile(r"[\s,\-–|]*\bMemphis,\s*TN\s*$", re.IGNORECASE)
@@ -728,6 +801,25 @@ def _eventim_cards(html_text: str) -> list:
     return BeautifulSoup(html_text, "html.parser").select("div.search-event")
 
 
+def _eventim_get(session: requests.Session, url: str, polls: dict) -> requests.Response:
+    """GET `url`, waiting out Cloudflare's waiting room while `polls["left"]` lasts.
+
+    Returns the final response either way; the caller checks for the queue
+    marker to learn whether it got through. The queue page's own Refresh
+    header sets the interval when present (capped), else a fixed one.
+    """
+    resp = session.get(url, timeout=15)
+    while _EVENTIM_QUEUE_MARKER in resp.text and polls["left"] > 0:
+        polls["left"] -= 1
+        delay = _EVENTIM_QUEUE_INTERVAL
+        refresh = (resp.headers.get("Refresh") or "").split(";")[0].strip()
+        if refresh.isdigit():
+            delay = min(max(int(refresh), 1), _EVENTIM_QUEUE_MAX_WAIT)
+        time.sleep(delay)
+        resp = session.get(url, timeout=15)
+    return resp
+
+
 def _fetch_eventim_whitelabel(venue_info: dict) -> SourceResult:
     """Fetch a venue's events from its Eventim white-label organizer page."""
     name = venue_info["name"]
@@ -737,12 +829,15 @@ def _fetch_eventim_whitelabel(venue_info: dict) -> SourceResult:
     session = new_session()
     session.headers.update(_EVENTIM_HEADERS)
 
+    polls = {"left": _EVENTIM_QUEUE_POLLS}
+
     try:
-        resp = session.get(url, timeout=15)
+        resp = _eventim_get(session, url, polls)
         resp.raise_for_status()
         if _EVENTIM_QUEUE_MARKER in resp.text:
             result.success = False
-            result.error_message = "Eventim waiting room on the organizer page — retry next build"
+            result.error_message = (f"Eventim waiting room on the organizer page after "
+                                    f"{_EVENTIM_QUEUE_POLLS} polls — retry next build")
             return result
         cards = _eventim_cards(resp.text)
 
@@ -780,11 +875,11 @@ def _fetch_eventim_whitelabel(venue_info: dict) -> SourceResult:
 
             if details_ok:
                 try:
-                    detail = session.get(event_url, timeout=15)
+                    detail = _eventim_get(session, event_url, polls)
                     detail.raise_for_status()
                     start = _EVENTIM_START_RE.search(detail.text)
                     if not start:
-                        details_ok = False  # waiting room or new markup; stop asking
+                        details_ok = False  # queue outlasted the polls, or new markup; stop asking
                     else:
                         dt = datetime.fromisoformat(start.group(1))
                         if dt.date() == event_date:
@@ -1368,14 +1463,20 @@ def _parse_elfsight(venue_name: str, page_url: str, widget_id: str) -> List[Even
     return events
 
 
-def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
+def _parse_landers(soup: BeautifulSoup, venue_name: str) -> tuple:
     """Parse Landers Center events - filter for music and concerts only.
+
+    Returns (events, non_music): the arena's calendar is mostly hockey,
+    G-League basketball and cheer competitions, and a month with no concert
+    is normal — the count lets the dispatcher report that honestly rather
+    than as "page structure may have changed".
 
     Events are in <div class="eventItem entry"> containers.
     Title is in <h3 class="title">, tagline in <h4 class="tagline">.
     Date is in <div class="date"> with month/day spans.
     """
     events = []
+    non_music = 0
 
     # Music/concert keywords for filtering
     music_keywords = [
@@ -1426,10 +1527,12 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
 
             # Skip non-music events
             if any(keyword in combined_text for keyword in exclude_keywords):
+                non_music += 1
                 continue
 
             # Only include if it has music keywords
             if not any(keyword in combined_text for keyword in music_keywords):
+                non_music += 1
                 continue
 
             # Extract date from <div class="date">
@@ -1471,8 +1574,7 @@ def _parse_landers(soup: BeautifulSoup, venue_name: str) -> List[Event]:
         except Exception:
             continue
 
-    return events
-
+    return events, non_music
 
 def _parse_orpheum(soup: BeautifulSoup, venue_name: str) -> List[Event]:
     """Parse Orpheum Theatre events from orpheum-memphis.com.
@@ -1664,49 +1766,6 @@ def _parse_south_main_sounds(soup: BeautifulSoup, venue_name: str) -> List[Event
     return events
 
 
-def _parse_bbkings(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse B.B. King's Blues Club events from Webflow CMS collection.
-
-    Events are in div.event7_item cards with:
-    - h3 for artist name
-    - div.text-size-small for time
-    - div[fs-cmsfilter-field="date"] for date (e.g. "Mar 19", no year)
-    """
-    events = []
-    current_year = date.today().year
-
-    for item in soup.select("div.event7_item"):
-        try:
-            title_el = item.select_one("h3")
-            date_el = item.select_one("[fs-cmsfilter-field='date']")
-            if not title_el or not date_el:
-                continue
-
-            title = title_el.get_text(strip=True)
-            if not title:
-                continue
-
-            date_text = date_el.get_text(strip=True)
-            event_date = parse_date_text(date_text)
-            if not event_date:
-                continue
-
-            time_el = item.select_one(".event7_name-wrapper .text-size-small")
-            time_str = time_el.get_text(strip=True) if time_el else None
-
-            events.append(Event(
-                artist=title,
-                venue=venue_name,
-                date=event_date,
-                time=time_str,
-                source=_venue_source_tag(venue_name),
-            ))
-        except Exception:
-            continue
-
-    return events
-
-
 # Wix Events app id — its widgets' server-rendered data lives under this key
 # in the page's `wix-warmup-data` script tag.
 _WIX_EVENTS_APP_ID = "140603ad-af8d-84a5-2c80-a0f60cb47351"
@@ -1873,89 +1932,6 @@ def _parse_society(soup: BeautifulSoup, venue_name: str) -> List[Event]:
             ))
         except Exception:
             continue
-
-    return events
-
-
-def _parse_crosstown_beer(soup: BeautifulSoup, venue_name: str) -> List[Event]:
-    """Parse Crosstown Brewing Co. events from Elementor toggle accordion.
-
-    Each accordion item has a date in .elementor-tab-title and event lines in
-    .elementor-tab-content. Example content: "4-6pm Live Music – Mark Allen"
-    or "4-6pm Live Music – Mark Allen 7-9pm Trivia – Community".
-
-    Only "Live Music" segments are captured; trivia, dog shows, etc. are skipped.
-    """
-    events = []
-    today = date.today()
-
-    # Matches "Wednesday, March 25th" in the toggle title
-    DATE_RE = re.compile(
-        r"(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+"
-        r"(\w+)\s+(\d{1,2})(?:st|nd|rd|th)?",
-        re.IGNORECASE,
-    )
-    # Time token: handles "6pm", "4-6pm", "12pm-9pm", "7:30pm-9pm"
-    _T = (
-        r"\d{1,2}"                                       # start hour
-        r"(?:\s*-\s*\d{1,2})?"                          # optional range like "4-6"
-        r"(?::\d{2})?"                                   # optional minutes
-        r"(?:am|pm)"                                     # am/pm (must follow for end of range)
-        r"(?:\s*-\s*\d{1,2}(?::\d{2})?(?:am|pm))?"     # optional explicit second half
-    )
-    # Matches an optional preceding time + "Live Music" + optional separator + artist name
-    # Stops before the next time token or end of string
-    LIVE_MUSIC_RE = re.compile(
-        rf"(?:({_T})\s+)?Live Music\s*[–\-,]?\s*(.+?)(?=\s+{_T}|$)",
-        re.IGNORECASE,
-    )
-
-    for item in soup.select(".elementor-toggle-item"):
-        title_el = item.select_one(".elementor-tab-title")
-        content_el = item.select_one(".elementor-tab-content")
-        if not title_el or not content_el:
-            continue
-
-        title_text = title_el.get_text(" ", strip=True)
-        content_text = content_el.get_text(" ", strip=True)
-
-        if "live music" not in content_text.lower():
-            continue
-
-        date_match = DATE_RE.search(title_text)
-        if not date_match:
-            continue
-
-        month_str = date_match.group(1)
-        day_str = date_match.group(2)
-
-        event_date = None
-        for year in (today.year, today.year + 1):
-            try:
-                candidate = datetime.strptime(f"{month_str} {day_str} {year}", "%B %d %Y").date()
-                if candidate >= today:
-                    event_date = candidate
-                    break
-            except ValueError:
-                continue
-
-        if not event_date:
-            continue
-
-        for m in LIVE_MUSIC_RE.finditer(content_text):
-            time_str = m.group(1)  # may be None
-            artist = (m.group(2) or "").strip()
-            if not artist:
-                artist = "Live Music"
-
-            events.append(Event(
-                artist=artist,
-                venue=venue_name,
-                date=event_date,
-                time=time_str,
-                source=_venue_source_tag(venue_name),
-                url="https://crosstownbeer.com/events/",
-            ))
 
     return events
 

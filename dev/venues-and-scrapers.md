@@ -9,26 +9,27 @@ fetcher. **Counts below drift — regenerate rather than trusting them:**
 python3 -c "import sys;sys.path.insert(0,'.');from src.config import VENUES;print(len(VENUES))"
 ```
 
-## Configured venues (31 at last count)
+## Configured venues (30 at last count)
 
 **Ticketmaster by venue ID (7)** — `ticketmaster_venue`: BankPlus Amphitheater at Snowden
 Grove, Bluesville at Horseshoe, Cannon Center, FedExForum, Grind City Amphitheater, Radians
 Amphitheater, Satellite Music Hall
 
-**Custom scrapers (18):** Hi Tone, Minglewood Hall, Hernando's Hideaway + Growlers
-(`eventim_whitelabel` — see below), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba (Elfsight),
-Crosstown Arts (`dice_promoter` — see below), Crosstown Brewing Co., Flyway Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all
-locations), Overton Park Shell (Squarespace), B.B. King's (Webflow), Blues City Cafe, Landers
-Center, Orpheum Theatre, South Main Sounds
+**Custom scrapers (16):** Hi Tone, Minglewood Hall, Hernando's Hideaway + Growlers
+(`eventim_whitelabel` — see below), Graceland Soundstage (Wix), Lafayette's Music Room + Nashoba
+(`elfsight` — API only, no page fetch), Crosstown Arts (`dice_promoter` — see below), Flyway
+Brewing (Wix), Society Memphis (Wix Events), Huey's (`sitewrench`, all locations), Overton Park
+Shell (Squarespace), Blues City Cafe, Landers Center (`plain_user_agent` — see below), Orpheum
+Theatre, South Main Sounds
 
 **Generic scraper (1)** — JSON-LD: Germantown Performing Arts Center
 
 **Multi-venue (1)** — `memphis_symphony`: Memphis Symphony Orchestra (see below)
 
-**Manual only (3):** Bar DKDC, B-Side Memphis, Hotel Pontotoc
+**Manual only (3):** Bar DKDC, B-Side Memphis, B.B. King's (no calendar left to scrape — see below)
 
-**The Events Calendar API (1 active)** — `tribe_events`: Memphis Listening Lab. Hotel Pontotoc
-runs it too but is blocked — see the Cloudflare note below.
+**The Events Calendar API (2)** — `tribe_events`: Memphis Listening Lab, and Hotel Pontotoc
+through the Cloudflare proxy fallback (`requires_proxy` — see below).
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
 
@@ -36,6 +37,15 @@ Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive ca
 
 **Railgarten** and **Black Lodge** are closed. `REVIEW.md` §5 recommends both; that
 recommendation is stale.
+
+**Crosstown Brewing Co.** closed in October 2026 (removed from `VENUES` and `_SEED_VENUES`
+2026-10-28; its `crosstown_beer` parser is deleted). Its DB `venues` row stays for the
+history, and its last events page had not been updated since Oct 17.
+
+**B.B. King's Blues Club** is open but has **no calendar**: its Webflow site was rebuilt and
+`/memphis/music` lists four house bands with no dates while `/memphis/events` is private-event
+rentals. The `bbkings` parser returned 0 in all 40 October builds and is deleted; the venue is
+`manual_only`. Don't write a new scraper until the site publishes dated listings again.
 
 ## The DB `venues` table is much larger than the configured set
 
@@ -73,10 +83,44 @@ promoter's page is server-rendered and is a different thing — see `dice_promot
   ⚠️ It sends `_TRIBE_HEADERS`, **not** the shared `HEADERS` — Hotel Pontotoc's WAF 403s the
   full Chrome user-agent on `/wp-json/` while allowing a plain self-identifying one.
 
-### ⛔ Hotel Pontotoc is disabled — Cloudflare blocks the CI runner
+### Cloudflare proxy fallback — ScraperAPI (added 2026-10-28)
 
-Set to `manual_only` on 2026-09-01. The scraper itself is verified correct (25 found, 23
-filtered, 2 real shows kept, run from a normal connection). **Two independent blocks exist:**
+Four venues' sites answer 403 to every build because Cloudflare scores GitHub's runner IPs as
+bots (and Render's, see below), while the identical request works from a home connection.
+Asking each venue for a WAF allowlist needs a human at the venue, so instead
+`http_utils.get_with_retry` re-fetches a **Cloudflare-blocked** response once through
+[ScraperAPI](https://docs.scraperapi.com/), which fetches from residential IPs and returns the
+target's body and status as-is. Rules, all in `src/http_utils.py`:
+
+- **Only a response that looks like a Cloudflare block is proxied** — 403/429/503 with a
+  `cf-mitigated` header, a `server: cloudflare` header, or a challenge-page body. A healthy
+  page, an origin 403, Landers' 406, a 404 never spend a credit. `is_cloudflare_block()` is
+  the gate; `scripts/test_cloudflare_fallback.py` pins it.
+- **Our own headers are forwarded** (`keep_headers=true`). Pontotoc's WAF 403s a browser UA on
+  `/wp-json/` and allows the plain self-identifying one, so the UA that works directly is the
+  UA the proxy must present. Don't "improve" success rates by dropping that.
+- **Budget:** `PROXY_BUDGET_PER_RUN = 40` fetches per build. The free plan is 1,000 credits a
+  month and a plain fetch costs one; at ~5 builds a day a venue costs ~150–300 credits a month,
+  so the budget exists to stop a site-wide outage burning the month in a day, not for normal
+  use. Proxy hits print `[proxy] …` lines in the build log.
+- **No key, no change:** with `SCRAPERAPI_KEY` unset the blocked response is returned
+  untouched. A venue that *only* works through the proxy sets `"requires_proxy": True` in
+  `VENUES`; `fetch_individual` then reports it as *skipped* (a build-log row with the reason,
+  `success=True`) rather than failing the build. Hotel Pontotoc is the one such venue.
+- The key lives in GitHub Secrets as `SCRAPERAPI_KEY` and is passed in `daily.yml`. Local
+  `.env` may hold one too; without it Pontotoc is skipped locally, which is fine.
+- `new_session()` sessions (Eventim) do **not** get the fallback — that host serves us; its
+  problem is the waiting room, handled by polling (see the Eventim section).
+
+Crosstown Arts, Growlers and Hernando's stay on their third-party sources (DICE, Eventim);
+the fallback is there if those ever block too, since every venue fetch goes through
+`get_with_retry`.
+
+### Hotel Pontotoc — Cloudflare blocks the CI runner; read through the proxy
+
+`manual_only` from 2026-09-01 to 2026-10-28, now `tribe_events` + `requires_proxy`. The
+scraper itself is verified correct (25 found, 23 filtered, 2 real shows kept, run from a normal
+connection; 17/15/2 on 2026-10-28). **Two independent blocks exist:**
 
 | Origin | User-agent | Result |
 |---|---|---|
@@ -91,12 +135,12 @@ behaves identically (so the rule is not path-based on `/wp-json/`), and there is
 fallback** — `hotelpontotoc.com/events/` is a JS shell containing zero event data, no
 server-rendered cards and no `Event` JSON-LD.
 
-**To re-enable:** ask the venue to add a Cloudflare WAF skip rule for our user-agent, then
-change `"scraper": "manual_only"` back to `"tribe_events"` in `src/config.py`. Nothing else
-needs to change. Relaying the fetch through the Render backend was probed on 2026-10-27 and **does not
-work** — Render's egress IP is challenged too (see the Growlers/Hernando's section).
-
-Until then Pontotoc arrives via Slack flyers, which is how its five existing events got there.
+Relaying the fetch through the Render backend was probed on 2026-10-27 and **does not work** —
+Render's egress IP is challenged too (see the Growlers/Hernando's section). The proxy fallback
+above is what re-enabled it: the direct `/wp-json/` request 403s from CI, `get_with_retry`
+sees a Cloudflare block and refetches through ScraperAPI with `_TRIBE_HEADERS`. One or two
+pages per build. Without `SCRAPERAPI_KEY` the venue is skipped and Pontotoc arrives via Slack
+flyers, which is how its first five events got there.
 
 ### Crosstown Arts — Cloudflare blocks the runner, so it reads DICE instead
 
@@ -156,7 +200,8 @@ Render backend's own shell to test relaying CI fetches through it
 | Render backend (`concert-calendar-api` shell) | **403** | **403** | **403** | **403** |
 
 Render's outbound IPs are shared with other customers and score as badly as GitHub's, so
-**the relay is dead — don't build it.**
+**the relay is dead — don't build it.** The Cloudflare proxy fallback (above) is the answer
+that worked.
 
 **Since 2026-10-27 both venues are scraped from their ticketing organizer pages instead**
 (`eventim_whitelabel`): `wl.eventim.us/GrowlersMemphisTN` and `wl.eventim.us/HernandosHideAWay`.
@@ -171,10 +216,15 @@ too, but serves the plain `WYXR-Concert-Calendar/1.0` UA. How it works (full not
   AJAX URL needs is read off page one's pager links.
 - The year is only in the buy button's `aria-label` ("… on November 05 2026").
 - No time on the cards. Each event page's JSON-LD `startDate` supplies it, but Eventim runs a
-  Cloudflare **waiting room** ("You're in line!") during big on-sales, and on 2026-10-27 every
-  event page was queued. So event pages are best-effort: the first queued page stops them for
-  the run, the event keeps its card data, and the build's `COALESCE` keeps any time already
-  stored. New shows may sit without a time until a build gets through.
+  Cloudflare **waiting room** ("You're in line!") during big on-sales — on 2026-10-27 every
+  event page was queued, and on 2026-10-28 the *organizer* page was queued from a home
+  connection too, after failing 2 of its first 3 CI builds. Since 2026-10-28 `_eventim_get`
+  **polls through the queue**: the waiting room sets a `__cfwaitingroom` cookie and asks for a
+  refresh, and a session that keeps re-requesting the same URL is admitted when its turn comes.
+  One budget of `_EVENTIM_QUEUE_POLLS` (6) per venue, shared by the organizer page and the event
+  pages, at the page's `Refresh` interval (capped at 30s) or 20s. A queue that outlasts the
+  budget fails the organizer page loudly, as before, or stops the event-page lookups for the run
+  with the event keeping its card data; the build's `COALESCE` keeps any time already stored.
 - **Titles come only from the cards, never the event page**, so they can't flip between
   builds. The old Growlers scraper used SeeTickets' headliner field ("Fika, EOS"); Eventim's
   billing is the full name ("Cohesion: Fika & EOS w/ …"), so 8 stored Growlers rows were
@@ -284,6 +334,17 @@ already created uses it. Renaming it would orphan those rows' dedup keys.
   `/event-details/<slug>` on a default Wix Events site (Flyway customized theirs to `/events/`).
 - **Elfsight widget pattern** — a JSON API at `core.service.elfsight.com/p/boot/` returns
   structured events. Reusable across any Elfsight-backed site (Lafayette's, Nashoba).
+  `_fetch_elfsight_venue` calls the API directly and **never fetches the venue page** — the
+  widget id is in config and the page holds nothing else. Until 2026-10-28 the dispatcher
+  fetched the page first anyway, and Cloudflare 403'd lafayettes.com in 8 of 40 builds while
+  the API call that followed never failed.
+- **Per-venue user-agent** — `"plain_user_agent": True` in `VENUES` sends `PLAIN_HEADERS` (the
+  self-identifying `WYXR-Concert-Calendar/1.0` UA) instead of the Chrome `HEADERS`.
+  landerscenter.com answers **406** to the Chrome UA and 200 to the plain one; nothing else in
+  the header set matters (tested header by header 2026-10-28). That 406 hid behind "0 events
+  parsed" for 27 of 40 builds. Landers' parser also now returns a non-music count, so an
+  all-hockey month reports `found=12, filtered=12` with no error instead of a false
+  "page structure may have changed".
 - **`ticketmaster_venue` is the cheap win** for any Live Nation / Ticketmaster room: a
   `livenation.com/venue/<ID>/…` URL exposes the ID. Add a `VENUES` entry plus a
   row to the `_SEED_VENUES` list inside `_seed_venues_if_empty()` (`backend/db.py`) and no

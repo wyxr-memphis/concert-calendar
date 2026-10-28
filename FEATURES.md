@@ -35,7 +35,12 @@ Planning doc for upcoming features.
 - ~~Growlers~~ — Custom SeeTickets scraper at 901growlers.com
 - ~~Graceland Soundstage~~ — Custom Wix scraper at gracelandlive.com/shows
 - ~~Per-Source Scraper Status~~ — Expandable cards with run history, DB event counts, build timeline (moved from public page to admin)
-- ~~B.B. King's~~ — Changed to manual_only (scraper was returning 0 events)
+- ~~B.B. King's~~ — manual_only again 2026-10-28: the rebuilt Webflow site has no dated calendar (house bands only); `bbkings` parser deleted
+- ~~Cloudflare proxy fallback~~ — 2026-10-28: `get_with_retry` refetches a Cloudflare-blocked response through ScraperAPI; Hotel Pontotoc re-enabled via `requires_proxy`
+- ~~Eventim waiting room~~ — 2026-10-28: `_eventim_get` polls through Cloudflare's queue instead of giving up (Hernando's was dark 39 of 40 builds)
+- ~~Landers Center 406~~ — 2026-10-28: `plain_user_agent` per-venue header set; parser reports non-music count
+- ~~Lafayette's / Nashoba~~ — 2026-10-28: Elfsight API read directly, no venue-page fetch (removed a 1-in-5 Cloudflare 403)
+- ~~Crosstown Brewing Co.~~ — closed; removed 2026-10-28
 - ~~Overton Park Shell~~ — Custom Squarespace scraper (`_parse_overton_shell()` in venue_scrapers.py)
 - ~~Email Signup / Mailchimp (#17)~~ — "📧 Subscribe" button in header opens dark modal with Mailchimp iframe form (wyxr.us19.list-manage.com). sessionStorage tracks signed-up state.
 - ~~Event Submission Form (#18)~~ — `/submit.html` public form + `POST /api/submissions` endpoint + admin review queue. Optional flyer upload (2026-07-30): the browser downscales to 1600px, the server re-encodes and holds the bytes in Postgres, and the image reaches Cloudinary **only on approval** — so anonymous submissions can't consume the free-tier quota. Rate limited to 5/hour per hashed IP. Optional doors time, ticket link, ticket price, and genre (2026-10-02) — carried onto the event on approve.

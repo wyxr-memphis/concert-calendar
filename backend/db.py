@@ -1115,7 +1115,6 @@ def _seed_venues_if_empty():
         ("Flyway Brewing", None, ["flyway brewing", "flyway brewing memphis", "flyway"]),
         ("Huey's", None, ["hueys", "huey's", "huey's burgers"]),
         ("Society Memphis Skatepark and Coffee", "Crosstown/Broad Avenue", ["society memphis", "society memphis skatepark", "society memphis skatepark and coffee", "society memphis skatepark & coffee", "society skatepark", "society skatepark and coffee"]),
-        ("Crosstown Brewing Co.", "Crosstown/Broad Avenue", ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."]),
         ("Blues City Cafe", "Downtown/Beale Street", ["blues city cafe", "blues city café", "blues city cafe band box"]),
         # Seeding is skipped when a row by this name already exists (Slack
         # uploads may have created one) — then add the Stereo Sessions alias

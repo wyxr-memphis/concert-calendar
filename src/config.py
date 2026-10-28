@@ -128,7 +128,13 @@ VENUES = {
         "aliases": ["bb kings", "b.b. kings", "b.b. king's", "bb king's blues club"],
         "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://bbkings.com/memphis/music",
-        "scraper": "bbkings",
+        # No calendar left to scrape (2026-10-28). The Webflow site was
+        # rebuilt: /memphis/music now lists four house bands with no dates and
+        # /memphis/events is private-event rentals. The old `bbkings` parser
+        # returned 0 in all 40 October builds; it is deleted (in git before this
+        # change). The club runs nightly house-band rotations, so anything here
+        # arrives via Slack flyers or admin entry.
+        "scraper": "manual_only",
         # Webflow CMS cards carry no per-event link
         "provides": ["start_time"],
     },
@@ -264,19 +270,20 @@ VENUES = {
         # and reality agree; change both together or not at all.
         "neighborhood": "Downtown/Beale Street",
         "calendar_url": "https://hotelpontotoc.com/events/",
-        # ⛔ DISABLED 2026-09-01 — Cloudflare blocks the GitHub Actions runner.
-        # The site runs The Events Calendar and `tribe_events` parses it
-        # correctly (verified: 25 found, 23 filtered, 2 real shows kept), but
-        # every build got 403 from the runner's IP while the identical request
-        # succeeds from a normal connection. Two separate blocks were found:
-        # a UA rule (solved — see _TRIBE_HEADERS) and IP reputation on the
-        # runner (not solvable from our side). Confirmed on two consecutive
-        # builds, so it is not a fluctuating bot score. There is no fallback:
-        # /events/ is a JS shell that carries no event data at all.
-        # Meanwhile Pontotoc arrives via Slack flyers, as it already did.
-        # TO RE-ENABLE once the venue allowlists us: change this one line back
-        # to "tribe_events". Everything below is still correct.
-        "scraper": "manual_only",
+        # Cloudflare blocks the GitHub Actions runner (disabled 2026-09-01 to
+        # 2026-10-28). The site runs The Events Calendar and `tribe_events`
+        # parses it correctly (verified: 25 found, 23 filtered, 2 real shows
+        # kept), but every build got 403 from the runner's IP while the
+        # identical request succeeds from a normal connection. Two separate
+        # blocks: a UA rule (solved — see _TRIBE_HEADERS) and IP reputation on
+        # the runner, which Render shares (dev/spec-render-fetch-relay.md).
+        # /events/ is a JS shell with no event data, so there is no HTML
+        # fallback. Re-enabled 2026-10-28 through the Cloudflare proxy fallback
+        # in http_utils: `requires_proxy` means the build skips this venue
+        # (reported, not failed) when SCRAPERAPI_KEY is unset, and otherwise the
+        # 403 is retried once through the proxy with our own User-Agent.
+        "scraper": "tribe_events",
+        "requires_proxy": True,
         # This calendar is NOT all music: alongside shows in The Dame & Garden it
         # lists private buyouts and college-football watch parties held at
         # stadiums the hotel does not own. All three filters are needed — see
@@ -310,6 +317,9 @@ VENUES = {
         "neighborhood": "Germantown",  # Southaven, MS but close to Memphis
         "calendar_url": "https://www.landerscenter.com/events",
         "scraper": "landers",
+        # landerscenter.com answers 406 to the Chrome UA in HEADERS and 200 to
+        # the plain one (2026-10-28) — the cause of 27 "0 events" builds.
+        "plain_user_agent": True,
     },
     "flyway-brewing": {
         "name": "Flyway Brewing",
@@ -329,13 +339,8 @@ VENUES = {
         "calendar_url": "https://www.societymemphis.com/event-list",
         "scraper": "society",
     },
-    "crosstown-beer": {
-        "name": "Crosstown Brewing Co.",
-        "aliases": ["crosstown beer", "crosstown brewing", "crosstown brewing co", "crosstown brewing co."],
-        "neighborhood": "Crosstown/Broad Avenue",
-        "calendar_url": "https://crosstownbeer.com/events/",
-        "scraper": "crosstown_beer",
-    },
+    # Crosstown Brewing Co. closed in October 2026 — removed 2026-10-28 along
+    # with its parser. Its DB `venues` row and aliases stay for the history.
     "blues-city-cafe": {
         "name": "Blues City Cafe",
         "aliases": ["blues city cafe", "blues city café", "blues city cafe band box"],

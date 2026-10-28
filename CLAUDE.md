@@ -32,7 +32,7 @@ learned from a real outage or bug, and the doc says which one.
 | [`dev/testing.md`](dev/testing.md) | `test_before_push.sh` and its suites |
 | [`dev/instagram-dead-end.md`](dev/instagram-dead-end.md) | ⛔ read before any Instagram ingestion idea |
 | [`dev/test-plan.md`](dev/test-plan.md) | 79 adversarial cases — a reference catalogue, not a checklist |
-| [`dev/spec-render-fetch-relay.md`](dev/spec-render-fetch-relay.md) | ⛔ **abandoned:** relaying scraper fetches through Render — Render's IP is Cloudflare-blocked too (probed 2026-10-27). Growlers/Hernando's now read Eventim |
+| [`dev/spec-render-fetch-relay.md`](dev/spec-render-fetch-relay.md) | ⛔ **abandoned:** relaying scraper fetches through Render — Render's IP is Cloudflare-blocked too (probed 2026-10-27). Cloudflare-blocked hosts now go through the ScraperAPI fallback in `src/http_utils.py` (see venues doc) |
 
 Also: [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md) for setup, [`FEATURES.md`](FEATURES.md)
 for live work, [`REVIEW.md`](REVIEW.md) for the August 2026 codebase review — most of its
@@ -94,6 +94,9 @@ step, no bundler. Admin pages have separate JS under `docs/admin/`.
 ### Security → [`dev/security.md`](dev/security.md)
 
 - **Never commit secrets.** Keys live in `.zshrc`, GitHub Secrets, Render env vars.
+- **`SCRAPERAPI_KEY` is optional and metered** (1,000 free credits/month). `get_with_retry`
+  only spends one on a response that `is_cloudflare_block()` accepts, capped at
+  `PROXY_BUDGET_PER_RUN` per build. Don't widen the gate or call `fetch_via_proxy` directly.
 - **`ADMIN_SECRET_KEY` must be set on Render** or every worker rejects every other's tokens.
 - **Any new state-mutating route that reads form data needs `@require_bearer_auth`**, not
   `@require_auth` — a multipart POST is CORS-simple and lands with no preflight.
@@ -117,7 +120,7 @@ step, no bundler. Admin pages have separate JS under `docs/admin/`.
 - ⚠️ **`./test_before_push.sh` is not read-only against production.** It calls `init_db()`
   with the `.env` `DATABASE_URL`, so it applies pending migrations to the live database. For
   a migration that drops or renames anything, deploy first.
-- **Expect `22/22`, not just "all checks passed"** — `18/18` means the four Chromium browser
+- **Expect `23/23`, not just "all checks passed"** — `19/19` means the four Chromium browser
   suites silently skipped.
 - Anything new in `test_admin_auth.py` that mutates state must be stubbed — it drives the
   real app with `.env` loaded.
@@ -188,7 +191,7 @@ Tools → Trigger Build, or the Actions tab.
 
 ## Workflow preferences
 
-- **Test locally before pushing** — `./test_before_push.sh`, expect `22/22`.
+- **Test locally before pushing** — `./test_before_push.sh`, expect `23/23`.
 - **Always commit and push after completing work**, then trigger a build, wait for it to
   finish, and verify live. Don't wait to be asked.
 - Use descriptive commit messages; include "Co-Authored-By: Claude" where appropriate.
