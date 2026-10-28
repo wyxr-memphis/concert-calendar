@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-10-27T21:03:08.284126+00:00",
+  "run_timestamp": "2026-10-28T11:08:31.607037+00:00",
   "date_range": {
-    "start": "2026-10-27",
-    "end": "2026-11-03"
+    "start": "2026-10-28",
+    "end": "2026-11-04"
   },
   "total_events_db": 4182,
-  "total_active_display": 82,
+  "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 10,
+      "events_found": 9,
+      "events_after_filter": 9,
       "events_filtered": 0,
       "error": null
     },
@@ -33,10 +33,10 @@
       "error": "Eventim waiting room on the organizer page \u2014 retry next build"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -49,19 +49,27 @@
       "error": "0 events parsed \u2014 page structure may have changed"
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 323,
+      "events_after_filter": 41,
+      "events_filtered": 282,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,27 +81,19 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 43,
-      "events_after_filter": 43,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -113,14 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 3,
@@ -132,9 +124,25 @@
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 62,
-      "events_after_filter": 31,
-      "events_filtered": 31,
+      "events_after_filter": 30,
+      "events_filtered": 32,
       "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Request failed: 406 Client Error: Not Acceptable for url: https://www.landerscenter.com/events"
     },
     {
       "name": "Venue: South Main Sounds",
@@ -142,38 +150,6 @@
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 31,
-      "events_filtered": 259,
       "error": null
     },
     {
@@ -185,6 +161,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 2,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 29,
@@ -193,18 +177,18 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
       "events_after_filter": 22,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Brewing Co.",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
       "events_filtered": 4,
       "error": null
     },
@@ -217,12 +201,36 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 31,
+      "events_filtered": 259,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Brewing Co.",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 0,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
       "events_filtered": 0,
       "error": "Eventim event pages unavailable mid-run \u2014 some show times missing"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
@@ -236,70 +244,20 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 71,
-      "events_after_filter": 45,
-      "events_filtered": 26,
+      "events_after_filter": 44,
+      "events_filtered": 27,
       "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: HTTPSConnectionPool(host='lafayettes.com', port=443): Max retries exceeded with "
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 82,
-      "events_after_filter": 82,
+      "events_found": 84,
+      "events_after_filter": 84,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Iron & Wine",
-      "venue": "Satellite Music Hall",
-      "date": "2026-10-27",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Parallax",
-      "venue": "B-Side Memphis",
-      "date": "2026-10-27",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-10-27",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "THIS IS MUSIC- Dan Larsen",
-      "venue": "Flyway Brewing",
-      "date": "2026-10-27",
-      "time": "6 PM",
-      "source": "scraper:flyway_brewing"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-10-27",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Book Signing and Signing with Amy Rigby \u2013 Girl to Country",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-10-27",
-      "time": "6 PM",
-      "source": "scraper:memphis_listening_lab"
-    },
     {
       "artist": "Soundhause",
       "venue": "B-Side Memphis",
@@ -831,6 +789,62 @@
       "date": "2026-11-03",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Prof",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-04",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-04",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Tunes & Tales | Compass Community School - Frayser Campus",
+      "venue": "Compass Community School - Frayser Campus",
+      "date": "2026-11-04",
+      "time": "1:30 PM",
+      "source": "scraper:memphis_symphony_orchestra"
+    },
+    {
+      "artist": "Tunes & Tales | Cromwell Elementary",
+      "venue": "Cromwell Elementary School",
+      "date": "2026-11-04",
+      "time": "1:30 PM",
+      "source": "scraper:memphis_symphony_orchestra"
+    },
+    {
+      "artist": "THIS IS MUSIC- Matthew Wilson",
+      "venue": "Flyway Brewing",
+      "date": "2026-11-04",
+      "time": "5 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Ouija Macc | America's Most Wicked Tour",
+      "venue": "Growlers",
+      "date": "2026-11-04",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "The Riverside Folk Band",
+      "venue": "Limited TIcket House Concert",
+      "date": "2026-11-04",
+      "time": "6:30 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "Tunes & Tales | Macon-Hall Elementary",
+      "venue": "Macon-Hall Elementary School",
+      "date": "2026-11-04",
+      "time": "9:45 AM",
+      "source": "scraper:memphis_symphony_orchestra"
     }
   ]
 }
