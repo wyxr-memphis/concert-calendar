@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-28T11:08:31.607037+00:00",
+  "run_timestamp": "2026-10-28T17:08:40.507982+00:00",
   "date_range": {
     "start": "2026-10-28",
     "end": "2026-11-04"
   },
-  "total_events_db": 4182,
+  "total_events_db": 4185,
   "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
@@ -25,28 +25,12 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Eventim waiting room on the organizer page \u2014 retry next build"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: B.B. King's Blues Club",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
+      "error": "Skipped \u2014 Cloudflare blocks the runner and SCRAPERAPI_KEY is not set"
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -54,14 +38,6 @@
       "events_found": 39,
       "events_after_filter": 39,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 323,
-      "events_after_filter": 41,
-      "events_filtered": 282,
       "error": null
     },
     {
@@ -73,14 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 0,
@@ -89,15 +57,7 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -105,10 +65,26 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -121,6 +97,30 @@
       "error": null
     },
     {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 323,
+      "events_after_filter": 41,
+      "events_filtered": 282,
+      "error": null
+    },
+    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 62,
@@ -129,26 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Request failed: 406 Client Error: Not Acceptable for url: https://www.landerscenter.com/events"
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -161,19 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 10,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 6,
-      "events_filtered": 23,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,19 +161,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 22,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -209,10 +177,34 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Brewing Co.",
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 2,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
       "success": true,
       "events_found": 4,
-      "events_after_filter": 0,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 6,
+      "events_filtered": 23,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 22,
       "events_filtered": 4,
       "error": null
     },
@@ -225,12 +217,12 @@
       "error": "Eventim event pages unavailable mid-run \u2014 some show times missing"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
-      "events_filtered": 0,
-      "error": null
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
+      "error": "Eventim event pages unavailable mid-run \u2014 some show times missing"
     },
     {
       "name": "Venue: Crosstown Arts",
