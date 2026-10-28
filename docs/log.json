@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-10-28T17:08:40.507982+00:00",
+  "run_timestamp": "2026-10-28T17:34:57.454027+00:00",
   "date_range": {
     "start": "2026-10-28",
     "end": "2026-11-04"
   },
-  "total_events_db": 4185,
+  "total_events_db": 4186,
   "total_active_display": 84,
   "data_store": "postgresql",
   "sources": [
@@ -41,11 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
+      "events_found": 323,
+      "events_after_filter": 41,
+      "events_filtered": 282,
       "error": null
     },
     {
@@ -73,11 +73,11 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -89,18 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -113,39 +113,23 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 323,
-      "events_after_filter": 41,
-      "events_filtered": 282,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 62,
-      "events_after_filter": 30,
-      "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 3,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
+      "events_found": 290,
+      "events_after_filter": 31,
+      "events_filtered": 259,
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -161,34 +145,18 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 62,
+      "events_after_filter": 30,
+      "events_filtered": 32,
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 31,
-      "events_filtered": 259,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -201,6 +169,30 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
@@ -209,12 +201,20 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": "Eventim event pages unavailable mid-run \u2014 some show times missing"
+      "events_found": 10,
+      "events_after_filter": 2,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 23,
+      "events_filtered": 5,
+      "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
@@ -222,14 +222,14 @@
       "events_found": 22,
       "events_after_filter": 21,
       "events_filtered": 1,
-      "error": "Eventim event pages unavailable mid-run \u2014 some show times missing"
+      "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Growlers",
       "success": true,
       "events_found": 27,
-      "events_after_filter": 22,
-      "events_filtered": 5,
+      "events_after_filter": 27,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -275,7 +275,7 @@
       "artist": "Hallow Night",
       "venue": "Growlers",
       "date": "2026-10-28",
-      "time": null,
+      "time": "8 PM",
       "source": "scraper:growlers"
     },
     {
@@ -387,7 +387,7 @@
       "artist": "Full Metal Racket",
       "venue": "Hernando's Hideaway",
       "date": "2026-10-29",
-      "time": "8:00PM",
+      "time": "8 PM",
       "source": "scraper:hernando_s_hideaway"
     },
     {
@@ -478,7 +478,7 @@
       "artist": "The Blood & Bass Revue",
       "venue": "Growlers",
       "date": "2026-10-30",
-      "time": null,
+      "time": "8 PM",
       "source": "scraper:growlers"
     },
     {
@@ -639,14 +639,14 @@
       "artist": "Nightmare on Poplar Avenue",
       "venue": "Growlers",
       "date": "2026-10-31",
-      "time": "9:00PM",
+      "time": "9 PM",
       "source": "scraper:growlers"
     },
     {
       "artist": "Tom Petty & The Heartbreakers Tribute",
       "venue": "Hernando's Hideaway",
       "date": "2026-10-31",
-      "time": "8:00PM",
+      "time": "8 PM",
       "source": "scraper:hernando_s_hideaway"
     },
     {
@@ -730,7 +730,7 @@
       "artist": "DIA DE MUERTOS RAVE",
       "venue": "Growlers",
       "date": "2026-11-01",
-      "time": null,
+      "time": "8 PM",
       "source": "scraper:growlers"
     },
     {
@@ -821,7 +821,7 @@
       "artist": "Ouija Macc | America's Most Wicked Tour",
       "venue": "Growlers",
       "date": "2026-11-04",
-      "time": "8:00PM",
+      "time": "8 PM",
       "source": "scraper:growlers"
     },
     {
