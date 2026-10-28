@@ -256,9 +256,25 @@ def test_eventim_queue_poll():
     check("no budget, admitted first try: one request, no sleep", s.calls == 1 and sleeps == [])
 
 
+def test_eventim_start_time():
+    print("\nEventim: reading a show's start time off its event page")
+    jsonld = '<script type="application/ld+json">{"@type":"MusicEvent","startDate":"2026-11-04T20:00"}</script>' \
+             '<time itemprop="startDate" datetime="2026-11-04T20:00">Wed</time>'
+    hero_only = '<div class="event-hero__datetime"><time itemprop="startDate" datetime="2026-11-14T20:00">Sat</time></div>'
+    series = '<time itemprop="startDate" datetime="2026-10-28T00:00">Wed, Oct 28, 2026 - Wednesday, 25 November 2026</time>'
+    got = vs._eventim_start(jsonld)
+    check("JSON-LD page", got is not None and (got.month, got.day, got.hour) == (11, 4, 20), str(got))
+    got = vs._eventim_start(hero_only)
+    check("hero <time> tag when there is no JSON-LD", got is not None and (got.day, got.hour) == (14, 20), str(got))
+    check("recurring-series midnight placeholder is no time", vs._eventim_start(series) is None)
+    check("page with neither is no time", vs._eventim_start("<html>You're in line!</html>") is None)
+    check("garbage datetime is no time", vs._eventim_start('itemprop="startDate" datetime="soon"') is None)
+
+
 def main():
     print("Cloudflare fallback + Eventim queue tests (offline)")
     for fn in (
+        test_eventim_start_time,
         test_block_detection,
         test_no_key_means_no_change,
         test_fallback_on_block,

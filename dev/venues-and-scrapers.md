@@ -225,6 +225,13 @@ too, but serves the plain `WYXR-Concert-Calendar/1.0` UA. How it works (full not
   pages, at the page's `Refresh` interval (capped at 30s) or 20s. A queue that outlasts the
   budget fails the organizer page loudly, as before, or stops the event-page lookups for the run
   with the event keeping its card data; the build's `COALESCE` keeps any time already stored.
+- **Where the time is on an event page:** JSON-LD `startDate` on most pages, and the hero's
+  `<time itemprop="startDate" datetime="…">` on all of them — `_eventim_start` reads either.
+  A **recurring series page** (Hernando's weekly Open Jam Night) has no JSON-LD and a
+  date-range hero whose datetime is `T00:00`; that midnight is a placeholder and is treated
+  as no time. Until 2026-10-28 one such page switched off time lookups for every event after
+  it, and since Hernando's first card *is* the weekly jam, no Hernando's or Growlers show
+  ever got a time. Now only a queue page stops the lookups.
 - **Titles come only from the cards, never the event page**, so they can't flip between
   builds. The old Growlers scraper used SeeTickets' headliner field ("Fika, EOS"); Eventim's
   billing is the full name ("Cohesion: Fika & EOS w/ …"), so 8 stored Growlers rows were

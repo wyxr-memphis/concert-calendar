@@ -773,6 +773,31 @@ _EVENTIM_AJAX = (
 _EVENTIM_PROFILE_RE = re.compile(r"ProfileID=(\d+)")
 _EVENTIM_LABEL_RE = re.compile(r"^Buy tickets for .* on (\w+ \d{1,2} \d{4})$")
 _EVENTIM_START_RE = re.compile(r'"startDate"\s*:\s*"([^"]+)"')
+# The event hero's own <time itemprop="startDate" datetime="2026-11-04T20:00">.
+# Most pages also carry JSON-LD with the same value, but a recurring series
+# page (Hernando's weekly Open Jam Night) has no JSON-LD at all and a date-range
+# hero whose datetime is the series start at T00:00 — a placeholder, not a time.
+_EVENTIM_HERO_START_RE = re.compile(r'itemprop="startDate"[^>]*\bdatetime="([^"]+)"')
+
+
+def _eventim_start(html_text: str) -> Optional[datetime]:
+    """The show's start from an Eventim event page, or None if it has none.
+
+    JSON-LD first, then the hero <time> tag. A midnight value is the recurring-
+    series placeholder, not a start time, so it is reported as no time.
+    """
+    for pattern in (_EVENTIM_START_RE, _EVENTIM_HERO_START_RE):
+        m = pattern.search(html_text)
+        if not m:
+            continue
+        try:
+            dt = datetime.fromisoformat(m.group(1))
+        except ValueError:
+            continue
+        if dt.hour == 0 and dt.minute == 0:
+            return None
+        return dt
+    return None
 _EVENTIM_QUEUE_MARKER = "You're in line"
 # Cloudflare's waiting room sets a __cfwaitingroom cookie and asks the browser
 # to refresh; a session that keeps polling the same URL is admitted when its
@@ -877,12 +902,15 @@ def _fetch_eventim_whitelabel(venue_info: dict) -> SourceResult:
                 try:
                     detail = _eventim_get(session, event_url, polls)
                     detail.raise_for_status()
-                    start = _EVENTIM_START_RE.search(detail.text)
-                    if not start:
-                        details_ok = False  # queue outlasted the polls, or new markup; stop asking
+                    if _EVENTIM_QUEUE_MARKER in detail.text:
+                        details_ok = False  # queue outlasted the polls; stop asking this run
                     else:
-                        dt = datetime.fromisoformat(start.group(1))
-                        if dt.date() == event_date:
+                        # A page with no readable time (recurring series, new
+                        # markup) costs only that one event its time. Until
+                        # 2026-10-28 it switched off lookups for every event
+                        # after it, and Hernando's first card is its weekly jam.
+                        dt = _eventim_start(detail.text)
+                        if dt and dt.date() == event_date:
                             time_str = format_event_time(dt)
                 except (requests.exceptions.RequestException, ValueError):
                     pass  # keep the card's data
