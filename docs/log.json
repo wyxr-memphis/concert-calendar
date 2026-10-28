@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-28T17:34:57.454027+00:00",
+  "run_timestamp": "2026-10-28T18:02:00.248255+00:00",
   "date_range": {
     "start": "2026-10-28",
     "end": "2026-11-04"
@@ -33,11 +33,11 @@
       "error": "Skipped \u2014 Cloudflare blocks the runner and SCRAPERAPI_KEY is not set"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -46,6 +46,14 @@
       "events_found": 323,
       "events_after_filter": 41,
       "events_filtered": 282,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 39,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -73,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 4,
@@ -97,14 +97,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
@@ -113,9 +105,17 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 3,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -129,18 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 2,
+      "events_found": 3,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -153,22 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 6,
-      "events_filtered": 23,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 12,
@@ -177,10 +153,26 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 10,
+      "events_after_filter": 2,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -193,6 +185,22 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 6,
+      "events_filtered": 23,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
@@ -201,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 10,
-      "events_after_filter": 2,
-      "events_filtered": 8,
+      "events_found": 71,
+      "events_after_filter": 44,
+      "events_filtered": 27,
       "error": null
     },
     {
@@ -230,14 +238,6 @@
       "events_found": 27,
       "events_after_filter": 27,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 44,
-      "events_filtered": 27,
       "error": null
     },
     {
