@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-29T11:21:44.032161+00:00",
+  "run_timestamp": "2026-10-29T14:33:38.350541+00:00",
   "date_range": {
     "start": "2026-10-29",
     "end": "2026-11-05"
   },
-  "total_events_db": 4192,
-  "total_active_display": 85,
+  "total_events_db": 4193,
+  "total_active_display": 86,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
       "events_after_filter": 41,
       "events_filtered": 282,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,131 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 62,
-      "events_after_filter": 30,
-      "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 30,
-      "events_filtered": 260,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 2,
-      "events_filtered": 15,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 2,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 16,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 6,
-      "events_filtered": 23,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
       "error": null
     },
     {
@@ -201,11 +65,155 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 2,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 62,
+      "events_after_filter": 30,
+      "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 30,
+      "events_filtered": 260,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 11,
+      "events_after_filter": 3,
+      "events_filtered": 8,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 16,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 6,
+      "events_filtered": 23,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
       "events_after_filter": 22,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 71,
+      "events_after_filter": 43,
+      "events_filtered": 28,
       "error": null
     },
     {
@@ -233,18 +241,10 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 71,
-      "events_after_filter": 43,
-      "events_filtered": 28,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 85,
-      "events_after_filter": 85,
+      "events_found": 86,
+      "events_after_filter": 86,
       "events_filtered": 0,
       "error": null
     }
@@ -634,6 +634,13 @@
       "date": "2026-10-31",
       "time": "8 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Little Print Shop of Horrors: The Narrows, Zoe Dominguez, Degenerate Breakfast, Runi Salem, Alyssa Moses, Imani",
+      "venue": "The Print Shop",
+      "date": "2026-10-31",
+      "time": "Doors 6:30, Show 7:00",
+      "source": "artifact"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
