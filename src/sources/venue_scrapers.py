@@ -506,8 +506,8 @@ def _tribe_site_origin(calendar_url: str) -> str:
 def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     """Fetch events from a WordPress "The Events Calendar" REST API.
 
-    Three filters, all opt-in per venue, because a hotel/bar calendar is not the
-    pure music feed most venue scrapers read:
+    Four filters, all opt-in per venue, because a hotel/bar/museum calendar is
+    not the pure music feed most venue scrapers read:
 
     - ``tribe_skip_categories`` drops whole categories. Hotel Pontotoc tags its
       buyouts "Private" — 7 of 25 upcoming entries when this was written, and a
@@ -519,6 +519,12 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     - ``tribe_music_only`` applies ``is_music_event()``. The dispatcher trusts
       venue scrapers to be all-music and skips that check, which is wrong here
       for the same reason it is wrong for Crosstown Arts.
+    - ``tribe_include_patterns`` keeps only events whose title or a category
+      matches one of these regexes, as whole words. For a calendar where music
+      is the exception — MoSH's is planetarium shows, camps and exhibits, with
+      laser concerts and the odd music film among them. ``is_music_event()``
+      can't do this job: its substring keywords hit "Rocket" ("rock") and
+      "Museum Tour" ("tour"), and it passes any title naming a known venue.
     """
     name = venue_info["name"]
     result = SourceResult(source_name=f"Venue: {name}")
@@ -532,6 +538,9 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     skip_cats = {c.lower() for c in venue_info.get("tribe_skip_categories", [])}
     own_venues = {v.lower() for v in venue_info.get("tribe_own_venues", [])}
     music_only = bool(venue_info.get("tribe_music_only", False))
+    include_patterns = venue_info.get("tribe_include_patterns") or []
+    include_re = (re.compile(r"\b(?:" + "|".join(include_patterns) + r")\b", re.I)
+                  if include_patterns else None)
 
     try:
         page = 1
@@ -585,6 +594,10 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
                     continue
 
                 if music_only and not is_music_event(raw_title):
+                    result.events_filtered += 1
+                    continue
+
+                if include_re and not include_re.search(" | ".join([raw_title, *cats])):
                     result.events_filtered += 1
                     continue
 
