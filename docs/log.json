@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-10-29T14:33:38.350541+00:00",
+  "run_timestamp": "2026-10-29T21:29:27.971644+00:00",
   "date_range": {
     "start": "2026-10-29",
     "end": "2026-11-05"
   },
-  "total_events_db": 4193,
-  "total_active_display": 86,
+  "total_events_db": 4195,
+  "total_active_display": 87,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 323,
-      "events_after_filter": 41,
-      "events_filtered": 282,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 39,
@@ -57,10 +33,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
+      "events_found": 323,
+      "events_after_filter": 41,
+      "events_filtered": 282,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -73,23 +57,7 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -105,12 +73,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -121,12 +89,36 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 2,
-      "events_filtered": 15,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
@@ -153,27 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 3,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 7,
       "events_after_filter": 7,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
       "error": null
     },
     {
@@ -185,12 +161,12 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
+      "events_found": 11,
+      "events_after_filter": 3,
+      "events_filtered": 8,
+      "error": null
     },
     {
       "name": "Venue: Society Memphis Skatepark and Coffee",
@@ -201,11 +177,35 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 26,
       "events_after_filter": 22,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 22,
+      "events_found": 24,
+      "events_after_filter": 23,
       "events_filtered": 1,
       "error": null
     },
@@ -243,8 +243,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 86,
-      "events_after_filter": 86,
+      "events_found": 87,
+      "events_after_filter": 87,
       "events_filtered": 0,
       "error": null
     }
@@ -697,6 +697,13 @@
       "date": "2026-11-02",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Shell Yeah! Presents Indigo Girls with Linda Perry",
+      "venue": "Overton Park Shell",
+      "date": "2026-11-02",
+      "time": "5:00\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Open Jam Night \u2013 NO COVER",
