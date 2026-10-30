@@ -263,12 +263,15 @@ VENUES = {
             "autozone sharpe planetarium", "sharpe planetarium",
         ],
         "neighborhood": "East Memphis",
-        # WordPress + The Events Calendar (/calendar/list/, /calendar/month/).
-        "calendar_url": "https://moshmemphis.com/calendar/",
-        "scraper": "tribe_events",
-        # Whole-word regexes on the title and category names. Laser shows are
-        # the core; the rest catch music films and the occasional concert.
-        "tribe_include_patterns": [
+        # The full calendar (/calendar/) is a SiteWrench JS widget with no
+        # events in the HTML; the homepage server-renders the next ~10 as
+        # cards, laser shows always among them. See _parse_mosh.
+        "calendar_url": "https://moshmemphis.com/",
+        "scraper": "mosh",
+        "plain_user_agent": True,
+        # Whole-word regexes on the title and room. Laser shows are the core;
+        # the rest catch music films and the occasional concert.
+        "include_patterns": [
             r"lasers?", r"concerts?", r"music", r"musicians?", r"bands?",
             r"jazz", r"blues", r"hip[- ]hop", r"r&b", r"gospel", r"funk",
             r"rock (?:and|&|'n'|n'|n) roll", r"symphony", r"orchestra",

@@ -19,7 +19,7 @@ script following the `scripts/test_*.py` convention, offline except for the DB c
 | `scripts/test_admin_auth.py` | CSRF guard, login throttle, non-ASCII password, pledge-drive route auth (no DB needed) |
 | `scripts/test_pledge_drive.py` | pledge-drive date window, percentage clamp, last-good fallback, settings validation |
 | `scripts/test_society_scraper.py` | Society Memphis music filter vs. its live calendar titles, shared Wix Events reader (Flyway) |
-| `scripts/test_mosh_scraper.py` | MoSH `tribe_include_patterns` filter: laser shows and music films kept, planetarium/camp/exhibit listings dropped, whole-word matching |
+| `scripts/test_mosh_scraper.py` | MoSH homepage card parser against the live strip of 2026-10-30, and the shared `include_patterns` filter: laser shows and music films kept, planetarium/camp/exhibit listings dropped, whole-word matching |
 | `scripts/test_import_merge.py` | update-on-duplicate imports: the fill-only `fields_to_fill` rule, Import → Confirm buckets, Submission Approve merge (no orphan upload), Slack 🔄/ℹ️ reply + rebuild trigger — every DB helper stubbed |
 | `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
 | `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
