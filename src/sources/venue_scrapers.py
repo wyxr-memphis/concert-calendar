@@ -11,6 +11,7 @@ import json
 import re
 import time
 from datetime import datetime, date
+from urllib.parse import urljoin
 from zoneinfo import ZoneInfo
 from bs4 import BeautifulSoup
 from ..models import Event, SourceResult, first_image_url, best_ticketmaster_image
@@ -212,6 +213,8 @@ def _scrape_venue(venue_key: str, venue_info: dict) -> SourceResult:
             events = _parse_flyway(soup, name)
         elif scraper_type == "society":
             events = _parse_society(soup, name)
+        elif scraper_type == "mosh":
+            events, non_music = _parse_mosh(soup, venue_info)
         else:
             # Try JSON-LD first (many event sites embed structured data)
             events = _try_jsonld(soup, name)
@@ -497,6 +500,21 @@ def _strip_billing_label(title: str) -> str:
     return stripped or title
 
 
+def _include_matcher(venue_info: dict):
+    """Compile a venue's ``include_patterns`` into one whole-word regex.
+
+    For a calendar where music is the exception (MoSH: planetarium shows,
+    camps, exhibits), a listing is kept only if its title or a category
+    matches. ``is_music_event()`` can't do this job: its substring keywords hit
+    "Rocket" ("rock") and "Museum Tour" ("tour"), and it passes any title naming
+    a known venue. Returns None when the venue sets no patterns.
+    """
+    patterns = venue_info.get("include_patterns") or []
+    if not patterns:
+        return None
+    return re.compile(r"\b(?:" + "|".join(patterns) + r")\b", re.I)
+
+
 def _tribe_site_origin(calendar_url: str) -> str:
     """Scheme + host for a venue's Events Calendar page, or '' if unparseable."""
     m = re.match(r"(https?://[^/]+)", calendar_url or "")
@@ -519,12 +537,8 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     - ``tribe_music_only`` applies ``is_music_event()``. The dispatcher trusts
       venue scrapers to be all-music and skips that check, which is wrong here
       for the same reason it is wrong for Crosstown Arts.
-    - ``tribe_include_patterns`` keeps only events whose title or a category
-      matches one of these regexes, as whole words. For a calendar where music
-      is the exception — MoSH's is planetarium shows, camps and exhibits, with
-      laser concerts and the odd music film among them. ``is_music_event()``
-      can't do this job: its substring keywords hit "Rocket" ("rock") and
-      "Museum Tour" ("tour"), and it passes any title naming a known venue.
+    - ``include_patterns`` keeps only events whose title or a category
+      matches one of these regexes, as whole words (see ``_include_matcher``).
     """
     name = venue_info["name"]
     result = SourceResult(source_name=f"Venue: {name}")
@@ -538,9 +552,7 @@ def _fetch_tribe_events(venue_info: dict) -> SourceResult:
     skip_cats = {c.lower() for c in venue_info.get("tribe_skip_categories", [])}
     own_venues = {v.lower() for v in venue_info.get("tribe_own_venues", [])}
     music_only = bool(venue_info.get("tribe_music_only", False))
-    include_patterns = venue_info.get("tribe_include_patterns") or []
-    include_re = (re.compile(r"\b(?:" + "|".join(include_patterns) + r")\b", re.I)
-                  if include_patterns else None)
+    include_re = _include_matcher(venue_info)
 
     try:
         page = 1
@@ -1936,6 +1948,75 @@ def _society_is_music(title: str, categories: List[str]) -> bool:
     if _has_word(head, EXCLUDE_KEYWORDS) and not _has_word(head, MUSIC_KEYWORDS):
         return False
     return True
+
+
+# MoSH's full calendar is a SiteWrench JS widget with nothing in the HTML, but
+# its homepage server-renders an "upcoming events" strip: ~10 cards, each a link
+# to /mosh-calendar-page/event/<id> with the room ("Planetarium", "Giant Screen
+# Theater", "Lichterman Nature Center"), the title, and "Oct 30, 2026 | 7PM - 8PM".
+# The laser shows are always among the featured cards, so this reaches them
+# about two weeks out; twice-daily builds pick each one up as it is featured.
+_MOSH_CARD_DATE_RE = re.compile(
+    r"([A-Z][a-z]{2,8}\.? \d{1,2}, \d{4})(?:\s*\|\s*(\d{1,2}(?::\d{2})?\s*[AP]M))?", re.I)
+
+
+def _parse_mosh(soup: BeautifulSoup, venue_info: dict) -> tuple:
+    """Parse MoSH's homepage event cards, keeping only ``include_patterns`` hits.
+
+    Returns (events, non_music) like ``_parse_landers``: most cards are
+    planetarium and giant-screen science shows, so filtering everything out on
+    a given day is normal, not a broken page.
+    """
+    name = venue_info["name"]
+    include_re = _include_matcher(venue_info)
+    events, non_music, seen = [], 0, set()
+
+    for card in soup.select('a[href*="/mosh-calendar-page/event/"]'):
+        title_el = card.select_one(".excerpt-title")
+        date_el = card.select_one(".excerpt-date")
+        if not title_el or not date_el:
+            continue
+        title = title_el.get_text(" ", strip=True)
+        m = _MOSH_CARD_DATE_RE.search(date_el.get_text(" ", strip=True))
+        if not title or not m:
+            continue
+        try:
+            day = datetime.strptime(m.group(1).replace(".", ""), "%b %d, %Y")
+        except ValueError:
+            try:
+                day = datetime.strptime(m.group(1), "%B %d, %Y")
+            except ValueError:
+                continue
+        # The featured strip and the today list can show the same event twice.
+        if (title.lower(), day.date()) in seen:
+            continue
+        seen.add((title.lower(), day.date()))
+
+        room_el = card.select_one(".preheader")
+        room = room_el.get_text(" ", strip=True) if room_el else ""
+        if include_re and not include_re.search(f"{title} | {room}"):
+            non_music += 1
+            continue
+
+        time_str = None
+        if m.group(2):
+            try:
+                t = datetime.strptime(m.group(2).replace(" ", "").upper(),
+                                      "%I:%M%p" if ":" in m.group(2) else "%I%p")
+                time_str = format_event_time(day.replace(hour=t.hour, minute=t.minute))
+            except ValueError:
+                pass
+
+        events.append(Event(
+            artist=title,
+            venue=name,
+            date=day.date(),
+            time=time_str,
+            source=_venue_source_tag(name),
+            url=urljoin("https://moshmemphis.com", card.get("href", "")) or None,
+        ))
+
+    return events, non_music
 
 
 def _parse_society(soup: BeautifulSoup, venue_name: str) -> List[Event]:

@@ -28,9 +28,11 @@ Theatre, South Main Sounds
 
 **Manual only (3):** Bar DKDC, B-Side Memphis, B.B. King's (no calendar left to scrape — see below)
 
-**The Events Calendar API (3)** — `tribe_events`: Memphis Listening Lab, Museum of Science &
-History (MoSH — music-only via `tribe_include_patterns`, see below), and Hotel Pontotoc
+**The Events Calendar API (2)** — `tribe_events`: Memphis Listening Lab, and Hotel Pontotoc
 through the Cloudflare proxy fallback (`requires_proxy` — see below).
+
+**Homepage cards (1)** — `mosh`: Museum of Science & History, laser shows and music films only
+(`include_patterns` — see below).
 
 Venue scrapers use the 6-month range (`SCRAPER_END_DATE`) for the interactive calendar.
 
@@ -313,30 +315,41 @@ own row in the DB `venues` table *and* as an alias of the Orpheum / Crosstown Ar
 alias for the Halloran's full formal name was reverted during this work because the DB row
 already claims that exact string. Resolve it before adding another scraper that books either.
 
-### Museum of Science & History (MoSH) — `tribe_events`, laser shows and music films only
+### Museum of Science & History (MoSH) — homepage cards, laser shows and music films only
 
-Added 2026-10-29. moshmemphis.com's calendar (The Events Calendar — `/calendar/list/`,
-`/calendar/month/`) is mostly exhibits, camps and planetarium shows. What DJs want is the
-AutoZone Sharpe Planetarium's laser concerts (Laser Lab, Laser Live, "Laser <band>") and any
-music film on the giant screen. A fourth opt-in `tribe_events` filter,
-`tribe_include_patterns`, keeps only listings whose title or a category name matches one of
-a list of **whole-word** regexes (`laser`, `concert`, `music`, `jazz`, `elvis`, `stax`…).
+Added 2026-10-29, working from 2026-10-30. What DJs want from MoSH is the AutoZone Sharpe
+Planetarium's laser concerts (Laser Rock, Laser Live, "Laser <band>") and any music film on the
+giant screen; the rest of its calendar is science shows, camps and Lichterman/Coon Creek events.
 
-- **Why not `tribe_music_only`:** `is_music_event()` matches substrings ("Rocket" → rock,
-  "Museum Tour" → tour) and passes any title containing a venue alias. A museum calendar
-  hits both. `scripts/test_mosh_scraper.py` pins titles each way.
+- **The full calendar is a SiteWrench JS widget** (`/calendar/`, site 2920, page part 461399):
+  the HTML holds no events, and the JSON API it calls needs the token embedded in the page.
+  Lifting that token to call the API directly was **declined** (2026-10-30) — don't build
+  on it. It is not WordPress's The Events Calendar either: the first version assumed so and
+  404'd on `/wp-json/tribe/…` in its first build. Event detail links
+  (`/mosh-calendar-page/event/<id>`) only 301 back into the widget.
+- **The homepage server-renders ~10 upcoming events** as cards linking to
+  `/mosh-calendar-page/event/<id>`, each with the room (`.preheader`), title
+  (`.excerpt-title`) and `Oct 30, 2026 | 7PM - 8PM` (`.excerpt-date`). Five are a featured
+  strip about two weeks deep — every laser show was in it on 2026-10-30 — and five are
+  today's shows. `_parse_mosh` reads those; twice-daily builds pick each show up as it is
+  featured. **Limitation:** a show more than ~2 weeks out, or one MoSH doesn't feature,
+  won't appear until it does.
+- **`include_patterns`** (shared with `tribe_events`) keeps only listings whose title or
+  room matches a list of **whole-word** regexes (`laser`, `concert`, `music`, `jazz`, `elvis`,
+  `stax`…). `is_music_event()` is unusable here: it matches substrings ("Rocket" → rock,
+  "Museum Tour" → tour) and passes any title containing a venue alias.
+  `scripts/test_mosh_scraper.py` pins the live strip of 2026-10-30 (3 kept, 7 dropped).
+  A day where nothing matches reports `found=N, filtered=N` with no error, like Landers.
 - **No bare `mosh` or `pink palace` alias**, for the same alias-in-title reason ("Mosh
   Madness" is a Growlers show).
 - **`Pink Palace Giant Screen` is a separate DB `venues` row** (from a flyer import) and is
   deliberately not claimed as an alias — the Halloran/Crosstown double-row problem. Merge it in
   Admin → Venues if it should be MoSH, then re-run the `dedup_key` backfill.
-- **Overton Park Shell also lists "MOSH Laser Live Concert Series"** (Shell on Wheels). If
-  MoSH lists the same nights, they appear under both venues; the venue differs, so dedup
+- **Overton Park Shell also lists "MOSH Laser Live Concert Series"** (Shell on Wheels) on the
+  same nights, so a Laser Live show appears under both venues; the venue differs, so dedup
   won't merge them.
-- **Music documentaries billed by title alone** ("Unknown Passage: The Dead Moon Story") match
-  no keyword and are missed. Add a pattern, or they arrive via Slack flyers.
-- The scraper was written without a live fetch of the site (the dev sandbox couldn't reach
-  it); the first build's `found`/`filtered` row is the check.
+- **Music documentaries billed by title alone** match no keyword and are missed. Add a
+  pattern, or they arrive via Slack flyers.
 
 ### Society Memphis — Wix Events, filtered to music
 
