@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-10-30T18:14:53.602037+00:00",
+  "run_timestamp": "2026-10-30T21:16:28.224233+00:00",
   "date_range": {
     "start": "2026-10-30",
     "end": "2026-11-06"
@@ -33,11 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 42,
-      "events_after_filter": 42,
-      "events_filtered": 0,
+      "events_found": 323,
+      "events_after_filter": 40,
+      "events_filtered": 283,
       "error": null
     },
     {
@@ -57,12 +57,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 323,
-      "events_after_filter": 40,
-      "events_filtered": 283,
-      "error": null
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -73,12 +73,12 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 29,
+      "events_after_filter": 29,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -105,43 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 61,
       "events_after_filter": 29,
       "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 3,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 29,
-      "events_filtered": 261,
       "error": null
     },
     {
@@ -153,11 +121,43 @@
       "error": null
     },
     {
+      "name": "Venue: Museum of Science & History (MoSH)",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 3,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 2,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 29,
+      "events_filtered": 261,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 17,
       "events_after_filter": 16,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,10 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -185,14 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 29,
@@ -201,11 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 2,
-      "events_filtered": 15,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 42,
+      "events_after_filter": 42,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -227,8 +227,8 @@
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 25,
+      "events_found": 28,
+      "events_after_filter": 24,
       "events_filtered": 4,
       "error": null
     },
