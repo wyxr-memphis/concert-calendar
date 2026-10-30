@@ -1119,6 +1119,7 @@ def _seed_venues_if_empty():
         # Seeding is skipped when a row by this name already exists (Slack
         # uploads may have created one) — then add the Stereo Sessions alias
         # through Admin → Venues instead.
+        ("Museum of Science & History (MoSH)", "East Memphis", ["museum of science & history", "museum of science and history", "mosh memphis", "mosh pink palace", "pink palace museum", "museum of science & history - pink palace", "autozone sharpe planetarium", "sharpe planetarium"]),
         ("Memphis Listening Lab", "Crosstown/Broad Avenue", ["memphis listening lab", "the memphis listening lab", "listening lab", "mempho listening lab", "wyxr stereo sessions / mempho listening lab", "memphis listening lab at crosstown concourse"]),
         # Halls the Memphis Symphony books that no other scraper reaches. The
         # orchestra owns no room, so these are seeded for the neighborhood and

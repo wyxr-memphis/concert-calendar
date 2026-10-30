@@ -246,6 +246,35 @@ VENUES = {
         "calendar_url": "https://memphislisteninglab.org/events/",
         "scraper": "tribe_events",
     },
+    "mosh": {
+        # Museum of Science & History at the Pink Palace (3050 Central Ave).
+        # Mostly exhibits, camps and planetarium shows; what we want is the
+        # AutoZone Sharpe Planetarium's laser concerts (Laser Lab, Laser Live,
+        # "Laser <band>" nights) and any music films on the giant screen.
+        # No bare "mosh" / "pink palace" alias: is_music_event() treats any title
+        # containing an alias as music, and "Mosh" is a word in show titles.
+        # "Pink Palace Giant Screen" already exists as its own DB venues row
+        # (from a flyer import) and is deliberately not claimed here.
+        "name": "Museum of Science & History (MoSH)",
+        "aliases": [
+            "museum of science & history", "museum of science and history",
+            "mosh memphis", "mosh pink palace", "pink palace museum",
+            "museum of science & history - pink palace",
+            "autozone sharpe planetarium", "sharpe planetarium",
+        ],
+        "neighborhood": "East Memphis",
+        # WordPress + The Events Calendar (/calendar/list/, /calendar/month/).
+        "calendar_url": "https://moshmemphis.com/calendar/",
+        "scraper": "tribe_events",
+        # Whole-word regexes on the title and category names. Laser shows are
+        # the core; the rest catch music films and the occasional concert.
+        "tribe_include_patterns": [
+            r"lasers?", r"concerts?", r"music", r"musicians?", r"bands?",
+            r"jazz", r"blues", r"hip[- ]hop", r"r&b", r"gospel", r"funk",
+            r"rock (?:and|&|'n'|n'|n) roll", r"symphony", r"orchestra",
+            r"dj", r"elvis", r"stax", r"soundtrack",
+        ],
+    },
     "bside": {
         "name": "B-Side Memphis",
         "aliases": ["b-side", "bside", "b side", "b-side memphis"],
