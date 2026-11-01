@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-01T11:44:14.380319+00:00",
+  "run_timestamp": "2026-11-01T20:54:48.254046+00:00",
   "date_range": {
     "start": "2026-11-01",
     "end": "2026-11-08"
   },
-  "total_events_db": 4213,
-  "total_active_display": 74,
+  "total_events_db": 4217,
+  "total_active_display": 75,
   "data_store": "postgresql",
   "sources": [
     {
@@ -23,6 +23,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 8,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -73,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
@@ -89,10 +89,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -100,6 +100,14 @@
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 3,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -129,22 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
@@ -161,22 +153,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 11,
@@ -185,10 +161,18 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 4,
+      "events_found": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
       "events_filtered": 10,
       "error": null
     },
@@ -201,11 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -217,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 24,
-      "events_filtered": 5,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 14,
+      "events_after_filter": 4,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -241,6 +233,14 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 24,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 26,
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 74,
-      "events_after_filter": 74,
+      "events_found": 75,
+      "events_after_filter": 75,
       "events_filtered": 0,
       "error": null
     }
@@ -404,6 +404,13 @@
       "date": "2026-11-03",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Zumba",
+      "venue": "Overton Park Shell",
+      "date": "2026-11-03",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Prof",
