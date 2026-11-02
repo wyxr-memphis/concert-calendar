@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-01T20:54:48.254046+00:00",
+  "run_timestamp": "2026-11-02T13:14:57.700570+00:00",
   "date_range": {
-    "start": "2026-11-01",
-    "end": "2026-11-08"
+    "start": "2026-11-02",
+    "end": "2026-11-09"
   },
-  "total_events_db": 4217,
-  "total_active_display": 75,
+  "total_events_db": 4222,
+  "total_active_display": 64,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
@@ -41,47 +33,15 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
-      "events_after_filter": 35,
-      "events_filtered": 288,
+      "events_after_filter": 33,
+      "events_filtered": 290,
       "error": null
     },
     {
       "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -97,10 +57,34 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -108,6 +92,14 @@
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -137,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
+      "events_found": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -153,35 +145,27 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 1,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 8,
       "events_after_filter": 8,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 5,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -193,22 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 21,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 14,
@@ -217,152 +185,79 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from SiteWrench API"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 22,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 40,
-      "events_filtered": 0,
+      "events_after_filter": 39,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 22,
-      "events_after_filter": 21,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 24,
-      "events_filtered": 4,
+      "events_after_filter": 20,
+      "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 23,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 75,
-      "events_after_filter": 75,
+      "events_found": 64,
+      "events_after_filter": 64,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-01",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-01",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Otto in Antarctica (+ U of M French Horn Studio)",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-01",
-      "time": "6 PM",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "DIA DE MUERTOS RAVE",
-      "venue": "Growlers",
-      "date": "2026-11-01",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Rev & Marcia *Matinee-Free Show* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-01",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Deep Roots",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-11-01",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Medium Walter",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-11-01",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Breeze Cayolle",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-11-01",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "John Paul Keith Band",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-11-01",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Charvey Mac",
-      "venue": "Huey's (Millington)",
-      "date": "2026-11-01",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ken Houston Duo",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-11-01",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Memphis Rhythm Review",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-11-01",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Tequila Mockingbird",
-      "venue": "Huey's (Southaven)",
-      "date": "2026-11-01",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Duane Cleveland Acoustic",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-01",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Trouble No More",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-01",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
     {
       "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
       "venue": "Overton Park Shell",
@@ -782,6 +677,34 @@
       "date": "2026-11-08",
       "time": "12 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-09",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "The Lowliest One / Wagoneer / Livid Noise [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-09",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
+      "venue": "Overton Park Shell",
+      "date": "2026-11-09",
+      "time": "5:30\u202fPM",
+      "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Bowling for Soup",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-09",
+      "time": "6:30 PM",
+      "source": "scraper:satellite_music_hall"
     }
   ]
 }
