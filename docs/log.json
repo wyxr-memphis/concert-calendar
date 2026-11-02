@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-02T15:25:03.315858+00:00",
+  "run_timestamp": "2026-11-02T23:04:29.550104+00:00",
   "date_range": {
     "start": "2026-11-02",
     "end": "2026-11-09"
   },
-  "total_events_db": 4223,
-  "total_active_display": 65,
+  "total_events_db": 4265,
+  "total_active_display": 70,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 37,
+      "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
     },
@@ -49,28 +41,20 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 37,
       "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Overton Park Shell",
@@ -81,12 +65,28 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -95,6 +95,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
@@ -115,17 +123,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 61,
-      "events_after_filter": 29,
+      "events_found": 63,
+      "events_after_filter": 31,
       "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,27 +137,27 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
       "events_after_filter": 27,
       "events_filtered": 263,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -177,14 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 9,
@@ -193,19 +185,27 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from SiteWrench API"
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 14,
       "events_after_filter": 4,
       "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,14 +217,6 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 23,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
@@ -233,26 +225,34 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 24,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 22,
-      "events_after_filter": 20,
-      "events_filtered": 2,
+      "events_after_filter": 22,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 65,
-      "events_after_filter": 65,
+      "events_found": 70,
+      "events_after_filter": 70,
       "events_filtered": 0,
       "error": null
     }
@@ -301,13 +301,6 @@
       "source": "scraper:hi_tone"
     },
     {
-      "artist": "Baptist Health & Wellness Series: Zumba",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-03",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
       "artist": "Prof",
       "venue": "Satellite Music Hall",
       "date": "2026-11-04",
@@ -320,20 +313,6 @@
       "date": "2026-11-04",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Tunes & Tales | Compass Community School - Frayser Campus",
-      "venue": "Compass Community School - Frayser Campus",
-      "date": "2026-11-04",
-      "time": "1:30 PM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
-    {
-      "artist": "Tunes & Tales | Cromwell Elementary",
-      "venue": "Cromwell Elementary School",
-      "date": "2026-11-04",
-      "time": "1:30 PM",
-      "source": "scraper:memphis_symphony_orchestra"
     },
     {
       "artist": "THIS IS MUSIC- Matthew Wilson",
@@ -350,18 +329,18 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Open Jam Night - NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-04",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
       "artist": "The Riverside Folk Band",
       "venue": "Limited TIcket House Concert",
       "date": "2026-11-04",
       "time": "6:30 PM",
       "source": "submission"
-    },
-    {
-      "artist": "Tunes & Tales | Macon-Hall Elementary",
-      "venue": "Macon-Hall Elementary School",
-      "date": "2026-11-04",
-      "time": "9:45 AM",
-      "source": "scraper:memphis_symphony_orchestra"
     },
     {
       "artist": "Modern Jazz Masters: Rodney Jordan with the Ted Ludwig Trio",
@@ -376,13 +355,6 @@
       "date": "2026-11-05",
       "time": "2:14 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Tunes & Tales | Grahamwood Elementary School",
-      "venue": "Grahamwood Elementary School",
-      "date": "2026-11-05",
-      "time": "2 PM",
-      "source": "scraper:memphis_symphony_orchestra"
     },
     {
       "artist": "The Faint",
@@ -413,20 +385,6 @@
       "source": "scraper:lafayette_s_music_room"
     },
     {
-      "artist": "Tunes & Tales | Libertas School of Memphis",
-      "venue": "Libertas School of Memphis",
-      "date": "2026-11-05",
-      "time": "9:30 AM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
-    {
-      "artist": "Tunes & Tales | Macon-Hall Elementary",
-      "venue": "Macon-Hall Elementary School",
-      "date": "2026-11-05",
-      "time": "9:45 AM",
-      "source": "scraper:memphis_symphony_orchestra"
-    },
-    {
       "artist": "David Nail: Down To The Studs",
       "venue": "Minglewood Hall",
       "date": "2026-11-05",
@@ -446,6 +404,13 @@
       "date": "2026-11-06",
       "time": "6:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Private Dive: Private Dive, Buck, Divjebabe",
+      "venue": "Bar DKDC",
+      "date": "2026-11-06",
+      "time": "9:00 PM",
+      "source": "artifact"
     },
     {
       "artist": "CowBoy Neil And The Real Deal",
@@ -651,6 +616,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-08",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
       "artist": "2nd Sunday Drag Bingo [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-11-08",
@@ -663,6 +635,76 @@
       "date": "2026-11-08",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Charvey Mac",
+      "venue": "Huey's (Collierville)",
+      "date": "2026-11-08",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Bugaloos",
+      "venue": "Huey's (Cordova)",
+      "date": "2026-11-08",
+      "time": "8 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Bob Nelson & The Bobcats",
+      "venue": "Huey's (Germantown)",
+      "date": "2026-11-08",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "The Chaulkies",
+      "venue": "Huey's (Midtown)",
+      "date": "2026-11-08",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Jack & Noah",
+      "venue": "Huey's (Millington)",
+      "date": "2026-11-08",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Tequila Mockingbird",
+      "venue": "Huey's (Olive Branch)",
+      "date": "2026-11-08",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Medium Walter",
+      "venue": "Huey's (Poplar)",
+      "date": "2026-11-08",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Eric Hughes Band",
+      "venue": "Huey's (Southaven)",
+      "date": "2026-11-08",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Duane Cleveland Band",
+      "venue": "Huey's (Southwind)",
+      "date": "2026-11-08",
+      "time": "6 PM",
+      "source": "scraper:huey_s"
+    },
+    {
+      "artist": "Twin Soul",
+      "venue": "Hueys (Downtown)",
+      "date": "2026-11-08",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
     },
     {
       "artist": "Heartless: A Heart Tribute",
@@ -698,13 +740,6 @@
       "date": "2026-11-09",
       "time": null,
       "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Baptist Health & Wellness Series: Twilight Yoga and Pilates",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-09",
-      "time": "5:30\u202fPM",
-      "source": "scraper:overton_park_shell"
     },
     {
       "artist": "Bowling for Soup",
