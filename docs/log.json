@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-02T23:45:00.843028+00:00",
+  "run_timestamp": "2026-11-03T12:40:28.401712+00:00",
   "date_range": {
-    "start": "2026-11-02",
-    "end": "2026-11-09"
+    "start": "2026-11-03",
+    "end": "2026-11-10"
   },
   "total_events_db": 4265,
-  "total_active_display": 70,
+  "total_active_display": 77,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 323,
-      "events_after_filter": 33,
-      "events_filtered": 290,
-      "error": null
-    },
-    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
@@ -49,11 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
-      "events_filtered": 0,
+      "events_found": 323,
+      "events_after_filter": 33,
+      "events_filtered": 290,
       "error": null
     },
     {
@@ -63,6 +55,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -81,10 +81,18 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 3,
-      "events_after_filter": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
       "events_filtered": 0,
       "error": null
     },
@@ -92,14 +100,6 @@
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 3,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -113,35 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
       "events_found": 9,
       "events_after_filter": 2,
       "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 27,
-      "events_filtered": 263,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
       "error": null
     },
     {
@@ -161,6 +137,14 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 26,
+      "events_filtered": 264,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
@@ -169,11 +153,35 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 5,
-      "events_filtered": 4,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,14 +201,6 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 25,
@@ -209,27 +209,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
+      "events_found": 9,
+      "events_after_filter": 5,
+      "events_filtered": 4,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 39,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 24,
-      "events_filtered": 4,
+      "events_after_filter": 38,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -249,36 +241,23 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 24,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 70,
-      "events_after_filter": 70,
+      "events_found": 77,
+      "events_after_filter": 77,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "RESCHEDULED: Shell Yeah! Presents Indigo Girls with Linda Perry",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-02",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-02",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Shell Yeah! Presents Indigo Girls with Linda Perry",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-02",
-      "time": "5:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Open Jam Night \u2013 NO COVER",
       "venue": "Hernando's Hideaway",
@@ -745,6 +724,76 @@
       "artist": "Bowling for Soup",
       "venue": "Satellite Music Hall",
       "date": "2026-11-09",
+      "time": "6:30 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-10",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "University of Memphis: \"Bluff City Fest\"",
+      "venue": "Crosstown Arts",
+      "date": "2026-11-10",
+      "time": "7 PM",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "3 Years Hollow",
+      "venue": "Growlers",
+      "date": "2026-11-10",
+      "time": "8:00PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-10",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-10",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Back in Time: Huey Lewis & The News Tribute",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-10",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Wyly Bigger",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-10",
+      "time": "12 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Listen Up Session- Shera Dukes- Dragonfly",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-11-10",
+      "time": "6 PM",
+      "source": "scraper:memphis_listening_lab"
+    },
+    {
+      "artist": "90s Music Bingo",
+      "venue": "Nashoba",
+      "date": "2026-11-10",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "King's X",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-10",
       "time": "6:30 PM",
       "source": "scraper:satellite_music_hall"
     }
