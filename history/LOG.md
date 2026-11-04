@@ -4,7 +4,7 @@
 - Decided by: Gabe (asked Claude in Slack to create this branch).
 - Context: Gabe and Robby may use different Claude accounts (or none), so Slack-only memory is not enough.
 - Decisions:
-  - The Slack thread started 2026-11-04 in #wp-ai-bot-testing is the baseline for the calendar project.
+  - The Slack thread started 2026-11-04 in #wp-ai-bot-testing is the starting point; the `history` branch is the source of truth going forward.
   - The `history` branch holds shared rules, decisions and feature initiatives (see README.md).
   - Claude (Slack) was given push access to wyxr-memphis/concert-calendar on 2026-11-04 at Gabe's request, so it can read issues/PRs, push branches and open PRs.
   - Cursor setup: Gabe is using a Cursor prompt prepared by Claude to set the project up locally; Cursor is to ask Gabe for any env vars/exports by name and stop on blockers (rule 1 and 2).

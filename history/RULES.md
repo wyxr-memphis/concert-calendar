@@ -1,6 +1,6 @@
 # Standing rules
 
-Source: Gabe, Slack thread of 2026-11-04 (the baseline for the calendar project).
+Source: Gabe, Slack thread of 2026-11-04 (the starting point; this branch is the source of truth).
 
 1. **Never assume; never work around a blocker.** When an assistant or developer hits a blocker (missing access, missing env var, unclear docs, failing check), stop and resolve it with Gabe or Robby instead of improvising around it.
 2. **Ask for exports and secrets by name.** Local setup needs env vars and data exports that only Gabe/Robby hold. Ask for each by exact name; never guess or invent values. Never commit or post secrets (this repo and the Slack channel are not private places for credentials).

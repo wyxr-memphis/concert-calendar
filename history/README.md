@@ -1,5 +1,7 @@
 # history branch
 
+**This branch is the source of truth for project rules, decisions and initiatives agreed between Gabe, Robby and any assistant. If Slack and this branch disagree, update this branch to reflect the latest agreed decision.**
+
 Shared memory for the Memphis Concert Calendar project. It records the rules, decisions and feature initiatives that Gabe, Robby and any assistant (Claude in Slack, Cursor, etc.) agree on, so everyone stays in sync no matter which tool or account they use.
 
 **This repo is public. Never put secrets, tokens, passwords, personal data or private Slack content here.** Record decisions and rules, not conversations.
