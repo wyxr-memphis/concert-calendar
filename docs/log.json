@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-04T16:02:24.327198+00:00",
+  "run_timestamp": "2026-11-04T19:03:07.915979+00:00",
   "date_range": {
     "start": "2026-11-04",
     "end": "2026-11-11"
   },
-  "total_events_db": 4285,
-  "total_active_display": 89,
+  "total_events_db": 4298,
+  "total_active_display": 93,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,19 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -73,6 +65,22 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
@@ -89,42 +97,10 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +113,27 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 26,
-      "events_filtered": 264,
+      "events_found": 9,
+      "events_after_filter": 2,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,30 +145,22 @@
       "error": null
     },
     {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 26,
+      "events_filtered": 264,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 5,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 12,
@@ -185,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,6 +193,14 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
@@ -225,27 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 22,
+      "events_found": 24,
+      "events_after_filter": 21,
       "events_filtered": 3,
-      "error": null
-    },
-    {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 38,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -254,6 +222,14 @@
       "events_found": 28,
       "events_after_filter": 24,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 38,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -275,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 89,
-      "events_after_filter": 89,
+      "events_found": 93,
+      "events_after_filter": 93,
       "events_filtered": 0,
       "error": null
     }
@@ -416,6 +392,20 @@
       "source": "scraper:overton_park_shell"
     },
     {
+      "artist": "Circle Birds Album Release: Circle Birds",
+      "venue": "Bar DKDC",
+      "date": "2026-11-06",
+      "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Private Dive Debut: Private Dive",
+      "venue": "Bar DKDC",
+      "date": "2026-11-06",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
       "artist": "Private Dive: Private Dive, Buck, Divjebabe",
       "venue": "Bar DKDC",
       "date": "2026-11-06",
@@ -511,6 +501,20 @@
       "venue": "Bar DKDC",
       "date": "2026-11-07",
       "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Indie Sleeze Night 2",
+      "venue": "Bar DKDC",
+      "date": "2026-11-07",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Sweet Cream Ladies w/ Ibex Clone",
+      "venue": "Bar DKDC",
+      "date": "2026-11-07",
+      "time": "Early",
       "source": "artifact"
     },
     {
