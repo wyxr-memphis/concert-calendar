@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-04T12:50:36.105230+00:00",
+  "run_timestamp": "2026-11-04T15:46:00.104659+00:00",
   "date_range": {
     "start": "2026-11-04",
     "end": "2026-11-11"
   },
-  "total_events_db": 4281,
-  "total_active_display": 86,
+  "total_events_db": 4285,
+  "total_active_display": 89,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,30 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 36,
+      "events_after_filter": 36,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
@@ -41,20 +65,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -65,36 +81,12 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -113,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Museum of Science & History (MoSH)",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 2,
-      "events_filtered": 7,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -126,6 +118,14 @@
       "events_found": 66,
       "events_after_filter": 34,
       "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Museum of Science & History (MoSH)",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 2,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -145,35 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 5,
-      "events_filtered": 4,
       "error": null
     },
     {
@@ -185,6 +161,30 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 5,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
@@ -193,18 +193,18 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
       "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -225,19 +225,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
       "events_after_filter": 38,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 24,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 86,
-      "events_after_filter": 86,
+      "events_found": 89,
+      "events_after_filter": 89,
       "events_filtered": 0,
       "error": null
     }
@@ -264,6 +264,13 @@
       "date": "2026-11-04",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Fall 2026: Jacoozy",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-04",
+      "time": null,
+      "source": "artifact"
     },
     {
       "artist": "Brad Birkedahl",
@@ -473,6 +480,13 @@
       "venue": "Bar DKDC",
       "date": "2026-11-07",
       "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "DKDC w/ Sweet Darlin",
+      "venue": "Bar DKDC",
+      "date": "2026-11-07",
+      "time": "8 PM",
       "source": "artifact"
     },
     {
@@ -845,6 +859,13 @@
       "date": "2026-11-11",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "David Wimbish (The Collection) w/ Jesse James DeConto (The Pinkerton Raid)",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-11-11",
+      "time": "6 PM doors",
+      "source": "artifact"
     },
     {
       "artist": "Daniel In The Lions' Den Tour",
