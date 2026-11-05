@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-05T14:08:20.683968+00:00",
+  "run_timestamp": "2026-11-05T14:17:56.699951+00:00",
   "date_range": {
     "start": "2026-11-05",
     "end": "2026-11-12"
   },
-  "total_events_db": 4301,
+  "total_events_db": 4310,
   "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
@@ -25,6 +25,22 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
@@ -41,26 +57,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -81,14 +81,6 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
@@ -97,10 +89,18 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -121,19 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 34,
-      "events_filtered": 32,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,6 +137,30 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 66,
+      "events_after_filter": 34,
+      "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
@@ -153,10 +169,10 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -169,19 +185,19 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 4,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 16,
       "events_after_filter": 15,
       "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 4,
-      "events_filtered": 11,
+      "events_found": 22,
+      "events_after_filter": 19,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -222,6 +238,14 @@
       "events_found": 28,
       "events_after_filter": 24,
       "events_filtered": 4,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
