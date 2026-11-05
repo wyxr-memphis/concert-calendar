@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-05T16:02:20.090005+00:00",
+  "run_timestamp": "2026-11-05T22:28:16.068437+00:00",
   "date_range": {
     "start": "2026-11-05",
     "end": "2026-11-12"
@@ -41,6 +41,14 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
@@ -49,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 27,
+      "events_after_filter": 27,
       "events_filtered": 0,
       "error": null
     },
@@ -65,22 +73,6 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 27,
-      "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
@@ -89,17 +81,25 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 2,
+      "events_found": 3,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
@@ -121,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 2,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -177,19 +177,19 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
       "events_after_filter": 4,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -201,19 +201,19 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 17,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 36,
       "events_after_filter": 36,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 19,
-      "events_filtered": 3,
       "error": null
     },
     {
@@ -233,19 +233,19 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 24,
       "events_after_filter": 23,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -616,7 +616,7 @@
       "source": "scraper:hernando_s_hideaway"
     },
     {
-      "artist": "2nd Sunday Drag Bingo [Big Room-Upstairs]",
+      "artist": "2nd Sunday Drag Bingo [Small room-downstairs]",
       "venue": "Hi Tone",
       "date": "2026-11-08",
       "time": null,
