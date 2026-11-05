@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-05T12:58:28.761164+00:00",
+  "run_timestamp": "2026-11-05T14:08:20.683968+00:00",
   "date_range": {
     "start": "2026-11-05",
     "end": "2026-11-12"
   },
-  "total_events_db": 4299,
-  "total_active_display": 95,
+  "total_events_db": 4301,
+  "total_active_display": 100,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,27 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
       "events_after_filter": 33,
       "events_filtered": 290,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,6 +41,30 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 37,
+      "events_after_filter": 37,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
@@ -65,10 +73,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -81,12 +89,12 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -97,12 +105,28 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "name": "Venue: Germantown Performing Arts Center",
@@ -121,22 +145,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
@@ -145,11 +153,27 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 15,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -169,30 +193,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 2,
-      "events_filtered": 10,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 15,
@@ -201,19 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 19,
-      "events_filtered": 3,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
       "events_after_filter": 31,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 19,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -233,14 +233,6 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
@@ -249,10 +241,18 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 95,
-      "events_after_filter": 95,
+      "events_found": 100,
+      "events_after_filter": 100,
       "events_filtered": 0,
       "error": null
     }
@@ -390,6 +390,13 @@
       "date": "2026-11-06",
       "time": "8 PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "QEMIST BIRTHDAY BASH: QEMIST, 18andcounting (STL), Cinema",
+      "venue": "Havenhaus",
+      "date": "2026-11-06",
+      "time": "9 PM - 3 AM",
+      "source": "artifact"
     },
     {
       "artist": "Pine Hill Haints",
@@ -579,6 +586,20 @@
       "date": "2026-11-08",
       "time": "8 PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "714's w/ Boomstick, The Catastrophes",
+      "venue": "Havenhaus",
+      "date": "2026-11-08",
+      "time": "7 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Fuck Cancer Fundraiser: False., Latissimus Corpsi, Out of Gas, Sissy Saint, TBA",
+      "venue": "Havenhaus",
+      "date": "2026-11-08",
+      "time": "Doors @ 5",
+      "source": "artifact"
     },
     {
       "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
@@ -889,6 +910,13 @@
       "source": "scraper:growlers"
     },
     {
+      "artist": "Malignant Extraction Tour: Frontal Assault, Through Through, Serphant",
+      "venue": "Haven Haus",
+      "date": "2026-11-12",
+      "time": "Doors 7, Show 8",
+      "source": "artifact"
+    },
+    {
       "artist": "Pestilence Presents: [Small Room-Downstairs]",
       "venue": "Hi Tone",
       "date": "2026-11-12",
@@ -901,6 +929,13 @@
       "date": "2026-11-12",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Oxbow w/ Eron Ackerman",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-11-12",
+      "time": "8 PM",
+      "source": "artifact"
     },
     {
       "artist": "Album Listening Party \u2013 CIRCLE BIRDS \u2013",
