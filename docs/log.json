@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-06T12:46:21.508651+00:00",
+  "run_timestamp": "2026-11-06T16:21:19.847735+00:00",
   "date_range": {
     "start": "2026-11-06",
     "end": "2026-11-13"
   },
-  "total_events_db": 4315,
-  "total_active_display": 110,
+  "total_events_db": 4334,
+  "total_active_display": 114,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 323,
-      "events_after_filter": 32,
-      "events_filtered": 291,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
       "events_after_filter": 36,
       "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 323,
+      "events_after_filter": 32,
+      "events_filtered": 291,
       "error": null
     },
     {
@@ -47,6 +47,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -65,22 +73,6 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 27,
@@ -89,10 +81,26 @@
       "error": null
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
       "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 3,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -121,35 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 15,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -161,11 +145,27 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 3,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
       "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -177,6 +177,14 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 3,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 2,
@@ -185,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 11,
+      "events_after_filter": 1,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -209,19 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 25,
-      "events_filtered": 5,
+      "events_found": 40,
+      "events_after_filter": 36,
+      "events_filtered": 4,
       "error": null
     },
     {
@@ -241,18 +241,18 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 36,
-      "events_filtered": 4,
+      "events_found": 30,
+      "events_after_filter": 25,
+      "events_filtered": 5,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 110,
-      "events_after_filter": 110,
+      "events_found": 114,
+      "events_after_filter": 114,
       "events_filtered": 0,
       "error": null
     }
@@ -264,6 +264,13 @@
       "date": "2026-11-06",
       "time": "6:00\u202fPM",
       "source": "scraper:overton_park_shell"
+    },
+    {
+      "artist": "Stolen Faces",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-06",
+      "time": "9 PM",
+      "source": "artifact"
     },
     {
       "artist": "Circle Birds Album Release: Circle Birds",
@@ -504,6 +511,13 @@
       "source": "scraper:society_memphis_skatepark_and_coffee"
     },
     {
+      "artist": "Mystrio",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-08",
+      "time": "7:30 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "FreeWorld",
       "venue": "Blues City Cafe",
       "date": "2026-11-08",
@@ -672,6 +686,13 @@
       "source": "scraper:ticketmaster"
     },
     {
+      "artist": "Alex Upton & Bhaki Lam MU Trio",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-10",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
       "artist": "Brimstone Jones",
       "venue": "Blues City Cafe",
       "date": "2026-11-10",
@@ -817,6 +838,13 @@
       "date": "2026-11-12",
       "time": "7 PM",
       "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-12",
+      "time": "10 PM",
+      "source": "artifact"
     },
     {
       "artist": "Ghost Town Blues Band",
