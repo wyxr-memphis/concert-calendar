@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-06T21:53:50.797112+00:00",
+  "run_timestamp": "2026-11-07T11:34:43.941098+00:00",
   "date_range": {
-    "start": "2026-11-06",
-    "end": "2026-11-13"
+    "start": "2026-11-07",
+    "end": "2026-11-14"
   },
-  "total_events_db": 4335,
-  "total_active_display": 115,
+  "total_events_db": 4336,
+  "total_active_display": 126,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,19 +33,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 323,
-      "events_after_filter": 32,
-      "events_filtered": 291,
+      "events_found": 321,
+      "events_after_filter": 29,
+      "events_filtered": 292,
       "error": null
     },
     {
@@ -59,8 +51,8 @@
     {
       "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -73,28 +65,12 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -105,10 +81,26 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -118,14 +110,6 @@
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 1,
-      "events_filtered": 10,
       "error": null
     },
     {
@@ -140,32 +124,8 @@
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
       "events_found": 10,
-      "events_after_filter": 2,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 25,
-      "events_filtered": 265,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_after_filter": 1,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -177,11 +137,27 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 290,
+      "events_after_filter": 24,
+      "events_filtered": 266,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -193,11 +169,35 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 2,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
       "events_after_filter": 31,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 10,
+      "events_after_filter": 1,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -209,174 +209,55 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 15,
-      "events_after_filter": 3,
-      "events_filtered": 12,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 25,
-      "events_filtered": 5,
+      "events_after_filter": 24,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 36,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 22,
-      "events_filtered": 1,
+      "events_after_filter": 35,
+      "events_filtered": 5,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 115,
-      "events_after_filter": 115,
+      "events_found": 126,
+      "events_after_filter": 126,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Shell on Wheels: MOSH Laser Live Concert Series ft. Unapologetic.",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-06",
-      "time": "6:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
-    {
-      "artist": "Stolen Faces",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-06",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Circle Birds Album Release: Circle Birds",
-      "venue": "Bar DKDC",
-      "date": "2026-11-06",
-      "time": "Early",
-      "source": "artifact"
-    },
-    {
-      "artist": "Private Dive Debut: Private Dive",
-      "venue": "Bar DKDC",
-      "date": "2026-11-06",
-      "time": "Late",
-      "source": "artifact"
-    },
-    {
-      "artist": "Private Dive: Private Dive, Buck, Divjebabe",
-      "venue": "Bar DKDC",
-      "date": "2026-11-06",
-      "time": "9:00 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "CowBoy Neil And The Real Deal",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-06",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Dylan Gossett - Live In Concert",
-      "venue": "Bluesville at Horseshoe",
-      "date": "2026-11-06",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Music of Stephen M. Lee (featuring Dancer Naomi Lee)",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-06",
-      "time": "7:30 PM",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "JED",
-      "venue": "Flyway Brewing",
-      "date": "2026-11-06",
-      "time": "5 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Cohesion: Fika & EOS w/ Gill_Yum, Fylum, and The Depths",
-      "venue": "Growlers",
-      "date": "2026-11-06",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "QEMIST BIRTHDAY BASH: QEMIST, 18andcounting (STL), Cinema",
-      "venue": "Havenhaus",
-      "date": "2026-11-06",
-      "time": "9 PM - 3 AM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Pine Hill Haints",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-06",
-      "time": "8 PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Conan Neutron & The Secret Friends [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-06",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Almost Elton John",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-06",
-      "time": "7 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Laser Live: Unapologetic.",
-      "venue": "Museum of Science & History (MoSH)",
-      "date": "2026-11-06",
-      "time": "6 PM",
-      "source": "scraper:museum_of_science_history_mosh"
-    },
-    {
-      "artist": "Thumpdaddy",
-      "venue": "Nashoba",
-      "date": "2026-11-06",
-      "time": "8 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "Jookin Muzik Friday",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-11-06",
-      "time": "7 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
     {
       "artist": "An Indie Sleaze Dance Party: DJ Livin, DJ Rhinestonee",
       "venue": "Bar DKDC",
@@ -903,6 +784,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Bob And Angela",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-12",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
       "artist": "Eron Ackerman and Oxbow",
       "venue": "Lamplighter Lounge",
       "date": "2026-11-12",
@@ -1025,8 +913,8 @@
       "artist": "Paul Oakenfold + The Crystal Method",
       "venue": "Minglewood Hall",
       "date": "2026-11-13",
-      "time": null,
-      "source": "scraper:minglewood_hall"
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Laser Rock: Genesis",
@@ -1062,6 +950,195 @@
       "date": "2026-11-13",
       "time": "7 PM",
       "source": "artifact"
+    },
+    {
+      "artist": "Cyrena Wages Album Release Show",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-14",
+      "time": "8 PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Tamar Love Live",
+      "venue": "South Main Sounds",
+      "date": "2026-11-14",
+      "time": "7:00PM",
+      "source": "scraper:south_main_sounds"
+    },
+    {
+      "artist": "Magnum Dopus",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-14",
+      "time": "6 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Cooper Young Fall Crawl Happy Hour: Graham Winchester",
+      "venue": "Bar DKDC",
+      "date": "2026-11-14",
+      "time": "Early",
+      "source": "artifact"
+    },
+    {
+      "artist": "Night of the Scorpio: DJ Larry, Space Age, Sledro",
+      "venue": "Bar DKDC",
+      "date": "2026-11-14",
+      "time": "Late",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-14",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Blackberry Smoke: 25th Anniversary Tour 2026",
+      "venue": "Bluesville at Horseshoe",
+      "date": "2026-11-14",
+      "time": "7:30 PM",
+      "source": "scraper:bluesville_at_horseshoe"
+    },
+    {
+      "artist": "Cooper-Young Fall Crawl",
+      "venue": "Cooper-Young",
+      "date": "2026-11-14",
+      "time": "11 AM",
+      "source": "submission"
+    },
+    {
+      "artist": "Peanut Butter & Jam: Massey Tate",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-11-14",
+      "time": "10:30\u202fAM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "The Best of The Second City",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-11-14",
+      "time": "8:00\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Visual Arts Reception: Remy Miller",
+      "venue": "Germantown Performing Arts Center",
+      "date": "2026-11-14",
+      "time": "5:30\u202fPM",
+      "source": "scraper:germantown_performing_arts_center"
+    },
+    {
+      "artist": "Lyle Lovett",
+      "venue": "Graceland Soundstage",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "Squeeze the Squid w/ Sunweight and Kirkos",
+      "venue": "Growlers",
+      "date": "2026-11-14",
+      "time": "7 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Wall 2 Wall: Lyelack, Rosamii, Von G\u00f6gh",
+      "venue": "Growlers",
+      "date": "2026-11-14",
+      "time": "9 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Headcannon w/ Steel Waves, Slumberland",
+      "venue": "Haven Haus",
+      "date": "2026-11-14",
+      "time": "6:00 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Memphis Oddity Market *free* [both rooms]",
+      "venue": "Hi Tone",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "So\u2026That\u2019s It? Birthday Comedy Jam [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "WIENERMANIA [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Landslide - A Tribute to the Music of Fleetwood Mac",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-14",
+      "time": "5 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Seeing Red",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-14",
+      "time": "9 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Bingo Loco",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Lizzie Morgan",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-14",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Ibex Clone Album Release Show: Ibex Clone, Composer 4, Drop Ceiling, DJ JB Horrell",
+      "venue": "MoSH Planetarium",
+      "date": "2026-11-14",
+      "time": "7pm-10pm",
+      "source": "artifact"
+    },
+    {
+      "artist": "Red Bull Turn It Up",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-14",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Red Bull Turn It Up 18+",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-14",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "The Block Party",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-11-14",
+      "time": "10 AM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
