@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-07T11:34:43.941098+00:00",
+  "run_timestamp": "2026-11-07T20:37:09.660325+00:00",
   "date_range": {
     "start": "2026-11-07",
     "end": "2026-11-14"
@@ -41,20 +41,20 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Graceland Soundstage",
@@ -65,12 +65,12 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -81,26 +81,18 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 1,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 27,
       "events_after_filter": 27,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
@@ -113,11 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
-      "events_found": 66,
-      "events_after_filter": 34,
-      "events_filtered": 32,
+      "events_found": 2,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -129,12 +121,20 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
+      "events_found": 66,
+      "events_after_filter": 34,
+      "events_filtered": 32,
       "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "name": "Venue: Nashoba",
@@ -145,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -157,6 +157,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 6,
       "events_filtered": 0,
       "error": null
     },
@@ -169,14 +177,6 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 2,
-      "events_filtered": 13,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 12,
@@ -185,19 +185,19 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 2,
+      "events_filtered": 13,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
       "events_after_filter": 31,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 1,
-      "events_filtered": 9,
       "error": null
     },
     {
@@ -225,19 +225,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 21,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
       "events_after_filter": 35,
       "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 21,
+      "events_filtered": 1,
       "error": null
     },
     {
