@@ -8,6 +8,8 @@ the working preferences.** The reasoning and history behind each rule live in `d
 **Read the relevant `dev/` doc before working on that subsystem** — every rule below was
 learned from a real outage or bug, and the doc says which one.
 
+**Shared rules, decisions and feature initiatives live on the [`history` branch](https://github.com/wyxr-memphis/concert-calendar/tree/history) (`history/RULES.md`, `LOG.md`, `INITIATIVES.md`) — the source of truth for what Gabe, Robby and any assistant have agreed. Read it before starting work; add to it after any decision.** It holds no secrets (this repo is public).
+
 ## Architecture
 
 - **Frontend:** Vercel at `concert-calendar.wyxr.org` (static HTML + interactive JS)
