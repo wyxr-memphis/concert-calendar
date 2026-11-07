@@ -1,0 +1,10 @@
+{
+  "name": "needle-drop",
+  "description": "Tonearm swings in from the right and settles with a little spring.",
+  "keyframes": [
+    { "rotate": 28, "opacity": 0 },
+    { "rotate": 0, "opacity": 1 }
+  ],
+  "origin": "right top",
+  "options": { "duration": 1100, "easing": "ease-out-bounce" }
+}

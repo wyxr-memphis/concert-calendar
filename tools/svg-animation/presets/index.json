@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "_comment": "Extra presets loaded at runtime by loadPresetManifest(). One JSON file per preset, listed here. Built-in presets live in src/presets.js.",
+  "presets": [
+    { "name": "heartbeat", "file": "heartbeat.json" },
+    { "name": "needle-drop", "file": "needle-drop.json" }
+  ]
+}
