@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-10T00:30:07.849462+00:00",
+  "run_timestamp": "2026-11-10T13:19:12.710976+00:00",
   "date_range": {
     "start": "2026-11-10",
     "end": "2026-11-17"
@@ -11,8 +11,8 @@
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 14,
-      "events_after_filter": 12,
+      "events_found": 13,
+      "events_after_filter": 11,
       "events_filtered": 1,
       "error": null
     },
@@ -41,14 +41,6 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 0,
@@ -57,18 +49,18 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 25,
+      "events_found": 6,
+      "events_after_filter": 5,
       "events_filtered": 1,
       "error": null
     },
@@ -82,6 +74,22 @@
     },
     {
       "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -113,11 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
-      "events_filtered": 0,
+      "events_found": 11,
+      "events_after_filter": 2,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -129,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
       "events_after_filter": 23,
       "events_filtered": 267,
-      "error": null
-    },
-    {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 2,
-      "events_filtered": 9,
       "error": null
     },
     {
@@ -161,19 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_found": 6,
+      "events_after_filter": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -185,19 +177,19 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: Hotel Pontotoc",
       "success": true,
       "events_found": 9,
       "events_after_filter": 1,
       "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -209,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
       "error": null
     },
     {
