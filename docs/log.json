@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-10T13:19:12.710976+00:00",
+  "run_timestamp": "2026-11-10T22:05:44.611094+00:00",
   "date_range": {
     "start": "2026-11-10",
     "end": "2026-11-17"
   },
-  "total_events_db": 4362,
+  "total_events_db": 4371,
   "total_active_display": 124,
   "data_store": "postgresql",
   "sources": [
@@ -27,9 +27,25 @@
     {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 36,
-      "events_after_filter": 36,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -49,28 +65,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -81,20 +81,20 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 26,
+      "events_after_filter": 26,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -129,27 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
       "events_after_filter": 23,
       "events_filtered": 267,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,11 +145,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -185,27 +177,19 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
       "name": "Venue: Hotel Pontotoc",
       "success": true,
       "events_found": 9,
       "events_after_filter": 1,
       "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 22,
-      "events_filtered": 7,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -233,18 +225,26 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 22,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 19,
+      "events_found": 21,
+      "events_after_filter": 20,
       "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
