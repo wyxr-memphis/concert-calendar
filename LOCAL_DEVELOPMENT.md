@@ -2,7 +2,21 @@
 
 This guide shows you how to run and test the entire Concert Calendar application locally before pushing changes to the remote main branch.
 
-## Quick Start
+## Front-end only (no setup)
+
+If you are only changing the public calendar (`docs/index.html`), you need no `.env`, no
+backend and no admin login:
+
+```bash
+./run_local_frontend.sh
+open http://localhost:8000/
+```
+
+Edit `docs/index.html` and refresh — there is no build step. The page reads its events from
+the **production** API (the URL is hardcoded as `API_BASE` in `docs/index.html`), so you see
+live data, read-only. Read [`dev/frontend.md`](dev/frontend.md) before pushing.
+
+## Quick Start (full stack)
 
 ```bash
 # 1. Set up environment variables
@@ -18,8 +32,13 @@ chmod +x run_local_frontend.sh
 ./run_local_frontend.sh
 
 # 4. Open in browser
-open http://localhost:8000/docs/admin/local.html
+open http://localhost:8000/admin/local.html
 ```
+
+> **`local.html` is not in a fresh clone.** `docs/admin/local.html`, `docs/admin/local_index.html`
+> and `docs/local_index_home.html` are gitignored, so they exist only on machines where someone
+> created them. Ask a maintainer for copies. Without them, every page in the clone talks to the
+> production API, not your local backend.
 
 ## Setup Details
 
@@ -58,7 +77,7 @@ pip3 install -r requirements.txt --break-system-packages
 
 ### 3. Running the Backend
 
-The backend Flask API runs on port 5000:
+The backend Flask API runs on port 5001 (5000 is often taken by macOS AirPlay):
 
 ```bash
 ./run_local_backend.sh
@@ -68,13 +87,13 @@ This will:
 - Load environment variables from `.env`
 - Verify required variables are set
 - Install dependencies if needed
-- Start Flask at `http://localhost:5000`
+- Start Flask at `http://localhost:5001`
 
 **API endpoints:**
-- `http://localhost:5000/api/events` - Public events
-- `http://localhost:5000/api/admin/login` - Admin login
-- `http://localhost:5000/api/admin/events` - Admin event management
-- `http://localhost:5000/health` - Health check
+- `http://localhost:5001/api/events` - Public events
+- `http://localhost:5001/api/admin/login` - Admin login
+- `http://localhost:5001/api/admin/events` - Admin event management
+- `http://localhost:5001/health` - Health check
 
 ### 4. Running the Frontend
 
@@ -87,19 +106,23 @@ The frontend serves static files on port 8000:
 This uses Python's built-in HTTP server to serve the `docs/` directory.
 
 **Pages:**
-- `http://localhost:8000/docs/` - Homepage (interactive calendar)
-- `http://localhost:8000/docs/thisweek.html` - Static "This Week" page
-- `http://localhost:8000/docs/feed.xml` - RSS 2.0 feed (next 60 days of events)
-- `http://localhost:8000/docs/picks.xml` - WYXR Picks RSS feed (next 180 days, Pick-flagged only)
-- `http://localhost:8000/docs/admin/local.html` - **Local admin login** (points to localhost:5000)
-- `http://localhost:8000/docs/admin/login.html` - Production admin login (points to Render)
+- `http://localhost:8000/` - Homepage (interactive calendar; loads **production** data)
+- `http://localhost:8000/local_index_home.html` - Homepage against your local backend (gitignored, see above)
+- `http://localhost:8000/thisweek.html` - Static "This Week" page
+- `http://localhost:8000/feed.xml` - RSS 2.0 feed (next 60 days of events)
+- `http://localhost:8000/picks.xml` - WYXR Picks RSS feed (next 180 days, Pick-flagged only)
+- `http://localhost:8000/admin/local.html` - **Local admin login** (points to localhost:5001; gitignored, see above)
+- `http://localhost:8000/admin/login.html` - Production admin login (points to Render — a login here is a **production** login)
 
-> **Important:** Use `local.html` for local development. It's configured to connect to your local backend at `http://localhost:5000`.
+> **Important:** Use `local.html` for local development. It's configured to connect to your local backend at `http://localhost:5001`.
+>
+> The local server does not strip `.html` the way Vercel's `cleanUrls` does, so `/admin/login`
+> is a 404 here — include the extension.
 
 ### 5. Testing the Admin UI
 
 1. Start both backend and frontend
-2. Open http://localhost:8000/docs/admin/local.html
+2. Open http://localhost:8000/admin/local.html
 3. Log in with your `ADMIN_PASSWORD`
 4. You can now:
    - View/edit/add events
@@ -107,7 +130,7 @@ This uses Python's built-in HTTP server to serve the `docs/` directory.
    - Check scraper status
    - Manage venues
 
-**Note:** When logged in through `local.html`, other admin pages will still use the production backend URL. To test all admin pages locally, you'll need to update the `window.__API_BASE` in each HTML file to `http://localhost:5000`.
+**Note:** When logged in through `local.html`, other admin pages will still use the production backend URL. To test all admin pages locally, you'll need to update the `window.__API_BASE` in each HTML file to `http://localhost:5001`.
 
 ## Testing the Scraper
 
@@ -167,10 +190,10 @@ Before pushing changes to main, verify:
 
 - [ ] Backend starts without errors: `./run_local_backend.sh`
 - [ ] Frontend serves correctly: `./run_local_frontend.sh`
-- [ ] Admin login works: http://localhost:8000/docs/admin/local.html
-- [ ] API endpoints return valid JSON: `curl http://localhost:5000/api/events`
+- [ ] Admin login works: http://localhost:8000/admin/local.html
+- [ ] API endpoints return valid JSON: `curl http://localhost:5001/api/events`
 - [ ] Scraper runs without errors: `python3 -m src.main --dry-run`
-- [ ] Tests pass (if you have any): `python3 -m pytest tests/`
+- [ ] Tests pass: `./test_before_push.sh` (expect `24/24`; see [`dev/testing.md`](dev/testing.md) — it is not read-only against the `.env` database)
 - [ ] No API keys committed: `git grep -i "api_key" src/ backend/`
 
 ## Troubleshooting
@@ -178,8 +201,8 @@ Before pushing changes to main, verify:
 ### Backend won't start
 
 ```bash
-# Check if port 5000 is already in use
-lsof -i :5000
+# Check if port 5001 is already in use
+lsof -i :5001
 
 # Check DATABASE_URL format (must be single line, no line breaks)
 echo $DATABASE_URL
