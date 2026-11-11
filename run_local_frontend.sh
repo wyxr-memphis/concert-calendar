@@ -8,10 +8,15 @@ set -e
 echo "🌐 Starting local frontend server..."
 echo ""
 echo "✅ Frontend will run at: http://localhost:8000"
-echo "✅ Homepage: http://localhost:8000/docs/"
-echo "✅ Admin: http://localhost:8000/docs/admin/local.html"
-echo ""
-echo "⚠️  Make sure the backend is running first: ./run_local_backend.sh"
+echo "✅ Homepage: http://localhost:8000/  (loads production data)"
+if [ -f docs/admin/local.html ]; then
+    echo "✅ Local admin: http://localhost:8000/admin/local.html"
+    echo ""
+    echo "⚠️  For the local admin, start the backend first: ./run_local_backend.sh"
+else
+    echo "ℹ️  No docs/admin/local.html (it is gitignored) — the admin pages here"
+    echo "   point at the PRODUCTION API. See LOCAL_DEVELOPMENT.md."
+fi
 echo ""
 echo "Press Ctrl+C to stop"
 echo ""
