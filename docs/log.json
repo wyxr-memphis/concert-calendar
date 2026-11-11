@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-10T22:05:44.611094+00:00",
+  "run_timestamp": "2026-11-11T12:30:53.030738+00:00",
   "date_range": {
-    "start": "2026-11-10",
-    "end": "2026-11-17"
+    "start": "2026-11-11",
+    "end": "2026-11-18"
   },
-  "total_events_db": 4371,
-  "total_active_display": 124,
+  "total_events_db": 4373,
+  "total_active_display": 120,
   "data_store": "postgresql",
   "sources": [
     {
@@ -33,22 +33,6 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 7,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 321,
@@ -65,15 +49,23 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 35,
+      "events_after_filter": 35,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -91,8 +83,24 @@
     {
       "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 26,
-      "events_after_filter": 26,
+      "events_found": 25,
+      "events_after_filter": 25,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -105,22 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 66,
-      "events_after_filter": 35,
-      "events_filtered": 31,
-      "error": null
-    },
-    {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
       "events_found": 11,
@@ -129,15 +121,47 @@
       "error": null
     },
     {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 65,
+      "events_after_filter": 34,
+      "events_filtered": 31,
+      "error": null
+    },
+    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
-      "events_after_filter": 23,
-      "events_filtered": 267,
+      "events_after_filter": 22,
+      "events_filtered": 268,
       "error": null
     },
     {
       "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 6,
       "events_after_filter": 6,
@@ -153,51 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 4,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
       "name": "Venue: Landers Center",
       "success": true,
       "events_found": 12,
       "events_after_filter": 0,
       "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 1,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,19 +201,35 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 32,
-      "events_filtered": 8,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 4,
+      "events_filtered": 14,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 29,
-      "events_after_filter": 22,
+      "events_found": 28,
+      "events_after_filter": 21,
       "events_filtered": 7,
+      "error": null
+    },
+    {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 31,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -251,104 +251,13 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 124,
-      "events_after_filter": 124,
+      "events_found": 120,
+      "events_after_filter": 120,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Alex Upton & Bhaki Lam MU Trio",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-10",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brimstone Jones",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-10",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "University of Memphis: \"Bluff City Fest\"",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-10",
-      "time": "7 PM",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "University of Memphis: \"Bluff City Fest\": University of Memphis",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-10",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "3 Years Hollow",
-      "venue": "Growlers",
-      "date": "2026-11-10",
-      "time": "8:00PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-10",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-10",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Back in Time: Huey Lewis & The News Tribute",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-10",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Wyly Bigger",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-10",
-      "time": "12 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Foggy Brains, Ruby Gardner, Abigail & Andrew! Writers in the Round Showcase",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-10",
-      "time": "8 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Listen Up Session- Shera Dukes- Dragonfly",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-11-10",
-      "time": "6 PM",
-      "source": "scraper:memphis_listening_lab"
-    },
-    {
-      "artist": "90s Music Bingo",
-      "venue": "Nashoba",
-      "date": "2026-11-10",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
-    },
-    {
-      "artist": "King's X",
-      "venue": "Satellite Music Hall",
-      "date": "2026-11-10",
-      "time": "6:30 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Jesse James Deconto with David Wimbish!",
       "venue": "Lamplighter Lounge",
@@ -1099,6 +1008,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Pestilence x DIY Memphis Presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-17",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
       "artist": "The Surfrajettes / Turnstyles [Big Room-Upstairs]",
       "venue": "Hi Tone",
       "date": "2026-11-17",
@@ -1113,6 +1029,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "Kurt Vile & the Violators",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-17",
+      "time": "8 PM",
+      "source": "scraper:ticketmaster"
+    },
+    {
       "artist": "WYXR Presents Kurt Vile & the Violators",
       "venue": "Minglewood Hall",
       "date": "2026-11-17",
@@ -1125,6 +1048,55 @@
       "date": "2026-11-17",
       "time": "7 PM",
       "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Conner",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-18",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Simon Michael",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-18",
+      "time": "8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Simon Michael w/ Garlic Butter, Shamothy",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-18",
+      "time": "9-11 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-18",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "THIS IS MUSIC- Matthew Wilson",
+      "venue": "Flyway Brewing",
+      "date": "2026-11-18",
+      "time": "5 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "All is Calm, Kept in Ruins",
+      "venue": "Growlers",
+      "date": "2026-11-18",
+      "time": "8 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "SHE DJS MEET UP @MLL",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-11-18",
+      "time": "6 PM",
+      "source": "scraper:memphis_listening_lab"
     }
   ]
 }
