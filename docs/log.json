@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-11T23:14:26.311793+00:00",
+  "run_timestamp": "2026-11-12T13:35:29.626725+00:00",
   "date_range": {
-    "start": "2026-11-11",
-    "end": "2026-11-18"
+    "start": "2026-11-12",
+    "end": "2026-11-19"
   },
   "total_events_db": 4376,
-  "total_active_display": 121,
+  "total_active_display": 125,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 11,
+      "events_found": 12,
+      "events_after_filter": 10,
       "events_filtered": 1,
       "error": null
     },
@@ -25,34 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 39,
       "events_after_filter": 39,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
       "events_filtered": 0,
       "error": null
     },
@@ -65,12 +41,20 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
       "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -97,10 +81,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
@@ -109,6 +93,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,19 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 1,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 22,
-      "events_filtered": 268,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,19 +137,27 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 17,
       "events_after_filter": 15,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 21,
+      "events_filtered": 269,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -193,19 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
       "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
+      "events_after_filter": 1,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -217,124 +201,63 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 21,
-      "events_filtered": 7,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 31,
-      "events_filtered": 9,
+      "events_found": 35,
+      "events_after_filter": 35,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 27,
+      "events_after_filter": 20,
+      "events_filtered": 7,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_after_filter": 19,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 30,
+      "events_filtered": 10,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 121,
-      "events_after_filter": 121,
+      "events_found": 125,
+      "events_after_filter": 125,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Jesse James Deconto with David Wimbish!",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-11",
-      "time": "6:30 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-11",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Briarcrest SoundScape (With Special Guests 76-South and St. George's American Music Ensemble)",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-11",
-      "time": "7 PM",
-      "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "*CANCELLED* 3 Years Hollow w/ Trackside",
-      "venue": "Growlers",
-      "date": "2026-11-11",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "3 Years Hollow w/ Trackside",
-      "venue": "Growlers",
-      "date": "2026-11-11",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night - NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-11",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Eternity\u2019s Pillar / Slumdog / Slats [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-11",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "The Symphony of Suffering Tour [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-11",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "David Wimbish (The Collection) w/ Jesse James DeConto (The Pinkerton Raid)",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-11",
-      "time": "6 PM doors",
-      "source": "artifact"
-    },
-    {
-      "artist": "Daniel In The Lions' Den Tour",
-      "venue": "Landers Center",
-      "date": "2026-11-11",
-      "time": "6:30 PM",
-      "source": "scraper:landers_center"
-    },
-    {
-      "artist": "SIDE SET: Shara's Songwriter Spotlight",
-      "venue": "Nashoba",
-      "date": "2026-11-11",
-      "time": "6:30 PM",
-      "source": "scraper:nashoba"
-    },
     {
       "artist": "Album Listening Party \u2013 CIRCLE BIRDS \u2013",
       "venue": "Memphis Listening Lab",
@@ -1104,6 +1027,111 @@
       "date": "2026-11-18",
       "time": "6 PM",
       "source": "scraper:memphis_listening_lab"
+    },
+    {
+      "artist": "Little Feat: The Last Farewell Tour",
+      "venue": "Cannon Center for the Performing Arts",
+      "date": "2026-11-19",
+      "time": "7 PM",
+      "source": "scraper:cannon_center_for_the_performing_arts"
+    },
+    {
+      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
+      "venue": "Orpheum Theatre",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
+    },
+    {
+      "artist": "Clint 60th Birthday: Devil Train",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Slack Times & Fake: Slack Times, Fake",
+      "venue": "Bar DKDC",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Ghost Town Blues Band",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-19",
+      "time": "2:14 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Little Feat & The Hot Tomato Horns: The Last Farewell Tour",
+      "venue": "Cannon Center for the Performing Arts",
+      "date": "2026-11-19",
+      "time": "7 PM",
+      "source": "scraper:cannon_center_for_the_performing_arts"
+    },
+    {
+      "artist": "Seconds",
+      "venue": "Crosstown Arts",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "The Nowhere-Bound Tour: Fangerlis, Village Instincts, Foxbody",
+      "venue": "Haven Haus",
+      "date": "2026-11-19",
+      "time": "Doors 7 PM, Music 8 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Lights Out",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-19",
+      "time": "8 PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "The Drag Drive [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Trash Cat\u2019s Birthday Party *no cover* [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Sarah Spain Acoustic",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-19",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "DJ Jrome of The $tash Band \u2013 Live Listening Session",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-11-19",
+      "time": "7 PM",
+      "source": "scraper:memphis_listening_lab"
+    },
+    {
+      "artist": "Little Image",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-19",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Jazz Nite",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-11-19",
+      "time": "7:30 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
