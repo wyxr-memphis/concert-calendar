@@ -37,7 +37,7 @@ from src.time_format import (
 CENTRAL = ZoneInfo("America/Chicago")
 
 DEFAULT_SITE_BASE = "https://concert-calendar.wyxr.org"
-DEFAULT_OG_IMAGE = "/wyxr-wtmm-header.png"
+DEFAULT_OG_IMAGE = "/brand/og-image.png"
 
 BADGE_PICK = "WYXR Pick"
 BADGE_PRESENTS = "WYXR Presents"
@@ -159,7 +159,9 @@ def render_event_page(event: dict, site_base: str = DEFAULT_SITE_BASE) -> str:
     if ticket_url:
         ticket_block = (
             f'<a class="btn btn-primary" href="{esc(ticket_url)}" '
-            'target="_blank" rel="noopener noreferrer">Buy Tickets &rarr;</a>'
+            'target="_blank" rel="noopener noreferrer">Buy Tickets'
+            '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+            '<path d="M4 12h15M13 6l6 6-6 6"/></svg></a>'
         )
 
     jsonld = _event_jsonld(
@@ -319,41 +321,72 @@ def _row(label: str, value) -> str:
     )
 
 
-# Palette matches docs/index.html (the slate palette adopted 2026-07-24).
+# The same inks and roles as docs/index.html (see "Style framework" in
+# dev/frontend.md), minus the Adobe display face: this page's CSP allows
+# Google Fonts only, and a single show does not need a poster font.
 _STYLES = """
         :root {
-            --wyxr-yellow: #FFD64A;
-            --wyxr-black: #2A2E35;
-            --wyxr-white: #F6F8FB;
-            --wyxr-charcoal: #353A44;
-            --wyxr-gray: #AFB5C1;
-            --wyxr-dim: #8B93A1;
-            --wyxr-border: #464C58;
-            --wyxr-presents: #5BBCE4;
+            color-scheme: light;
+            --ink-cream: #FCE2B6;
+            --ink-cream-deep: #F6D19A;
+            --ink-paper: #FFF8EA;
+            --ink-white: #FFFFFF;
+            --ink-red: #D53727;
+            --ink-brick: #B02A1C;
+            --ink-marigold: #FCB91A;
+            --ink-oxblood: #3A1510;
+            --ink-umber: #6B3A2E;
+
+            --ground: var(--ink-cream);
+            --surface: var(--ink-paper);
+            --text: var(--ink-oxblood);
+            --text-soft: var(--ink-umber);
+            --accent: var(--ink-red);
+            --accent-text: var(--ink-brick);
+            --on-accent: var(--ink-white);
+            --lit: var(--ink-marigold);
+            --on-lit: var(--ink-oxblood);
+            --line: var(--ink-red);
+            --rule: rgb(213 55 39 / 0.28);
+            --focus: var(--ink-oxblood);
+            --font-head: 'Anybody', 'Inter', system-ui, sans-serif;
+            --font-body: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { box-sizing: border-box; }
+        * { margin: 0; padding: 0; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: var(--font-body);
             max-width: 640px;
             margin: 0 auto;
-            padding: 24px 16px 48px;
-            background: var(--wyxr-black);
-            color: var(--wyxr-white);
+            padding: 16px 16px 48px;
+            background: var(--ground);
+            color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }
-        a { color: var(--wyxr-yellow); }
+        ::selection { background: var(--lit); color: var(--on-lit); }
+        a { color: var(--accent-text); text-underline-offset: 0.18em; }
+        :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
         .topbar {
             display: flex; align-items: center; justify-content: space-between;
-            gap: 12px; margin-bottom: 20px; padding-bottom: 14px;
-            border-bottom: 1px solid var(--wyxr-border);
+            gap: 12px; margin-bottom: 16px; padding-bottom: 12px;
+            border-bottom: 2px solid var(--line);
         }
-        .topbar a { text-decoration: none; font-size: 0.85em; font-weight: 600; }
-        .topbar .brand { color: var(--wyxr-gray); }
+        .topbar a { text-decoration: none; font-size: 0.875rem; font-weight: 600; }
+        .topbar a:hover { text-decoration: underline; }
+        .topbar .brand {
+            display: inline-flex; align-items: center; gap: 10px;
+            min-height: 44px; color: var(--text);
+            font-family: var(--font-head); font-stretch: 82%;
+            font-weight: 800; font-size: 0.9375rem; letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .topbar .brand img { display: block; width: 38px; height: auto; }
+        .topbar .station { color: var(--text-soft); white-space: nowrap; }
         .card {
-            background: var(--wyxr-charcoal);
-            border: 1px solid var(--wyxr-border);
-            border-radius: 12px;
+            background: var(--surface);
+            border: 2px solid var(--line);
+            border-radius: 20px;
             overflow: hidden;
         }
         /* Flyers are often tall portraits. Capping the height keeps the
@@ -368,50 +401,70 @@ _STYLES = """
             margin: 0 auto;
         }
         .card-body { padding: 20px; }
-        .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+        .event-img + .card-body { border-top: 2px solid var(--line); }
+        .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+        .badges:empty { display: none; }
         .badge {
-            font-size: 0.7em; font-weight: 700; letter-spacing: 0.04em;
-            text-transform: uppercase; padding: 3px 9px; border-radius: 3px;
+            font-family: var(--font-head);
+            font-size: 0.6875rem; font-weight: 800; letter-spacing: 0.06em;
+            line-height: 1.2; text-transform: uppercase;
+            padding: 4px 10px; border-radius: 999px;
         }
-        .badge-pick { background: var(--wyxr-yellow); color: var(--wyxr-black); }
-        .badge-presents { background: var(--wyxr-presents); color: var(--wyxr-black); }
+        .badge-pick { background: var(--lit); color: var(--on-lit); }
+        .badge-presents { background: var(--accent); color: var(--on-accent); }
         h1 {
-            font-family: 'Anybody', 'Inter', sans-serif;
-            font-size: 1.6em; font-weight: 800; line-height: 1.2;
+            font-family: var(--font-head); font-stretch: 82%;
+            font-size: 1.75rem; font-weight: 800; line-height: 1.15;
+            letter-spacing: 0.01em; text-transform: uppercase;
+            text-wrap: balance; overflow-wrap: anywhere;
             margin-bottom: 14px;
         }
         .detail-row {
-            display: flex; gap: 12px; padding: 8px 0;
-            border-top: 1px solid var(--wyxr-border); font-size: 0.95em;
+            display: flex; gap: 12px; padding: 10px 0;
+            border-top: 1px solid var(--rule);
         }
         .detail-label {
-            flex: 0 0 76px; color: var(--wyxr-dim); font-size: 0.85em;
-            text-transform: uppercase; letter-spacing: 0.04em; padding-top: 2px;
+            flex: 0 0 76px; padding-top: 3px; color: var(--text-soft);
+            font-family: var(--font-head);
+            font-size: 0.6875rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
         }
-        .detail-value { flex: 1; }
+        .detail-value { flex: 1; min-width: 0; font-weight: 500; overflow-wrap: anywhere; }
         .event-desc {
-            margin-top: 16px; padding-top: 14px;
-            border-top: 1px solid var(--wyxr-border);
-            color: var(--wyxr-gray); font-size: 0.95em;
+            margin-top: 6px; padding-top: 14px;
+            border-top: 1px solid var(--rule);
+            font-size: 0.9375rem; line-height: 1.6;
+            white-space: pre-line; overflow-wrap: anywhere;
         }
         .actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
         .btn {
-            display: block; text-align: center; padding: 12px 16px;
-            border-radius: 8px; text-decoration: none; font-weight: 700;
-            font-size: 0.95em;
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            min-height: 48px; padding: 0 20px;
+            border: 2px solid var(--line); border-radius: 999px;
+            font-family: var(--font-head); font-stretch: 82%;
+            font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.04em;
+            text-align: center; text-decoration: none; text-transform: uppercase;
         }
-        .btn-primary { background: var(--wyxr-yellow); color: var(--wyxr-black); }
-        .btn-secondary {
-            background: transparent; color: var(--wyxr-white);
-            border: 1px solid var(--wyxr-border);
+        .btn svg {
+            width: 1.25em; height: 1.25em; flex: none;
+            fill: none; stroke: currentColor; stroke-width: 2;
+            stroke-linecap: round; stroke-linejoin: round;
         }
+        .btn-primary { background: var(--accent); color: var(--on-accent); }
+        .btn-primary:hover { background: var(--accent-text); border-color: var(--accent-text); }
+        .btn-secondary { background: transparent; color: var(--accent-text); }
+        .btn-secondary:hover { background: var(--accent); color: var(--on-accent); }
         footer {
-            margin-top: 28px; text-align: center; font-size: 0.8em;
-            color: var(--wyxr-dim);
+            margin-top: 32px; text-align: center; font-size: 0.875rem;
+            color: var(--text-soft);
         }
-        footer a { color: var(--wyxr-dim); }
-        .missing { text-align: center; padding: 48px 0; }
-        .missing h1 { margin-bottom: 12px; }
+        footer .signoff { display: block; width: min(100%, 260px); height: auto; margin: 0 auto 12px; }
+        footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; margin-top: 8px; }
+        footer a { display: inline-flex; align-items: center; min-height: 32px; color: var(--text); font-weight: 500; }
+        .missing { text-align: center; padding: 32px 0 48px; }
+        .missing img { display: block; width: 120px; height: auto; margin: 0 auto 20px; }
+        .missing h1 { margin-bottom: 10px; }
+        .missing .actions { max-width: 320px; margin: 24px auto 0; }
 """
 
 
@@ -424,7 +477,9 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <meta name="description" content="{social_description}">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="{permalink}">
+    <meta name="theme-color" content="#FCE2B6">
     <link rel="icon" type="image/svg+xml" href="{site_base}/favicon.svg">
+    <link rel="apple-touch-icon" href="{site_base}/brand/apple-touch-icon.png">
     <meta property="og:title" content="{social_title}">
     <meta property="og:description" content="{social_description}">
     <meta property="og:type" content="article">
@@ -440,14 +495,17 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="{site_base}/calendar.ics">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <script type="application/ld+json">{jsonld}</script>
     <style>{styles}</style>
 </head>
 <body>
     <div class="topbar">
-        <a class="brand" href="{site_base}/">&larr; Memphis Concert Calendar</a>
-        <a href="{site_base}/">WYXR 91.7 FM</a>
+        <a class="brand" href="{site_base}/">
+            <img src="{site_base}/brand/mascot.svg" alt="" width="524" height="600">
+            Memphis Concert Calendar
+        </a>
+        <a class="station" href="https://wyxr.org">WYXR 91.7 FM</a>
     </div>
 
     <article class="card">
@@ -465,10 +523,13 @@ _PAGE_TEMPLATE = """<!DOCTYPE html>
     </article>
 
     <footer>
-        Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        <a href="{site_base}/">Full calendar</a> &middot;
-        <a href="{site_base}/calendar.ics">Subscribe (iCal)</a> &middot;
-        <a href="{site_base}/picks.xml">&#11088; WYXR Picks RSS</a>
+        <img class="signoff" src="{site_base}/brand/word-see-you.svg" alt="See you at the show" width="6559" height="970" loading="lazy">
+        Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis
+        <nav aria-label="Calendar links">
+            <a href="{site_base}/">Full calendar</a>
+            <a href="{site_base}/calendar.ics">Subscribe (iCal)</a>
+            <a href="{site_base}/picks.xml">WYXR Picks RSS</a>
+        </nav>
     </footer>
 </body>
 </html>
@@ -482,11 +543,16 @@ _MISSING_TEMPLATE = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{heading} | Memphis Concert Calendar</title>
     <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#FCE2B6">
     <link rel="icon" type="image/svg+xml" href="{site_base}/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
     <style>{styles}</style>
 </head>
 <body>
     <div class="missing">
+        <img src="{site_base}/brand/mascot.svg" alt="" width="524" height="600">
         <h1>{heading}</h1>
         <p>{message}</p>
         <div class="actions">

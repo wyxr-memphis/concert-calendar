@@ -8,14 +8,80 @@ public calendar. Admin pages have their own JS files under `docs/admin/`.
 
 ## Structure
 
-- CSS variables at `:root` (lines ~34–43): `--wyxr-yellow`, `--wyxr-charcoal`, `--wyxr-border`, etc.
-- Subscribe modal: `#subscribeModal`, card class `.subscribe-modal-card` (background `#1A1A1A`,
-  `border-radius: 8px`, overlay `rgba(0,0,0,0.75)`) — **reuse these patterns for any new modal**
+- CSS custom properties at `:root` in three layers (inks → roles → parts) — see
+  [Style framework](#style-framework) below and `DESIGN.md`
+- Subscribe modal: `#subscribeModal`, card class `.subscribe-modal-card` (paper surface, 2px red
+  keyline, `--r-l` corners, `--scrim` overlay) — **reuse these patterns for any new modal**
 - Event Detail Modal: `#eventModal` — opened by clicking any `[data-event-id]` element
-- All JS lives inside one IIFE `(function() { 'use strict'; ... })()` starting around line 800
+- All JS lives inside one IIFE `(function() { 'use strict'; ... })()` after the markup
+- Icons are an inline SVG sprite (`<svg class="icon-sprite">`, symbols `i-*`) at the top of
+  `<body>`; in JS use the `icon(name, extraClass)` helper. No emoji or text glyphs as icons.
 - Events are fetched from the **production Render API** at runtime — static, not server-rendered
 - `allEvents` holds all fetched events; `eventsById` (`{id: event}`) is built in `showEvents()`
 - Event rows use `data-event-id` + event delegation on `#eventList` (no per-row listeners)
+
+## Style framework
+
+The redesign (November 2026) replaced the dark WYXR-slate theme with one drawn from the
+Concert Calendar logo. `DESIGN.md` is the full reference (palette, type ramp, components,
+rules); `.impeccable/design.json` is its machine-readable sidecar. This is the working summary.
+
+**Three layers, all in the `:root` block of the page's one `<style>`:**
+
+| Layer | What | Rule |
+|---|---|---|
+| **Inks** `--ink-*` | The nine raw colours sampled from the logo (cream, cream-deep, paper, white, red, brick, marigold, oxblood, umber) | Nothing outside `:root` reads an ink |
+| **Roles** | What a value is *for*: `--ground`, `--ground-sunk`, `--surface`, `--field`, `--text`, `--text-soft`, `--accent`, `--accent-text`, `--on-accent`, `--lit`, `--on-lit`, `--line`, `--rule`, `--focus`, `--scrim`, `--band`/`--on-band`, `--bright`; fonts `--font-display/-head/-body`; space `--s-1..8`; shape `--keyline`, `--r-s/m/l/pill`, `--tap`; motion `--ease-out`, `--t-fast/med/slow`; layout `--gutter`, `--rail-w`, `--leaf-col`, `--time-col`, `--bar-h`; `--z-*` | Components read only roles. To re-theme, change the role → ink mapping |
+| **Parts** | The components, in page order | Add a part with existing roles before adding a role |
+
+**The rules that are easy to break:**
+
+- **Marigold (`--lit`) means "lit"** — a WYXR pick, the active filter, the marquee bulbs, a
+  month-grid day with a pick, the fund-drive meter. Don't use it as a general accent.
+- **Red under 24px is `--accent-text` (brick), never `--accent`.** Red on cream is 3.79:1: fine
+  for fills, keylines and large display type, a WCAG failure for small text. Text on red is
+  white (`--on-accent`); text on marigold is oxblood (`--on-lit`). Red on marigold is 2.75:1 —
+  never put one on the other.
+- **Flat ink.** No drop shadows, no gradient fills. The only `radial-gradient`s are hard-stop
+  stamps and masks (marquee bulbs, ticket notches, leaf binding holes).
+- **Fonts.** Inter for body/UI, Anybody for headings and act names (`font-stretch: 82%`).
+  Irregardless (Adobe Fonts kit `sis1dug`, weight axis 300–800) is a poster face: the lockup
+  words, leaf month/day, the marquee date — nothing else, and never body copy. Its weight is
+  state: a day's leaf numeral rests at 400 and goes to 800 while that day is stuck at the top
+  (`.day-section.is-current`).
+- ⛔ **Buinton (the script in "Memphis", "Tonight", "See you at the show") is licensed for
+  desktop use only.** It is never a webfont and the `.otf` must never be committed (the repo is
+  public). The script exists only as outlined SVG words in `docs/brand/word-*.svg`. A new
+  script word needs the designer, or `dev/brand/build_brand_assets.py --buinton <path>` on a
+  machine that holds the licence.
+- **The other public pages copy the ink + role block by hand** (`docs/submit.html`,
+  `src/generate_html.py` → `thisweek.html`, `backend/event_page.py` → `/e/<id>`). Change an ink
+  in `docs/index.html` and change it there too. `/e/<id>` has no Typekit and no JS (its CSP
+  forbids both), so it uses Anybody + Inter only.
+
+**Layout.** Phone-first, one column. From 1024px (`desktopMq`) a left rail (logo, month grid,
+search, neighborhoods) and a stage capped at 880px, each day's tear-off leaf in its own sticky
+column. From 1680px (`wideMq`) the event detail docks as a third column — see below.
+
+**The sticky filter bar and `--bar-h`.** On a phone, day headings stick directly under the
+filter bar, so CSS needs the bar's height: `syncBarHeight()` writes `--bar-h` (a
+`ResizeObserver` keeps it current). Scrolling down *tucks* the chip row out of the stuck bar
+(`.filter-bar.is-tucked`); it is clipped with `clip-path`, not removed, so nothing below the
+bar moves. Any scroll up, focus inside the bar, an active neighborhood, the open month grid or
+open search untucks it. If you add something to the bar, check `chipsHeight()` still measures
+"everything under the month row".
+
+**Jump to a day.** The month label is a toggle that opens a month grid (`renderMonthGrid`);
+a day with shows is a button that scrolls to `#day-YYYY-MM-DD`. Open by default in the desktop
+rail, closed on a phone. Fires GA `jump_to_date`.
+
+**Brand assets** live in `docs/brand/` and are generated, not hand-edited:
+`dev/brand/build_brand_assets.py` cuts `logo.svg`, `mascot.svg`, `note.svg`, `star.svg`,
+`docs/favicon.svg` and the script words from the designer's Figma export
+(`dev/brand/concert-calendar-logo.figma.svg`); `dev/brand/rasterize.sh` makes `og-image.png`,
+`apple-touch-icon.png` and `favicon-32.png` with headless Chromium. ⚠️ `vercel.json` caches
+images as immutable for 30 days — a changed asset needs a new filename or a `?v=` on every tag
+that loads it.
 
 ## The three escaping helpers
 
@@ -47,8 +113,14 @@ reverts to `esc()`.
   (the page also fires `neighborhood_select` on chip clicks and `search` on settled queries;
   there are two synced search boxes — sticky filter bar and below the event list — and
   `search_location` says which one was typed into. Full table in `dev/sponsors-and-analytics.md`)
-- Visual style matches the subscribe modal: `#1A1A1A` card, `border-radius: 12px`, yellow CTA
-- Accessibility: `role="dialog"`, `aria-modal`, focus trap, focus returns to the trigger row
+- One markup, three presentations: a bottom sheet under 1024px, a right drawer with a scrim
+  from 1024px, and from 1680px a **docked, non-modal** third column (`syncModalMode()` sets
+  `aria-modal="false"`, drops the scroll lock and the focus trap; the list stays live and the
+  open row carries `.is-open`). `.detail-empty` fills the docked column before a show is opened.
+- Accessibility: `role="dialog"`, `aria-modal`, focus trap (sheet/drawer only), focus returns
+  to the trigger row, Escape closes in every mode
+- The flyer image is letterboxed (`object-fit: contain`), never cropped — it is often the only
+  place the whole bill is written down
 - `_parseEventStartTime()` mirrors `time_format.parse_start_time` — see `dev/database.md`
   for why the two must agree. Defaults: 8 PM start, 3 hour duration, `America/Chicago` via
   `Intl.DateTimeFormat` `shortOffset` for Outlook ISO strings.
@@ -61,6 +133,7 @@ The page keeps the URL in step with the modal. Three distinct paths, all covered
 | How the modal opened | What closing it must do |
 |---|---|
 | clicked a row (we pushed an entry) | `history.back()` — and the browser's Back must close the modal |
+| clicked another row while docked (≥1680px) | nothing extra: opening `replaceState`s our existing entry, so a session of browsing is still **one** entry to pop |
 | loaded straight onto `#event=…` | `replaceState` to strip the hash **in place**; `back()` would leave the site |
 | a Back/Forward navigation | neither push nor pop — `_emSuppressHistory` guards it, or Back becomes an inescapable loop |
 

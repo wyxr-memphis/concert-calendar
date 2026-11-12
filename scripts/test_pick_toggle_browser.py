@@ -292,7 +292,8 @@ def main():
         check("button now offers to remove", admin_button().inner_text().startswith("★"),
               admin_button().inner_text())
         check.equals("aria-pressed reflects state", admin_button().get_attribute("aria-pressed"), "true")
-        check.equals("modal title unchanged", page.locator("#eventModalTitle").inner_text(),
+        # text_content(), not inner_text(): the title is CSS-uppercased.
+        check.equals("modal title unchanged", page.locator("#eventModalTitle").text_content(),
                      "Pick Toggle Test Show")
         check("modal still open", modal_open())
         check.equals("history untouched", page.evaluate("history.length"), hist_before)

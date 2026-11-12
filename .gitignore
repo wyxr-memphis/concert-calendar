@@ -39,3 +39,6 @@ docs/local_index_home.html
 # Artifacts (large binary images processed locally)
 artifacts/
 .vercel
+
+# Impeccable design review captures (large screenshots, regenerated per review)
+.impeccable/review/

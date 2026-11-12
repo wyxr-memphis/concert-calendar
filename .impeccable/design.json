@@ -1,0 +1,369 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-12T21:30:00Z",
+  "title": "Design System: Memphis Concert Calendar",
+  "extensions": {
+    "colorMeta": {
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream Stock",
+        "canonical": "#FCE2B6",
+        "oklch": "oklch(92.3% 0.064 80.8)",
+        "cssVar": "--ink-cream",
+        "usedAs": ["--ground"],
+        "tonalRamp": ["#130900", "#352300", "#574118", "#79623A", "#9D855C", "#C3AA80", "#E7CDA2", "#FFECCD"]
+      },
+      "cream-deep": {
+        "role": "neutral",
+        "displayName": "Shaded Cream",
+        "canonical": "#F6D19A",
+        "oklch": "oklch(87.9% 0.082 77.2)",
+        "cssVar": "--ink-cream-deep",
+        "usedAs": ["--ground-sunk"],
+        "tonalRamp": ["#140800", "#362200", "#5D3E00", "#80602A", "#A5834E", "#CBA872", "#EFCB94", "#FFECD0"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Leaf Paper",
+        "canonical": "#FFF8EA",
+        "oklch": "oklch(98.1% 0.020 84.6)",
+        "cssVar": "--ink-paper",
+        "usedAs": ["--surface"],
+        "tonalRamp": ["#0F0A03", "#2B261B", "#4A4439", "#6B6559", "#8F887C", "#B4ADA0", "#D7D0C3", "#F5EEE0"]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100% 0 0)",
+        "cssVar": "--ink-white",
+        "usedAs": ["--on-accent"],
+        "tonalRamp": ["#0B0B0B", "#262626", "#454545", "#666666", "#898989", "#AEAEAE", "#D1D1D1", "#EEEEEE"]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Tomato Red",
+        "canonical": "#D53727",
+        "oklch": "oklch(57.7% 0.197 30.0)",
+        "cssVar": "--ink-red",
+        "usedAs": ["--accent", "--line"],
+        "tonalRamp": ["#210000", "#500000", "#850500", "#BD190B", "#E84A38", "#FF8573", "#FFBFB4", "#FFE9E5"]
+      },
+      "brick": {
+        "role": "primary",
+        "displayName": "Brick",
+        "canonical": "#B02A1C",
+        "oklch": "oklch(49.9% 0.173 30.1)",
+        "cssVar": "--ink-brick",
+        "usedAs": ["--accent-text"],
+        "tonalRamp": ["#210000", "#500000", "#850600", "#B42E20", "#DE5745", "#FF8673", "#FEBFB4", "#FFE9E5"]
+      },
+      "marigold": {
+        "role": "secondary",
+        "displayName": "Marigold",
+        "canonical": "#FCB91A",
+        "oklch": "oklch(82.6% 0.166 81.4)",
+        "cssVar": "--ink-marigold",
+        "usedAs": ["--lit"],
+        "tonalRamp": ["#130900", "#342300", "#5A4001", "#845F03", "#B17F00", "#DFA204", "#FFC75C", "#FEECCC"]
+      },
+      "oxblood": {
+        "role": "neutral",
+        "displayName": "Oxblood Ink",
+        "canonical": "#3A1510",
+        "oklch": "oklch(25.2% 0.060 29.7)",
+        "cssVar": "--ink-oxblood",
+        "usedAs": ["--text", "--on-lit", "--focus"],
+        "tonalRamp": ["#1E0000", "#3F1914", "#613832", "#855952", "#AB7C74", "#D1A098", "#F6C3BA", "#FEE9E5"]
+      },
+      "umber": {
+        "role": "neutral",
+        "displayName": "Umber Ink",
+        "canonical": "#6B3A2E",
+        "oklch": "oklch(40.7% 0.073 34.7)",
+        "cssVar": "--ink-umber",
+        "usedAs": ["--text-soft"],
+        "tonalRamp": ["#200000", "#43160B", "#66362A", "#8B574A", "#B0796C", "#D89E8F", "#FDC1B1", "#FEE9E4"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Row Rule",
+        "canonical": "rgb(213 55 39 / 0.28)",
+        "cssVar": "--rule",
+        "note": "Tomato Red at 28%: the 1px hairline between rows. Inside a pick ticket the rule is oxblood at 22%."
+      },
+      "scrim": {
+        "role": "neutral",
+        "displayName": "Scrim",
+        "canonical": "rgb(58 21 16 / 0.6)",
+        "cssVar": "--scrim",
+        "note": "Oxblood at 60%, behind the bottom sheet, the drawer and the subscribe dialog. Not used when the detail is docked."
+      }
+    },
+    "roles": [
+      { "name": "--ground", "ink": "cream", "purpose": "The page." },
+      { "name": "--ground-sunk", "ink": "cream-deep", "purpose": "Image wells, the scrollbar track." },
+      { "name": "--surface", "ink": "paper", "purpose": "Anything laid on the page: leaves, panels, the marquee board, sheets, dialogs." },
+      { "name": "--text", "ink": "oxblood", "purpose": "Reading text." },
+      { "name": "--text-soft", "ink": "umber", "purpose": "Secondary reading text." },
+      { "name": "--accent", "ink": "red", "purpose": "Fills, and type at 24px and up." },
+      { "name": "--accent-text", "ink": "brick", "purpose": "Red type under 24px, icons, links." },
+      { "name": "--on-accent", "ink": "white", "purpose": "Text on red. White only." },
+      { "name": "--lit", "ink": "marigold", "purpose": "Lit things only." },
+      { "name": "--on-lit", "ink": "oxblood", "purpose": "Text on marigold." },
+      { "name": "--line", "ink": "red", "purpose": "The keyline." },
+      { "name": "--rule", "ink": "rule", "purpose": "Hairline between rows." },
+      { "name": "--focus", "ink": "oxblood", "purpose": "Focus outline; overridden to white on red and oxblood grounds." },
+      { "name": "--scrim", "ink": "scrim", "purpose": "Behind modal surfaces." },
+      { "name": "--field", "ink": "white", "purpose": "Fill of a text field that sits on a paper panel (calendar page and /submit)." },
+      { "name": "--band", "ink": "oxblood", "purpose": "The one dark band: the fund-drive banner." },
+      { "name": "--on-band", "ink": "cream", "purpose": "Text on the dark band." },
+      { "name": "--bright", "ink": "white", "purpose": "Type, hover fills and focus rings on a red or dark fill." },
+      { "name": "--on-accent-soft", "ink": "cream", "purpose": "Large lettering on red: the Tonight script." },
+      { "name": "--field-line", "ink": "umber", "purpose": "Form field outline. Defined on /submit only." }
+    ],
+    "contrast": [
+      { "text": "oxblood", "on": "cream", "ratio": 12.89 },
+      { "text": "oxblood", "on": "paper", "ratio": 15.35 },
+      { "text": "oxblood", "on": "marigold", "ratio": 9.34 },
+      { "text": "umber", "on": "cream", "ratio": 7.35 },
+      { "text": "umber", "on": "paper", "ratio": 8.75 },
+      { "text": "umber", "on": "marigold", "ratio": 5.33 },
+      { "text": "brick", "on": "cream", "ratio": 5.23 },
+      { "text": "brick", "on": "paper", "ratio": 6.22 },
+      { "text": "brick", "on": "marigold", "ratio": 3.79, "note": "Fails small text. Use oxblood on marigold." },
+      { "text": "red", "on": "cream", "ratio": 3.79, "note": "Large text and UI only." },
+      { "text": "red", "on": "paper", "ratio": 4.51, "note": "Large text and UI only." },
+      { "text": "red", "on": "marigold", "ratio": 2.75, "note": "Never rely on it." },
+      { "text": "white", "on": "red", "ratio": 4.77 },
+      { "text": "cream", "on": "red", "ratio": 3.79, "note": "Artwork only (the outlined Tonight script)." }
+    ],
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "The CONCERT CALENDAR lockup words on phones and on /thisweek. Irregardless, uppercase, red." },
+      "display-date": { "displayName": "Display date", "purpose": "The marquee date, white on red. 2.75rem from 1024px." },
+      "display-numeral": { "displayName": "Display numeral", "purpose": "The day number on a leaf. Rests at weight 400, 800 while its day is current. 4.25rem from 1024px." },
+      "headline": { "displayName": "Headline", "purpose": "The show title in the event detail (1.75rem from 1024px); dialog and empty-state titles at 1.25rem to 1.375rem. Uppercase." },
+      "title": { "displayName": "Title", "purpose": "The weekday beside a phone leaf, the month switcher, the bottom search label. Uppercase." },
+      "act-name": { "displayName": "Act name", "purpose": "Every row's artist line. Uppercase, wraps anywhere. 1.0625rem from 1024px." },
+      "label": { "displayName": "Label", "purpose": "Button text; the same face at 0.6875rem to 0.8125rem and 0.06em to 0.1em sets badges and the Picks and Presents headers. Uppercase." },
+      "body": { "displayName": "Body", "purpose": "The default for everything read or operated. Descriptions run 0.9375rem at 1.6, capped at 65ch." },
+      "body-small": { "displayName": "Body small", "purpose": "The venue and neighborhood line under an act, in umber. 0.875rem from 1024px." },
+      "time": { "displayName": "Time", "purpose": "The hour in a row, tabular, brick, right-aligned in a 3.25rem column (4rem from 1024px)." }
+    },
+    "fonts": [
+      { "family": "irregardless-variable", "name": "Irregardless", "source": "Adobe Fonts kit sis1dug (https://use.typekit.net/sis1dug.css)", "axes": { "wght": "300..800" }, "weightsUsed": [400, 700, 800], "role": "--font-display", "note": "Display only. No width axis; font-stretch: 50% beside it narrows the Anybody fallback. Not loaded on /e/<id> or /submit." },
+      { "family": "Anybody", "name": "Anybody", "source": "Google Fonts", "axes": { "wdth": "50..100", "wght": "600..800" }, "weightsUsed": [700, 800], "role": "--font-head", "note": "Set at font-stretch: 82% (--head-narrow) for act names, headings and buttons; full width for badges and captions at 0.75rem and under." },
+      { "family": "Inter", "name": "Inter", "source": "Google Fonts", "weightsUsed": [400, 500, 600, 700], "role": "--font-body", "note": "Body and UI." },
+      { "family": null, "name": "Buinton", "source": "Desktop licence only", "role": "artwork", "note": "Never served as a webfont; the font file must never enter the repository. Exists only as outlined paths in docs/brand/word-memphis.svg, word-tonight.svg and word-see-you.svg. New words: the designer, or dev/brand/build_brand_assets.py --buinton <path to the locally licensed .otf>." }
+    ],
+    "shadows": [
+      { "name": "today-ring", "value": "inset 0 0 0 2px #D53727", "purpose": "Not a shadow: a zero-blur inset ring that draws the keyline around today in the month grid. The system has no drop shadows and no blur." }
+    ],
+    "lines": [
+      { "name": "keyline", "value": "2px solid #D53727", "cssVar": "--keyline", "purpose": "Containers, primary controls, the rule under sticky bars and above a desktop day list." },
+      { "name": "light-line", "value": "1.5px solid #D53727", "purpose": "Chips, thumbnails, the small detail actions. A literal in the source, not a token." },
+      { "name": "row-rule", "value": "1px solid rgb(213 55 39 / 0.28)", "cssVar": "--rule", "purpose": "Between rows." },
+      { "name": "placement", "value": "1.5px dashed #D53727", "purpose": "Things that are not a show: sponsor slot, subscribe callout, admin-only actions, the /submit drop zone." },
+      { "name": "perforation", "value": "2px dashed rgb(58 21 16 / 0.45)", "purpose": "Under a pick ticket's header, level with its notches." },
+      { "name": "field-line", "value": "1.5px solid #6B3A2E", "cssVar": "--field-line", "purpose": "Form fields on /submit. Errors are 2.5px solid brick." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Entrances and the chip-row tuck. Colour swaps use the plain ease-out keyword." },
+      { "name": "t-fast", "value": "120ms", "purpose": "Hover and press fills." },
+      { "name": "t-med", "value": "240ms", "purpose": "Leaf weight change, chevron turn, chip-row tuck, subscribe dialog rise." },
+      { "name": "t-slow", "value": "420ms", "purpose": "Event detail entrance in all three homes." },
+      { "name": "bulbs", "value": "opacity 1 / 0.2, 0.7s steps(1, end), 6 iterations; second layer offset -0.35s", "purpose": "The one authored moment: the two marquee bulb layers alternate once on first arrival, then rest lit." },
+      { "name": "sheet-up", "value": "from opacity 0, translateY(32px); 420ms ease-out token", "purpose": "Bottom sheet entrance under 1024px." },
+      { "name": "drawer-in", "value": "from opacity 0, translateX(40px); 420ms ease-out token", "purpose": "Right drawer entrance, 1024px to 1679px." },
+      { "name": "rise", "value": "from opacity 0, translateY(8px)", "purpose": "Docked detail (420ms) and subscribe dialog (240ms)." },
+      { "name": "leaf-weight", "value": "font-weight 400 to 800, 240ms ease-out", "purpose": "Weight is state: the leaf numeral of the day stuck at the top." },
+      { "name": "chips-tuck", "value": "clip-path inset, 240ms ease-out token", "purpose": "Phone only: the chip row clips out of the stuck filter bar on scroll down and returns on scroll up or focus." },
+      { "name": "pledge-fill", "value": "transform 600ms ease-out token", "purpose": "The fund-drive meter filling." },
+      { "name": "subscribe-footer", "value": "transform 350ms ease-out token", "purpose": "The subscribe bar sliding up from the bottom edge." },
+      { "name": "reduced-motion", "value": "animation-duration and transition-duration 0.01ms, one iteration", "purpose": "Every animation and transition collapses under prefers-reduced-motion: reduce." }
+    ],
+    "breakpoints": [
+      { "name": "small-phone", "value": "max-width: 360px", "purpose": "Tighter buttons, icon-less masthead buttons, short partner credit." },
+      { "name": "phone", "value": "max-width: 1023.98px", "purpose": "Single column; sticky filter bar with the tucking chip row; detail is a bottom sheet." },
+      { "name": "desktop", "value": "1024px", "purpose": "320px rail plus a stage capped at 880px; each day's leaf in a sticky 112px column; detail is a 480px right drawer." },
+      { "name": "wide", "value": "1680px", "purpose": "The detail docks as a non-modal third column, clamp(420px, 27vw, 520px)." }
+    ],
+    "layout": {
+      "gutter": { "phone": "16px", "desktop": "32px" },
+      "pageMax": { "phone": "720px", "desktop": "1280px" },
+      "railWidth": "320px",
+      "stageMax": "880px",
+      "railGap": "clamp(32px, 4vw, 64px)",
+      "leafColumn": "112px",
+      "timeColumn": { "phone": "3.25rem", "desktop": "4rem" },
+      "dockWidth": "clamp(420px, 27vw, 520px)",
+      "tap": "44px",
+      "barHeight": "--bar-h, kept equal to the stuck filter bar's height by script"
+    },
+    "layers": [
+      { "name": "--z-day", "value": 5 },
+      { "name": "--z-dock", "value": 50 },
+      { "name": "--z-bar", "value": 100 },
+      { "name": "--z-footer", "value": 120 },
+      { "name": "--z-admin", "value": 150 },
+      { "name": "--z-subscribe", "value": 200 },
+      { "name": "--z-modal", "value": 300 },
+      { "name": "--z-notice", "value": 310 }
+    ],
+    "assets": {
+      "directory": "docs/brand/",
+      "pipeline": ["dev/brand/build_brand_assets.py", "dev/brand/rasterize.sh"],
+      "source": "dev/brand/concert-calendar-logo.figma.svg (Figma HEADS-UP, node 1872:3, flattened)",
+      "files": [
+        { "file": "logo.svg", "use": "Full lockup: desktop rail, social card source." },
+        { "file": "mascot.svg", "use": "The flower with its leaf and ticket: phone lockup, /submit, /e/<id>, /thisweek." },
+        { "file": "note.svg", "use": "Red music note: the docked detail's empty state." },
+        { "file": "star.svg", "use": "Red star mark from the logo. Shipped; not yet placed on any page." },
+        { "file": "word-memphis.svg", "use": "Outlined Buinton script beside the phone lockup." },
+        { "file": "word-tonight.svg", "use": "Outlined Buinton script, masked in cream on the marquee." },
+        { "file": "word-see-you.svg", "use": "Outlined Buinton sign-off in every footer." },
+        { "file": "og-image.png", "use": "1200x630 social card on cream." },
+        { "file": "apple-touch-icon.png", "use": "180px home-screen icon on marigold." },
+        { "file": "favicon-32.png", "use": "Legacy favicon." }
+      ],
+      "caching": "Vercel serves *.svg and *.png as immutable for 30 days. A changed asset needs a new filename or a ?v= on every tag that loads it."
+    },
+    "surfaces": [
+      { "path": "docs/index.html", "note": "Primary. Holds the full framework." },
+      { "path": "docs/submit.html", "note": "Same inks and roles; adds --field and --field-line. Google Fonts only." },
+      { "path": "src/generate_html.py", "note": "Generates docs/thisweek.html: a printed program, no JS. Loads Irregardless for the lockup and day headings." },
+      { "path": "backend/event_page.py", "note": "Server-rendered /e/<id>. No JS, no Adobe Fonts (CSP allows Google Fonts only); Anybody throughout." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "The primary action of a region: Subscribe, Buy tickets, Get the List. Red fill, white Anybody caps, pill, 44px.",
+      "html": "<button class=\"ds-btn-solid\" type=\"button\"><svg class=\"ds-btn-solid-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2.5\"/><path d=\"M3.5 7.5l8.5 6 8.5-6\"/></svg>Subscribe</button>",
+      "css": ".ds-btn-solid { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--tap, 44px); padding: 0 18px; border: var(--keyline, 2px) solid var(--line, #D53727); border-radius: 999px; background: var(--accent, #D53727); color: var(--on-accent, #FFFFFF); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; } .ds-btn-solid:hover { background: var(--accent-text, #B02A1C); border-color: var(--accent-text, #B02A1C); } .ds-btn-solid:active { transform: translateY(1px); } .ds-btn-solid:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: 2px; } .ds-btn-solid:disabled { opacity: 0.55; cursor: default; transform: none; } .ds-btn-solid-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "The secondary action: Submit an event, Add to Google Calendar. Paper fill, brick label; inverts to red on hover.",
+      "html": "<button class=\"ds-btn-line\" type=\"button\"><svg class=\"ds-btn-line-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg>Submit an event</button>",
+      "css": ".ds-btn-line { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: var(--tap, 44px); padding: 0 18px; border: var(--keyline, 2px) solid var(--line, #D53727); border-radius: 999px; background: var(--surface, #FFF8EA); color: var(--accent-text, #B02A1C); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.04em; line-height: 1; text-transform: uppercase; white-space: nowrap; cursor: pointer; transition: background-color 120ms ease-out, color 120ms ease-out, border-color 120ms ease-out; } .ds-btn-line:hover { background: var(--accent, #D53727); color: var(--on-accent, #FFFFFF); } .ds-btn-line:active { transform: translateY(1px); } .ds-btn-line:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: 2px; } .ds-btn-line-icon { width: 1.25em; height: 1.25em; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }"
+    },
+    {
+      "name": "Neighborhood Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filter chips with their counts, phone form. The selected chip is lit marigold. Ships 40px tall, under the 44px --tap floor; do not copy that height.",
+      "html": "<div class=\"ds-chip-row\"><button class=\"ds-chip ds-chip-active\" type=\"button\" aria-pressed=\"true\">All <span class=\"ds-chip-count\">213</span></button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Midtown <span class=\"ds-chip-count\">75</span></button><button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">Downtown/Beale Street <span class=\"ds-chip-count\">31</span></button></div>",
+      "css": ".ds-chip-row { display: flex; flex-wrap: wrap; gap: 8px; } .ds-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border: 1.5px solid var(--line, #D53727); border-radius: 999px; background: none; color: var(--text, #3A1510); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.875rem; font-weight: 500; line-height: 1.2; white-space: nowrap; cursor: pointer; transition: background-color 120ms ease-out; } .ds-chip:hover { background: var(--surface, #FFF8EA); } .ds-chip:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: 2px; } .ds-chip-count { font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--text-soft, #6B3A2E); } .ds-chip-active, .ds-chip-active:hover { background: var(--lit, #FCB91A); color: var(--on-lit, #3A1510); font-weight: 700; } .ds-chip-active .ds-chip-count { color: var(--on-lit, #3A1510); }"
+    },
+    {
+      "name": "Search Field",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "The search pill: 2px keyline, paper fill, brick icon inset left, 16px text so iOS does not zoom.",
+      "html": "<label class=\"ds-search\"><svg class=\"ds-search-icon\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"6.5\"/><path d=\"M16 16l4.5 4.5\"/></svg><input class=\"ds-search-input\" type=\"search\" placeholder=\"Search artists, venues...\" aria-label=\"Search artists and venues\"></label>",
+      "css": ".ds-search { position: relative; display: block; max-width: 360px; } .ds-search-icon { position: absolute; left: 14px; top: 50%; width: 20px; height: 20px; transform: translateY(-50%); fill: none; stroke: var(--accent-text, #B02A1C); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none; } .ds-search-input { width: 100%; min-height: var(--tap, 44px); padding: 0 14px 0 42px; border: var(--keyline, 2px) solid var(--line, #D53727); border-radius: 999px; background: var(--surface, #FFF8EA); color: var(--text, #3A1510); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 1rem; -webkit-appearance: none; appearance: none; } .ds-search-input::placeholder { color: var(--text-soft, #6B3A2E); opacity: 1; } .ds-search-input:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: 2px; }"
+    },
+    {
+      "name": "Date Leaf",
+      "kind": "custom",
+      "refersTo": "leaf",
+      "description": "The tear-off calendar leaf, desktop form: red month band with binding holes, numeral, weekday. The second leaf shows the current-day state, where the numeral's weight goes from 400 to 800.",
+      "html": "<div class=\"ds-leaves\"><span class=\"ds-leaf\"><span class=\"ds-leaf-month\">Nov</span><span class=\"ds-leaf-day\">13</span><span class=\"ds-leaf-dow\">Fri</span></span><span class=\"ds-leaf ds-leaf-current\"><span class=\"ds-leaf-month\">Nov</span><span class=\"ds-leaf-day\">14</span><span class=\"ds-leaf-dow\">Sat</span></span></div>",
+      "css": ".ds-leaves { display: flex; gap: 24px; padding: 8px; } .ds-leaf { display: grid; width: 104px; border: var(--keyline, 2px) solid var(--line, #D53727); border-radius: 12px; background: var(--surface, #FFF8EA); overflow: hidden; text-align: center; line-height: 1; transform: rotate(-2deg); } .ds-leaf-month { padding: 11px 0 5px; background: radial-gradient(circle at 50% 0, var(--ground, #FCE2B6) 0 3.5px, transparent 4px) top center / 20px 10px repeat-x, var(--accent, #D53727); color: var(--on-accent, #FFFFFF); font-family: var(--font-display, 'irregardless-variable', 'Anybody', sans-serif); font-stretch: 50%; font-weight: 700; font-size: 1.375rem; letter-spacing: 0.08em; text-transform: uppercase; } .ds-leaf-day { padding: 6px 0 0; color: var(--accent, #D53727); font-family: var(--font-display, 'irregardless-variable', 'Anybody', sans-serif); font-stretch: 50%; font-weight: 400; font-size: 4.25rem; transition: font-weight 240ms ease-out; } .ds-leaf-current .ds-leaf-day { font-weight: 800; } .ds-leaf-dow { padding: 2px 0 9px; color: var(--text, #3A1510); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-weight: 800; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Event Row",
+      "kind": "custom",
+      "refersTo": "event-row",
+      "description": "One show: tabular time column, act name in Anybody caps, venue and neighborhood in umber. Ruled, never boxed; the whole row is the target.",
+      "html": "<ul class=\"ds-rows\"><li class=\"ds-row\" tabindex=\"0\"><span class=\"ds-row-time\">8<span class=\"ds-row-ampm\">pm</span></span><span class=\"ds-row-text\"><span class=\"ds-row-artist\">Oxbow w/ Eron Ackerman</span><span class=\"ds-row-place\"><span class=\"ds-row-venue\">Lamplighter Lounge</span><span>Midtown</span></span></span></li><li class=\"ds-row\" tabindex=\"0\"><span class=\"ds-row-time\">10<span class=\"ds-row-ampm\">pm</span></span><span class=\"ds-row-text\"><span class=\"ds-row-artist\">Devil Train</span><span class=\"ds-row-place\"><span class=\"ds-row-venue\">B-Side Memphis</span><span>South Main Arts District</span></span></span></li></ul>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0; max-width: 560px; } .ds-row { display: flex; align-items: flex-start; gap: 12px; min-height: 56px; padding: 10px 8px; border-bottom: 1px solid var(--rule, rgb(213 55 39 / 0.28)); cursor: pointer; transition: background-color 120ms ease-out; } .ds-row:last-child { border-bottom: 0; } .ds-row:hover { background: var(--surface, #FFF8EA); } .ds-row:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: -3px; border-radius: 8px; } .ds-row-time { flex: 0 0 3.25rem; padding-top: 1px; color: var(--accent-text, #B02A1C); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.25; text-align: right; white-space: nowrap; } .ds-row-ampm { margin-left: 1px; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; } .ds-row-text { display: flex; flex: 1 1 auto; flex-direction: column; gap: 2px; min-width: 0; } .ds-row-artist { color: var(--text, #3A1510); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 700; font-size: 1rem; line-height: 1.22; letter-spacing: 0.01em; text-transform: uppercase; overflow-wrap: anywhere; } .ds-row-place { color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.8125rem; line-height: 1.35; } .ds-row-venue { font-weight: 600; } .ds-row-place span + span::before { content: \"\\00B7\"; margin: 0 0.4em; }"
+    },
+    {
+      "name": "WYXR Pick Ticket",
+      "kind": "custom",
+      "refersTo": "pick-ticket",
+      "description": "The station's picks for a day, cut like a ticket: marigold, notched at both edges level with a dashed perforation. Text on it is oxblood and umber, never red.",
+      "html": "<div class=\"ds-ticket\"><div class=\"ds-ticket-head\"><span class=\"ds-ticket-badge\"><svg class=\"ds-ticket-star\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z\"/></svg>WYXR Picks</span></div><div class=\"ds-ticket-row\" tabindex=\"0\"><span class=\"ds-ticket-time\">6<span class=\"ds-ticket-ampm\">pm</span></span><span class=\"ds-ticket-text\"><span class=\"ds-ticket-artist\">Album Listening Party</span><span class=\"ds-ticket-place\"><span class=\"ds-ticket-venue\">Memphis Listening Lab</span><span>Crosstown/Broad Avenue</span></span></span></div><div class=\"ds-ticket-row\" tabindex=\"0\"><span class=\"ds-ticket-time\">7<span class=\"ds-ticket-ampm\">pm</span></span><span class=\"ds-ticket-text\"><span class=\"ds-ticket-artist\">Medium Build presents The King of Having Fun on Tour</span><span class=\"ds-ticket-place\"><span class=\"ds-ticket-venue\">Satellite Music Hall</span><span>Midtown</span></span></span></div></div>",
+      "css": ".ds-ticket { --ds-notch: 32px; max-width: 560px; padding: 0 6px 4px; border-radius: 12px; background: var(--lit, #FCB91A); color: var(--on-lit, #3A1510); -webkit-mask: radial-gradient(circle 8px at 0 var(--ds-notch), transparent 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 8px at 100% var(--ds-notch), transparent 96%, #000) right / 51% 100% no-repeat; mask: radial-gradient(circle 8px at 0 var(--ds-notch), transparent 96%, #000) left / 51% 100% no-repeat, radial-gradient(circle 8px at 100% var(--ds-notch), transparent 96%, #000) right / 51% 100% no-repeat; } .ds-ticket-head { display: flex; align-items: center; height: var(--ds-notch); margin: 0 8px; border-bottom: 2px dashed rgb(58 21 16 / 0.45); } .ds-ticket-badge { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 800; font-size: 0.8125rem; letter-spacing: 0.08em; text-transform: uppercase; } .ds-ticket-star { width: 1.25em; height: 1.25em; flex: none; fill: currentColor; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; } .ds-ticket-row { display: flex; align-items: flex-start; gap: 12px; min-height: 56px; padding: 10px 8px; border-bottom: 1px solid rgb(58 21 16 / 0.22); cursor: pointer; transition: background-color 120ms ease-out; } .ds-ticket-row:last-child { border-bottom: 0; } .ds-ticket-row:hover { background: rgb(255 255 255 / 0.4); border-radius: 8px; } .ds-ticket-row:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: -3px; border-radius: 8px; } .ds-ticket-time { flex: 0 0 3.25rem; padding-top: 1px; color: var(--on-lit, #3A1510); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.25; text-align: right; white-space: nowrap; } .ds-ticket-ampm { margin-left: 1px; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; } .ds-ticket-text { display: flex; flex: 1 1 auto; flex-direction: column; gap: 2px; min-width: 0; } .ds-ticket-artist { font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 700; font-size: 1rem; line-height: 1.22; letter-spacing: 0.01em; text-transform: uppercase; overflow-wrap: anywhere; } .ds-ticket-place { color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.8125rem; line-height: 1.35; } .ds-ticket-venue { font-weight: 600; } .ds-ticket-place span + span::before { content: \"\\00B7\"; margin: 0 0.4em; }"
+    },
+    {
+      "name": "Tonight Marquee",
+      "kind": "custom",
+      "refersTo": "marquee",
+      "description": "Today's bill: a red block ringed with marigold bulbs, the date in Irregardless, rows on a paper board. The bulbs alternate once on arrival, then rest lit. The Tonight script is the outlined artwork at /brand/word-tonight.svg, masked in cream; it is not text and is never set in a webfont.",
+      "html": "<section class=\"ds-marquee\"><h2 class=\"ds-marquee-head\"><span class=\"ds-marquee-word\" aria-hidden=\"true\"></span><span class=\"ds-marquee-date\">Thursday, November 12</span><span class=\"ds-marquee-tally\">15 shows</span></h2><ul class=\"ds-marquee-board\"><li class=\"ds-marquee-row\" tabindex=\"0\"><span class=\"ds-marquee-time\">6<span class=\"ds-marquee-ampm\">pm</span></span><span class=\"ds-marquee-text\"><span class=\"ds-marquee-artist\">Bob and Angela</span><span class=\"ds-marquee-place\"><span class=\"ds-marquee-venue\">Lafayette's Music Room</span><span>Overton Square/Cooper-Young</span></span></span></li><li class=\"ds-marquee-row\" tabindex=\"0\"><span class=\"ds-marquee-time\">7<span class=\"ds-marquee-ampm\">pm</span></span><span class=\"ds-marquee-text\"><span class=\"ds-marquee-artist\">Aaron Lewis</span><span class=\"ds-marquee-place\"><span class=\"ds-marquee-venue\">Cannon Center for the Performing Arts</span><span>Downtown/Beale Street</span></span></span></li></ul></section>",
+      "css": ".ds-marquee { --ds-bulb: 14px; --ds-dot: 3px; position: relative; isolation: isolate; max-width: 560px; padding: var(--ds-bulb); border-radius: 20px; background: var(--accent, #D53727); } .ds-marquee::before, .ds-marquee::after { content: \"\"; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background-size: calc(var(--ds-bulb) * 2) calc(var(--ds-bulb) * 2); background-repeat: round; } .ds-marquee::before { background-image: radial-gradient(circle at 25% 25%, var(--lit, #FCB91A) 0 var(--ds-dot), transparent calc(var(--ds-dot) + 0.7px)), radial-gradient(circle at 75% 75%, var(--lit, #FCB91A) 0 var(--ds-dot), transparent calc(var(--ds-dot) + 0.7px)); animation: ds-bulbs 0.7s steps(1, end) 6; } .ds-marquee::after { background-image: radial-gradient(circle at 75% 25%, var(--lit, #FCB91A) 0 var(--ds-dot), transparent calc(var(--ds-dot) + 0.7px)), radial-gradient(circle at 25% 75%, var(--lit, #FCB91A) 0 var(--ds-dot), transparent calc(var(--ds-dot) + 0.7px)); animation: ds-bulbs 0.7s steps(1, end) -0.35s 6; } @keyframes ds-bulbs { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } } @media (prefers-reduced-motion: reduce) { .ds-marquee::before, .ds-marquee::after { animation: none; } } .ds-marquee-head { display: flex; align-items: flex-end; flex-wrap: wrap; gap: 2px 16px; margin: 0; padding: 2px 6px 12px; background: var(--accent, #D53727); color: var(--on-accent, #FFFFFF); font: inherit; } .ds-marquee-word { flex: none; width: 7.75rem; aspect-ratio: 2522 / 984; background: var(--ink-cream, #FCE2B6); -webkit-mask: url(/brand/word-tonight.svg) center / contain no-repeat; mask: url(/brand/word-tonight.svg) center / contain no-repeat; } .ds-marquee-date { padding-bottom: 5px; font-family: var(--font-display, 'irregardless-variable', 'Anybody', sans-serif); font-stretch: 50%; font-weight: 700; font-size: 1.875rem; line-height: 1; letter-spacing: 0.02em; text-transform: uppercase; } .ds-marquee-tally { margin-left: auto; padding-bottom: 9px; font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.75rem; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; } .ds-marquee-board { list-style: none; margin: 0; padding: 2px 4px; border-radius: 10px; background: var(--surface, #FFF8EA); } .ds-marquee-row { display: flex; align-items: flex-start; gap: 12px; min-height: 56px; padding: 10px 8px; border-bottom: 1px solid var(--rule, rgb(213 55 39 / 0.28)); cursor: pointer; transition: background-color 120ms ease-out; } .ds-marquee-row:last-child { border-bottom: 0; } .ds-marquee-row:hover { background: var(--ground, #FCE2B6); border-radius: 8px; } .ds-marquee-row:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: -3px; border-radius: 8px; } .ds-marquee-time { flex: 0 0 3.25rem; padding-top: 1px; color: var(--accent-text, #B02A1C); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.9375rem; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.25; text-align: right; white-space: nowrap; } .ds-marquee-ampm { margin-left: 1px; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; } .ds-marquee-text { display: flex; flex: 1 1 auto; flex-direction: column; gap: 2px; min-width: 0; } .ds-marquee-artist { color: var(--text, #3A1510); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 700; font-size: 1rem; line-height: 1.22; letter-spacing: 0.01em; text-transform: uppercase; overflow-wrap: anywhere; } .ds-marquee-place { color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.8125rem; line-height: 1.35; } .ds-marquee-venue { font-weight: 600; } .ds-marquee-place span + span::before { content: \"\\00B7\"; margin: 0 0.4em; }"
+    },
+    {
+      "name": "Presents Panel",
+      "kind": "card",
+      "refersTo": "presents-panel",
+      "description": "The container primitive: paper on cream, 2px red keyline, 12px corners, a red header band, ruled rows inside. Used for WYXR Presents above the days.",
+      "html": "<section class=\"ds-presents\"><div class=\"ds-presents-head\"><svg class=\"ds-presents-star\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z\"/></svg>WYXR Presents</div><div class=\"ds-presents-row\" tabindex=\"0\"><span class=\"ds-presents-text\"><span class=\"ds-presents-artist\">Kurt Vile &amp; The Violators</span><span class=\"ds-presents-venue\">Minglewood Hall</span><span class=\"ds-presents-date\">Tuesday, November 17 &middot; 8 PM</span></span></div><div class=\"ds-presents-row\" tabindex=\"0\"><span class=\"ds-presents-text\"><span class=\"ds-presents-artist\">Raised By Sound Fest: Soccer Mommy</span><span class=\"ds-presents-venue\">Satellite Music Hall</span><span class=\"ds-presents-date\">Friday, December 4 &middot; 7 PM</span></span></div></section>",
+      "css": ".ds-presents { max-width: 560px; border: var(--keyline, 2px) solid var(--line, #D53727); border-radius: 12px; background: var(--surface, #FFF8EA); overflow: hidden; } .ds-presents-head { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: var(--accent, #D53727); color: var(--on-accent, #FFFFFF); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 800; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; } .ds-presents-star { width: 1.25em; height: 1.25em; flex: none; fill: currentColor; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; } .ds-presents-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-top: 1px solid var(--rule, rgb(213 55 39 / 0.28)); cursor: pointer; } .ds-presents-head + .ds-presents-row { border-top: 0; } .ds-presents-row:hover { background: var(--ground, #FCE2B6); } .ds-presents-row:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: -3px; border-radius: 8px; } .ds-presents-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; } .ds-presents-artist { color: var(--text, #3A1510); font-family: var(--font-head, 'Anybody', 'Inter', system-ui, sans-serif); font-stretch: 82%; font-weight: 700; font-size: 1rem; line-height: 1.22; letter-spacing: 0.01em; text-transform: uppercase; overflow-wrap: anywhere; } .ds-presents-venue { color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.8125rem; font-weight: 600; line-height: 1.35; } .ds-presents-date { color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.8125rem; }"
+    },
+    {
+      "name": "Month Grid Days",
+      "kind": "nav",
+      "refersTo": "chip-active",
+      "description": "Jump-to-day buttons from the month grid: a plain day with shows, a lit day (has a WYXR pick), and today with its 2px ring. The ring is a zero-blur inset box-shadow, the system's only use of that property.",
+      "html": "<div class=\"ds-cal\"><div class=\"ds-cal-days\"><button class=\"ds-cal-day ds-cal-lit ds-cal-today\" type=\"button\" aria-label=\"Thursday, November 12, 15 shows, with a WYXR pick\">12</button><button class=\"ds-cal-day ds-cal-lit\" type=\"button\">13</button><button class=\"ds-cal-day ds-cal-lit\" type=\"button\">14</button><button class=\"ds-cal-day ds-cal-lit\" type=\"button\">15</button><button class=\"ds-cal-day\" type=\"button\">16</button><button class=\"ds-cal-day ds-cal-lit\" type=\"button\">17</button><button class=\"ds-cal-day\" type=\"button\">18</button></div><p class=\"ds-cal-key\">Has a WYXR pick</p></div>",
+      "css": ".ds-cal { max-width: 320px; } .ds-cal-days { display: grid; grid-template-columns: repeat(7, 1fr); justify-items: center; row-gap: 2px; } .ds-cal-day { display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%; background: none; color: var(--text, #3A1510); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.875rem; font-weight: 700; font-variant-numeric: tabular-nums; cursor: pointer; transition: background-color 120ms ease-out; } .ds-cal-lit { background: var(--lit, #FCB91A); color: var(--on-lit, #3A1510); } .ds-cal-today { box-shadow: inset 0 0 0 var(--keyline, 2px) var(--line, #D53727); } .ds-cal-day:hover { background: var(--accent, #D53727); color: var(--on-accent, #FFFFFF); } .ds-cal-day:focus-visible { outline: 3px solid var(--focus, #3A1510); outline-offset: 2px; } .ds-cal-key { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 8px 0 0; color: var(--text-soft, #6B3A2E); font-family: var(--font-body, 'Inter', system-ui, sans-serif); font-size: 0.75rem; font-weight: 500; } .ds-cal-key::before { content: \"\"; width: 10px; height: 10px; border-radius: 50%; background: var(--lit, #FCB91A); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Neighborhood Marquee",
+    "overview": "The public calendar is the front of a neighborhood theater, printed in the three inks of the Concert Calendar logo: cream stock, tomato red, marigold. Tonight's bill is up on a red marquee ringed with bulbs. The days after it hang beneath as tear-off calendar leaves, the same leaf the flower mascot holds in the logo, and the station's picks are cut like the ticket in its other hand. Everything else is a ruled list on cream.\n\nIt is flat print. Depth comes from keylines, rules and the order things are stacked in, never from shadow or tonal blend. Colour is rationed by meaning: red draws the structure, marigold says something is lit, a red-brown ink carries the reading. The list is the product, so the theater dressing stops at the marquee, the leaves and the tickets; rows stay plain, dense and tappable. The page has no dark mode and no dark ground (a brand commitment in `PRODUCT.md`), and it does not use the dark event-app grid of thumbnail cards under a gradient hero.\n\nMotion is one authored moment and a few settling moves. The marquee bulbs chase once when the page first draws tonight's bill; the detail sheet, drawer and dock ease into place; a leaf's numeral gains weight while its day is the one stuck at the top. All of it collapses to an instant change under `prefers-reduced-motion`.\n\nThe system lives as CSS custom properties in three layers inside the page's single style block: **inks** (`--ink-*`, raw values sampled from the logo), **roles** (`--ground`, `--surface`, `--text`, `--accent`, `--lit`, `--line` and the font, space, shape, motion, layout and layer tokens), then **parts** (the components). Components read roles, not inks.",
+    "keyCharacteristics": [
+      "Cream ground, paper surfaces, red keylines; no shadows, no tonal gradients, no dark ground.",
+      "Marigold only where something is lit.",
+      "Three faces with fixed jobs: Irregardless for the few poster words, Anybody caps for act names and headings, Inter for everything read or operated.",
+      "A weight axis that carries state, and times in a tight tabular column.",
+      "Phone-first single column; extra width goes to orientation (a rail, a leaf column, a docked detail), and the list keeps its measure.",
+      "Pills for controls, logo-badge corners for containers, a ticket notch for picks."
+    ],
+    "rules": [
+      { "name": "The Lit Rule", "body": "Marigold means something is on, and nothing else. In the shipped pages that is: a WYXR pick (the ticket, the pick badge, a month-grid day that has a pick), an active state (the selected neighborhood chip, the open search toggle), the marquee bulbs, the fund-drive meter with its percent and Donate button, and text selection. It is never a section background, a decoration or a second brand colour.", "section": "colors" },
+      { "name": "The Red Under 24 Rule", "body": "Red type smaller than 24px is brick, not red. On marigold neither red passes: time and labels on a pick go oxblood, secondary text goes umber. Nothing relies on red against marigold.", "section": "colors" },
+      { "name": "The White On Red Rule", "body": "Text on a red fill is white. Cream on red measures 3.79 and is reserved for the outlined \"Tonight\" script, which is artwork with a screen-reader equivalent beside it.", "section": "colors" },
+      { "name": "The Three Layers Rule", "body": "A new colour need is met by a role. If no role says what you mean, add a role that points at an ink; add an ink only if the logo has it. The inks and roles are copied by hand into four files (`docs/index.html`, `docs/submit.html`, `src/generate_html.py`, `backend/event_page.py`), so a changed ink changes in all four.", "section": "colors" },
+      { "name": "The Poster Face Rule", "body": "Irregardless sets the lockup words, the leaf month and numeral, and the marquee date; on `/thisweek` it also sets the day headings. It never sets a control, a sentence or an act name. It has no width axis: the `font-stretch: 50%` beside it narrows the Anybody fallback so the layout holds if Adobe Fonts does not load. `/e/<id>` loads no Adobe font (its CSP allows Google Fonts only) and uses Anybody throughout.", "section": "typography" },
+      { "name": "The Weight Is State Rule", "body": "A leaf's numeral rests at weight 400 and goes to 800 while its day is the one stuck at the top of the list (240ms). Weight changes mean a state changed; they are not used for emphasis inside the display face.", "section": "typography" },
+      { "name": "The Outlined Script Rule", "body": "Buinton (the script of \"Memphis\", \"Tonight\" and \"See you at the show\") is licensed for desktop use only. It is never served as a webfont and the font file never enters the repository, which is public. The script exists only as outlined paths in `docs/brand/word-memphis.svg`, `word-tonight.svg` and `word-see-you.svg`. A new script word comes from the designer, or from `dev/brand/build_brand_assets.py --buinton <path to the locally licensed .otf>`.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "The list never grows past 880px. Extra width is spent on orientation (the rail, the leaf column, the docked detail) and then on margin, not on wider rows or larger chrome.", "section": "layout" },
+      { "name": "The One Detail, Three Homes Rule", "body": "The event detail is one piece of markup. Under 1024px it is a bottom sheet; from 1024px to 1679px a right drawer; from 1680px a docked, non-modal column. A new overlay follows the same three homes rather than adding a fourth pattern.", "section": "layout" },
+      { "name": "The Flat Ink Rule", "body": "No drop shadows, no blurred shadows, no tonal gradient fills. Two CSS devices that share those property names are native to this world and stay: hard-stop radial gradients draw printed dots and punches (the marquee bulbs, the binding holes along a leaf's month band, the notches masked out of a pick ticket), and a zero-blur inset `box-shadow` draws the 2px ring around today in the month grid. The test: if it has a soft edge or implies a light source, it does not belong.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do read roles (`--ground`, `--surface`, `--text`, `--accent`, `--accent-text`, `--lit`, `--line`) in component CSS, and add a role before reaching for an ink.",
+      "Do keep marigold for lit things and put oxblood on it for text, umber for secondary text.",
+      "Do use brick for any red text under 24px, and white for any text on red.",
+      "Do outline anything laid on the page with the 2px red keyline and separate rows with the 1px rule.",
+      "Do set act names and headings in Anybody caps at 82% width, and everything read or operated in Inter.",
+      "Do give every new control the 44px `--tap` floor and a visible 3px focus outline (white on red or oxblood).",
+      "Do keep the list at its 880px measure and spend extra width on orientation.",
+      "Do mark paid and promotional placements with the dashed outline and a label.",
+      "Do make any new motion collapse under `prefers-reduced-motion`, and use the existing durations (120ms, 240ms, 420ms) and `--ease-out`.",
+      "Do rename or version a brand asset when it changes.",
+      "Do change the ink and role block in all four files that carry it."
+    ],
+    "donts": [
+      "Don't use a dark page background or a dark mode. The fund-drive band is the only dark fill.",
+      "Don't add drop shadows, blurred shadows or tonal gradients. Hard-stop gradients for printed dots and punches are the exception the world is built on.",
+      "Don't serve Buinton as a webfont or commit its font file. Script words are outlined SVG only.",
+      "Don't set controls, sentences or act names in Irregardless.",
+      "Don't put red or brick text on marigold, or cream text on red.",
+      "Don't use marigold as a decorative fill, a section background or a second accent.",
+      "Don't box ordinary rows into cards or nest one container in another.",
+      "Don't crop a flyer; letterbox it.",
+      "Don't widen rows or enlarge chrome to fill a wide screen.",
+      "Don't overwrite a file in `docs/brand/` in place and expect browsers to see it within 30 days."
+    ]
+  }
+}

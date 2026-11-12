@@ -193,7 +193,10 @@ def generate_html(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Next 8 Days</title>
+    <meta name="theme-color" content="#FCE2B6">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <meta name="description" content="What's happening in Memphis this week? Live music listings for the next 8 days. From WYXR 91.7 FM.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek">
@@ -202,178 +205,176 @@ def generate_html(
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
-    <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta property="og:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Memphis Live Music — Next 8 Days">
     <meta name="twitter:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
-    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="/feed.xml">
     <link rel="alternate" type="application/rss+xml" title="WYXR Picks — Memphis Concert Calendar" href="/picks.xml">
     <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="/calendar.ics">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/sis1dug.css">
     <script type="application/ld+json">{events_jsonld}</script>
     <style>
+        /* Same inks and roles as docs/index.html; see "Style framework" in
+           dev/frontend.md. This page is a plain printed program: no JS, one
+           column, the week read top to bottom. */
         :root {{
-            --wyxr-yellow: #FFCF2D;
-            --wyxr-black: #000000;
-            --wyxr-white: #FFFFFF;
-            --wyxr-charcoal: #1A1A1A;
-            --wyxr-gray: #888888;
-            --wyxr-dim: #666666;
-            --wyxr-border: #2A2A2A;
+            color-scheme: light;
+            --ink-cream: #FCE2B6;
+            --ink-paper: #FFF8EA;
+            --ink-white: #FFFFFF;
+            --ink-red: #D53727;
+            --ink-brick: #B02A1C;
+            --ink-marigold: #FCB91A;
+            --ink-oxblood: #3A1510;
+            --ink-umber: #6B3A2E;
+
+            --ground: var(--ink-cream);
+            --surface: var(--ink-paper);
+            --text: var(--ink-oxblood);
+            --text-soft: var(--ink-umber);
+            --accent: var(--ink-red);
+            --accent-text: var(--ink-brick);
+            --on-accent: var(--ink-white);
+            --lit: var(--ink-marigold);
+            --on-lit: var(--ink-oxblood);
+            --line: var(--ink-red);
+            --rule: rgb(213 55 39 / 0.28);
+            --focus: var(--ink-oxblood);
+            --font-display: "irregardless-variable", "Anybody", sans-serif;
+            --font-head: "Anybody", "Inter", system-ui, sans-serif;
+            --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --head-narrow: 82%;
         }}
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        *, *::before, *::after {{ box-sizing: border-box; }}
+        * {{ margin: 0; padding: 0; }}
         body {{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            max-width: 700px;
+            font-family: var(--font-body);
+            max-width: 720px;
             margin: 0 auto;
-            padding: 20px 16px;
-            background: var(--wyxr-black);
-            color: var(--wyxr-white);
+            padding: 16px 16px 56px;
+            background: var(--ground);
+            color: var(--text);
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }}
-        header {{
-            margin-bottom: 24px;
+        ::selection {{ background: var(--lit); color: var(--on-lit); }}
+        a {{ color: inherit; text-underline-offset: 0.18em; }}
+        :focus-visible {{ outline: 3px solid var(--focus); outline-offset: 2px; }}
+
+        header {{ margin-bottom: 28px; }}
+        .masthead {{
+            display: grid;
+            grid-template-columns: clamp(84px, 24vw, 132px) minmax(0, 1fr);
+            align-items: center;
+            column-gap: 12px;
+            color: var(--accent);
+            text-decoration: none;
         }}
-        .header-banner {{
-            width: 100%;
-            height: auto;
+        .masthead img {{ display: block; width: 100%; height: auto; }}
+        .masthead-script {{ width: 48%; min-width: 92px; margin: 0 0 6px 2px; transform: rotate(-3deg); transform-origin: left bottom; }}
+        .masthead-words {{
             display: block;
-            border-radius: 6px;
+            max-width: 100%;
+            overflow: hidden;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 14.2vw, 4.75rem);
+            line-height: 0.92;
+            text-transform: uppercase;
+            white-space: nowrap;
         }}
-        .header-tagline {{
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9em;
-            color: #999;
-            margin-top: 12px;
-            line-height: 1.5;
-        }}
+        .header-tagline {{ margin-top: 16px; font-size: 0.9375rem; color: var(--text-soft); }}
         .header-meta {{
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid var(--wyxr-border);
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 2px solid var(--line);
         }}
         .meta-badge {{
             display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8em;
-            font-weight: 600;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            padding: 3px 10px;
-            border-radius: 3px;
-            letter-spacing: 0.02em;
-        }}
-        .updated {{
-            font-size: 0.8em;
-            color: var(--wyxr-gray);
-        }}
-        .day-section {{
-            margin-bottom: 28px;
-        }}
-        h2 {{
-            font-family: 'Anybody', sans-serif;
-            font-size: 1em;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-size: 0.75rem;
             font-weight: 800;
-            letter-spacing: 0.08em;
-            color: var(--wyxr-yellow);
-            border-left: 4px solid var(--wyxr-yellow);
-            border-bottom: none;
-            padding-left: 10px;
-            padding-bottom: 0;
-            margin-bottom: 8px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }}
-        ul {{
-            list-style: none;
-            padding: 0;
+        .updated {{ font-size: 0.8125rem; color: var(--text-soft); }}
+
+        .day-section {{ margin-bottom: 32px; }}
+        h2 {{
+            margin-bottom: 4px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--line);
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-size: 2.125rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            color: var(--accent);
         }}
-        li {{
-            padding: 5px 0;
-            font-size: 0.95em;
-            border-bottom: 1px solid var(--wyxr-border);
-        }}
-        li:last-child {{
-            border-bottom: none;
-        }}
+        ul {{ list-style: none; }}
+        li {{ padding: 10px 4px; border-bottom: 1px solid var(--rule); }}
+        li:last-child {{ border-bottom: none; }}
         li.featured, li.event--featured {{
-            border-left: 3px solid var(--wyxr-yellow);
-            padding-left: 8px;
-            margin-left: -3px;
+            margin: 6px 0;
+            padding: 10px 12px;
+            border-bottom: none;
+            border-radius: 12px;
+            background: var(--lit);
+            color: var(--on-lit);
         }}
         .featured-badge {{
-            display: inline-block;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.6em;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
+            display: block;
+            margin-bottom: 2px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            vertical-align: middle;
-            margin-right: 4px;
         }}
-        li a {{
-            color: inherit;
-            text-decoration: none;
-        }}
-        li a:hover {{
-            color: var(--wyxr-yellow);
-        }}
+        li a {{ display: block; color: inherit; text-decoration: none; }}
+        li a:hover .artist {{ text-decoration: underline; }}
         .artist {{
-            font-weight: 600;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            letter-spacing: 0.01em;
             text-transform: uppercase;
+            overflow-wrap: anywhere;
         }}
-        .venue {{
-            color: #aaa;
-        }}
-        .time {{
-            color: var(--wyxr-gray);
-            font-size: 0.9em;
-        }}
-        .venue-group {{
-            padding: 5px 0;
-        }}
-        .venue-artists {{
-            list-style: none;
-            padding: 0;
-        }}
-        .venue-artists li {{
-            padding: 2px 0;
-            font-size: 0.95em;
-            border-bottom: none;
-        }}
-        .venue-footer {{
-            font-size: 0.85em;
-            margin-top: 2px;
-            padding-left: 0;
-        }}
-        .no-events {{
-            color: var(--wyxr-dim);
-            font-style: italic;
-            padding: 20px 0;
-        }}
-        footer {{
-            margin-top: 40px;
-            padding-top: 16px;
-            border-top: 1px solid var(--wyxr-border);
-            font-size: 0.8em;
-            color: #555;
-            text-align: center;
-        }}
-        footer a {{ color: var(--wyxr-dim); }}
-        footer a:hover {{ color: var(--wyxr-yellow); }}
-        /* The page's title is the banner image, so the <h1> exists for screen
-           readers and crawlers. display:none would take it out of the
-           accessibility tree, hence the clip technique. */
+        .venue {{ font-size: 0.875rem; font-weight: 500; color: var(--text-soft); }}
+        .time {{ font-size: 0.875rem; font-weight: 600; white-space: nowrap; color: var(--accent-text); }}
+        li.featured .time, li.event--featured .time {{ color: var(--on-lit); }}
+        .venue-group {{ padding: 6px 4px 10px; }}
+        .venue-artists li {{ padding: 4px 0; border-bottom: none; }}
+        .venue-artists li.featured, .venue-artists li.event--featured {{ padding: 8px 12px; }}
+        .venue-footer {{ margin-top: 2px; }}
+        .no-events {{ padding: 32px 0; color: var(--text-soft); }}
+
+        footer {{ margin-top: 48px; font-size: 0.875rem; text-align: center; color: var(--text-soft); }}
+        footer .signoff {{ display: block; width: min(100%, 300px); height: auto; margin: 0 auto 14px; }}
+        footer a {{ color: var(--text); font-weight: 500; }}
+        footer a:hover {{ color: var(--accent-text); }}
+        .footer-feeds {{ display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; margin-top: 10px; }}
+        .footer-feeds a {{ display: inline-flex; align-items: center; min-height: 32px; }}
         .sr-only {{
             position: absolute;
             width: 1px; height: 1px;
@@ -383,16 +384,22 @@ def generate_html(
             white-space: nowrap;
             border: 0;
         }}
-        .footer-feeds {{ margin-top: 8px; }}
+        @media print {{
+            body {{ background: #fff; }}
+            li.featured, li.event--featured {{ border: 1.5px solid var(--text); background: none; }}
+        }}
     </style>
 </head>
 <body>
     <h1 class="sr-only">Memphis Live Music — live shows in Memphis over the next 8 days, from WYXR 91.7 FM</h1>
     <header>
-        <picture>
-            <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
-            <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
-        </picture>
+        <a class="masthead" href="/" aria-label="Memphis Concert Calendar: the full calendar">
+            <img src="/brand/mascot.svg" alt="" width="524" height="600">
+            <span>
+                <img class="masthead-script" src="/brand/word-memphis.svg" alt="" width="3141" height="906">
+                <span class="masthead-words">Concert Calendar</span>
+            </span>
+        </a>
         <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
         <div class="header-meta">
             <span class="updated">Updated {run_time_str}</span>
@@ -405,13 +412,15 @@ def generate_html(
     </main>
 
     <footer>
+        <img class="signoff" src="/brand/word-see-you.svg" alt="See you at the show" width="6559" height="970" loading="lazy">
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Last built {run_time_str}<br>
-        <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
+        Last built {run_time_str}
         <div class="footer-feeds">
-            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">&#128197; Subscribe in your calendar</a> &middot;
-            <a href="/calendar.ics">Download .ics</a> &middot;
-            <a href="/picks.xml">&#11088; WYXR Picks RSS</a>
+            <a href="/">Full calendar</a>
+            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">Subscribe in your calendar</a>
+            <a href="/calendar.ics">Download .ics</a>
+            <a href="/picks.xml">WYXR Picks RSS</a>
+            <a href="/admin/">Admin</a>
         </div>
     </footer>
     <script defer src="/_vercel/insights/script.js"></script>

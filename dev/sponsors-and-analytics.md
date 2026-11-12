@@ -90,6 +90,7 @@ The `typeof gtag` guard prevents errors in local dev where the gtag script isn't
 | `share_event` | `event_id`, `event_title` | User clicks "Copy link" in the modal |
 | `pledge_donate_click` | `percentage` | User clicks Donate on the pledge-drive banner |
 | `neighborhood_select` | `neighborhood` (chip value, incl. "all") | User clicks a neighborhood chip |
+| `jump_to_date` | `event_date` (YYYY-MM-DD) | User picks a day in the month grid (opened from the month label; always open in the desktop rail) |
 | `search` | `search_term`, `search_location` ("top" = sticky filter bar / "bottom" = below the event list) | Search query settles (1.5 s after typing stops, ≥2 chars, deduped against the last tracked query) |
 
 ### Custom dimensions (must be registered in GA4 Admin)
