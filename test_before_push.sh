@@ -137,6 +137,20 @@ else
 fi
 echo ""
 
+# Check 8b: GA4 destination_url shaping (needs node; skipped if absent)
+echo "8️⃣b Running analytics URL tests..."
+if ! command -v node > /dev/null 2>&1; then
+    echo -e "${YELLOW}   ⚠ Skipped (node not installed)${NC}"
+elif node scripts/test_analytics_url.mjs > /tmp/analytics_url_tests.log 2>&1; then
+    echo -e "${GREEN}   ✓ Analytics URL tests passed${NC}"
+    PASSED=$((PASSED + 1))
+else
+    echo -e "${RED}   ✗ Analytics URL tests failed${NC}"
+    tail -20 /tmp/analytics_url_tests.log | sed 's/^/     /'
+    FAILED=$((FAILED + 1))
+fi
+echo ""
+
 # Check 9: Admin auth regression tests (offline — no DB, no network)
 echo "9️⃣  Running admin auth regression tests..."
 if python3 scripts/test_admin_auth.py > /tmp/admin_auth_tests.log 2>&1; then

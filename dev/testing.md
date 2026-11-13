@@ -22,6 +22,7 @@ script following the `scripts/test_*.py` convention, offline except for the DB c
 | `scripts/test_mosh_scraper.py` | MoSH homepage card parser against the live strip of 2026-10-30, and the shared `include_patterns` filter: laser shows and music films kept, planetarium/camp/exhibit listings dropped, whole-word matching |
 | `scripts/test_import_merge.py` | update-on-duplicate imports: the fill-only `fields_to_fill` rule, Import → Confirm buckets, Submission Approve merge (no orphan upload), Slack 🔄/ℹ️ reply + rebuild trigger — every DB helper stubbed |
 | `scripts/test_escaping.mjs` | `escAttr`/`safeUrl` vs attack payloads |
+| `scripts/test_analytics_url.mjs` | `analyticsUrl`/`analyticsDomain`: the GA4 `destination_url` value stays ≤ 100 chars, Google redirects unwrapped, query/www dropped |
 | `scripts/test_ticketmaster_pagination.py` | paging, 1000-item ceiling, non-terminating API |
 | `scripts/test_ics_feed.py` | ICS DST offsets, RFC 5545 folding/escaping, UID stability |
 | `scripts/test_event_page.py` | `/e/<id>` escaping, JSON-LD, price parsing, 404/503 routes |

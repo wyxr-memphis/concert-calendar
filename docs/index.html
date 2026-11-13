@@ -2272,6 +2272,45 @@
             if (typeof gtag === 'function') gtag('event', name, params);
         }
 
+        // GA4 cuts every parameter value at 100 characters, so a raw ticket
+        // URL arrives chopped mid-path with its affiliate query eating the
+        // budget. These shape the *reported* value only; the link itself is
+        // untouched. Google redirect links (google.com/url?q=…) report their
+        // target. Returns null when the URL can't be parsed.
+        function _analyticsTarget(url) {
+            try {
+                let u = new URL(String(url));
+                if (/(^|\.)google\.[a-z.]+$/.test(u.hostname) && u.pathname === '/url') {
+                    const q = u.searchParams.get('q') || u.searchParams.get('url');
+                    if (q) u = new URL(q);
+                }
+                return u;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        // host + path, no protocol/www/query/hash, at most 100 characters.
+        // Over the limit, the full hostname stays and the path is trimmed
+        // from the end with a trailing "…" (counted).
+        function analyticsUrl(url) {
+            const MAX = 100;
+            const u = _analyticsTarget(url);
+            if (!u) return String(url == null ? '' : url).slice(0, MAX);
+            const host = u.hostname.replace(/^www\./, '');
+            const path = u.pathname === '/' ? '' : u.pathname;
+            const out = host + path;
+            if (out.length <= MAX) return out;
+            if (host.length >= MAX - 1) return host.slice(0, MAX - 1) + '…';
+            return host + path.slice(0, MAX - 1 - host.length) + '…';
+        }
+
+        // Hostname only, no www — for grouping clicks by ticketing site.
+        function analyticsDomain(url) {
+            const u = _analyticsTarget(url);
+            return u ? u.hostname.replace(/^www\./, '') : '';
+        }
+
         function _parseEventStartTime(timeStr) {
             if (!timeStr) return null;
             const m = timeStr.match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)/i);
@@ -2509,7 +2548,7 @@
                 ticketLabel.textContent = 'Buy tickets';
                 ticketLink.appendChild(ticketLabel);
                 ticketLink.insertAdjacentHTML('beforeend', icon('arrow-right'));
-                ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: ev.ticket_url }));
+                ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: analyticsUrl(ev.ticket_url), destination_domain: analyticsDomain(ev.ticket_url) }));
                 actionsEl.appendChild(ticketLink);
             }
 

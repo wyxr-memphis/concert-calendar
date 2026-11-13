@@ -86,7 +86,7 @@ The `typeof gtag` guard prevents errors in local dev where the gtag script isn't
 | `modal_open` | `event_id`, `event_title`, `venue`, `event_date` (YYYY-MM-DD), `has_ticket_url` (bool) | User opens an event detail modal |
 | `modal_close` | `event_id`, `close_method` ("x" / "esc" / "overlay") | User closes the modal |
 | `add_to_calendar` | `event_id`, `event_title`, `service` ("google" / "apple" / "outlook") | User clicks a calendar button |
-| `external_link_click` | `event_id`, `event_title`, `destination_url` | User clicks "Buy Tickets" |
+| `external_link_click` | `event_id`, `event_title`, `destination_url` (host + path via `analyticsUrl()`: no protocol/www/query, Google redirects unwrapped, ≤ 100 chars), `destination_domain` (bare hostname) | User clicks "Buy Tickets" |
 | `share_event` | `event_id`, `event_title` | User clicks "Copy link" in the modal |
 | `pledge_donate_click` | `percentage` | User clicks Donate on the pledge-drive banner |
 | `neighborhood_select` | `neighborhood` (chip value, incl. "all") | User clicks a neighborhood chip |
@@ -100,7 +100,7 @@ being registered as **Event-scoped Custom Dimensions** in GA4 Admin → Data dis
 definitions:
 
 `event_title`, `venue`, `event_date`, `has_ticket_url`, `close_method`, `service`,
-`destination_url`, `neighborhood`, `search_location`
+`destination_url`, `destination_domain`, `neighborhood`, `search_location`
 
 (`search` is GA4's standard search event — `search_term` is collected automatically and
 needs no custom dimension.)

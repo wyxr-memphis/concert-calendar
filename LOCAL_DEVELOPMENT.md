@@ -193,7 +193,7 @@ Before pushing changes to main, verify:
 - [ ] Admin login works: http://localhost:8000/admin/local.html
 - [ ] API endpoints return valid JSON: `curl http://localhost:5001/api/events`
 - [ ] Scraper runs without errors: `python3 -m src.main --dry-run`
-- [ ] Tests pass: `./test_before_push.sh` (expect `24/24`; see [`dev/testing.md`](dev/testing.md) — it is not read-only against the `.env` database)
+- [ ] Tests pass: `./test_before_push.sh` (expect `25/25`; see [`dev/testing.md`](dev/testing.md) — it is not read-only against the `.env` database)
 - [ ] No API keys committed: `git grep -i "api_key" src/ backend/`
 
 ## Troubleshooting
