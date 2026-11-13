@@ -151,7 +151,7 @@
       "time": { "displayName": "Time", "purpose": "The hour in a row, tabular, brick, right-aligned in a 3.25rem column (4rem from 1024px)." }
     },
     "fonts": [
-      { "family": "irregardless-variable", "name": "Irregardless", "source": "Adobe Fonts kit sis1dug (https://use.typekit.net/sis1dug.css)", "axes": { "wght": "300..800" }, "weightsUsed": [400, 700, 800], "role": "--font-display", "note": "Display only. No width axis; font-stretch: 50% beside it narrows the Anybody fallback. Not loaded on /e/<id> or /submit." },
+      { "family": "irregardless-variable", "name": "Irregardless", "source": "Adobe Fonts kit tns0tde (https://use.typekit.net/tns0tde.css)", "axes": { "wght": "300..800" }, "weightsUsed": [400, 700, 800], "role": "--font-display", "note": "Display only. No width axis; font-stretch: 50% beside it narrows the Anybody fallback. Not loaded on /e/<id> or /submit." },
       { "family": "Anybody", "name": "Anybody", "source": "Google Fonts", "axes": { "wdth": "50..100", "wght": "600..800" }, "weightsUsed": [700, 800], "role": "--font-head", "note": "Set at font-stretch: 82% (--head-narrow) for act names, headings and buttons; full width for badges and captions at 0.75rem and under." },
       { "family": "Inter", "name": "Inter", "source": "Google Fonts", "weightsUsed": [400, 500, 600, 700], "role": "--font-body", "note": "Body and UI." },
       { "family": null, "name": "Buinton", "source": "Desktop licence only", "role": "artwork", "note": "Never served as a webfont; the font file must never enter the repository. Exists only as outlined paths in docs/brand/word-memphis.svg, word-tonight.svg and word-see-you.svg. New words: the designer, or dev/brand/build_brand_assets.py --buinton <path to the locally licensed .otf>." }

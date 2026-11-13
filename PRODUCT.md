@@ -57,7 +57,7 @@ ticketing platform covers.
   calendar and a ticket, cream / tomato red / marigold / white. It drives the look and the
   palette. The app is a standalone style, not bound to WYXR's brand conventions.
 - Display faces, used sparingly and never for UI or long copy: **Irregardless** (Adobe Fonts
-  kit `sis1dug`) and **Buinton** (desktop licence: outlined artwork only, no webfont).
+  kit `tns0tde`) and **Buinton** (desktop licence: outlined artwork only, no webfont).
 - UI faces from the WYXR brand: **Anybody** for headings, **Inter** for copy.
 - No dark background.
 - Credit both WYXR 91.7 FM and Where's the Music Memphis.

@@ -245,7 +245,7 @@ Three logo inks on cream stock, plus two darkened reading inks pulled from the s
 
 ## Typography
 
-**Display Font:** Irregardless (`irregardless-variable`, Adobe Fonts kit `sis1dug`, weight axis 300 to 800), falling back to Anybody
+**Display Font:** Irregardless (`irregardless-variable`, Adobe Fonts kit `tns0tde`, weight axis 300 to 800), falling back to Anybody
 **Heading Font:** Anybody (Google Fonts, width axis 50 to 100, weights 600 to 800), falling back to Inter
 **Body Font:** Inter (Google Fonts, 400 / 500 / 600 / 700), falling back to system-ui
 **Script:** Buinton, as outlined SVG words only (see The Outlined Script Rule)
