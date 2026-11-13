@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-13T12:54:55.271395+00:00",
+  "run_timestamp": "2026-11-13T14:19:29.021113+00:00",
   "date_range": {
     "start": "2026-11-13",
     "end": "2026-11-20"
   },
-  "total_events_db": 4381,
+  "total_events_db": 4383,
   "total_active_display": 127,
   "data_store": "postgresql",
   "sources": [
@@ -29,6 +29,14 @@
       "success": true,
       "events_found": 41,
       "events_after_filter": 41,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -65,6 +73,14 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 2,
@@ -89,14 +105,6 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
@@ -110,22 +118,6 @@
       "events_found": 65,
       "events_after_filter": 34,
       "events_filtered": 31,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,6 +145,14 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 17,
@@ -161,27 +161,19 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 9,
       "events_after_filter": 4,
       "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,6 +209,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 26,
@@ -225,19 +225,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 20,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
       "events_after_filter": 29,
       "events_filtered": 11,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 20,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -258,6 +258,13 @@
     }
   ],
   "events": [
+    {
+      "artist": "Molch w/ Jombi and Mary Hatley",
+      "venue": "Growlers",
+      "date": "2026-11-13",
+      "time": "8 AM",
+      "source": "scraper:growlers"
+    },
     {
       "artist": "Ibex Clone \u2013 Gravity Album Release Listening Party: Ibex Clone",
       "venue": "Memphis Listening Lab",
@@ -292,13 +299,6 @@
       "date": "2026-11-13",
       "time": "7:30 PM",
       "source": "scraper:crosstown_arts"
-    },
-    {
-      "artist": "Molch w/ Jombi and Mary Hatley",
-      "venue": "Growlers",
-      "date": "2026-11-13",
-      "time": "8 AM",
-      "source": "scraper:growlers"
     },
     {
       "artist": "Raise The Dead: JD Dal Trey, Ozioma, DJ Rosamii, DJ Mike Maxis, Keer, Nubia, Yasin, Just Myko, Ricky Davaine",
@@ -505,7 +505,7 @@
     },
     {
       "artist": "Headcannon w/ Steel Waves, Slumberland",
-      "venue": "Haven Haus",
+      "venue": "Havenhaus",
       "date": "2026-11-14",
       "time": "6:00 PM",
       "source": "artifact"
@@ -967,7 +967,7 @@
     },
     {
       "artist": "The Nowhere-Bound Tour: Fangerlis, Village Instincts, Foxbody",
-      "venue": "Haven Haus",
+      "venue": "Havenhaus",
       "date": "2026-11-19",
       "time": "Doors 7 PM, Music 8 PM",
       "source": "artifact"
