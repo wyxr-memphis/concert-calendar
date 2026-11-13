@@ -1193,16 +1193,21 @@
             overflow-wrap: anywhere;
         }
         .event-modal-desc:empty { display: none; }
-        .event-modal-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .event-modal-btn-tickets, .event-modal-btn-primary {
+        /* Three jobs, three groups: buy a ticket, keep the date, share the show.
+           The leaf sits in the keep-the-date row so the choices read as one
+           tear-off, not a second stack of pills. */
+        .event-modal-actions { display: flex; flex-direction: column; margin-top: var(--s-5); }
+        .event-modal-btn-tickets {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: var(--s-2);
-            min-height: 48px;
-            padding: 0 20px;
-            border: var(--keyline) solid var(--line);
-            border-radius: var(--r-pill);
+            gap: 10px;
+            min-height: 52px;
+            padding: 0 16px 0 2px;
+            border: 0;
+            border-radius: var(--r-m);
+            background: var(--accent);
+            color: var(--on-accent);
+            --focus: var(--bright);
             font-family: var(--font-head);
             font-stretch: var(--head-narrow);
             font-weight: 700;
@@ -1211,22 +1216,153 @@
             text-align: center;
             text-decoration: none;
             text-transform: uppercase;
+            -webkit-mask:
+                radial-gradient(circle 9px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+            mask:
+                radial-gradient(circle 9px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .event-modal-btn-tickets:hover { background: var(--accent-text); }
+        .event-modal-btn-tickets:active { transform: translateY(1px); }
+        .event-modal-btn-tickets .icon { width: 22px; height: 22px; }
+        .ticket-stub {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            align-self: stretch;
+            border-right: 2px dashed rgb(255 255 255 / 0.7);
+        }
+        .event-modal-btn-label { flex: 1; text-align: center; }
+        .save-pad { margin: 0; }
+        .event-modal-btn-tickets + .save-pad {
+            margin-top: var(--s-5);
+            padding-top: var(--s-4);
+            border-top: var(--keyline) solid var(--line);
+        }
+        .save-pad-title {
+            margin: 0 0 10px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .save-pad-row {
+            display: flex;
+            align-items: stretch;
+            gap: var(--s-3);
+        }
+        .event-modal .save-leaf {
+            width: 72px;
+            border-radius: var(--r-m);
+            transform: rotate(-2deg);
+        }
+        .event-modal .save-leaf .leaf-month {
+            padding: 8px 0 2px;
+            font-size: 0.875rem;
+            background:
+                radial-gradient(circle at 50% 0, var(--surface) 0 2.5px, transparent 3.2px) top center / 14px 8px repeat-x,
+                var(--accent);
+        }
+        .event-modal .save-leaf .leaf-day {
+            padding: 1px 0 0;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+        .event-modal .save-leaf .leaf-dow {
+            display: block;
+            padding: 1px 0 7px;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .save-pad:hover .save-leaf .leaf-day,
+        .save-pad:focus-within .save-leaf .leaf-day { font-weight: 800; }
+        .save-pad-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--s-2);
+            min-width: 0;
+        }
+        .cal-choice {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            min-height: 72px;
+            height: 100%;
+            padding: 8px 4px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-m);
+            background: var(--surface);
+            color: var(--accent-text);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
             transition: background-color var(--t-fast) ease-out, color var(--t-fast) ease-out;
         }
-        .event-modal-btn-tickets { background: var(--accent); color: var(--on-accent); }
-        .event-modal-btn-tickets:hover { background: var(--accent-text); border-color: var(--accent-text); }
-        .event-modal-btn-primary { color: var(--accent-text); }
-        .event-modal-btn-primary:hover { background: var(--accent); color: var(--on-accent); }
-        .event-modal-btn-secondary-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+        .cal-choice .icon { width: 22px; height: 22px; }
+        .cal-choice span { white-space: nowrap; }
+        .cal-choice:hover { background: var(--accent); color: var(--on-accent); --focus: var(--bright); }
+        .cal-choice:active { transform: translateY(1px); }
+        /* The leaf stays in the row until the three names no longer fit beside it. */
+        @media (max-width: 359px) {
+            .save-pad-row { flex-direction: column; align-items: flex-start; }
+            .save-pad-grid { width: 100%; }
+        }
+        .event-modal-share { margin-top: var(--s-3); }
+        .event-modal-share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-height: var(--tap);
+            padding: 0 12px;
+            border-radius: var(--r-m);
+            color: var(--accent-text);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-align: left;
+        }
+        .event-modal-share-btn .icon { width: 20px; height: 20px; }
+        .event-modal-share-btn .icon-check { display: none; }
+        .event-modal-share-label {
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+            text-decoration-thickness: 1.5px;
+        }
+        .event-modal-share-btn:hover { background: var(--ground); color: var(--text); }
+        .event-modal-share-btn.is-copied { color: var(--accent-text); }
+        .event-modal-share-btn.is-copied .icon-link { display: none; }
+        .event-modal-share-btn.is-copied .icon-check { display: block; }
+        .event-modal-share-btn.is-copied .event-modal-share-label { text-decoration: none; }
+        .event-modal-btn-secondary-row { display: flex; margin-top: var(--s-3); }
         .event-modal-btn-secondary {
             display: inline-flex;
             align-items: center;
-            min-height: 40px;
+            justify-content: center;
+            width: 100%;
+            min-height: var(--tap);
             padding: 0 14px;
             border: 1.5px solid var(--line);
             border-radius: var(--r-pill);
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             text-decoration: none;
             white-space: nowrap;
             color: var(--text);
@@ -1234,8 +1370,8 @@
         }
         .event-modal-btn-secondary:hover { background: var(--ground); }
         .event-modal-btn-admin { border-style: dashed; }
-        .event-modal-btn-admin[aria-pressed="true"] { background: var(--lit); color: var(--on-lit); }
-        .event-modal-btn-admin:disabled { opacity: 0.5; cursor: wait; }
+        .event-modal-btn-admin[aria-pressed="true"] { background: var(--lit); color: var(--on-lit); border-style: solid; }
+        .event-modal-btn-admin:disabled { opacity: 0.55; cursor: wait; }
 
         .detail-empty { display: none; }
         .event-row.is-open { background: var(--surface); border-radius: var(--r-s); }
@@ -1570,6 +1706,9 @@
         <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></symbol>
         <symbol id="i-radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><path d="M8.1 8.1a5.5 5.5 0 0 0 0 7.8M15.9 8.1a5.5 5.5 0 0 1 0 7.8M5.3 5.3a9.5 9.5 0 0 0 0 13.4M18.7 5.3a9.5 9.5 0 0 1 0 13.4"/></symbol>
         <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></symbol>
+        <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 7.5h16a1.5 1.5 0 0 1 1.5 1.5v2.1a2.1 2.1 0 0 0 0 4.2V15a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 15v-1.7a2.1 2.1 0 0 0 0-4.2V9A1.5 1.5 0 0 1 4 7.5z"/><path d="M9 7.5v9" stroke-dasharray="1.6 2.1"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l1.92-1.92a5 5 0 0 0-7.07-7.07l-1.1 1.09"/><path d="M14 11a5 5 0 0 0-7.54-.54l-1.92 1.92a5 5 0 0 0 7.07 7.07l1.1-1.09"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     </svg>
 
     <div class="credit-strip">
@@ -2175,6 +2314,19 @@
             }
         }
 
+        function _leafParts(dateStr) {
+            if (!dateStr) return null;
+            const dateObj = new Date(dateStr + 'T12:00:00');
+            if (Number.isNaN(dateObj.getTime())) return null;
+            const clean = (part) => part.replace(/\./g, '');
+            return {
+                month: clean(dateObj.toLocaleDateString('en-US', { month: 'short' })).toUpperCase(),
+                day: String(dateObj.getDate()),
+                dow: clean(dateObj.toLocaleDateString('en-US', { weekday: 'short' })).toUpperCase(),
+                long: dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+            };
+        }
+
         function _buildCalendarData(ev) {
             const [y, mo, d] = (ev.date || '').split('-').map(Number);
             const parsed = _parseEventStartTime(ev.start_time);
@@ -2337,7 +2489,8 @@
             actionsEl.innerHTML = '';
             const cal = _buildCalendarData(ev);
 
-            // Tickets come first: it is the reason most people open a show.
+            // Three groups, in the order a visitor uses them: buy, keep, tell.
+            // Google is a peer of Apple and Outlook, not a second primary.
             const safeTicketUrl = safeUrl(ev.ticket_url);
             if (safeTicketUrl) {
                 const ticketLink = document.createElement('a');
@@ -2345,29 +2498,81 @@
                 ticketLink.target = '_blank';
                 ticketLink.rel = 'noopener noreferrer';
                 ticketLink.className = 'event-modal-btn-tickets';
-                ticketLink.textContent = 'Buy tickets';
+                ticketLink.setAttribute('aria-label', `Buy tickets for ${ev.title || 'this show'}`);
+                const stub = document.createElement('span');
+                stub.className = 'ticket-stub';
+                stub.setAttribute('aria-hidden', 'true');
+                stub.insertAdjacentHTML('beforeend', icon('ticket'));
+                ticketLink.appendChild(stub);
+                const ticketLabel = document.createElement('span');
+                ticketLabel.className = 'event-modal-btn-label';
+                ticketLabel.textContent = 'Buy tickets';
+                ticketLink.appendChild(ticketLabel);
                 ticketLink.insertAdjacentHTML('beforeend', icon('arrow-right'));
-                ticketLink.setAttribute('aria-label', `Buy tickets for ${ev.title}`);
                 ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: ev.ticket_url }));
                 actionsEl.appendChild(ticketLink);
             }
 
-            const gcalBtn = document.createElement('a');
+            const leaf = _leafParts(ev.date);
+            const pad = document.createElement('section');
+            pad.className = 'save-pad';
+            const padTitle = document.createElement('h3');
+            padTitle.className = 'save-pad-title';
+            padTitle.id = 'savePadLabel';
+            padTitle.textContent = 'Add to your calendar';
+            pad.appendChild(padTitle);
+            if (leaf) {
+                const when = document.createElement('p');
+                when.className = 'sr-only';
+                when.id = 'savePadWhen';
+                when.textContent = leaf.long;
+                pad.appendChild(when);
+            }
+
+            const row = document.createElement('div');
+            row.className = 'save-pad-row';
+            if (leaf) {
+                const leafEl = document.createElement('div');
+                leafEl.className = 'leaf save-leaf';
+                leafEl.setAttribute('aria-hidden', 'true');
+                const month = document.createElement('div');
+                month.className = 'leaf-month';
+                month.textContent = leaf.month;
+                const day = document.createElement('div');
+                day.className = 'leaf-day';
+                day.textContent = leaf.day;
+                const dow = document.createElement('div');
+                dow.className = 'leaf-dow';
+                dow.textContent = leaf.dow;
+                leafEl.append(month, day, dow);
+                row.appendChild(leafEl);
+            }
+
+            const grid = document.createElement('div');
+            grid.className = 'save-pad-grid';
+            grid.setAttribute('role', 'group');
+            grid.setAttribute('aria-labelledby', leaf ? 'savePadLabel savePadWhen' : 'savePadLabel');
+
+            function calChoice(el, name, glyph) {
+                el.classList.add('cal-choice');
+                el.insertAdjacentHTML('beforeend', icon(glyph));
+                const lab = document.createElement('span');
+                lab.textContent = name;
+                el.appendChild(lab);
+                return el;
+            }
+
+            const gcalBtn = calChoice(document.createElement('a'), 'Google', 'calendar');
             gcalBtn.href = cal.gcalUrl;
             gcalBtn.target = '_blank';
             gcalBtn.rel = 'noopener noreferrer';
-            gcalBtn.className = 'event-modal-btn-primary';
-            gcalBtn.textContent = 'Add to Google Calendar';
+            gcalBtn.setAttribute('aria-label', 'Add to Google Calendar, opens in a new tab');
             gcalBtn.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'google' }));
-            actionsEl.appendChild(gcalBtn);
+            grid.appendChild(gcalBtn);
 
-            const secRow = document.createElement('div');
-            secRow.className = 'event-modal-btn-secondary-row';
-
-            const appleBtn = document.createElement('button');
+            const appleBtn = calChoice(document.createElement('button'), 'Apple', 'download');
             appleBtn.type = 'button';
-            appleBtn.className = 'event-modal-btn-secondary';
-            appleBtn.textContent = 'Apple Calendar (.ics)';
+            appleBtn.setAttribute('aria-label', 'Download an .ics file for Apple Calendar');
             appleBtn.addEventListener('click', () => {
                 trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'apple' });
                 const url = URL.createObjectURL(cal.icsBlob);
@@ -2379,30 +2584,44 @@
                 document.body.removeChild(a);
                 setTimeout(() => URL.revokeObjectURL(url), 10000);
             });
-            secRow.appendChild(appleBtn);
+            grid.appendChild(appleBtn);
 
-            const outlookLink = document.createElement('a');
+            const outlookLink = calChoice(document.createElement('a'), 'Outlook', 'mail');
             outlookLink.href = cal.outlookUrl;
             outlookLink.target = '_blank';
             outlookLink.rel = 'noopener noreferrer';
-            outlookLink.className = 'event-modal-btn-secondary';
-            outlookLink.textContent = 'Outlook.com';
+            outlookLink.setAttribute('aria-label', 'Add to Outlook calendar, opens in a new tab');
             outlookLink.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'outlook' }));
-            secRow.appendChild(outlookLink);
+            grid.appendChild(outlookLink);
 
-            // Share: copies the /e/<id> permalink, which is server-rendered
-            // with its own og: tags so the paste unfurls as this show rather
-            // than as the calendar homepage.
+            row.appendChild(grid);
+            pad.appendChild(row);
+            actionsEl.appendChild(pad);
+
+            // Share is its own job. The permalink is /e/<id>, which unfurls
+            // as this show rather than as the calendar homepage.
+            const shareRow = document.createElement('div');
+            shareRow.className = 'event-modal-share';
             const shareBtn = document.createElement('button');
             shareBtn.type = 'button';
-            shareBtn.className = 'event-modal-btn-secondary';
-            shareBtn.textContent = 'Copy link';
+            shareBtn.className = 'event-modal-share-btn';
+            shareBtn.insertAdjacentHTML('beforeend', icon('link', 'icon-link') + icon('check', 'icon-check'));
+            const shareLabel = document.createElement('span');
+            shareLabel.className = 'event-modal-share-label';
+            shareLabel.setAttribute('aria-live', 'polite');
+            shareLabel.textContent = 'Copy link';
+            shareBtn.appendChild(shareLabel);
             shareBtn.addEventListener('click', async () => {
                 const shareUrl = `${SITE_ORIGIN}/e/${encodeURIComponent(ev.id)}`;
                 trackEvent('share_event', { event_id: ev.id, event_title: ev.title });
                 const done = (label) => {
-                    shareBtn.textContent = label;
-                    setTimeout(() => { shareBtn.textContent = 'Copy link'; }, 2000);
+                    shareLabel.textContent = label;
+                    shareBtn.classList.toggle('is-copied', label === 'Link copied');
+                    setTimeout(() => {
+                        if (!shareBtn.isConnected) return;
+                        shareLabel.textContent = 'Copy link';
+                        shareBtn.classList.remove('is-copied');
+                    }, 2000);
                 };
                 try {
                     await navigator.clipboard.writeText(shareUrl);
@@ -2414,9 +2633,9 @@
                     done('Copy link');
                 }
             });
-            secRow.appendChild(shareBtn);
-            if (adminMode) renderAdminControls(ev, secRow);
-            actionsEl.appendChild(secRow);
+            shareRow.appendChild(shareBtn);
+            actionsEl.appendChild(shareRow);
+            if (adminMode) renderAdminControls(ev, null);
 
             const modal = document.getElementById('eventModal');
             modal.classList.add('open');
@@ -2651,11 +2870,17 @@
             btn.setAttribute('aria-pressed', on ? 'true' : 'false');
         }
 
-        // Adds the pick button to the modal's secondary row. Idempotent.
+        // Adds the pick button under the share row. Idempotent. The row is
+        // created here so it never sits inside the calendar group.
         function renderAdminControls(ev, row) {
             const actionsEl = document.getElementById('eventModalActions');
-            const secRow = row || actionsEl.querySelector('.event-modal-btn-secondary-row');
-            if (!secRow || secRow.querySelector('.event-modal-btn-admin')) return;
+            let secRow = row || actionsEl.querySelector('.event-modal-btn-secondary-row');
+            if (secRow && secRow.querySelector('.event-modal-btn-admin')) return;
+            if (!secRow) {
+                secRow = document.createElement('div');
+                secRow.className = 'event-modal-btn-secondary-row';
+                actionsEl.appendChild(secRow);
+            }
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'event-modal-btn-secondary event-modal-btn-admin';
