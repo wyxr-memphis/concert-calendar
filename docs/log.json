@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-13T04:12:45.904971+00:00",
+  "run_timestamp": "2026-11-13T12:54:55.271395+00:00",
   "date_range": {
     "start": "2026-11-13",
     "end": "2026-11-20"
@@ -11,8 +11,8 @@
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 11,
+      "events_found": 11,
+      "events_after_filter": 9,
       "events_filtered": 1,
       "error": null
     },
@@ -25,27 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 41,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 321,
       "events_after_filter": 24,
       "events_filtered": 297,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 33,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,23 +49,7 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -91,9 +67,17 @@
     {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 3,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -105,12 +89,12 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 24,
-      "events_after_filter": 23,
-      "events_filtered": 1,
-      "error": null
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
@@ -129,38 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 11,
-      "events_after_filter": 2,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 21,
-      "events_filtered": 269,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 4,
@@ -169,19 +121,19 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 4,
-      "events_filtered": 14,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 11,
+      "events_after_filter": 2,
+      "events_filtered": 9,
       "error": null
     },
     {
@@ -193,19 +145,35 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 21,
+      "events_found": 290,
       "events_after_filter": 21,
+      "events_filtered": 269,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
+      "events_found": 33,
+      "events_after_filter": 33,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,19 +185,43 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 4,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 26,
       "events_after_filter": 20,
       "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 29,
-      "events_filtered": 11,
       "error": null
     },
     {
@@ -241,11 +233,19 @@
       "error": null
     },
     {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 29,
+      "events_filtered": 11,
+      "error": null
+    },
+    {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
+      "events_found": 22,
       "events_after_filter": 22,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
