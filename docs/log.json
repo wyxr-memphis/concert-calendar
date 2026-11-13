@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-12T22:30:22.606107+00:00",
+  "run_timestamp": "2026-11-13T04:12:45.904971+00:00",
   "date_range": {
-    "start": "2026-11-12",
-    "end": "2026-11-19"
+    "start": "2026-11-13",
+    "end": "2026-11-20"
   },
   "total_events_db": 4381,
-  "total_active_display": 125,
+  "total_active_display": 127,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 10,
+      "events_found": 13,
+      "events_after_filter": 11,
       "events_filtered": 1,
       "error": null
     },
@@ -28,24 +28,24 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 321,
-      "events_after_filter": 25,
-      "events_filtered": 296,
+      "events_after_filter": 24,
+      "events_filtered": 297,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 41,
-      "events_after_filter": 41,
-      "events_filtered": 0,
+      "events_found": 35,
+      "events_after_filter": 33,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -57,28 +57,20 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 41,
+      "events_after_filter": 41,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Grind City Amphitheater",
@@ -89,11 +81,19 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 2,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -101,6 +101,22 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 24,
+      "events_after_filter": 23,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -121,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
@@ -137,10 +145,10 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 6,
-      "events_after_filter": 6,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
       "error": null
     },
@@ -153,18 +161,10 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 35,
-      "events_after_filter": 35,
       "events_filtered": 0,
       "error": null
     },
@@ -193,19 +193,19 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 21,
       "events_after_filter": 21,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -219,17 +219,17 @@
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 27,
+      "events_found": 26,
       "events_after_filter": 20,
-      "events_filtered": 7,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 30,
-      "events_filtered": 10,
+      "events_after_filter": 29,
+      "events_filtered": 11,
       "error": null
     },
     {
@@ -244,132 +244,20 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
+      "events_after_filter": 22,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 125,
-      "events_after_filter": 125,
+      "events_found": 127,
+      "events_after_filter": 127,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Album Listening Party \u2013 CIRCLE BIRDS \u2013",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-11-12",
-      "time": "6 PM",
-      "source": "scraper:memphis_listening_lab"
-    },
-    {
-      "artist": "ARTSmemphis and Overton Park Conservancy present The Green House Party: Raneem Imam, the Walt Phelan Trio, Alexis Jade",
-      "venue": "Overton Park Greenhouses",
-      "date": "2026-11-12",
-      "time": "6 PM",
-      "source": "manual"
-    },
-    {
-      "artist": "Medium Build Presents The King of Having Fun on Tour",
-      "venue": "Satellite Music Hall",
-      "date": "2026-11-12",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-12",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-12",
-      "time": "2:14 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Aaron Lewis",
-      "venue": "Cannon Center for the Performing Arts",
-      "date": "2026-11-12",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "The Black Power Mixtape 1967\u20131975 (2011)",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-12",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Tekkno Thursday",
-      "venue": "Growlers",
-      "date": "2026-11-12",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Malignant Extraction Tour: Frontal Assault, Through Through, Serphant",
-      "venue": "Haven Haus",
-      "date": "2026-11-12",
-      "time": "Doors 7, Show 8",
-      "source": "artifact"
-    },
-    {
-      "artist": "Pestilence Presents: [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Rachel is Kozi / Wagoneer / FDAT [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-12",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Bob And Angela",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-12",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Eron Ackerman and Oxbow",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-12",
-      "time": "8 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Oxbow w/ Eron Ackerman",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-12",
-      "time": "8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Hunter Flynn: Back to My Roots Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-11-12",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Shell on Wheels: ARTSmemphis Green House Party",
-      "venue": "Overton Park Shell",
-      "date": "2026-11-12",
-      "time": "6:00\u202fPM",
-      "source": "scraper:overton_park_shell"
-    },
     {
       "artist": "Ibex Clone \u2013 Gravity Album Release Listening Party: Ibex Clone",
       "venue": "Memphis Listening Lab",
@@ -1068,7 +956,7 @@
       "venue": "Cannon Center for the Performing Arts",
       "date": "2026-11-19",
       "time": "7 PM",
-      "source": "scraper:cannon_center_for_the_performing_arts"
+      "source": "scraper:ticketmaster"
     },
     {
       "artist": "Seconds",
@@ -1132,6 +1020,132 @@
       "date": "2026-11-19",
       "time": "7:30 PM",
       "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Memphis Hates You Fest Day 1",
+      "venue": "Hi Tone",
+      "date": "2026-11-20",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Devinn Day!!: Frank McLallen, Static!",
+      "venue": "Bar DKDC",
+      "date": "2026-11-20",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Jad Tariq",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-20",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "\"I ART\": Iris Collective Fellows in Concert",
+      "venue": "Crosstown Arts",
+      "date": "2026-11-20",
+      "time": "7:30 PM",
+      "source": "scraper:crosstown_arts"
+    },
+    {
+      "artist": "\"I ART\": Iris Collective Fellows in Concert: Iris Collective Fellows",
+      "venue": "Crosstown Arts",
+      "date": "2026-11-20",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Blu x Nickelus F",
+      "venue": "Growlers",
+      "date": "2026-11-20",
+      "time": "7:15 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Radio Ranch",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-20",
+      "time": "8 PM",
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Dirty Crows",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-11-20",
+      "time": "8 PM",
+      "source": "scraper:hotel_pontotoc"
+    },
+    {
+      "artist": "Almost Famous",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-20",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Rock the Boat",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-20",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Tinderbox Sideshow Circus",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-11-20",
+      "time": "8 PM",
+      "source": "submission"
+    },
+    {
+      "artist": "Legend Zeppelin",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-20",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Laser Rock: Prince",
+      "venue": "Museum of Science & History (MoSH)",
+      "date": "2026-11-20",
+      "time": "7 PM",
+      "source": "scraper:museum_of_science_history_mosh"
+    },
+    {
+      "artist": "Josh Threlkeld on the Patio",
+      "venue": "Nashoba",
+      "date": "2026-11-20",
+      "time": "5 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Saddle Up",
+      "venue": "Nashoba",
+      "date": "2026-11-20",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Josh Meloy",
+      "venue": "Satellite Music Hall",
+      "date": "2026-11-20",
+      "time": "7 PM",
+      "source": "scraper:satellite_music_hall"
+    },
+    {
+      "artist": "Jookin Muzik Friday",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-11-20",
+      "time": "7 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
+    },
+    {
+      "artist": "Mark Marmore, Sky King, Michael Cusack and Alexis Jade",
+      "venue": "South Main Sounds",
+      "date": "2026-11-20",
+      "time": "7:00PM",
+      "source": "scraper:south_main_sounds"
     }
   ]
 }
