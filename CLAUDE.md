@@ -193,7 +193,8 @@ banner settings + wyxr.org thermometer read) · `backend/gunicorn_conf.py`
 ```
 
 Admin: `http://localhost:8000/admin/local.html` · Homepage:
-`http://localhost:8000/local_index_home.html`. Config in `.env` (from `.env.example`), which
+`http://localhost:8000/local_index_home.html` (generated per request from `docs/index.html` by
+`run_local_frontend.sh`; plain `/` shows no events because prod CORS rejects localhost). Config in `.env` (from `.env.example`), which
 holds the **external** `DATABASE_URL`. See [`LOCAL_DEVELOPMENT.md`](LOCAL_DEVELOPMENT.md).
 
 **Trigger a build manually:** `gh workflow run "Daily Concert Calendar Update"`, or Admin →

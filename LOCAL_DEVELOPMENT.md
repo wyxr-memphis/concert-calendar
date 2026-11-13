@@ -2,19 +2,25 @@
 
 This guide shows you how to run and test the entire Concert Calendar application locally before pushing changes to the remote main branch.
 
-## Front-end only (no setup)
+## Previewing the public calendar
 
-If you are only changing the public calendar (`docs/index.html`), you need no `.env`, no
-backend and no admin login:
+To see `docs/index.html` with real events, run both servers and open the preview page:
 
 ```bash
-./run_local_frontend.sh
-open http://localhost:8000/
+./run_local_backend.sh      # Terminal 1 — needs .env (see below)
+./run_local_frontend.sh     # Terminal 2
+open http://localhost:8000/local_index_home.html
 ```
 
-Edit `docs/index.html` and refresh — there is no build step. The page reads its events from
-the **production** API (the URL is hardcoded as `API_BASE` in `docs/index.html`), so you see
-live data, read-only. Read [`dev/frontend.md`](dev/frontend.md) before pushing.
+Edit `docs/index.html` and refresh — there is no build step. `local_index_home.html` is not a
+file: the frontend server builds it from the current `docs/index.html` on every request,
+swapping `API_BASE` to `http://localhost:5001`, so it always shows the latest design. The local
+backend reads the same production database, so you see live data. Read
+[`dev/frontend.md`](dev/frontend.md) before pushing.
+
+> **Plain `http://localhost:8000/` shows the layout but no events.** It calls the production
+> API, which only accepts requests from the production site (`ALLOWED_ORIGINS` on Render), not
+> from `localhost`. Use `local_index_home.html` instead.
 
 ## Quick Start (full stack)
 
@@ -35,10 +41,11 @@ chmod +x run_local_frontend.sh
 open http://localhost:8000/admin/local.html
 ```
 
-> **`local.html` is not in a fresh clone.** `docs/admin/local.html`, `docs/admin/local_index.html`
-> and `docs/local_index_home.html` are gitignored, so they exist only on machines where someone
-> created them. Ask a maintainer for copies. Without them, every page in the clone talks to the
-> production API, not your local backend.
+> **`local.html` is not in a fresh clone.** `docs/admin/local.html` and `docs/admin/local_index.html`
+> are gitignored, so they exist only on machines where someone created them. Ask a maintainer
+> for copies. Without them, the admin pages in the clone talk to the production API, not your
+> local backend. (The homepage preview, `local_index_home.html`, needs no copy — the frontend
+> server generates it.)
 
 ## Setup Details
 
@@ -106,8 +113,8 @@ The frontend serves static files on port 8000:
 This uses Python's built-in HTTP server to serve the `docs/` directory.
 
 **Pages:**
-- `http://localhost:8000/` - Homepage (interactive calendar; loads **production** data)
-- `http://localhost:8000/local_index_home.html` - Homepage against your local backend (gitignored, see above)
+- `http://localhost:8000/local_index_home.html` - **Homepage preview** — generated from `docs/index.html`, events from your local backend
+- `http://localhost:8000/` - Homepage as committed (no events locally — the production API rejects `localhost`)
 - `http://localhost:8000/thisweek.html` - Static "This Week" page
 - `http://localhost:8000/feed.xml` - RSS 2.0 feed (next 60 days of events)
 - `http://localhost:8000/picks.xml` - WYXR Picks RSS feed (next 180 days, Pick-flagged only)
@@ -116,8 +123,8 @@ This uses Python's built-in HTTP server to serve the `docs/` directory.
 
 > **Important:** Use `local.html` for local development. It's configured to connect to your local backend at `http://localhost:5001`.
 >
-> The local server does not strip `.html` the way Vercel's `cleanUrls` does, so `/admin/login`
-> is a 404 here — include the extension.
+> The local server mirrors Vercel's `cleanUrls`, so `/thisweek` and `/admin/login` work with or
+> without the `.html` extension.
 
 ### 5. Testing the Admin UI
 
@@ -214,8 +221,11 @@ python3 -c "import psycopg2; print('OK')"
 ### Frontend can't connect to backend
 
 ```bash
-# Check CORS settings in backend/app.py
-# ALLOWED_ORIGINS should include http://localhost:8000
+# Your local backend must allow the frontend's origin. ALLOWED_ORIGINS (in .env;
+# read by backend/app.py) should include http://localhost:8000
+#
+# If the homepage shows no events at http://localhost:8000/, that is expected:
+# use http://localhost:8000/local_index_home.html (see "Previewing the public calendar")
 
 # Check browser console for CORS errors
 # Open DevTools (Cmd+Option+I) -> Console tab
