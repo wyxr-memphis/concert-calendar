@@ -45,7 +45,7 @@ rules); `.impeccable/design.json` is its machine-readable sidecar. This is the w
 - **Flat ink.** No drop shadows, no gradient fills. The only `radial-gradient`s are hard-stop
   stamps and masks (marquee bulbs, ticket notches, leaf binding holes).
 - **Fonts.** Inter for body/UI, Anybody for headings and act names (`font-stretch: 82%`).
-  Irregardless (Adobe Fonts kit `sis1dug`, weight axis 300–800) is a poster face: the lockup
+  Irregardless (Adobe Fonts kit `tns0tde`, weight axis 300–800) is a poster face: the lockup
   words, leaf month/day, the marquee date — nothing else, and never body copy. Its weight is
   state: a day's leaf numeral rests at 400 and goes to 800 while that day is stuck at the top
   (`.day-section.is-current`).

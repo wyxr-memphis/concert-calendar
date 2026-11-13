@@ -221,7 +221,7 @@ def generate_html(
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/sis1dug.css">
+    <link rel="stylesheet" href="https://use.typekit.net/tns0tde.css">
     <script type="application/ld+json">{events_jsonld}</script>
     <style>
         /* Same inks and roles as docs/index.html; see "Style framework" in
