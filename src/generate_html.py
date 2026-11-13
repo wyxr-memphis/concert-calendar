@@ -1,6 +1,7 @@
 """Generate the static HTML page for Memphis concert calendar."""
 
 import json
+import re
 from datetime import date, datetime, timedelta
 from typing import Dict, List
 from collections import defaultdict
@@ -106,12 +107,20 @@ def generate_html(
     event_sections = ""
     for d in sorted_dates:
         day_events = by_date[d]
-        day_name = strftime_nopad(d, "%A, %B %-d").upper()
+        weekday = strftime_nopad(d, "%A")
+        month_day = strftime_nopad(d, "%B %-d")
+        tally = f"{len(day_events)} show{'s' if len(day_events) != 1 else ''}"
 
-        # Group events by venue (case-insensitive, preserving order)
+        # WYXR picks first, each its own marigold block (a pick is never folded
+        # into a venue group, or it would drag the group to the top of the day).
+        # Everything else is grouped by venue, case-insensitively, in the order
+        # Event.sort_key already gave us.
+        picks = [e for e in day_events if e.is_featured]
+        others = [e for e in day_events if not e.is_featured]
+
         venue_groups: Dict[str, List[Event]] = {}
         venue_order: List[str] = []
-        for event in day_events:
+        for event in others:
             key = event.venue.strip().lower()
             if key not in venue_groups:
                 venue_groups[key] = []
@@ -119,53 +128,48 @@ def generate_html(
             venue_groups[key].append(event)
 
         event_lines = ""
+        for event in picks:
+            event_lines += (
+                '<li class="event event--featured">'
+                '<span class="featured-badge">WYXR Pick</span>'
+                f'{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
+            )
+
         for venue_key in venue_order:
             venue_events = venue_groups[venue_key]
 
-            if len(venue_events) == 1:
-                # Single event at this venue — render as before
-                event = venue_events[0]
-                line = f'<span class="artist">{_esc(event.artist)}</span> — '
-                line += f'<span class="venue">{_esc(event.venue)}</span>'
-                if event.time:
-                    line += f' <span class="time">({_esc(event.time)})</span>'
-
-                cls = ' class="featured event--featured"' if event.is_featured else ''
-                badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
-                if event.url:
-                    event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{badge}{line}</a></li>\n'
-                else:
-                    event_lines += f'<li{cls}>{badge}{line}</li>\n'
-            else:
-                # Multiple events at same venue — group them
-                venue_name = venue_events[0].venue
-                times = [e.time for e in venue_events]
-                all_same_time = len(set(times)) == 1
-                shared_time = times[0] if all_same_time else None
-
-                artist_items = ""
+            if len(venue_events) == 1 or not venue_key:
+                # One show at this venue (or no venue named): a plain row.
                 for event in venue_events:
-                    badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
-                    cls = ' class="featured event--featured"' if event.is_featured else ''
-                    artist_text = f'{badge}<span class="artist">{_esc(event.artist)}</span>'
-                    if not all_same_time and event.time:
-                        artist_text += f' <span class="time">({_esc(event.time)})</span>'
+                    event_lines += (
+                        f'<li class="event">{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
+                    )
+                continue
 
-                    if event.url:
-                        artist_items += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{artist_text}</a></li>\n'
-                    else:
-                        artist_items += f'<li{cls}>{artist_text}</li>\n'
+            # Several shows at one venue: name it once, above them. A time they
+            # all share is stated once, in the venue's own time column.
+            times = [e.time for e in venue_events]
+            shared_time = times[0] if len(set(times)) == 1 else None
+            head_time = _time_cell(shared_time) if shared_time else '<span class="row-time"></span>'
 
-                footer_line = f'<span class="venue">{_esc(venue_name)}</span>'
-                if shared_time:
-                    footer_line += f' <span class="time">({_esc(shared_time)})</span>'
+            artist_items = ""
+            for event in venue_events:
+                cell = '<span class="row-time"></span>' if shared_time else _time_cell(event.time)
+                artist_items += f'<li class="event">{_row(event, cell, show_venue=False)}</li>\n'
 
-                event_lines += f'<li class="venue-group"><ul class="venue-artists">\n{artist_items}</ul>\n<div class="venue-footer">{footer_line}</div></li>\n'
+            event_lines += (
+                '<li class="venue-group">'
+                f'<div class="venue-head">{head_time}<span class="venue">{_esc(venue_events[0].venue)}</span></div>'
+                f'<ul class="venue-artists">\n{artist_items}</ul></li>\n'
+            )
 
         event_sections += f"""
         <div class="day-section">
-            <h2>{day_name}</h2>
-            <ul>{event_lines}</ul>
+            <div class="day-head">
+                <h2><span class="day-weekday">{_esc(weekday)}</span> <span class="day-date">{_esc(month_day)}</span></h2>
+                <p class="day-count">{tally}</p>
+            </div>
+            <ul class="day-list">{event_lines}</ul>
         </div>
         """
 
@@ -193,7 +197,10 @@ def generate_html(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memphis Live Music — Next 8 Days</title>
+    <meta name="theme-color" content="#FCE2B6">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <meta name="description" content="What's happening in Memphis this week? Live music listings for the next 8 days. From WYXR 91.7 FM.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://concert-calendar.wyxr.org/thisweek">
@@ -202,178 +209,253 @@ def generate_html(
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://concert-calendar.wyxr.org/thisweek">
     <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
-    <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta property="og:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Memphis Live Music — Next 8 Days">
     <meta name="twitter:description" content="What's happening in Memphis this week? Live music listings for the next 8 days.">
-    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="WYXR Memphis Concert Calendar" href="/feed.xml">
     <link rel="alternate" type="application/rss+xml" title="WYXR Picks — Memphis Concert Calendar" href="/picks.xml">
     <link rel="alternate" type="text/calendar" title="Memphis Live Music calendar feed" href="/calendar.ics">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/sis1dug.css">
     <script type="application/ld+json">{events_jsonld}</script>
     <style>
+        /* Same inks and roles as docs/index.html; see "Style framework" in
+           dev/frontend.md. This page is a plain printed program: no JS, one
+           column, the week read top to bottom. */
         :root {{
-            --wyxr-yellow: #FFCF2D;
-            --wyxr-black: #000000;
-            --wyxr-white: #FFFFFF;
-            --wyxr-charcoal: #1A1A1A;
-            --wyxr-gray: #888888;
-            --wyxr-dim: #666666;
-            --wyxr-border: #2A2A2A;
+            color-scheme: light;
+            --ink-cream: #FCE2B6;
+            --ink-paper: #FFF8EA;
+            --ink-white: #FFFFFF;
+            --ink-red: #D53727;
+            --ink-brick: #B02A1C;
+            --ink-marigold: #FCB91A;
+            --ink-oxblood: #3A1510;
+            --ink-umber: #6B3A2E;
+
+            --ground: var(--ink-cream);
+            --surface: var(--ink-paper);
+            --text: var(--ink-oxblood);
+            --text-soft: var(--ink-umber);
+            --accent: var(--ink-red);
+            --accent-text: var(--ink-brick);
+            --on-accent: var(--ink-white);
+            --lit: var(--ink-marigold);
+            --on-lit: var(--ink-oxblood);
+            --line: var(--ink-red);
+            --rule: rgb(213 55 39 / 0.28);
+            --focus: var(--ink-oxblood);
+            --font-display: "irregardless-variable", "Anybody", sans-serif;
+            --font-head: "Anybody", "Inter", system-ui, sans-serif;
+            --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --head-narrow: 82%;
+
+            --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+            --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+            --r-s: 8px; --r-m: 12px;
+            --keyline: 2px;
+            --tap: 44px;
+            --rail-w: 320px;
+            --leaf-col: 120px;
+            --time-col: 3.25rem;
         }}
-        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        *, *::before, *::after {{ box-sizing: border-box; }}
+        * {{ margin: 0; padding: 0; }}
         body {{
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px 16px;
-            background: var(--wyxr-black);
-            color: var(--wyxr-white);
+            font-family: var(--font-body);
+            background: var(--ground);
+            color: var(--text);
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }}
-        header {{
-            margin-bottom: 24px;
+        .page {{ max-width: 720px; margin: 0 auto; padding: var(--s-4) var(--s-4) 56px; }}
+        ::selection {{ background: var(--lit); color: var(--on-lit); }}
+        a {{ color: inherit; text-underline-offset: 0.18em; }}
+        :focus-visible {{ outline: 3px solid var(--focus); outline-offset: 2px; }}
+
+        /* ---- Masthead: the flower and the lockup set in type on a phone,
+           the whole logo in the left rail on a desktop ---- */
+        header {{ margin-bottom: 28px; }}
+        .masthead {{
+            display: grid;
+            grid-template-columns: clamp(84px, 24vw, 94px) minmax(0, 1fr);
+            align-items: center;
+            column-gap: 12px;
+            max-width: 358px;
+            color: var(--accent);
+            text-decoration: none;
         }}
-        .header-banner {{
-            width: 100%;
-            height: auto;
+        .masthead img {{ display: block; width: 100%; height: auto; }}
+        .masthead-script {{ width: 48%; min-width: 92px; margin: 0 0 6px 2px; transform: rotate(-3deg); transform-origin: left bottom; }}
+        .masthead-words {{
             display: block;
-            border-radius: 6px;
+            max-width: 100%;
+            overflow: hidden;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 800;
+            font-size: clamp(2.5rem, 14.2vw, 3.45rem);
+            line-height: 0.92;
+            text-transform: uppercase;
+            white-space: nowrap;
         }}
-        .header-tagline {{
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9em;
-            color: #999;
-            margin-top: 12px;
-            line-height: 1.5;
-        }}
+        .header-tagline {{ margin-top: 16px; font-size: 0.9375rem; color: var(--text-soft); }}
         .header-meta {{
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 8px;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid var(--wyxr-border);
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: var(--keyline) solid var(--line);
         }}
         .meta-badge {{
             display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8em;
-            font-weight: 600;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            padding: 3px 10px;
-            border-radius: 3px;
-            letter-spacing: 0.02em;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
         }}
-        .updated {{
-            font-size: 0.8em;
-            color: var(--wyxr-gray);
-        }}
-        .day-section {{
-            margin-bottom: 28px;
+        .updated {{ font-size: 0.8125rem; color: var(--text-soft); }}
+        .rail-link {{ display: none; }}
+
+        /* ---- Days ---- */
+        .day-section {{ margin-bottom: var(--s-6); }}
+        .day-head {{
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: var(--s-3);
+            padding-bottom: 6px;
+            border-bottom: var(--keyline) solid var(--line);
         }}
         h2 {{
-            font-family: 'Anybody', sans-serif;
-            font-size: 1em;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            color: var(--wyxr-yellow);
-            border-left: 4px solid var(--wyxr-yellow);
-            border-bottom: none;
-            padding-left: 10px;
-            padding-bottom: 0;
-            margin-bottom: 8px;
-        }}
-        ul {{
-            list-style: none;
-            padding: 0;
-        }}
-        li {{
-            padding: 5px 0;
-            font-size: 0.95em;
-            border-bottom: 1px solid var(--wyxr-border);
-        }}
-        li:last-child {{
-            border-bottom: none;
-        }}
-        li.featured, li.event--featured {{
-            border-left: 3px solid var(--wyxr-yellow);
-            padding-left: 8px;
-            margin-left: -3px;
-        }}
-        .featured-badge {{
-            display: inline-block;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.6em;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-size: 2.125rem;
             font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
+            line-height: 1;
+            letter-spacing: 0.02em;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            vertical-align: middle;
-            margin-right: 4px;
+            color: var(--accent);
         }}
-        li a {{
+        .day-weekday::after {{ content: ","; }}
+        .day-count {{
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            color: var(--text-soft);
+        }}
+        ul {{ list-style: none; }}
+
+        /* ---- Event rows: time column, then the act over its venue ---- */
+        .event {{ border-bottom: 1px solid var(--rule); }}
+        .day-list > .event:last-child, .day-list > .venue-group:last-child {{ border-bottom: 0; }}
+        .row {{
+            display: flex;
+            align-items: flex-start;
+            gap: var(--s-3);
+            min-height: 56px;
+            padding: 10px var(--s-2);
             color: inherit;
             text-decoration: none;
+            border-radius: var(--r-s);
         }}
-        li a:hover {{
-            color: var(--wyxr-yellow);
+        a.row:hover {{ background: var(--surface); }}
+        a.row:hover .artist {{ text-decoration: underline; }}
+        a.row:focus-visible {{ outline-offset: -3px; }}
+        .row-time {{
+            flex: 0 0 var(--time-col);
+            padding-top: 1px;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.25;
+            text-align: right;
+            white-space: nowrap;
+            color: var(--accent-text);
         }}
-        .artist {{
+        .row-ampm {{
+            margin-left: 1px;
+            font-size: 0.6875rem;
             font-weight: 600;
+            letter-spacing: 0.04em;
             text-transform: uppercase;
         }}
-        .venue {{
-            color: #aaa;
+        .row-time--words {{
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            white-space: normal;
+            overflow-wrap: anywhere;
         }}
-        .time {{
-            color: var(--wyxr-gray);
-            font-size: 0.9em;
+        .row-text {{ flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px; min-width: 0; }}
+        .artist {{
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.22;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
         }}
-        .venue-group {{
-            padding: 5px 0;
+        .venue {{ font-size: 0.8125rem; font-weight: 600; line-height: 1.35; color: var(--text-soft); }}
+
+        /* Several acts at one venue: the venue is named once, above them, and a
+           time they all share sits in its own time column. */
+        .venue-group {{ border-bottom: 1px solid var(--rule); }}
+        .venue-head {{ display: flex; align-items: baseline; gap: var(--s-3); padding: 10px var(--s-2) 0; }}
+        .venue-head .venue {{ font-size: 0.875rem; font-weight: 700; color: var(--text); }}
+        .venue-artists .event {{ border-bottom: 0; }}
+        .venue-artists .row {{ min-height: var(--tap); padding-block: var(--s-2); }}
+
+        /* WYXR Picks: a plain marigold block, in the one colour reserved for
+           things that are lit. */
+        .event--featured {{
+            margin: 6px 0;
+            padding-bottom: 2px;
+            border-bottom: 0;
+            border-radius: var(--r-m);
+            background: var(--lit);
+            color: var(--on-lit);
         }}
-        .venue-artists {{
-            list-style: none;
-            padding: 0;
+        .featured-badge {{
+            display: block;
+            padding: 10px var(--s-3) 0 calc(var(--s-3) + var(--time-col) + var(--s-3));
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }}
-        .venue-artists li {{
-            padding: 2px 0;
-            font-size: 0.95em;
-            border-bottom: none;
-        }}
-        .venue-footer {{
-            font-size: 0.85em;
-            margin-top: 2px;
-            padding-left: 0;
-        }}
-        .no-events {{
-            color: var(--wyxr-dim);
-            font-style: italic;
-            padding: 20px 0;
-        }}
-        footer {{
-            margin-top: 40px;
-            padding-top: 16px;
-            border-top: 1px solid var(--wyxr-border);
-            font-size: 0.8em;
-            color: #555;
-            text-align: center;
-        }}
-        footer a {{ color: var(--wyxr-dim); }}
-        footer a:hover {{ color: var(--wyxr-yellow); }}
-        /* The page's title is the banner image, so the <h1> exists for screen
-           readers and crawlers. display:none would take it out of the
-           accessibility tree, hence the clip technique. */
+        .event--featured .row {{ min-height: 0; padding: 4px var(--s-3) 10px; }}
+        .event--featured .row-time {{ color: var(--on-lit); }}
+        .event--featured a.row:hover {{ background: rgb(255 255 255 / 0.4); }}
+        .no-events {{ padding: 32px 0; color: var(--text-soft); }}
+
+        footer {{ margin-top: 48px; font-size: 0.875rem; text-align: center; color: var(--text-soft); }}
+        footer .signoff {{ display: block; width: min(100%, 300px); height: auto; margin: 0 auto 14px; }}
+        footer a {{ color: var(--text); font-weight: 500; }}
+        footer a:hover {{ color: var(--accent-text); }}
+        .footer-feeds {{ display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 18px; margin-top: 10px; }}
+        .footer-feeds a {{ display: inline-flex; align-items: center; min-height: 32px; }}
         .sr-only {{
             position: absolute;
             width: 1px; height: 1px;
@@ -383,21 +465,119 @@ def generate_html(
             white-space: nowrap;
             border: 0;
         }}
-        .footer-feeds {{ margin-top: 8px; }}
+
+        /* ---- Desktop: the rail takes the logo; the list keeps its measure and
+           each day gets a column of its own for the date. Same breakpoint and
+           widths as docs/index.html. ---- */
+        @media (min-width: 1024px) {{
+            :root {{ --time-col: 4rem; }}
+            .page {{
+                display: grid;
+                grid-template-columns: var(--rail-w) minmax(0, 1fr);
+                column-gap: clamp(32px, 4vw, 64px);
+                align-items: start;
+                max-width: 1280px;
+                padding: var(--s-6) var(--s-6) var(--s-8);
+            }}
+            header {{
+                position: sticky;
+                top: var(--s-5);
+                max-height: calc(100vh - var(--s-6));
+                margin-bottom: 0;
+                overflow-y: auto;
+                scrollbar-width: thin;
+            }}
+            main {{ max-width: 880px; }}
+            footer {{ grid-column: 1 / -1; }}
+
+            .masthead {{ display: block; max-width: none; text-align: center; }}
+            .masthead img {{ max-width: 300px; margin: 0 auto; }}
+            .lockup {{ display: none; }}
+            .header-meta {{ flex-direction: column; align-items: flex-start; gap: var(--s-3); }}
+            .rail-link {{
+                display: inline-flex;
+                align-items: center;
+                min-height: var(--tap);
+                margin-top: var(--s-4);
+                padding: 0 18px;
+                border: var(--keyline) solid var(--line);
+                border-radius: 999px;
+                background: var(--surface);
+                color: var(--accent-text);
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-size: 0.875rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                text-transform: uppercase;
+            }}
+            .rail-link:hover {{ background: var(--accent); color: var(--on-accent); }}
+
+            .day-section {{
+                display: grid;
+                grid-template-columns: var(--leaf-col) minmax(0, 1fr);
+                column-gap: var(--s-5);
+                align-items: start;
+                margin-bottom: var(--s-7);
+            }}
+            .day-head {{
+                position: sticky;
+                top: var(--s-5);
+                display: block;
+                padding: 4px 0 0;
+                border-bottom: 0;
+            }}
+            .day-weekday, .day-date {{ display: block; }}
+            .day-weekday::after {{ content: none; }}
+            .day-weekday {{ font-size: 2.125rem; }}
+            .day-date {{
+                margin-top: var(--s-1);
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-size: 1.0625rem;
+                font-weight: 800;
+                letter-spacing: 0.03em;
+                color: var(--text);
+            }}
+            .day-count {{ margin-top: var(--s-1); font-size: 0.8125rem; }}
+            .day-list {{ border-top: var(--keyline) solid var(--line); }}
+            .artist {{ font-size: 1.0625rem; }}
+            .venue {{ font-size: 0.875rem; }}
+            .row-time {{ font-size: 1rem; }}
+            .row-time--words {{ font-size: 0.6875rem; }}
+            .row {{ padding-block: var(--s-3); }}
+            .venue-artists .row {{ padding-block: var(--s-2); }}
+            .event--featured .row {{ padding: 4px var(--s-3) var(--s-3); }}
+        }}
+        @media print {{
+            body {{ background: #fff; }}
+            header {{ position: static; }}
+            .rail-link {{ display: none; }}
+            .event--featured {{ border: 1.5px solid var(--text); background: none; }}
+        }}
     </style>
 </head>
 <body>
     <h1 class="sr-only">Memphis Live Music — live shows in Memphis over the next 8 days, from WYXR 91.7 FM</h1>
+    <div class="page">
     <header>
-        <picture>
-            <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
-            <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
-        </picture>
+        <a class="masthead" href="/" aria-label="Memphis Concert Calendar: the full calendar">
+            <picture class="masthead-art">
+                <source media="(min-width: 1024px)" srcset="/brand/logo.svg" width="968" height="994">
+                <img src="/brand/mascot.svg" alt="" width="524" height="600">
+            </picture>
+            <span class="lockup">
+                <img class="masthead-script" src="/brand/word-memphis.svg" alt="" width="3141" height="906">
+                <span class="masthead-words">Concert Calendar</span>
+            </span>
+        </a>
         <p class="header-tagline">We live and breathe Memphis music &mdash; on air and in person. That&rsquo;s why WYXR teamed up with Where&rsquo;s the Music Memphis to bring you the Weekly Concert Calendar, your guide to what&rsquo;s happening every day.</p>
         <div class="header-meta">
             <span class="updated">Updated {run_time_str}</span>
             <span class="meta-badge">{total_events} show{"s" if total_events != 1 else ""} &middot; next 8 days</span>
         </div>
+        <a class="rail-link" href="/">Full calendar</a>
     </header>
 
     <main>
@@ -405,15 +585,18 @@ def generate_html(
     </main>
 
     <footer>
+        <img class="signoff" src="/brand/word-see-you.svg" alt="See you at the show" width="6559" height="970" loading="lazy">
         Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis<br>
-        Last built {run_time_str}<br>
-        <a href="/">Full Calendar</a> &middot; <a href="/admin/">Admin</a>
+        Last built {run_time_str}
         <div class="footer-feeds">
-            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">&#128197; Subscribe in your calendar</a> &middot;
-            <a href="/calendar.ics">Download .ics</a> &middot;
-            <a href="/picks.xml">&#11088; WYXR Picks RSS</a>
+            <a href="/">Full calendar</a>
+            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">Subscribe in your calendar</a>
+            <a href="/calendar.ics">Download .ics</a>
+            <a href="/picks.xml">WYXR Picks RSS</a>
+            <a href="/admin/">Admin</a>
         </div>
     </footer>
+    </div>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>"""
@@ -427,3 +610,53 @@ def _esc(text: str) -> str:
         .replace(">", "&gt;")
         .replace('"', "&quot;")
     )
+
+
+_CLOCK_RE = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?", re.IGNORECASE)
+
+
+def _time_cell(raw) -> str:
+    """A start time typeset for the tabular time column.
+
+    "7:30 PM" becomes 7:30 with a small pm and ":00" is dropped, as on the home
+    page (``timeCell`` in docs/index.html). Presentation only: anything that is
+    not a plain clock time ("Doors 7, Show 8", "Late") is shown exactly as
+    written, escaped. Turning a time into a value still happens in one place,
+    ``time_format.parse_start_time``.
+    """
+    text = (raw or "").replace("\u202f", " ").replace("\u00a0", " ").strip()
+    if not text:
+        return '<span class="row-time"></span>'
+    m = _CLOCK_RE.fullmatch(text)
+    if not m:
+        return f'<span class="row-time row-time--words">{_esc(text)}</span>'
+    minutes = f":{m.group(2)}" if m.group(2) and m.group(2) != "00" else ""
+    # m.group(1) and (2) are \d only, and (3) is a letter: nothing to escape.
+    return (
+        f'<span class="row-time">{m.group(1)}{minutes}'
+        f'<span class="row-ampm">{m.group(3).lower()}m</span></span>'
+    )
+
+
+def _safe_href(url) -> str:
+    """The URL if it is plain http(s), else "". Escaping does not stop a
+    ``javascript:`` URL, and ticket links come from scrapers and flyer OCR."""
+    text = (url or "").strip()
+    return text if re.match(r"https?://", text, re.IGNORECASE) else ""
+
+
+def _row(event: Event, time_html: str, show_venue: bool) -> str:
+    """One event row: time column, then the act over its venue line."""
+    venue = (
+        f'<span class="venue">{_esc(event.venue)}</span>'
+        if show_venue and event.venue.strip()
+        else ""
+    )
+    inner = (
+        f'{time_html}<span class="row-text">'
+        f'<span class="artist">{_esc(event.artist)}</span>{venue}</span>'
+    )
+    href = _safe_href(event.url)
+    if href:
+        return f'<a class="row" href="{_esc(href)}" target="_blank" rel="noopener">{inner}</a>'
+    return f'<div class="row">{inner}</div>'

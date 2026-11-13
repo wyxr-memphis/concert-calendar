@@ -230,9 +230,9 @@ def test_dangerous_urls_in_page():
     html = render_event_page(event, BASE)
     check_true("javascript: never reaches the page", "javascript:" not in html)
     check_true("no ticket button without a safe url", "Buy Tickets" not in html)
-    # og:image is required, so it falls back to the site banner.
-    check_true("og:image falls back to the banner",
-               f'content="{BASE}/wyxr-wtmm-header.png"' in html)
+    # og:image is required, so it falls back to the site social card.
+    check_true("og:image falls back to the social card",
+               f'content="{BASE}/brand/og-image.png"' in html)
 
 
 def test_sparse_event():

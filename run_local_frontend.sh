@@ -21,4 +21,18 @@ echo ""
 echo "Press Ctrl+C to stop"
 echo ""
 
-cd docs && python3 -m http.server 8000
+# Mirrors vercel.json "cleanUrls": /thisweek serves thisweek.html
+cd docs && python3 - <<'PY'
+import http.server, os
+
+class CleanUrlHandler(http.server.SimpleHTTPRequestHandler):
+    def send_head(self):
+        path = self.path.split('?', 1)[0].split('#', 1)[0]
+        if path != '/' and not os.path.splitext(path)[1]:
+            local = self.translate_path(path)
+            if not os.path.exists(local) and os.path.isfile(local + '.html'):
+                self.path = path + '.html' + self.path[len(path):]
+        return super().send_head()
+
+http.server.ThreadingHTTPServer(('', 8000), CleanUrlHandler).serve_forever()
+PY

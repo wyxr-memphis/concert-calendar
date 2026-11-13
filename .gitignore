@@ -35,7 +35,11 @@ logs/
 docs/admin/local.html
 docs/admin/local_index.html
 docs/local_index_home.html
+docs/lan_index_home.html
 
 # Artifacts (large binary images processed locally)
 artifacts/
 .vercel
+
+# Impeccable design review captures (large screenshots, regenerated per review)
+.impeccable/review/

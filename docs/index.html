@@ -20,12 +20,18 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://concert-calendar.wyxr.org/">
     <meta property="og:site_name" content="WYXR 91.7 FM Concert Calendar">
-    <meta property="og:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta property="og:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Memphis Concert Calendar: a smiling flower holding a tear-off calendar and a ticket">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Memphis Live Music — Concert Calendar">
     <meta name="twitter:description" content="Daily-updated live music calendar for Memphis, TN. Find concerts, shows, and gigs at venues across the city.">
-    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/wyxr-wtmm-header.png">
+    <meta name="twitter:image" content="https://concert-calendar.wyxr.org/brand/og-image.png">
+    <meta name="theme-color" content="#FCE2B6">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/brand/favicon-32.png">
+    <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
     <!-- Feed discovery. A reader or calendar app can only offer to subscribe
          if it can find these. The full RSS feed is deliberately not linked in
          the visible footer any more (it lives under Admin -> Tools -> Feeds),
@@ -64,874 +70,131 @@
     <link rel="preconnect" href="https://concert-calendar-api.onrender.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Irregardless (Adobe Fonts): the poster face for dates and marquee
+         words only. Both hosts are allow-listed in vercel.json's CSP. -->
+    <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/sis1dug.css">
     <style>
+        /* =====================================================================
+           STYLE FRAMEWORK
+           ---------------------------------------------------------------------
+           Three layers, top to bottom. Change a value in the highest layer that
+           expresses what you mean, and never skip a layer:
+
+             1. INKS   the logo's palette, as raw values. Nothing below the
+                       :root block reads an --ink-* directly.
+             2. ROLES  what a colour, size or space is FOR (--ground, --text,
+                       --accent, --lit ...). Components read only these.
+             3. PARTS  the components, in page order further down.
+
+           The world is flat print: cream stock, tomato-red keylines and fills,
+           marigold only where something is "lit" (a WYXR pick, the active
+           filter, the marquee bulbs). No shadows, no gradient fills.
+           Full reference: DESIGN.md and dev/frontend.md ("Style framework").
+           ===================================================================== */
         :root {
-            /* Slate palette (2026-07-24): lifted blue-gray ground, warmer yellow.
-               Previous "pure black" values kept here for easy rollback:
-               yellow #FFCF2D · black #000000 · white #FFFFFF · charcoal #1A1A1A
-               gray #888888 · dim #666666 · border #2A2A2A · presents-blue #5BBCE4 */
-            --wyxr-yellow: #FFD64A;
-            --wyxr-black: #2A2E35;
-            --wyxr-white: #F6F8FB;
-            --wyxr-charcoal: #353A44;
-            --wyxr-gray: #AFB5C1;
-            --wyxr-dim: #8B93A1;
-            --wyxr-border: #464C58;
-            --wyxr-presents-blue: #6BC9EC;
-            --wyxr-fund-coral: #E94F37; /* fund-drive banner only */
+            color-scheme: light;
+
+            /* ---- 1. Inks (sampled from the logo) ---- */
+            --ink-cream: #FCE2B6;      /* the logo's background */
+            --ink-cream-deep: #F6D19A; /* cream, one step into shade */
+            --ink-paper: #FFF8EA;      /* warm white: leaves, panels, inputs */
+            --ink-white: #FFFFFF;
+            --ink-red: #D53727;        /* the logo's red */
+            --ink-brick: #B02A1C;      /* the same red, darkened until small text passes AA */
+            --ink-marigold: #FCB91A;   /* the petals */
+            --ink-oxblood: #3A1510;    /* reading ink: red taken almost to black */
+            --ink-umber: #6B3A2E;      /* secondary reading ink */
+
+            /* ---- 2. Roles ---- */
+            --ground: var(--ink-cream);          /* the page */
+            --ground-sunk: var(--ink-cream-deep);/* wells, image placeholders */
+            --surface: var(--ink-paper);         /* anything laid on the page */
+            --text: var(--ink-oxblood);
+            --text-soft: var(--ink-umber);
+            --accent: var(--ink-red);            /* fills, keylines, type 24px and up */
+            --accent-text: var(--ink-brick);     /* red type under 24px (red itself is 3.8:1 on cream) */
+            --on-accent: var(--ink-white);       /* white only: cream on red is 3.8:1 */
+            --lit: var(--ink-marigold);          /* picks, active filter, bulbs. Nothing else. */
+            --on-lit: var(--ink-oxblood);
+            --line: var(--ink-red);              /* the 2px keyline */
+            --rule: rgb(213 55 39 / 0.28);       /* hairline between rows */
+            --focus: var(--ink-oxblood);
+            --scrim: rgb(58 21 16 / 0.6);
+            --field: var(--ink-white);           /* text inputs on a paper panel */
+            --band: var(--ink-oxblood);          /* the one dark band: the fund-drive banner */
+            --on-band: var(--ink-cream);
+            --bright: var(--ink-white);          /* type, hovers and focus rings on a red or dark fill */
+            --on-accent-soft: var(--ink-cream);  /* large lettering on red (the Tonight script) */
+
+            /* Type. Irregardless is a poster face: dates and marquee words only. */
+            --font-display: "irregardless-variable", "Anybody", sans-serif;
+            --font-head: "Anybody", "Inter", system-ui, sans-serif;
+            --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            --head-narrow: 82%;                  /* Anybody's width axis, for act names */
+
+            /* Space: a 4px scale. */
+            --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+            --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+
+            /* Shape */
+            --keyline: 2px;
+            --r-s: 8px;
+            --r-m: 12px;
+            --r-l: 20px;
+            --r-pill: 999px;
+            --tap: 44px;                         /* minimum touch target */
+
+            /* Motion */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --t-fast: 120ms;
+            --t-med: 240ms;
+            --t-slow: 420ms;
+
+            /* Layout */
+            --gutter: 16px;
+            --rail-w: 320px;                     /* desktop left rail */
+            --leaf-col: 112px;                   /* desktop date column */
+            --time-col: 3.25rem;
+            --bar-h: 108px;                      /* sticky filter bar height; kept current by JS */
+
+            /* Layers */
+            --z-day: 5;
+            --z-dock: 50;
+            --z-bar: 100;
+            --z-footer: 120;
+            --z-admin: 150;
+            --z-subscribe: 200;
+            --z-modal: 300;
+            --z-notice: 310;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* ---- Base ---- */
+        *, *::before, *::after { box-sizing: border-box; }
+        * { margin: 0; padding: 0; }
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px 16px;
-            background: var(--wyxr-black);
-            color: var(--wyxr-white);
+            font-family: var(--font-body);
+            font-size: 1rem;
             line-height: 1.5;
+            background: var(--ground);
+            color: var(--text);
+            accent-color: var(--accent);
+            caret-color: var(--accent);
+            scrollbar-color: var(--accent) var(--ground-sunk);
+            -webkit-font-smoothing: antialiased;
         }
+        ::selection { background: var(--lit); color: var(--on-lit); }
+        a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+        button, input { font: inherit; color: inherit; }
+        button { background: none; border: 0; cursor: pointer; }
+        img { max-width: 100%; }
+        ul { list-style: none; }
+        h1, h2 { font: inherit; }
+        [hidden] { display: none !important; }
+        :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 
-        /* Header */
-        header { margin-bottom: 16px; }
-        .header-banner {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 6px;
-        }
-
-        /* Filter Bar — sticky */
-        .filter-bar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--wyxr-black);
-            padding: 12px 0;
-            border-bottom: 1px solid var(--wyxr-border);
-            margin-bottom: 20px;
-        }
-
-        /* Month Navigation */
-        .month-nav {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            margin-bottom: 12px;
-        }
-        .month-nav button {
-            background: none;
-            border: 1px solid var(--wyxr-border);
-            color: var(--wyxr-white);
-            padding: 6px 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: all 0.2s;
-        }
-        .month-nav button:hover { border-color: var(--wyxr-yellow); color: var(--wyxr-yellow); }
-        .month-nav button:disabled { opacity: 0.3; cursor: not-allowed; }
-        .month-label {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1.1em;
-            font-weight: 700;
-            color: var(--wyxr-yellow);
-            min-width: 180px;
-            text-align: center;
-        }
-
-        /* Search (top box lives in the sticky filter bar, below the chips) */
-        .search-row {
-            margin-top: 8px;
-        }
-        .search-input {
-            width: 100%;
-            padding: 10px 14px;
-            font-size: 0.95em;
-            border: 1px solid var(--wyxr-border);
-            border-radius: 4px;
-            background: var(--wyxr-charcoal);
-            color: var(--wyxr-white);
-            font-family: 'Inter', sans-serif;
-        }
-        .search-input::placeholder { color: var(--wyxr-dim); }
-        .search-input:focus { outline: none; border-color: var(--wyxr-yellow); }
-
-        /* Neighborhood Chips */
-        .chip-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            padding-bottom: 4px;
-        }
-        .chip {
-            padding: 6px 14px;
-            font-size: 0.8em;
-            font-weight: 600;
-            border: 1px solid var(--wyxr-border);
-            border-radius: 20px;
-            background: transparent;
-            color: var(--wyxr-gray);
-            cursor: pointer;
-            transition: all 0.15s;
-            white-space: nowrap;
-        }
-        .chip:hover { border-color: var(--wyxr-gray); color: var(--wyxr-white); }
-        .chip.active {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            border-color: var(--wyxr-yellow);
-        }
-        .chip-count {
-            font-size: 0.85em;
-            opacity: 0.7;
-            margin-left: 4px;
-        }
-
-        /* Events List */
-        .day-section { margin-bottom: 28px; }
-        .sponsor-callout {
-            margin: 1rem 0 2rem;
-            position: relative;
-            max-width: 500px;
-        }
-        .sponsor-callout .sponsor-label {
-            font-size: 0.65rem;
-            color: var(--wyxr-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 4px;
-            display: block;
-        }
-        .sponsor-img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 4px;
-        }
-        /* Inline Subscribe Callout */
-        .subscribe-callout {
-            margin: 1rem 0 2rem;
-            max-width: 500px;
-            padding: 16px 20px;
-            border: 1px solid var(--wyxr-border);
-            border-left: 3px solid var(--wyxr-yellow);
-            border-radius: 4px;
-            background: var(--wyxr-charcoal);
-            cursor: pointer;
-            transition: border-color 0.2s;
-        }
-        .subscribe-callout:hover { border-color: var(--wyxr-yellow); }
-        .subscribe-callout-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85em;
-            color: var(--wyxr-gray);
-            line-height: 1.5;
-        }
-        .subscribe-callout-cta {
-            display: inline;
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            font-size: 0.85em;
-            color: var(--wyxr-yellow);
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            margin-left: 4px;
-        }
-        h2 {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1em;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-            color: var(--wyxr-yellow);
-            border-left: 4px solid var(--wyxr-yellow);
-            padding-left: 10px;
-            margin-bottom: 8px;
-        }
-        ul { list-style: none; padding: 0; }
-        li {
-            padding: 5px 0;
-            font-size: 0.95em;
-            border-bottom: 1px solid var(--wyxr-border);
-        }
-        li:last-child { border-bottom: none; }
-        li.featured, li.event--featured {
-            padding-left: 10px;
-        }
-        .featured-badge {
-            display: inline-block;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.6em;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            vertical-align: middle;
-            margin-right: 4px;
-        }
-        .featured-group {
-            border: 1px solid #3a3a3a;
-            border-left: 3px solid #E85D4A;
-            border-radius: 4px;
-            padding: 14px 16px 10px;
-            margin-bottom: 8px;
-            background: rgba(255, 255, 255, 0.02);
-        }
-        .featured-group .venue-artists { margin: 0; padding-left: 10px; }
-        .featured-group .venue-artists li { padding: 5px 0; }
-        .featured-group .venue-artists li:last-child { border-bottom: none; }
-        .featured-group-header { margin-bottom: 8px; }
-        .featured-group-header .featured-badge {
-            background: #E85D4A;
-            color: #fff;
-        }
-        li a { color: inherit; text-decoration: none; }
-        li a:hover { color: var(--wyxr-yellow); }
-        .event-thumb {
-            width: 44px; height: 44px;
-            object-fit: cover;
-            border-radius: 4px;
-            flex: 0 0 auto;
-            margin-right: 10px;
-            background: var(--wyxr-border);
-        }
-        li[data-event-id] { display: flex; align-items: center; }
-        .event-row-text { min-width: 0; }  /* allow text to shrink inside the flex row */
-        [data-event-id] { cursor: pointer; }
-        [data-event-id]:hover { color: var(--wyxr-yellow); }
-        [data-event-id]:focus-visible { outline: 2px solid var(--wyxr-yellow); outline-offset: 2px; border-radius: 2px; }
-        [data-event-id]:focus { outline: none; }
-        .presents-event[data-event-id]:hover .artist { text-decoration: underline; }
-        .artist { font-weight: 600; text-transform: uppercase; }
-        .venue { color: #aaa; }
-        .time { color: var(--wyxr-gray); font-size: 0.9em; }
-        .neighborhood-tag {
-            display: inline-block;
-            font-size: 0.7em;
-            color: var(--wyxr-dim);
-            background: var(--wyxr-charcoal);
-            padding: 1px 6px;
-            border-radius: 3px;
-            margin-left: 6px;
-        }
-
-        /* Venue grouping */
-        .venue-group { padding: 5px 0; }
-        .venue-artists { list-style: none; padding: 0; }
-        .venue-artists li { padding: 2px 0; font-size: 0.95em; border-bottom: none; }
-        .venue-footer { font-size: 0.85em; margin-top: 2px; }
-
-        /* States */
-        .no-events {
-            color: var(--wyxr-dim);
-            font-style: italic;
-            padding: 40px 0;
-            text-align: center;
-        }
-        .loading-state {
-            text-align: center;
-            padding: 60px 0;
-            color: var(--wyxr-gray);
-        }
-        .event-count {
-            font-size: 0.85em;
-            color: var(--wyxr-gray);
-            margin-bottom: 16px;
-        }
-
-        /* Subscribe link (in header, next to Submit an Event) */
-        .subscribe-link {
-            display: inline-block;
-            margin-left: 10px;
-            padding: 8px 16px;
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.85em;
-            font-weight: 700;
-            color: var(--wyxr-gray);
-            border: 1px solid var(--wyxr-border);
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            transition: all 0.2s;
-            cursor: pointer;
-            background: none;
-        }
-        .subscribe-link:hover {
-            border-color: var(--wyxr-gray);
-            color: var(--wyxr-white);
-        }
-        .header-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 12px auto 4px;
-        }
-
-        /* Subscribe modal */
-        .subscribe-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.75);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-        }
-        .subscribe-modal.open { display: flex; }
-        .subscribe-modal-card {
-            background: var(--wyxr-charcoal);
-            border: 1px solid var(--wyxr-border);
-            border-radius: 8px;
-            padding: 28px 24px 24px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-        }
-        .subscribe-modal-close {
-            position: absolute;
-            top: 12px; right: 14px;
-            background: none;
-            border: none;
-            color: var(--wyxr-gray);
-            font-size: 1.4em;
-            cursor: pointer;
-            line-height: 1;
-        }
-        .subscribe-modal-close:hover { color: var(--wyxr-white); }
-        .subscribe-modal-title {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1.1em;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 6px;
-        }
-        .subscribe-modal-sub {
-            font-size: 0.85em;
-            color: var(--wyxr-dim);
-            margin-bottom: 16px;
-        }
-        .subscribe-modal-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .subscribe-modal-input-row {
-            display: flex;
-            gap: 8px;
-        }
-        .subscribe-modal-email {
-            flex: 1;
-            background: var(--wyxr-charcoal);
-            border: 1px solid var(--wyxr-border);
-            border-radius: 4px;
-            padding: 10px 12px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9em;
-            color: var(--wyxr-white);
-        }
-        .subscribe-modal-email:focus {
-            outline: none;
-            border-color: var(--wyxr-yellow);
-        }
-        .subscribe-modal-email::placeholder { color: var(--wyxr-dim); }
-        .subscribe-modal-submit {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            border: none;
-            padding: 10px 18px;
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 4px;
-            white-space: nowrap;
-            transition: opacity 0.2s;
-        }
-        .subscribe-modal-submit:hover { opacity: 0.88; }
-        .subscribe-modal-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-        .subscribe-modal-error {
-            font-size: 0.8em;
-            color: #F54F73;
-            min-height: 16px;
-        }
-        .subscribe-modal-success {
-            text-align: center;
-            padding: 12px 0 4px;
-            font-size: 0.95em;
-            color: var(--wyxr-white);
-            line-height: 1.5;
-        }
-
-        /* Event Detail Modal */
-        .event-modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 300;
-            align-items: center;
-            justify-content: center;
-        }
-        .event-modal.open { display: flex; }
-        .event-modal-overlay {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.75);
-        }
-        .event-modal-card {
-            position: relative;
-            background: var(--wyxr-charcoal);
-            border: 1px solid var(--wyxr-border);
-            border-radius: 12px;
-            max-width: 560px;
-            width: 92%;
-            max-height: 90vh;
-            overflow-y: auto;
-            z-index: 1;
-            animation: eventModalIn 0.16s ease;
-        }
-        @keyframes eventModalIn {
-            from { opacity: 0; transform: scale(0.96) translateY(4px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
-        .event-modal-close {
-            position: absolute;
-            top: 12px; right: 14px;
-            background: none;
-            border: none;
-            color: var(--wyxr-gray);
-            font-size: 1.4em;
-            cursor: pointer;
-            line-height: 1;
-            z-index: 2;
-        }
-        .event-modal-close:hover { color: var(--wyxr-white); }
-        .event-modal-img {
-            width: 100%;
-            max-height: 280px;
-            object-fit: cover;
-            border-radius: 11px 11px 0 0;
-            display: block;
-        }
-        .event-modal-body { padding: 20px 24px 28px; }
-        .event-modal-badges {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .event-modal-badge-presents {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.65em;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-        }
-        .event-modal-badge-pick {
-            border: 1px solid var(--wyxr-yellow);
-            color: var(--wyxr-yellow);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.65em;
-            font-weight: 800;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 4px;
-            letter-spacing: 0.05em;
-        }
-        .event-modal-title {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1.35em;
-            font-weight: 800;
-            color: var(--wyxr-white);
-            border-left: none;
-            padding-left: 0;
-            letter-spacing: 0.04em;
-            margin-bottom: 6px;
-            line-height: 1.2;
-        }
-        .event-modal-venue {
-            font-size: 0.9em;
-            color: var(--wyxr-gray);
-            margin-bottom: 5px;
-        }
-        .event-modal-datetime {
-            font-size: 0.88em;
-            color: var(--wyxr-white);
-            margin-bottom: 8px;
-        }
-        .event-modal-meta {
-            font-size: 0.82em;
-            color: var(--wyxr-dim);
-            margin-bottom: 12px;
-        }
-        .event-modal-desc {
-            font-size: 0.88em;
-            color: #bdbdbd;
-            line-height: 1.55;
-            margin-bottom: 20px;
-        }
-        .event-modal-desc:empty { display: none; }
-        .event-modal-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .event-modal-btn-primary {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            border: none;
-            padding: 12px 20px;
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            font-size: 0.88em;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 6px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: opacity 0.2s;
-            letter-spacing: 0.03em;
-        }
-        .event-modal-btn-primary:hover { opacity: 0.88; }
-        .event-modal-btn-secondary-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .event-modal-btn-secondary {
-            background: none;
-            border: 1px solid var(--wyxr-border);
-            color: var(--wyxr-gray);
-            padding: 8px 14px;
-            font-size: 0.82em;
-            cursor: pointer;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: border-color 0.15s, color 0.15s;
-            white-space: nowrap;
-            font-family: 'Inter', -apple-system, sans-serif;
-        }
-        .event-modal-btn-secondary:hover {
-            border-color: var(--wyxr-gray);
-            color: var(--wyxr-white);
-        }
-        .event-modal-btn-tickets {
-            background: none;
-            border: 1px solid var(--wyxr-yellow);
-            color: var(--wyxr-yellow);
-            padding: 11px 18px;
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            font-size: 0.88em;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 6px;
-            text-decoration: none;
-            display: block;
-            text-align: center;
-            transition: background 0.15s, color 0.15s;
-            letter-spacing: 0.03em;
-        }
-        .event-modal-btn-tickets:hover {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-        }
-
-        /* Admin mode — only rendered for a logged-in admin (dev/frontend.md,
-           "Admin mode on the public page"). Public visitors never see these. */
-        .event-modal-btn-admin { border-color: var(--wyxr-yellow); color: var(--wyxr-yellow); }
-        .event-modal-btn-admin:hover { border-color: var(--wyxr-yellow); color: var(--wyxr-white); }
-        .event-modal-btn-admin[aria-pressed="true"] { background: var(--wyxr-yellow); color: var(--wyxr-black); }
-        .event-modal-btn-admin[aria-pressed="true"]:hover { color: var(--wyxr-black); opacity: 0.88; }
-        .event-modal-btn-admin:disabled { opacity: 0.5; cursor: wait; }
-        .pick-toggle {
-            margin-left: auto;
-            flex-shrink: 0;
-            background: none;
-            border: 0;
-            padding: 0 6px;
-            font-size: 1.15em;
-            line-height: 1;
-            color: var(--wyxr-dim);
-            opacity: 0.55;
-            cursor: pointer;
-        }
-        .pick-toggle:hover, .pick-toggle:focus-visible { opacity: 1; color: var(--wyxr-yellow); outline: 2px solid var(--wyxr-yellow); outline-offset: 1px; border-radius: 3px; }
-        .pick-toggle:hover { outline: none; }
-        .pick-toggle[aria-pressed="true"] { color: var(--wyxr-yellow); opacity: 1; }
-        .admin-pill {
-            position: fixed;
-            right: 12px;
-            bottom: 12px;
-            z-index: 150;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-weight: 800;
-            font-size: 0.72em;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 6px 10px;
-            border-radius: 999px;
-            text-decoration: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
-        }
-        .admin-pill:hover { color: var(--wyxr-black); opacity: 0.9; }
-        body.has-subscribe-footer .admin-pill { bottom: 60px; }
-        .admin-notice {
-            position: fixed;
-            right: 12px;
-            bottom: 48px;
-            z-index: 310; /* above the modal (300) so a failed toggle is seen */
-            background: var(--wyxr-charcoal);
-            color: var(--wyxr-white);
-            border: 1px solid var(--wyxr-yellow);
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 0.85em;
-            max-width: 320px;
-        }
-        body.has-subscribe-footer .admin-notice { bottom: 96px; }
-        .admin-pill[hidden], .admin-notice[hidden] { display: none; }
-
-        /* Fund Drive Banner (admin-toggled; percent read live from wyxr.org).
-           Coral is deliberately not used anywhere else on the page so the drive
-           reads as an announcement, not another sponsor slot. */
-        .pledge-banner { margin: 0 0 16px; }
-        .pledge-banner-inner {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px 16px;
-            padding: 14px 18px;
-            border-radius: 6px;
-            background: var(--wyxr-fund-coral);
-            box-shadow: 0 4px 18px rgba(233, 79, 55, 0.35);
-        }
-        .pledge-text { flex: 1 1 200px; min-width: 0; }
-        .pledge-headline {
-            display: block;
-            font-family: 'Anybody', sans-serif;
-            font-weight: 800;
-            font-size: 1.1em;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-            color: #FFFFFF;
-            overflow-wrap: anywhere;
-        }
-        .pledge-copy {
-            display: block;
-            margin-top: 2px;
-            font-size: 0.85em;
-            color: rgba(255, 255, 255, 0.88);
-            overflow-wrap: anywhere;
-        }
-        .pledge-copy:empty { display: none; }
-        .pledge-meter {
-            flex: 2 1 220px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .pledge-track {
-            flex: 1;
-            height: 10px;
-            border-radius: 5px;
-            background: rgba(0, 0, 0, 0.28);
-            overflow: hidden;
-        }
-        .pledge-fill {
-            height: 100%;
-            width: var(--pct, 0%);
-            border-radius: 5px;
-            background: #FFFFFF;
-            transition: width 0.6s ease;
-        }
-        .pledge-pct {
-            min-width: 3.2em;
-            text-align: right;
-            font-weight: 700;
-            font-size: 0.95em;
-            font-variant-numeric: tabular-nums;
-            color: #FFFFFF;
-        }
-        .pledge-donate {
-            flex: 0 0 auto;
-            padding: 9px 20px;
-            border-radius: 4px;
-            background: var(--wyxr-black);
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 0.9em;
-            text-decoration: none;
-        }
-        .pledge-donate:hover { background: #000; }
-        .pledge-donate:not([href]) { opacity: 0.6; cursor: default; }
-        @media (max-width: 768px) {
-            .pledge-banner { margin-top: 12px; }
-            .pledge-meter { flex-basis: 100%; order: 3; }
-            .pledge-donate { margin-left: auto; }
-        }
-
-        /* Calendar Sponsor Banner */
-        #calendarSponsorBanner {
-            margin: 0 0 20px;
-            text-align: center;
-        }
-        .cal-sponsor-label {
-            display: block;
-            font-size: 0.65rem;
-            color: var(--wyxr-gray);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 6px;
-        }
-        .cal-sponsor-img {
-            display: block;
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            border-radius: 4px;
-            margin: 0 auto;
-        }
-        @media (min-width: 768px) {
-            .cal-sponsor-img {
-                max-width: 460px;
-            }
-        }
-        .cal-sponsor-copy {
-            margin-top: 6px;
-            font-size: 0.8em;
-            color: var(--wyxr-dim);
-            font-style: italic;
-        }
-        .cal-sponsor-inquiry {
-            margin-top: 8px;
-            font-size: 0.7rem;
-            color: var(--wyxr-gray);
-        }
-        .cal-sponsor-inquiry a {
-            color: var(--wyxr-gray);
-            text-decoration: underline;
-        }
-        .cal-sponsor-inquiry a:hover {
-            color: var(--wyxr-yellow);
-        }
-
-        /* Submit Event Button */
-        .submit-event-link {
-            display: inline-block;
-            width: fit-content;
-            padding: 8px 20px;
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.85em;
-            font-weight: 700;
-            color: var(--wyxr-yellow);
-            border: 1px solid var(--wyxr-yellow);
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            transition: all 0.2s;
-        }
-        .submit-event-link:hover {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-        }
-
-        /* WYXR Presents — Pinned Section */
-        .presents-section {
-            margin-bottom: 24px;
-            border: 2px solid var(--wyxr-presents-blue);
-            border-radius: 6px;
-            padding: 16px;
-            background: linear-gradient(135deg, rgba(91, 188, 228, 0.08) 0%, rgba(91, 188, 228, 0.02) 100%);
-        }
-        .presents-header {
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.85em;
-            font-weight: 800;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--wyxr-presents-blue);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .presents-header::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            background: var(--wyxr-presents-blue);
-            border-radius: 50%;
-            animation: presents-pulse 2s ease-in-out infinite;
-        }
-        @keyframes presents-pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
-        .presents-badge {
-            display: inline-block;
-            background: var(--wyxr-presents-blue);
-            color: var(--wyxr-black);
-            font-family: 'Anybody', sans-serif;
-            font-size: 0.65em;
-            font-weight: 800;
-            padding: 3px 10px;
-            border-radius: 3px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            vertical-align: middle;
-            margin-right: 6px;
-        }
-        .presents-event {
-            border-left: 4px solid var(--wyxr-presents-blue);
-            padding: 8px 0 8px 12px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .presents-event:last-child { margin-bottom: 0; }
-        .presents-thumb {
-            width: 56px; height: 56px; object-fit: cover; border-radius: 4px;
-            flex: 0 0 auto; background: var(--wyxr-border);
-        }
-        .presents-text { min-width: 0; }
-        .presents-event .artist {
-            font-size: 1.05em;
-            font-weight: 700;
-            color: var(--wyxr-white);
-        }
-        .presents-event a { color: inherit; text-decoration: none; }
-        .presents-event a:hover .artist { text-decoration: underline; }
-        .presents-event .date-line {
-            font-size: 0.85em;
-            color: var(--wyxr-gray);
-            margin-top: 2px;
-        }
-
-        /* Accessibility helpers. The page's title is a banner image, so the
-           <h1> exists for screen readers and crawlers rather than sighted
-           users — hiding it with display:none would remove it from the
-           accessibility tree, hence the clip technique. */
         .sr-only {
             position: absolute;
             width: 1px; height: 1px;
@@ -943,210 +206,1523 @@
         }
         .skip-link {
             position: absolute;
-            left: -9999px;
-            top: 0;
-            z-index: 200;
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
+            left: 8px;
+            top: -100px;
+            z-index: var(--z-notice);
+            background: var(--text);
+            color: var(--bright);
             padding: 10px 16px;
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 0 0 6px 0;
+            border-radius: var(--r-s);
         }
-        .skip-link:focus { left: 0; }
+        .skip-link:focus { top: 8px; }
 
-        /* Feed links in the footer */
-        .footer-feeds {
-            margin-top: 8px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6px 10px;
+        /* Icons: one sprite at the top of <body>, one stroke weight. */
+        .icon-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+        .icon {
+            width: 1.25em; height: 1.25em;
+            flex: none;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
+        .icon--solid { fill: currentColor; }
 
-        /* Bottom Search */
-        .bottom-search {
-            margin: 24px 0;
-            padding-top: 16px;
-            border-top: 1px solid var(--wyxr-border);
-        }
-
-        /* Footer */
-        footer {
-            margin-top: 40px;
-            padding-top: 16px;
-            border-top: 1px solid var(--wyxr-border);
-            font-size: 0.8em;
-            color: #555;
-            text-align: center;
-        }
-        footer a { color: var(--wyxr-dim); }
-        footer a:hover { color: var(--wyxr-yellow); }
-
-        /* Sticky Subscribe Footer */
-        .subscribe-footer {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            z-index: 50;
-            background: var(--wyxr-charcoal);
-            border-top: 1px solid var(--wyxr-yellow);
-            transform: translateY(100%);
-            transition: transform 0.35s ease-out;
-            padding: 0 16px;
-        }
-        .subscribe-footer.visible { transform: translateY(0); }
-        .subscribe-footer-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
+        /* ---- Buttons ---- */
+        .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            height: 46px;
-        }
-        .subscribe-footer-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85em;
-            font-weight: 500;
-            color: var(--wyxr-white);
-            white-space: nowrap;
-        }
-        .subscribe-footer-cta {
-            background: var(--wyxr-yellow);
-            color: var(--wyxr-black);
-            border: none;
-            padding: 6px 18px;
-            font-family: 'Anybody', sans-serif;
+            gap: var(--s-2);
+            min-height: var(--tap);
+            padding: 0 18px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-pill);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-size: 0.875rem;
             font-weight: 700;
-            font-size: 0.8em;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            white-space: nowrap;
-        }
-        .subscribe-footer-cta:hover { opacity: 0.88; }
-        .subscribe-footer-close {
-            background: none;
-            border: none;
-            color: var(--wyxr-gray);
-            font-size: 1.2em;
-            cursor: pointer;
-            padding: 4px 8px;
+            letter-spacing: 0.04em;
             line-height: 1;
+            text-transform: uppercase;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: background-color var(--t-fast) ease-out, color var(--t-fast) ease-out, border-color var(--t-fast) ease-out;
         }
-        .subscribe-footer-close:hover { color: var(--wyxr-white); }
-        body.has-subscribe-footer { padding-bottom: 50px; }
+        .btn:active { transform: translateY(1px); }
+        .btn--line { background: var(--surface); color: var(--accent-text); }
+        .btn--line:hover { background: var(--accent); color: var(--on-accent); }
+        .btn--solid { background: var(--accent); color: var(--on-accent); }
+        .btn--solid:hover { background: var(--accent-text); border-color: var(--accent-text); }
+        .btn:disabled { opacity: 0.55; cursor: default; transform: none; }
+        .btn--solid:disabled:hover { background: var(--accent); border-color: var(--line); }
 
-        /* Top Navigation Bar */
-        .top-nav-bar {
-            background-color: var(--wyxr-charcoal);
-            color: #C6C5C3;
-            font-family: 'Inter', system-ui, sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-            padding: 7px 16px;
+        .icon-btn {
+            display: inline-grid;
+            place-items: center;
+            flex: none;
+            width: var(--tap); height: var(--tap);
+            border-radius: 50%;
+            color: var(--accent-text);
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .icon-btn:hover { background: var(--surface); }
+        .icon-btn:disabled { opacity: 0.3; cursor: not-allowed; background: none; }
+        .text-btn {
+            min-height: 32px;
+            padding: 0 var(--s-1);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--accent-text);
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+            white-space: nowrap;
+        }
+        .text-btn:hover { color: var(--text); }
+
+        /* ---- Credit strip ---- */
+        .credit-strip {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            border-bottom: 1px solid #2e2e2e;
-            margin: -20px -16px 16px -16px;
+            gap: var(--s-3);
+            padding: 6px var(--gutter);
+            border-bottom: 1px solid var(--rule);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-soft);
         }
-        .top-nav-bar a {
-            color: #C6C5C3;
-            text-decoration: none;
-            transition: color 0.15s ease;
-            display: flex;
+        .credit-strip a {
+            display: inline-flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            min-height: 28px;
+            text-decoration: none;
             white-space: nowrap;
         }
-        .top-nav-bar a:hover {
-            color: var(--wyxr-yellow);
-        }
-        .top-nav-bar .nav-divider {
-            color: #3D3B3E;
-            user-select: none;
-        }
+        .credit-strip a:hover { color: var(--accent-text); text-decoration: underline; }
+        .credit-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
         .wtmm-short { display: none; }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            /* Neighborhood chips - horizontal scroll, no wrap */
-            .chip-row {
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-                padding-bottom: 8px;
-                scrollbar-width: none;
-            }
-            .chip-row::-webkit-scrollbar {
-                display: none;
-            }
-            .chip {
-                flex-shrink: 0;
-            }
+        /* ---- Fund drive banner (admin-toggled; percent read live from wyxr.org).
+           The one dark band on the page, so the drive reads as an announcement
+           and not as another sponsor slot. Oxblood is not a fill anywhere else. */
+        .pledge-banner {
+            background: var(--band);
+            color: var(--on-band);
+            --focus: var(--bright);
+        }
+        .pledge-banner-inner {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--s-3) var(--s-5);
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 14px var(--gutter);
+        }
+        .pledge-text { flex: 1 1 220px; min-width: 0; }
+        .pledge-headline {
+            display: block;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.0625rem;
+            letter-spacing: 0.02em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: var(--bright);
+            overflow-wrap: anywhere;
+        }
+        .pledge-copy {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.875rem;
+            overflow-wrap: anywhere;
+        }
+        .pledge-copy:empty { display: none; }
+        .pledge-meter { flex: 2 1 220px; display: flex; align-items: center; gap: 10px; }
+        .pledge-track {
+            flex: 1;
+            height: 12px;
+            border-radius: var(--r-pill);
+            background: rgb(255 255 255 / 0.2);
+            overflow: hidden;
+        }
+        .pledge-fill {
+            height: 100%;
+            border-radius: inherit;
+            background: var(--lit);
+            /* Slides in from the left of the clipped track; percentages in
+               translate are of the fill's own (full) width. */
+            transform: translateX(calc(var(--pct, 0%) - 100%));
+            transition: transform 0.6s var(--ease-out);
+        }
+        .pledge-pct {
+            min-width: 3.2em;
+            text-align: right;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--lit);
+        }
+        .pledge-donate {
+            flex: 0 0 auto;
+            display: inline-flex;
+            align-items: center;
+            min-height: 40px;
+            padding: 0 22px;
+            border-radius: var(--r-pill);
+            background: var(--lit);
+            color: var(--on-lit);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.875rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .pledge-donate:hover { background: var(--bright); }
+        .pledge-donate:not([href]) { opacity: 0.6; cursor: default; }
+        .pledge-donate:not([href]):hover { background: var(--lit); }
 
-            /* Reduce header bottom margin */
-            header {
-                margin-bottom: 0;
-            }
-            .subscribe-footer-inner { height: 42px; gap: 8px; }
-            .subscribe-footer-text { font-size: 0.78em; }
-            .subscribe-footer-cta { padding: 5px 14px; font-size: 0.75em; }
+        /* ---- Page frame. Phone first: one column, the rail's children flow
+           straight into it so the filter bar can stick to the viewport. ---- */
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 var(--gutter) var(--s-7);
+        }
+        .rail { display: contents; }
+
+        /* ---- Masthead ---- */
+        .masthead {
+            display: grid;
+            grid-template-columns: clamp(72px, 19vw, 132px) minmax(0, 1fr);
+            align-items: center;
+            column-gap: var(--s-3);
+            padding: 10px 0 var(--s-3);
+        }
+        .masthead-art img { display: block; width: 100%; height: auto; }
+        .lockup {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            min-width: 0;
+            color: var(--accent);
+        }
+        .lockup-script {
+            display: block;
+            width: 42%;
+            min-width: 92px;
+            height: auto;
+            margin: 0 0 4px 2px;
+            transform: rotate(-3deg);
+            transform-origin: left bottom;
+        }
+        .lockup-words {
+            max-width: 100%;
+            overflow: hidden;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 800;
+            font-size: clamp(2.25rem, 12.4vw, 4.75rem);
+            line-height: 0.92;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .masthead-actions {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--s-2);
+            margin-top: var(--s-3);
+        }
+        .masthead-actions .btn { flex: 1 1 auto; }
+
+        /* ---- Filter bar: month, jump-to-day grid, search, neighborhoods ---- */
+        .filter-bar {
+            position: sticky;
+            top: 0;
+            z-index: var(--z-bar);
+            margin: 0 calc(var(--gutter) * -1);
+            padding: 6px var(--gutter) 10px;
+            background: var(--ground);
+            border-bottom: var(--keyline) solid var(--line);
+        }
+        .month-nav { display: flex; align-items: center; gap: var(--s-1); margin-bottom: 6px; }
+        .month-toggle {
+            flex: 1 1 auto;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: 0;
+            min-height: var(--tap);
+            border-radius: var(--r-pill);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: clamp(0.9375rem, 4.6vw, 1.125rem);
+            letter-spacing: 0.03em;
+            line-height: 1.1;
+            text-transform: uppercase;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .month-toggle:hover { background: var(--surface); }
+        .month-toggle .icon { color: var(--accent-text); transition: transform var(--t-med) var(--ease-out); }
+        .month-toggle[aria-expanded="true"] .icon { transform: rotate(180deg); }
+        .search-toggle[aria-expanded="true"] { background: var(--lit); color: var(--on-lit); }
+
+        .month-grid { max-height: 60vh; overflow-y: auto; padding: 2px 0 var(--s-3); }
+        .cal + .cal { margin-top: var(--s-3); }
+        .cal-caption {
+            margin-bottom: var(--s-1);
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+        .cal-dows, .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); justify-items: center; row-gap: 2px; }
+        .cal-dows {
+            margin-bottom: 2px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-soft);
+        }
+        .cal-day {
+            display: grid;
+            place-items: center;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 0.875rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            color: var(--text);
+        }
+        .cal-day.is-empty { font-weight: 400; color: rgb(58 21 16 / 0.42); }
+        .cal-day.is-lit { background: var(--lit); color: var(--on-lit); }
+        .cal-day.is-today { box-shadow: inset 0 0 0 var(--keyline) var(--line); }
+        button.cal-day { transition: background-color var(--t-fast) ease-out; }
+        .cal-key {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: var(--s-2);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-soft);
+        }
+        .cal-key::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--lit); }
+        button.cal-day:hover { background: var(--accent); color: var(--on-accent); }
+
+        .search-row { display: none; margin-bottom: var(--s-2); }
+        .filter-bar.search-open .search-row { display: block; }
+        .search-field { position: relative; }
+        .search-field .icon {
+            position: absolute;
+            left: 14px; top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent-text);
+            pointer-events: none;
+        }
+        .search-input {
+            width: 100%;
+            min-height: var(--tap);
+            padding: 0 14px 0 42px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-pill);
+            background: var(--surface);
+            color: var(--text);
+            font-size: 1rem; /* 16px or iOS zooms the page on focus */
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .search-input::placeholder { color: var(--text-soft); opacity: 1; }
+        /* The browser's own clear button, redrawn in the page's ink. */
+        .search-input::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            width: 18px; height: 18px;
+            margin-left: var(--s-2);
+            background: var(--accent-text);
+            cursor: pointer;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / contain no-repeat;
         }
 
-        @media (max-width: 600px) {
-            .month-nav { gap: 8px; }
-            .month-label { font-size: 0.95em; min-width: 150px; }
-            .filter-bar { padding: 8px 0; }
+        .filter-label { display: none; }
+        .chip-row {
+            display: flex;
+            gap: var(--s-2);
+            margin: 0 calc(var(--gutter) * -1);
+            padding: 3px var(--gutter);
+            overflow-x: auto;
+            scroll-padding-inline: var(--gutter);
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .chip-row::-webkit-scrollbar { display: none; }
+        .chip {
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--s-2);
+            min-height: 40px;
+            padding: 0 14px;
+            border: 1.5px solid var(--line);
+            border-radius: var(--r-pill);
+            font-size: 0.875rem;
+            font-weight: 500;
+            line-height: 1.2;
+            white-space: nowrap;
+            color: var(--text);
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .chip:hover { background: var(--surface); }
+        .chip-count {
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            color: var(--text-soft);
+        }
+        .chip.active { background: var(--lit); color: var(--on-lit); font-weight: 700; }
+        .chip.active .chip-count { color: var(--on-lit); }
+
+        /* ---- Calendar sponsor ---- */
+        #calendarSponsorBanner {
+            margin: var(--s-3) 0 0;
+            padding: 10px 12px;
+            border: 1.5px dashed var(--line);
+            border-radius: var(--r-m);
+            text-align: center;
+        }
+        .cal-sponsor-label, .sponsor-callout .sponsor-label {
+            display: block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--text-soft);
+        }
+        .cal-sponsor-img {
+            display: block;
+            width: 100%;
+            max-width: 460px;
+            height: auto;
+            margin: 6px auto 0;
+            border-radius: var(--r-s);
+        }
+        .cal-sponsor-copy { margin-top: 4px; font-size: 0.8125rem; line-height: 1.35; color: var(--text-soft); }
+
+        /* ---- List chrome ---- */
+        .loading-state { padding: var(--s-8) 0; text-align: center; font-weight: 500; color: var(--text-soft); }
+        #eventList { padding-top: var(--s-3); }
+        #eventList:focus { outline: none; }
+        .list-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--s-3);
+            padding-bottom: var(--s-2);
+        }
+        .event-count { font-size: 0.875rem; font-weight: 500; color: var(--text-soft); }
+        .no-events { padding: var(--s-7) var(--s-4); text-align: center; color: var(--text-soft); }
+        .no-events-title {
+            margin-bottom: 6px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .no-events .btn { margin-top: var(--s-4); }
+
+        /* ---- A day: the tear-off leaf and its rows ---- */
+        .day-section { margin-bottom: var(--s-5); scroll-margin-top: calc(var(--bar-h) + 2px); }
+        .day-head {
+            position: sticky;
+            top: var(--bar-h);
+            z-index: var(--z-day);
+            display: flex;
+            align-items: center;
+            gap: var(--s-3);
+            margin: 0 calc(var(--gutter) * -1);
+            padding: var(--s-2) var(--gutter);
+            background: var(--ground);
+            border-bottom: var(--keyline) solid var(--line);
+        }
+        .day-head:focus { outline: none; }
+        .leaf {
+            flex: none;
+            display: grid;
+            width: 46px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-s);
+            background: var(--surface);
+            overflow: hidden;
+            text-align: center;
+            line-height: 1;
+        }
+        .leaf-month {
+            padding: 3px 0 2px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 700;
+            font-size: 0.875rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        /* Weight is state: a leaf rests light and goes heavy while its day
+           is the one stuck at the top of the list. */
+        .leaf-day {
+            padding: 2px 0 3px;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 400;
+            font-size: 1.625rem;
+            color: var(--accent);
+            transition: font-weight var(--t-med) ease-out;
+        }
+        .day-section.is-current .leaf-day { font-weight: 800; }
+        .leaf-dow { display: none; }
+        .day-title { display: flex; flex-direction: column; min-width: 0; line-height: 1.15; }
+        .day-weekday {
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 1.0625rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        .day-date { font-size: 0.8125rem; font-weight: 500; color: var(--text-soft); }
+        .day-tally {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            color: var(--text-soft);
         }
 
+        /* ---- Event rows ---- */
+        .event-row {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--s-3);
+            min-height: 56px;
+            padding: 10px var(--s-2);
+            border-bottom: 1px solid var(--rule);
+            cursor: pointer;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .day-list > .event-row:last-child, .day-list > .venue-group:last-child { border-bottom: 0; }
+        [data-event-id]:hover { background: var(--surface); }
+        [data-event-id]:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; border-radius: var(--r-s); }
+        .row-time {
+            flex: 0 0 var(--time-col);
+            padding-top: 1px;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.25;
+            text-align: right;
+            white-space: nowrap;
+            color: var(--accent-text);
+        }
+        .row-ampm {
+            margin-left: 1px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .row-time--words {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+        .event-row-text { flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+        .artist {
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.22;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+        }
+        /* Venue and neighborhood sit on one line and wrap as whole items. The
+           dot belongs to the second item and is drawn in its left padding;
+           the negative margin puts that padding outside the clipped box
+           whenever the item starts a line, so a wrapped line never opens
+           with a stray dot. */
+        .row-place { display: block; overflow: hidden; font-size: 0.8125rem; line-height: 1.35; color: var(--text-soft); }
+        .row-place-in { display: flex; flex-wrap: wrap; margin-left: -1.1em; }
+        .row-place-in > span { position: relative; padding-left: 1.1em; }
+        .row-place-in > span + span::before { content: "\00B7"; position: absolute; left: 0.4em; }
+        .venue { font-weight: 600; }
+        .event-thumb {
+            flex: none;
+            width: 48px; height: 48px;
+            object-fit: cover;
+            border: 1.5px solid var(--line);
+            border-radius: var(--r-s);
+            background: var(--ground-sunk);
+        }
+
+        /* Several acts at one venue: the venue is named once, above them. */
+        .venue-group { border-bottom: 1px solid var(--rule); }
+        .venue-head { padding: 10px var(--s-2) 0 calc(var(--s-2) + var(--time-col) + var(--s-3)); }
+        .venue-head .row-place { font-size: 0.875rem; }
+        .venue-head .venue { font-weight: 700; color: var(--text); }
+        .venue-artists .event-row { min-height: var(--tap); padding-block: var(--s-2); border-bottom: 0; }
+
+        /* WYXR Picks: a ticket, in the one colour reserved for lit things. */
+        .featured-group {
+            margin: var(--s-3) 0;
+            padding: 0 6px 4px;
+            border: 0;
+            border-radius: var(--r-m);
+            background: var(--lit);
+            color: var(--on-lit);
+            --rule: rgb(58 21 16 / 0.22);
+            --notch: 32px;
+            -webkit-mask:
+                radial-gradient(circle 8px at 0 var(--notch), transparent 96%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 8px at 100% var(--notch), transparent 96%, #000) right / 51% 100% no-repeat;
+            mask:
+                radial-gradient(circle 8px at 0 var(--notch), transparent 96%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 8px at 100% var(--notch), transparent 96%, #000) right / 51% 100% no-repeat;
+        }
+        .day-list > .featured-group:first-child { margin-top: var(--s-3); }
+        .featured-group-header {
+            display: flex;
+            align-items: center;
+            height: var(--notch);
+            margin: 0 var(--s-2);
+            border-bottom: 2px dashed rgb(58 21 16 / 0.45);
+        }
+        .featured-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.8125rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .featured-group .event-row { min-height: 56px; padding-block: 10px; border-bottom: 1px solid var(--rule); }
+        .featured-group .event-row:last-child { border-bottom: 0; }
+        .featured-group .row-time { color: var(--on-lit); }
+        .featured-group [data-event-id]:hover { background: rgb(255 255 255 / 0.4); border-radius: var(--r-s); }
+
+        .presents-badge {
+            align-self: flex-start;
+            margin-top: 3px;
+            padding: 3px var(--s-2);
+            border-radius: 4px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.06em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+
+        /* Admin mode: only rendered for a logged-in admin (dev/frontend.md,
+           "Admin mode on the public page"). Public visitors never see these. */
+        .pick-toggle {
+            flex: none;
+            display: inline-grid;
+            place-items: center;
+            width: var(--tap); height: var(--tap);
+            margin: -6px -6px -6px 0;
+            border-radius: 50%;
+            color: var(--text-soft);
+        }
+        .pick-toggle:hover { background: rgb(58 21 16 / 0.08); color: var(--text); }
+        .pick-toggle[aria-pressed="true"] { color: var(--text); }
+        .pick-toggle[aria-pressed="true"] .icon { fill: currentColor; }
+
+        /* ---- Tonight: the marquee. Bulbs are two dot layers on one tile so
+           they can alternate; the board's content covers everything but the
+           outer ring. ---- */
+        .day-section--tonight {
+            --bulb: 14px;   /* width of the ring the bulbs sit in */
+            --dot: 3px;     /* bulb radius */
+            position: relative;
+            isolation: isolate;
+            margin: var(--s-1) 0 var(--s-6);
+            padding: var(--bulb);
+            border-radius: var(--r-l);
+            background: var(--accent);
+        }
+        .day-section--tonight::before, .day-section--tonight::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            background-size: calc(var(--bulb) * 2) calc(var(--bulb) * 2);
+            background-repeat: round;
+        }
+        .day-section--tonight::before {
+            background-image:
+                radial-gradient(circle at 25% 25%, var(--lit) 0 var(--dot), transparent calc(var(--dot) + 0.7px)),
+                radial-gradient(circle at 75% 75%, var(--lit) 0 var(--dot), transparent calc(var(--dot) + 0.7px));
+        }
+        .day-section--tonight::after {
+            background-image:
+                radial-gradient(circle at 75% 25%, var(--lit) 0 var(--dot), transparent calc(var(--dot) + 0.7px)),
+                radial-gradient(circle at 25% 75%, var(--lit) 0 var(--dot), transparent calc(var(--dot) + 0.7px));
+        }
+        .marquee-head {
+            display: flex;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 2px var(--s-4);
+            padding: 2px 6px var(--s-3);
+            background: var(--accent);
+            color: var(--on-accent);
+            --focus: var(--bright);
+        }
+        .marquee-head:focus { outline: none; }
+        .marquee-word {
+            flex: none;
+            width: 7.75rem;
+            aspect-ratio: 2522 / 984;
+            background: var(--on-accent-soft);
+            -webkit-mask: url(/brand/word-tonight.svg) center / contain no-repeat;
+            mask: url(/brand/word-tonight.svg) center / contain no-repeat;
+        }
+        .marquee-date {
+            padding-bottom: 5px;
+            font-family: var(--font-display);
+            font-stretch: 50%;
+            font-weight: 700;
+            font-size: 1.875rem;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+        .marquee-head .day-tally { padding-bottom: 9px; color: var(--on-accent); }
+        .day-section--tonight .day-list {
+            padding: 2px 4px;
+            border-radius: 10px;
+            background: var(--surface);
+        }
+        .day-section--tonight [data-event-id]:hover { background: var(--ground); border-radius: var(--r-s); }
+        .day-section--tonight .featured-group [data-event-id]:hover { background: rgb(255 255 255 / 0.4); }
+
+        /* ---- WYXR Presents, pinned above the days ---- */
+        .presents-section {
+            margin: var(--s-1) 0 var(--s-5);
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-m);
+            background: var(--surface);
+            overflow: hidden;
+        }
+        .presents-header {
+            display: flex;
+            align-items: center;
+            gap: var(--s-2);
+            padding: var(--s-2) 14px;
+            background: var(--accent);
+            color: var(--on-accent);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.8125rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .presents-event {
+            display: flex;
+            align-items: center;
+            gap: var(--s-3);
+            padding: var(--s-3) 14px;
+            border-top: 1px solid var(--rule);
+            cursor: pointer;
+        }
+        .presents-header + .presents-event { border-top: 0; }
+        .presents-section [data-event-id]:hover { background: var(--ground); }
+        .presents-thumb {
+            flex: none;
+            width: 56px; height: 56px;
+            object-fit: cover;
+            border: 1.5px solid var(--line);
+            border-radius: var(--r-s);
+            background: var(--ground-sunk);
+        }
+        .presents-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+        .presents-event .date-line { font-size: 0.8125rem; color: var(--text-soft); }
+
+        /* ---- Things that interrupt the list ---- */
+        .sponsor-callout { max-width: 500px; margin: 0 0 var(--s-5); }
+        .sponsor-callout .sponsor-label { margin-bottom: var(--s-1); }
+        .sponsor-img { display: block; width: 100%; height: auto; border-radius: var(--r-s); }
+        .subscribe-callout {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--s-1) var(--s-3);
+            margin: 0 0 var(--s-5);
+            padding: 14px var(--s-4);
+            border: 1.5px dashed var(--line);
+            border-radius: var(--r-m);
+            cursor: pointer;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .subscribe-callout:hover { background: var(--surface); }
+        .subscribe-callout > .icon { color: var(--accent-text); }
+        .subscribe-callout-text { flex: 1 1 12rem; font-size: 0.9375rem; }
+        .subscribe-callout-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            font-size: 0.8125rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            color: var(--accent-text);
+        }
+
+        /* ---- Bottom search + footer ---- */
+        .bottom-search {
+            margin-top: var(--s-6);
+            padding-top: var(--s-5);
+            border-top: var(--keyline) solid var(--line);
+        }
+        .bottom-search label {
+            display: block;
+            margin-bottom: 10px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+        footer {
+            margin-top: var(--s-7);
+            font-size: 0.875rem;
+            text-align: center;
+            color: var(--text-soft);
+        }
+        .footer-signoff { display: block; width: min(100%, 320px); height: auto; margin: 0 auto var(--s-4); }
+        .footer-feeds {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2px 18px;
+            margin-top: var(--s-3);
+        }
+        .footer-feeds a, .footer-feeds .text-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 36px;
+            font-weight: 500;
+            color: var(--text);
+        }
+        .footer-feeds a:hover, .footer-feeds .text-btn:hover { color: var(--accent-text); }
+        .footer-sponsor { margin-top: var(--s-3); font-size: 0.8125rem; }
+        .footer-sponsor a { color: var(--text); }
+        .footer-sponsor a:hover { color: var(--accent-text); }
+        .footer-feeds--quiet a, .footer-feeds--quiet .text-btn {
+            font-size: 0.8125rem;
+            font-weight: 400;
+            color: var(--text-soft);
+        }
+
+        /* ---- Dialogs ---- */
+        .modal-close {
+            position: absolute;
+            top: 10px; right: 10px;
+            z-index: 2;
+            width: 40px; height: 40px;
+            border: var(--keyline) solid var(--line);
+            background: var(--surface);
+        }
+        .modal-close:hover { background: var(--accent); color: var(--on-accent); }
+
+        .subscribe-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: var(--z-subscribe);
+            align-items: center;
+            justify-content: center;
+            padding: var(--s-4);
+            background: var(--scrim);
+        }
+        .subscribe-modal.open { display: flex; }
+        .subscribe-modal-card {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            padding: 28px var(--s-5) var(--s-5);
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-l);
+            background: var(--surface);
+            animation: rise var(--t-med) var(--ease-out);
+        }
+        .subscribe-modal-title {
+            padding-right: 44px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 1.375rem;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-wrap: balance;
+        }
+        .subscribe-modal-sub { margin: 6px 0 var(--s-4); font-size: 0.9375rem; color: var(--text-soft); }
+        .subscribe-modal-form { display: flex; flex-direction: column; gap: 10px; }
+        .subscribe-modal-input-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+        .subscribe-modal-email {
+            flex: 1 1 200px;
+            min-width: 0;
+            min-height: var(--tap);
+            padding: 0 var(--s-4);
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-pill);
+            background: var(--field);
+            font-size: 1rem;
+        }
+        .subscribe-modal-email::placeholder { color: var(--text-soft); opacity: 1; }
+        .subscribe-modal-error { min-height: 1.25rem; font-size: 0.875rem; font-weight: 600; color: var(--accent-text); }
+        .subscribe-modal-success { padding: var(--s-2) 0 var(--s-1); font-weight: 500; line-height: 1.5; }
+
+        /* Event detail: a sheet from the bottom on a phone, a drawer from the
+           right on a desktop. Same markup, same focus trap. */
+        .event-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: var(--z-modal);
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .event-modal.open { display: flex; }
+        .event-modal-overlay { position: absolute; inset: 0; background: var(--scrim); }
+        .event-modal-card {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 640px;
+            max-height: 92vh;
+            max-height: 92dvh;
+            border: var(--keyline) solid var(--line);
+            border-bottom: 0;
+            border-radius: var(--r-l) var(--r-l) 0 0;
+            background: var(--surface);
+            overflow: hidden;
+            animation: sheet-up var(--t-slow) var(--ease-out);
+        }
+        .event-modal-scroll { overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+        .event-modal-img {
+            display: block;
+            width: 100%;
+            /* The flyer is often the only place the whole bill is written
+               down, so it is letterboxed, never cropped. */
+            max-height: 56vh;
+            max-height: 56dvh;
+            object-fit: contain;
+            background: var(--ground-sunk);
+            border-bottom: var(--keyline) solid var(--line);
+        }
+        .event-modal-body { padding: var(--s-5) 20px calc(var(--s-5) + env(safe-area-inset-bottom, 0px)); }
+        #eventModalImageWrap:empty + .event-modal-body { padding-top: 60px; }
+        .event-modal-badges { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: 10px; }
+        .event-modal-badge-presents, .event-modal-badge-pick {
+            padding: 4px 10px;
+            border-radius: var(--r-pill);
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.06em;
+            line-height: 1.2;
+            text-transform: uppercase;
+        }
+        .event-modal-badge-presents { background: var(--accent); color: var(--on-accent); }
+        .event-modal-badge-pick { background: var(--lit); color: var(--on-lit); }
+        .event-modal-title {
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 1.5rem;
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            text-wrap: balance;
+            overflow-wrap: anywhere;
+        }
+        .event-modal-venue { margin-top: var(--s-2); font-weight: 600; }
+        .event-modal-datetime { margin-top: 2px; font-size: 0.9375rem; font-weight: 600; color: var(--accent-text); }
+        .event-modal-meta { margin-top: 6px; font-size: 0.875rem; color: var(--text-soft); }
+        .event-modal-desc {
+            max-width: 65ch;
+            margin-top: 14px;
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            white-space: pre-line;
+            overflow-wrap: anywhere;
+        }
+        .event-modal-desc:empty { display: none; }
+        /* Three jobs, three groups: buy a ticket, keep the date, share the show.
+           The leaf sits in the keep-the-date row so the choices read as one
+           tear-off, not a second stack of pills. */
+        .event-modal-actions { display: flex; flex-direction: column; margin-top: var(--s-5); }
+        .event-modal-btn-tickets {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 0 16px 0 2px;
+            border: 0;
+            border-radius: var(--r-m);
+            background: var(--accent);
+            color: var(--on-accent);
+            --focus: var(--bright);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            font-size: 0.9375rem;
+            letter-spacing: 0.04em;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            -webkit-mask:
+                radial-gradient(circle 9px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+            mask:
+                radial-gradient(circle 9px at 0 50%, transparent 97%, #000) left / 51% 100% no-repeat,
+                radial-gradient(circle 9px at 100% 50%, transparent 97%, #000) right / 51% 100% no-repeat;
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .event-modal-btn-tickets:hover { background: var(--accent-text); }
+        .event-modal-btn-tickets:active { transform: translateY(1px); }
+        .event-modal-btn-tickets .icon { width: 22px; height: 22px; }
+        .ticket-stub {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            align-self: stretch;
+            border-right: 2px dashed rgb(255 255 255 / 0.7);
+        }
+        .event-modal-btn-label { flex: 1; text-align: center; }
+        .save-pad { margin: 0; }
+        .event-modal-btn-tickets + .save-pad {
+            margin-top: var(--s-5);
+            padding-top: var(--s-4);
+            border-top: var(--keyline) solid var(--line);
+        }
+        .save-pad-title {
+            margin: 0 0 10px;
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+        .save-pad-row {
+            display: flex;
+            align-items: stretch;
+            gap: var(--s-3);
+        }
+        .event-modal .save-leaf {
+            width: 72px;
+            border-radius: var(--r-m);
+            transform: rotate(-2deg);
+        }
+        .event-modal .save-leaf .leaf-month {
+            padding: 8px 0 2px;
+            font-size: 0.875rem;
+            background:
+                radial-gradient(circle at 50% 0, var(--surface) 0 2.5px, transparent 3.2px) top center / 14px 8px repeat-x,
+                var(--accent);
+        }
+        .event-modal .save-leaf .leaf-day {
+            padding: 1px 0 0;
+            font-size: 2rem;
+            font-weight: 400;
+        }
+        .event-modal .save-leaf .leaf-dow {
+            display: block;
+            padding: 1px 0 7px;
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+        .save-pad:hover .save-leaf .leaf-day,
+        .save-pad:focus-within .save-leaf .leaf-day { font-weight: 800; }
+        .save-pad-grid {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--s-2);
+            min-width: 0;
+        }
+        .cal-choice {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            min-height: 72px;
+            height: 100%;
+            padding: 8px 4px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-m);
+            background: var(--surface);
+            color: var(--accent-text);
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 800;
+            font-size: 0.6875rem;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background-color var(--t-fast) ease-out, color var(--t-fast) ease-out;
+        }
+        .cal-choice .icon { width: 22px; height: 22px; }
+        .cal-choice span { white-space: nowrap; }
+        .cal-choice:hover { background: var(--accent); color: var(--on-accent); --focus: var(--bright); }
+        .cal-choice:active { transform: translateY(1px); }
+        /* The leaf stays in the row until the three names no longer fit beside it. */
+        @media (max-width: 359px) {
+            .save-pad-row { flex-direction: column; align-items: flex-start; }
+            .save-pad-grid { width: 100%; }
+        }
+        .event-modal-share { margin-top: var(--s-3); }
+        .event-modal-share-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            min-height: var(--tap);
+            padding: 0 12px;
+            border-radius: var(--r-m);
+            color: var(--accent-text);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            text-align: left;
+        }
+        .event-modal-share-btn .icon { width: 20px; height: 20px; }
+        .event-modal-share-btn .icon-check { display: none; }
+        .event-modal-share-label {
+            text-decoration: underline;
+            text-underline-offset: 0.18em;
+            text-decoration-thickness: 1.5px;
+        }
+        .event-modal-share-btn:hover { background: var(--ground); color: var(--text); }
+        .event-modal-share-btn.is-copied { color: var(--accent-text); }
+        .event-modal-share-btn.is-copied .icon-link { display: none; }
+        .event-modal-share-btn.is-copied .icon-check { display: block; }
+        .event-modal-share-btn.is-copied .event-modal-share-label { text-decoration: none; }
+        .event-modal-btn-secondary-row { display: flex; margin-top: var(--s-3); }
+        .event-modal-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-height: var(--tap);
+            padding: 0 14px;
+            border: 1.5px solid var(--line);
+            border-radius: var(--r-pill);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            color: var(--text);
+            transition: background-color var(--t-fast) ease-out;
+        }
+        .event-modal-btn-secondary:hover { background: var(--ground); }
+        .event-modal-btn-admin { border-style: dashed; }
+        .event-modal-btn-admin[aria-pressed="true"] { background: var(--lit); color: var(--on-lit); border-style: solid; }
+        .event-modal-btn-admin:disabled { opacity: 0.55; cursor: wait; }
+
+        .detail-empty { display: none; }
+        .event-row.is-open { background: var(--surface); border-radius: var(--r-s); }
+        .featured-group .event-row.is-open { background: rgb(255 255 255 / 0.4); }
+        .day-section--tonight .event-row.is-open { background: var(--ground); }
+        .day-section--tonight .featured-group .event-row.is-open { background: rgb(255 255 255 / 0.4); }
+
+        .admin-pill {
+            position: fixed;
+            right: 12px; bottom: 12px;
+            z-index: var(--z-admin);
+            padding: 7px 12px;
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-pill);
+            background: var(--lit);
+            color: var(--on-lit);
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .admin-pill:hover { background: var(--bright); }
+        body.has-subscribe-footer .admin-pill { bottom: 68px; }
+        .admin-notice {
+            position: fixed;
+            right: 12px; bottom: 52px;
+            z-index: var(--z-notice); /* above the modal so a failed toggle is seen */
+            max-width: 320px;
+            padding: var(--s-2) var(--s-3);
+            border: var(--keyline) solid var(--line);
+            border-radius: var(--r-s);
+            background: var(--surface);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        body.has-subscribe-footer .admin-notice { bottom: 108px; }
+
+        /* ---- Sticky subscribe footer ---- */
+        .subscribe-footer {
+            position: fixed;
+            left: 0; right: 0; bottom: 0;
+            z-index: var(--z-footer);
+            padding: 0 var(--s-3) env(safe-area-inset-bottom, 0px);
+            border-top: var(--keyline) solid var(--line);
+            background: var(--surface);
+            transform: translateY(100%);
+            visibility: hidden;
+            transition: transform 0.35s var(--ease-out), visibility 0s 0.35s;
+        }
+        .subscribe-footer.visible { transform: translateY(0); visibility: visible; transition-delay: 0s; }
+        .subscribe-footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--s-3);
+            max-width: 720px;
+            min-height: 54px;
+            margin: 0 auto;
+        }
+        .subscribe-footer-text { font-size: 0.875rem; font-weight: 600; line-height: 1.25; }
+        .subscribe-footer-cta { min-height: 36px; padding: 0 var(--s-4); font-size: 0.8125rem; }
+        .subscribe-footer-close { width: 40px; height: 40px; color: var(--text-soft); }
+        body.has-subscribe-footer { padding-bottom: 60px; }
+
+        /* ---- Motion: one authored moment (the marquee lighting up on
+           arrival), plus the sheet and drawer finding their place. ---- */
+        @keyframes bulbs { 0%, 100% { opacity: 1; } 50% { opacity: 0.2; } }
+        @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+        @keyframes sheet-up { from { opacity: 0; transform: translateY(32px); } }
+        @keyframes drawer-in { from { opacity: 0; transform: translateX(40px); } }
+        .marquee--arrive::before { animation: bulbs 0.7s steps(1, end) 6; }
+        .marquee--arrive::after { animation: bulbs 0.7s steps(1, end) -0.35s 6; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ---- Phone: scrolling down tucks the chip row out of the stuck bar;
+           scrolling up brings it back. The row is clipped, not removed, so
+           nothing below the bar moves. ---- */
+        @media (max-width: 1023.98px) {
+            .filter-bar { clip-path: inset(0 0 0 0); transition: clip-path var(--t-med) var(--ease-out); }
+            .filter-bar::after {
+                content: "";
+                position: absolute;
+                left: 0; right: 0;
+                bottom: var(--chips-h, 0px);
+                height: var(--keyline);
+                background: var(--line);
+                opacity: 0;
+                transition: opacity var(--t-med) ease-out;
+            }
+            .filter-bar.is-tucked { clip-path: inset(0 0 var(--chips-h, 0px) 0); }
+            .filter-bar.is-tucked::after { opacity: 1; }
+            .day-head { transition: top var(--t-med) var(--ease-out); }
+            .cal-sponsor-lead { display: none; }
+            /* The month label and the All chip already say this. */
+            .list-summary.is-quiet {
+                position: absolute;
+                width: 1px; height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+        }
+
+        /* ---- Small phones ---- */
         @media (max-width: 360px) {
             .wtmm-full { display: none; }
             .wtmm-short { display: inline; }
             .subscribe-footer-text { display: none; }
-            .subscribe-footer-inner::before { content: '\1F4E7'; font-size: 1em; }
+            .btn { padding: 0 14px; letter-spacing: 0.02em; }
+            /* Without their icons the two masthead buttons share one row. */
+            .masthead-actions .btn .icon { display: none; }
+            .month-nav { gap: 0; }
+            .month-nav .icon-btn { width: 40px; height: 40px; }
+        }
+
+        /* ---- Desktop: the rail takes the masthead and the filters; the
+           list keeps its measure and each day gets its leaf in a column of
+           its own. ---- */
+        @media (min-width: 1024px) {
+            :root { --gutter: 32px; --time-col: 4rem; }
+            .page {
+                display: grid;
+                grid-template-columns: var(--rail-w) minmax(0, 1fr);
+                column-gap: clamp(32px, 4vw, 64px);
+                max-width: 1280px;
+                padding: var(--s-6) var(--gutter) var(--s-8);
+            }
+            .rail { display: block; }
+            .stage { max-width: 880px; }
+
+            .masthead { display: block; padding: 0 0 var(--s-5); text-align: center; }
+            .masthead-art img { width: 100%; max-width: 300px; margin: 0 auto; }
+            .lockup {
+                position: absolute;
+                width: 1px; height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+            .masthead-actions { margin-top: var(--s-4); }
+
+            .filter-bar {
+                top: var(--s-4);
+                max-height: calc(100vh - var(--s-6));
+                margin: 0;
+                padding: var(--s-3) var(--s-4) var(--s-4);
+                border: var(--keyline) solid var(--line);
+                border-radius: var(--r-l);
+                background: var(--surface);
+                overflow-y: auto;
+                scrollbar-width: thin;
+            }
+            body.has-subscribe-footer .filter-bar { max-height: calc(100vh - var(--s-6) - 60px); }
+            .month-toggle:hover, .icon-btn:hover, .chip:hover { background: var(--ground); }
+            .search-toggle { display: none; }
+            .search-row { display: block; margin: var(--s-1) 0 var(--s-4); }
+            .search-input { background: var(--field); }
+            .month-grid { max-height: none; overflow: visible; }
+            .cal-day { width: 36px; height: 36px; }
+            .filter-label {
+                display: block;
+                margin-bottom: 6px;
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-weight: 800;
+                font-size: 0.75rem;
+                letter-spacing: 0.1em;
+                text-transform: uppercase;
+            }
+            .chip-row { flex-direction: column; gap: 2px; margin: 0 -6px; padding: 0; overflow: visible; }
+            .chip {
+                justify-content: space-between;
+                min-height: 32px;
+                padding: 4px 10px;
+                border-color: transparent;
+                border-radius: var(--r-s);
+                text-align: left;
+                white-space: normal;
+            }
+            .chip.active { border-color: var(--line); }
+
+            #calendarSponsorBanner { margin-top: 0; padding: 14px; }
+            .cal-sponsor-copy { margin-top: 6px; font-size: 0.875rem; }
+            .list-summary { padding-bottom: var(--s-3); }
+
+            .day-section {
+                display: grid;
+                grid-template-columns: var(--leaf-col) minmax(0, 1fr);
+                column-gap: var(--s-5);
+                align-items: start;
+                margin-bottom: var(--s-7);
+                scroll-margin-top: var(--s-5);
+            }
+            .day-head {
+                top: var(--s-5);
+                flex-direction: column;
+                gap: var(--s-2);
+                margin: 0;
+                padding: 4px 0 0;
+                background: none;
+                border: 0;
+            }
+            .leaf { width: 104px; border-radius: var(--r-m); transform: rotate(-2deg); }
+            .leaf-month {
+                padding: 11px 0 5px;
+                font-size: 1.375rem;
+                /* the binding holes along the top of the leaf */
+                background:
+                    radial-gradient(circle at 50% 0, var(--ground) 0 3.5px, transparent 4px) top center / 20px 10px repeat-x,
+                    var(--accent);
+            }
+            .leaf-day { padding: 6px 0 0; font-size: 4.25rem; }
+            .leaf-dow {
+                display: block;
+                padding: 2px 0 9px;
+                font-family: var(--font-head);
+                font-weight: 800;
+                font-size: 0.75rem;
+                letter-spacing: 0.14em;
+                text-transform: uppercase;
+                color: var(--text);
+            }
+            .day-title {
+                position: absolute;
+                width: 1px; height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+            .day-tally { margin: 0; }
+            .day-list { border-top: var(--keyline) solid var(--line); }
+            .artist { font-size: 1.0625rem; }
+            .row-place { font-size: 0.875rem; }
+            .row-time { font-size: 1rem; }
+            .event-thumb { width: 56px; height: 56px; }
+            .event-row { padding-block: var(--s-3); }
+
+            .day-section--tonight { display: block; --bulb: 22px; --dot: 3.5px; margin-bottom: var(--s-7); }
+            .day-section--tonight .day-list { padding: 4px 10px; border-top: 0; }
+            .marquee-head { padding: 4px 8px var(--s-4); }
+            .marquee-word { width: 13rem; }
+            .marquee-date { padding-bottom: 8px; font-size: 2.75rem; }
+            .marquee-head .day-tally { padding-bottom: 14px; font-size: 0.875rem; }
+
+            .featured-group { --notch: 39px; }
+            .sponsor-callout, .subscribe-callout { margin-left: calc(var(--leaf-col) + var(--s-5)); }
+            .presents-section { margin-bottom: var(--s-6); }
+
+            .event-modal { align-items: stretch; justify-content: flex-end; }
+            .event-modal-card {
+                max-width: 480px;
+                max-height: none;
+                border: 0;
+                border-left: var(--keyline) solid var(--line);
+                border-radius: 0;
+                animation-name: drawer-in;
+            }
+            .event-modal-img { max-height: 64vh; }
+            .event-modal-body { padding: var(--s-5) 28px var(--s-6); }
+            .event-modal-title { font-size: 1.75rem; }
+        }
+
+        /* ---- Wide desktop: a show's details dock beside the list instead
+           of covering it, so the list stays live while you read. ---- */
+        @media (min-width: 1680px) {
+            :root { --dock-w: clamp(420px, 27vw, 520px); }
+            body { padding-right: var(--dock-w); }
+            .page { column-gap: 48px; }
+            .subscribe-footer { right: var(--dock-w); }
+            .admin-pill, .admin-notice { right: calc(var(--dock-w) + 12px); }
+            .detail-empty {
+                position: fixed;
+                top: 0; right: 0; bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: var(--s-2);
+                width: var(--dock-w);
+                padding: var(--s-6);
+                border-left: var(--keyline) solid var(--line);
+                background: var(--surface);
+                text-align: center;
+                color: var(--text-soft);
+            }
+            .detail-empty img { width: 96px; height: auto; margin-bottom: var(--s-3); }
+            .detail-empty-title {
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-weight: 800;
+                font-size: 1.375rem;
+                text-transform: uppercase;
+                color: var(--text);
+            }
+            .detail-empty p { max-width: 26ch; }
+            .event-modal { inset: 0 0 0 auto; width: var(--dock-w); z-index: var(--z-dock); }
+            .event-modal-overlay { display: none; }
+            .event-modal-card { max-width: none; animation-name: rise; }
         }
     </style>
 </head>
 <body>
     <a class="skip-link" href="#eventList">Skip to events</a>
-    <h1 class="sr-only">Memphis Live Music Calendar — concerts and shows, updated daily by WYXR 91.7 FM</h1>
 
-    <!-- Top Navigation Bar -->
-    <div class="top-nav-bar">
+    <!-- Icon sprite. Every icon on the page is a <use> of one of these, so
+         they share one grid (24px) and one stroke (set by .icon in the CSS).
+         JS builds the same markup through icon(). -->
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+        <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+        <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/></symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+        <symbol id="i-rss" viewBox="0 0 24 24"><path d="M5 11a8 8 0 0 1 8 8M5 4.5A14.5 14.5 0 0 1 19.5 19"/><circle cx="5.5" cy="18.5" r="1"/></symbol>
+        <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></symbol>
+        <symbol id="i-radio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"/><path d="M8.1 8.1a5.5 5.5 0 0 0 0 7.8M15.9 8.1a5.5 5.5 0 0 1 0 7.8M5.3 5.3a9.5 9.5 0 0 0 0 13.4M18.7 5.3a9.5 9.5 0 0 1 0 13.4"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.2 6.8h.01"/></symbol>
+        <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M4 7.5h16a1.5 1.5 0 0 1 1.5 1.5v2.1a2.1 2.1 0 0 0 0 4.2V15a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 15v-1.7a2.1 2.1 0 0 0 0-4.2V9A1.5 1.5 0 0 1 4 7.5z"/><path d="M9 7.5v9" stroke-dasharray="1.6 2.1"/></symbol>
+        <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l1.92-1.92a5 5 0 0 0-7.07-7.07l-1.1 1.09"/><path d="M14 11a5 5 0 0 0-7.54-.54l-1.92 1.92a5 5 0 0 0 7.07 7.07l1.1-1.09"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    </svg>
+
+    <div class="credit-strip">
         <a href="https://wyxr.org" target="_blank" rel="noopener">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-radio"/></svg>
             WYXR 91.7 FM
         </a>
-        <span class="nav-divider">·</span>
+        <span class="credit-sep" aria-hidden="true"></span>
         <a href="https://www.instagram.com/wheresthemusicmemphis/" target="_blank" rel="noopener">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </svg>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
             <span class="wtmm-full">Where's the Music Memphis</span>
             <span class="wtmm-short">WTMM</span>
         </a>
     </div>
-
-    <header>
-        <picture>
-            <source srcset="/wyxr-wtmm-header.webp" type="image/webp">
-            <img src="/wyxr-wtmm-header.png" alt="WYXR 91.7 FM &amp; Where's the Music Memphis — Concert Calendar" class="header-banner" width="1200" height="280">
-        </picture>
-        <div class="header-links">
-            <a href="/submit" class="submit-event-link">Submit an Event</a>
-            <button class="subscribe-link" id="subscribeBtn" type="button">📧 Subscribe</button>
-        </div>
-    </header>
 
     <!-- Fund Drive Banner: shown only while Admin → Sponsors → Fund Drive is
          enabled and inside its date window. Percent comes from wyxr.org via
@@ -1165,12 +1741,128 @@
         </div>
     </div>
 
+    <div class="page">
+        <!-- The rail. On a phone its children flow straight into the page
+             (display: contents) so the filter bar can stick to the viewport;
+             from 1024px it becomes the left column. -->
+        <div class="rail">
+            <header class="masthead">
+                <!-- Phone: the flower, with the title set in type beside it.
+                     Desktop: the whole logo, which already carries the title,
+                     so the typeset <h1> is clipped rather than removed. -->
+                <picture class="masthead-art">
+                    <source media="(min-width: 1024px)" srcset="/brand/logo.svg" width="968" height="994">
+                    <img src="/brand/mascot.svg" alt="" width="524" height="600" fetchpriority="high">
+                </picture>
+                <h1 class="lockup">
+                    <img class="lockup-script" src="/brand/word-memphis.svg" alt="Memphis" width="3141" height="906">
+                    <span class="lockup-words">Concert Calendar</span>
+                    <span class="sr-only">: live music, concerts and shows, updated daily by WYXR 91.7 FM</span>
+                </h1>
+                <div class="masthead-actions header-links">
+                    <a href="/submit" class="btn btn--line submit-event-link">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg>
+                        Submit an event
+                    </a>
+                    <button class="btn btn--solid subscribe-link" id="subscribeBtn" type="button">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>
+                        Subscribe
+                    </button>
+                </div>
+            </header>
+
+            <div class="filter-bar" id="filterBar" role="search" aria-label="Find shows">
+                <div class="month-nav">
+                    <button id="prevMonth" class="icon-btn" type="button" aria-label="Previous month">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-left"/></svg>
+                    </button>
+                    <!-- Opens the jump-to-day grid. Closed by default on a
+                         phone, open by default in the desktop rail. -->
+                    <button id="monthToggle" class="month-toggle" type="button" aria-expanded="false" aria-controls="monthGrid">
+                        <span class="month-label" id="monthLabel">February 2026</span>
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg>
+                    </button>
+                    <button id="nextMonth" class="icon-btn" type="button" aria-label="Next month">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-right"/></svg>
+                    </button>
+                    <button id="searchToggle" class="icon-btn search-toggle" type="button" aria-label="Search" aria-expanded="false" aria-controls="searchRow">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+                    </button>
+                </div>
+                <div class="month-grid" id="monthGrid" hidden></div>
+                <div class="search-row" id="searchRow">
+                    <div class="search-field">
+                        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+                        <input type="search" class="search-input" id="searchInputTop" placeholder="Search artists, venues..." aria-label="Search artists and venues" autocomplete="off" enterkeyhint="search">
+                    </div>
+                </div>
+                <p class="filter-label" id="chipLabel">Neighborhood</p>
+                <div class="chip-row" id="chipRow" role="group" aria-labelledby="chipLabel">
+                    <button type="button" class="chip active" data-neighborhood="all" aria-pressed="true">All</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stage">
+            <!-- Calendar Sponsor Banner -->
+            <div id="calendarSponsorBanner" style="display:none;">
+                <span class="cal-sponsor-label" id="calSponsorLabel">Concert calendar presented by</span>
+                <a id="calSponsorLink" href="#" target="_blank" rel="noopener sponsored">
+                    <img id="calSponsorImg" alt="" class="cal-sponsor-img" loading="eager">
+                </a>
+                <p id="calSponsorCopy" class="cal-sponsor-copy"></p>
+            </div>
+
+            <div class="loading-state" id="loadingState" role="status">Loading shows...</div>
+
+            <main id="eventList" tabindex="-1" style="display:none;">
+                <div class="list-summary">
+                    <div class="event-count" id="eventCount" aria-live="polite"></div>
+                    <button type="button" class="text-btn" id="clearFilters" hidden>Clear filters</button>
+                </div>
+            </main>
+
+            <!-- Filled in by renderEventsJsonLd() once the API responds. -->
+            <script type="application/ld+json" id="eventsJsonLd"></script>
+
+            <div class="bottom-search">
+                <label for="searchInput">Looking for someone?</label>
+                <div class="search-field">
+                    <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+                    <input type="search" class="search-input" id="searchInput" placeholder="Search artists, venues..." autocomplete="off" enterkeyhint="search">
+                </div>
+            </div>
+
+            <footer>
+                <img class="footer-signoff" src="/brand/word-see-you.svg" alt="See you at the show" width="6559" height="970" loading="lazy">
+                <p>Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis</p>
+                <div class="footer-feeds">
+                    <!-- webcal:// is what makes Apple Calendar, Google Calendar and
+                         Outlook offer to *subscribe* rather than import a one-off copy.
+                         The https link next to it is the fallback for anything that
+                         does not register the scheme. -->
+                    <a href="webcal://concert-calendar.wyxr.org/calendar.ics"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg>Subscribe in your calendar</a>
+                    <a href="/calendar.ics" download><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-download"/></svg>Download .ics</a>
+                    <a href="/picks.xml"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-rss"/></svg>WYXR Picks RSS</a>
+                    <a href="/thisweek">This week</a>
+                </div>
+                <p class="footer-sponsor" id="footerSponsorInquiry" hidden>Interested in sponsoring the concert calendar? <a href="mailto:sponsorships@wyxr.org">sponsorships@wyxr.org</a></p>
+                <div class="footer-feeds footer-feeds--quiet">
+                    <a href="/admin/">Admin</a>
+                    <button type="button" class="text-btn" id="refreshData">Refresh data</button>
+                </div>
+            </footer>
+        </div>
+    </div>
+
     <!-- Subscribe Modal -->
-    <div class="subscribe-modal" id="subscribeModal" role="dialog" aria-modal="true" aria-label="Subscribe to WYXR weekly picks">
+    <div class="subscribe-modal" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="subscribeModalTitle">
         <div class="subscribe-modal-card">
-            <button class="subscribe-modal-close" id="subscribeModalClose" aria-label="Close">✕</button>
-            <p class="subscribe-modal-title">📬 Never miss a Memphis show.</p>
-            <p class="subscribe-modal-sub">Weekly picks from WYXR DJs — free, every week.</p>
+            <button class="icon-btn modal-close subscribe-modal-close" id="subscribeModalClose" type="button" aria-label="Close">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+            </button>
+            <p class="subscribe-modal-title" id="subscribeModalTitle">Never miss a Memphis show.</p>
+            <p class="subscribe-modal-sub">Weekly picks from WYXR DJs. Free, every week.</p>
             <div class="subscribe-modal-form" id="subscribeForm">
                 <div class="subscribe-modal-input-row">
                     <input
@@ -1178,91 +1870,45 @@
                         class="subscribe-modal-email"
                         id="subscribe-email"
                         placeholder="your@email.com"
+                        autocomplete="email"
                         aria-label="Email address for WYXR weekly picks"
                     />
-                    <button class="subscribe-modal-submit" type="button" id="subscribe-submit">Get the List</button>
+                    <button class="btn btn--solid subscribe-modal-submit" type="button" id="subscribe-submit">Get the List</button>
                 </div>
                 <p class="subscribe-modal-error" id="subscribe-error" aria-live="polite"></p>
             </div>
         </div>
     </div>
 
+    <!-- Wide desktop only: what the docked detail column shows before a
+         show is opened. A hint for the eye; rows announce themselves. -->
+    <div class="detail-empty" aria-hidden="true">
+        <img src="/brand/note.svg" alt="" width="80" height="70" loading="lazy">
+        <p class="detail-empty-title">Pick a show</p>
+        <p>Details, tickets and calendar links open here.</p>
+    </div>
+
     <!-- Event Detail Modal -->
     <div class="event-modal" id="eventModal" aria-hidden="true">
         <div class="event-modal-overlay" id="eventModalOverlay" aria-hidden="true"></div>
         <div class="event-modal-card" id="eventModalCard" role="dialog" aria-modal="true" aria-labelledby="eventModalTitle">
-            <button class="event-modal-close" id="eventModalClose" aria-label="Close event detail">✕</button>
-            <div id="eventModalImageWrap"></div>
-            <div class="event-modal-body">
-                <div class="event-modal-badges" id="eventModalBadges" style="display:none;"></div>
-                <h2 class="event-modal-title" id="eventModalTitle"></h2>
-                <p class="event-modal-venue" id="eventModalVenue"></p>
-                <p class="event-modal-datetime" id="eventModalDatetime"></p>
-                <p class="event-modal-meta" id="eventModalMeta" style="display:none;"></p>
-                <div class="event-modal-desc" id="eventModalDesc" style="display:none;"></div>
-                <div class="event-modal-actions" id="eventModalActions"></div>
+            <button class="icon-btn modal-close event-modal-close" id="eventModalClose" type="button" aria-label="Close event detail">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+            </button>
+            <div class="event-modal-scroll">
+                <div id="eventModalImageWrap"></div>
+                <div class="event-modal-body">
+                    <h2 class="event-modal-title" id="eventModalTitle"></h2>
+                    <p class="event-modal-venue" id="eventModalVenue"></p>
+                    <p class="event-modal-datetime" id="eventModalDatetime"></p>
+                    <div class="event-modal-badges" id="eventModalBadges" style="display:none;"></div>
+                    <p class="event-modal-meta" id="eventModalMeta" style="display:none;"></p>
+                    <div class="event-modal-desc" id="eventModalDesc" style="display:none;"></div>
+                    <div class="event-modal-actions" id="eventModalActions"></div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="filter-bar">
-        <div class="month-nav">
-            <button id="prevMonth">&larr; Prev</button>
-            <span class="month-label" id="monthLabel">February 2026</span>
-            <button id="nextMonth">Next &rarr;</button>
-        </div>
-        <div class="chip-row" id="chipRow">
-            <button class="chip active" data-neighborhood="all">All</button>
-        </div>
-        <div class="search-row">
-            <input type="text" class="search-input" id="searchInputTop" placeholder="Search artists, venues..." aria-label="Search artists and venues">
-        </div>
-    </div>
-
-    <!-- Calendar Sponsor Banner -->
-    <div id="calendarSponsorBanner" style="display:none;">
-        <span class="cal-sponsor-label" id="calSponsorLabel">Concert calendar presented by</span>
-        <a id="calSponsorLink" href="#" target="_blank" rel="noopener sponsored">
-            <img id="calSponsorImg" src="" alt="" class="cal-sponsor-img" loading="eager">
-        </a>
-        <p id="calSponsorCopy" class="cal-sponsor-copy"></p>
-        <p class="cal-sponsor-inquiry">Interested in sponsoring the concert calendar? <a href="mailto:sponsorships@wyxr.org">sponsorships@wyxr.org</a></p>
-    </div>
-
-    <div class="loading-state" id="loadingState">Loading events...</div>
-
-    <main id="eventList" style="display:none;">
-        <div class="event-count" id="eventCount"></div>
-    </main>
-
-    <!-- Filled in by renderEventsJsonLd() once the API responds. -->
-    <script type="application/ld+json" id="eventsJsonLd"></script>
-
-    <div class="bottom-search">
-        <input type="text" class="search-input" id="searchInput" placeholder="Search artists, venues..." aria-label="Search artists and venues">
-    </div>
-
-    <footer>
-        Compiled for WYXR 91.7 FM &middot; Community Radio for Memphis
-        <div class="footer-feeds">
-            <!-- webcal:// is what makes Apple Calendar, Google Calendar and
-                 Outlook offer to *subscribe* rather than import a one-off copy.
-                 The https link next to it is the fallback for anything that
-                 does not register the scheme. -->
-            <a href="webcal://concert-calendar.wyxr.org/calendar.ics">&#128197; Subscribe in your calendar</a>
-            <span aria-hidden="true">&middot;</span>
-            <a href="/calendar.ics" download>Download .ics</a>
-            <span aria-hidden="true">&middot;</span>
-            <a href="/picks.xml">&#11088; WYXR Picks RSS</a>
-            <span aria-hidden="true">&middot;</span>
-            <a href="/thisweek">This week</a>
-        </div>
-        <div class="footer-feeds">
-            <a href="/admin/">Admin</a>
-            <span aria-hidden="true">&middot;</span>
-            <a href="#" id="refreshData">Refresh data</a>
-        </div>
-    </footer>
 
     <!-- Admin mode: unhidden by JS only after /api/admin/me confirms a live
          admin session. Anonymous visitors never trigger that request. -->
@@ -1273,8 +1919,10 @@
     <div class="subscribe-footer" id="subscribeFooter" role="complementary" aria-label="Subscribe to newsletter">
         <div class="subscribe-footer-inner">
             <span class="subscribe-footer-text">Get weekly DJ picks from WYXR</span>
-            <button class="subscribe-footer-cta" id="subscribeFooterBtn" type="button">Subscribe</button>
-            <button class="subscribe-footer-close" id="subscribeFooterClose" type="button" aria-label="Dismiss">&times;</button>
+            <button class="btn btn--solid subscribe-footer-cta" id="subscribeFooterBtn" type="button">Subscribe</button>
+            <button class="icon-btn subscribe-footer-close" id="subscribeFooterClose" type="button" aria-label="Dismiss">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-close"/></svg>
+            </button>
         </div>
     </div>
 
@@ -1372,6 +2020,34 @@
         const eventList = document.getElementById('eventList');
         const eventCount = document.getElementById('eventCount');
         const loadingState = document.getElementById('loadingState');
+        const filterBar = document.getElementById('filterBar');
+        const monthToggle = document.getElementById('monthToggle');
+        const monthGrid = document.getElementById('monthGrid');
+        const searchToggle = document.getElementById('searchToggle');
+        const clearFiltersBtn = document.getElementById('clearFilters');
+        // Matches the desktop breakpoint in the stylesheet.
+        const desktopMq = window.matchMedia('(min-width: 1024px)');
+        // From here up, the event detail docks beside the list (not a modal).
+        const wideMq = window.matchMedia('(min-width: 1680px)');
+        const reducedMotionMq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        // Markup for one icon from the sprite at the top of <body>. Only ever
+        // called with a literal name, never with data.
+        function icon(name, extraClass) {
+            return `<svg class="icon${extraClass ? ' ' + extraClass : ''}" aria-hidden="true" focusable="false"><use href="#i-${name}"/></svg>`;
+        }
+
+        // Keeps Tab inside an open dialog.
+        function trapTab(e, container) {
+            const focusable = Array.from(container.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )).filter(el => !el.disabled && el.offsetParent !== null);
+            if (!focusable.length) { e.preventDefault(); return; }
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
 
         // ---- Subscribe Modal ----
         (function initSubscribeModal() {
@@ -1387,20 +2063,29 @@
 
             // If already subscribed, hide the button or show checkmark
             if (sessionStorage.getItem('wyxr_signup_banner_success')) {
-                openBtn.textContent = '✓ Signed up';
+                openBtn.textContent = 'Signed up';
                 openBtn.disabled = true;
-                openBtn.style.opacity = '0.5';
                 return;
             }
 
+            const card = modal.querySelector('.subscribe-modal-card');
+            let lastFocused = null;
+
             function openModal() {
+                lastFocused = document.activeElement;
                 modal.classList.add('open');
-                setTimeout(() => emailInput && emailInput.focus(), 50);
+                setTimeout(() => {
+                    const target = emailInput && emailInput.isConnected ? emailInput : closeBtn;
+                    target.focus();
+                }, 50);
             }
             openSubscribeModal = openModal;
 
             function closeModal() {
+                if (!modal.classList.contains('open')) return;
                 modal.classList.remove('open');
+                if (lastFocused && lastFocused.isConnected) lastFocused.focus();
+                lastFocused = null;
             }
 
             openBtn.addEventListener('click', openModal);
@@ -1415,7 +2100,8 @@
                 // preventDefault — so an unguarded handler here meant closing
                 // the event modal with Esc also closed the subscribe modal.
                 if (!modal.classList.contains('open')) return;
-                if (e.key === 'Escape') closeModal();
+                if (e.key === 'Escape') { closeModal(); return; }
+                if (e.key === 'Tab') trapTab(e, card);
             });
 
             function isValidEmail(email) {
@@ -1476,9 +2162,8 @@
             function showSuccess(message) {
                 form.innerHTML = `<p class="subscribe-modal-success">${message}</p>`;
                 sessionStorage.setItem('wyxr_signup_banner_success', '1');
-                openBtn.textContent = '✓ Signed up';
+                openBtn.textContent = 'Signed up';
                 openBtn.disabled = true;
-                openBtn.style.opacity = '0.5';
             }
 
             async function handleSubmit(e) {
@@ -1487,7 +2172,7 @@
                 errorMsg.textContent = '';
 
                 if (!isValidEmail(email)) {
-                    errorMsg.textContent = '⚠ Please enter a valid email address.';
+                    errorMsg.textContent = 'Please enter a valid email address.';
                     emailInput.focus();
                     return;
                 }
@@ -1501,7 +2186,7 @@
                     // cannot see Mailchimp's response from the browser. The list
                     // is double opt-in, so the confirmation email is the real
                     // signal either way.
-                    showSuccess("✅ Almost there — check your email to confirm your subscription.");
+                    showSuccess("Almost there. Check your email to confirm your subscription.");
                 } catch (error) {
                     const errorText = typeof error === 'string' ? error : error.toString();
                     errorMsg.textContent = errorText || 'Something went wrong. Please try again.';
@@ -1534,6 +2219,7 @@
             function show() {
                 if (shown) return;
                 shown = true;
+                observer.disconnect();
                 footer.classList.add('visible');
                 document.body.classList.add('has-subscribe-footer');
             }
@@ -1542,7 +2228,7 @@
                 footer.classList.remove('visible');
                 document.body.classList.remove('has-subscribe-footer');
                 sessionStorage.setItem(DISMISSED_KEY, '1');
-                if (observer) observer.disconnect();
+                observer.disconnect();
             }
 
             cta.addEventListener('click', () => {
@@ -1551,18 +2237,27 @@
             });
             closeBtn.addEventListener('click', dismiss);
 
-            // IntersectionObserver on a sentinel at 500px
-            const sentinel = document.createElement('div');
-            sentinel.style.cssText = 'height:1px;width:1px;position:absolute;top:500px;left:0;pointer-events:none;';
-            sentinel.setAttribute('aria-hidden', 'true');
-            document.body.appendChild(sentinel);
-
-            let observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (!entry.isIntersecting && entry.boundingClientRect.top < 0) show();
-                });
-            }, { threshold: 0 });
-            observer.observe(sentinel);
+            // On a desktop the bar arrives after a short scroll. On a phone,
+            // where it costs a real share of the screen, the inline callout in
+            // the list asks first and this follows once that has scrolled past.
+            let queued = false;
+            function maybeShow() {
+                queued = false;
+                if (shown) return;
+                if (desktopMq.matches) {
+                    if (window.scrollY > 500) show();
+                    return;
+                }
+                const callout = document.querySelector('.subscribe-callout');
+                if (callout ? callout.getBoundingClientRect().bottom < 0 : window.scrollY > 2400) show();
+            }
+            function onScroll() {
+                if (queued || shown) return;
+                queued = true;
+                requestAnimationFrame(maybeShow);
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            const observer = { disconnect() { window.removeEventListener('scroll', onScroll); } };
 
             // Auto-dismiss if user subscribes via another path
             const check = setInterval(() => {
@@ -1617,6 +2312,19 @@
             } catch (err) {
                 return `${y}-${_padZ(mo)}-${_padZ(d)}T${_padZ(h)}:${_padZ(min)}:00-06:00`;
             }
+        }
+
+        function _leafParts(dateStr) {
+            if (!dateStr) return null;
+            const dateObj = new Date(dateStr + 'T12:00:00');
+            if (Number.isNaN(dateObj.getTime())) return null;
+            const clean = (part) => part.replace(/\./g, '');
+            return {
+                month: clean(dateObj.toLocaleDateString('en-US', { month: 'short' })).toUpperCase(),
+                day: String(dateObj.getDate()),
+                dow: clean(dateObj.toLocaleDateString('en-US', { weekday: 'short' })).toUpperCase(),
+                long: dateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' }),
+            };
         }
 
         function _buildCalendarData(ev) {
@@ -1781,22 +2489,90 @@
             actionsEl.innerHTML = '';
             const cal = _buildCalendarData(ev);
 
-            const gcalBtn = document.createElement('a');
+            // Three groups, in the order a visitor uses them: buy, keep, tell.
+            // Google is a peer of Apple and Outlook, not a second primary.
+            const safeTicketUrl = safeUrl(ev.ticket_url);
+            if (safeTicketUrl) {
+                const ticketLink = document.createElement('a');
+                ticketLink.href = safeTicketUrl;
+                ticketLink.target = '_blank';
+                ticketLink.rel = 'noopener noreferrer';
+                ticketLink.className = 'event-modal-btn-tickets';
+                ticketLink.setAttribute('aria-label', `Buy tickets for ${ev.title || 'this show'}`);
+                const stub = document.createElement('span');
+                stub.className = 'ticket-stub';
+                stub.setAttribute('aria-hidden', 'true');
+                stub.insertAdjacentHTML('beforeend', icon('ticket'));
+                ticketLink.appendChild(stub);
+                const ticketLabel = document.createElement('span');
+                ticketLabel.className = 'event-modal-btn-label';
+                ticketLabel.textContent = 'Buy tickets';
+                ticketLink.appendChild(ticketLabel);
+                ticketLink.insertAdjacentHTML('beforeend', icon('arrow-right'));
+                ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: ev.ticket_url }));
+                actionsEl.appendChild(ticketLink);
+            }
+
+            const leaf = _leafParts(ev.date);
+            const pad = document.createElement('section');
+            pad.className = 'save-pad';
+            const padTitle = document.createElement('h3');
+            padTitle.className = 'save-pad-title';
+            padTitle.id = 'savePadLabel';
+            padTitle.textContent = 'Add to your calendar';
+            pad.appendChild(padTitle);
+            if (leaf) {
+                const when = document.createElement('p');
+                when.className = 'sr-only';
+                when.id = 'savePadWhen';
+                when.textContent = leaf.long;
+                pad.appendChild(when);
+            }
+
+            const row = document.createElement('div');
+            row.className = 'save-pad-row';
+            if (leaf) {
+                const leafEl = document.createElement('div');
+                leafEl.className = 'leaf save-leaf';
+                leafEl.setAttribute('aria-hidden', 'true');
+                const month = document.createElement('div');
+                month.className = 'leaf-month';
+                month.textContent = leaf.month;
+                const day = document.createElement('div');
+                day.className = 'leaf-day';
+                day.textContent = leaf.day;
+                const dow = document.createElement('div');
+                dow.className = 'leaf-dow';
+                dow.textContent = leaf.dow;
+                leafEl.append(month, day, dow);
+                row.appendChild(leafEl);
+            }
+
+            const grid = document.createElement('div');
+            grid.className = 'save-pad-grid';
+            grid.setAttribute('role', 'group');
+            grid.setAttribute('aria-labelledby', leaf ? 'savePadLabel savePadWhen' : 'savePadLabel');
+
+            function calChoice(el, name, glyph) {
+                el.classList.add('cal-choice');
+                el.insertAdjacentHTML('beforeend', icon(glyph));
+                const lab = document.createElement('span');
+                lab.textContent = name;
+                el.appendChild(lab);
+                return el;
+            }
+
+            const gcalBtn = calChoice(document.createElement('a'), 'Google', 'calendar');
             gcalBtn.href = cal.gcalUrl;
             gcalBtn.target = '_blank';
             gcalBtn.rel = 'noopener noreferrer';
-            gcalBtn.className = 'event-modal-btn-primary';
-            gcalBtn.textContent = 'Add to Google Calendar';
+            gcalBtn.setAttribute('aria-label', 'Add to Google Calendar, opens in a new tab');
             gcalBtn.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'google' }));
-            actionsEl.appendChild(gcalBtn);
+            grid.appendChild(gcalBtn);
 
-            const secRow = document.createElement('div');
-            secRow.className = 'event-modal-btn-secondary-row';
-
-            const appleBtn = document.createElement('button');
+            const appleBtn = calChoice(document.createElement('button'), 'Apple', 'download');
             appleBtn.type = 'button';
-            appleBtn.className = 'event-modal-btn-secondary';
-            appleBtn.textContent = 'Apple Calendar (.ics)';
+            appleBtn.setAttribute('aria-label', 'Download an .ics file for Apple Calendar');
             appleBtn.addEventListener('click', () => {
                 trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'apple' });
                 const url = URL.createObjectURL(cal.icsBlob);
@@ -1808,34 +2584,48 @@
                 document.body.removeChild(a);
                 setTimeout(() => URL.revokeObjectURL(url), 10000);
             });
-            secRow.appendChild(appleBtn);
+            grid.appendChild(appleBtn);
 
-            const outlookLink = document.createElement('a');
+            const outlookLink = calChoice(document.createElement('a'), 'Outlook', 'mail');
             outlookLink.href = cal.outlookUrl;
             outlookLink.target = '_blank';
             outlookLink.rel = 'noopener noreferrer';
-            outlookLink.className = 'event-modal-btn-secondary';
-            outlookLink.textContent = 'Outlook.com';
+            outlookLink.setAttribute('aria-label', 'Add to Outlook calendar, opens in a new tab');
             outlookLink.addEventListener('click', () => trackEvent('add_to_calendar', { event_id: ev.id, event_title: ev.title, service: 'outlook' }));
-            secRow.appendChild(outlookLink);
+            grid.appendChild(outlookLink);
 
-            // Share: copies the /e/<id> permalink, which is server-rendered
-            // with its own og: tags so the paste unfurls as this show rather
-            // than as the calendar homepage.
+            row.appendChild(grid);
+            pad.appendChild(row);
+            actionsEl.appendChild(pad);
+
+            // Share is its own job. The permalink is /e/<id>, which unfurls
+            // as this show rather than as the calendar homepage.
+            const shareRow = document.createElement('div');
+            shareRow.className = 'event-modal-share';
             const shareBtn = document.createElement('button');
             shareBtn.type = 'button';
-            shareBtn.className = 'event-modal-btn-secondary';
-            shareBtn.textContent = 'Copy link';
+            shareBtn.className = 'event-modal-share-btn';
+            shareBtn.insertAdjacentHTML('beforeend', icon('link', 'icon-link') + icon('check', 'icon-check'));
+            const shareLabel = document.createElement('span');
+            shareLabel.className = 'event-modal-share-label';
+            shareLabel.setAttribute('aria-live', 'polite');
+            shareLabel.textContent = 'Copy link';
+            shareBtn.appendChild(shareLabel);
             shareBtn.addEventListener('click', async () => {
                 const shareUrl = `${SITE_ORIGIN}/e/${encodeURIComponent(ev.id)}`;
                 trackEvent('share_event', { event_id: ev.id, event_title: ev.title });
                 const done = (label) => {
-                    shareBtn.textContent = label;
-                    setTimeout(() => { shareBtn.textContent = 'Copy link'; }, 2000);
+                    shareLabel.textContent = label;
+                    shareBtn.classList.toggle('is-copied', label === 'Link copied');
+                    setTimeout(() => {
+                        if (!shareBtn.isConnected) return;
+                        shareLabel.textContent = 'Copy link';
+                        shareBtn.classList.remove('is-copied');
+                    }, 2000);
                 };
                 try {
                     await navigator.clipboard.writeText(shareUrl);
-                    done('Link copied ✓');
+                    done('Link copied');
                 } catch (err) {
                     // Clipboard access needs a secure context and can be denied.
                     // Selecting the URL is a worse but working fallback.
@@ -1843,27 +2633,16 @@
                     done('Copy link');
                 }
             });
-            secRow.appendChild(shareBtn);
-            if (adminMode) renderAdminControls(ev, secRow);
-            actionsEl.appendChild(secRow);
-
-            const safeTicketUrl = safeUrl(ev.ticket_url);
-            if (safeTicketUrl) {
-                const ticketLink = document.createElement('a');
-                ticketLink.href = safeTicketUrl;
-                ticketLink.target = '_blank';
-                ticketLink.rel = 'noopener noreferrer';
-                ticketLink.className = 'event-modal-btn-tickets';
-                ticketLink.textContent = 'Buy Tickets →';
-                ticketLink.setAttribute('aria-label', `Buy tickets for ${ev.title}`);
-                ticketLink.addEventListener('click', () => trackEvent('external_link_click', { event_id: ev.id, event_title: ev.title, destination_url: ev.ticket_url }));
-                actionsEl.appendChild(ticketLink);
-            }
+            shareRow.appendChild(shareBtn);
+            actionsEl.appendChild(shareRow);
+            if (adminMode) renderAdminControls(ev, null);
 
             const modal = document.getElementById('eventModal');
             modal.classList.add('open');
             modal.removeAttribute('aria-hidden');
-            document.body.style.overflow = 'hidden';
+            modal.querySelector('.event-modal-scroll').scrollTop = 0;
+            syncModalMode();
+            markOpenRow();
             setTimeout(() => document.getElementById('eventModalClose').focus(), 50);
 
             // Give the open modal its own URL and history entry, so the show
@@ -1871,8 +2650,15 @@
             // instead of leaving the site.
             if (!_emSuppressHistory) {
                 try {
-                    history.pushState({ wyxrEventId: ev.id }, '', '#event=' + encodeURIComponent(ev.id));
-                    _emPushedState = true;
+                    const url = '#event=' + encodeURIComponent(ev.id);
+                    if (_emPushedState) {
+                        // Docked beside the list, one show replaces another:
+                        // that is one history entry, not a trail of them.
+                        history.replaceState({ wyxrEventId: ev.id }, '', url);
+                    } else {
+                        history.pushState({ wyxrEventId: ev.id }, '', url);
+                        _emPushedState = true;
+                    }
                 } catch (err) { /* pushState can throw in a sandboxed frame */ }
             }
 
@@ -1885,15 +2671,36 @@
             });
         }
 
+        // A sheet or drawer is modal: the page behind it is locked. Docked
+        // (wide desktop) it is a panel beside a list that stays live.
+        function syncModalMode() {
+            const modal = document.getElementById('eventModal');
+            const open = modal.classList.contains('open');
+            const docked = wideMq.matches;
+            document.getElementById('eventModalCard').setAttribute('aria-modal', docked ? 'false' : 'true');
+            document.body.style.overflow = open && !docked ? 'hidden' : '';
+        }
+        wideMq.addEventListener('change', syncModalMode);
+
+        // Shows which row the open detail belongs to.
+        function markOpenRow() {
+            eventList.querySelectorAll('.event-row.is-open').forEach(r => r.classList.remove('is-open'));
+            if (!_emCurrentId) return;
+            eventList.querySelectorAll('.event-row[data-event-id]').forEach(r => {
+                if (r.dataset.eventId === _emCurrentId) r.classList.add('is-open');
+            });
+        }
+
         function closeEventModal(method) {
             const modal = document.getElementById('eventModal');
             if (!modal.classList.contains('open')) return;
             modal.classList.remove('open');
             modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
             trackEvent('modal_close', { event_id: _emCurrentId, close_method: method });
             if (_emLastFocused) { _emLastFocused.focus(); _emLastFocused = null; }
             _emCurrentId = null;
+            syncModalMode();
+            markOpenRow();
 
             if (_emSuppressHistory) return;
             try {
@@ -1928,7 +2735,8 @@
                     closeEventModal('esc');
                     return;
                 }
-                if (e.key === 'Tab') {
+                // Docked, the panel is not modal, so Tab is free to leave it.
+                if (e.key === 'Tab' && !wideMq.matches) {
                     const card = document.getElementById('eventModalCard');
                     const focusable = Array.from(card.querySelectorAll(
                         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
@@ -2062,11 +2870,17 @@
             btn.setAttribute('aria-pressed', on ? 'true' : 'false');
         }
 
-        // Adds the pick button to the modal's secondary row. Idempotent.
+        // Adds the pick button under the share row. Idempotent. The row is
+        // created here so it never sits inside the calendar group.
         function renderAdminControls(ev, row) {
             const actionsEl = document.getElementById('eventModalActions');
-            const secRow = row || actionsEl.querySelector('.event-modal-btn-secondary-row');
-            if (!secRow || secRow.querySelector('.event-modal-btn-admin')) return;
+            let secRow = row || actionsEl.querySelector('.event-modal-btn-secondary-row');
+            if (secRow && secRow.querySelector('.event-modal-btn-admin')) return;
+            if (!secRow) {
+                secRow = document.createElement('div');
+                secRow.className = 'event-modal-btn-secondary-row';
+                actionsEl.appendChild(secRow);
+            }
             const btn = document.createElement('button');
             btn.type = 'button';
             btn.className = 'event-modal-btn-secondary event-modal-btn-admin';
@@ -2092,7 +2906,7 @@
             if (!adminMode) return '';
             const on = !!e.is_featured;
             const label = (on ? 'Remove WYXR Pick: ' : 'Mark as WYXR Pick: ') + (e.title || '');
-            return `<button type="button" class="pick-toggle" data-pick-toggle="${escAttr(e.id)}" aria-pressed="${on ? 'true' : 'false'}" aria-label="${escAttr(label)}" title="${on ? 'Remove WYXR Pick' : 'Mark as WYXR Pick'}">\u2605</button>`;
+            return `<button type="button" class="pick-toggle" data-pick-toggle="${escAttr(e.id)}" aria-pressed="${on ? 'true' : 'false'}" aria-label="${escAttr(label)}" title="${on ? 'Remove WYXR Pick' : 'Mark as WYXR Pick'}">${icon('star')}</button>`;
         }
 
         // Optimistic toggle with write-through to the localStorage cache and
@@ -2211,6 +3025,8 @@
         function renderCalendarSponsor() {
             const banner = document.getElementById('calendarSponsorBanner');
             if (!banner) return;
+            const inquiry = document.getElementById('footerSponsorInquiry');
+            if (inquiry) inquiry.hidden = !calendarSponsor;
             if (!calendarSponsor) {
                 banner.style.display = 'none';
                 return;
@@ -2218,7 +3034,12 @@
             const label = document.getElementById('calSponsorLabel');
             if (label) {
                 const monthName = new Date().toLocaleString('en-US', { month: 'long', timeZone: 'America/Chicago' });
-                label.textContent = `The ${monthName} concert calendar is presented by:`;
+                // The lead-in is dropped on a phone so the label holds one line.
+                const lead = document.createElement('span');
+                lead.className = 'cal-sponsor-lead';
+                lead.textContent = `The ${monthName} concert calendar is `;
+                label.textContent = '';
+                label.append(lead, 'presented by:');
             }
             const link = document.getElementById('calSponsorLink');
             const img = document.getElementById('calSponsorImg');
@@ -2246,7 +3067,6 @@
             events.forEach(ev => { eventsById[ev.id] = ev; });
             loadingState.style.display = 'none';
             eventList.style.display = 'block';
-            buildChips();
             renderEvents();
             // eventsById is only populated now, so a #event= in the URL cannot
             // be resolved any earlier than this.
@@ -2318,21 +3138,23 @@
         });
 
         // ---- Neighborhood Chips ----
-        function buildChips() {
-            // Count events per neighborhood for current month
+        // `pool` is the list as filtered by month and search but not yet by
+        // neighborhood, so "All" matches the count above the list and every
+        // chip says how many shows choosing it would leave.
+        function chipHtml(value, label, count) {
+            const on = activeNeighborhood === value;
+            return `<button type="button" class="chip${on ? ' active' : ''}" data-neighborhood="${escAttr(value)}" aria-pressed="${on ? 'true' : 'false'}"><span class="chip-name">${esc(label)}</span><span class="chip-count">${count}</span></button>`;
+        }
+
+        function buildChips(pool) {
             const counts = {};
-            let totalInMonth = 0;
-            allEvents.forEach(e => {
-                const d = new Date(e.date + 'T12:00:00');
-                const inRange = isSpilledView()
-                    ? ((d.getMonth() === minMonth && d.getFullYear() === minYear) || (d.getMonth() === _spillMonth && d.getFullYear() === _spillYear))
-                    : (d.getMonth() === currentMonth && d.getFullYear() === currentYear);
-                if (inRange) {
-                    totalInMonth++;
-                    const nh = e.neighborhood || 'Other';
-                    counts[nh] = (counts[nh] || 0) + 1;
-                }
+            pool.forEach(e => {
+                const nh = e.neighborhood || 'Other';
+                counts[nh] = (counts[nh] || 0) + 1;
             });
+            // The chosen chip stays on the row even when a search empties it,
+            // or there would be nothing to press to undo it.
+            if (activeNeighborhood !== 'all' && !counts[activeNeighborhood]) counts[activeNeighborhood] = 0;
 
             // Sort by count descending, "Other" always last
             const sorted = Object.entries(counts).sort((a, b) => {
@@ -2341,24 +3163,20 @@
                 return b[1] - a[1];
             });
 
-            chipRow.innerHTML = `<button class="chip${activeNeighborhood === 'all' ? ' active' : ''}" data-neighborhood="all">All<span class="chip-count">${totalInMonth}</span></button>`;
-
-            sorted.forEach(([nh, count]) => {
-                const isActive = activeNeighborhood === nh;
-                chipRow.innerHTML += `<button class="chip${isActive ? ' active' : ''}" data-neighborhood="${escAttr(nh)}">${esc(nh)}<span class="chip-count">${count}</span></button>`;
-            });
-
-            // Chip click handlers
-            chipRow.querySelectorAll('.chip').forEach(chip => {
-                chip.addEventListener('click', () => {
-                    trackEvent('neighborhood_select', { neighborhood: chip.dataset.neighborhood });
-                    activeNeighborhood = chip.dataset.neighborhood;
-                    chipRow.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-                    chip.classList.add('active');
-                    renderEvents();
-                });
-            });
+            chipRow.innerHTML = chipHtml('all', 'All', pool.length)
+                + sorted.map(([nh, count]) => chipHtml(nh, nh, count)).join('');
         }
+
+        // One delegated listener: the chips are rebuilt on every render.
+        chipRow.addEventListener('click', (e) => {
+            const chip = e.target.closest('.chip');
+            if (!chip) return;
+            trackEvent('neighborhood_select', { neighborhood: chip.dataset.neighborhood });
+            activeNeighborhood = chip.dataset.neighborhood;
+            renderEvents();
+            const again = chipRow.querySelector(`.chip[data-neighborhood="${CSS.escape(activeNeighborhood)}"]`);
+            if (again) again.focus({ preventScroll: true });
+        });
 
         // ---- Deduplication ----
         function normalizeForDedup(text) {
@@ -2443,7 +3261,9 @@
         }
 
         // ---- Filtering ----
-        function getFilteredEvents() {
+        // ignoreNeighborhood: the chips need the list as it stands *before* a
+        // neighborhood is chosen, so each one can show how many shows it holds.
+        function getFilteredEvents(ignoreNeighborhood) {
             const todayStr = getTodayStr();
             const filtered = allEvents.filter(e => {
                 // Hide past events
@@ -2460,7 +3280,7 @@
                 }
 
                 // Neighborhood filter
-                if (activeNeighborhood !== 'all') {
+                if (!ignoreNeighborhood && activeNeighborhood !== 'all') {
                     const nh = e.neighborhood || 'Other';
                     if (nh !== activeNeighborhood) return false;
                 }
@@ -2517,19 +3337,23 @@
                 const dateStr = d.toLocaleDateString('en-US', {
                     weekday: 'long', month: 'long', day: 'numeric'
                 });
-                let line = `<span class="artist">${esc(e.title)}</span>`;
-                line += ` <span class="venue">@ ${esc(e.venue || '')}</span>`;
-                const dateLine = `<div class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</div>`;
+                const place = e.venue ? `<span class="row-place"><span class="row-place-in"><span class="venue">${esc(e.venue)}</span></span></span>` : '';
+                const dateLine = `<span class="date-line">${dateStr}${e.start_time ? ' &middot; ' + esc(e.start_time) : ''}</span>`;
                 const thumb = e.image_url
                     ? `<img class="presents-thumb" src="${escAttr(safeUrl(cldImg(e.image_url, 112)))}" data-raw="${escAttr(safeUrl(e.image_url))}" alt="" loading="lazy" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`
                     : '';
-                presentsHtml += `<div class="presents-event" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${thumb}<div class="presents-text"><span class="presents-badge">WYXR Presents</span>${line}${dateLine}</div></div>`;
+                presentsHtml += `<div class="presents-event" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(rowLabel(e, dateStr))}">${thumb}<div class="presents-text"><span class="artist">${esc(e.title)}</span>${place}${dateLine}</div></div>`;
             });
 
             const presentsSection = document.createElement('div');
             presentsSection.className = 'presents-section';
-            presentsSection.innerHTML = `<div class="presents-header">WYXR Presents</div>${presentsHtml}`;
-            eventList.insertBefore(presentsSection, eventList.querySelector('.event-count')?.nextSibling || eventList.querySelector('.day-section') || eventList.firstChild);
+            presentsSection.innerHTML = `<h2 class="presents-header">${icon('star', 'icon--solid')}WYXR Presents</h2>${presentsHtml}`;
+            // Tonight's bill leads; the station's own shows come straight after
+            // it, ahead of the rest of the month.
+            const tonight = eventList.querySelector('.day-section--tonight');
+            const summary = eventList.querySelector('.list-summary');
+            const before = tonight || summary;
+            eventList.insertBefore(presentsSection, before ? before.nextSibling : eventList.firstChild);
         }
 
         // ---- Structured data for the rendered events ----
@@ -2601,26 +3425,102 @@
             return _chicagoISO(y, mo, d, h, min);
         }
 
+        // ---- Row building blocks ----
+
+        // A start time typeset for the tabular column: "7:30 PM" becomes 7:30
+        // with a small pm, and ":00" is dropped. Presentation only. Anything
+        // that is not a plain clock time ("Doors 7, Show 8", "Late") is shown
+        // exactly as written; turning a time into a value still happens in
+        // one place, _parseEventStartTime.
+        function timeCell(t) {
+            const raw = (t == null ? '' : String(t)).trim();
+            if (!raw) return '<span class="row-time"></span>';
+            const m = raw.match(/^(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?$/i);
+            if (!m) return `<span class="row-time row-time--words">${esc(raw)}</span>`;
+            const mins = m[2] && m[2] !== '00' ? ':' + m[2] : '';
+            return `<span class="row-time">${m[1]}${mins}<span class="row-ampm">${m[3].toLowerCase()}m</span></span>`;
+        }
+
+        function startMinutes(e) {
+            const at = _parseEventStartTime(e.start_time);
+            return at ? at.hour * 60 + at.minute : Infinity;
+        }
+
+        // What a screen reader hears for a row. role="button" replaces the
+        // row's contents with its label, so the label has to carry them.
+        function rowLabel(e, when) {
+            return [e.title, e.venue, when || e.start_time].filter(Boolean).join(', ');
+        }
+
+        function placeLine(e) {
+            if (!e.venue && !e.neighborhood) return '';
+            const venue = e.venue ? `<span class="venue">${esc(e.venue)}</span>` : '';
+            const nbhd = e.neighborhood ? `<span>${esc(e.neighborhood)}</span>` : '';
+            return `<span class="row-place"><span class="row-place-in">${venue}${nbhd}</span></span>`;
+        }
+
+        // opts.cls: extra classes · opts.badge: markup shown under the place
+        // line · opts.bare: leave the venue off (the venue group names it once).
+        function eventRow(e, thumb, opts) {
+            const o = opts || {};
+            return `<li class="event-row${o.cls ? ' ' + o.cls : ''}" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(rowLabel(e))}">`
+                + timeCell(e.start_time)
+                + `<span class="event-row-text"><span class="artist">${esc(e.title)}</span>${o.bare ? '' : placeLine(e)}${o.badge || ''}</span>`
+                + thumb + rowStar(e) + '</li>';
+        }
+
+        // The marquee's bulbs chase once, the first time tonight's bill is
+        // shown, and not again on every filter change.
+        let _marqueeArrived = false;
+
         function renderEvents() {
-            const filtered = getFilteredEvents();
+            const pool = getFilteredEvents(true);
+            const filtered = activeNeighborhood === 'all'
+                ? pool
+                : pool.filter(e => (e.neighborhood || 'Other') === activeNeighborhood);
+            const filtering = activeNeighborhood !== 'all' || !!searchQuery;
+            const todayStr = getTodayStr();
 
-            eventCount.textContent = `${filtered.length} show${filtered.length !== 1 ? 's' : ''} in ${getDisplayLabel()}`;
+            // The line above the list always states every filter in force.
+            let summary = `${filtered.length} show${filtered.length !== 1 ? 's' : ''} in ${getDisplayLabel()}`;
+            if (activeNeighborhood !== 'all') summary += ` \u00B7 ${activeNeighborhood}`;
+            if (searchQuery) summary += ` \u00B7 \u201C${searchQuery}\u201D`;
+            eventCount.textContent = summary;
+            clearFiltersBtn.hidden = !filtering;
+            eventCount.parentNode.classList.toggle('is-quiet', !filtering);
+            if (filtering) setBarTucked(false);
 
-            if (filtered.length === 0) {
-                // Remove old day sections and sponsor callouts
-                eventList.querySelectorAll('.day-section, .sponsor-callout, .subscribe-callout').forEach(s => s.remove());
-                eventList.querySelector('.no-events')?.remove();
-                const p = document.createElement('p');
-                p.className = 'no-events';
-                p.textContent = 'No events found for this month with the current filters.';
-                eventList.appendChild(p);
-                renderEventsJsonLd([]);
-                renderPresentsSection();
-                return;
-            }
+            buildChips(pool);
+            renderMonthGrid(filtered);
 
             // Remove old content
             eventList.querySelectorAll('.day-section, .no-events, .sponsor-callout, .subscribe-callout').forEach(s => s.remove());
+
+            if (filtered.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'no-events';
+                const title = document.createElement('p');
+                title.className = 'no-events-title';
+                title.textContent = 'Nothing on the bill';
+                const body = document.createElement('p');
+                body.textContent = filtering
+                    ? `No shows in ${getDisplayLabel()} match those filters.`
+                    : `No shows are listed for ${getDisplayLabel()} yet.`;
+                empty.append(title, body);
+                if (filtering) {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'btn btn--line';
+                    btn.textContent = 'Clear filters';
+                    btn.addEventListener('click', clearFilters);
+                    empty.appendChild(btn);
+                }
+                eventList.appendChild(empty);
+                renderEventsJsonLd([]);
+                renderPresentsSection();
+                trackDaySections();
+                return;
+            }
 
             // Group by date
             const byDate = {};
@@ -2639,19 +3539,22 @@
             let daySectionIndex = 0;
             const SUBSCRIBE_INTERVAL = 4;
             const SUBSCRIBE_COPY = [
-                { text: 'Never miss a Memphis show.', cta: 'Get the weekly list \u2192' },
-                { text: 'Free every Friday: DJ picks + this week\u2019s best shows.', cta: 'Subscribe \u2192' },
-                { text: 'WYXR DJs pick the best shows each week.', cta: 'Get it free \u2192' },
-                { text: 'This calendar updates daily. Want a Friday summary?', cta: 'Subscribe \u2192' },
+                { text: 'Never miss a Memphis show.', cta: 'Get the weekly list' },
+                { text: 'Free every Friday: DJ picks + this week\u2019s best shows.', cta: 'Subscribe' },
+                { text: 'WYXR DJs pick the best shows each week.', cta: 'Get it free' },
+                { text: 'This calendar updates daily. Want a Friday summary?', cta: 'Subscribe' },
             ];
             let subscribeCopyIndex = 0;
 
             dateOrder.forEach(dateStr => {
-                const dayEvents = byDate[dateStr];
+                // Earliest first, so the time column reads down the evening.
+                // Shows without a clock time keep their order, after the rest.
+                const dayEvents = byDate[dateStr]
+                    .map((e, i) => ({ e, i, at: startMinutes(e) }))
+                    .sort((a, b) => (a.at - b.at) || (a.i - b.i))
+                    .map(x => x.e);
                 const d = new Date(dateStr + 'T12:00:00');
-                const dayName = d.toLocaleDateString('en-US', {
-                    weekday: 'long', month: 'long', day: 'numeric'
-                }).toUpperCase();
+                const isTonight = dateStr === todayStr;
 
                 // Separate featured (WYXR Pick / Presents) from normal events
                 const featuredEvents = dayEvents.filter(e => e.is_featured || e.is_wyxr_presents);
@@ -2671,36 +3574,29 @@
                     shownImages.add(e.image_url);
                     // Try Cloudinary; if it can't deliver this image, fall back to
                     // the raw source once, then hide if the raw fails too.
-                    const cldSrc = escAttr(safeUrl(cldImg(e.image_url, 96)));
+                    const cldSrc = escAttr(safeUrl(cldImg(e.image_url, 112)));
                     const rawSrc = escAttr(safeUrl(e.image_url));
                     return `<img class="event-thumb" src="${cldSrc}" data-raw="${rawSrc}" alt="" loading="lazy" onerror="if(this.dataset.fellBack){this.style.display='none';}else{this.dataset.fellBack='1';this.src=this.dataset.raw;}">`;
                 }
 
-                // 1. Render featured events first — grouped under a single header
+                // 1. Featured events first
                 if (featuredEvents.length > 0) {
                     const picks = featuredEvents.filter(e => e.is_featured && !e.is_wyxr_presents);
                     const presents = featuredEvents.filter(e => e.is_wyxr_presents);
 
-                    // WYXR Picks group
+                    // WYXR Picks: one ticket holding every pick of the day
                     if (picks.length > 0) {
                         const label = picks.length === 1 ? 'WYXR Pick' : 'WYXR Picks';
-                        let pickItems = '';
-                        picks.forEach(e => {
-                            let line = `<span class="artist">${esc(e.title)}</span> — `;
-                            line += `<span class="venue">${esc(e.venue || '')}</span>`;
-                            if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                            pickItems += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span>${rowStar(e)}</li>`;
-                        });
-                        eventLines += `<li class="venue-group featured-group"><div class="featured-group-header"><span class="featured-badge">${label}</span></div><ul class="venue-artists">${pickItems}</ul></li>`;
+                        const pickItems = picks.map(e => eventRow(e, rowThumb(e), { cls: 'featured event--featured' })).join('');
+                        eventLines += `<li class="venue-group featured-group"><div class="featured-group-header"><span class="featured-badge">${icon('star', 'icon--solid')}${label}</span></div><ul class="venue-artists">${pickItems}</ul></li>`;
                     }
 
                     // WYXR Presents — render individually (rare, keep badge per item)
                     presents.forEach(e => {
-                        let line = `<span class="artist">${esc(e.title)}</span> — `;
-                        line += `<span class="venue">${esc(e.venue || '')}</span>`;
-                        if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                        const badge = '<span class="presents-badge">WYXR Presents</span> ';
-                        eventLines += `<li class="featured event--featured" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${badge}${line}</span>${rowStar(e)}</li>`;
+                        eventLines += eventRow(e, rowThumb(e), {
+                            cls: 'featured event--featured',
+                            badge: '<span class="presents-badge">WYXR Presents</span>',
+                        });
                     });
                 }
 
@@ -2720,36 +3616,36 @@
                     const events = venueGroups[venueKey];
 
                     if (events.length === 1) {
-                        const e = events[0];
-                        let line = `<span class="artist">${esc(e.title)}</span> — `;
-                        line += `<span class="venue">${esc(e.venue || '')}</span>`;
-                        if (e.start_time) line += ` <span class="time">(${esc(e.start_time)})</span>`;
-                        eventLines += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${line}</span>${rowStar(e)}</li>`;
+                        eventLines += eventRow(events[0], rowThumb(events[0]));
                     } else {
-                        const venueName = events[0].venue || '';
-                        const times = events.map(e => e.start_time);
-                        const allSameTime = new Set(times).size === 1;
-                        const sharedTime = allSameTime ? times[0] : null;
-
-                        let artistItems = '';
-                        events.forEach(e => {
-                            let artistText = `<span class="artist">${esc(e.title)}</span>`;
-                            if (!allSameTime && e.start_time) {
-                                artistText += ` <span class="time">(${esc(e.start_time)})</span>`;
-                            }
-                            artistItems += `<li data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(e.title)}">${rowThumb(e)}<span class="event-row-text">${artistText}</span>${rowStar(e)}</li>`;
-                        });
-
-                        let footer = `<span class="venue">${esc(venueName)}</span>`;
-                        if (sharedTime) footer += ` <span class="time">(${esc(sharedTime)})</span>`;
-
-                        eventLines += `<li class="venue-group"><ul class="venue-artists">${artistItems}</ul><div class="venue-footer">${footer}</div></li>`;
+                        // Several acts under one roof: name the venue once.
+                        const artistItems = events.map(e => eventRow(e, rowThumb(e), { bare: true })).join('');
+                        const head = placeLine(events[0]);
+                        eventLines += `<li class="venue-group">${head ? `<div class="venue-head">${head}</div>` : ''}<ul class="venue-artists">${artistItems}</ul></li>`;
                     }
                 });
 
+                const tally = `${dayEvents.length} show${dayEvents.length !== 1 ? 's' : ''}`;
+                const weekday = d.toLocaleDateString('en-US', { weekday: 'long' });
+                const monthDay = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
                 const section = document.createElement('div');
                 section.className = 'day-section';
-                section.innerHTML = `<h2>${dayName}</h2><ul>${eventLines}</ul>`;
+                section.id = 'day-' + dateStr;
+                let head;
+                if (isTonight) {
+                    // Today's bill goes up on the marquee.
+                    section.classList.add('day-section--tonight');
+                    if (!_marqueeArrived) {
+                        section.classList.add('marquee--arrive');
+                        _marqueeArrived = true;
+                    }
+                    head = `<h2 class="marquee-head" tabindex="-1"><span class="marquee-word" aria-hidden="true"></span><span class="sr-only">Tonight, </span><span class="marquee-date">${weekday}, ${monthDay}</span><span class="day-tally">${tally}</span></h2>`;
+                } else {
+                    const leaf = `<span class="leaf" aria-hidden="true"><span class="leaf-month">${d.toLocaleDateString('en-US', { month: 'short' })}</span><span class="leaf-day">${d.getDate()}</span><span class="leaf-dow">${d.toLocaleDateString('en-US', { weekday: 'short' })}</span></span>`;
+                    head = `<h2 class="day-head" tabindex="-1">${leaf}<span class="day-title"><span class="day-weekday">${weekday}</span> <span class="day-date">${monthDay}</span></span><span class="day-tally">${tally}</span></h2>`;
+                }
+                section.innerHTML = `${head}<ul class="day-list">${eventLines}</ul>`;
                 eventList.appendChild(section);
 
                 // Inject sponsor callout after this date's section if any sponsor targets it
@@ -2773,7 +3669,7 @@
                     sc.setAttribute('role', 'button');
                     sc.setAttribute('tabindex', '0');
                     sc.setAttribute('aria-label', 'Subscribe to weekly email');
-                    sc.innerHTML = `<span class="subscribe-callout-text">${copy.text}</span><span class="subscribe-callout-cta">${copy.cta}</span>`;
+                    sc.innerHTML = `${icon('mail')}<span class="subscribe-callout-text">${copy.text}</span><span class="subscribe-callout-cta">${copy.cta}${icon('arrow-right')}</span>`;
                     sc.addEventListener('click', () => openSubscribeModal && openSubscribeModal());
                     sc.addEventListener('keydown', (e) => {
                         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openSubscribeModal && openSubscribeModal(); }
@@ -2785,6 +3681,8 @@
 
             renderEventsJsonLd(filtered);
             renderPresentsSection();
+            trackDaySections();
+            markOpenRow();
         }
 
         // ---- Month Navigation ----
@@ -2802,20 +3700,175 @@
             nextBtn.disabled = (currentYear > maxYear || (currentYear === maxYear && currentMonth >= maxMonth));
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentMonth--;
+        function changeMonth(step) {
+            currentMonth += step;
             if (currentMonth < 0) { currentMonth = 11; currentYear--; }
-            updateMonthDisplay();
-            buildChips();
-            renderEvents();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            currentMonth++;
             if (currentMonth > 11) { currentMonth = 0; currentYear++; }
             updateMonthDisplay();
-            buildChips();
             renderEvents();
+            // Deep in one month's list, the next would otherwise open mid-scroll.
+            const top = eventList.getBoundingClientRect().top;
+            const offset = stickyOffset();
+            if (top < offset) window.scrollTo(0, window.scrollY + top - offset);
+        }
+        prevBtn.addEventListener('click', () => changeMonth(-1));
+        nextBtn.addEventListener('click', () => changeMonth(1));
+
+        // ---- Jump-to-day grid ----
+        // A month at a glance. A day with shows (after the current filters) is
+        // a button that scrolls to it; a day holding a WYXR pick is lit.
+        function renderMonthGrid(events) {
+            const tally = {};
+            const lit = {};
+            events.forEach(e => {
+                tally[e.date] = (tally[e.date] || 0) + 1;
+                if (e.is_featured || e.is_wyxr_presents) lit[e.date] = true;
+            });
+            const todayStr = getTodayStr();
+            const months = isSpilledView()
+                ? [[minYear, minMonth], [_spillYear, _spillMonth]]
+                : [[currentYear, currentMonth]];
+
+            // Everything interpolated below is a number or a month name.
+            let html = '';
+            months.forEach(([y, m]) => {
+                const lead = new Date(y, m, 1).getDay();
+                const days = new Date(y, m + 1, 0).getDate();
+                html += `<div class="cal" role="group" aria-label="Jump to a day in ${monthNames[m]} ${y}">`;
+                if (months.length > 1) html += `<div class="cal-caption">${monthNames[m]}</div>`;
+                html += '<div class="cal-dows" aria-hidden="true"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div><div class="cal-days">';
+                for (let i = 0; i < lead; i++) html += '<span></span>';
+                for (let day = 1; day <= days; day++) {
+                    const ds = `${y}-${_padZ(m + 1)}-${_padZ(day)}`;
+                    const n = tally[ds] || 0;
+                    const cls = 'cal-day' + (ds === todayStr ? ' is-today' : '') + (lit[ds] ? ' is-lit' : '');
+                    if (n) {
+                        const label = new Date(y, m, day).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+                            + `, ${n} show${n !== 1 ? 's' : ''}` + (lit[ds] ? ', with a WYXR pick' : '');
+                        html += `<button type="button" class="${cls}" data-jump="${ds}" aria-label="${escAttr(label)}">${day}</button>`;
+                    } else {
+                        html += `<span class="${cls} is-empty" aria-hidden="true">${day}</span>`;
+                    }
+                }
+                html += '</div></div>';
+            });
+            if (Object.keys(lit).length) html += '<p class="cal-key">Has a WYXR pick</p>';
+            monthGrid.innerHTML = html;
+        }
+
+        // ---- Scroll-linked state ----
+        // On a phone the neighborhood chips tuck out of the stuck bar while
+        // the visitor scrolls down the list and come back on any scroll up.
+        let _tucked = false;
+        let _tuckHoldUntil = 0;
+
+        // Height of the part of the bar that tucks away (everything under the
+        // month row, less a little breathing room).
+        function chipsHeight() {
+            const nav = filterBar.querySelector('.month-nav');
+            return Math.max(0, filterBar.offsetHeight - (nav.offsetTop + nav.offsetHeight + 4));
+        }
+
+        // Height of whatever is stuck to the top of the viewport.
+        function stickyOffset() {
+            if (desktopMq.matches) return 24;
+            return filterBar.offsetHeight - (_tucked ? chipsHeight() : 0) + 2;
+        }
+
+        // The day headings stick underneath the filter bar on a phone, so the
+        // stylesheet needs to know how tall the bar currently is.
+        function syncBarHeight() {
+            const chips = chipsHeight();
+            filterBar.style.setProperty('--chips-h', chips + 'px');
+            document.documentElement.style.setProperty('--bar-h', (filterBar.offsetHeight - (_tucked ? chips : 0)) + 'px');
+        }
+        if ('ResizeObserver' in window) new ResizeObserver(syncBarHeight).observe(filterBar);
+        syncBarHeight();
+
+        function setBarTucked(on) {
+            if (on === _tucked) return;
+            _tucked = on;
+            filterBar.classList.toggle('is-tucked', on);
+            syncBarHeight();
+        }
+
+        function canTuckBar() {
+            return !desktopMq.matches
+                && activeNeighborhood === 'all'
+                && monthGrid.hidden
+                && !filterBar.classList.contains('search-open')
+                && !filterBar.contains(document.activeElement)
+                && performance.now() > _tuckHoldUntil
+                && filterBar.getBoundingClientRect().top <= 0;
+        }
+        // Keyboard and switch users reach the chips by focus, not by scrolling.
+        filterBar.addEventListener('focusin', () => setBarTucked(false));
+        desktopMq.addEventListener('change', () => setBarTucked(false));
+
+        // The day whose heading is stuck at the top gets .is-current (its
+        // leaf numeral goes heavy).
+        let _daySections = [];
+        let _currentDay = null;
+        function markCurrentDay() {
+            const line = stickyOffset() + 12;
+            let current = null;
+            for (const section of _daySections) {
+                if (section.getBoundingClientRect().top > line) break;
+                current = section;
+            }
+            if (current === _currentDay) return;
+            if (_currentDay) _currentDay.classList.remove('is-current');
+            if (current) current.classList.add('is-current');
+            _currentDay = current;
+        }
+        function trackDaySections() {
+            _daySections = Array.from(eventList.querySelectorAll('.day-section'));
+            _currentDay = null;
+            markCurrentDay();
+        }
+
+        let _lastScrollY = window.scrollY;
+        let _scrollQueued = false;
+        window.addEventListener('scroll', () => {
+            if (_scrollQueued) return;
+            _scrollQueued = true;
+            requestAnimationFrame(() => {
+                _scrollQueued = false;
+                const y = window.scrollY;
+                const dy = y - _lastScrollY;
+                if (Math.abs(dy) >= 8) {
+                    _lastScrollY = y;
+                    if (dy < 0) setBarTucked(false);
+                    else if (canTuckBar()) setBarTucked(true);
+                }
+                markCurrentDay();
+            });
+        }, { passive: true });
+
+        function setMonthGridOpen(open) {
+            if (open) setBarTucked(false);
+            monthGrid.hidden = !open;
+            monthToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            syncBarHeight();
+        }
+        monthToggle.addEventListener('click', () => setMonthGridOpen(monthGrid.hidden));
+        // Open in the desktop rail, where there is room; closed on a phone.
+        setMonthGridOpen(desktopMq.matches);
+        desktopMq.addEventListener('change', (e) => setMonthGridOpen(e.matches));
+
+        monthGrid.addEventListener('click', (e) => {
+            const cell = e.target.closest('[data-jump]');
+            if (!cell) return;
+            const section = document.getElementById('day-' + cell.dataset.jump);
+            if (!section) return;
+            if (!desktopMq.matches) setMonthGridOpen(false);
+            // Keep the bar at full height while the page travels, so the day
+            // lands directly under it.
+            _tuckHoldUntil = performance.now() + 1500;
+            trackEvent('jump_to_date', { event_date: cell.dataset.jump });
+            section.scrollIntoView({ behavior: reducedMotionMq.matches ? 'auto' : 'smooth', block: 'start' });
+            const heading = section.querySelector('h2');
+            if (heading) heading.focus({ preventScroll: true });
         });
 
         // ---- Search ----
@@ -2842,6 +3895,32 @@
         }
         wireSearchBox(searchInputTop, searchInput, 'top');
         wireSearchBox(searchInput, searchInputTop, 'bottom');
+
+        // On a phone the top search box sits behind the magnifier button, to
+        // keep the sticky bar short. It stays open while it holds a query.
+        function setSearchOpen(open, focus) {
+            if (open) setBarTucked(false);
+            filterBar.classList.toggle('search-open', open);
+            searchToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (open && focus) searchInputTop.focus();
+        }
+        searchToggle.addEventListener('click', () => {
+            const open = filterBar.classList.contains('search-open');
+            if (open && searchInputTop.value) { searchInputTop.focus(); return; }
+            setSearchOpen(!open, true);
+        });
+
+        function clearFilters() {
+            clearTimeout(searchTimer);
+            activeNeighborhood = 'all';
+            searchQuery = '';
+            searchInput.value = '';
+            searchInputTop.value = '';
+            setSearchOpen(false, false);
+            renderEvents();
+            eventList.focus({ preventScroll: true });
+        }
+        clearFiltersBtn.addEventListener('click', clearFilters);
 
         // ---- HTML Escape ----
         // Safe for HTML *text* content only. Setting textContent and reading

@@ -118,7 +118,8 @@ def main():
             return page.locator("#eventModal.open").count() > 0
 
         def modal_title():
-            return page.locator("#eventModalTitle").inner_text()
+            # text_content(), not inner_text(): the title is CSS-uppercased.
+            return page.locator("#eventModalTitle").text_content()
 
         # -------------------------------------------------------------------
         check.section("baseline render")
