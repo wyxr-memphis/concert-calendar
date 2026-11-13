@@ -1,6 +1,7 @@
 """Generate the static HTML page for Memphis concert calendar."""
 
 import json
+import re
 from datetime import date, datetime, timedelta
 from typing import Dict, List
 from collections import defaultdict
@@ -106,12 +107,20 @@ def generate_html(
     event_sections = ""
     for d in sorted_dates:
         day_events = by_date[d]
-        day_name = strftime_nopad(d, "%A, %B %-d").upper()
+        weekday = strftime_nopad(d, "%A")
+        month_day = strftime_nopad(d, "%B %-d")
+        tally = f"{len(day_events)} show{'s' if len(day_events) != 1 else ''}"
 
-        # Group events by venue (case-insensitive, preserving order)
+        # WYXR picks first, each its own marigold block (a pick is never folded
+        # into a venue group, or it would drag the group to the top of the day).
+        # Everything else is grouped by venue, case-insensitively, in the order
+        # Event.sort_key already gave us.
+        picks = [e for e in day_events if e.is_featured]
+        others = [e for e in day_events if not e.is_featured]
+
         venue_groups: Dict[str, List[Event]] = {}
         venue_order: List[str] = []
-        for event in day_events:
+        for event in others:
             key = event.venue.strip().lower()
             if key not in venue_groups:
                 venue_groups[key] = []
@@ -119,53 +128,48 @@ def generate_html(
             venue_groups[key].append(event)
 
         event_lines = ""
+        for event in picks:
+            event_lines += (
+                '<li class="event event--featured">'
+                '<span class="featured-badge">WYXR Pick</span>'
+                f'{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
+            )
+
         for venue_key in venue_order:
             venue_events = venue_groups[venue_key]
 
-            if len(venue_events) == 1:
-                # Single event at this venue — render as before
-                event = venue_events[0]
-                line = f'<span class="artist">{_esc(event.artist)}</span> — '
-                line += f'<span class="venue">{_esc(event.venue)}</span>'
-                if event.time:
-                    line += f' <span class="time">({_esc(event.time)})</span>'
-
-                cls = ' class="featured event--featured"' if event.is_featured else ''
-                badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
-                if event.url:
-                    event_lines += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{badge}{line}</a></li>\n'
-                else:
-                    event_lines += f'<li{cls}>{badge}{line}</li>\n'
-            else:
-                # Multiple events at same venue — group them
-                venue_name = venue_events[0].venue
-                times = [e.time for e in venue_events]
-                all_same_time = len(set(times)) == 1
-                shared_time = times[0] if all_same_time else None
-
-                artist_items = ""
+            if len(venue_events) == 1 or not venue_key:
+                # One show at this venue (or no venue named): a plain row.
                 for event in venue_events:
-                    badge = '<span class="featured-badge">WYXR Pick</span> ' if event.is_featured else ''
-                    cls = ' class="featured event--featured"' if event.is_featured else ''
-                    artist_text = f'{badge}<span class="artist">{_esc(event.artist)}</span>'
-                    if not all_same_time and event.time:
-                        artist_text += f' <span class="time">({_esc(event.time)})</span>'
+                    event_lines += (
+                        f'<li class="event">{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
+                    )
+                continue
 
-                    if event.url:
-                        artist_items += f'<li{cls}><a href="{_esc(event.url)}" target="_blank" rel="noopener">{artist_text}</a></li>\n'
-                    else:
-                        artist_items += f'<li{cls}>{artist_text}</li>\n'
+            # Several shows at one venue: name it once, above them. A time they
+            # all share is stated once, in the venue's own time column.
+            times = [e.time for e in venue_events]
+            shared_time = times[0] if len(set(times)) == 1 else None
+            head_time = _time_cell(shared_time) if shared_time else '<span class="row-time"></span>'
 
-                footer_line = f'<span class="venue">{_esc(venue_name)}</span>'
-                if shared_time:
-                    footer_line += f' <span class="time">({_esc(shared_time)})</span>'
+            artist_items = ""
+            for event in venue_events:
+                cell = '<span class="row-time"></span>' if shared_time else _time_cell(event.time)
+                artist_items += f'<li class="event">{_row(event, cell, show_venue=False)}</li>\n'
 
-                event_lines += f'<li class="venue-group"><ul class="venue-artists">\n{artist_items}</ul>\n<div class="venue-footer">{footer_line}</div></li>\n'
+            event_lines += (
+                '<li class="venue-group">'
+                f'<div class="venue-head">{head_time}<span class="venue">{_esc(venue_events[0].venue)}</span></div>'
+                f'<ul class="venue-artists">\n{artist_items}</ul></li>\n'
+            )
 
         event_sections += f"""
         <div class="day-section">
-            <h2>{day_name}</h2>
-            <ul>{event_lines}</ul>
+            <div class="day-head">
+                <h2><span class="day-weekday">{_esc(weekday)}</span> <span class="day-date">{_esc(month_day)}</span></h2>
+                <p class="day-count">{tally}</p>
+            </div>
+            <ul class="day-list">{event_lines}</ul>
         </div>
         """
 
@@ -250,29 +254,39 @@ def generate_html(
             --font-head: "Anybody", "Inter", system-ui, sans-serif;
             --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
             --head-narrow: 82%;
+
+            --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px;
+            --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+            --r-s: 8px; --r-m: 12px;
+            --keyline: 2px;
+            --tap: 44px;
+            --rail-w: 320px;
+            --leaf-col: 120px;
+            --time-col: 3.25rem;
         }}
         *, *::before, *::after {{ box-sizing: border-box; }}
         * {{ margin: 0; padding: 0; }}
         body {{
             font-family: var(--font-body);
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 16px 16px 56px;
             background: var(--ground);
             color: var(--text);
             line-height: 1.5;
             -webkit-font-smoothing: antialiased;
         }}
+        .page {{ max-width: 720px; margin: 0 auto; padding: var(--s-4) var(--s-4) 56px; }}
         ::selection {{ background: var(--lit); color: var(--on-lit); }}
         a {{ color: inherit; text-underline-offset: 0.18em; }}
         :focus-visible {{ outline: 3px solid var(--focus); outline-offset: 2px; }}
 
+        /* ---- Masthead: the flower and the lockup set in type on a phone,
+           the whole logo in the left rail on a desktop ---- */
         header {{ margin-bottom: 28px; }}
         .masthead {{
             display: grid;
-            grid-template-columns: clamp(84px, 24vw, 132px) minmax(0, 1fr);
+            grid-template-columns: clamp(84px, 24vw, 94px) minmax(0, 1fr);
             align-items: center;
             column-gap: 12px;
+            max-width: 358px;
             color: var(--accent);
             text-decoration: none;
         }}
@@ -285,7 +299,7 @@ def generate_html(
             font-family: var(--font-display);
             font-stretch: 50%;
             font-weight: 800;
-            font-size: clamp(2.5rem, 14.2vw, 4.75rem);
+            font-size: clamp(2.5rem, 14.2vw, 3.45rem);
             line-height: 0.92;
             text-transform: uppercase;
             white-space: nowrap;
@@ -299,7 +313,7 @@ def generate_html(
             gap: 8px;
             margin-top: 14px;
             padding-top: 12px;
-            border-top: 2px solid var(--line);
+            border-top: var(--keyline) solid var(--line);
         }}
         .meta-badge {{
             display: inline-block;
@@ -315,34 +329,115 @@ def generate_html(
             text-transform: uppercase;
         }}
         .updated {{ font-size: 0.8125rem; color: var(--text-soft); }}
+        .rail-link {{ display: none; }}
 
-        .day-section {{ margin-bottom: 32px; }}
-        h2 {{
-            margin-bottom: 4px;
+        /* ---- Days ---- */
+        .day-section {{ margin-bottom: var(--s-6); }}
+        .day-head {{
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: var(--s-3);
             padding-bottom: 6px;
-            border-bottom: 2px solid var(--line);
+            border-bottom: var(--keyline) solid var(--line);
+        }}
+        h2 {{
             font-family: var(--font-display);
             font-stretch: 50%;
             font-size: 2.125rem;
             font-weight: 700;
             line-height: 1;
             letter-spacing: 0.02em;
+            text-transform: uppercase;
             color: var(--accent);
         }}
+        .day-weekday::after {{ content: ","; }}
+        .day-count {{
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+            color: var(--text-soft);
+        }}
         ul {{ list-style: none; }}
-        li {{ padding: 10px 4px; border-bottom: 1px solid var(--rule); }}
-        li:last-child {{ border-bottom: none; }}
-        li.featured, li.event--featured {{
+
+        /* ---- Event rows: time column, then the act over its venue ---- */
+        .event {{ border-bottom: 1px solid var(--rule); }}
+        .day-list > .event:last-child, .day-list > .venue-group:last-child {{ border-bottom: 0; }}
+        .row {{
+            display: flex;
+            align-items: flex-start;
+            gap: var(--s-3);
+            min-height: 56px;
+            padding: 10px var(--s-2);
+            color: inherit;
+            text-decoration: none;
+            border-radius: var(--r-s);
+        }}
+        a.row:hover {{ background: var(--surface); }}
+        a.row:hover .artist {{ text-decoration: underline; }}
+        a.row:focus-visible {{ outline-offset: -3px; }}
+        .row-time {{
+            flex: 0 0 var(--time-col);
+            padding-top: 1px;
+            font-size: 0.9375rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            line-height: 1.25;
+            text-align: right;
+            white-space: nowrap;
+            color: var(--accent-text);
+        }}
+        .row-ampm {{
+            margin-left: 1px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }}
+        .row-time--words {{
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            line-height: 1.2;
+            text-transform: uppercase;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }}
+        .row-text {{ flex: 1 1 auto; display: flex; flex-direction: column; gap: 2px; min-width: 0; }}
+        .artist {{
+            font-family: var(--font-head);
+            font-stretch: var(--head-narrow);
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.22;
+            letter-spacing: 0.01em;
+            text-transform: uppercase;
+            overflow-wrap: anywhere;
+        }}
+        .venue {{ font-size: 0.8125rem; font-weight: 600; line-height: 1.35; color: var(--text-soft); }}
+
+        /* Several acts at one venue: the venue is named once, above them, and a
+           time they all share sits in its own time column. */
+        .venue-group {{ border-bottom: 1px solid var(--rule); }}
+        .venue-head {{ display: flex; align-items: baseline; gap: var(--s-3); padding: 10px var(--s-2) 0; }}
+        .venue-head .venue {{ font-size: 0.875rem; font-weight: 700; color: var(--text); }}
+        .venue-artists .event {{ border-bottom: 0; }}
+        .venue-artists .row {{ min-height: var(--tap); padding-block: var(--s-2); }}
+
+        /* WYXR Picks: a plain marigold block, in the one colour reserved for
+           things that are lit. */
+        .event--featured {{
             margin: 6px 0;
-            padding: 10px 12px;
-            border-bottom: none;
-            border-radius: 12px;
+            padding-bottom: 2px;
+            border-bottom: 0;
+            border-radius: var(--r-m);
             background: var(--lit);
             color: var(--on-lit);
         }}
         .featured-badge {{
             display: block;
-            margin-bottom: 2px;
+            padding: 10px var(--s-3) 0 calc(var(--s-3) + var(--time-col) + var(--s-3));
             font-family: var(--font-head);
             font-stretch: var(--head-narrow);
             font-size: 0.6875rem;
@@ -350,23 +445,9 @@ def generate_html(
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }}
-        li a {{ display: block; color: inherit; text-decoration: none; }}
-        li a:hover .artist {{ text-decoration: underline; }}
-        .artist {{
-            font-family: var(--font-head);
-            font-stretch: var(--head-narrow);
-            font-weight: 700;
-            letter-spacing: 0.01em;
-            text-transform: uppercase;
-            overflow-wrap: anywhere;
-        }}
-        .venue {{ font-size: 0.875rem; font-weight: 500; color: var(--text-soft); }}
-        .time {{ font-size: 0.875rem; font-weight: 600; white-space: nowrap; color: var(--accent-text); }}
-        li.featured .time, li.event--featured .time {{ color: var(--on-lit); }}
-        .venue-group {{ padding: 6px 4px 10px; }}
-        .venue-artists li {{ padding: 4px 0; border-bottom: none; }}
-        .venue-artists li.featured, .venue-artists li.event--featured {{ padding: 8px 12px; }}
-        .venue-footer {{ margin-top: 2px; }}
+        .event--featured .row {{ min-height: 0; padding: 4px var(--s-3) 10px; }}
+        .event--featured .row-time {{ color: var(--on-lit); }}
+        .event--featured a.row:hover {{ background: rgb(255 255 255 / 0.4); }}
         .no-events {{ padding: 32px 0; color: var(--text-soft); }}
 
         footer {{ margin-top: 48px; font-size: 0.875rem; text-align: center; color: var(--text-soft); }}
@@ -384,18 +465,109 @@ def generate_html(
             white-space: nowrap;
             border: 0;
         }}
+
+        /* ---- Desktop: the rail takes the logo; the list keeps its measure and
+           each day gets a column of its own for the date. Same breakpoint and
+           widths as docs/index.html. ---- */
+        @media (min-width: 1024px) {{
+            :root {{ --time-col: 4rem; }}
+            .page {{
+                display: grid;
+                grid-template-columns: var(--rail-w) minmax(0, 1fr);
+                column-gap: clamp(32px, 4vw, 64px);
+                align-items: start;
+                max-width: 1280px;
+                padding: var(--s-6) var(--s-6) var(--s-8);
+            }}
+            header {{
+                position: sticky;
+                top: var(--s-5);
+                max-height: calc(100vh - var(--s-6));
+                margin-bottom: 0;
+                overflow-y: auto;
+                scrollbar-width: thin;
+            }}
+            main {{ max-width: 880px; }}
+            footer {{ grid-column: 1 / -1; }}
+
+            .masthead {{ display: block; max-width: none; text-align: center; }}
+            .masthead img {{ max-width: 300px; margin: 0 auto; }}
+            .lockup {{ display: none; }}
+            .header-meta {{ flex-direction: column; align-items: flex-start; gap: var(--s-3); }}
+            .rail-link {{
+                display: inline-flex;
+                align-items: center;
+                min-height: var(--tap);
+                margin-top: var(--s-4);
+                padding: 0 18px;
+                border: var(--keyline) solid var(--line);
+                border-radius: 999px;
+                background: var(--surface);
+                color: var(--accent-text);
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-size: 0.875rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-decoration: none;
+                text-transform: uppercase;
+            }}
+            .rail-link:hover {{ background: var(--accent); color: var(--on-accent); }}
+
+            .day-section {{
+                display: grid;
+                grid-template-columns: var(--leaf-col) minmax(0, 1fr);
+                column-gap: var(--s-5);
+                align-items: start;
+                margin-bottom: var(--s-7);
+            }}
+            .day-head {{
+                position: sticky;
+                top: var(--s-5);
+                display: block;
+                padding: 4px 0 0;
+                border-bottom: 0;
+            }}
+            .day-weekday, .day-date {{ display: block; }}
+            .day-weekday::after {{ content: none; }}
+            .day-weekday {{ font-size: 2.125rem; }}
+            .day-date {{
+                margin-top: var(--s-1);
+                font-family: var(--font-head);
+                font-stretch: var(--head-narrow);
+                font-size: 1.0625rem;
+                font-weight: 800;
+                letter-spacing: 0.03em;
+                color: var(--text);
+            }}
+            .day-count {{ margin-top: var(--s-1); font-size: 0.8125rem; }}
+            .day-list {{ border-top: var(--keyline) solid var(--line); }}
+            .artist {{ font-size: 1.0625rem; }}
+            .venue {{ font-size: 0.875rem; }}
+            .row-time {{ font-size: 1rem; }}
+            .row-time--words {{ font-size: 0.6875rem; }}
+            .row {{ padding-block: var(--s-3); }}
+            .venue-artists .row {{ padding-block: var(--s-2); }}
+            .event--featured .row {{ padding: 4px var(--s-3) var(--s-3); }}
+        }}
         @media print {{
             body {{ background: #fff; }}
-            li.featured, li.event--featured {{ border: 1.5px solid var(--text); background: none; }}
+            header {{ position: static; }}
+            .rail-link {{ display: none; }}
+            .event--featured {{ border: 1.5px solid var(--text); background: none; }}
         }}
     </style>
 </head>
 <body>
     <h1 class="sr-only">Memphis Live Music — live shows in Memphis over the next 8 days, from WYXR 91.7 FM</h1>
+    <div class="page">
     <header>
         <a class="masthead" href="/" aria-label="Memphis Concert Calendar: the full calendar">
-            <img src="/brand/mascot.svg" alt="" width="524" height="600">
-            <span>
+            <picture class="masthead-art">
+                <source media="(min-width: 1024px)" srcset="/brand/logo.svg" width="968" height="994">
+                <img src="/brand/mascot.svg" alt="" width="524" height="600">
+            </picture>
+            <span class="lockup">
                 <img class="masthead-script" src="/brand/word-memphis.svg" alt="" width="3141" height="906">
                 <span class="masthead-words">Concert Calendar</span>
             </span>
@@ -405,6 +577,7 @@ def generate_html(
             <span class="updated">Updated {run_time_str}</span>
             <span class="meta-badge">{total_events} show{"s" if total_events != 1 else ""} &middot; next 8 days</span>
         </div>
+        <a class="rail-link" href="/">Full calendar</a>
     </header>
 
     <main>
@@ -423,6 +596,7 @@ def generate_html(
             <a href="/admin/">Admin</a>
         </div>
     </footer>
+    </div>
     <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>"""
@@ -436,3 +610,53 @@ def _esc(text: str) -> str:
         .replace(">", "&gt;")
         .replace('"', "&quot;")
     )
+
+
+_CLOCK_RE = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?", re.IGNORECASE)
+
+
+def _time_cell(raw) -> str:
+    """A start time typeset for the tabular time column.
+
+    "7:30 PM" becomes 7:30 with a small pm and ":00" is dropped, as on the home
+    page (``timeCell`` in docs/index.html). Presentation only: anything that is
+    not a plain clock time ("Doors 7, Show 8", "Late") is shown exactly as
+    written, escaped. Turning a time into a value still happens in one place,
+    ``time_format.parse_start_time``.
+    """
+    text = (raw or "").replace("\u202f", " ").replace("\u00a0", " ").strip()
+    if not text:
+        return '<span class="row-time"></span>'
+    m = _CLOCK_RE.fullmatch(text)
+    if not m:
+        return f'<span class="row-time row-time--words">{_esc(text)}</span>'
+    minutes = f":{m.group(2)}" if m.group(2) and m.group(2) != "00" else ""
+    # m.group(1) and (2) are \d only, and (3) is a letter: nothing to escape.
+    return (
+        f'<span class="row-time">{m.group(1)}{minutes}'
+        f'<span class="row-ampm">{m.group(3).lower()}m</span></span>'
+    )
+
+
+def _safe_href(url) -> str:
+    """The URL if it is plain http(s), else "". Escaping does not stop a
+    ``javascript:`` URL, and ticket links come from scrapers and flyer OCR."""
+    text = (url or "").strip()
+    return text if re.match(r"https?://", text, re.IGNORECASE) else ""
+
+
+def _row(event: Event, time_html: str, show_venue: bool) -> str:
+    """One event row: time column, then the act over its venue line."""
+    venue = (
+        f'<span class="venue">{_esc(event.venue)}</span>'
+        if show_venue and event.venue.strip()
+        else ""
+    )
+    inner = (
+        f'{time_html}<span class="row-text">'
+        f'<span class="artist">{_esc(event.artist)}</span>{venue}</span>'
+    )
+    href = _safe_href(event.url)
+    if href:
+        return f'<a class="row" href="{_esc(href)}" target="_blank" rel="noopener">{inner}</a>'
+    return f'<div class="row">{inner}</div>'
