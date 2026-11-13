@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-13T14:19:29.021113+00:00",
+  "run_timestamp": "2026-11-13T22:18:49.243669+00:00",
   "date_range": {
     "start": "2026-11-13",
     "end": "2026-11-20"
   },
-  "total_events_db": 4383,
+  "total_events_db": 4384,
   "total_active_display": 127,
   "data_store": "postgresql",
   "sources": [
@@ -25,35 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 34,
+      "events_after_filter": 34,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 41,
       "events_after_filter": 41,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 5,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 321,
-      "events_after_filter": 24,
-      "events_filtered": 297,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -65,15 +49,31 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "events_found": 321,
+      "events_after_filter": 24,
+      "events_filtered": 297,
+      "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 6,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -89,6 +89,22 @@
       "error": null
     },
     {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 23,
@@ -101,14 +117,6 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,14 +137,6 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 1,
-      "events_filtered": 8,
-      "error": null
-    },
-    {
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
@@ -153,27 +153,19 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
       "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -185,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
+      "events_found": 9,
+      "events_after_filter": 1,
+      "events_filtered": 8,
       "error": null
     },
     {
@@ -201,6 +193,14 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 21,
@@ -209,11 +209,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -233,19 +233,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 20,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 20,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -262,8 +262,8 @@
       "artist": "Molch w/ Jombi and Mary Hatley",
       "venue": "Growlers",
       "date": "2026-11-13",
-      "time": "8 AM",
-      "source": "scraper:growlers"
+      "time": "8 PM",
+      "source": "manual"
     },
     {
       "artist": "Ibex Clone \u2013 Gravity Album Release Listening Party: Ibex Clone",
