@@ -1,5 +1,5 @@
 {
-  "run_timestamp": "2026-11-14T11:58:27.643279+00:00",
+  "run_timestamp": "2026-11-14T21:01:23.214688+00:00",
   "date_range": {
     "start": "2026-11-14",
     "end": "2026-11-21"
@@ -25,22 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 321,
-      "events_after_filter": 22,
-      "events_filtered": 299,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 39,
@@ -57,15 +41,23 @@
       "error": null
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 321,
+      "events_after_filter": 22,
+      "events_filtered": 299,
       "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: FedExForum",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -81,20 +73,20 @@
       "error": null
     },
     {
+      "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -113,10 +105,10 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -129,35 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 19,
-      "events_filtered": 271,
-      "error": null
-    },
-    {
       "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 3,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -169,19 +137,35 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 19,
+      "events_filtered": 271,
       "error": null
     },
     {
@@ -193,10 +177,34 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 4,
+      "events_filtered": 14,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 21,
       "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 33,
+      "events_after_filter": 33,
       "events_filtered": 0,
       "error": null
     },
@@ -209,27 +217,19 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 4,
-      "events_filtered": 14,
-      "error": null
-    },
-    {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 26,
-      "events_after_filter": 20,
-      "events_filtered": 6,
+      "events_after_filter": 19,
+      "events_filtered": 7,
       "error": null
     },
     {
-      "name": "Venue: Growlers",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
+      "events_found": 40,
+      "events_after_filter": 28,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -241,11 +241,11 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Growlers",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 28,
-      "events_filtered": 12,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
       "error": null
     },
     {
