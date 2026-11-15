@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-15T12:33:39.431797+00:00",
+  "run_timestamp": "2026-11-15T21:25:12.745155+00:00",
   "date_range": {
     "start": "2026-11-15",
     "end": "2026-11-22"
   },
-  "total_events_db": 4390,
-  "total_active_display": 121,
+  "total_events_db": 4392,
+  "total_active_display": 122,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,14 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
@@ -49,7 +41,23 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 5,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -65,7 +73,15 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -79,22 +95,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
@@ -129,12 +129,12 @@
       "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
-      "error": null
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
     },
     {
       "name": "Venue: Memphis Listening Lab",
@@ -153,27 +153,19 @@
       "error": null
     },
     {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
       "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 3,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,11 +177,19 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -201,11 +201,11 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
-      "events_filtered": 0,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 121,
-      "events_after_filter": 121,
+      "events_found": 122,
+      "events_after_filter": 122,
       "events_filtered": 0,
       "error": null
     }
@@ -691,6 +691,13 @@
       "date": "2026-11-20",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Sister Dynamite",
+      "venue": "Wiseacre Brewing Company (Broad Ave)",
+      "date": "2026-11-20",
+      "time": "8 PM",
+      "source": "manual"
     },
     {
       "artist": "Devinn Day!!: Frank McLallen, Static!",
