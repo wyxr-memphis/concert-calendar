@@ -6,1018 +6,10 @@
     <title>Admin — WYXR Concert Calendar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anybody:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0;
-            background: #fafafa;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
-
-        /* WYXR Header Branding */
-        .site-header {
-            background: #000000;
-            padding: 20px 24px;
-            margin-bottom: 0;
-        }
-        .site-header h1 {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1.6em;
-            font-weight: 700;
-            color: #FFCF2D;
-            letter-spacing: 0.02em;
-            margin-bottom: 4px;
-        }
-        .site-header .subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85em;
-            color: #C6C5C3;
-        }
-        .site-header .header-actions {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-        }
-        .site-header {
-            position: relative;
-        }
-
-        /* Navigation Tabs */
-        .nav-tabs {
-            background: #000000;
-            display: flex;
-            gap: 0;
-            padding: 0 24px;
-            border-bottom: 2px solid #3D3B3E;
-        }
-        .nav-tab {
-            padding: 12px 24px;
-            font-size: 0.95em;
-            font-weight: 600;
-            border: none;
-            background: transparent;
-            color: #3D3B3E;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            margin-bottom: -2px;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-        .nav-tab:hover { color: #C6C5C3; }
-        .nav-tab.active {
-            color: #000000;
-            background: #FFCF2D;
-            border-bottom-color: #FFCF2D;
-        }
-
-        /* Main Content Area */
-        .content-wrapper {
-            padding: 24px;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: #FFCF2D;
-            color: #000000;
-            padding: 10px 24px;
-            font-size: 0.95em;
-            font-weight: 700;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .btn-primary:hover { opacity: 0.85; }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .btn-secondary {
-            background: #3D3B3E;
-            color: #FFFFFF;
-            padding: 8px 18px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-        .btn-secondary:hover { opacity: 0.85; }
-        .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .btn-logout {
-            background: #3D3B3E;
-            color: #FFFFFF;
-            padding: 6px 14px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .btn-logout:hover { background: #525052; }
-
-        /* Events Tab Styles */
-        .controls {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .search-input {
-            flex: 1;
-            min-width: 200px;
-            padding: 10px 14px;
-            font-size: 0.95em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #1a1a1a;
-            font-family: 'Inter', sans-serif;
-        }
-        .filter-tabs {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-        .filter-tab {
-            padding: 6px 14px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            background: transparent;
-            color: #666;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-        .filter-tab:hover { border-color: #888; color: #333; }
-        .filter-tab.active {
-            background: #FFCF2D;
-            color: #000000;
-            border-color: #FFCF2D;
-        }
-
-        .add-event-btn {
-            background: #FFCF2D;
-            color: #000000;
-            padding: 10px 28px;
-            font-size: 1em;
-            font-weight: 700;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .add-event-btn:hover { opacity: 0.85; }
-
-        .event-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-        .event-table th {
-            text-align: left;
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            padding: 10px 8px;
-            border-bottom: 2px solid #ddd;
-        }
-        .event-table td {
-            padding: 12px 8px;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9em;
-            vertical-align: middle;
-        }
-        .event-table tr { cursor: pointer; transition: background 0.1s; }
-        .event-table tr:hover { background: #f5f5f5; }
-        .event-table tr.inactive { opacity: 0.5; }
-
-        /* Submission Cards */
-        .submission-card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            padding: 16px 20px;
-            margin-bottom: 12px;
-        }
-        .submission-card .sub-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        .submission-card .sub-artist {
-            font-size: 1.05em;
-            font-weight: 700;
-        }
-        .submission-card .sub-meta {
-            font-size: 0.85em;
-            color: #666;
-            line-height: 1.6;
-        }
-        .submission-card .sub-meta span {
-            display: inline-block;
-            margin-right: 16px;
-        }
-        .submission-card .sub-desc {
-            background: #f8f8f8;
-            border-radius: 4px;
-            padding: 8px 12px;
-            font-size: 0.85em;
-            color: #444;
-            margin: 8px 0;
-        }
-        .submission-card .sub-image {
-            display: block;
-            max-width: 180px;
-            max-height: 180px;
-            border-radius: 4px;
-            border: 1px solid #e0e0e0;
-            margin: 8px 0;
-            cursor: zoom-in;
-        }
-        .submission-card .sub-image-unavailable {
-            display: inline-block;
-            font-size: 0.8em;
-            color: #888;
-            border: 1px dashed #ccc;
-            border-radius: 4px;
-            padding: 4px 8px;
-            margin: 8px 0;
-        }
-        .submission-card .sub-submitter {
-            font-size: 0.8em;
-            color: #999;
-            margin-top: 8px;
-        }
-        .submission-card .sub-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: 12px;
-        }
-        .sub-actions .btn-approve {
-            background: #2e7d32;
-            color: #fff;
-            padding: 6px 16px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .sub-actions .btn-approve:hover { opacity: 0.85; }
-        .sub-actions .btn-edit-approve {
-            background: #1565c0;
-            color: #fff;
-            padding: 6px 16px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .sub-actions .btn-edit-approve:hover { opacity: 0.85; }
-        .sub-actions .btn-reject {
-            background: #c62828;
-            color: #fff;
-            padding: 6px 16px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .sub-actions .btn-reject:hover { opacity: 0.85; }
-        .submission-card .sub-status-badge {
-            display: inline-block;
-            font-size: 0.75em;
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 3px;
-            text-transform: uppercase;
-        }
-        .sub-status-badge.pending { background: #fff3e0; color: #e65100; }
-        .sub-status-badge.approved { background: #e8f5e9; color: #2e7d32; }
-        .sub-status-badge.rejected { background: #fce4ec; color: #c62828; }
-        .nav-tab .badge {
-            display: inline-block;
-            background: #c62828;
-            color: #fff;
-            font-size: 0.75em;
-            font-weight: 700;
-            padding: 1px 6px;
-            border-radius: 10px;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
-        .nav-tab.active .badge {
-            background: #000;
-            color: #FFCF2D;
-        }
-
-        .col-date { width: 150px; white-space: nowrap; }
-        .col-time { width: 80px; white-space: nowrap; color: #888; font-size: 0.85em; }
-        .col-title { font-weight: 600; }
-        .col-venue { color: #555; }
-        .col-toggle { width: 40px; text-align: center; }
-
-        .toggle-btn {
-            background: none;
-            border: none;
-            font-size: 1.3em;
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: background 0.15s;
-            line-height: 1;
-        }
-        .toggle-btn:hover { background: #f0f0f0; }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            align-items: center;
-        }
-        .pagination button {
-            padding: 8px 16px;
-            font-size: 0.85em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #1a1a1a;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
-        .pagination button:hover:not(:disabled) { background: #f5f5f5; }
-        .page-info { font-size: 0.9em; color: #888; }
-
-        .status-bar {
-            padding: 12px 16px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            margin-bottom: 16px;
-            display: none;
-        }
-        .status-bar.error { background: #ffebee; color: #c62828; display: block; }
-        .status-bar.success { background: #e8f5e9; color: #2e7d32; display: block; }
-        .status-bar.info { background: #e3f2fd; color: #1565c0; display: block; }
-
-        .loading {
-            text-align: center;
-            padding: 60px 20px;
-            color: #888;
-            font-size: 1em;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .loading .spinner {
-            margin-bottom: 16px;
-            font-size: 2em;
-        }
-        .loading .hint {
-            font-size: 0.85em;
-            color: #aaa;
-            margin-top: 12px;
-        }
-
-        #content { display: none; }
-
-        footer {
-            margin-top: 60px;
-            padding: 20px;
-            text-align: center;
-            font-size: 0.85em;
-            color: #aaa;
-            border-top: 1px solid #eee;
-        }
-        footer a { color: inherit; text-decoration: underline; }
-
-        .feed-links {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .feed-links li {
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9em;
-            color: #666;
-        }
-        .feed-links li:last-child {
-            border-bottom: none;
-        }
-        .feed-links a {
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-weight: 700;
-        }
-
-        /* Tools Tab Styles */
-        .tools-section {
-            margin-bottom: 48px;
-        }
-        .tools-section:last-child {
-            margin-bottom: 0;
-        }
-        .section-title {
-            font-family: 'Anybody', sans-serif;
-            font-size: 1.3em;
-            font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 16px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #FFCF2D;
-        }
-        .section-subtitle {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 16px;
-        }
-
-        /* Upload Zone */
-        .upload-zone {
-            border: 2px dashed #ccc;
-            border-radius: 8px;
-            padding: 48px 24px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 20px;
-            background: #fafafa;
-        }
-        .upload-zone:hover, .upload-zone.dragover {
-            border-color: #FFCF2D;
-            background: #fffbf0;
-        }
-        .upload-zone p {
-            color: #666;
-            font-size: 1em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        .upload-zone .hint {
-            font-size: 0.85em;
-            color: #999;
-        }
-        .upload-zone input { display: none; }
-
-        .file-list { margin-bottom: 20px; }
-        .file-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 14px;
-            background: #fff;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            margin-bottom: 6px;
-            font-size: 0.9em;
-        }
-        .file-item .file-name { flex: 1; font-weight: 600; }
-        .file-item .file-status { color: #888; font-size: 0.85em; }
-        .file-item .file-status.done { color: #2e7d32; }
-        .file-item .file-status.error { color: #c62828; }
-
-        /* Preview table */
-        .preview-section { margin-top: 24px; display: none; }
-        .preview-section.visible { display: block; }
-        .preview-actions {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .preview-count { font-size: 0.85em; color: #888; margin-left: auto; }
-
-        .preview-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85em;
-            background: #fff;
-            border: 1px solid #eee;
-        }
-        .preview-table th {
-            text-align: left;
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            padding: 10px 8px;
-            border-bottom: 2px solid #ddd;
-            background: #f8f8f8;
-        }
-        .preview-table td {
-            padding: 8px;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
-        .preview-table tr.deselected { opacity: 0.4; }
-        .preview-table input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
-        .preview-table input[type="text"] {
-            width: 100%;
-            padding: 6px 8px;
-            font-size: 0.9em;
-            border: 1px solid #ddd;
-            border-radius: 3px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Build controls */
-        .build-controls {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Build log */
-        .build-log-panel {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 16px;
-            margin-top: 16px;
-            display: none;
-        }
-        .build-log-panel.visible { display: block; }
-        .build-log-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #333;
-        }
-        .build-log-title {
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            color: #FFCF2D;
-            font-size: 0.95em;
-        }
-        .build-log-status {
-            font-size: 0.85em;
-            color: #C6C5C3;
-        }
-        .build-log-status.running { color: #FFCF2D; }
-        .build-log-status.success { color: #2e7d32; }
-        .build-log-status.error { color: #c62828; }
-        .build-log-content {
-            background: #0a0a0a;
-            border-radius: 4px;
-            padding: 12px;
-            max-height: 400px;
-            overflow-y: auto;
-            font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-            font-size: 0.8em;
-            line-height: 1.6;
-        }
-        .log-line {
-            color: #C6C5C3;
-            margin-bottom: 4px;
-            white-space: pre-wrap;
-            word-break: break-all;
-        }
-        .log-line .timestamp {
-            color: #888;
-            margin-right: 8px;
-        }
-        .log-line.success { color: #81c784; }
-        .log-line.error { color: #ef9a9a; }
-        .log-line.warning { color: #ffb74d; }
-
-        /* Scraper status cards */
-        .scraper-status-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85em;
-            background: #fff;
-            border: 1px solid #eee;
-        }
-        .scraper-status-table th {
-            text-align: left;
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            padding: 10px 8px;
-            border-bottom: 2px solid #ddd;
-            background: #f8f8f8;
-        }
-        .scraper-status-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
-        .status-indicator {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            margin-right: 6px;
-        }
-        .status-indicator.ok { background: #2e7d32; }
-        .status-indicator.warning { background: #f9a825; }
-        .status-indicator.error { background: #c62828; }
-        .status-indicator.unknown { background: #888; }
-
-        .source-cards { display: flex; flex-direction: column; gap: 8px; }
-        .source-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            background: #fff;
-            overflow: hidden;
-        }
-        .source-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 14px;
-            cursor: pointer;
-            user-select: none;
-            transition: background 0.15s;
-        }
-        .source-card-header:hover { background: #f8f8f8; }
-        .source-card-left { display: flex; align-items: center; gap: 10px; }
-        .source-card-name { font-weight: 600; font-size: 0.9em; }
-        .source-card-right { display: flex; align-items: center; gap: 16px; font-size: 0.8em; color: #888; }
-        .source-card-stat { text-align: right; }
-        .source-card-stat strong { display: block; font-size: 1.1em; color: #333; }
-        .source-card-stat small { color: #999; font-size: 0.85em; }
-        .source-card-chevron { font-size: 0.8em; color: #ccc; transition: transform 0.2s; }
-        .source-card.open .source-card-chevron { transform: rotate(90deg); }
-        .source-card-body {
-            display: none;
-            padding: 0 14px 12px;
-            border-top: 1px solid #f0f0f0;
-        }
-        .source-card.open .source-card-body { display: block; }
-        .source-history { margin-top: 8px; }
-        .source-history-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 4px 0;
-            font-size: 0.82em;
-            color: #666;
-            border-bottom: 1px solid #f5f5f5;
-        }
-        .source-history-row:last-child { border-bottom: none; }
-        .source-error-msg {
-            margin-top: 6px;
-            padding: 8px 10px;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            border-radius: 4px;
-            font-size: 0.82em;
-            color: #991b1b;
-            word-break: break-word;
-        }
-        .db-event-summary {
-            margin-top: 12px;
-            padding: 10px 14px;
-            background: #f8f9fa;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            font-size: 0.85em;
-        }
-        .db-event-summary h4 { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 6px; }
-        .db-event-row { display: flex; justify-content: space-between; padding: 3px 0; border-bottom: 1px solid #f0f0f0; }
-        .db-event-row:last-child { border-bottom: none; }
-        .db-event-row .source-name { font-weight: 500; }
-        .db-event-row .source-range { color: #888; font-size: 0.9em; }
-        .build-history-section { margin-top: 16px; }
-        .build-history-section h4 { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin-bottom: 8px; }
-        .build-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 8px 0;
-            font-size: 0.85em;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .build-row:last-child { border-bottom: none; }
-
-        /* Venues Tab Styles */
-        .venues-toolbar {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        .venue-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9em;
-        }
-        .venue-table th {
-            text-align: left;
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #888;
-            padding: 10px 8px;
-            border-bottom: 2px solid #ddd;
-        }
-        .venue-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
-        .venue-table tr:hover { background: #f5f5f5; }
-        .venue-table .unassigned { color: #c62828; font-style: italic; }
-        .venue-table select {
-            padding: 4px 8px;
-            font-size: 0.9em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #1a1a1a;
-            font-family: 'Inter', sans-serif;
-        }
-        .venue-aliases {
-            font-size: 0.8em;
-            color: #888;
-            max-width: 300px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .merge-panel {
-            background: #fff;
-            border: 2px solid #FFCF2D;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        .merge-panel.visible { display: block; }
-        .merge-panel h3 {
-            font-size: 1em;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        .merge-selects {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-        .merge-selects select {
-            padding: 8px 12px;
-            font-size: 0.9em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            min-width: 200px;
-            font-family: 'Inter', sans-serif;
-        }
-        .merge-arrow { font-size: 1.2em; color: #888; }
-        .merge-preview {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 12px;
-            padding: 10px;
-            background: #f9f9f9;
-            border-radius: 4px;
-            display: none;
-        }
-        .merge-preview.visible { display: block; }
-
-        /* Event hover preview. Editors scan this list far more often than they
-           edit, so the full record is shown on hover instead of behind a click. */
-        .hover-card {
-            position: fixed;
-            z-index: 3000;
-            width: 340px;
-            max-width: calc(100vw - 24px);
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
-            padding: 14px;
-            font-size: 0.85em;
-            line-height: 1.45;
-            /* The card tracks the cursor, so it must never eat the pointer. */
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.12s ease;
-        }
-        .hover-card.visible { opacity: 1; }
-        .hc-thumb {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            background: #f0f0f0;
-            display: block;
-        }
-        .hc-title {
-            font-family: 'Anybody', sans-serif;
-            font-weight: 700;
-            font-size: 1.15em;
-            line-height: 1.25;
-            margin-bottom: 7px;
-        }
-        .hc-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 9px; }
-        .hc-badge {
-            font-size: 0.75em;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 2px 6px;
-            border-radius: 4px;
-            background: #eee;
-            color: #555;
-        }
-        .hc-badge.presents { background: #FFCF2D; color: #000; }
-        .hc-badge.featured { background: #000; color: #FFCF2D; }
-        .hc-badge.inactive { background: #fdecea; color: #c62828; }
-        .hc-rows { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; }
-        .hc-rows dt { color: #888; white-space: nowrap; }
-        .hc-rows dd { color: #1a1a1a; overflow-wrap: anywhere; }
-        .hc-desc {
-            margin-top: 9px;
-            padding-top: 9px;
-            border-top: 1px solid #eee;
-            color: #555;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .hc-foot {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-top: 9px;
-            padding-top: 8px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.85em;
-        }
-
-        /* Dark Mode */
-        @media (prefers-color-scheme: dark) {
-            body { background: #1a1a1a; color: #e0e0e0; }
-            .content-wrapper { background: #1a1a1a; }
-
-            .nav-tab:hover { color: #C6C5C3; }
-
-            .search-input, .preview-table input[type="text"] {
-                background: #2a2a2a;
-                border-color: #444;
-                color: #e0e0e0;
-            }
-
-            .filter-tab {
-                border-color: #444;
-                color: #aaa;
-            }
-            .filter-tab:hover {
-                border-color: #888;
-                color: #e0e0e0;
-            }
-
-            .event-table th, .preview-table th, .scraper-status-table th {
-                color: #666;
-                border-bottom-color: #333;
-                background: #222;
-            }
-            .event-table td, .preview-table td, .scraper-status-table td {
-                border-bottom-color: #2a2a2a;
-            }
-            .event-table tr:hover {
-                background: #252525;
-            }
-            .event-table, .preview-table, .scraper-status-table {
-                background: #2a2a2a;
-                border-color: #333;
-            }
-
-            .col-time { color: #777; }
-            .col-venue { color: #aaa; }
-
-            .toggle-btn:hover {
-                background: #333;
-            }
-
-            .pagination button {
-                background: #2a2a2a;
-                border-color: #444;
-                color: #e0e0e0;
-            }
-            .pagination button:hover:not(:disabled) {
-                background: #333;
-            }
-
-            .status-bar.error {
-                background: #3a1b1b;
-                color: #ef9a9a;
-            }
-            .status-bar.success {
-                background: #1b3a1b;
-                color: #81c784;
-            }
-            .status-bar.info {
-                background: #1b2a3a;
-                color: #90caf9;
-            }
-
-            .section-title {
-                color: #e0e0e0;
-            }
-            .section-subtitle {
-                color: #888;
-            }
-
-            .upload-zone {
-                border-color: #444;
-                background: #222;
-            }
-            .upload-zone:hover, .upload-zone.dragover {
-                border-color: #FFCF2D;
-                background: #2a2a2a;
-            }
-            .upload-zone p {
-                color: #e0e0e0;
-            }
-            .upload-zone .hint {
-                color: #888;
-            }
-
-            .file-item {
-                background: #2a2a2a;
-                border-color: #333;
-            }
-
-            footer {
-                border-top-color: #333;
-                color: #555;
-            }
-
-            .venue-table th {
-                color: #666;
-                border-bottom-color: #333;
-                background: #222;
-            }
-            .venue-table td {
-                border-bottom-color: #2a2a2a;
-            }
-            .venue-table tr:hover { background: #252525; }
-            .venue-table select {
-                background: #2a2a2a;
-                border-color: #444;
-                color: #e0e0e0;
-            }
-            .merge-panel {
-                background: #2a2a2a;
-                border-color: #FFCF2D;
-            }
-            .merge-selects select {
-                background: #333;
-                border-color: #555;
-                color: #e0e0e0;
-            }
-            .merge-preview {
-                background: #333;
-                color: #aaa;
-            }
-
-            .hover-card {
-                background: #242424;
-                border-color: #3a3a3a;
-                box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
-            }
-            .hc-thumb { background: #333; }
-            .hc-badge { background: #333; color: #bbb; }
-            .hc-badge.inactive { background: #3a2222; color: #ef9a9a; }
-            .hc-rows dd { color: #e0e0e0; }
-            .hc-desc { color: #aaa; }
-            .hc-desc, .hc-foot { border-top-color: #333; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <meta name="theme-color" content="#FCE2B6">
+    <link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
 </head>
 <body>
     <div class="loading" id="loadingMsg">
@@ -1028,8 +20,11 @@
 
     <div id="content">
         <div class="site-header">
-            <h1>WYXR Concert Calendar Admin</h1>
-            <div class="subtitle">Staff access only</div>
+            <img class="admin-mascot" src="/brand/mascot.svg" alt="" width="44" height="50">
+            <div class="admin-title">
+                <h1>Concert Calendar Admin</h1>
+                <div class="subtitle">WYXR 91.7 FM &middot; Staff access only</div>
+            </div>
             <div class="header-actions">
                 <button class="btn-logout" id="logoutBtn">Log Out</button>
             </div>
@@ -1059,7 +54,7 @@
                     </div>
                 </div>
                 <div id="submissionsList">
-                    <div style="text-align:center;color:#888;padding:24px;">Loading...</div>
+                    <div style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</div>
                 </div>
             </div>
 
@@ -1108,11 +103,11 @@
                 </div>
 
                 <!-- Merge Into Modal (for unmapped venues) -->
-                <div id="mergeIntoModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;">
-                    <div style="background:#1a1a1a;border:1px solid #333;border-radius:8px;padding:24px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.6);">
+                <div id="mergeIntoModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--scrim);z-index:1000;align-items:center;justify-content:center;">
+                    <div class="admin-dialog" style="padding:24px;max-width:440px;width:90%;">
                         <h3 style="margin:0 0 8px;font-size:1em;">Merge into existing venue</h3>
-                        <p id="mergeIntoLabel" style="color:#aaa;font-size:0.85em;margin:0 0 14px;"></p>
-                        <select id="mergeIntoSelect" style="width:100%;padding:8px 10px;background:#111;color:#fff;border:1px solid #444;border-radius:4px;margin-bottom:16px;font-size:0.9em;"></select>
+                        <p id="mergeIntoLabel" style="color:var(--text-soft);font-size:0.85em;margin:0 0 14px;"></p>
+                        <select id="mergeIntoSelect" style="margin-bottom:16px;"></select>
                         <div style="display:flex;gap:10px;justify-content:flex-end;">
                             <button class="btn-secondary" id="mergeIntoCancel">Cancel</button>
                             <button class="btn-primary" id="mergeIntoConfirm" disabled>Merge</button>
@@ -1123,7 +118,7 @@
                 <!-- Merge Panel -->
                 <div class="merge-panel" id="mergePanel">
                     <h3>Merge Venues</h3>
-                    <p style="font-size:0.85em;color:#888;margin-bottom:12px;">Select a venue to keep and one to merge into it. All events from the merged venue will be reassigned.</p>
+                    <p style="font-size:0.85em;color:var(--text-soft);margin-bottom:12px;">Select a venue to keep and one to merge into it. All events from the merged venue will be reassigned.</p>
                     <div class="merge-selects">
                         <select id="mergeKeep"><option value="">— Keep this venue —</option></select>
                         <span class="merge-arrow">&larr;</span>
@@ -1148,7 +143,7 @@
                         </tr>
                     </thead>
                     <tbody id="venueBody">
-                        <tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                        <tr><td colspan="4" style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -1160,13 +155,13 @@
                 <div style="margin-bottom:32px;">
                     <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
                         <h2 style="font-size:1.1em;font-weight:700;">Fund Drive</h2>
-                        <span id="pdActiveBadge" style="font-size:0.75em;font-weight:700;padding:3px 10px;border-radius:12px;background:#eee;color:#666;">…</span>
+                        <span id="pdActiveBadge" style="font-size:0.75em;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--ground-sunk);color:var(--text-soft);">…</span>
                     </div>
-                    <p style="font-size:0.85em;color:#666;margin-bottom:6px;">
+                    <p style="font-size:0.85em;color:var(--text-soft);margin-bottom:6px;">
                         A site-wide banner under the header with a progress meter and a Donate button.
                         The percentage is read live from the wyxr.org fund-drive thermometer — update it on wyxr.org, not here.
                     </p>
-                    <p style="font-size:0.8em;color:#999;margin-bottom:16px;">
+                    <p style="font-size:0.8em;color:var(--text-soft);margin-bottom:16px;">
                         Live progress right now: <strong id="pdLivePct">…</strong>
                     </p>
                     <div class="status-bar" id="pledgeStatusBar"></div>
@@ -1177,32 +172,32 @@
                         </div>
                         <div style="grid-column:1 / -1;">
                             <label for="pdHeadline" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Headline</label>
-                            <input type="text" id="pdHeadline" maxlength="80" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="WYXR Fund Drive">
+                            <input type="text" id="pdHeadline" maxlength="80" style="width:100%;" placeholder="WYXR Fund Drive">
                         </div>
                         <div style="grid-column:1 / -1;">
                             <label for="pdCopy" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Copy line (optional)</label>
-                            <input type="text" id="pdCopy" maxlength="200" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="Help us reach our goal — every dollar keeps Memphis music on the air.">
+                            <input type="text" id="pdCopy" maxlength="200" style="width:100%;" placeholder="Help us reach our goal — every dollar keeps Memphis music on the air.">
                         </div>
                         <div style="grid-column:1 / -1;">
                             <label for="pdDonateUrl" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Donate link (https)</label>
-                            <input type="text" id="pdDonateUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://wyxr.org">
+                            <input type="text" id="pdDonateUrl" style="width:100%;" placeholder="https://wyxr.org">
                         </div>
                         <div>
                             <label for="pdStartDate" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start date (optional)</label>
-                            <input type="date" id="pdStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                            <input type="date" id="pdStartDate" style="width:100%;">
                         </div>
                         <div>
                             <label for="pdEndDate" style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End date (optional)</label>
-                            <input type="date" id="pdEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                            <input type="date" id="pdEndDate" style="width:100%;">
                         </div>
                         <div style="grid-column:1 / -1;display:flex;gap:10px;align-items:center;">
                             <button class="btn-primary" id="pdSaveBtn">Save Fund Drive</button>
-                            <span style="font-size:0.8em;color:#999;">Leave both dates blank to run until you turn it off.</span>
+                            <span style="font-size:0.8em;color:var(--text-soft);">Leave both dates blank to run until you turn it off.</span>
                         </div>
                     </div>
                 </div>
 
-                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+                <hr style="border:none;border-top:2px solid var(--line);margin-bottom:28px;">
 
                 <!-- Calendar Sponsor sub-section -->
                 <div style="margin-bottom:32px;">
@@ -1210,10 +205,10 @@
                         <h2 style="font-size:1.1em;font-weight:700;">Calendar Sponsor</h2>
                         <button class="btn-primary" id="addCalSponsorBtn">+ Set Calendar Sponsor</button>
                     </div>
-                    <p style="font-size:0.85em;color:#666;margin-bottom:6px;">
+                    <p style="font-size:0.85em;color:var(--text-soft);margin-bottom:6px;">
                         A single featured sponsor shown above the event list. One active sponsor per date range.
                     </p>
-                    <p style="font-size:0.8em;color:#999;margin-bottom:16px;">
+                    <p style="font-size:0.8em;color:var(--text-soft);margin-bottom:16px;">
                         Recommended image size: <strong>600 × 120px</strong> (5:1 horizontal banner)
                     </p>
                     <div class="status-bar" id="calSponsorStatusBar"></div>
@@ -1229,49 +224,49 @@
                             </tr>
                         </thead>
                         <tbody id="calSponsorBody">
-                            <tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                            <tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</td></tr>
                         </tbody>
                     </table>
 
                     <!-- Calendar Sponsor Modal -->
-                    <div id="calSponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
-                        <div style="background:#fff;border-radius:8px;padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
+                    <div id="calSponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--scrim);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
+                        <div class="admin-dialog" style="padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
                             <h3 id="calSponsorModalTitle" style="margin:0 0 20px;font-size:1.1em;font-weight:700;">Set Calendar Sponsor</h3>
                             <div style="display:flex;flex-direction:column;gap:14px;">
                                 <div>
                                     <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Name (internal label)</label>
-                                    <input type="text" id="csName" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="e.g. Memphis Tourism Spring 2026">
+                                    <input type="text" id="csName" style="width:100%;" placeholder="e.g. Memphis Tourism Spring 2026">
                                 </div>
                                 <div>
-                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Image URL <span style="color:#888;font-weight:400;">(600 × 120px recommended)</span></label>
+                                    <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Image URL <span style="color:var(--text-soft);font-weight:400;">(600 × 120px recommended)</span></label>
                                     <div style="display:flex;gap:8px;">
-                                        <input type="text" id="csImageUrl" style="flex:1;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                        <input type="text" id="csImageUrl" style="flex:1;" placeholder="https://...">
                                         <label style="cursor:pointer;">
-                                            <input type="file" id="csImageFile" accept="image/*" style="display:none">
-                                            <span class="btn-secondary" style="white-space:nowrap;padding:8px 12px;display:inline-block;">Upload</span>
+                                            <input type="file" id="csImageFile" accept="image/*" style="display:none;">
+                                            <span class="btn-secondary" style="white-space:nowrap;">Upload</span>
                                         </label>
                                     </div>
                                     <div id="csImagePreview" style="margin-top:8px;display:none;">
-                                        <img id="csPreviewImg" src="" alt="Preview" style="max-width:300px;height:60px;object-fit:cover;border-radius:4px;border:1px solid #eee;">
-                                        <div style="font-size:0.75em;color:#999;margin-top:2px;">Preview at 300×60 (actual: 600×120)</div>
+                                        <img id="csPreviewImg" src="" alt="Preview" style="max-width:300px;height:60px;object-fit:cover;border-radius:8px;border:1.5px solid var(--line);">
+                                        <div style="font-size:0.75em;color:var(--text-soft);margin-top:2px;">Preview at 300×60 (actual: 600×120)</div>
                                     </div>
                                 </div>
                                 <div>
                                     <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Link URL (optional)</label>
-                                    <input type="text" id="csLinkUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                    <input type="text" id="csLinkUrl" style="width:100%;" placeholder="https://...">
                                 </div>
                                 <div>
                                     <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Copy Line (optional)</label>
-                                    <input type="text" id="csCopyLine" maxlength="120" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="Proud supporter of live music in Memphis">
+                                    <input type="text" id="csCopyLine" maxlength="120" style="width:100%;" placeholder="Proud supporter of live music in Memphis">
                                 </div>
                                 <div style="display:flex;gap:12px;">
                                     <div style="flex:1;">
                                         <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start Date</label>
-                                        <input type="date" id="csStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                        <input type="date" id="csStartDate" style="width:100%;">
                                     </div>
                                     <div style="flex:1;">
                                         <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End Date</label>
-                                        <input type="date" id="csEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                        <input type="date" id="csEndDate" style="width:100%;">
                                     </div>
                                 </div>
                                 <div style="display:flex;align-items:center;gap:8px;">
@@ -1279,7 +274,7 @@
                                     <label for="csIsActive" style="font-size:0.9em;font-weight:600;cursor:pointer;">Active</label>
                                 </div>
                             </div>
-                            <div id="calSponsorModalError" style="display:none;margin-top:12px;padding:10px;background:#ffebee;color:#c62828;border-radius:4px;font-size:0.85em;"></div>
+                            <div id="calSponsorModalError" style="display:none;margin-top:12px;padding:10px 12px;background:var(--surface);color:var(--accent-text);border-left:4px solid var(--accent);border-radius:8px;font-size:0.85em;"></div>
                             <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
                                 <button class="btn-secondary" id="calSponsorModalCancel">Cancel</button>
                                 <button class="btn-primary" id="calSponsorModalSave">Save</button>
@@ -1288,14 +283,14 @@
                     </div>
                 </div>
 
-                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+                <hr style="border:none;border-top:2px solid var(--line);margin-bottom:28px;">
 
                 <!-- Sponsor Callouts sub-section -->
                 <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
                     <h2 style="font-size:1.1em;font-weight:700;">Sponsor Callouts</h2>
                     <button class="btn-primary" id="addSponsorBtn">+ Add Sponsor</button>
                 </div>
-                <p style="font-size:0.85em;color:#666;margin-bottom:20px;">
+                <p style="font-size:0.85em;color:var(--text-soft);margin-bottom:20px;">
                     Sponsor cards appear inline between day sections in the public calendar and in the RSS feed.
                     Set <strong>Display After Date</strong> to control placement — the card appears right after that date's event list.
                 </p>
@@ -1312,48 +307,48 @@
                         </tr>
                     </thead>
                     <tbody id="sponsorBody">
-                        <tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                        <tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</td></tr>
                     </tbody>
                 </table>
 
                 <!-- Sponsor Edit Modal -->
-                <div id="sponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.75);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
-                    <div style="background:#fff;border-radius:8px;padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
+                <div id="sponsorModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:var(--scrim);z-index:1000;align-items:center;justify-content:center;overflow-y:auto;">
+                    <div class="admin-dialog" style="padding:28px;max-width:520px;width:90%;margin:auto;position:relative;">
                         <h3 id="sponsorModalTitle" style="margin:0 0 20px;font-size:1.1em;font-weight:700;">Add Sponsor</h3>
                         <div style="display:flex;flex-direction:column;gap:14px;">
                             <div>
                                 <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Name (internal label)</label>
-                                <input type="text" id="sName" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="e.g. Minglewood April Promo">
+                                <input type="text" id="sName" style="width:100%;" placeholder="e.g. Minglewood April Promo">
                             </div>
                             <div>
                                 <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Image URL</label>
                                 <div style="display:flex;gap:8px;">
-                                    <input type="text" id="sImageUrl" style="flex:1;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                    <input type="text" id="sImageUrl" style="flex:1;" placeholder="https://...">
                                     <label style="cursor:pointer;">
-                                        <input type="file" id="sImageFile" accept="image/*" style="display:none">
-                                        <span class="btn-secondary" style="white-space:nowrap;padding:8px 12px;display:inline-block;">Upload</span>
+                                        <input type="file" id="sImageFile" accept="image/*" style="display:none;">
+                                        <span class="btn-secondary" style="white-space:nowrap;">Upload</span>
                                     </label>
                                 </div>
                                 <div id="sImagePreview" style="margin-top:8px;display:none;">
-                                    <img id="sPreviewImg" src="" alt="Preview" style="max-width:100%;max-height:200px;border-radius:4px;border:1px solid #eee;">
+                                    <img id="sPreviewImg" src="" alt="Preview" style="max-width:100%;max-height:200px;border-radius:8px;border:1.5px solid var(--line);">
                                 </div>
                             </div>
                             <div>
                                 <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Link URL (optional)</label>
-                                <input type="text" id="sLinkUrl" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;" placeholder="https://...">
+                                <input type="text" id="sLinkUrl" style="width:100%;" placeholder="https://...">
                             </div>
                             <div>
-                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Display After Date <span style="color:#888;font-weight:400;">(card appears after this date's events)</span></label>
-                                <input type="date" id="sDisplayAfterDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Display After Date <span style="color:var(--text-soft);font-weight:400;">(card appears after this date's events)</span></label>
+                                <input type="date" id="sDisplayAfterDate" style="width:100%;">
                             </div>
                             <div style="display:flex;gap:12px;">
                                 <div style="flex:1;">
                                     <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">Start Date</label>
-                                    <input type="date" id="sStartDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                    <input type="date" id="sStartDate" style="width:100%;">
                                 </div>
                                 <div style="flex:1;">
                                     <label style="font-size:0.85em;font-weight:600;display:block;margin-bottom:4px;">End Date</label>
-                                    <input type="date" id="sEndDate" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9em;">
+                                    <input type="date" id="sEndDate" style="width:100%;">
                                 </div>
                             </div>
                             <div style="display:flex;align-items:center;gap:8px;">
@@ -1361,7 +356,7 @@
                                 <label for="sIsActive" style="font-size:0.9em;font-weight:600;cursor:pointer;">Active</label>
                             </div>
                         </div>
-                        <div id="sponsorModalError" style="display:none;margin-top:12px;padding:10px;background:#ffebee;color:#c62828;border-radius:4px;font-size:0.85em;"></div>
+                        <div id="sponsorModalError" style="display:none;margin-top:12px;padding:10px 12px;background:var(--surface);color:var(--accent-text);border-left:4px solid var(--accent);border-radius:8px;font-size:0.85em;"></div>
                         <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:20px;">
                             <button class="btn-secondary" id="sponsorModalCancel">Cancel</button>
                             <button class="btn-primary" id="sponsorModalSave">Save</button>
@@ -1378,16 +373,16 @@
                     <h2 class="section-title" style="margin-bottom:4px;">Pending Requests</h2>
                     <p class="section-subtitle" style="margin-bottom:12px;">API access requests submitted via the docs page.</p>
                     <div id="apiKeyRequestsBody">
-                        <div style="color:#888;font-size:0.9em;">Loading...</div>
+                        <div style="color:var(--text-soft);font-size:0.9em;">Loading...</div>
                     </div>
                 </div>
 
-                <hr style="border:none;border-top:1px solid #e0e0e0;margin-bottom:28px;">
+                <hr style="border:none;border-top:2px solid var(--line);margin-bottom:28px;">
 
                 <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
                     <div>
                         <h2 class="section-title" style="margin-bottom:4px;">Issued Keys</h2>
-                        <p class="section-subtitle">Manage third-party access to <code>/api/v1/</code> endpoints. <a href="/api" target="_blank" style="color:#1976d2;">View docs</a></p>
+                        <p class="section-subtitle">Manage third-party access to <code>/api/v1/</code> endpoints. <a href="/api" target="_blank" style="color:var(--accent-text);">View docs</a></p>
                     </div>
                     <button class="btn-primary" id="newApiKeyBtn">+ New Key</button>
                 </div>
@@ -1405,30 +400,30 @@
                         </tr>
                     </thead>
                     <tbody id="apiKeysBody">
-                        <tr><td colspan="7" style="text-align:center;color:#888;padding:24px;">Loading...</td></tr>
+                        <tr><td colspan="7" style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</td></tr>
                     </tbody>
                 </table>
 
                 <!-- Usage panel -->
-                <div id="apiKeyUsagePanel" style="display:none;margin-top:24px;padding:20px;border:1px solid #e0e0e0;border-radius:6px;background:#fff;">
+                <div id="apiKeyUsagePanel" style="display:none;margin-top:24px;padding:20px;border:2px solid var(--line);border-radius:12px;background:var(--surface);">
                     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
                         <h3 style="font-size:1em;font-weight:700;" id="usagePanelTitle">Usage</h3>
-                        <button id="usagePanelClose" style="border:none;background:none;cursor:pointer;font-size:1.2em;color:#888;">&times;</button>
+                        <button id="usagePanelClose" style="border:none;background:none;cursor:pointer;font-size:1.2em;color:var(--text-soft);">&times;</button>
                     </div>
-                    <div id="usagePanelBody" style="font-size:0.9em;color:#444;"></div>
+                    <div id="usagePanelBody" style="font-size:0.9em;color:var(--text-soft);"></div>
                 </div>
 
                 <!-- New Key Modal -->
-                <div id="newApiKeyModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
-                    <div style="background:#fff;border-radius:8px;padding:28px;width:420px;max-width:95vw;">
+                <div id="newApiKeyModal" style="display:none;position:fixed;inset:0;background:var(--scrim);z-index:1000;align-items:center;justify-content:center;">
+                    <div class="admin-dialog" style="padding:28px;width:420px;max-width:95vw;">
                         <h3 style="margin-bottom:16px;font-size:1.1em;">New API Key</h3>
-                        <div id="newKeyError" style="display:none;color:#c62828;margin-bottom:12px;font-size:0.9em;"></div>
-                        <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Name <span style="color:#c62828;">*</span></label>
-                        <input type="text" id="newKeyName" placeholder="e.g. Memphis Flyer" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:12px;font-size:0.95em;">
+                        <div id="newKeyError" style="display:none;color:var(--accent-text);margin-bottom:12px;font-size:0.9em;"></div>
+                        <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Name <span style="color:var(--accent-text);">*</span></label>
+                        <input type="text" id="newKeyName" placeholder="e.g. Memphis Flyer" style="width:100%;margin-bottom:12px;">
                         <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Email</label>
-                        <input type="email" id="newKeyEmail" placeholder="contact@example.com" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:12px;font-size:0.95em;">
+                        <input type="email" id="newKeyEmail" placeholder="contact@example.com" style="width:100%;margin-bottom:12px;">
                         <label style="display:block;margin-bottom:4px;font-weight:600;font-size:0.9em;">Notes</label>
-                        <textarea id="newKeyNotes" rows="2" placeholder="What are they building?" style="width:100%;padding:8px 10px;border:1px solid #ccc;border-radius:4px;margin-bottom:16px;font-size:0.95em;resize:vertical;"></textarea>
+                        <textarea id="newKeyNotes" rows="2" placeholder="What are they building?" style="width:100%;margin-bottom:16px;resize:vertical;"></textarea>
                         <div style="display:flex;gap:8px;justify-content:flex-end;">
                             <button class="btn-secondary" id="newKeyCancel">Cancel</button>
                             <button class="btn-primary" id="newKeySave">Create Key</button>
@@ -1437,12 +432,12 @@
                 </div>
 
                 <!-- Key reveal modal (shown once after creation) -->
-                <div id="keyRevealModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:1001;align-items:center;justify-content:center;">
-                    <div style="background:#fff;border-radius:8px;padding:28px;width:480px;max-width:95vw;">
+                <div id="keyRevealModal" style="display:none;position:fixed;inset:0;background:var(--scrim);z-index:1001;align-items:center;justify-content:center;">
+                    <div class="admin-dialog" style="padding:28px;width:480px;max-width:95vw;">
                         <h3 style="margin-bottom:8px;font-size:1.1em;">API Key Created</h3>
-                        <p style="font-size:0.9em;color:#555;margin-bottom:16px;">Copy this key now — it won't be shown again.</p>
+                        <p style="font-size:0.9em;color:var(--text-soft);margin-bottom:16px;">Copy this key now — it won't be shown again.</p>
                         <div style="display:flex;gap:8px;align-items:center;">
-                            <code id="keyRevealValue" style="flex:1;background:#f5f5f5;border:1px solid #ddd;padding:10px 12px;border-radius:4px;font-size:0.85em;word-break:break-all;"></code>
+                            <code id="keyRevealValue" style="flex:1;background:var(--field);border:1.5px solid var(--field-line);padding:10px 12px;border-radius:10px;font-size:0.85em;word-break:break-all;"></code>
                             <button class="btn-secondary" id="copyKeyBtn" style="white-space:nowrap;">Copy</button>
                         </div>
                         <div style="margin-top:16px;text-align:right;">
@@ -1517,7 +512,7 @@
                     <p class="section-subtitle">Per-source results from recent builds. Click a source to see history.</p>
 
                     <div class="source-cards" id="sourceCards">
-                        <div style="text-align:center;color:#888;padding:24px;">Loading...</div>
+                        <div style="text-align:center;color:var(--text-soft);padding:24px;">Loading...</div>
                     </div>
 
                     <div class="db-event-summary" id="dbEventSummary" style="display:none;"></div>
@@ -1534,8 +529,8 @@
                     <p class="section-subtitle">Session control and a record of recent admin changes</p>
 
                     <div class="build-controls" style="align-items:center;">
-                        <button class="btn-secondary" id="revokeSessionsBtn" style="color:#c62828;">Log out all sessions</button>
-                        <span style="font-size:0.85em;color:#888;">
+                        <button class="btn-secondary" id="revokeSessionsBtn" style="color:var(--accent-text);">Log out all sessions</button>
+                        <span style="font-size:0.85em;color:var(--text-soft);">
                             Invalidates every admin token, including this one. Use if a session may have leaked.
                         </span>
                     </div>
@@ -1545,7 +540,7 @@
                     <p class="section-subtitle" style="margin-top:0;">
                         State-changing requests only. Reads are not recorded.
                     </p>
-                    <div id="auditLogBody" style="font-size:0.88em;color:#888;">Not loaded.</div>
+                    <div id="auditLogBody" style="font-size:0.88em;color:var(--text-soft);">Not loaded.</div>
                     <button class="btn-secondary" id="loadAuditLogBtn" style="margin-top:10px;padding:6px 14px;font-size:0.85em;">Load activity</button>
                 </div>
 
@@ -1882,7 +877,7 @@
             const page = filteredEvents.slice(start, start + PAGE_SIZE);
 
             if (page.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#888;padding:32px;">No events found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-soft);padding:32px;">No events found</td></tr>';
                 return;
             }
 
@@ -1894,8 +889,8 @@
                 const presentsStyle = e.is_wyxr_presents ? 'opacity:1' : 'opacity:0.3';
                 const star = e.is_featured ? '&#9733;' : '&#9734;';
                 const active = e.is_active !== false ? '&#10003;' : '&#10007;';
-                const starColor = e.is_featured ? 'color:#FFCF2D' : 'color:#ccc';
-                const activeColor = e.is_active !== false ? 'color:#2e7d32' : 'color:#c62828';
+                const starColor = e.is_featured ? 'color:var(--lit);-webkit-text-stroke:1px var(--on-lit)' : 'color:var(--text-soft)';
+                const activeColor = e.is_active !== false ? 'color:var(--ok)' : 'color:var(--accent-text)';
 
                 return `<tr${inactive} data-id="${escAttr(e.id)}">
                     <td class="col-date">${esc(dateStr)}</td>
@@ -2024,7 +1019,7 @@
                 allSubmissions = data.submissions || [];
                 renderSubmissions();
             } catch (err) {
-                container.innerHTML = `<div style="text-align:center;color:#888;padding:24px;">Failed to load: ${esc(err.message)}</div>`;
+                container.innerHTML = `<div style="text-align:center;color:var(--text-soft);padding:24px;">Failed to load: ${esc(err.message)}</div>`;
             }
         }
 
@@ -2032,7 +1027,7 @@
             const container = document.getElementById('submissionsList');
 
             if (allSubmissions.length === 0) {
-                container.innerHTML = `<div style="text-align:center;color:#888;padding:32px;">No ${submissionFilter === 'all' ? '' : submissionFilter + ' '}submissions</div>`;
+                container.innerHTML = `<div style="text-align:center;color:var(--text-soft);padding:32px;">No ${submissionFilter === 'all' ? '' : submissionFilter + ' '}submissions</div>`;
                 return;
             }
 
@@ -2263,7 +1258,7 @@
                 populateMergeSelects();
             } catch (err) {
                 document.getElementById('venueBody').innerHTML =
-                    `<tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">Failed to load venues: ${esc(err.message)}</td></tr>`;
+                    `<tr><td colspan="4" style="text-align:center;color:var(--text-soft);padding:24px;">Failed to load venues: ${esc(err.message)}</td></tr>`;
             }
         }
 
@@ -2272,7 +1267,7 @@
             let html = '';
 
             if (allVenues.length === 0 && unmappedVenues.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:#888;padding:24px;">No venues found</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--text-soft);padding:24px;">No venues found</td></tr>';
                 return;
             }
 
@@ -2286,11 +1281,11 @@
                 ).join('');
 
                 const deleteBtn = count === 0
-                    ? `<button class="btn-secondary delete-venue-btn" data-venue-id="${escAttr(v.id)}" data-venue-name="${escAttr(v.name)}" style="padding:2px 8px;font-size:0.8em;color:#c62828;margin-left:6px;" title="Delete venue (no events)">✕</button>`
+                    ? `<button class="btn-secondary delete-venue-btn" data-venue-id="${escAttr(v.id)}" data-venue-name="${escAttr(v.name)}" style="padding:2px 8px;font-size:0.8em;color:var(--accent-text);margin-left:6px;" title="Delete venue (no events)">✕</button>`
                     : '';
 
                 return `<tr data-venue-id="${escAttr(v.id)}">
-                    <td><strong class="venue-name-link" data-venue-id="${escAttr(v.id)}" data-current-name="${escAttr(v.name)}" style="cursor:pointer;border-bottom:1px dashed #888;" title="Click to rename">${esc(v.name)}</strong>${deleteBtn}</td>
+                    <td><strong class="venue-name-link" data-venue-id="${escAttr(v.id)}" data-current-name="${escAttr(v.name)}" style="cursor:pointer;border-bottom:1.5px dashed var(--text-soft);" title="Click to rename">${esc(v.name)}</strong>${deleteBtn}</td>
                     <td>
                         <select data-venue-id="${escAttr(v.id)}" class="venue-nh-select">
                             <option value=""${!v.neighborhood ? ' selected' : ''}>— Not assigned —</option>
@@ -2304,14 +1299,14 @@
 
             // Unmapped venues section
             if (unmappedVenues.length > 0) {
-                html += `<tr><td colspan="4" style="padding:20px 8px 8px;border-bottom:2px solid #FFCF2D;">
-                    <strong style="color:#FFCF2D;font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;">Unmapped Venues (${unmappedVenues.length})</strong>
-                    <span style="font-size:0.8em;color:#888;margin-left:8px;">These venues appear in events but aren't in the venues table yet</span>
+                html += `<tr><td colspan="4" style="padding:20px 8px 8px;border-bottom:2px solid var(--line);">
+                    <strong style="color:var(--accent-text);font-size:0.85em;letter-spacing:0.05em;text-transform:uppercase;">Unmapped Venues (${unmappedVenues.length})</strong>
+                    <span style="font-size:0.8em;color:var(--text-soft);margin-left:8px;">These venues appear in events but aren't in the venues table yet</span>
                 </td></tr>`;
 
                 html += unmappedVenues.map(u => {
                     return `<tr class="unmapped-row">
-                        <td><span style="color:#c62828;">${esc(u.name)}</span></td>
+                        <td><span style="color:var(--accent-text);">${esc(u.name)}</span></td>
                         <td>
                             <select class="unmapped-nh-select" data-venue-name="${escAttr(u.name)}">
                                 <option value="">— Select —</option>
@@ -2321,7 +1316,7 @@
                         <td>
                             <button class="btn-secondary add-unmapped-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;">Add</button>
                             <button class="btn-secondary merge-into-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;">Merge into...</button>
-                            <button class="btn-secondary dismiss-unmapped-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;color:#888;" title="Not a real venue — hide until new events import this name">Dismiss</button>
+                            <button class="btn-secondary dismiss-unmapped-btn" data-venue-name="${escAttr(u.name)}" style="padding:4px 12px;font-size:0.8em;margin-left:4px;color:var(--text-soft);" title="Not a real venue — hide until new events import this name">Dismiss</button>
                         </td>
                         <td style="text-align:right;">${u.event_count || 0}</td>
                     </tr>`;
@@ -2690,16 +1685,16 @@
             const badge = document.getElementById('pdActiveBadge');
             if (data.active) {
                 badge.textContent = 'LIVE on the calendar';
-                badge.style.background = '#e8f5e9';
-                badge.style.color = '#2e7d32';
+                badge.style.background = 'var(--ok-soft)';
+                badge.style.color = 'var(--ok)';
             } else if (data.enabled) {
                 badge.textContent = 'Enabled, outside date window';
-                badge.style.background = '#fff8e1';
-                badge.style.color = '#8d6e00';
+                badge.style.background = 'var(--lit)';
+                badge.style.color = 'var(--on-lit)';
             } else {
                 badge.textContent = 'Off';
-                badge.style.background = '#eee';
-                badge.style.color = '#666';
+                badge.style.background = 'var(--ground-sunk)';
+                badge.style.color = 'var(--text-soft)';
             }
         }
 
@@ -2750,14 +1745,14 @@
                 renderCalSponsorTable();
             } catch (err) {
                 document.getElementById('calSponsorBody').innerHTML =
-                    `<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Failed to load: ${esc(err.message)}</td></tr>`;
+                    `<tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">Failed to load: ${esc(err.message)}</td></tr>`;
             }
         }
 
         function renderCalSponsorTable() {
             const tbody = document.getElementById('calSponsorBody');
             if (allCalSponsorsAdmin.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No calendar sponsor set. Click "+ Set Calendar Sponsor" to add one.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">No calendar sponsor set. Click "+ Set Calendar Sponsor" to add one.</td></tr>';
                 return;
             }
             tbody.innerHTML = allCalSponsorsAdmin.map(s => {
@@ -2769,13 +1764,13 @@
                     : '';
                 return `<tr style="${s.is_active ? '' : 'opacity:0.5;'}">
                     <td>${thumb}${esc(s.name)}</td>
-                    <td style="color:#666;font-size:0.9em;">${esc(s.copy_line || '—')}</td>
+                    <td style="color:var(--text-soft);font-size:0.9em;">${esc(s.copy_line || '—')}</td>
                     <td>${esc(s.start_date || '')}</td>
                     <td>${esc(s.end_date || '')}</td>
                     <td style="text-align:center;">${activeBtn}</td>
                     <td style="white-space:nowrap;">
                         <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;" onclick="openCalSponsorModal('${s.id}')">Edit</button>
-                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:#c62828;margin-left:4px;" onclick="deleteCalSponsor('${s.id}')">Delete</button>
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:var(--accent);color:var(--on-accent);margin-left:4px;" onclick="deleteCalSponsor('${s.id}')">Delete</button>
                     </td>
                 </tr>`;
             }).join('');
@@ -2957,14 +1952,14 @@
                 renderSponsorTable();
             } catch (err) {
                 document.getElementById('sponsorBody').innerHTML =
-                    `<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">Failed to load sponsors: ${esc(err.message)}</td></tr>`;
+                    `<tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">Failed to load sponsors: ${esc(err.message)}</td></tr>`;
             }
         }
 
         function renderSponsorTable() {
             const tbody = document.getElementById('sponsorBody');
             if (allSponsorsAdmin.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#888;padding:24px;">No sponsors yet. Click "+ Add Sponsor" to create one.</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-soft);padding:24px;">No sponsors yet. Click "+ Add Sponsor" to create one.</td></tr>';
                 return;
             }
             tbody.innerHTML = allSponsorsAdmin.map(s => {
@@ -2982,7 +1977,7 @@
                     <td style="text-align:center;">${activeBtn}</td>
                     <td style="white-space:nowrap;">
                         <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;" onclick="openSponsorModal('${s.id}')">Edit</button>
-                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:#c62828;margin-left:4px;" onclick="deleteSponsor('${s.id}')">Delete</button>
+                        <button class="btn-secondary" style="padding:4px 10px;font-size:0.8em;background:var(--accent);color:var(--on-accent);margin-left:4px;" onclick="deleteSponsor('${s.id}')">Delete</button>
                     </td>
                 </tr>`;
             }).join('');
@@ -3199,11 +2194,11 @@
                         <td style="white-space:nowrap;">${esc(when)}</td>
                         <td><code>${esc(entry.method || '')}</code></td>
                         <td style="word-break:break-all;">${esc(entry.path || '')}</td>
-                        <td style="color:${ok ? '#2e7d32' : '#c62828'};">${esc(String(status))}</td>
+                        <td style="color:${ok ? 'var(--ok)' : 'var(--accent-text)'};">${esc(String(status))}</td>
                     </tr>`;
                 }).join('');
                 el.innerHTML = `<table style="width:100%;border-collapse:collapse;">
-                    <thead><tr style="text-align:left;color:#666;">
+                    <thead><tr style="text-align:left;color:var(--text-soft);">
                         <th>When</th><th>Method</th><th>Path</th><th>Status</th>
                     </tr></thead>
                     <tbody>${rows}</tbody>
@@ -3596,7 +2591,7 @@
                 const { resp, data } = await AdminAPI.apiJSON('/api/admin/scraper/status');
 
                 if (!resp.ok || (!data.sources && !data.scrapers)) {
-                    cardsEl.innerHTML = '<div style="text-align:center;color:#888;padding:24px;">Scraper status unavailable. Scrapers run via GitHub Actions twice daily.</div>';
+                    cardsEl.innerHTML = '<div style="text-align:center;color:var(--text-soft);padding:24px;">Scraper status unavailable. Scrapers run via GitHub Actions twice daily.</div>';
                     return;
                 }
 
@@ -3606,7 +2601,7 @@
                 const builds = data.builds || [];
 
                 if (sources.length === 0) {
-                    cardsEl.innerHTML = '<div style="text-align:center;color:#888;padding:24px;">No scraper data yet. Run a build first.</div>';
+                    cardsEl.innerHTML = '<div style="text-align:center;color:var(--text-soft);padding:24px;">No scraper data yet. Run a build first.</div>';
                     return;
                 }
 
@@ -3665,11 +2660,11 @@
                         </div>
                         <div class="source-card-body">
                             ${errorHtml}
-                            <div style="font-size:0.82em;color:#666;margin-top:4px;">
+                            <div style="font-size:0.82em;color:var(--text-soft);margin-top:4px;">
                                 ${s.events_found || 0} found${foundDetail} &middot;
                                 Status: <strong>${esc(statusLabel)}</strong>
                             </div>
-                            ${hist.length > 1 ? '<div style="font-size:0.78em;font-weight:600;color:#888;margin-top:10px;text-transform:uppercase;letter-spacing:0.05em;">Run History</div>' : ''}
+                            ${hist.length > 1 ? '<div style="font-size:0.78em;font-weight:600;color:var(--text-soft);margin-top:10px;text-transform:uppercase;letter-spacing:0.05em;">Run History</div>' : ''}
                             ${hist.length > 1 ? historyHtml : ''}
                         </div>
                     </div>`;
@@ -3704,15 +2699,15 @@
                         return `<div class="build-row">
                             <span class="status-indicator ${statusClass}"></span>
                             <span>${runTime}</span>
-                            <span style="color:#888;">(${duration})</span>
+                            <span style="color:var(--text-soft);">(${duration})</span>
                             <span style="margin-left:auto;">${b.events_found || 0} found, ${b.events_added || 0} added</span>
-                            ${b.error_message ? '<div style="font-size:0.8em;color:#c62828;margin-top:2px;word-break:break-word;">' + esc(b.error_message).substring(0,120) + '</div>' : ''}
+                            ${b.error_message ? '<div style="font-size:0.8em;color:var(--accent-text);margin-top:2px;word-break:break-word;">' + esc(b.error_message).substring(0,120) + '</div>' : ''}
                         </div>`;
                     }).join('');
                 }
 
             } catch (err) {
-                cardsEl.innerHTML = `<div style="text-align:center;color:#888;padding:24px;">
+                cardsEl.innerHTML = `<div style="text-align:center;color:var(--text-soft);padding:24px;">
                     Failed to load scraper status: ${esc(err.message)}
                 </div>`;
             }
@@ -3731,7 +2726,7 @@
                 const reviewed = data.filter(r => r.status !== 'pending');
 
                 if (!data.length) {
-                    el.innerHTML = '<div style="color:#888;font-size:0.9em;padding:8px 0;">No requests yet.</div>';
+                    el.innerHTML = '<div style="color:var(--text-soft);font-size:0.9em;padding:8px 0;">No requests yet.</div>';
                     return;
                 }
 
@@ -3750,17 +2745,17 @@
                             <td style="white-space:nowrap;">${r.submitted_at ? new Date(r.submitted_at).toLocaleDateString() : '—'}</td>
                             <td>
                                 <button class="btn-primary" style="padding:4px 12px;font-size:0.82em;margin-right:4px;" onclick="approveKeyRequest('${esc(r.id)}')">Approve</button>
-                                <button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:#c62828;" onclick="rejectKeyRequest('${esc(r.id)}')">Reject</button>
+                                <button class="btn-secondary" style="padding:4px 10px;font-size:0.82em;color:var(--accent-text);" onclick="rejectKeyRequest('${esc(r.id)}')">Reject</button>
                             </td>
                         </tr>`).join('')}</tbody>
                     </table>`;
                 } else {
-                    html += '<div style="color:#888;font-size:0.9em;padding:4px 0 12px;">No pending requests.</div>';
+                    html += '<div style="color:var(--text-soft);font-size:0.9em;padding:4px 0 12px;">No pending requests.</div>';
                 }
 
                 if (reviewed.length) {
                     html += `<details style="font-size:0.88em;">
-                        <summary style="cursor:pointer;color:#888;margin-bottom:8px;">Show ${reviewed.length} reviewed request${reviewed.length !== 1 ? 's' : ''}</summary>
+                        <summary style="cursor:pointer;color:var(--text-soft);margin-bottom:8px;">Show ${reviewed.length} reviewed request${reviewed.length !== 1 ? 's' : ''}</summary>
                         <table class="preview-table" style="margin-top:8px;">
                             <thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Status</th><th>Reviewed</th></tr></thead>
                             <tbody>${reviewed.map(r => `<tr>
@@ -3768,8 +2763,8 @@
                                 <td>${esc(r.email)}</td>
                                 <td>${esc(r.company || '—')}</td>
                                 <td>${r.status === 'approved'
-                                    ? '<span style="color:#2e7d32;font-weight:600;">Approved</span>'
-                                    : '<span style="color:#c62828;font-weight:600;">Rejected</span>'}</td>
+                                    ? '<span style="color:var(--ok);font-weight:600;">Approved</span>'
+                                    : '<span style="color:var(--accent-text);font-weight:600;">Rejected</span>'}</td>
                                 <td>${r.reviewed_at ? new Date(r.reviewed_at).toLocaleDateString() : '—'}</td>
                             </tr>`).join('')}</tbody>
                         </table>
@@ -3778,7 +2773,7 @@
 
                 el.innerHTML = html;
             } catch (err) {
-                el.innerHTML = `<div style="color:#c62828;font-size:0.9em;">Failed to load requests: ${esc(err.message)}</div>`;
+                el.innerHTML = `<div style="color:var(--accent-text);font-size:0.9em;">Failed to load requests: ${esc(err.message)}</div>`;
             }
         }
 
@@ -3823,15 +2818,15 @@
         function renderApiKeys() {
             const tbody = document.getElementById('apiKeysBody');
             if (!allApiKeys.length) {
-                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#888;padding:24px;">No API keys yet</td></tr>';
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--text-soft);padding:24px;">No API keys yet</td></tr>';
                 return;
             }
             tbody.innerHTML = allApiKeys.map(k => {
                 const created = k.created_at ? new Date(k.created_at).toLocaleDateString() : '—';
                 const lastUsed = k.last_used_at ? new Date(k.last_used_at).toLocaleDateString() : 'Never';
                 const statusBadge = k.is_active
-                    ? '<span style="color:#2e7d32;font-weight:600;">Active</span>'
-                    : '<span style="color:#c62828;font-weight:600;">Revoked</span>';
+                    ? '<span style="color:var(--ok);font-weight:600;">Active</span>'
+                    : '<span style="color:var(--accent-text);font-weight:600;">Revoked</span>';
                 // Actions use data- attributes + a delegated listener, never an
                 // inline onclick. k.name comes from the unauthenticated
                 // POST /api/request-key, so interpolating it into a quoted JS
@@ -3839,15 +2834,15 @@
                 return `<tr data-id="${escAttr(k.id)}" data-name="${escAttr(k.name)}">
                     <td>${esc(k.name)}</td>
                     <td>${esc(k.email || '—')}</td>
-                    <td><code style="font-size:0.82em;background:#f5f5f5;padding:2px 6px;border-radius:3px;">${esc(k.key_display || '—')}</code></td>
+                    <td><code style="font-size:0.82em;background:var(--ground-sunk);padding:2px 6px;border-radius:4px;">${esc(k.key_display || '—')}</code></td>
                     <td>${created}</td>
                     <td>${lastUsed}</td>
                     <td>${statusBadge}</td>
                     <td>
                         <button class="btn-secondary key-action" data-action="usage" style="padding:4px 10px;font-size:0.82em;margin-right:4px;">Usage</button>
                         ${k.is_active
-                            ? `<button class="btn-secondary key-action" data-action="revoke" style="padding:4px 10px;font-size:0.82em;color:#c62828;">Revoke</button>`
-                            : `<button class="btn-secondary key-action" data-action="reactivate" style="padding:4px 10px;font-size:0.82em;color:#2e7d32;">Reactivate</button>`
+                            ? `<button class="btn-secondary key-action" data-action="revoke" style="padding:4px 10px;font-size:0.82em;color:var(--accent-text);">Revoke</button>`
+                            : `<button class="btn-secondary key-action" data-action="reactivate" style="padding:4px 10px;font-size:0.82em;color:var(--ok);">Reactivate</button>`
                         }
                     </td>
                 </tr>`;
@@ -3907,15 +2902,15 @@
                 const { resp, data } = await AdminAPI.apiJSON(`/api/admin/api-keys/${id}/usage`);
                 if (!resp.ok) throw new Error(data.error || `${resp.status}`);
                 if (!data.length) {
-                    body.innerHTML = '<span style="color:#888;">No requests logged yet.</span>';
+                    body.innerHTML = '<span style="color:var(--text-soft);">No requests logged yet.</span>';
                     return;
                 }
                 const max = Math.max(...data.map(d => d.requests), 1);
                 body.innerHTML = `<table style="width:100%;border-collapse:collapse;font-size:0.88em;">
                     <thead><tr>
-                        <th style="text-align:left;padding:4px 8px;border-bottom:1px solid #eee;">Date</th>
-                        <th style="text-align:right;padding:4px 8px;border-bottom:1px solid #eee;">Requests</th>
-                        <th style="padding:4px 8px;border-bottom:1px solid #eee;"></th>
+                        <th style="text-align:left;padding:4px 8px;border-bottom:1px solid var(--rule);">Date</th>
+                        <th style="text-align:right;padding:4px 8px;border-bottom:1px solid var(--rule);">Requests</th>
+                        <th style="padding:4px 8px;border-bottom:1px solid var(--rule);"></th>
                     </tr></thead>
                     <tbody>${data.map(row => {
                         const pct = Math.round((row.requests / max) * 100);
@@ -3923,7 +2918,7 @@
                             <td style="padding:4px 8px;">${esc(row.day)}</td>
                             <td style="text-align:right;padding:4px 8px;font-weight:600;">${row.requests}</td>
                             <td style="padding:4px 8px;width:120px;">
-                                <div style="height:8px;background:#FFCF2D;border-radius:2px;width:${pct}%;"></div>
+                                <div style="height:8px;background:var(--accent);border-radius:999px;width:${pct}%;"></div>
                             </td>
                         </tr>`;
                     }).join('')}</tbody>

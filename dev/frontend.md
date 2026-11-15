@@ -4,7 +4,11 @@
 
 `docs/index.html` is **fully self-contained** — all CSS in one `<style>` block, all JS in one
 `<script>` block at the bottom. No build step, no bundler, no separate CSS/JS files for the
-public calendar. Admin pages have their own JS files under `docs/admin/`.
+public calendar. Admin pages have their own JS files under `docs/admin/`, and share one
+stylesheet, `docs/admin/admin.css` (inks → roles → parts, the same tokens as the public page
+plus the admin-only `--ok` status role; see "Admin" in `DESIGN.md`). Admin markup still has
+inline `style=""` attributes for layout; their colours must be `var(--role)`, never hex, and a
+form field's look comes from `admin.css`, so don't put border/padding/background inline on one.
 
 ## Structure
 
