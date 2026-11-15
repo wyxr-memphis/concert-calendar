@@ -4,183 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Event — Admin</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 700px;
-            margin: 0 auto;
-            padding: 20px 16px;
-            background: #fafafa;
-            color: #1a1a1a;
-            line-height: 1.5;
-        }
-        header {
-            border-bottom: 3px solid #1a1a1a;
-            padding-bottom: 12px;
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-        }
-        h1 { font-size: 1.4em; font-weight: 700; letter-spacing: 0.02em; }
-        .back-link {
-            font-size: 0.85em;
-            color: #666;
-            text-decoration: none;
-        }
-        .back-link:hover { text-decoration: underline; }
-
-        #content { display: none; }
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: #888;
-        }
-
-        .form-group { margin-bottom: 16px; }
-        .form-row { display: flex; gap: 16px; }
-        .form-row .form-group { flex: 1; }
-        label {
-            display: block;
-            font-size: 0.85em;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-        label .req { color: #c62828; }
-        input[type="text"],
-        input[type="date"],
-        input[type="time"],
-        input[type="url"],
-        textarea,
-        select {
-            width: 100%;
-            padding: 8px 10px;
-            font-size: 0.95em;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #1a1a1a;
-            font-family: inherit;
-        }
-        textarea { min-height: 80px; resize: vertical; }
-
-        .image-row { display: flex; gap: 8px; align-items: flex-end; }
-        .image-row .form-group { flex: 1; }
-        .image-row .btn-upload-img {
-            padding: 8px 14px;
-            font-size: 0.85em;
-            font-weight: 600;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            color: #1a1a1a;
-            cursor: pointer;
-            white-space: nowrap;
-            height: 38px;
-        }
-        .image-row .btn-upload-img:hover { background: #eee; }
-        .image-preview { margin-top: 8px; }
-        .image-preview img {
-            max-width: 200px;
-            max-height: 120px;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        .checkbox-group {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 16px;
-        }
-        .checkbox-group label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.9em;
-            cursor: pointer;
-        }
-        .checkbox-group input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-
-        .actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-        }
-        button {
-            padding: 10px 24px;
-            font-size: 0.95em;
-            font-weight: 600;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-save { background: #1a1a1a; color: #fafafa; }
-        .btn-save:hover { background: #333; }
-        .btn-save:disabled { background: #999; cursor: not-allowed; }
-        .btn-cancel { background: #e8e8e8; color: #1a1a1a; text-decoration: none; display: inline-block; text-align: center; }
-        .btn-cancel:hover { background: #ddd; }
-        .btn-deactivate { background: transparent; color: #c62828; border: 1px solid #c62828; margin-left: auto; }
-        .btn-deactivate:hover { background: #ffebee; }
-
-        .status-bar {
-            margin-top: 16px;
-            padding: 10px 14px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            display: none;
-        }
-        .status-bar.error { background: #ffebee; color: #c62828; display: block; }
-        .status-bar.success { background: #e8f5e9; color: #2e7d32; display: block; }
-
-        .hidden-input { display: none; }
-
-        @media (prefers-color-scheme: dark) {
-            body { background: #1a1a1a; color: #e0e0e0; }
-            header { border-bottom-color: #e0e0e0; }
-            .back-link { color: #888; }
-            input[type="text"], input[type="date"], input[type="time"],
-            input[type="url"], textarea, select {
-                background: #2a2a2a;
-                border-color: #444;
-                color: #e0e0e0;
-            }
-            .btn-save { background: #e0e0e0; color: #1a1a1a; }
-            .btn-save:hover { background: #ccc; }
-            .btn-save:disabled { background: #555; color: #888; }
-            .btn-cancel { background: #333; color: #e0e0e0; }
-            .btn-cancel:hover { background: #444; }
-            .btn-deactivate { color: #ef9a9a; border-color: #ef9a9a; }
-            .btn-deactivate:hover { background: #3a1b1b; }
-            .status-bar.error { background: #3a1b1b; color: #ef9a9a; }
-            .status-bar.success { background: #1b3a1b; color: #81c784; }
-            .image-row .btn-upload-img { background: #2a2a2a; border-color: #444; color: #e0e0e0; }
-            .image-row .btn-upload-img:hover { background: #333; }
-            .image-preview img { border-color: #444; }
-        }
-
-        @media (max-width: 500px) {
-            .form-row { flex-direction: column; gap: 0; }
-            .image-row { flex-direction: column; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..100,600..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/admin.css">
+    <meta name="theme-color" content="#FCE2B6">
+    <link rel="icon" href="/brand/favicon-32.png" sizes="32x32">
 </head>
-<body>
+<body class="admin-page">
     <div class="loading" id="loadingMsg">Loading...</div>
 
     <div id="content">
         <header>
+            <img class="admin-mascot" src="/brand/mascot.svg" alt="" width="40" height="46">
             <h1 id="pageTitle">ADD EVENT</h1>
             <a href="/admin/" class="back-link">&larr; Back to events</a>
         </header>
 
-        <form id="eventForm">
+        <form id="eventForm" class="admin-card">
             <div class="form-group">
                 <label for="title">Title <span class="req">*</span></label>
                 <input type="text" id="title" required>

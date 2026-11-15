@@ -241,7 +241,7 @@ Three logo inks on cream stock, plus two darkened reading inks pulled from the s
 
 **The White On Red Rule.** Text on a red fill is white. Cream on red measures 3.79 and is reserved for the outlined "Tonight" script, which is artwork with a screen-reader equivalent beside it.
 
-**The Three Layers Rule.** A new colour need is met by a role. If no role says what you mean, add a role that points at an ink; add an ink only if the logo has it. The inks and roles are copied by hand into four files (`docs/index.html`, `docs/submit.html`, `src/generate_html.py`, `backend/event_page.py`), so a changed ink changes in all four.
+**The Three Layers Rule.** A new colour need is met by a role. If no role says what you mean, add a role that points at an ink; add an ink only if the logo has it. The inks and roles are copied by hand into five files (`docs/index.html`, `docs/submit.html`, `src/generate_html.py`, `backend/event_page.py`, `docs/admin/admin.css`), so a changed ink changes in all five.
 
 ## Typography
 
@@ -384,6 +384,17 @@ One inline sprite, a 24px grid, a 2px stroke with round caps and joins, no fill,
 
 Vercel serves every `.svg` and `.png` as immutable for 30 days. A changed brand asset ships under a new filename or with a `?v=` on every tag that loads it.
 
+## Admin
+
+The staff pages under `docs/admin/` (console, event editor, login) wear the same system from one shared stylesheet, `docs/admin/admin.css`: cream ground, paper panels with the 2px keyline, pill buttons (solid red for the primary action, line for the rest), the public chips as filter tabs, `/submit` fields, and a marigold fill for the open tab and the active filter (an active state, so lit). The masthead is the flower mascot beside the name in Anybody caps. There is no dark mode and no shadow; the hover card and dialogs are paper cards with a keyline.
+
+Three things differ from the public page, on purpose:
+- **Status needs a "good".** An admin-only `--ok` role points at a leaf-green ink (`#3B6B2A`, 5.0:1 on cream, 6.0:1 on paper) with an `--ok-soft` tint. It marks healthy scrapers, successful builds, approved submissions and active keys, and appears on no public surface. Errors are brick text with a red edge (`--error-soft` tint); a warning dot is marigold ringed in oxblood; unknown is a hollow umber ring.
+- **Destructive actions are dashed line buttons** (Reject, Deactivate), so they never read as the primary.
+- **Data keeps its case.** Act names, artists and source names are Anybody but not uppercased: an editor has to see "Amy LaVere" as it was typed. Headings, tabs, buttons and labels are caps as usual.
+
+The build log is a paper sheet with monospace lines, not a dark terminal. Wide tables scroll inside their keyline on phones rather than widening the page.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -397,7 +408,7 @@ Vercel serves every `.svg` and `.png` as immutable for 30 days. A changed brand 
 - **Do** mark paid and promotional placements with the dashed outline and a label.
 - **Do** make any new motion collapse under `prefers-reduced-motion`, and use the existing durations (120ms, 240ms, 420ms) and `--ease-out`.
 - **Do** rename or version a brand asset when it changes.
-- **Do** change the ink and role block in all four files that carry it.
+- **Do** change the ink and role block in all five files that carry it.
 
 ### Don't:
 - **Don't** use a dark page background or a dark mode. The fund-drive band is the only dark fill.
