@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-16T00:30:48.915709+00:00",
+  "run_timestamp": "2026-11-16T13:26:17.385748+00:00",
   "date_range": {
     "start": "2026-11-16",
     "end": "2026-11-23"
   },
-  "total_events_db": 4392,
-  "total_active_display": 104,
+  "total_events_db": 4393,
+  "total_active_display": 105,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -25,19 +25,35 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Lafayette's Music Room",
+      "success": true,
+      "events_found": 322,
+      "events_after_filter": 19,
+      "events_filtered": 303,
+      "error": null
+    },
+    {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 37,
       "events_after_filter": 37,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Lafayette's Music Room",
-      "success": true,
-      "events_found": 321,
-      "events_after_filter": 18,
-      "events_filtered": 303,
       "error": null
     },
     {
@@ -49,15 +65,15 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -89,27 +105,19 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Museum of Science & History (MoSH)",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 2,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -121,10 +129,10 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -137,43 +145,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 17,
+      "events_found": 16,
       "events_after_filter": 14,
-      "events_filtered": 3,
+      "events_filtered": 2,
       "error": null
     },
     {
-      "name": "Venue: Museum of Science & History (MoSH)",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
-      "events_found": 9,
-      "events_after_filter": 2,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 1,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -185,19 +177,27 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 13,
-      "events_filtered": 8,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 13,
+      "events_after_filter": 13,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -217,27 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 19,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
       "events_after_filter": 26,
       "events_filtered": 14,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
       "error": null
     },
     {
@@ -249,10 +233,26 @@
       "error": null
     },
     {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 19,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 104,
-      "events_after_filter": 104,
+      "events_found": 105,
+      "events_after_filter": 105,
       "events_filtered": 0,
       "error": null
     }
@@ -502,6 +502,13 @@
       "date": "2026-11-19",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Closed for Pivate Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-19",
+      "time": "11:55 AM",
+      "source": "scraper:lafayette_s_music_room"
     },
     {
       "artist": "Sarah Spain Acoustic",
