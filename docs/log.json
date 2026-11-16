@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-16T13:26:17.385748+00:00",
+  "run_timestamp": "2026-11-16T20:58:55.836673+00:00",
   "date_range": {
     "start": "2026-11-16",
     "end": "2026-11-23"
   },
-  "total_events_db": 4393,
-  "total_active_display": 105,
+  "total_events_db": 4419,
+  "total_active_display": 107,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,6 +25,30 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 5,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 322,
@@ -41,28 +65,28 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
-      "error": null
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Satellite Music Hall",
@@ -79,30 +103,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Grind City Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Cannon Center for the Performing Arts",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
@@ -123,17 +123,9 @@
     {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 62,
+      "events_found": 61,
       "events_after_filter": 30,
-      "events_filtered": 32,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_filtered": 31,
       "error": null
     },
     {
@@ -161,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -177,11 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 2,
+      "events_found": 18,
       "events_after_filter": 2,
-      "events_filtered": 0,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -193,10 +185,26 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 1,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
-      "events_found": 13,
-      "events_after_filter": 13,
+      "events_found": 31,
+      "events_after_filter": 31,
       "events_filtered": 0,
       "error": null
     },
@@ -209,11 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 18,
-      "events_after_filter": 2,
-      "events_filtered": 16,
+      "events_found": 21,
+      "events_after_filter": 20,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -227,32 +235,24 @@
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hernando's Hideaway",
-      "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Crosstown Arts",
       "success": true,
       "events_found": 26,
-      "events_after_filter": 19,
-      "events_filtered": 7,
+      "events_after_filter": 20,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 105,
-      "events_after_filter": 105,
+      "events_found": 107,
+      "events_after_filter": 107,
       "events_filtered": 0,
       "error": null
     }
@@ -474,6 +474,13 @@
       "date": "2026-11-19",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "Thumpin Thursday",
+      "venue": "Growlers",
+      "date": "2026-11-19",
+      "time": "9 PM",
+      "source": "scraper:growlers"
     },
     {
       "artist": "The Nowhere-Bound Tour: Fangerlis, Village Instincts, Foxbody",
@@ -845,6 +852,13 @@
       "date": "2026-11-22",
       "time": "8:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Damn The Man Save The Cameo: Dead Soldiers, DJ Livin', Tevin of Love (Karaoke)",
+      "venue": "Cameo Bar",
+      "date": "2026-11-22",
+      "time": "4 PM",
+      "source": "artifact"
     },
     {
       "artist": "New Ballet Ensemble: NutRemix",
