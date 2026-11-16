@@ -152,6 +152,15 @@ a `☆ Mark as WYXR Pick` button in the event modal and a ★ on every row. Publ
 none of it — the markup is byte-identical to before unless `adminMode` is true. Covered by
 `scripts/test_pick_toggle_browser.py`.
 
+The modal also gets an **Edit event** link beside the pick button, to
+`/admin/edit.html?id=<id>&return=public`. The editor honours only the literal `return=public`
+(never a URL from the query, so no open redirect): Save goes to `/#event=<id>`, which reopens
+the show; Cancel and Back point there too; Deactivate goes to `/`. Before redirecting it
+removes `wyxr_events_cache`, or the stale-while-revalidate cache would paint the old version
+first. The link has its own class, `.event-modal-btn-edit`, **not** `.event-modal-btn-admin`:
+`syncAdminButton()` and the test's strict locator both expect exactly one element with that
+class. `dropAdminMode()` removes both.
+
 **How the page knows.** `/admin/` shares this origin, so a tab that logged in carries
 `sessionStorage.admin_token`. Other tabs don't (`sessionStorage` is per-tab), so
 `admin-common.js` also writes a non-secret `localStorage.wyxr_admin_hint = '1'` whenever it

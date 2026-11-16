@@ -1369,7 +1369,9 @@
             transition: background-color var(--t-fast) ease-out;
         }
         .event-modal-btn-secondary:hover { background: var(--ground); }
-        .event-modal-btn-admin { border-style: dashed; }
+        .event-modal-btn-secondary-row { gap: var(--s-2); }
+        /* Admin-only actions are dashed: the pick toggle and the Edit link. */
+        .event-modal-btn-admin, .event-modal-btn-edit { border-style: dashed; }
         .event-modal-btn-admin[aria-pressed="true"] { background: var(--lit); color: var(--on-lit); border-style: solid; }
         .event-modal-btn-admin:disabled { opacity: 0.55; cursor: wait; }
 
@@ -2879,7 +2881,7 @@
             try { localStorage.removeItem(ADMIN_HINT_KEY); } catch (err) { /* ignore */ }
             const pill = document.getElementById('adminPill');
             if (pill) pill.hidden = true;
-            document.querySelectorAll('.event-modal-btn-admin').forEach(b => b.remove());
+            document.querySelectorAll('.event-modal-btn-admin, .event-modal-btn-edit').forEach(b => b.remove());
             if (allEvents.length) renderEvents();
             if (message) showAdminError(message);
         }
@@ -2926,6 +2928,16 @@
             syncAdminButton(btn, ev);
             btn.addEventListener('click', () => togglePick(ev.id, btn));
             secRow.appendChild(btn);
+            // Edit link: opens the admin editor, which returns here with this
+            // show open (?return=public). Its own class, not
+            // .event-modal-btn-admin: syncAdminButton and the pick test expect
+            // exactly one element with that one. href is built from
+            // encodeURIComponent, never from markup.
+            const edit = document.createElement('a');
+            edit.className = 'event-modal-btn-secondary event-modal-btn-edit';
+            edit.href = '/admin/edit.html?id=' + encodeURIComponent(ev.id) + '&return=public';
+            edit.textContent = 'Edit event';
+            secRow.appendChild(edit);
         }
 
         let _adminNoticeTimer = null;
