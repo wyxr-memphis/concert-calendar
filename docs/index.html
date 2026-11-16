@@ -784,11 +784,10 @@
             background: var(--ground-sunk);
         }
 
-        /* Several acts at one venue: the venue is named once, above them. */
+        /* A bill (several acts, one venue, one start time): the time once on the
+           first act, the acts stacked with no rules between, the venue under the
+           last act. Same venue at different times is separate ordinary rows. */
         .venue-group { border-bottom: 1px solid var(--rule); }
-        .venue-head { padding: 10px var(--s-2) 0 calc(var(--s-2) + var(--time-col) + var(--s-3)); }
-        .venue-head .row-place { font-size: 0.875rem; }
-        .venue-head .venue { font-weight: 700; color: var(--text); }
         .venue-artists .event-row { min-height: var(--tap); padding-block: var(--s-2); border-bottom: 0; }
 
         /* WYXR Picks: a ticket, in the one colour reserved for lit things. */
@@ -3511,11 +3510,13 @@
         }
 
         // opts.cls: extra classes · opts.badge: markup shown under the place
-        // line · opts.bare: leave the venue off (the venue group names it once).
+        // line · opts.bare: leave the venue off · opts.noTime: leave the time
+        // column empty. A bill uses both: the time on its first act, the venue
+        // under its last.
         function eventRow(e, thumb, opts) {
             const o = opts || {};
             return `<li class="event-row${o.cls ? ' ' + o.cls : ''}" data-event-id="${escAttr(e.id)}" tabindex="0" role="button" aria-label="${escAttr(rowLabel(e))}">`
-                + timeCell(e.start_time)
+                + timeCell(o.noTime ? '' : e.start_time)
                 + `<span class="event-row-text"><span class="artist">${esc(e.title)}</span>${o.bare ? '' : placeLine(e)}${o.badge || ''}</span>`
                 + thumb + rowStar(e) + '</li>';
         }
@@ -3651,29 +3652,38 @@
                     });
                 }
 
-                // 2. Group remaining normal events by venue
-                const venueGroups = {};
-                const venueOrder = [];
+                // 2. The rest, in time order. Acts at the same venue AND the
+                // same start time are one bill and are stacked; the same venue
+                // at different times is just separate rows, so the day keeps
+                // reading down the evening. normalEvents is already sorted by
+                // startMinutes and a bill shares one time, so emitting each
+                // group at its first act's position keeps that order.
+                const bills = {};
+                const billOrder = [];
                 normalEvents.forEach(e => {
-                    const key = (e.venue || '').toLowerCase();
-                    if (!venueGroups[key]) {
-                        venueGroups[key] = [];
-                        venueOrder.push(key);
+                    const venue = (e.venue || '').toLowerCase();
+                    const key = venue ? venue + '|' + startMinutes(e) : '\u0000' + e.id;
+                    if (!bills[key]) {
+                        bills[key] = [];
+                        billOrder.push(key);
                     }
-                    venueGroups[key].push(e);
+                    bills[key].push(e);
                 });
 
-                venueOrder.forEach(venueKey => {
-                    const events = venueGroups[venueKey];
-
-                    if (events.length === 1) {
-                        eventLines += eventRow(events[0], rowThumb(events[0]));
-                    } else {
-                        // Several acts under one roof: name the venue once.
-                        const artistItems = events.map(e => eventRow(e, rowThumb(e), { bare: true })).join('');
-                        const head = placeLine(events[0]);
-                        eventLines += `<li class="venue-group">${head ? `<div class="venue-head">${head}</div>` : ''}<ul class="venue-artists">${artistItems}</ul></li>`;
+                billOrder.forEach(key => {
+                    const acts = bills[key];
+                    if (acts.length === 1) {
+                        eventLines += eventRow(acts[0], rowThumb(acts[0]));
+                        return;
                     }
+                    // A bill: the time once on the first act, the venue under
+                    // the last act, where every other row carries it.
+                    const last = acts.length - 1;
+                    const artistItems = acts.map((e, i) => eventRow(e, rowThumb(e), {
+                        noTime: i > 0,
+                        bare: i < last,
+                    })).join('');
+                    eventLines += `<li class="venue-group"><ul class="venue-artists">${artistItems}</ul></li>`;
                 });
 
                 const tally = `${dayEvents.length} show${dayEvents.length !== 1 ? 's' : ''}`;

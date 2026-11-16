@@ -111,21 +111,29 @@ def generate_html(
         month_day = strftime_nopad(d, "%B %-d")
         tally = f"{len(day_events)} show{'s' if len(day_events) != 1 else ''}"
 
-        # WYXR picks first, each its own marigold block (a pick is never folded
-        # into a venue group, or it would drag the group to the top of the day).
-        # Everything else is grouped by venue, case-insensitively, in the order
-        # Event.sort_key already gave us.
+        # WYXR picks first, each its own marigold block. Everything else reads
+        # down the evening in start-time order (shows with no time last), as on
+        # the home page. Acts at the same venue AND the same start time are one
+        # bill and are stacked; the same venue at different times is just
+        # separate rows. The time is parsed only by time_format.parse_start_time.
         picks = [e for e in day_events if e.is_featured]
-        others = [e for e in day_events if not e.is_featured]
 
-        venue_groups: Dict[str, List[Event]] = {}
-        venue_order: List[str] = []
+        def _start(event: Event):
+            return parse_start_time(event.time) if (event.time or "").strip() else None
+
+        others = sorted(
+            (e for e in day_events if not e.is_featured),
+            key=lambda e: (_start(e) is None, _start(e) or (0, 0)),
+        )
+
+        bills: Dict[tuple, List[Event]] = {}
+        bill_order: List[tuple] = []
         for event in others:
-            key = event.venue.strip().lower()
-            if key not in venue_groups:
-                venue_groups[key] = []
-                venue_order.append(key)
-            venue_groups[key].append(event)
+            key = (event.venue.strip().lower(), _start(event))
+            if key not in bills:
+                bills[key] = []
+                bill_order.append(key)
+            bills[key].append(event)
 
         event_lines = ""
         for event in picks:
@@ -135,33 +143,27 @@ def generate_html(
                 f'{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
             )
 
-        for venue_key in venue_order:
-            venue_events = venue_groups[venue_key]
+        for bill_key in bill_order:
+            bill = bills[bill_key]
 
-            if len(venue_events) == 1 or not venue_key:
-                # One show at this venue (or no venue named): a plain row.
-                for event in venue_events:
+            if len(bill) == 1 or not bill_key[0]:
+                # One act (or no venue named): a plain row.
+                for event in bill:
                     event_lines += (
                         f'<li class="event">{_row(event, _time_cell(event.time), show_venue=True)}</li>\n'
                     )
                 continue
 
-            # Several shows at one venue: name it once, above them. A time they
-            # all share is stated once, in the venue's own time column.
-            times = [e.time for e in venue_events]
-            shared_time = times[0] if len(set(times)) == 1 else None
-            head_time = _time_cell(shared_time) if shared_time else '<span class="row-time"></span>'
-
+            # A bill: the time once on the first act, the acts stacked, and the
+            # venue under the last act, where every other row has it.
             artist_items = ""
-            for event in venue_events:
-                cell = '<span class="row-time"></span>' if shared_time else _time_cell(event.time)
-                artist_items += f'<li class="event">{_row(event, cell, show_venue=False)}</li>\n'
+            for i, event in enumerate(bill):
+                cell = _time_cell(event.time) if i == 0 else '<span class="row-time"></span>'
+                artist_items += (
+                    f'<li class="event">{_row(event, cell, show_venue=(i == len(bill) - 1))}</li>\n'
+                )
 
-            event_lines += (
-                '<li class="venue-group">'
-                f'<div class="venue-head">{head_time}<span class="venue">{_esc(venue_events[0].venue)}</span></div>'
-                f'<ul class="venue-artists">\n{artist_items}</ul></li>\n'
-            )
+            event_lines += f'<li class="venue-group"><ul class="venue-artists">\n{artist_items}</ul></li>\n'
 
         event_sections += f"""
         <div class="day-section">
@@ -417,11 +419,9 @@ def generate_html(
         }}
         .venue {{ font-size: 0.8125rem; font-weight: 600; line-height: 1.35; color: var(--text-soft); }}
 
-        /* Several acts at one venue: the venue is named once, above them, and a
-           time they all share sits in its own time column. */
+        /* A bill (several acts, one venue, one start time): the time once, the
+           acts stacked with no rules between, the venue under the last act. */
         .venue-group {{ border-bottom: 1px solid var(--rule); }}
-        .venue-head {{ display: flex; align-items: baseline; gap: var(--s-3); padding: 10px var(--s-2) 0; }}
-        .venue-head .venue {{ font-size: 0.875rem; font-weight: 700; color: var(--text); }}
         .venue-artists .event {{ border-bottom: 0; }}
         .venue-artists .row {{ min-height: var(--tap); padding-block: var(--s-2); }}
 
