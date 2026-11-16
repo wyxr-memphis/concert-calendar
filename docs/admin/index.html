@@ -627,9 +627,10 @@
         });
 
         // Handle hash navigation (for redirects and bookmarks)
+        const VALID_TABS = ['submissions', 'tools', 'events', 'venues', 'sponsors', 'api-keys'];
         function handleHashChange() {
             const hash = window.location.hash.slice(1); // Remove #
-            if (['submissions', 'tools', 'events', 'venues', 'sponsors', 'api-keys'].includes(hash)) {
+            if (VALID_TABS.includes(hash)) {
                 switchToTab(hash);
             }
         }
@@ -638,17 +639,26 @@
         // Check hash on page load
         window.addEventListener('DOMContentLoaded', handleHashChange);
 
-        // Auth guard
-        AdminAPI.checkAuth().then(ok => {
-            if (ok) {
-                document.getElementById('loadingMsg').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-                loadEvents();
-                loadSubmissions();
-                loadPendingCount();
-                // Handle hash navigation after auth
+        // Auth guard. Landing tab: a valid #hash wins (redirects and bookmarks);
+        // otherwise Submissions only when something is pending, else Events.
+        // The page stays hidden until the tab is chosen so it never flashes.
+        AdminAPI.checkAuth().then(async ok => {
+            if (!ok) return;
+            loadEvents();
+            loadSubmissions();
+            const pending = loadPendingCount();
+            if (VALID_TABS.includes(window.location.hash.slice(1))) {
                 handleHashChange();
+            } else {
+                // A slow or failed count must not hold the page hostage.
+                const count = await Promise.race([
+                    pending,
+                    new Promise(resolve => setTimeout(() => resolve(null), 3000)),
+                ]);
+                switchToTab(count > 0 ? 'submissions' : 'events');
             }
+            document.getElementById('loadingMsg').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
         });
 
         // Logout
@@ -996,17 +1006,24 @@
             });
         });
 
+        // Returns the pending count (or null if it could not be read) so the
+        // auth guard can pick the landing tab. has-pending makes the tab stand
+        // out while another tab is open.
         async function loadPendingCount() {
+            const tab = document.getElementById('submissionsTab');
             try {
                 const { resp, data } = await AdminAPI.apiJSON('/api/admin/submissions/pending-count');
-                if (resp.ok && data.count > 0) {
-                    document.getElementById('submissionsTab').innerHTML =
-                        `Submissions <span class="badge">${data.count}</span>`;
+                const count = resp.ok ? Number(data.count) || 0 : null;
+                if (count > 0) {
+                    tab.innerHTML = `Submissions <span class="badge">${count}</span>`;
                 } else {
-                    document.getElementById('submissionsTab').innerHTML = 'Submissions';
+                    tab.innerHTML = 'Submissions';
                 }
+                tab.classList.toggle('has-pending', count > 0);
+                return count;
             } catch (err) {
                 console.warn('Failed to load pending count:', err);
+                return null;
             }
         }
 

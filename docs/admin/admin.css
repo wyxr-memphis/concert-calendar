@@ -328,6 +328,9 @@ td .btn-primary, td .btn-secondary, .sub-actions button, .source-card .btn-secon
 }
 .nav-tab:hover { background: var(--surface); border-color: var(--line); }
 .nav-tab.active { background: var(--lit); color: var(--on-lit); border-color: var(--line); }
+/* Submissions waiting: the tab keeps a red keyline and brick label while
+   another tab is open, so pending work is visible from anywhere. */
+.nav-tab.has-pending:not(.active) { border-color: var(--line); border-width: var(--keyline); color: var(--accent-text); background: var(--surface); }
 .nav-tab .badge {
     display: inline-block;
     min-width: 20px;

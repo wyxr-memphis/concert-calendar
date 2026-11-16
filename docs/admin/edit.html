@@ -123,6 +123,27 @@
         const isEdit = !!eventId;
         let currentEvent = null;
 
+        // Where the editor sends you afterwards. ?return=public (only that
+        // literal, and only when editing an existing event) comes from the
+        // "Edit event" button on the public calendar: go back to the calendar
+        // with the show open. No URL is ever taken from the query string, so
+        // this can't become an open redirect.
+        const returnToPublic = isEdit && params.get('return') === 'public';
+        const publicEventUrl = '/#event=' + encodeURIComponent(eventId || '');
+        const adminHomeUrl = fromSubmission ? '/admin/#submissions' : '/admin/#events';
+        const doneUrl = returnToPublic ? publicEventUrl : adminHomeUrl;
+
+        // The public page caches events in localStorage (same origin) and
+        // paints from that cache first; drop it so the edit shows immediately.
+        function forgetPublicCache() {
+            try { localStorage.removeItem('wyxr_events_cache'); } catch (e) { /* storage blocked */ }
+        }
+
+        document.querySelectorAll('.back-link, .btn-cancel').forEach(a => { a.href = doneUrl; });
+        if (returnToPublic) {
+            document.querySelector('.back-link').innerHTML = '&larr; Back to calendar';
+        }
+
         const fields = ['title', 'venue', 'date', 'start_time', 'doors_time',
                         'ticket_url', 'ticket_price', 'image_url', 'neighborhood', 'genre', 'description'];
 
@@ -351,7 +372,8 @@
                         }
                     }
                     showStatus('Saved!', 'success');
-                    setTimeout(() => { window.location.href = '/admin/#submissions'; }, 800);
+                    if (returnToPublic) forgetPublicCache();
+                    setTimeout(() => { window.location.href = doneUrl; }, 800);
                 } else {
                     showStatus(result.data.error || 'Save failed', 'error');
                 }
@@ -381,7 +403,9 @@
                 }
 
                 if (result.resp.ok || result.data.ok) {
-                    window.location.href = '/admin/';
+                    // A deactivated show is hidden, so there's nothing to reopen.
+                    if (returnToPublic) forgetPublicCache();
+                    window.location.href = returnToPublic ? '/' : '/admin/#events';
                 } else {
                     showStatus(result.data.error || 'Failed to deactivate', 'error');
                 }

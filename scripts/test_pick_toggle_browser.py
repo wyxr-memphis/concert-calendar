@@ -19,6 +19,8 @@ What it pins:
     place, and writes through to the cache — without touching history
   * the row star toggles without opening the modal, by click and by keyboard
   * a failed PATCH reverts; a 401 drops admin mode in place
+  * admin mode adds an "Edit event" link to /admin/edit.html?id=…&return=public
+    beside the pick button; anonymous visitors never get it
 
 Requires playwright and a Chromium build. Skips cleanly (exit 0) when either is
 missing — check for the PASS lines, not just a zero exit.
@@ -205,6 +207,9 @@ def main():
         def admin_button():
             return page.locator("#eventModalActions .event-modal-btn-admin")
 
+        def edit_link():
+            return page.locator("#eventModalActions .event-modal-btn-edit")
+
         def pick_badges():
             return page.locator("#eventModalBadges .event-modal-badge-pick").count()
 
@@ -223,6 +228,7 @@ def main():
         page.wait_for_timeout(500)
         check("modal opens as before", modal_open())
         check.equals("no pick button in the modal", admin_button().count(), 0)
+        check.equals("no Edit link in the modal", edit_link().count(), 0)
         page.keyboard.press("Escape")
         page.wait_for_timeout(500)
         check("no uncaught page errors", not errors, "; ".join(errors[:2]))
@@ -267,6 +273,10 @@ def main():
         page.wait_for_timeout(500)
         check("modal opened", modal_open())
         check.equals("pick button present", admin_button().count(), 1)
+        check.equals("exactly one Edit link", edit_link().count(), 1)
+        check.equals("Edit link opens the editor and returns here",
+                     edit_link().get_attribute("href"),
+                     f"/admin/edit.html?id={EVENT_A}&return=public")
         check("button offers to mark", admin_button().inner_text().startswith("☆"),
               admin_button().inner_text())
         check.equals("no pick badge yet", pick_badges(), 0)
@@ -365,6 +375,7 @@ def main():
         check.equals("cache reverted", cached_flag(EVENT_A), False)
         check("admin pill hidden", pill_hidden())
         check.equals("pick button removed from the modal", admin_button().count(), 0)
+        check.equals("Edit link removed from the modal", edit_link().count(), 0)
         check.equals("row stars removed", page.locator("[data-pick-toggle]").count(), 0)
         check.equals("token cleared", page.evaluate("sessionStorage.getItem('admin_token')"), None)
         check.equals("hint cleared", page.evaluate(f"localStorage.getItem({HINT_KEY!r})"), None)
