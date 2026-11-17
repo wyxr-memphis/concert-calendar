@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-16T20:58:55.836673+00:00",
+  "run_timestamp": "2026-11-17T00:35:11.290372+00:00",
   "date_range": {
-    "start": "2026-11-16",
-    "end": "2026-11-23"
+    "start": "2026-11-17",
+    "end": "2026-11-24"
   },
   "total_events_db": 4419,
-  "total_active_display": 107,
+  "total_active_display": 109,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,30 +25,6 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 322,
@@ -65,20 +41,36 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Cannon Center for the Performing Arts",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 38,
+      "events_after_filter": 38,
       "events_filtered": 0,
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 5,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -89,10 +81,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -111,6 +103,14 @@
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Museum of Science & History (MoSH)",
@@ -132,8 +132,8 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
-      "events_after_filter": 19,
-      "events_filtered": 271,
+      "events_after_filter": 18,
+      "events_filtered": 272,
       "error": null
     },
     {
@@ -141,6 +141,30 @@
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 1,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -153,19 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 4,
-      "events_filtered": 5,
       "error": null
     },
     {
@@ -177,27 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_found": 9,
+      "events_after_filter": 4,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -217,68 +217,47 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 20,
-      "events_filtered": 1,
+      "events_found": 25,
+      "events_after_filter": 19,
+      "events_filtered": 6,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 26,
-      "events_filtered": 14,
+      "events_after_filter": 25,
+      "events_filtered": 15,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 20,
-      "events_filtered": 6,
+      "events_after_filter": 23,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 107,
-      "events_after_filter": 107,
+      "events_found": 109,
+      "events_after_filter": 109,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "JD Westmoreland Band",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-16",
-      "time": "10 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-16",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Aaron Westberry",
-      "venue": "Growlers",
-      "date": "2026-11-16",
-      "time": "7:30 PM",
-      "source": "scraper:growlers"
-    },
     {
       "artist": "WYXR Presents: Kurt Vile & the Violators w/Twisted Teens & Optic Sink",
       "venue": "Minglewood Hall",
@@ -1006,6 +985,41 @@
       "date": "2026-11-23",
       "time": null,
       "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "LATSGIVING",
+      "venue": "Growlers",
+      "date": "2026-11-24",
+      "time": "8 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Open Jam Night \u2013 NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-24",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-24",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "FRIENDS Trivia Night",
+      "venue": "Nashoba",
+      "date": "2026-11-24",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Jodeci: 35th Anniversary Tour",
+      "venue": "Orpheum Theatre",
+      "date": "2026-11-24",
+      "time": null,
+      "source": "scraper:orpheum_theatre"
     }
   ]
 }
