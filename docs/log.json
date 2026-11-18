@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-18T14:02:51.909103+00:00",
+  "run_timestamp": "2026-11-18T23:13:18.936283+00:00",
   "date_range": {
     "start": "2026-11-18",
     "end": "2026-11-25"
   },
-  "total_events_db": 4432,
-  "total_active_display": 103,
+  "total_events_db": 4437,
+  "total_active_display": 104,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,10 +25,18 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hi Tone",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
       "error": null
     },
@@ -41,11 +49,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -57,12 +65,12 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
-      "error": null
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -81,34 +89,10 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -121,11 +105,35 @@
       "error": null
     },
     {
-      "name": "Venue: Museum of Science & History (MoSH)",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
-      "events_found": 9,
+      "events_found": 2,
       "events_after_filter": 2,
-      "events_filtered": 7,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 18,
+      "events_after_filter": 15,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -134,14 +142,6 @@
       "events_found": 3,
       "events_after_filter": 3,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 14,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -169,27 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 9,
+      "events_after_filter": 2,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -209,11 +193,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 7,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 3,
+      "events_filtered": 16,
       "error": null
     },
     {
@@ -233,6 +233,14 @@
       "error": null
     },
     {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 26,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 21,
@@ -241,18 +249,10 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 25,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Database",
       "success": true,
-      "events_found": 103,
-      "events_after_filter": 103,
+      "events_found": 104,
+      "events_after_filter": 104,
       "events_filtered": 0,
       "error": null
     }
@@ -285,6 +285,13 @@
       "date": "2026-11-18",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Bluegrass Jam Session",
+      "venue": "Flyway Brewing",
+      "date": "2026-11-18",
+      "time": "7 PM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "THIS IS MUSIC- Matthew Wilson",
