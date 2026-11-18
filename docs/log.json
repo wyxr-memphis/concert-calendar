@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-17T14:45:43.622147+00:00",
+  "run_timestamp": "2026-11-17T23:42:27.895982+00:00",
   "date_range": {
     "start": "2026-11-17",
     "end": "2026-11-24"
   },
-  "total_events_db": 4423,
-  "total_active_display": 109,
+  "total_events_db": 4429,
+  "total_active_display": 110,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,19 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 38,
-      "events_after_filter": 38,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 5,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -49,20 +41,12 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -73,12 +57,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Cannon Center for the Performing Arts",
@@ -89,12 +73,20 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 39,
+      "events_after_filter": 39,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -113,51 +105,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
       "events_found": 61,
       "events_after_filter": 30,
       "events_filtered": 31,
-      "error": null
-    },
-    {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 2,
-      "events_filtered": 7,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 18,
-      "events_filtered": 272,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
       "error": null
     },
     {
@@ -169,10 +121,42 @@
       "error": null
     },
     {
+      "name": "Venue: Overton Park Shell",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 3,
       "events_after_filter": 3,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 18,
+      "events_filtered": 272,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -193,10 +177,34 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 3,
+      "events_filtered": 16,
+      "error": null
+    },
+    {
+      "name": "Venue: Museum of Science & History (MoSH)",
+      "success": true,
+      "events_found": 9,
+      "events_after_filter": 2,
+      "events_filtered": 7,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 31,
       "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -206,14 +214,6 @@
       "events_found": 19,
       "events_after_filter": 17,
       "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
       "error": null
     },
     {
@@ -235,24 +235,24 @@
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 18,
-      "events_filtered": 1,
+      "events_found": 20,
+      "events_after_filter": 20,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
+      "events_found": 25,
+      "events_after_filter": 25,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 109,
-      "events_after_filter": 109,
+      "events_found": 110,
+      "events_after_filter": 110,
       "events_filtered": 0,
       "error": null
     }
@@ -859,6 +859,13 @@
       "date": "2026-11-22",
       "time": "8 PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
+      "venue": "Hernando's Hideaway",
+      "date": "2026-11-22",
+      "time": null,
+      "source": "scraper:hernando_s_hideaway"
     },
     {
       "artist": "DIY Memphis Presents: Girl of Glass [Big Room-Upstairs]",
