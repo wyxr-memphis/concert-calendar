@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-18T13:42:50.515208+00:00",
+  "run_timestamp": "2026-11-18T14:02:51.909103+00:00",
   "date_range": {
     "start": "2026-11-18",
     "end": "2026-11-25"
   },
-  "total_events_db": 4431,
-  "total_active_display": 102,
+  "total_events_db": 4432,
+  "total_active_display": 103,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,11 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Graceland Soundstage",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 5,
-      "events_filtered": 2,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -57,6 +57,14 @@
       "error": null
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 5,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 2,
@@ -65,12 +73,12 @@
       "error": null
     },
     {
-      "name": "Venue: Satellite Music Hall",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
+      "events_found": 0,
+      "events_after_filter": 0,
       "events_filtered": 0,
-      "error": null
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Radians Amphitheater",
@@ -81,12 +89,12 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "events_found": 22,
+      "events_after_filter": 22,
       "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -98,14 +106,6 @@
     },
     {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -129,11 +129,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 17,
-      "events_filtered": 273,
+      "events_found": 3,
+      "events_after_filter": 3,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -145,10 +145,18 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 290,
+      "events_after_filter": 17,
+      "events_filtered": 273,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -161,22 +169,6 @@
       "error": null
     },
     {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 10,
-      "events_after_filter": 5,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 19,
@@ -185,11 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 28,
-      "events_after_filter": 28,
-      "events_filtered": 0,
+      "events_found": 10,
+      "events_after_filter": 5,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -214,6 +206,14 @@
       "events_found": 19,
       "events_after_filter": 17,
       "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 28,
+      "events_after_filter": 28,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 102,
-      "events_after_filter": 102,
+      "events_found": 103,
+      "events_after_filter": 103,
       "events_filtered": 0,
       "error": null
     }
@@ -866,6 +866,13 @@
       "date": "2026-11-22",
       "time": "11 AM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Arthaus Commons: aster, Books on Tap",
+      "venue": "Lamplighter Lounge",
+      "date": "2026-11-22",
+      "time": "3:00 PM - 4:30 PM",
+      "source": "artifact"
     },
     {
       "artist": "Black Violin - The Be Free Tour",
