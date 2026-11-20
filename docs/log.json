@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-20T22:53:20.481407+00:00",
+  "run_timestamp": "2026-11-20T23:11:55.181398+00:00",
   "date_range": {
     "start": "2026-11-20",
     "end": "2026-11-27"
   },
-  "total_events_db": 4459,
+  "total_events_db": 4460,
   "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
@@ -23,6 +23,14 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "No artifacts/ folder found"
+    },
+    {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 6,
+      "events_after_filter": 5,
+      "events_filtered": 1,
+      "error": null
     },
     {
       "name": "Venue: Minglewood Hall",
@@ -49,39 +57,15 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 5,
-      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -97,10 +81,10 @@
       "error": null
     },
     {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Satellite Music Hall",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 23,
+      "events_after_filter": 23,
       "events_filtered": 0,
       "error": null
     },
@@ -113,10 +97,26 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 5,
       "events_filtered": 0,
       "error": null
     },
@@ -137,11 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -153,27 +153,19 @@
       "error": null
     },
     {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 1,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
       "name": "Venue: Orpheum Theatre",
       "success": true,
       "events_found": 17,
       "events_after_filter": 15,
       "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 8,
-      "events_filtered": 7,
       "error": null
     },
     {
@@ -193,11 +185,11 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 2,
-      "events_filtered": 17,
+      "events_found": 15,
+      "events_after_filter": 8,
+      "events_filtered": 7,
       "error": null
     },
     {
@@ -217,11 +209,27 @@
       "error": null
     },
     {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
       "events_after_filter": 22,
       "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 21,
+      "events_filtered": 5,
       "error": null
     },
     {
