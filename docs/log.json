@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-20T13:53:46.494468+00:00",
+  "run_timestamp": "2026-11-20T22:53:20.481407+00:00",
   "date_range": {
     "start": "2026-11-20",
     "end": "2026-11-27"
   },
-  "total_events_db": 4449,
-  "total_active_display": 96,
+  "total_events_db": 4459,
+  "total_active_display": 99,
   "data_store": "postgresql",
   "sources": [
     {
@@ -41,6 +41,22 @@
       "error": null
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Graceland Soundstage",
       "success": true,
       "events_found": 6,
@@ -57,14 +73,6 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 23,
@@ -73,7 +81,23 @@
       "error": null
     },
     {
+      "name": "Venue: Bluesville at Horseshoe",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
+      "success": true,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -89,15 +113,7 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: BankPlus Amphitheater at Snowden Grove",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
@@ -121,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Hotel Pontotoc",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 1,
+      "events_found": 7,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 17,
-      "events_after_filter": 15,
-      "events_filtered": 2,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -150,6 +150,14 @@
       "events_found": 290,
       "events_after_filter": 17,
       "events_filtered": 273,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -163,17 +171,17 @@
     {
       "name": "Venue: Flyway Brewing",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 5,
+      "events_found": 15,
+      "events_after_filter": 8,
       "events_filtered": 7,
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 2,
-      "events_filtered": 17,
+      "events_found": 5,
+      "events_after_filter": 5,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -185,11 +193,11 @@
       "error": null
     },
     {
-      "name": "Venue: Memphis Symphony Orchestra",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
+      "events_after_filter": 2,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -201,35 +209,19 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 17,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events parsed \u2014 page structure may have changed"
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hotel Pontotoc",
-      "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 25,
-      "events_after_filter": 20,
-      "events_filtered": 5,
+      "events_found": 40,
+      "events_after_filter": 22,
+      "events_filtered": 18,
       "error": null
     },
     {
@@ -249,10 +241,18 @@
       "error": null
     },
     {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 26,
+      "events_after_filter": 21,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
       "name": "Database",
       "success": true,
-      "events_found": 96,
-      "events_after_filter": 96,
+      "events_found": 99,
+      "events_after_filter": 99,
       "events_filtered": 0,
       "error": null
     }
@@ -299,6 +299,13 @@
       "date": "2026-11-20",
       "time": null,
       "source": "artifact"
+    },
+    {
+      "artist": "A Night of Magic with Joe Turner",
+      "venue": "Flyway Brewing",
+      "date": "2026-11-20",
+      "time": "7 PM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Blu x Nickelus F",
@@ -679,6 +686,13 @@
       "source": "scraper:huey_s"
     },
     {
+      "artist": "Elmo & Lester",
+      "venue": "Hueys (Downtown)",
+      "date": "2026-11-22",
+      "time": "3 PM",
+      "source": "scraper:huey_s"
+    },
+    {
       "artist": "Even Odds",
       "venue": "Hueys (Downtown)",
       "date": "2026-11-22",
@@ -803,6 +817,13 @@
       "date": "2026-11-25",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Spin it UP Cornhole Tournament",
+      "venue": "Flyway Brewing",
+      "date": "2026-11-25",
+      "time": "7 PM",
+      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Jason D Williams",
