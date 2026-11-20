@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-19T23:21:04.957221+00:00",
+  "run_timestamp": "2026-11-20T13:53:46.494468+00:00",
   "date_range": {
-    "start": "2026-11-19",
-    "end": "2026-11-26"
+    "start": "2026-11-20",
+    "end": "2026-11-27"
   },
-  "total_events_db": 4448,
-  "total_active_display": 100,
+  "total_events_db": 4449,
+  "total_active_display": 96,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 8,
+      "events_found": 7,
+      "events_after_filter": 7,
       "events_filtered": 0,
       "error": null
     },
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Minglewood Hall",
+      "success": true,
+      "events_found": 38,
+      "events_after_filter": 38,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 322,
-      "events_after_filter": 19,
-      "events_filtered": 303,
+      "events_after_filter": 18,
+      "events_filtered": 304,
       "error": null
     },
     {
@@ -41,22 +49,6 @@
       "error": null
     },
     {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Minglewood Hall",
-      "success": true,
-      "events_found": 39,
-      "events_after_filter": 39,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
@@ -65,10 +57,26 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 23,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 3,
-      "events_after_filter": 3,
+      "events_found": 2,
+      "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
     },
@@ -79,14 +87,6 @@
       "events_after_filter": 0,
       "events_filtered": 0,
       "error": "0 events from Ticketmaster for this venue"
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 23,
-      "events_after_filter": 23,
-      "events_filtered": 0,
-      "error": null
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -115,9 +115,9 @@
     {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 9,
+      "events_found": 8,
       "events_after_filter": 3,
-      "events_filtered": 6,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -131,9 +131,17 @@
     {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 17,
+      "events_after_filter": 15,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -145,11 +153,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: South Main Sounds",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 1,
-      "events_filtered": 6,
+      "events_found": 2,
+      "events_after_filter": 2,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -161,19 +169,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 2,
+      "events_found": 19,
       "events_after_filter": 2,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 18,
-      "events_after_filter": 16,
-      "events_filtered": 2,
+      "events_filtered": 17,
       "error": null
     },
     {
@@ -185,22 +185,6 @@
       "error": null
     },
     {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 33,
-      "events_after_filter": 33,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 19,
@@ -209,27 +193,43 @@
       "error": null
     },
     {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "name": "Venue: Huey's",
       "success": true,
-      "events_found": 19,
-      "events_after_filter": 3,
-      "events_filtered": 16,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 20,
-      "events_filtered": 6,
+      "events_found": 32,
+      "events_after_filter": 32,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 23,
-      "events_filtered": 17,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events parsed \u2014 page structure may have changed"
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 7,
+      "events_after_filter": 1,
+      "events_filtered": 6,
+      "error": null
+    },
+    {
+      "name": "Venue: Crosstown Arts",
+      "success": true,
+      "events_found": 25,
+      "events_after_filter": 20,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -244,139 +244,20 @@
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
+      "events_after_filter": 23,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 100,
-      "events_after_filter": 100,
+      "events_found": 96,
+      "events_after_filter": 96,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Little Feat: The Last Farewell Tour",
-      "venue": "Cannon Center for the Performing Arts",
-      "date": "2026-11-19",
-      "time": "7 PM",
-      "source": "scraper:cannon_center_for_the_performing_arts"
-    },
-    {
-      "artist": "Memphis Songwriters Series Hosted by Mark Edgar Stuart",
-      "venue": "Orpheum Theatre",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
-    {
-      "artist": "Clint 60th Birthday: Devil Train",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Slack Times & Fake: Slack Times, Fake",
-      "venue": "Bar DKDC",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Ghost Town Blues Band",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-19",
-      "time": "2:14 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Little Feat & The Hot Tomato Horns: The Last Farewell Tour",
-      "venue": "Cannon Center for the Performing Arts",
-      "date": "2026-11-19",
-      "time": "7 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Seconds",
-      "venue": "Crosstown Arts",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "artifact"
-    },
-    {
-      "artist": "Thumpin Thursday",
-      "venue": "Growlers",
-      "date": "2026-11-19",
-      "time": "9 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "The Nowhere-Bound Tour: Fangerlis, Village Instincts, Foxbody",
-      "venue": "Havenhaus",
-      "date": "2026-11-19",
-      "time": "Doors 7 PM, Music 8 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Lights Out",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-19",
-      "time": "8 PM",
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "The Drag Drive [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Trash Cat\u2019s Birthday Party *no cover* [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Closed for Pivate Event",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-19",
-      "time": "11:55 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Sarah Spain Acoustic",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-19",
-      "time": "6 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "DJ Jrome of The $tash Band \u2013 Live Listening Session",
-      "venue": "Memphis Listening Lab",
-      "date": "2026-11-19",
-      "time": "7 PM",
-      "source": "scraper:memphis_listening_lab"
-    },
-    {
-      "artist": "Little Image",
-      "venue": "Minglewood Hall",
-      "date": "2026-11-19",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Jazz Nite",
-      "venue": "Society Memphis Skatepark and Coffee",
-      "date": "2026-11-19",
-      "time": "7:30 PM",
-      "source": "scraper:society_memphis_skatepark_and_coffee"
-    },
     {
       "artist": "Memphis Hates You Fest Day 1",
       "venue": "Hi Tone",
@@ -957,6 +838,97 @@
       "date": "2026-11-26",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Laundry Bats, Model Zero and DJ Andrew McCalla",
+      "venue": "Bar DKDC",
+      "date": "2026-11-27",
+      "time": "8pm",
+      "source": "manual"
+    },
+    {
+      "artist": "The MD's",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-27",
+      "time": "9 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Brimstone Jones",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-27",
+      "time": "8:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Encore Comedy",
+      "venue": "Growlers",
+      "date": "2026-11-27",
+      "time": "7 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "The Pit",
+      "venue": "Growlers",
+      "date": "2026-11-27",
+      "time": "9 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Dark November [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-27",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Kyler Finney & Friends [Big Room-Upstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-27",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "JAM-JAM1",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-27",
+      "time": "9:30 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Memphis Unplugged",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-11-27",
+      "time": "6 PM",
+      "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "Rival Sons \u2013 Domestic Bliss Tour",
+      "venue": "Minglewood Hall",
+      "date": "2026-11-27",
+      "time": null,
+      "source": "scraper:minglewood_hall"
+    },
+    {
+      "artist": "Laser Rock: Vinyl",
+      "venue": "Museum of Science & History (MoSH)",
+      "date": "2026-11-27",
+      "time": "7 PM",
+      "source": "scraper:museum_of_science_history_mosh"
+    },
+    {
+      "artist": "Zeke & The Freaks",
+      "venue": "Nashoba",
+      "date": "2026-11-27",
+      "time": "8 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "MMGP Can Jam and Toy Drive",
+      "venue": "Society Memphis Skatepark and Coffee",
+      "date": "2026-11-27",
+      "time": "7 PM",
+      "source": "scraper:society_memphis_skatepark_and_coffee"
     }
   ]
 }
