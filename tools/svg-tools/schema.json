@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "svg-tools tools.json",
+  "description": "Library of local-dev SVG tools. scripts/svgtools.py validates against this file using a small built-in subset validator (type, enum, const, pattern, minimum, maximum, minLength, items, uniqueItems, required, properties, additionalProperties, anyOf, local $ref), so any standard JSON Schema validator gives the same answer.",
+  "type": "object",
+  "required": ["schema_version", "tools"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "schema_version": { "const": 1 },
+    "tools": { "type": "array", "items": { "$ref": "#/$defs/tool" } }
+  },
+  "$defs": {
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "url": { "type": "string", "pattern": "^https?://\\S+$" },
+    "tool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "category", "summary", "homepage", "repo", "license", "open_source",
+        "price_tier", "install", "svg_notes", "caveats", "verified", "verified_on",
+        "verification_level", "evidence_url", "local_dev_only", "tags", "base_weight",
+        "use_count", "last_used", "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "description": "Unique kebab-case slug." },
+        "name": { "type": "string", "minLength": 1 },
+        "category": {
+          "enum": ["animator", "converter", "design-suite", "editor", "library", "optimizer", "recorder", "renderer"],
+          "description": "To add a category, add it here and nowhere else; render groups by whatever the data contains."
+        },
+        "summary": { "type": "string", "minLength": 1, "description": "What it is good for." },
+        "homepage": { "$ref": "#/$defs/url" },
+        "repo": { "anyOf": [{ "$ref": "#/$defs/url" }, { "type": "null" }] },
+        "license": { "type": "string", "minLength": 1 },
+        "open_source": { "type": "boolean" },
+        "price_tier": { "enum": ["free", "freemium", "paid"] },
+        "install": { "type": "string", "minLength": 1 },
+        "svg_notes": { "type": "string", "minLength": 1 },
+        "caveats": { "type": "string", "minLength": 1 },
+        "verified": { "type": "boolean", "description": "false = research could not confirm the tool's status." },
+        "verified_on": { "$ref": "#/$defs/date" },
+        "verification_level": { "type": "string", "minLength": 1, "description": "primary vs secondary source, in the researcher's words." },
+        "evidence_url": { "$ref": "#/$defs/url" },
+        "local_dev_only": { "const": true, "description": "Every tool here is for local work only: never shipped, never added to the deployed site or CI." },
+        "tags": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" } },
+        "base_weight": { "type": "number", "minimum": 0, "maximum": 10, "description": "Editorial prior, 0-10." },
+        "use_count": { "type": "integer", "minimum": 0 },
+        "last_used": { "anyOf": [{ "$ref": "#/$defs/date" }, { "type": "null" }] },
+        "notes": { "type": "string" },
+        "open_question": { "type": "string", "minLength": 1, "description": "Optional. Something a human still has to confirm; listed at the top of RECOMMENDATIONS.md." }
+      }
+    }
+  }
+}
