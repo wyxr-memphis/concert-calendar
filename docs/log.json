@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-22T22:15:22.032011+00:00",
+  "run_timestamp": "2026-11-23T15:45:52.388573+00:00",
   "date_range": {
-    "start": "2026-11-22",
-    "end": "2026-11-29"
+    "start": "2026-11-23",
+    "end": "2026-11-30"
   },
-  "total_events_db": 4465,
-  "total_active_display": 80,
+  "total_events_db": 4467,
+  "total_active_display": 57,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 8,
-      "events_after_filter": 7,
+      "events_found": 7,
+      "events_after_filter": 6,
       "events_filtered": 1,
       "error": null
     },
@@ -25,18 +25,10 @@
       "error": "No artifacts/ folder found"
     },
     {
-      "name": "Venue: Lafayette's Music Room",
+      "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 322,
-      "events_after_filter": 14,
-      "events_filtered": 308,
-      "error": null
-    },
-    {
-      "name": "Venue: FedExForum",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
+      "events_found": 36,
+      "events_after_filter": 36,
       "events_filtered": 0,
       "error": null
     },
@@ -49,19 +41,11 @@
       "error": null
     },
     {
-      "name": "Venue: Minglewood Hall",
+      "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 37,
-      "events_after_filter": 37,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
+      "events_found": 322,
+      "events_after_filter": 12,
+      "events_filtered": 310,
       "error": null
     },
     {
@@ -73,6 +57,22 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
+      "name": "Venue: FedExForum",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 31,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Satellite Music Hall",
       "success": true,
       "events_found": 20,
@@ -81,7 +81,7 @@
       "error": null
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
+      "name": "Venue: Grind City Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -97,7 +97,7 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -113,35 +113,19 @@
       "error": null
     },
     {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 8,
-      "events_after_filter": 3,
-      "events_filtered": 5,
-      "error": null
-    },
-    {
       "name": "Venue: Germantown Performing Arts Center",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 28,
-      "events_filtered": 32,
+      "events_found": 58,
+      "events_after_filter": 27,
+      "events_filtered": 31,
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
-      "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Nashoba",
-      "success": true,
-      "events_found": 290,
-      "events_after_filter": 15,
-      "events_filtered": 275,
+      "events_found": 9,
+      "events_after_filter": 3,
+      "events_filtered": 6,
       "error": null
     },
     {
@@ -161,11 +145,11 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
+      "events_found": 290,
+      "events_after_filter": 15,
+      "events_filtered": 275,
       "error": null
     },
     {
@@ -185,27 +169,19 @@
       "error": null
     },
     {
+      "name": "Venue: Landers Center",
+      "success": true,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Listening Lab",
       "success": true,
       "events_found": 4,
       "events_after_filter": 4,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Huey's",
-      "success": true,
-      "events_found": 32,
-      "events_after_filter": 32,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 17,
-      "events_filtered": 2,
       "error": null
     },
     {
@@ -217,11 +193,35 @@
       "error": null
     },
     {
+      "name": "Venue: Huey's",
+      "success": true,
+      "events_found": 22,
+      "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 18,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 0,
+      "events_filtered": 4,
+      "error": null
+    },
+    {
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 20,
-      "events_filtered": 20,
+      "events_after_filter": 19,
+      "events_filtered": 21,
       "error": null
     },
     {
@@ -233,213 +233,31 @@
       "error": null
     },
     {
-      "name": "Venue: Growlers",
-      "success": true,
-      "events_found": 22,
-      "events_after_filter": 22,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
       "events_found": 20,
-      "events_after_filter": 19,
-      "events_filtered": 1,
+      "events_after_filter": 18,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: Growlers",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 80,
-      "events_after_filter": 80,
+      "events_found": 57,
+      "events_after_filter": 57,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Mario Monterosso Band",
-      "venue": "Huey's (Midtown)",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Arthaus Commons; Aster, Noah Hand, and Overflow Gently",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "submission"
-    },
-    {
-      "artist": "Aberrant Birthday Show: Aberrant",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-22",
-      "time": "9 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "FreeWorld",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-22",
-      "time": "8:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Damn The Man Save The Cameo: Dead Soldiers, DJ Livin', Tevin of Love (Karaoke)",
-      "venue": "Cameo Bar",
-      "date": "2026-11-22",
-      "time": "4 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "New Ballet Ensemble: NutRemix",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-11-22",
-      "time": "2:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "New Ballet Ensemble: NutRemix, presented by NIKE",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-11-22",
-      "time": "2:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "New Ballet Ensemble: NutRemix, presented by NIKE\u2014SOLD OUT",
-      "venue": "Germantown Performing Arts Center",
-      "date": "2026-11-22",
-      "time": "2:30\u202fPM",
-      "source": "scraper:germantown_performing_arts_center"
-    },
-    {
-      "artist": "Generation Rewind",
-      "venue": "Growlers",
-      "date": "2026-11-22",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Chicken Sh*t Bingo With Hillbilly Mojo Memphis - NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-22",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "DIY Memphis Presents: Girl of Glass [Big Room-Upstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-22",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Memphis Hates You Fest Day 3",
-      "venue": "Hi Tone",
-      "date": "2026-11-22",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Angelina David",
-      "venue": "Huey's (Collierville)",
-      "date": "2026-11-22",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Ced-Rock & Groove Nation",
-      "venue": "Huey's (Cordova)",
-      "date": "2026-11-22",
-      "time": "8 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Jad Tariq Band",
-      "venue": "Huey's (Germantown)",
-      "date": "2026-11-22",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Duane Cleveland Band",
-      "venue": "Huey's (Millington)",
-      "date": "2026-11-22",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Davis Coen & Just Groovin'",
-      "venue": "Huey's (Olive Branch)",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Fabulous DooVays",
-      "venue": "Huey's (Poplar)",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Nutbush Gypsies",
-      "venue": "Huey's (Southaven)",
-      "date": "2026-11-22",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "The Bugaloos",
-      "venue": "Huey's (Southwind)",
-      "date": "2026-11-22",
-      "time": "6 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Elmo & Lester",
-      "venue": "Hueys (Downtown)",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Even Odds",
-      "venue": "Hueys (Downtown)",
-      "date": "2026-11-22",
-      "time": "3 PM",
-      "source": "scraper:huey_s"
-    },
-    {
-      "artist": "Elevation Memphis: Tina Turner Experience",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-22",
-      "time": "5 PM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "School Of Rock",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-22",
-      "time": "11 AM",
-      "source": "scraper:lafayette_s_music_room"
-    },
-    {
-      "artist": "Arthaus Commons: aster, Books on Tap",
-      "venue": "Lamplighter Lounge",
-      "date": "2026-11-22",
-      "time": "3:00 PM - 4:30 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Black Violin - The Be Free Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-11-22",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Rockin 88's",
       "venue": "Blues City Cafe",
@@ -817,6 +635,27 @@
       "date": "2026-11-29",
       "time": "6 PM",
       "source": "scraper:lafayette_s_music_room"
+    },
+    {
+      "artist": "JD Westmoreland Band",
+      "venue": "B-Side Memphis",
+      "date": "2026-11-30",
+      "time": "10 PM",
+      "source": "artifact"
+    },
+    {
+      "artist": "Rockin 88's",
+      "venue": "Blues City Cafe",
+      "date": "2026-11-30",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "A Memphis Hardcore Toy Drive [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-11-30",
+      "time": null,
+      "source": "scraper:hi_tone"
     }
   ]
 }
