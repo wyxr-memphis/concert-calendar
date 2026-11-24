@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-23T15:45:52.388573+00:00",
+  "run_timestamp": "2026-11-24T03:06:47.365805+00:00",
   "date_range": {
-    "start": "2026-11-23",
-    "end": "2026-11-30"
+    "start": "2026-11-24",
+    "end": "2026-12-01"
   },
-  "total_events_db": 4467,
-  "total_active_display": 57,
+  "total_events_db": 4476,
+  "total_active_display": 56,
   "data_store": "postgresql",
   "sources": [
     {
@@ -28,36 +28,28 @@
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 36,
-      "events_after_filter": 36,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 6,
-      "events_after_filter": 4,
-      "events_filtered": 2,
+      "events_after_filter": 35,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Venue: Lafayette's Music Room",
       "success": true,
-      "events_found": 322,
-      "events_after_filter": 12,
+      "events_found": 323,
+      "events_after_filter": 13,
       "events_filtered": 310,
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
+      "name": "Venue: Graceland Soundstage",
       "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
     },
     {
-      "name": "Venue: FedExForum",
+      "name": "Venue: Overton Park Shell",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -65,10 +57,10 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: FedExForum",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 31,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -81,7 +73,7 @@
       "error": null
     },
     {
-      "name": "Venue: Grind City Amphitheater",
+      "name": "Venue: Radians Amphitheater",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -95,6 +87,14 @@
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Grind City Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Bluesville at Horseshoe",
@@ -113,14 +113,6 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
-      "success": true,
-      "events_found": 58,
-      "events_after_filter": 27,
-      "events_filtered": 31,
-      "error": null
-    },
-    {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
       "events_found": 9,
@@ -129,7 +121,47 @@
       "error": null
     },
     {
-      "name": "Venue: Overton Park Shell",
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 60,
+      "events_after_filter": 28,
+      "events_filtered": 32,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": false,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
+    },
+    {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Nashoba",
+      "success": true,
+      "events_found": 290,
+      "events_after_filter": 14,
+      "events_filtered": 276,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 15,
+      "events_after_filter": 6,
+      "events_filtered": 9,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
@@ -145,27 +177,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 15,
-      "events_filtered": 275,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
+      "events_found": 19,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 6,
-      "events_filtered": 9,
+      "events_filtered": 18,
       "error": null
     },
     {
@@ -174,22 +190,6 @@
       "events_found": 12,
       "events_after_filter": 0,
       "events_filtered": 12,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 1,
-      "events_filtered": 18,
       "error": null
     },
     {
@@ -204,15 +204,23 @@
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 19,
-      "events_after_filter": 18,
+      "events_after_filter": 19,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 31,
+      "events_after_filter": 30,
       "events_filtered": 1,
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Crosstown Arts",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 0,
+      "events_found": 26,
+      "events_after_filter": 22,
       "events_filtered": 4,
       "error": null
     },
@@ -220,72 +228,36 @@
       "name": "Venue: Blues City Cafe",
       "success": true,
       "events_found": 40,
-      "events_after_filter": 19,
-      "events_filtered": 21,
-      "error": null
-    },
-    {
-      "name": "Venue: Crosstown Arts",
-      "success": true,
-      "events_found": 26,
-      "events_after_filter": 21,
-      "events_filtered": 5,
+      "events_after_filter": 18,
+      "events_filtered": 22,
       "error": null
     },
     {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 20,
-      "events_after_filter": 18,
+      "events_found": 22,
+      "events_after_filter": 20,
       "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 21,
-      "events_after_filter": 21,
+      "events_found": 24,
+      "events_after_filter": 24,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 57,
-      "events_after_filter": 57,
+      "events_found": 56,
+      "events_after_filter": 56,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "Rockin 88's",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-23",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "F!rst / Turbo Gatto [Small Room-Downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-23",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Sir Woman",
-      "venue": "Minglewood Hall",
-      "date": "2026-11-23",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
-    {
-      "artist": "Sir Woman: Playtime Tour",
-      "venue": "Minglewood Hall",
-      "date": "2026-11-23",
-      "time": null,
-      "source": "scraper:minglewood_hall"
-    },
     {
       "artist": "LATSGIVING",
       "venue": "Growlers",
@@ -656,6 +628,27 @@
       "date": "2026-11-30",
       "time": null,
       "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "SIDE SET: Loveland Duren",
+      "venue": "Nashoba",
+      "date": "2026-12-01",
+      "time": "7 PM",
+      "source": "scraper:nashoba"
+    },
+    {
+      "artist": "Open Mic Comedy Night [small room-downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-12-01",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Pouya",
+      "venue": "Satellite Music Hall",
+      "date": "2026-12-01",
+      "time": "6:30 PM",
+      "source": "scraper:satellite_music_hall"
     }
   ]
 }
