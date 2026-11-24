@@ -1,11 +1,11 @@
 {
-  "run_timestamp": "2026-11-24T03:06:47.365805+00:00",
+  "run_timestamp": "2026-11-24T15:37:33.455577+00:00",
   "date_range": {
     "start": "2026-11-24",
     "end": "2026-12-01"
   },
-  "total_events_db": 4476,
-  "total_active_display": 56,
+  "total_events_db": 4478,
+  "total_active_display": 54,
   "data_store": "postgresql",
   "sources": [
     {
@@ -25,11 +25,19 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
-      "events_found": 36,
+      "events_found": 35,
       "events_after_filter": 35,
-      "events_filtered": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -41,34 +49,10 @@
       "error": null
     },
     {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
-      "error": null
-    },
-    {
-      "name": "Venue: Overton Park Shell",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
       "name": "Venue: FedExForum",
       "success": true,
       "events_found": 1,
       "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     },
@@ -85,6 +69,14 @@
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 20,
+      "events_after_filter": 20,
       "events_filtered": 0,
       "error": null
     },
@@ -113,6 +105,14 @@
       "error": null
     },
     {
+      "name": "Venue: Germantown Performing Arts Center",
+      "success": true,
+      "events_found": 58,
+      "events_after_filter": 28,
+      "events_filtered": 30,
+      "error": null
+    },
+    {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
       "events_found": 9,
@@ -121,11 +121,11 @@
       "error": null
     },
     {
-      "name": "Venue: Germantown Performing Arts Center",
+      "name": "Venue: Overton Park Shell",
       "success": true,
-      "events_found": 60,
-      "events_after_filter": 28,
-      "events_filtered": 32,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -137,10 +137,18 @@
       "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
     },
     {
-      "name": "Venue: Memphis Listening Lab",
+      "name": "Venue: Orpheum Theatre",
       "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
+      "events_found": 16,
+      "events_after_filter": 14,
+      "events_filtered": 2,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
       "events_filtered": 0,
       "error": null
     },
@@ -153,35 +161,19 @@
       "error": null
     },
     {
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
       "name": "Venue: Flyway Brewing",
       "success": true,
       "events_found": 15,
       "events_after_filter": 6,
       "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: South Main Sounds",
-      "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Orpheum Theatre",
-      "success": true,
-      "events_found": 16,
-      "events_after_filter": 14,
-      "events_filtered": 2,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 1,
-      "events_filtered": 18,
       "error": null
     },
     {
@@ -193,10 +185,26 @@
       "error": null
     },
     {
+      "name": "Venue: Society Memphis Skatepark and Coffee",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 1,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
       "name": "Venue: Huey's",
       "success": true,
       "events_found": 22,
       "events_after_filter": 22,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 30,
+      "events_after_filter": 30,
       "events_filtered": 0,
       "error": null
     },
@@ -209,11 +217,11 @@
       "error": null
     },
     {
-      "name": "Venue: Hi Tone",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 31,
-      "events_after_filter": 30,
-      "events_filtered": 1,
+      "events_found": 40,
+      "events_after_filter": 18,
+      "events_filtered": 22,
       "error": null
     },
     {
@@ -222,14 +230,6 @@
       "events_found": 26,
       "events_after_filter": 22,
       "events_filtered": 4,
-      "error": null
-    },
-    {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 18,
-      "events_filtered": 22,
       "error": null
     },
     {
@@ -251,8 +251,8 @@
     {
       "name": "Database",
       "success": true,
-      "events_found": 56,
-      "events_after_filter": 56,
+      "events_found": 54,
+      "events_after_filter": 54,
       "events_filtered": 0,
       "error": null
     }
@@ -278,13 +278,6 @@
       "date": "2026-11-24",
       "time": null,
       "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "FRIENDS Trivia Night",
-      "venue": "Nashoba",
-      "date": "2026-11-24",
-      "time": "7 PM",
-      "source": "scraper:nashoba"
     },
     {
       "artist": "Jodeci - 35th Anniversary Tour of Forever My Lady",
@@ -320,13 +313,6 @@
       "date": "2026-11-25",
       "time": "7:00 pm",
       "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Spin it UP Cornhole Tournament",
-      "venue": "Flyway Brewing",
-      "date": "2026-11-25",
-      "time": "7 PM",
-      "source": "scraper:flyway_brewing"
     },
     {
       "artist": "Jason D Williams",
