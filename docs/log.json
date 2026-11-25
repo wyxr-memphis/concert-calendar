@@ -1,18 +1,18 @@
 {
-  "run_timestamp": "2026-11-24T15:37:33.455577+00:00",
+  "run_timestamp": "2026-11-25T01:12:47.302104+00:00",
   "date_range": {
-    "start": "2026-11-24",
-    "end": "2026-12-01"
+    "start": "2026-11-25",
+    "end": "2026-12-02"
   },
-  "total_events_db": 4478,
-  "total_active_display": 54,
+  "total_events_db": 4487,
+  "total_active_display": 55,
   "data_store": "postgresql",
   "sources": [
     {
       "name": "scraper:ticketmaster",
       "success": true,
-      "events_found": 7,
-      "events_after_filter": 6,
+      "events_found": 8,
+      "events_after_filter": 7,
       "events_filtered": 1,
       "error": null
     },
@@ -57,20 +57,20 @@
       "error": null
     },
     {
-      "name": "Venue: Radians Amphitheater",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
       "error": null
+    },
+    {
+      "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
     },
     {
       "name": "Venue: Satellite Music Hall",
@@ -115,9 +115,17 @@
     {
       "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 9,
+      "events_found": 8,
       "events_after_filter": 3,
-      "events_filtered": 6,
+      "events_filtered": 5,
+      "error": null
+    },
+    {
+      "name": "Venue: Orpheum Theatre",
+      "success": true,
+      "events_found": 16,
+      "events_after_filter": 13,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -129,19 +137,19 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
-      "success": false,
-      "events_found": 0,
-      "events_after_filter": 0,
+      "name": "Venue: Memphis Listening Lab",
+      "success": true,
+      "events_found": 4,
+      "events_after_filter": 4,
       "events_filtered": 0,
-      "error": "Events Calendar API error: Expecting value: line 1 column 1 (char 0)"
+      "error": null
     },
     {
-      "name": "Venue: Orpheum Theatre",
+      "name": "Venue: Landers Center",
       "success": true,
-      "events_found": 16,
-      "events_after_filter": 14,
-      "events_filtered": 2,
+      "events_found": 12,
+      "events_after_filter": 0,
+      "events_filtered": 12,
       "error": null
     },
     {
@@ -156,16 +164,8 @@
       "name": "Venue: Nashoba",
       "success": true,
       "events_found": 290,
-      "events_after_filter": 14,
-      "events_filtered": 276,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_after_filter": 13,
+      "events_filtered": 277,
       "error": null
     },
     {
@@ -177,19 +177,27 @@
       "error": null
     },
     {
-      "name": "Venue: Landers Center",
-      "success": true,
-      "events_found": 12,
-      "events_after_filter": 0,
-      "events_filtered": 12,
-      "error": null
-    },
-    {
       "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
       "events_found": 19,
       "events_after_filter": 1,
       "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: Memphis Symphony Orchestra",
+      "success": true,
+      "events_found": 19,
+      "events_after_filter": 19,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 5,
+      "events_filtered": 3,
       "error": null
     },
     {
@@ -204,24 +212,8 @@
       "name": "Venue: Hi Tone",
       "success": true,
       "events_found": 30,
-      "events_after_filter": 30,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Symphony Orchestra",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 19,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Blues City Cafe",
-      "success": true,
-      "events_found": 40,
-      "events_after_filter": 18,
-      "events_filtered": 22,
+      "events_after_filter": 29,
+      "events_filtered": 1,
       "error": null
     },
     {
@@ -233,66 +225,39 @@
       "error": null
     },
     {
+      "name": "Venue: Blues City Cafe",
+      "success": true,
+      "events_found": 40,
+      "events_after_filter": 18,
+      "events_filtered": 22,
+      "error": null
+    },
+    {
       "name": "Venue: Hernando's Hideaway",
       "success": true,
-      "events_found": 22,
-      "events_after_filter": 20,
+      "events_found": 23,
+      "events_after_filter": 21,
       "events_filtered": 2,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
-      "events_found": 24,
+      "events_found": 25,
       "events_after_filter": 24,
-      "events_filtered": 0,
+      "events_filtered": 1,
       "error": null
     },
     {
       "name": "Database",
       "success": true,
-      "events_found": 54,
-      "events_after_filter": 54,
+      "events_found": 55,
+      "events_after_filter": 55,
       "events_filtered": 0,
       "error": null
     }
   ],
   "events": [
-    {
-      "artist": "LATSGIVING",
-      "venue": "Growlers",
-      "date": "2026-11-24",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Open Jam Night \u2013 NO COVER",
-      "venue": "Hernando's Hideaway",
-      "date": "2026-11-24",
-      "time": null,
-      "source": "scraper:hernando_s_hideaway"
-    },
-    {
-      "artist": "Open Mic Comedy Night [small room-downstairs]",
-      "venue": "Hi Tone",
-      "date": "2026-11-24",
-      "time": null,
-      "source": "scraper:hi_tone"
-    },
-    {
-      "artist": "Jodeci - 35th Anniversary Tour of Forever My Lady",
-      "venue": "Orpheum Theatre",
-      "date": "2026-11-24",
-      "time": "8 PM",
-      "source": "scraper:ticketmaster"
-    },
-    {
-      "artist": "Jodeci: 35th Anniversary Tour",
-      "venue": "Orpheum Theatre",
-      "date": "2026-11-24",
-      "time": null,
-      "source": "scraper:orpheum_theatre"
-    },
     {
       "artist": "Fresco Trey",
       "venue": "Growlers",
@@ -511,6 +476,13 @@
       "source": "scraper:hi_tone"
     },
     {
+      "artist": "KEER",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-11-28",
+      "time": "8 PM",
+      "source": "scraper:hotel_pontotoc"
+    },
+    {
       "artist": "Mustache The Band",
       "venue": "Lafayette's Music Room",
       "date": "2026-11-28",
@@ -551,6 +523,13 @@
       "date": "2026-11-29",
       "time": "9 PM",
       "source": "scraper:growlers"
+    },
+    {
+      "artist": "Shaun Simmonds",
+      "venue": "Hotel Pontotoc",
+      "date": "2026-11-29",
+      "time": "4:30 PM",
+      "source": "scraper:hotel_pontotoc"
     },
     {
       "artist": "Memphis Rhythm Review",
@@ -634,7 +613,35 @@
       "venue": "Satellite Music Hall",
       "date": "2026-12-01",
       "time": "6:30 PM",
-      "source": "scraper:satellite_music_hall"
+      "source": "scraper:ticketmaster"
+    },
+    {
+      "artist": "Brad Birkedahl",
+      "venue": "Blues City Cafe",
+      "date": "2026-12-02",
+      "time": "7:00 pm",
+      "source": "scraper:blues_city_cafe"
+    },
+    {
+      "artist": "Bluegrass Jam Session",
+      "venue": "Flyway Brewing",
+      "date": "2026-12-02",
+      "time": "7 PM",
+      "source": "scraper:flyway_brewing"
+    },
+    {
+      "artist": "Pestilence Presents: [Small Room-Downstairs]",
+      "venue": "Hi Tone",
+      "date": "2026-12-02",
+      "time": null,
+      "source": "scraper:hi_tone"
+    },
+    {
+      "artist": "Listen Up Session- PRESSED \u2013 YOU\u2019RE NOT HELPING ME LIKE I NEED YOU TO HELP ME",
+      "venue": "Memphis Listening Lab",
+      "date": "2026-12-02",
+      "time": "6 PM",
+      "source": "scraper:memphis_listening_lab"
     }
   ]
 }
