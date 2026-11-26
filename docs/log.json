@@ -1,10 +1,10 @@
 {
-  "run_timestamp": "2026-11-25T15:22:14.513878+00:00",
+  "run_timestamp": "2026-11-26T00:47:38.087333+00:00",
   "date_range": {
-    "start": "2026-11-25",
-    "end": "2026-12-02"
+    "start": "2026-11-26",
+    "end": "2026-12-03"
   },
-  "total_events_db": 4487,
+  "total_events_db": 4489,
   "total_active_display": 55,
   "data_store": "postgresql",
   "sources": [
@@ -25,6 +25,14 @@
       "error": "No artifacts/ folder found"
     },
     {
+      "name": "Venue: Graceland Soundstage",
+      "success": true,
+      "events_found": 5,
+      "events_after_filter": 4,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
       "name": "Venue: Minglewood Hall",
       "success": true,
       "events_found": 35,
@@ -36,24 +44,8 @@
       "name": "Venue: Lafayette's Music Room",
       "success": true,
       "events_found": 323,
-      "events_after_filter": 13,
-      "events_filtered": 310,
-      "error": null
-    },
-    {
-      "name": "Venue: Hi Tone",
-      "success": true,
-      "events_found": 29,
-      "events_after_filter": 29,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Graceland Soundstage",
-      "success": true,
-      "events_found": 5,
-      "events_after_filter": 4,
-      "events_filtered": 1,
+      "events_after_filter": 12,
+      "events_filtered": 311,
       "error": null
     },
     {
@@ -67,13 +59,29 @@
     {
       "name": "Venue: Cannon Center for the Performing Arts",
       "success": true,
-      "events_found": 2,
-      "events_after_filter": 2,
+      "events_found": 3,
+      "events_after_filter": 3,
       "events_filtered": 0,
       "error": null
     },
     {
       "name": "Venue: Radians Amphitheater",
+      "success": true,
+      "events_found": 0,
+      "events_after_filter": 0,
+      "events_filtered": 0,
+      "error": "0 events from Ticketmaster for this venue"
+    },
+    {
+      "name": "Venue: Satellite Music Hall",
+      "success": true,
+      "events_found": 21,
+      "events_after_filter": 21,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Bluesville at Horseshoe",
       "success": true,
       "events_found": 0,
       "events_after_filter": 0,
@@ -89,35 +97,11 @@
       "error": "0 events from Ticketmaster for this venue"
     },
     {
-      "name": "Venue: Bluesville at Horseshoe",
-      "success": true,
-      "events_found": 0,
-      "events_after_filter": 0,
-      "events_filtered": 0,
-      "error": "0 events from Ticketmaster for this venue"
-    },
-    {
       "name": "Venue: BankPlus Amphitheater at Snowden Grove",
       "success": true,
       "events_found": 2,
       "events_after_filter": 2,
       "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Satellite Music Hall",
-      "success": true,
-      "events_found": 20,
-      "events_after_filter": 20,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Museum of Science & History (MoSH)",
-      "success": true,
-      "events_found": 9,
-      "events_after_filter": 3,
-      "events_filtered": 6,
       "error": null
     },
     {
@@ -129,19 +113,11 @@
       "error": null
     },
     {
-      "name": "Venue: Nashoba",
+      "name": "Venue: Museum of Science & History (MoSH)",
       "success": true,
-      "events_found": 290,
-      "events_after_filter": 13,
-      "events_filtered": 277,
-      "error": null
-    },
-    {
-      "name": "Venue: Memphis Listening Lab",
-      "success": true,
-      "events_found": 4,
-      "events_after_filter": 4,
-      "events_filtered": 0,
+      "events_found": 7,
+      "events_after_filter": 2,
+      "events_filtered": 5,
       "error": null
     },
     {
@@ -161,27 +137,11 @@
       "error": null
     },
     {
-      "name": "Venue: South Main Sounds",
+      "name": "Venue: Nashoba",
       "success": true,
-      "events_found": 1,
-      "events_after_filter": 1,
-      "events_filtered": 0,
-      "error": null
-    },
-    {
-      "name": "Venue: Flyway Brewing",
-      "success": true,
-      "events_found": 15,
-      "events_after_filter": 6,
-      "events_filtered": 9,
-      "error": null
-    },
-    {
-      "name": "Venue: Society Memphis Skatepark and Coffee",
-      "success": true,
-      "events_found": 19,
-      "events_after_filter": 1,
-      "events_filtered": 18,
+      "events_found": 290,
+      "events_after_filter": 13,
+      "events_filtered": 277,
       "error": null
     },
     {
@@ -193,11 +153,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hotel Pontotoc",
+      "name": "Venue: Memphis Listening Lab",
       "success": true,
-      "events_found": 8,
+      "events_found": 4,
+      "events_after_filter": 4,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: South Main Sounds",
+      "success": true,
+      "events_found": 1,
+      "events_after_filter": 1,
+      "events_filtered": 0,
+      "error": null
+    },
+    {
+      "name": "Venue: Flyway Brewing",
+      "success": true,
+      "events_found": 15,
       "events_after_filter": 5,
-      "events_filtered": 3,
+      "events_filtered": 10,
       "error": null
     },
     {
@@ -209,6 +185,14 @@
       "error": null
     },
     {
+      "name": "Venue: Hotel Pontotoc",
+      "success": true,
+      "events_found": 8,
+      "events_after_filter": 5,
+      "events_filtered": 3,
+      "error": null
+    },
+    {
       "name": "Venue: Memphis Symphony Orchestra",
       "success": true,
       "events_found": 19,
@@ -217,11 +201,19 @@
       "error": null
     },
     {
-      "name": "Venue: Blues City Cafe",
+      "name": "Venue: Society Memphis Skatepark and Coffee",
       "success": true,
-      "events_found": 40,
-      "events_after_filter": 18,
-      "events_filtered": 22,
+      "events_found": 19,
+      "events_after_filter": 1,
+      "events_filtered": 18,
+      "error": null
+    },
+    {
+      "name": "Venue: Hi Tone",
+      "success": true,
+      "events_found": 29,
+      "events_after_filter": 29,
+      "events_filtered": 0,
       "error": null
     },
     {
@@ -233,19 +225,27 @@
       "error": null
     },
     {
-      "name": "Venue: Hernando's Hideaway",
+      "name": "Venue: Blues City Cafe",
       "success": true,
-      "events_found": 23,
-      "events_after_filter": 21,
-      "events_filtered": 2,
+      "events_found": 40,
+      "events_after_filter": 17,
+      "events_filtered": 23,
       "error": null
     },
     {
       "name": "Venue: Growlers",
       "success": true,
       "events_found": 24,
-      "events_after_filter": 24,
-      "events_filtered": 0,
+      "events_after_filter": 23,
+      "events_filtered": 1,
+      "error": null
+    },
+    {
+      "name": "Venue: Hernando's Hideaway",
+      "success": true,
+      "events_found": 23,
+      "events_after_filter": 21,
+      "events_filtered": 2,
       "error": null
     },
     {
@@ -258,34 +258,6 @@
     }
   ],
   "events": [
-    {
-      "artist": "Fresco Trey",
-      "venue": "Growlers",
-      "date": "2026-11-25",
-      "time": "8 PM",
-      "source": "scraper:growlers"
-    },
-    {
-      "artist": "Ari Zelig Family Show: Ari Zelig",
-      "venue": "B-Side Memphis",
-      "date": "2026-11-25",
-      "time": "7 PM",
-      "source": "artifact"
-    },
-    {
-      "artist": "Brad Birkedahl",
-      "venue": "Blues City Cafe",
-      "date": "2026-11-25",
-      "time": "7:00 pm",
-      "source": "scraper:blues_city_cafe"
-    },
-    {
-      "artist": "Jason D Williams",
-      "venue": "Lafayette's Music Room",
-      "date": "2026-11-25",
-      "time": "6:30 PM",
-      "source": "scraper:ticketmaster"
-    },
     {
       "artist": "Screamsgiving!!",
       "venue": "Bar DKDC",
@@ -642,6 +614,34 @@
       "date": "2026-12-02",
       "time": "6 PM",
       "source": "scraper:memphis_listening_lab"
+    },
+    {
+      "artist": "The Holdovers",
+      "venue": "Crosstown Arts",
+      "date": "2026-12-03",
+      "time": null,
+      "source": "artifact"
+    },
+    {
+      "artist": "Three Dog Night",
+      "venue": "Graceland Soundstage",
+      "date": "2026-12-03",
+      "time": null,
+      "source": "scraper:graceland_soundstage"
+    },
+    {
+      "artist": "The Shining Star Collective Presents - Siren Sessions",
+      "venue": "Growlers",
+      "date": "2026-12-03",
+      "time": "8 PM",
+      "source": "scraper:growlers"
+    },
+    {
+      "artist": "Closed For Private Event",
+      "venue": "Lafayette's Music Room",
+      "date": "2026-12-03",
+      "time": "12 AM",
+      "source": "scraper:lafayette_s_music_room"
     }
   ]
 }
