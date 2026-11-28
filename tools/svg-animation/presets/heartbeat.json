@@ -1,0 +1,12 @@
+{
+  "name": "heartbeat",
+  "description": "Double-thump scale, like a kick drum. Loops forever.",
+  "keyframes": [
+    { "scale": 1 },
+    { "scale": 1.18, "offset": 0.15 },
+    { "scale": 1, "offset": 0.3 },
+    { "scale": 1.1, "offset": 0.45 },
+    { "scale": 1 }
+  ],
+  "options": { "duration": 1100, "easing": "ease-out", "iterations": "infinite" }
+}
